@@ -32,10 +32,12 @@
 		C2E9772728987F48009F4B94 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E9772628987F48009F4B94 /* LoginViewModel.swift */; };
 		C2E9772928987F57009F4B94 /* SIgnupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E9772828987F57009F4B94 /* SIgnupViewModel.swift */; };
 		C2E9772B28987F79009F4B94 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E9772A28987F79009F4B94 /* User.swift */; };
-		C2E9772D28987F94009F4B94 /* LocalManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E9772C28987F94009F4B94 /* LocalManager.swift */; };
+		C2E9772D28987F94009F4B94 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E9772C28987F94009F4B94 /* CoreDataManager.swift */; };
 		C2E9772F28987FA0009F4B94 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E9772E28987FA0009F4B94 /* NetworkManager.swift */; };
 		C2E9773128987FB9009F4B94 /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E9773028987FB9009F4B94 /* FloatingButton.swift */; };
-		C2E977332898802F009F4B94 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E977322898802F009F4B94 /* Date.swift */; };
+		C2E977332898802F009F4B94 /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E977322898802F009F4B94 /* Encodable.swift */; };
+		C2FEFC41289B631C006E7579 /* CurrentUser+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FEFC3F289B631C006E7579 /* CurrentUser+CoreDataClass.swift */; };
+		C2FEFC42289B631C006E7579 /* CurrentUser+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FEFC40289B631C006E7579 /* CurrentUser+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,10 +81,12 @@
 		C2E9772628987F48009F4B94 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		C2E9772828987F57009F4B94 /* SIgnupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SIgnupViewModel.swift; sourceTree = "<group>"; };
 		C2E9772A28987F79009F4B94 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		C2E9772C28987F94009F4B94 /* LocalManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalManager.swift; sourceTree = "<group>"; };
+		C2E9772C28987F94009F4B94 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		C2E9772E28987FA0009F4B94 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		C2E9773028987FB9009F4B94 /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
-		C2E977322898802F009F4B94 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		C2E977322898802F009F4B94 /* Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encodable.swift; sourceTree = "<group>"; };
+		C2FEFC3F289B631C006E7579 /* CurrentUser+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CurrentUser+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C2FEFC40289B631C006E7579 /* CurrentUser+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CurrentUser+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F4F2DC09BBC0577CE2B41D46 /* Pods-RoutesApp_iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutesApp_iosTests.release.xcconfig"; path = "Target Support Files/Pods-RoutesApp_iosTests/Pods-RoutesApp_iosTests.release.xcconfig"; sourceTree = "<group>"; };
 		F808C389CD2F19D7212160C0 /* Pods_RoutesApp_iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoutesApp_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDCC7F618DD2DA0577071C41 /* Pods-RoutesApp_ios-RoutesApp_iosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutesApp_ios-RoutesApp_iosUITests.release.xcconfig"; path = "Target Support Files/Pods-RoutesApp_ios-RoutesApp_iosUITests/Pods-RoutesApp_ios-RoutesApp_iosUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -255,8 +259,8 @@
 		C2E9770F28987D56009F4B94 /* models */ = {
 			isa = PBXGroup;
 			children = (
-				C2E9772A28987F79009F4B94 /* User.swift */,
-				C2436388289A2D21003C1A44 /* BaseModel.swift */,
+				C2FEFC43289B78F1006E7579 /* remote */,
+				C2FEFC3A289B6150006E7579 /* local */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -264,7 +268,7 @@
 		C2E9771028987D5B009F4B94 /* local */ = {
 			isa = PBXGroup;
 			children = (
-				C2E9772C28987F94009F4B94 /* LocalManager.swift */,
+				C2E9772C28987F94009F4B94 /* CoreDataManager.swift */,
 			);
 			path = local;
 			sourceTree = "<group>";
@@ -295,7 +299,7 @@
 		C2E9771428987DC2009F4B94 /* extensions */ = {
 			isa = PBXGroup;
 			children = (
-				C2E977322898802F009F4B94 /* Date.swift */,
+				C2E977322898802F009F4B94 /* Encodable.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -375,6 +379,24 @@
 			children = (
 			);
 			path = views;
+			sourceTree = "<group>";
+		};
+		C2FEFC3A289B6150006E7579 /* local */ = {
+			isa = PBXGroup;
+			children = (
+				C2FEFC3F289B631C006E7579 /* CurrentUser+CoreDataClass.swift */,
+				C2FEFC40289B631C006E7579 /* CurrentUser+CoreDataProperties.swift */,
+			);
+			path = local;
+			sourceTree = "<group>";
+		};
+		C2FEFC43289B78F1006E7579 /* remote */ = {
+			isa = PBXGroup;
+			children = (
+				C2E9772A28987F79009F4B94 /* User.swift */,
+				C2436388289A2D21003C1A44 /* BaseModel.swift */,
+			);
+			path = remote;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -565,14 +587,16 @@
 				C2E9772F28987FA0009F4B94 /* NetworkManager.swift in Sources */,
 				C2112DE1289A18FB009601AB /* HomeViewController.swift in Sources */,
 				C2E9772028987F2A009F4B94 /* SignupViewController.swift in Sources */,
-				C2E9772D28987F94009F4B94 /* LocalManager.swift in Sources */,
+				C2FEFC41289B631C006E7579 /* CurrentUser+CoreDataClass.swift in Sources */,
+				C2E9772D28987F94009F4B94 /* CoreDataManager.swift in Sources */,
 				C2E9772B28987F79009F4B94 /* User.swift in Sources */,
 				C2436385289A2CD6003C1A44 /* FirebaseFirestoreManager.swift in Sources */,
 				C2436389289A2D21003C1A44 /* BaseModel.swift in Sources */,
 				C2E976DB2898701C009F4B94 /* SceneDelegate.swift in Sources */,
+				C2FEFC42289B631C006E7579 /* CurrentUser+CoreDataProperties.swift in Sources */,
 				C2E976E32898701C009F4B94 /* RoutesApp_ios.xcdatamodeld in Sources */,
 				C2E9772728987F48009F4B94 /* LoginViewModel.swift in Sources */,
-				C2E977332898802F009F4B94 /* Date.swift in Sources */,
+				C2E977332898802F009F4B94 /* Encodable.swift in Sources */,
 				C2E9773128987FB9009F4B94 /* FloatingButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

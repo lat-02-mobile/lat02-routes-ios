@@ -18,16 +18,21 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j5Z-mf-lIl">
-                    <rect key="frame" x="218" y="443" width="42" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aPN-Hb-FyC">
+                    <rect key="frame" x="149" y="424" width="117" height="31"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" title="Go to Register"/>
+                    <connections>
+                        <action selector="goToRegister:" destination="-1" eventType="touchUpInside" id="TOl-F3-kOp"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="aPN-Hb-FyC" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="1r2-JH-Syj"/>
+                <constraint firstItem="aPN-Hb-FyC" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="Ejn-yA-Mjm"/>
+            </constraints>
             <point key="canvasLocation" x="139" y="94"/>
         </view>
     </objects>

@@ -16,17 +16,14 @@ enum AuthErrors: String {
 
 class FirebaseAuthManager {
     static let shared = FirebaseAuthManager()
-    func signupUser(email: String, password: String, completion: @escaping () -> Void) {
-        Auth.auth().createUser(withEmail: email, password: password) { _, error in
-//            print(authResult)
-            guard let error = error else {return}
-            print(error.localizedDescription)
-        }
-    }
-    func login(email: String, password: String, completion: @escaping () -> Void) {
-        Auth.auth().signIn(withEmail: email, password: password) { _, _ in
-//          guard let strongSelf = self else { return }
-          // ...
+    func signupUser(email: String, password: String, completion: @escaping (Result<AuthDataResult, Error>) -> Void) {
+        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                guard let authResult = authResult else { return }
+                completion(.success(authResult))
+            }
         }
     }
 }

@@ -12,16 +12,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        setupRootControllerIfNeeded(validUser: false)
+        let currentUser = CoreDataManager.shared.getData()
+        setupRootControllerIfNeeded(validUser: !currentUser.isEmpty)
         guard scene is UIWindowScene else { return }
     }
     func setupRootControllerIfNeeded(validUser: Bool) {
-        // let validUser = false
         if validUser {
-            // Create VC for TabBar
             let rootViewController = getRootViewControllerForValidUser()
             self.window?.rootViewController = rootViewController
         } else {
@@ -31,7 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window?.makeKeyAndVisible()
     }
     func getRootViewControllerForInvalidUser() -> UIViewController {
-        let navController = UINavigationController(rootViewController: SignupViewController())
+        let navController = UINavigationController(rootViewController: LoginViewController())
         return navController
     }
     func getRootViewControllerForValidUser() -> UIViewController {
@@ -39,13 +35,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let tabBarVC = UITabBarController()
         tabBarVC.tabBar.isTranslucent = false
         tabBarVC.tabBar.barTintColor = .black
-//        tabBarVC.view.backgroundColor = .blue
-//        UITabBar.appearance().barTintColor = .black
         // Add VCs to TabBarVC
         tabBarVC.viewControllers = [
             createNavController(for: HomeViewController(), title: "Home", image: UIImage(systemName: "newspaper.fill")!)
         ]
-
         return tabBarVC
     }
     fileprivate func createNavController(for rootViewController: UIViewController,
@@ -85,7 +78,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
 
         // Save changes in the application's managed object context when the application transitions to the background.
-        (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+        CoreDataManager.shared.saveContext()
     }
-
 }
