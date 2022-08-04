@@ -13,8 +13,4 @@ target 'RoutesApp_ios' do
     # Pods for testing
   end
 
-  target 'RoutesApp_iosUITests' do
-    # Pods for testing
-  end
-
 end
