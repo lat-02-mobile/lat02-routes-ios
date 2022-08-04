@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		2AEC15664C895431B8BEB002 /* Pods_RoutesApp_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F808C389CD2F19D7212160C0 /* Pods_RoutesApp_iosTests.framework */; };
 		2E0F8B864F00537D40070409 /* Pods_RoutesApp_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A3327C701B0A7C956D7435B /* Pods_RoutesApp_ios.framework */; };
+		C2112DE1289A18FB009601AB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2112DDF289A18FB009601AB /* HomeViewController.swift */; };
+		C2112DE2289A18FB009601AB /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2112DE0289A18FB009601AB /* HomeViewController.xib */; };
+		C2112DE4289A1C93009601AB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C2112DE3289A1C93009601AB /* GoogleService-Info.plist */; };
+		C2436380289A27CC003C1A44 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = C243637F289A27CC003C1A44 /* FirebaseAuth */; };
+		C2436382289A27CC003C1A44 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = C2436381289A27CC003C1A44 /* FirebaseFirestore */; };
+		C2436385289A2CD6003C1A44 /* FirebaseFirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2436384289A2CD6003C1A44 /* FirebaseFirestoreManager.swift */; };
+		C2436387289A2CE4003C1A44 /* FirebaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2436386289A2CE4003C1A44 /* FirebaseAuthManager.swift */; };
+		C2436389289A2D21003C1A44 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2436388289A2D21003C1A44 /* BaseModel.swift */; };
 		C2E976D92898701C009F4B94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E976D82898701C009F4B94 /* AppDelegate.swift */; };
 		C2E976DB2898701C009F4B94 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E976DA2898701C009F4B94 /* SceneDelegate.swift */; };
 		C2E976DD2898701C009F4B94 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E976DC2898701C009F4B94 /* ViewController.swift */; };
@@ -47,6 +55,12 @@
 		745BD9E5A26FC5292BC03A32 /* Pods-RoutesApp_ios-RoutesApp_iosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutesApp_ios-RoutesApp_iosUITests.debug.xcconfig"; path = "Target Support Files/Pods-RoutesApp_ios-RoutesApp_iosUITests/Pods-RoutesApp_ios-RoutesApp_iosUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8E4554EE6A9F1EB0D5124479 /* Pods-RoutesApp_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutesApp_ios.release.xcconfig"; path = "Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios.release.xcconfig"; sourceTree = "<group>"; };
 		A81C730CD57A1098D9C868BE /* Pods-RoutesApp_iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutesApp_iosTests.debug.xcconfig"; path = "Target Support Files/Pods-RoutesApp_iosTests/Pods-RoutesApp_iosTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C2112DDF289A18FB009601AB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		C2112DE0289A18FB009601AB /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		C2112DE3289A1C93009601AB /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		C2436384289A2CD6003C1A44 /* FirebaseFirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseFirestoreManager.swift; sourceTree = "<group>"; };
+		C2436386289A2CE4003C1A44 /* FirebaseAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManager.swift; sourceTree = "<group>"; };
+		C2436388289A2D21003C1A44 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		C2E976D52898701C009F4B94 /* RoutesApp_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoutesApp_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2E976D82898701C009F4B94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2E976DA2898701C009F4B94 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +94,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E0F8B864F00537D40070409 /* Pods_RoutesApp_ios.framework in Frameworks */,
+				C2436380289A27CC003C1A44 /* FirebaseAuth in Frameworks */,
+				C2436382289A27CC003C1A44 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,6 +133,49 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C2112DDB289A18C3009601AB /* home */ = {
+			isa = PBXGroup;
+			children = (
+				C2112DDC289A18C9009601AB /* viewmodels */,
+				C2112DDE289A18DB009601AB /* controllers */,
+				C2112DDD289A18D6009601AB /* views */,
+			);
+			path = home;
+			sourceTree = "<group>";
+		};
+		C2112DDC289A18C9009601AB /* viewmodels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = viewmodels;
+			sourceTree = "<group>";
+		};
+		C2112DDD289A18D6009601AB /* views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		C2112DDE289A18DB009601AB /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C2112DDF289A18FB009601AB /* HomeViewController.swift */,
+				C2112DE0289A18FB009601AB /* HomeViewController.xib */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		C2436383289A2CA7003C1A44 /* managers */ = {
+			isa = PBXGroup;
+			children = (
+				C2E9772E28987FA0009F4B94 /* NetworkManager.swift */,
+				C2436384289A2CD6003C1A44 /* FirebaseFirestoreManager.swift */,
+				C2436386289A2CE4003C1A44 /* FirebaseAuthManager.swift */,
+			);
+			path = managers;
+			sourceTree = "<group>";
+		};
 		C2E976CC2898701C009F4B94 = {
 			isa = PBXGroup;
 			children = (
@@ -149,6 +208,7 @@
 				C2E976DE2898701C009F4B94 /* Main.storyboard */,
 				C2E976E42898701D009F4B94 /* Assets.xcassets */,
 				C2E976E62898701D009F4B94 /* LaunchScreen.storyboard */,
+				C2112DE3289A1C93009601AB /* GoogleService-Info.plist */,
 				C2E976E92898701D009F4B94 /* Info.plist */,
 				C2E976E12898701C009F4B94 /* RoutesApp_ios.xcdatamodeld */,
 			);
@@ -186,6 +246,7 @@
 		C2E9770E28987CFE009F4B94 /* modules */ = {
 			isa = PBXGroup;
 			children = (
+				C2112DDB289A18C3009601AB /* home */,
 				C2E9771528987DCB009F4B94 /* authentication */,
 			);
 			path = modules;
@@ -195,6 +256,7 @@
 			isa = PBXGroup;
 			children = (
 				C2E9772A28987F79009F4B94 /* User.swift */,
+				C2436388289A2D21003C1A44 /* BaseModel.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -210,7 +272,7 @@
 		C2E9771128987D60009F4B94 /* network */ = {
 			isa = PBXGroup;
 			children = (
-				C2E9772E28987FA0009F4B94 /* NetworkManager.swift */,
+				C2436383289A2CA7003C1A44 /* managers */,
 			);
 			path = network;
 			sourceTree = "<group>";
@@ -333,6 +395,10 @@
 			dependencies = (
 			);
 			name = RoutesApp_ios;
+			packageProductDependencies = (
+				C243637F289A27CC003C1A44 /* FirebaseAuth */,
+				C2436381289A27CC003C1A44 /* FirebaseFirestore */,
+			);
 			productName = RoutesApp_ios;
 			productReference = C2E976D52898701C009F4B94 /* RoutesApp_ios.app */;
 			productType = "com.apple.product-type.application";
@@ -384,6 +450,9 @@
 				Base,
 			);
 			mainGroup = C2E976CC2898701C009F4B94;
+			packageReferences = (
+				C243637E289A27CC003C1A44 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = C2E976D62898701C009F4B94 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -404,6 +473,8 @@
 				C2E976E52898701D009F4B94 /* Assets.xcassets in Resources */,
 				C2E9772128987F2A009F4B94 /* SignupViewController.xib in Resources */,
 				C2E976E02898701C009F4B94 /* Main.storyboard in Resources */,
+				C2112DE2289A18FB009601AB /* HomeViewController.xib in Resources */,
+				C2112DE4289A1C93009601AB /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,12 +559,16 @@
 			files = (
 				C2E9772428987F3C009F4B94 /* LoginViewController.swift in Sources */,
 				C2E976DD2898701C009F4B94 /* ViewController.swift in Sources */,
+				C2436387289A2CE4003C1A44 /* FirebaseAuthManager.swift in Sources */,
 				C2E9772928987F57009F4B94 /* SIgnupViewModel.swift in Sources */,
 				C2E976D92898701C009F4B94 /* AppDelegate.swift in Sources */,
 				C2E9772F28987FA0009F4B94 /* NetworkManager.swift in Sources */,
+				C2112DE1289A18FB009601AB /* HomeViewController.swift in Sources */,
 				C2E9772028987F2A009F4B94 /* SignupViewController.swift in Sources */,
 				C2E9772D28987F94009F4B94 /* LocalManager.swift in Sources */,
 				C2E9772B28987F79009F4B94 /* User.swift in Sources */,
+				C2436385289A2CD6003C1A44 /* FirebaseFirestoreManager.swift in Sources */,
+				C2436389289A2D21003C1A44 /* BaseModel.swift in Sources */,
 				C2E976DB2898701C009F4B94 /* SceneDelegate.swift in Sources */,
 				C2E976E32898701C009F4B94 /* RoutesApp_ios.xcdatamodeld in Sources */,
 				C2E9772728987F48009F4B94 /* LoginViewModel.swift in Sources */,
@@ -675,7 +750,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.logatus.RoutesApp-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jalasoft.routesapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -704,7 +779,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.logatus.RoutesApp-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jalasoft.routesapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -785,6 +860,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C243637E289A27CC003C1A44 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = exactVersion;
+				version = 8.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C243637F289A27CC003C1A44 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C243637E289A27CC003C1A44 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		C2436381289A27CC003C1A44 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C243637E289A27CC003C1A44 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		C2E976E12898701C009F4B94 /* RoutesApp_ios.xcdatamodeld */ = {

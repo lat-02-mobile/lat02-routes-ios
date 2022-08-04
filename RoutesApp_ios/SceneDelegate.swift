@@ -15,7 +15,46 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+        setupRootControllerIfNeeded(validUser: false)
         guard scene is UIWindowScene else { return }
+    }
+    func setupRootControllerIfNeeded(validUser: Bool) {
+        // let validUser = false
+        if validUser {
+            // Create VC for TabBar
+            let rootViewController = getRootViewControllerForValidUser()
+            self.window?.rootViewController = rootViewController
+        } else {
+            let rootViewController = getRootViewControllerForInvalidUser()
+            self.window?.rootViewController = rootViewController
+        }
+        self.window?.makeKeyAndVisible()
+    }
+    func getRootViewControllerForInvalidUser() -> UIViewController {
+        let navController = UINavigationController(rootViewController: SignupViewController())
+        return navController
+    }
+    func getRootViewControllerForValidUser() -> UIViewController {
+        // Create TabBarVC
+        let tabBarVC = UITabBarController()
+        tabBarVC.tabBar.isTranslucent = false
+        tabBarVC.tabBar.barTintColor = .black
+//        tabBarVC.view.backgroundColor = .blue
+//        UITabBar.appearance().barTintColor = .black
+        // Add VCs to TabBarVC
+        tabBarVC.viewControllers = [
+            createNavController(for: HomeViewController(), title: "Home", image: UIImage(systemName: "newspaper.fill")!)
+        ]
+
+        return tabBarVC
+    }
+    fileprivate func createNavController(for rootViewController: UIViewController,
+                                         title: String,
+                                         image: UIImage) -> UIViewController {
+        let navController = UINavigationController(rootViewController: rootViewController)
+        navController.tabBarItem.title = title
+        navController.tabBarItem.image = image
+        return navController
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
