@@ -13,8 +13,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     static weak var shared: SceneDelegate?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        let currentUser = CoreDataManager.shared.getData()
-        setupRootControllerIfNeeded(validUser: !currentUser.isEmpty)
+        setupRootControllerIfNeeded(validUser: false)
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         appDelegate.window = self.window
         guard scene is UIWindowScene else { return }
@@ -81,6 +80,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
 
         // Save changes in the application's managed object context when the application transitions to the background.
-        CoreDataManager.shared.saveContext()
+        // CoreDataManager.shared.saveContext()
     }
 }

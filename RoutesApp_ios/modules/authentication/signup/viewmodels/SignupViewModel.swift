@@ -28,13 +28,9 @@ class SignupViewModel {
             } else {
                 authManager.signupUser(email: email, password: password) { result in
                     switch result {
-                    case .success(let authResult):
-                        print(authResult)
-                        self.userManager.registerUser(name: name, email: email, typeLogin: .NORMAL) {
-                            self.onFinish?()
-                        }
+                    case .success:
+                        self.createUser(name: name, email: email)
                     case .failure(let error):
-                        print(error)
                         switch AuthErrorCode(rawValue: error._code) {
                         case .invalidEmail:
                             self.onError?(String.localizeString(localizedString: "error-signup-email"))
@@ -50,6 +46,16 @@ class SignupViewModel {
             }
         }
     }
+    private func createUser(name: String, email: String) {
+        self.userManager.registerUser(name: name, email: email, typeLogin: .NORMAL) { result in
+            switch result {
+            case .success:
+                self.onFinish?()
+            case .failure(let error):
+                self.onError?(error.localizedDescription)
+            }
+        }
+    }
     private func checkExistingUser(for email: String, completion: @escaping ((_ isRegistered: Bool) -> Void)) {
         userManager.getUsers { result in
             switch result {
@@ -57,7 +63,6 @@ class SignupViewModel {
                 let email = users.filter {$0.email == email}
                 completion(!email.isEmpty)
             case .failure(let error):
-                print(error)
                 self.onError?(error.localizedDescription)
             }
         }

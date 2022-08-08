@@ -49,22 +49,4 @@ class CoreDataManager {
         context.delete(element)
         try? context.save()
     }
-    @discardableResult
-    func deleteAll() -> Bool {
-        let context = self.getContext()
-        let delete = NSBatchDeleteRequest(fetchRequest: CurrentUser.fetchRequest())
-        do {
-            try context.execute(delete)
-        } catch {
-            return false
-        }
-        return true
-    }
-    func saveCurrentUser(idUser: String) {
-        let context = self.getContext()
-        guard let entity = NSEntityDescription.entity(forEntityName: "CurrentUser", in: context) else {return}
-        guard let entry = NSManagedObject(entity: entity, insertInto: context) as? CurrentUser else {return}
-        entry.id = idUser
-        try? context.save()
-    }
 }

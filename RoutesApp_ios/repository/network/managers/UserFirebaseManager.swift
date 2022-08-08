@@ -21,7 +21,7 @@ enum UserTypeLogin: Int {
 class UserFirebaseManager {
     let firebaseManager = FirebaseFirestoreManager.shared
     static let shared = UserFirebaseManager()
-    func registerUser(name: String, email: String, typeLogin: UserTypeLogin, completion: @escaping (() -> Void)) {
+    func registerUser(name: String, email: String, typeLogin: UserTypeLogin, completion: @escaping ((Result<User, Error>) -> Void)) {
         let newUserId = self.firebaseManager.getDocID(forCollection: .Users)
         let newUser = User(id: newUserId,
                            name: name,
@@ -31,16 +31,7 @@ class UserFirebaseManager {
                            typeLogin: typeLogin.rawValue,
                            updatedAt: Date(),
                            createdAt: Date())
-        self.firebaseManager.addDocument(document: newUser,
-                                         collection: .Users) { result in
-            switch result {
-            case .success(let user):
-                print(user)
-                completion()
-            case .failure(let error):
-                print(error)
-            }
-        }
+        self.firebaseManager.addDocument(document: newUser, collection: .Users, completion: completion)
     }
     func getUsers(completion: @escaping(Result<[User], Error>) -> Void) {
         self.firebaseManager.getDocuments(type: User.self, forCollection: .Users, completion: completion)

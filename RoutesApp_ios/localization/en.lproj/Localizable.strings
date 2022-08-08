@@ -8,7 +8,7 @@
 
 "error-signup-name" = "The name can not be empty";
 "error-signup-passwords" = "The passwords do not match";
-"error-signup-password-weak" = "The password must 6 characters long or more";
+"error-signup-password-weak" = "The password must be 6 characters long or more";
 "error-signup-email" = "This email address is badly formatted";
 "error-signup-email-exist" = "This email is already in use by some auth method";
 "error-signup-email-empty" = "The email field can not be empty";

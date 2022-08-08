@@ -21,6 +21,7 @@
 		C2BB145228A150A70083CA1E /* SignupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2BB145428A150A70083CA1E /* SignupViewController.xib */; };
 		C2BB145C28A1529E0083CA1E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C2BB145E28A1529E0083CA1E /* Localizable.strings */; };
 		C2BB146128A153390083CA1E /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BB146028A153390083CA1E /* StringExtension.swift */; };
+		C2BB146328A16CB60083CA1E /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BB146228A16CB60083CA1E /* CoreDataManager.swift */; };
 		C2E976D92898701C009F4B94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E976D82898701C009F4B94 /* AppDelegate.swift */; };
 		C2E976DB2898701C009F4B94 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E976DA2898701C009F4B94 /* SceneDelegate.swift */; };
 		C2E976DD2898701C009F4B94 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E976DC2898701C009F4B94 /* ViewController.swift */; };
@@ -33,14 +34,11 @@
 		C2E9772428987F3C009F4B94 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E9772228987F3C009F4B94 /* LoginViewController.swift */; };
 		C2E9772528987F3C009F4B94 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2E9772328987F3C009F4B94 /* LoginViewController.xib */; };
 		C2E9772728987F48009F4B94 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E9772628987F48009F4B94 /* LoginViewModel.swift */; };
-		C2E9772928987F57009F4B94 /* SIgnupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E9772828987F57009F4B94 /* SIgnupViewModel.swift */; };
+		C2E9772928987F57009F4B94 /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E9772828987F57009F4B94 /* SignupViewModel.swift */; };
 		C2E9772B28987F79009F4B94 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E9772A28987F79009F4B94 /* User.swift */; };
-		C2E9772D28987F94009F4B94 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E9772C28987F94009F4B94 /* CoreDataManager.swift */; };
 		C2E9772F28987FA0009F4B94 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E9772E28987FA0009F4B94 /* NetworkManager.swift */; };
 		C2E9773128987FB9009F4B94 /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E9773028987FB9009F4B94 /* FloatingButton.swift */; };
 		C2E977332898802F009F4B94 /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E977322898802F009F4B94 /* Encodable.swift */; };
-		C2FEFC41289B631C006E7579 /* CurrentUser+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FEFC3F289B631C006E7579 /* CurrentUser+CoreDataClass.swift */; };
-		C2FEFC42289B631C006E7579 /* CurrentUser+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FEFC40289B631C006E7579 /* CurrentUser+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +72,7 @@
 		C2BB145D28A1529E0083CA1E /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		C2BB145F28A152AE0083CA1E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C2BB146028A153390083CA1E /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		C2BB146228A16CB60083CA1E /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		C2E976D52898701C009F4B94 /* RoutesApp_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoutesApp_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2E976D82898701C009F4B94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2E976DA2898701C009F4B94 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,14 +88,11 @@
 		C2E9772228987F3C009F4B94 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C2E9772328987F3C009F4B94 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		C2E9772628987F48009F4B94 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
-		C2E9772828987F57009F4B94 /* SIgnupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SIgnupViewModel.swift; sourceTree = "<group>"; };
+		C2E9772828987F57009F4B94 /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
 		C2E9772A28987F79009F4B94 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		C2E9772C28987F94009F4B94 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		C2E9772E28987FA0009F4B94 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		C2E9773028987FB9009F4B94 /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
 		C2E977322898802F009F4B94 /* Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encodable.swift; sourceTree = "<group>"; };
-		C2FEFC3F289B631C006E7579 /* CurrentUser+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CurrentUser+CoreDataClass.swift"; sourceTree = "<group>"; };
-		C2FEFC40289B631C006E7579 /* CurrentUser+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CurrentUser+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F4F2DC09BBC0577CE2B41D46 /* Pods-RoutesApp_iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutesApp_iosTests.release.xcconfig"; path = "Target Support Files/Pods-RoutesApp_iosTests/Pods-RoutesApp_iosTests.release.xcconfig"; sourceTree = "<group>"; };
 		F808C389CD2F19D7212160C0 /* Pods_RoutesApp_iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoutesApp_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDCC7F618DD2DA0577071C41 /* Pods-RoutesApp_ios-RoutesApp_iosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutesApp_ios-RoutesApp_iosUITests.release.xcconfig"; path = "Target Support Files/Pods-RoutesApp_ios-RoutesApp_iosUITests/Pods-RoutesApp_ios-RoutesApp_iosUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -289,7 +285,7 @@
 		C2E9771028987D5B009F4B94 /* local */ = {
 			isa = PBXGroup;
 			children = (
-				C2E9772C28987F94009F4B94 /* CoreDataManager.swift */,
+				C2BB146228A16CB60083CA1E /* CoreDataManager.swift */,
 			);
 			path = local;
 			sourceTree = "<group>";
@@ -357,7 +353,7 @@
 		C2E9771828987DF9009F4B94 /* viewmodels */ = {
 			isa = PBXGroup;
 			children = (
-				C2E9772828987F57009F4B94 /* SIgnupViewModel.swift */,
+				C2E9772828987F57009F4B94 /* SignupViewModel.swift */,
 			);
 			path = viewmodels;
 			sourceTree = "<group>";
@@ -405,8 +401,6 @@
 		C2FEFC3A289B6150006E7579 /* local */ = {
 			isa = PBXGroup;
 			children = (
-				C2FEFC3F289B631C006E7579 /* CurrentUser+CoreDataClass.swift */,
-				C2FEFC40289B631C006E7579 /* CurrentUser+CoreDataProperties.swift */,
 			);
 			path = local;
 			sourceTree = "<group>";
@@ -623,20 +617,18 @@
 				C2E9772428987F3C009F4B94 /* LoginViewController.swift in Sources */,
 				C2E976DD2898701C009F4B94 /* ViewController.swift in Sources */,
 				C2436387289A2CE4003C1A44 /* FirebaseAuthManager.swift in Sources */,
+				C2BB146328A16CB60083CA1E /* CoreDataManager.swift in Sources */,
 				C24BD6EA28A134C3007FCAB7 /* UserFirebaseManager.swift in Sources */,
-				C2E9772928987F57009F4B94 /* SIgnupViewModel.swift in Sources */,
+				C2E9772928987F57009F4B94 /* SignupViewModel.swift in Sources */,
 				C2E976D92898701C009F4B94 /* AppDelegate.swift in Sources */,
 				C2E9772F28987FA0009F4B94 /* NetworkManager.swift in Sources */,
 				C2112DE1289A18FB009601AB /* HomeViewController.swift in Sources */,
 				C2BB146128A153390083CA1E /* StringExtension.swift in Sources */,
 				C2E9772028987F2A009F4B94 /* SignupViewController.swift in Sources */,
-				C2FEFC41289B631C006E7579 /* CurrentUser+CoreDataClass.swift in Sources */,
-				C2E9772D28987F94009F4B94 /* CoreDataManager.swift in Sources */,
 				C2E9772B28987F79009F4B94 /* User.swift in Sources */,
 				C2436385289A2CD6003C1A44 /* FirebaseFirestoreManager.swift in Sources */,
 				C2436389289A2D21003C1A44 /* BaseModel.swift in Sources */,
 				C2E976DB2898701C009F4B94 /* SceneDelegate.swift in Sources */,
-				C2FEFC42289B631C006E7579 /* CurrentUser+CoreDataProperties.swift in Sources */,
 				C2E976E32898701C009F4B94 /* RoutesApp_ios.xcdatamodeld in Sources */,
 				C2E9772728987F48009F4B94 /* LoginViewModel.swift in Sources */,
 				C2E977332898802F009F4B94 /* Encodable.swift in Sources */,
