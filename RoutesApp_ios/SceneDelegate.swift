@@ -10,10 +10,13 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    static weak var shared: SceneDelegate?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         let currentUser = CoreDataManager.shared.getData()
         setupRootControllerIfNeeded(validUser: !currentUser.isEmpty)
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        appDelegate.window = self.window
         guard scene is UIWindowScene else { return }
     }
     func setupRootControllerIfNeeded(validUser: Bool) {

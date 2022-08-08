@@ -1,0 +1,33 @@
+
+/* Class = "UIButton"; configuration.title = "LOGIN"; ObjectID = "4Ve-ie-TCa"; */
+"4Ve-ie-TCa.configuration.title" = "LOGIN";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "4Ve-ie-TCa"; */
+"4Ve-ie-TCa.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Confirm Password"; ObjectID = "58z-1Z-pf2"; */
+"58z-1Z-pf2.text" = "Confirm Password";
+
+/* Class = "UIButton"; configuration.title = "Sign Up"; ObjectID = "HfR-4s-9vL"; */
+"HfR-4s-9vL.configuration.title" = "Sign Up";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "HfR-4s-9vL"; */
+"HfR-4s-9vL.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Already have an account?"; ObjectID = "KQA-Yi-GOR"; */
+"KQA-Yi-GOR.text" = "Already have an account?";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "Pvy-p8-7sw"; */
+"Pvy-p8-7sw.text" = "Name";
+
+/* Class = "UILabel"; text = "or register using"; ObjectID = "S0V-MS-Iff"; */
+"S0V-MS-Iff.text" = "or register using";
+
+/* Class = "UILabel"; text = "Password"; ObjectID = "Y4a-Cy-1Vl"; */
+"Y4a-Cy-1Vl.text" = "Password";
+
+/* Class = "UILabel"; text = "Email"; ObjectID = "fTb-pb-IB3"; */
+"fTb-pb-IB3.text" = "Email";
+
+/* Class = "UILabel"; text = "Sign Up"; ObjectID = "gAK-vH-wgN"; */
+"gAK-vH-wgN.text" = "Sign Up";

@@ -1,16 +1,24 @@
 PODS:
+  - IQKeyboardManagerSwift (6.2.1)
+  - SVProgressHUD (2.2.5)
   - SwiftLint (0.47.1)
 
 DEPENDENCIES:
+  - IQKeyboardManagerSwift (= 6.2.1)
+  - SVProgressHUD
   - SwiftLint (= 0.47.1)
 
 SPEC REPOS:
   trunk:
+    - IQKeyboardManagerSwift
+    - SVProgressHUD
     - SwiftLint
 
 SPEC CHECKSUMS:
+  IQKeyboardManagerSwift: 0f0ae8935360b4003e6ea1ac7c19898f01e2f7c7
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftLint: f80f1be7fa96d30e0aa68e58d45d4ea1ccaac519
 
-PODFILE CHECKSUM: c17ad8eb831c9c3e76c84ff19d907b7700113590
+PODFILE CHECKSUM: 002c669702a7c8730119f491d1e27f269808a1a8
 
 COCOAPODS: 1.11.3

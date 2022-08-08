@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import FirebaseAuth
+import SVProgressHUD
 
 class SignupViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
@@ -21,17 +21,20 @@ class SignupViewController: UIViewController {
     }
     func initViewModel() {
         viewmodel.onFinish = { [weak self] in
+            SVProgressHUD.dismiss()
             self?.errorLabel.isHidden = true
             // MARK: Here probably goes the redirection for the phone validation screen and after that the following line
             self?.navigationController?.popViewController(animated: true)
         }
         viewmodel.onError = { [weak self] error in
+            SVProgressHUD.dismiss()
             self?.errorLabel.isHidden = false
             self?.errorLabel.text = error
         }
     }
 
     @IBAction func signup(_ sender: Any) {
+        SVProgressHUD.show()
         guard let email = emailTextField.text,
               let password = passwordTextField.text,
               let name = nameTextField.text,
