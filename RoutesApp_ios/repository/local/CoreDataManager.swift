@@ -11,7 +11,7 @@ import CoreData
 class CoreDataManager {
     static var shared = CoreDataManager()
     lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "RoutesApp_ios")
+        let container = NSPersistentContainer(name: ConstantVariables.databaseName)
         container.loadPersistentStores(completionHandler: { (_, error) in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
@@ -33,20 +33,5 @@ class CoreDataManager {
     }
     func getContext() -> NSManagedObjectContext {
         return persistentContainer.viewContext
-    }
-    func getData<T: NSManagedObject>() -> [T] {
-        let context = persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<T>(entityName: "CurrentUser")
-        do {
-            let dbWEntries = try context.fetch(fetchRequest)
-            return dbWEntries
-        } catch {
-            return []
-        }
-    }
-    func deleteElement<T: NSManagedObject>(element: T) {
-        let context = persistentContainer.viewContext
-        context.delete(element)
-        try? context.save()
     }
 }

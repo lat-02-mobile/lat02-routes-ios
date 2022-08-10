@@ -7,6 +7,13 @@
 
 import Foundation
 
+typealias UserManResult = User
+
+protocol UserManProtocol {
+    func registerUser(name: String, email: String, typeLogin: UserTypeLogin, completion: @escaping ((Result<User, Error>) -> Void))
+    func getUsers(completion: @escaping(Result<[User], Error>) -> Void)
+}
+
 enum UserType: Int {
     case NORMAL = 0
     case ADMIN = 1
@@ -18,7 +25,7 @@ enum UserTypeLogin: Int {
     case GOOGLE = 3
 }
 
-class UserFirebaseManager {
+class UserFirebaseManager: UserManProtocol {
     let firebaseManager = FirebaseFirestoreManager.shared
     static let shared = UserFirebaseManager()
     func registerUser(name: String, email: String, typeLogin: UserTypeLogin, completion: @escaping ((Result<User, Error>) -> Void)) {

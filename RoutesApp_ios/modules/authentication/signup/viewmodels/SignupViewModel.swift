@@ -9,8 +9,8 @@ import Foundation
 import FirebaseAuth
 
 class SignupViewModel {
-    let authManager = FirebaseAuthManager.shared
-    let userManager = UserFirebaseManager.shared
+    var authManager: AuthProtocol = FirebaseAuthManager.shared
+    var userManager: UserManProtocol = UserFirebaseManager.shared
     var onFinish: (() -> Void)?
     var onError: ((_ error: String) -> Void)?
     func signupUser(email: String, name: String, password: String, confirmPassword: String) {
