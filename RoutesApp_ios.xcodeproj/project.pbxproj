@@ -14,7 +14,6 @@
 		C20A86D528A339540000EF7C /* AuthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A86D428A339540000EF7C /* AuthTests.swift */; };
 		C2112DE1289A18FB009601AB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2112DDF289A18FB009601AB /* HomeViewController.swift */; };
 		C2112DE2289A18FB009601AB /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2112DE0289A18FB009601AB /* HomeViewController.xib */; };
-		C2112DE4289A1C93009601AB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C2112DE3289A1C93009601AB /* GoogleService-Info.plist */; };
 		C2436380289A27CC003C1A44 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = C243637F289A27CC003C1A44 /* FirebaseAuth */; };
 		C2436382289A27CC003C1A44 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = C2436381289A27CC003C1A44 /* FirebaseFirestore */; };
 		C2436385289A2CD6003C1A44 /* FirebaseFirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2436384289A2CD6003C1A44 /* FirebaseFirestoreManager.swift */; };
@@ -42,6 +41,7 @@
 		C2E9772F28987FA0009F4B94 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E9772E28987FA0009F4B94 /* NetworkManager.swift */; };
 		C2E9773128987FB9009F4B94 /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E9773028987FB9009F4B94 /* FloatingButton.swift */; };
 		C2E977332898802F009F4B94 /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E977322898802F009F4B94 /* Encodable.swift */; };
+		CE5FE80A28A4607800E02FF2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE5FE80928A4607800E02FF2 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,7 +66,6 @@
 		C20A86D428A339540000EF7C /* AuthTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTests.swift; sourceTree = "<group>"; };
 		C2112DDF289A18FB009601AB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C2112DE0289A18FB009601AB /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
-		C2112DE3289A1C93009601AB /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		C2436384289A2CD6003C1A44 /* FirebaseFirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseFirestoreManager.swift; sourceTree = "<group>"; };
 		C2436386289A2CE4003C1A44 /* FirebaseAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManager.swift; sourceTree = "<group>"; };
 		C2436388289A2D21003C1A44 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
@@ -99,6 +98,7 @@
 		C2E9772E28987FA0009F4B94 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		C2E9773028987FB9009F4B94 /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
 		C2E977322898802F009F4B94 /* Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encodable.swift; sourceTree = "<group>"; };
+		CE5FE80928A4607800E02FF2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F4F2DC09BBC0577CE2B41D46 /* Pods-RoutesApp_iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutesApp_iosTests.release.xcconfig"; path = "Target Support Files/Pods-RoutesApp_iosTests/Pods-RoutesApp_iosTests.release.xcconfig"; sourceTree = "<group>"; };
 		F808C389CD2F19D7212160C0 /* Pods_RoutesApp_iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoutesApp_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDCC7F618DD2DA0577071C41 /* Pods-RoutesApp_ios-RoutesApp_iosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutesApp_ios-RoutesApp_iosUITests.release.xcconfig"; path = "Target Support Files/Pods-RoutesApp_ios-RoutesApp_iosUITests/Pods-RoutesApp_ios-RoutesApp_iosUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -235,8 +235,8 @@
 				C2E976DE2898701C009F4B94 /* Main.storyboard */,
 				C2E976E42898701D009F4B94 /* Assets.xcassets */,
 				C2E976E62898701D009F4B94 /* LaunchScreen.storyboard */,
-				C2112DE3289A1C93009601AB /* GoogleService-Info.plist */,
 				C2E976E92898701D009F4B94 /* Info.plist */,
+				CE5FE80928A4607800E02FF2 /* GoogleService-Info.plist */,
 				C2E976E12898701C009F4B94 /* RoutesApp_ios.xcdatamodeld */,
 			);
 			path = RoutesApp_ios;
@@ -517,13 +517,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2E9772528987F3C009F4B94 /* LoginViewController.xib in Resources */,
+				CE5FE80A28A4607800E02FF2 /* GoogleService-Info.plist in Resources */,
 				C2E976E82898701D009F4B94 /* LaunchScreen.storyboard in Resources */,
 				C2E976E52898701D009F4B94 /* Assets.xcassets in Resources */,
 				C2E976E02898701C009F4B94 /* Main.storyboard in Resources */,
 				C2112DE2289A18FB009601AB /* HomeViewController.xib in Resources */,
 				C2BB145C28A1529E0083CA1E /* Localizable.strings in Resources */,
 				C2BB145228A150A70083CA1E /* SignupViewController.xib in Resources */,
-				C2112DE4289A1C93009601AB /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
