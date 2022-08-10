@@ -9,6 +9,22 @@
 /* Begin PBXBuildFile section */
 		2AEC15664C895431B8BEB002 /* Pods_RoutesApp_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F808C389CD2F19D7212160C0 /* Pods_RoutesApp_iosTests.framework */; };
 		2E0F8B864F00537D40070409 /* Pods_RoutesApp_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A3327C701B0A7C956D7435B /* Pods_RoutesApp_ios.framework */; };
+		C20A86D128A3383F0000EF7C /* ConstantVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A86D028A3383F0000EF7C /* ConstantVariables.swift */; };
+		C20A86D328A338E30000EF7C /* TestResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A86D228A338E30000EF7C /* TestResources.swift */; };
+		C20A86D528A339540000EF7C /* AuthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A86D428A339540000EF7C /* AuthTests.swift */; };
+		C2112DE1289A18FB009601AB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2112DDF289A18FB009601AB /* HomeViewController.swift */; };
+		C2112DE2289A18FB009601AB /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2112DE0289A18FB009601AB /* HomeViewController.xib */; };
+		C2112DE4289A1C93009601AB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C2112DE3289A1C93009601AB /* GoogleService-Info.plist */; };
+		C2436380289A27CC003C1A44 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = C243637F289A27CC003C1A44 /* FirebaseAuth */; };
+		C2436382289A27CC003C1A44 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = C2436381289A27CC003C1A44 /* FirebaseFirestore */; };
+		C2436385289A2CD6003C1A44 /* FirebaseFirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2436384289A2CD6003C1A44 /* FirebaseFirestoreManager.swift */; };
+		C2436387289A2CE4003C1A44 /* FirebaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2436386289A2CE4003C1A44 /* FirebaseAuthManager.swift */; };
+		C2436389289A2D21003C1A44 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2436388289A2D21003C1A44 /* BaseModel.swift */; };
+		C24BD6EA28A134C3007FCAB7 /* UserFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24BD6E928A134C3007FCAB7 /* UserFirebaseManager.swift */; };
+		C2BB145228A150A70083CA1E /* SignupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2BB145428A150A70083CA1E /* SignupViewController.xib */; };
+		C2BB145C28A1529E0083CA1E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C2BB145E28A1529E0083CA1E /* Localizable.strings */; };
+		C2BB146128A153390083CA1E /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BB146028A153390083CA1E /* StringExtension.swift */; };
+		C2BB146328A16CB60083CA1E /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BB146228A16CB60083CA1E /* CoreDataManager.swift */; };
 		C2E976D92898701C009F4B94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E976D82898701C009F4B94 /* AppDelegate.swift */; };
 		C2E976DB2898701C009F4B94 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E976DA2898701C009F4B94 /* SceneDelegate.swift */; };
 		C2E976DD2898701C009F4B94 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E976DC2898701C009F4B94 /* ViewController.swift */; };
@@ -18,16 +34,14 @@
 		C2E976E82898701D009F4B94 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2E976E62898701D009F4B94 /* LaunchScreen.storyboard */; };
 		C2E976F32898701D009F4B94 /* RoutesApp_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E976F22898701D009F4B94 /* RoutesApp_iosTests.swift */; };
 		C2E9772028987F2A009F4B94 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E9771E28987F2A009F4B94 /* SignupViewController.swift */; };
-		C2E9772128987F2A009F4B94 /* SignupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2E9771F28987F2A009F4B94 /* SignupViewController.xib */; };
 		C2E9772428987F3C009F4B94 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E9772228987F3C009F4B94 /* LoginViewController.swift */; };
 		C2E9772528987F3C009F4B94 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2E9772328987F3C009F4B94 /* LoginViewController.xib */; };
 		C2E9772728987F48009F4B94 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E9772628987F48009F4B94 /* LoginViewModel.swift */; };
-		C2E9772928987F57009F4B94 /* SIgnupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E9772828987F57009F4B94 /* SIgnupViewModel.swift */; };
+		C2E9772928987F57009F4B94 /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E9772828987F57009F4B94 /* SignupViewModel.swift */; };
 		C2E9772B28987F79009F4B94 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E9772A28987F79009F4B94 /* User.swift */; };
-		C2E9772D28987F94009F4B94 /* LocalManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E9772C28987F94009F4B94 /* LocalManager.swift */; };
 		C2E9772F28987FA0009F4B94 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E9772E28987FA0009F4B94 /* NetworkManager.swift */; };
 		C2E9773128987FB9009F4B94 /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E9773028987FB9009F4B94 /* FloatingButton.swift */; };
-		C2E977332898802F009F4B94 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E977322898802F009F4B94 /* Date.swift */; };
+		C2E977332898802F009F4B94 /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E977322898802F009F4B94 /* Encodable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +61,24 @@
 		745BD9E5A26FC5292BC03A32 /* Pods-RoutesApp_ios-RoutesApp_iosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutesApp_ios-RoutesApp_iosUITests.debug.xcconfig"; path = "Target Support Files/Pods-RoutesApp_ios-RoutesApp_iosUITests/Pods-RoutesApp_ios-RoutesApp_iosUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8E4554EE6A9F1EB0D5124479 /* Pods-RoutesApp_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutesApp_ios.release.xcconfig"; path = "Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios.release.xcconfig"; sourceTree = "<group>"; };
 		A81C730CD57A1098D9C868BE /* Pods-RoutesApp_iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutesApp_iosTests.debug.xcconfig"; path = "Target Support Files/Pods-RoutesApp_iosTests/Pods-RoutesApp_iosTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C20A86D028A3383F0000EF7C /* ConstantVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantVariables.swift; sourceTree = "<group>"; };
+		C20A86D228A338E30000EF7C /* TestResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResources.swift; sourceTree = "<group>"; };
+		C20A86D428A339540000EF7C /* AuthTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTests.swift; sourceTree = "<group>"; };
+		C2112DDF289A18FB009601AB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		C2112DE0289A18FB009601AB /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		C2112DE3289A1C93009601AB /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		C2436384289A2CD6003C1A44 /* FirebaseFirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseFirestoreManager.swift; sourceTree = "<group>"; };
+		C2436386289A2CE4003C1A44 /* FirebaseAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManager.swift; sourceTree = "<group>"; };
+		C2436388289A2D21003C1A44 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
+		C24BD6E928A134C3007FCAB7 /* UserFirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFirebaseManager.swift; sourceTree = "<group>"; };
+		C2BB144A28A14E330083CA1E /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		C2BB145328A150A70083CA1E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SignupViewController.xib; sourceTree = "<group>"; };
+		C2BB145628A150AE0083CA1E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SignupViewController.strings; sourceTree = "<group>"; };
+		C2BB145828A150B20083CA1E /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/SignupViewController.strings"; sourceTree = "<group>"; };
+		C2BB145D28A1529E0083CA1E /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		C2BB145F28A152AE0083CA1E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C2BB146028A153390083CA1E /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		C2BB146228A16CB60083CA1E /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		C2E976D52898701C009F4B94 /* RoutesApp_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoutesApp_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2E976D82898701C009F4B94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2E976DA2898701C009F4B94 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,16 +91,14 @@
 		C2E976EE2898701D009F4B94 /* RoutesApp_iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RoutesApp_iosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2E976F22898701D009F4B94 /* RoutesApp_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutesApp_iosTests.swift; sourceTree = "<group>"; };
 		C2E9771E28987F2A009F4B94 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
-		C2E9771F28987F2A009F4B94 /* SignupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignupViewController.xib; sourceTree = "<group>"; };
 		C2E9772228987F3C009F4B94 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C2E9772328987F3C009F4B94 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		C2E9772628987F48009F4B94 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
-		C2E9772828987F57009F4B94 /* SIgnupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SIgnupViewModel.swift; sourceTree = "<group>"; };
+		C2E9772828987F57009F4B94 /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
 		C2E9772A28987F79009F4B94 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		C2E9772C28987F94009F4B94 /* LocalManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalManager.swift; sourceTree = "<group>"; };
 		C2E9772E28987FA0009F4B94 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		C2E9773028987FB9009F4B94 /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
-		C2E977322898802F009F4B94 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		C2E977322898802F009F4B94 /* Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encodable.swift; sourceTree = "<group>"; };
 		F4F2DC09BBC0577CE2B41D46 /* Pods-RoutesApp_iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutesApp_iosTests.release.xcconfig"; path = "Target Support Files/Pods-RoutesApp_iosTests/Pods-RoutesApp_iosTests.release.xcconfig"; sourceTree = "<group>"; };
 		F808C389CD2F19D7212160C0 /* Pods_RoutesApp_iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoutesApp_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDCC7F618DD2DA0577071C41 /* Pods-RoutesApp_ios-RoutesApp_iosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutesApp_ios-RoutesApp_iosUITests.release.xcconfig"; path = "Target Support Files/Pods-RoutesApp_ios-RoutesApp_iosUITests/Pods-RoutesApp_ios-RoutesApp_iosUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -80,6 +110,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E0F8B864F00537D40070409 /* Pods_RoutesApp_ios.framework in Frameworks */,
+				C2436380289A27CC003C1A44 /* FirebaseAuth in Frameworks */,
+				C2436382289A27CC003C1A44 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,6 +149,59 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C2112DDB289A18C3009601AB /* home */ = {
+			isa = PBXGroup;
+			children = (
+				C2112DDC289A18C9009601AB /* viewmodels */,
+				C2112DDE289A18DB009601AB /* controllers */,
+				C2112DDD289A18D6009601AB /* views */,
+			);
+			path = home;
+			sourceTree = "<group>";
+		};
+		C2112DDC289A18C9009601AB /* viewmodels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = viewmodels;
+			sourceTree = "<group>";
+		};
+		C2112DDD289A18D6009601AB /* views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		C2112DDE289A18DB009601AB /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C2112DDF289A18FB009601AB /* HomeViewController.swift */,
+				C2112DE0289A18FB009601AB /* HomeViewController.xib */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		C2436383289A2CA7003C1A44 /* managers */ = {
+			isa = PBXGroup;
+			children = (
+				C2E9772E28987FA0009F4B94 /* NetworkManager.swift */,
+				C2436384289A2CD6003C1A44 /* FirebaseFirestoreManager.swift */,
+				C2436386289A2CE4003C1A44 /* FirebaseAuthManager.swift */,
+				C24BD6E928A134C3007FCAB7 /* UserFirebaseManager.swift */,
+			);
+			path = managers;
+			sourceTree = "<group>";
+		};
+		C2BB145928A152580083CA1E /* localization */ = {
+			isa = PBXGroup;
+			children = (
+				C2BB145E28A1529E0083CA1E /* Localizable.strings */,
+				C2BB146028A153390083CA1E /* StringExtension.swift */,
+			);
+			path = localization;
+			sourceTree = "<group>";
+		};
 		C2E976CC2898701C009F4B94 = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +225,7 @@
 		C2E976D72898701C009F4B94 /* RoutesApp_ios */ = {
 			isa = PBXGroup;
 			children = (
+				C2BB145928A152580083CA1E /* localization */,
 				C2E9770C28987CEA009F4B94 /* utilities */,
 				C2E9770D28987CF7009F4B94 /* repository */,
 				C2E9770E28987CFE009F4B94 /* modules */,
@@ -149,6 +235,7 @@
 				C2E976DE2898701C009F4B94 /* Main.storyboard */,
 				C2E976E42898701D009F4B94 /* Assets.xcassets */,
 				C2E976E62898701D009F4B94 /* LaunchScreen.storyboard */,
+				C2112DE3289A1C93009601AB /* GoogleService-Info.plist */,
 				C2E976E92898701D009F4B94 /* Info.plist */,
 				C2E976E12898701C009F4B94 /* RoutesApp_ios.xcdatamodeld */,
 			);
@@ -159,6 +246,8 @@
 			isa = PBXGroup;
 			children = (
 				C2E976F22898701D009F4B94 /* RoutesApp_iosTests.swift */,
+				C20A86D228A338E30000EF7C /* TestResources.swift */,
+				C20A86D428A339540000EF7C /* AuthTests.swift */,
 			);
 			path = RoutesApp_iosTests;
 			sourceTree = "<group>";
@@ -186,6 +275,7 @@
 		C2E9770E28987CFE009F4B94 /* modules */ = {
 			isa = PBXGroup;
 			children = (
+				C2112DDB289A18C3009601AB /* home */,
 				C2E9771528987DCB009F4B94 /* authentication */,
 			);
 			path = modules;
@@ -194,7 +284,8 @@
 		C2E9770F28987D56009F4B94 /* models */ = {
 			isa = PBXGroup;
 			children = (
-				C2E9772A28987F79009F4B94 /* User.swift */,
+				C2FEFC43289B78F1006E7579 /* remote */,
+				C2FEFC3A289B6150006E7579 /* local */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -202,7 +293,7 @@
 		C2E9771028987D5B009F4B94 /* local */ = {
 			isa = PBXGroup;
 			children = (
-				C2E9772C28987F94009F4B94 /* LocalManager.swift */,
+				C2BB146228A16CB60083CA1E /* CoreDataManager.swift */,
 			);
 			path = local;
 			sourceTree = "<group>";
@@ -210,7 +301,7 @@
 		C2E9771128987D60009F4B94 /* network */ = {
 			isa = PBXGroup;
 			children = (
-				C2E9772E28987FA0009F4B94 /* NetworkManager.swift */,
+				C2436383289A2CA7003C1A44 /* managers */,
 			);
 			path = network;
 			sourceTree = "<group>";
@@ -218,6 +309,7 @@
 		C2E9771228987DB0009F4B94 /* helpers */ = {
 			isa = PBXGroup;
 			children = (
+				C20A86D028A3383F0000EF7C /* ConstantVariables.swift */,
 			);
 			path = helpers;
 			sourceTree = "<group>";
@@ -233,7 +325,7 @@
 		C2E9771428987DC2009F4B94 /* extensions */ = {
 			isa = PBXGroup;
 			children = (
-				C2E977322898802F009F4B94 /* Date.swift */,
+				C2E977322898802F009F4B94 /* Encodable.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -270,7 +362,7 @@
 		C2E9771828987DF9009F4B94 /* viewmodels */ = {
 			isa = PBXGroup;
 			children = (
-				C2E9772828987F57009F4B94 /* SIgnupViewModel.swift */,
+				C2E9772828987F57009F4B94 /* SignupViewModel.swift */,
 			);
 			path = viewmodels;
 			sourceTree = "<group>";
@@ -287,7 +379,7 @@
 			isa = PBXGroup;
 			children = (
 				C2E9771E28987F2A009F4B94 /* SignupViewController.swift */,
-				C2E9771F28987F2A009F4B94 /* SignupViewController.xib */,
+				C2BB145428A150A70083CA1E /* SignupViewController.xib */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -315,6 +407,22 @@
 			path = views;
 			sourceTree = "<group>";
 		};
+		C2FEFC3A289B6150006E7579 /* local */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = local;
+			sourceTree = "<group>";
+		};
+		C2FEFC43289B78F1006E7579 /* remote */ = {
+			isa = PBXGroup;
+			children = (
+				C2E9772A28987F79009F4B94 /* User.swift */,
+				C2436388289A2D21003C1A44 /* BaseModel.swift */,
+			);
+			path = remote;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -327,12 +435,17 @@
 				C2E976D12898701C009F4B94 /* Sources */,
 				C2E976D22898701C009F4B94 /* Frameworks */,
 				C2E976D32898701C009F4B94 /* Resources */,
+				EE0DAA6B74EC6710C75DCEE4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = RoutesApp_ios;
+			packageProductDependencies = (
+				C243637F289A27CC003C1A44 /* FirebaseAuth */,
+				C2436381289A27CC003C1A44 /* FirebaseFirestore */,
+			);
 			productName = RoutesApp_ios;
 			productReference = C2E976D52898701C009F4B94 /* RoutesApp_ios.app */;
 			productType = "com.apple.product-type.application";
@@ -382,8 +495,12 @@
 			knownRegions = (
 				en,
 				Base,
+				"es-419",
 			);
 			mainGroup = C2E976CC2898701C009F4B94;
+			packageReferences = (
+				C243637E289A27CC003C1A44 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = C2E976D62898701C009F4B94 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -402,8 +519,11 @@
 				C2E9772528987F3C009F4B94 /* LoginViewController.xib in Resources */,
 				C2E976E82898701D009F4B94 /* LaunchScreen.storyboard in Resources */,
 				C2E976E52898701D009F4B94 /* Assets.xcassets in Resources */,
-				C2E9772128987F2A009F4B94 /* SignupViewController.xib in Resources */,
 				C2E976E02898701C009F4B94 /* Main.storyboard in Resources */,
+				C2112DE2289A18FB009601AB /* HomeViewController.xib in Resources */,
+				C2BB145C28A1529E0083CA1E /* Localizable.strings in Resources */,
+				C2BB145228A150A70083CA1E /* SignupViewController.xib in Resources */,
+				C2112DE4289A1C93009601AB /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -479,6 +599,23 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
+		EE0DAA6B74EC6710C75DCEE4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -487,17 +624,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2E9772428987F3C009F4B94 /* LoginViewController.swift in Sources */,
+				C20A86D128A3383F0000EF7C /* ConstantVariables.swift in Sources */,
 				C2E976DD2898701C009F4B94 /* ViewController.swift in Sources */,
-				C2E9772928987F57009F4B94 /* SIgnupViewModel.swift in Sources */,
+				C2436387289A2CE4003C1A44 /* FirebaseAuthManager.swift in Sources */,
+				C2BB146328A16CB60083CA1E /* CoreDataManager.swift in Sources */,
+				C24BD6EA28A134C3007FCAB7 /* UserFirebaseManager.swift in Sources */,
+				C2E9772928987F57009F4B94 /* SignupViewModel.swift in Sources */,
 				C2E976D92898701C009F4B94 /* AppDelegate.swift in Sources */,
 				C2E9772F28987FA0009F4B94 /* NetworkManager.swift in Sources */,
+				C2112DE1289A18FB009601AB /* HomeViewController.swift in Sources */,
+				C2BB146128A153390083CA1E /* StringExtension.swift in Sources */,
 				C2E9772028987F2A009F4B94 /* SignupViewController.swift in Sources */,
-				C2E9772D28987F94009F4B94 /* LocalManager.swift in Sources */,
 				C2E9772B28987F79009F4B94 /* User.swift in Sources */,
+				C2436385289A2CD6003C1A44 /* FirebaseFirestoreManager.swift in Sources */,
+				C2436389289A2D21003C1A44 /* BaseModel.swift in Sources */,
 				C2E976DB2898701C009F4B94 /* SceneDelegate.swift in Sources */,
 				C2E976E32898701C009F4B94 /* RoutesApp_ios.xcdatamodeld in Sources */,
 				C2E9772728987F48009F4B94 /* LoginViewModel.swift in Sources */,
-				C2E977332898802F009F4B94 /* Date.swift in Sources */,
+				C2E977332898802F009F4B94 /* Encodable.swift in Sources */,
 				C2E9773128987FB9009F4B94 /* FloatingButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -507,6 +651,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2E976F32898701D009F4B94 /* RoutesApp_iosTests.swift in Sources */,
+				C20A86D528A339540000EF7C /* AuthTests.swift in Sources */,
+				C20A86D328A338E30000EF7C /* TestResources.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -521,6 +667,25 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		C2BB145428A150A70083CA1E /* SignupViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C2BB145328A150A70083CA1E /* Base */,
+				C2BB145628A150AE0083CA1E /* en */,
+				C2BB145828A150B20083CA1E /* es-419 */,
+			);
+			name = SignupViewController.xib;
+			sourceTree = "<group>";
+		};
+		C2BB145E28A1529E0083CA1E /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C2BB145D28A1529E0083CA1E /* es-419 */,
+				C2BB145F28A152AE0083CA1E /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		C2E976DE2898701C009F4B94 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -533,6 +698,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				C2E976E72898701D009F4B94 /* Base */,
+				C2BB144A28A14E330083CA1E /* es-419 */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -544,6 +710,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -604,6 +771,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -675,7 +843,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.logatus.RoutesApp-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jalasoft.routesapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -704,7 +872,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.logatus.RoutesApp-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jalasoft.routesapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -785,6 +953,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C243637E289A27CC003C1A44 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = exactVersion;
+				version = 8.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C243637F289A27CC003C1A44 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C243637E289A27CC003C1A44 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		C2436381289A27CC003C1A44 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C243637E289A27CC003C1A44 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		C2E976E12898701C009F4B94 /* RoutesApp_ios.xcdatamodeld */ = {

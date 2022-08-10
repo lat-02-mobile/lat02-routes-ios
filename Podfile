@@ -7,6 +7,8 @@ target 'RoutesApp_ios' do
 
   # Pods for RoutesApp_ios
   pod 'SwiftLint', '0.47.1'
+  pod 'SVProgressHUD', '2.2.5'
+  pod 'IQKeyboardManagerSwift', '6.2.1'
 
   target 'RoutesApp_iosTests' do
     inherit! :search_paths

@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  RoutesApp_ios
+
+  Created by Alvaro Choque on 8/8/22.
+  
+*/
+
+"error-signup-name" = "El nombre no puede estar vacio";
+"error-signup-passwords" = "Las contraseñas no coinciden";
+"error-signup-password-weak" = "La contraseña debe tener como minimo 6 caracteres";
+"error-signup-email" = "El email es invalido";
+"error-signup-email-exist" = "El email ya esta en uso por otro tipo de autenticacion";
+"error-signup-email-empty" = "El email no puede estar vacio";
+"error-unknown" = "Algo salio mal";
