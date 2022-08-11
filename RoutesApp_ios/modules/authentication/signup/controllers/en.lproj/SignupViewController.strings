@@ -31,3 +31,6 @@
 
 /* Class = "UILabel"; text = "Sign Up"; ObjectID = "gAK-vH-wgN"; */
 "gAK-vH-wgN.text" = "Sign Up";
+
+/* Class = "UILabel"; text = "Please fill the following fields"; ObjectID = "3fC-OJ-52g"; */
+"3fC-OJ-52g.text" = "Please fill the following fields";

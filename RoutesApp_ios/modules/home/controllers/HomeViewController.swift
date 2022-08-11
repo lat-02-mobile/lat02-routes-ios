@@ -8,10 +8,14 @@
 import UIKit
 
 class HomeViewController: UIViewController {
+    let viewmodel = HomeViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
-
+    @IBAction func logout(_ sender: Any) {
+        viewmodel.logout()
+        SceneDelegate.shared?.setupRootControllerIfNeeded(validUser: viewmodel.authManager.userIsLoggedIn())
+    }
 }
