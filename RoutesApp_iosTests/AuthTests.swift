@@ -10,12 +10,24 @@ import FirebaseAuth
 @testable import RoutesApp_ios
 
 class MockAuthManager: AuthProtocol {
+    var isValidToken = false
+    var isValidCredential = false
     func signInWithGoogle(target: UIViewController, completion: @escaping (Result<(credential: NSObject, email: String), Error>) -> Void) {
-
+        if !isValidToken {
+            isValidCredential = false
+            completion(.failure(NSError(domain: "Error", code: 0)))
+            return
+        }
+        isValidCredential = true
+        completion(.success((NSObject(), "mockemail@gmail.com")))
     }
 
     func firebaseSocialMediaSignIn(with credential: NSObject, completion: @escaping (Result<NSObject?, Error>) -> Void) {
-
+        if !isValidCredential {
+            completion(.failure(NSError(domain: "Error", code: 0)))
+            return
+        }
+        completion(.success(NSObject()))
     }
 
     func signupUser(email: String, password: String, completion: @escaping (Result<AuthDataResult?, Error>) -> Void) {
@@ -69,5 +81,57 @@ class AuthTests: XCTestCase {
     func testSignupFailureDueWeakPassword() {
         signupViewmodel.signupUser(email: "john@doe.com", name: "john", password: "test", confirmPassword: "test")
         XCTAssert((signupViewmodel.userManager as? MockUserManager ?? MockUserManager()).registerUserGotCalled == false)
+    }
+    // MARK: Google Signin Tests
+    func testGoogleSignValidToken() {
+        let authManager = signupViewmodel.authManager as? MockAuthManager ?? MockAuthManager()
+        authManager.isValidToken = true
+        authManager.signInWithGoogle(target: UIViewController()) { result in
+            switch result {
+            case .success:
+                XCTAssertTrue(authManager.isValidCredential)
+            case .failure:
+                XCTAssertFalse(authManager.isValidCredential)
+            }
+        }
+    }
+
+    func testGoogleSignInValidToken() {
+        let authManager = signupViewmodel.authManager as? MockAuthManager ?? MockAuthManager()
+        authManager.isValidToken = false
+        authManager.signInWithGoogle(target: UIViewController()) { result in
+            switch result {
+            case .success:
+                XCTAssertTrue(authManager.isValidCredential)
+            case .failure:
+                XCTAssertFalse(authManager.isValidCredential)
+            }
+        }
+    }
+
+    func testFirebaseValidCredential() {
+        let authManager = signupViewmodel.authManager as? MockAuthManager ?? MockAuthManager()
+        authManager.isValidToken = false
+        authManager.firebaseSocialMediaSignIn(with: NSObject()) { result in
+            switch result {
+            case .success(let authUser):
+                XCTAssertNotNil(authUser)
+            case .failure:
+                XCTAssertFalse(authManager.isValidCredential)
+            }
+        }
+    }
+
+    func testFirebaseInValidCredential() {
+        let authManager = signupViewmodel.authManager as? MockAuthManager ?? MockAuthManager()
+        authManager.isValidToken = false
+        authManager.firebaseSocialMediaSignIn(with: NSObject()) { result in
+            switch result {
+            case .success(let authUser):
+                XCTAssertNotNil(authUser)
+            case .failure:
+                XCTAssertFalse(authManager.isValidCredential)
+            }
+        }
     }
 }
