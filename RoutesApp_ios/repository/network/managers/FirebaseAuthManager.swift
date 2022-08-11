@@ -40,7 +40,7 @@ class FirebaseAuthManager: AuthProtocol {
         guard let clientID = FirebaseApp.app()?.options.clientID else { return }
         let config = GIDConfiguration(clientID: clientID)
         GIDSignIn.sharedInstance.signIn(with: config, presenting: target) { (user, error) in
-            if error != nil { return completion(.failure(error!)) }
+            if let error = error { return completion(.failure(error)) }
             guard let authentication = user?.authentication,
                 let idToken = authentication.idToken,
                 let user = user, let profile = user.profile else { return completion(.failure(AuthErrors.ERROR_GOOGLE_SIGN_IN_TOKEN)) }

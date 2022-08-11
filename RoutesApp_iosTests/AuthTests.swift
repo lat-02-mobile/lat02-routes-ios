@@ -54,9 +54,11 @@ class MockUserManager: UserManProtocol {
 
 class AuthTests: XCTestCase {
     var signupViewmodel = SignupViewModel()
+    var authManager = MockAuthManager()
     override func setUpWithError() throws {
         signupViewmodel.authManager = MockAuthManager()
         signupViewmodel.userManager = MockUserManager()
+        authManager = signupViewmodel.authManager as? MockAuthManager ?? MockAuthManager()
     }
     func testSignupSuccess() {
         signupViewmodel.signupUser(email: "john@doe.com", name: "john", password: "test1234", confirmPassword: "test1234")
@@ -84,53 +86,49 @@ class AuthTests: XCTestCase {
     }
     // MARK: Google Signin Tests
     func testGoogleSignValidToken() {
-        let authManager = signupViewmodel.authManager as? MockAuthManager ?? MockAuthManager()
         authManager.isValidToken = true
         authManager.signInWithGoogle(target: UIViewController()) { result in
             switch result {
             case .success:
-                XCTAssertTrue(authManager.isValidCredential)
+                XCTAssertTrue(self.authManager.isValidCredential)
             case .failure:
-                XCTAssertFalse(authManager.isValidCredential)
+                XCTAssertFalse(self.authManager.isValidCredential)
             }
         }
     }
 
     func testGoogleSignInValidToken() {
-        let authManager = signupViewmodel.authManager as? MockAuthManager ?? MockAuthManager()
         authManager.isValidToken = false
         authManager.signInWithGoogle(target: UIViewController()) { result in
             switch result {
             case .success:
-                XCTAssertTrue(authManager.isValidCredential)
+                XCTAssertTrue(self.authManager.isValidCredential)
             case .failure:
-                XCTAssertFalse(authManager.isValidCredential)
+                XCTAssertFalse(self.authManager.isValidCredential)
             }
         }
     }
 
     func testFirebaseValidCredential() {
-        let authManager = signupViewmodel.authManager as? MockAuthManager ?? MockAuthManager()
         authManager.isValidToken = false
         authManager.firebaseSocialMediaSignIn(with: NSObject()) { result in
             switch result {
             case .success(let authUser):
                 XCTAssertNotNil(authUser)
             case .failure:
-                XCTAssertFalse(authManager.isValidCredential)
+                XCTAssertFalse(self.authManager.isValidCredential)
             }
         }
     }
 
     func testFirebaseInValidCredential() {
-        let authManager = signupViewmodel.authManager as? MockAuthManager ?? MockAuthManager()
         authManager.isValidToken = false
         authManager.firebaseSocialMediaSignIn(with: NSObject()) { result in
             switch result {
             case .success(let authUser):
                 XCTAssertNotNil(authUser)
             case .failure:
-                XCTAssertFalse(authManager.isValidCredential)
+                XCTAssertFalse(self.authManager.isValidCredential)
             }
         }
     }

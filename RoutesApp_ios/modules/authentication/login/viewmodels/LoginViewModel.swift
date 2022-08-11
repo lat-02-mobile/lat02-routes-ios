@@ -20,7 +20,7 @@ class LoginViewModel {
         authManager.signInWithGoogle(target: target) { (result) in
             switch result {
             case .success((let credential, let email)):
-                self.getUser(UserTypeLogin.GOOGLE, email: email) { user in
+                self.getUser(email: email) { user in
                     if let user = user, user.typeLogin != UserTypeLogin.GOOGLE.rawValue {
                         self.onError?(String.localizeString(localizedString: "error-signup-email-exist"))
                         return
@@ -43,11 +43,11 @@ class LoginViewModel {
         }
     }
 
-    private func getUser(_ typeLogin: UserTypeLogin, email: String, completion: @escaping ((_ user: User?) -> Void)) {
+    private func getUser(email: String, completion: @escaping ((_ user: User?) -> Void)) {
         userManager.getUsers { result in
             switch result {
             case .success(let users):
-                let user = users.filter {$0.email == email && $0.typeLogin == typeLogin.rawValue} .first
+                let user = users.filter {$0.email == email} .first
                 completion(user)
             case .failure(let error):
                 self.onError?(error.localizedDescription)
