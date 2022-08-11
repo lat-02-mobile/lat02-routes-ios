@@ -17,6 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         // Use Firebase library to configure APIs
+        if #available(iOS 15, *) {
+                let navigationBarAppearance = UINavigationBarAppearance()
+                navigationBarAppearance.configureWithTransparentBackground()
+                UINavigationBar.appearance().standardAppearance = navigationBarAppearance
+                UINavigationBar.appearance().compactAppearance = navigationBarAppearance
+                UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
+        }
         FirebaseApp.configure()
         IQKeyboardManager.shared.enable = true
         return true

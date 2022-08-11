@@ -30,6 +30,19 @@ class MockAuthManager: AuthProtocol {
         completion(.success(NSObject()))
     }
 
+    func loginUser(email: String, password: String, completion: @escaping (Result<AuthDataResult?, Error>) -> Void) {
+        if email == TestResources.testUserEmail, password == TestResources.testUserPassword {
+            completion(.success(nil))
+        } else {
+            completion(.failure(NSError(domain: "Error", code: 1)))
+        }
+    }
+    func logout() -> Bool {
+        return true
+    }
+    func userIsLoggedIn() -> Bool {
+        return true
+    }
     func signupUser(email: String, password: String, completion: @escaping (Result<AuthDataResult?, Error>) -> Void) {
         if password.count > 5 && !email.isEmpty {
             completion(.success(nil))
@@ -52,7 +65,11 @@ class MockUserManager: UserManProtocol {
     }
 }
 
-class AuthTests: XCTestCase {
+class MockLoginViewModel: LoginViewModel {
+    var onFinishGotCalled = false
+}
+
+class SignupAuthTests: XCTestCase {
     var signupViewmodel = SignupViewModel()
     var authManager = MockAuthManager()
     override func setUpWithError() throws {
@@ -131,5 +148,27 @@ class AuthTests: XCTestCase {
                 XCTAssertFalse(self.authManager.isValidCredential)
             }
         }
+    }
+}
+
+class LoginAuthTests: XCTestCase {
+    var loginViewmodel = MockLoginViewModel()
+    override func setUpWithError() throws {
+        loginViewmodel.authManager = MockAuthManager()
+        loginViewmodel.onFinish = {
+            self.loginViewmodel.onFinishGotCalled = true
+        }
+    }
+    func testLoginSuccess() {
+        loginViewmodel.loginUser(email: "john@doe.com", password: "test1234")
+        XCTAssert(loginViewmodel.onFinishGotCalled == true)
+    }
+    func testLoginFailureDueWrongEmail() {
+        loginViewmodel.loginUser(email: "doe@doe.com", password: "test1234")
+        XCTAssert(loginViewmodel.onFinishGotCalled == false)
+    }
+    func testLoginFailureDueWrongPassword() {
+        loginViewmodel.loginUser(email: "john@doe.com", password: "test4321")
+        XCTAssert(loginViewmodel.onFinishGotCalled == false)
     }
 }

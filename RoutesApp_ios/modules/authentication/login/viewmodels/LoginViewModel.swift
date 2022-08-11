@@ -15,6 +15,24 @@ class LoginViewModel {
     var onFinish: (() -> Void)?
     var onError: ((_ error: String) -> Void)?
 
+    func loginUser(email: String, password: String) {
+        authManager.loginUser(email: email, password: password) { result in
+            switch result {
+            case .success:
+                self.onFinish?()
+            case .failure(let error):
+                switch AuthErrorCode(rawValue: error._code) {
+                case .userNotFound:
+                    self.onError?(String.localizeString(localizedString: "error-login-email-not-found"))
+                case .wrongPassword:
+                    self.onError?(String.localizeString(localizedString: "error-login-password-wrong"))
+                default:
+                    self.onError?(String.localizeString(localizedString: "error-unknown"))
+                }
+            }
+        }
+    }
+
     // MARK: Google
     func googleSignin(_ target: UIViewController) {
         authManager.signInWithGoogle(target: target) { (result) in
@@ -74,7 +92,14 @@ class LoginViewModel {
             case .success:
                 self.onFinish?()
             case .failure(let error):
-                self.onError?(error.localizedDescription)
+                switch AuthErrorCode(rawValue: error._code) {
+                case .userNotFound:
+                    self.onError?(String.localizeString(localizedString: "error-login-email-not-found"))
+                case .wrongPassword:
+                    self.onError?(String.localizeString(localizedString: "error-login-password-wrong"))
+                default:
+                    self.onError?(String.localizeString(localizedString: "error-unknown"))
+                }
             }
         }
     }

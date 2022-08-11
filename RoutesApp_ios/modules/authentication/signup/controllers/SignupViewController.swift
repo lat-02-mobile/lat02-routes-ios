@@ -46,4 +46,8 @@ class SignupViewController: UIViewController {
         SVProgressHUD.show()
         viewmodel.googleSignin(self)
     }
+
+    @IBAction func login(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
 }
