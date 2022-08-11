@@ -12,8 +12,8 @@ import GoogleSignIn
 
 protocol AuthProtocol {
     func signupUser(email: String, password: String, completion: @escaping (Result<AuthDataResult?, Error>) -> Void)
-    func signInWithGoogle(target: UIViewController, completion: @escaping (Result<(credential: AuthCredential, email: String), Error>) -> Void)
-    func firebaseSocialMediaSignIn(with credential: AuthCredential, completion: @escaping (Result<AuthDataResult, Error>) -> Void)
+    func signInWithGoogle(target: UIViewController, completion: @escaping (Result<(credential: NSObject, email: String), Error>) -> Void)
+    func firebaseSocialMediaSignIn(with credential: NSObject, completion: @escaping (Result<NSObject?, Error>) -> Void)
 }
 
 enum AuthErrors: String, Error {
@@ -35,7 +35,7 @@ class FirebaseAuthManager: AuthProtocol {
         }
     }
 
-    func signInWithGoogle(target: UIViewController, completion: @escaping (Result<(credential: AuthCredential, email: String), Error>) -> Void) {
+    func signInWithGoogle(target: UIViewController, completion: @escaping (Result<(credential: NSObject, email: String), Error>) -> Void) {
         GIDSignIn.sharedInstance.signOut()
         guard let clientID = FirebaseApp.app()?.options.clientID else { return }
         let config = GIDConfiguration(clientID: clientID)
@@ -50,14 +50,18 @@ class FirebaseAuthManager: AuthProtocol {
         }
     }
 
-    func firebaseSocialMediaSignIn(with credential: AuthCredential, completion: @escaping (Result<AuthDataResult, Error>) -> Void) {
+    func firebaseSocialMediaSignIn(with credential: NSObject, completion: @escaping (Result<NSObject?, Error>) -> Void) {
         try? Auth.auth().signOut()
+        guard let credential = credential as? AuthCredential else {
+            completion(.failure(AuthErrors.ERROR_GOOGLE_SIGN_IN_TOKEN))
+            return
+        }
         Auth.auth().signIn(with: credential) { authResult, error in
             if let error = error {
               let authError = error as NSError
                 return completion(.failure(authError))
             }
-            completion(.success(authResult!))
+            completion(.success(authResult))
         }
     }
 }

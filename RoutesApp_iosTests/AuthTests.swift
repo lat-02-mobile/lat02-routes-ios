@@ -10,6 +10,14 @@ import FirebaseAuth
 @testable import RoutesApp_ios
 
 class MockAuthManager: AuthProtocol {
+    func signInWithGoogle(target: UIViewController, completion: @escaping (Result<(credential: NSObject, email: String), Error>) -> Void) {
+
+    }
+
+    func firebaseSocialMediaSignIn(with credential: NSObject, completion: @escaping (Result<NSObject?, Error>) -> Void) {
+
+    }
+
     func signupUser(email: String, password: String, completion: @escaping (Result<AuthDataResult?, Error>) -> Void) {
         if password.count > 5 && !email.isEmpty {
             completion(.success(nil))

@@ -74,13 +74,21 @@ class SignupViewModel {
         authManager.signInWithGoogle(target: target) { (result) in
             switch result {
             case .success((let credential, let email)):
-                self.canUserLoginBy(UserTypeLogin.GOOGLE, email: email) { canLogin in
-                    guard canLogin else {
+                self.getUser(UserTypeLogin.GOOGLE, email: email) { user in
+                    if let user = user, user.typeLogin != UserTypeLogin.GOOGLE.rawValue {
                         self.onError?(String.localizeString(localizedString: "error-signup-email-exist"))
                         return
                     }
-                    self.authManager.firebaseSocialMediaSignIn(with: credential) {_ in
-                        self.onFinish?()
+                    if let user = user, user.typeLogin == UserTypeLogin.GOOGLE.rawValue {
+                        self.signUpWithFirebase(credential: credential) {_ in}
+                        return
+                    }
+                    self.signUpWithFirebase(credential: credential) { authData in
+                        guard let authData = authData as? AuthDataResult else {
+                            self.onError?(String.localizeString(localizedString: "error-unknown"))
+                            return
+                        }
+                        self.createUser(with: UserTypeLogin.GOOGLE, name: authData.user.displayName ?? "N/N", email: authData.user.email ?? "")
                     }
                 }
             case .failure(let error):
@@ -89,12 +97,36 @@ class SignupViewModel {
         }
     }
 
-    private func canUserLoginBy(_ typeLogin: UserTypeLogin, email: String, completion: @escaping ((_ isRegistered: Bool) -> Void)) {
+    private func getUser(_ typeLogin: UserTypeLogin, email: String, completion: @escaping ((_ user: User?) -> Void)) {
         userManager.getUsers { result in
             switch result {
             case .success(let users):
-                let email = users.filter {$0.email == email && $0.typeLogin == typeLogin.rawValue}
-                completion(email.isEmpty)
+                let user = users.filter {$0.email == email && $0.typeLogin == typeLogin.rawValue} .first
+                completion(user)
+            case .failure(let error):
+                self.onError?(error.localizedDescription)
+            }
+        }
+    }
+
+    private func signUpWithFirebase(credential: NSObject, completion: @escaping (NSObject?) -> Void) {
+        guard let credential = credential as? AuthCredential else { return }
+        self.authManager.firebaseSocialMediaSignIn(with: credential) { result in
+            switch result {
+            case .success(let authData):
+                completion(authData)
+            case .failure(let error):
+                self.onError?(error.localizedDescription)
+            }
+            self.onFinish?()
+        }
+    }
+
+    private func createUser(with type: UserTypeLogin, name: String, email: String) {
+        self.userManager.registerUser(name: name, email: email, typeLogin: type) { result in
+            switch result {
+            case .success:
+                self.onFinish?()
             case .failure(let error):
                 self.onError?(error.localizedDescription)
             }
