@@ -41,4 +41,7 @@ class SignupViewController: UIViewController {
               let confirmPassword = confirmPasswordTextField.text else { return }
         viewmodel.signupUser(email: email, name: name, password: password, confirmPassword: confirmPassword)
     }
+    @IBAction func login(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
 }

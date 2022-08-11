@@ -8,11 +8,9 @@
 import Foundation
 import FirebaseAuth
 
-class SignupViewModel {
+class SignupViewModel: ViewModel {
     var authManager: AuthProtocol = FirebaseAuthManager.shared
     var userManager: UserManProtocol = UserFirebaseManager.shared
-    var onFinish: (() -> Void)?
-    var onError: ((_ error: String) -> Void)?
     func signupUser(email: String, name: String, password: String, confirmPassword: String) {
         guard password == confirmPassword else {
             onError?(String.localizeString(localizedString: "error-signup-passwords"))

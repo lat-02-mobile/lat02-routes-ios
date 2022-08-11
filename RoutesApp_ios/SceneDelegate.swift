@@ -13,7 +13,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     static weak var shared: SceneDelegate?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        setupRootControllerIfNeeded(validUser: false)
+        Self.shared = self
+        setupRootControllerIfNeeded(validUser: FirebaseAuthManager.shared.userIsLoggedIn())
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         appDelegate.window = self.window
         guard scene is UIWindowScene else { return }
