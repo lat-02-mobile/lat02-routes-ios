@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import FacebookCore
 import FirebaseCore
 import IQKeyboardManagerSwift
 
@@ -24,6 +25,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 UINavigationBar.appearance().compactAppearance = navigationBarAppearance
                 UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
         }
+        // MARK: Facebook SDK config
+        ApplicationDelegate.shared.application(
+                    application,
+                    didFinishLaunchingWithOptions: launchOptions
+                )
         FirebaseApp.configure()
         IQKeyboardManager.shared.enable = true
         return true

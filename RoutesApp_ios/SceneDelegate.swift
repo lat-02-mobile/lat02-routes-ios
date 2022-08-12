@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FacebookCore
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -19,6 +20,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         appDelegate.window = self.window
         guard scene is UIWindowScene else { return }
     }
+
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        guard let url = URLContexts.first?.url else {
+            return
+        }
+
+        ApplicationDelegate.shared.application(
+            UIApplication.shared,
+            open: url,
+            sourceApplication: nil,
+            annotation: [UIApplication.OpenURLOptionsKey.annotation]
+        )
+    }
+
     func setupRootControllerIfNeeded(validUser: Bool) {
         if validUser {
             let rootViewController = getRootViewControllerForValidUser()

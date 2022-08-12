@@ -105,6 +105,9 @@
                                                 </backgroundConfiguration>
                                                 <fontDescription key="titleFontDescription" type="boldSystem" pointSize="15"/>
                                             </buttonConfiguration>
+                                            <connections>
+                                                <action selector="facebookSignin:" destination="-1" eventType="touchUpInside" id="opm-qh-BHD"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mtg-5L-AQ8">
                                             <rect key="frame" x="0.0" y="67" width="229.5" height="62"/>
