@@ -7,7 +7,7 @@ Routes repository for ios
 ![Captura de Pantalla 2022-08-15 a la(s) 17 28 12](https://user-images.githubusercontent.com/20176876/184721638-64d7e12e-8e7d-4831-9507-2cd50372e211.png)
 
 
-2. In the google info.plist file replace the **identifier** `GOOGLE_REVERSE_CLIENT` with the value of the key `REVERSED_CLIENT_ID` from the `GoogleService-Info.plist`.
+2. In the google info.plist file replace the **identifier** `REVERSED_CLIENT` with the value of the key `REVERSED_CLIENT_ID` from the `GoogleService-Info.plist`.
 
 ### Set up the Facebook Login authentication
 
