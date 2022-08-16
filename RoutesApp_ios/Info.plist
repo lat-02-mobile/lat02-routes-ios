@@ -28,7 +28,7 @@
             <string>Editor</string>
             <key>CFBundleURLSchemes</key>
             <array>
-                <string>GOOGLE_REVERSE_CLIENT</string>
+                <string>REVERSED_CLIENT</string>
                 <string>fbFB_APP_IDENTIFIER</string>
             </array>
         </dict>
