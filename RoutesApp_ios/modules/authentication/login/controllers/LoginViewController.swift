@@ -45,4 +45,9 @@ class LoginViewController: UIViewController {
     @IBAction func googleSignin(_ sender: Any) {
         viewmodel.googleSignin(self)
     }
+
+    @IBAction func facebookSignin(_ sender: Any) {
+        SVProgressHUD.show()
+        viewmodel.facebookSignIn(self)
+    }
 }

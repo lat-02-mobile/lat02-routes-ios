@@ -22,6 +22,16 @@ class MockAuthManager: AuthProtocol {
         completion(.success((NSObject(), "mockemail@gmail.com")))
     }
 
+    func signInWithFacebook(target: UIViewController, completion: @escaping (Result<(credential: NSObject, email: String), Error>) -> Void) {
+        if !isValidToken {
+            isValidCredential = false
+            completion(.failure(NSError(domain: "Error", code: 0)))
+            return
+        }
+        isValidCredential = true
+        completion(.success((NSObject(), "mockemail@facebook.com")))
+    }
+
     func firebaseSocialMediaSignIn(with credential: NSObject, completion: @escaping (Result<NSObject?, Error>) -> Void) {
         if !isValidCredential {
             completion(.failure(NSError(domain: "Error", code: 0)))
@@ -154,6 +164,31 @@ class SignupAuthTests: XCTestCase {
     func testGoogleSignInValidToken() {
         authManager.isValidToken = false
         authManager.signInWithGoogle(target: UIViewController()) { result in
+            switch result {
+            case .success:
+                XCTAssertTrue(self.authManager.isValidCredential)
+            case .failure:
+                XCTAssertFalse(self.authManager.isValidCredential)
+            }
+        }
+    }
+
+    // MARK: Facebook
+    func testFacebookSignValidToken() {
+        authManager.isValidToken = true
+        authManager.signInWithFacebook(target: UIViewController()) { result in
+            switch result {
+            case .success:
+                XCTAssertTrue(self.authManager.isValidCredential)
+            case .failure:
+                XCTAssertFalse(self.authManager.isValidCredential)
+            }
+        }
+    }
+
+    func testFacebookSignInValidToken() {
+        authManager.isValidToken = false
+        authManager.signInWithFacebook(target: UIViewController()) { result in
             switch result {
             case .success:
                 XCTAssertTrue(self.authManager.isValidCredential)

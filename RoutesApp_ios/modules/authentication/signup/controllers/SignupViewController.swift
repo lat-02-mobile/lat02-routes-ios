@@ -50,4 +50,9 @@ class SignupViewController: UIViewController {
     @IBAction func login(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
+
+    @IBAction func facebookSignin(_ sender: Any) {
+        SVProgressHUD.show()
+        viewmodel.facebookSignIn(self)
+    }
 }

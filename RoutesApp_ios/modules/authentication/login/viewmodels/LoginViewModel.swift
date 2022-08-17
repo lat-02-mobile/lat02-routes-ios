@@ -103,4 +103,32 @@ class LoginViewModel {
             }
         }
     }
+
+    // MARK: Facebook
+    func facebookSignIn(_ target: UIViewController) {
+        authManager.signInWithFacebook(target: target) { (result) in
+            switch result {
+            case .success((let credential, let email)):
+                self.getUser(email: email) { user in
+                    if let user = user, user.typeLogin != UserTypeLogin.FACEBOOK.rawValue {
+                        self.onError?(String.localizeString(localizedString: "error-signup-email-exist"))
+                        return
+                    }
+                    if let user = user, user.typeLogin == UserTypeLogin.FACEBOOK.rawValue {
+                        self.signUpWithFirebase(credential: credential) {_ in}
+                        return
+                    }
+                    self.signUpWithFirebase(credential: credential) { authData in
+                        guard let authData = authData as? AuthDataResult else {
+                            self.onError?(String.localizeString(localizedString: "error-unknown"))
+                            return
+                        }
+                        self.createUser(with: UserTypeLogin.FACEBOOK, name: authData.user.displayName ?? "N/N", email: authData.user.email ?? "")
+                    }
+                }
+            case .failure(let error):
+                self.onError?(error.localizedDescription)
+            }
+        }
+    }
 }
