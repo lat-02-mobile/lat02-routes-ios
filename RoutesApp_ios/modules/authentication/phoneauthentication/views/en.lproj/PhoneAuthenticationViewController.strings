@@ -1,0 +1,15 @@
+
+/* Class = "UILabel"; text = "Add your phone number"; ObjectID = "0hg-td-o5P"; */
+"0hg-td-o5P.text" = "Add your phone number";
+
+/* Class = "UIButton"; configuration.title = "Send"; ObjectID = "15o-s2-xl0"; */
+"15o-s2-xl0.configuration.title" = "Send";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "15o-s2-xl0"; */
+"15o-s2-xl0.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Please select a country code"; ObjectID = "BBe-mv-bzb"; */
+"BBe-mv-bzb.text" = "Please select a country code";
+
+/* Class = "UILabel"; text = "Please add phone number"; ObjectID = "HqI-36-Mlc"; */
+"HqI-36-Mlc.text" = "Please add phone number";

@@ -10,6 +10,8 @@ target 'RoutesApp_ios' do
   pod 'SVProgressHUD', '2.2.5'
   pod 'IQKeyboardManagerSwift', '6.2.1'
   pod 'GoogleSignIn', '6.2.2'
+  pod 'CountryPickerSwift', '1.8'
+  pod 'SwiftAlertView', '2.2.1'
   pod 'FacebookCore', '0.9.0'
   pod 'FacebookLogin', '0.9.0'
 

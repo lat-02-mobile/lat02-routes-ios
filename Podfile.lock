@@ -5,6 +5,7 @@ PODS:
   - AppAuth/Core (1.5.0)
   - AppAuth/ExternalUserAgent (1.5.0):
     - AppAuth/Core
+  - CountryPickerSwift (1.8.0)
   - FacebookCore (0.9.0):
     - FBSDKCoreKit (~> 5.0)
   - FacebookLogin (0.9.0):
@@ -31,19 +32,23 @@ PODS:
   - GTMSessionFetcher/Core (1.7.2)
   - IQKeyboardManagerSwift (6.2.1)
   - SVProgressHUD (2.2.5)
+  - SwiftAlertView (2.2.1)
   - SwiftLint (0.47.1)
 
 DEPENDENCIES:
+  - CountryPickerSwift (= 1.8)
   - FacebookCore (= 0.9.0)
   - FacebookLogin (= 0.9.0)
   - GoogleSignIn (= 6.2.2)
   - IQKeyboardManagerSwift (= 6.2.1)
   - SVProgressHUD (= 2.2.5)
+  - SwiftAlertView (= 2.2.1)
   - SwiftLint (= 0.47.1)
 
 SPEC REPOS:
   trunk:
     - AppAuth
+    - CountryPickerSwift
     - FacebookCore
     - FacebookLogin
     - FBSDKCoreKit
@@ -53,10 +58,12 @@ SPEC REPOS:
     - GTMSessionFetcher
     - IQKeyboardManagerSwift
     - SVProgressHUD
+    - SwiftAlertView
     - SwiftLint
 
 SPEC CHECKSUMS:
   AppAuth: 80317d99ac7ff2801a2f18ff86b48cd315ed465d
+  CountryPickerSwift: 4c328ae9687322cacf541120f5c43f0e2c1ba194
   FacebookCore: ba86524b66cfa86d0f8e65d08faa8504a9f732dd
   FacebookLogin: 6cee9fd6e1fe976fe8f7eec199e27b28b14f5d63
   FBSDKCoreKit: 1d5acf7c9d7a2f92bb1a242dc60cae5b7adb91df
@@ -66,8 +73,9 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 5595ec75acf5be50814f81e9189490412bad82ba
   IQKeyboardManagerSwift: 0f0ae8935360b4003e6ea1ac7c19898f01e2f7c7
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  SwiftAlertView: e61a63206f19e8e3295f13a58d6464fea4a6946a
   SwiftLint: f80f1be7fa96d30e0aa68e58d45d4ea1ccaac519
 
-PODFILE CHECKSUM: 93dd6ba48e11b6a5e0e732f27863a97bd68624ef
+PODFILE CHECKSUM: 2993d57dd14ac0b3621b94b67f461ac2c003eae5
 
 COCOAPODS: 1.11.3

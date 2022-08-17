@@ -15,5 +15,17 @@
 // Login
 "error-login-email-not-found" = "No existe un usuario con este correo. Asegurate que es el correcto";
 "error-login-password-wrong" = "La contraseña no es correcta";
+// Phone authentication
+"error-phoneauthentication-no-country-code" = "Seleccione el número de código de país";
+"error-phoneauthentication-no-phone-number" = "Por favor, introduzca su número de teléfono";
+"error-codeverification" = "El código no coincide";
+"error-codeverification-no-code-enter" = "Ninguno código fue introducido";
+"code-forwarded-codeverification" = "El código fue reenviado";
+"code-verification-alert-title" = "Introduzca el código";
+"code-verification-alert-cancel" = "Cancelar";
+"code-verification-alert-verify" = "Verificar";
+"code-verification-alert-Resend" = "Reenviar";
+"code" = "Código";
+
 // Default
 "error-unknown" = "Algo salio mal";

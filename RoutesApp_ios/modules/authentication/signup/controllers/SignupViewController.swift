@@ -23,8 +23,8 @@ class SignupViewController: UIViewController {
         viewmodel.onFinish = { [weak self] in
             SVProgressHUD.dismiss()
             self?.errorLabel.isHidden = true
-            // MARK: Here probably goes the redirection for the phone validation screen and after that the following line
-            self?.navigationController?.popViewController(animated: true)
+            let phoneAuthenticationScreen = PhoneAuthenticationViewController()
+            self?.show(phoneAuthenticationScreen, sender: nil)
         }
         viewmodel.onError = { [weak self] error in
             SVProgressHUD.dismiss()
