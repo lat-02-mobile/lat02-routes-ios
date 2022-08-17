@@ -31,6 +31,7 @@ class PhoneAuthenticationViewController: UIViewController {
         alertView = SwiftAlertView(title: title, buttonTitles: buttonTitles)
         alertView.addTextField { textField in
             textField.placeholder = String.localizeString(localizedString: "code")
+            textField.keyboardType = .numberPad
         }
         alertView.isEnabledValidationLabel = true
         alertView.isDismissOnActionButtonClicked = false
