@@ -10,6 +10,8 @@ target 'RoutesApp_ios' do
   pod 'SVProgressHUD', '2.2.5'
   pod 'IQKeyboardManagerSwift', '6.2.1'
   pod 'GoogleSignIn', '6.2.2'
+  pod 'CountryPickerSwift', '1.8'
+  pod 'SwiftAlertView', '2.2.1'
 
   target 'RoutesApp_iosTests' do
     inherit! :search_paths

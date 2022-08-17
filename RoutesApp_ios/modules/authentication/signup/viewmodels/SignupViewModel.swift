@@ -28,7 +28,7 @@ class SignupViewModel: ViewModel {
                 authManager.signupUser(email: email, password: password) { result in
                     switch result {
                     case .success:
-                        self.createUser(name: name, email: email)
+                        self.createUser(name: name, email: email, password: password)
                     case .failure(let error):
                         switch AuthErrorCode(rawValue: error._code) {
                         case .invalidEmail:
@@ -45,13 +45,30 @@ class SignupViewModel: ViewModel {
             }
         }
     }
-    private func createUser(name: String, email: String) {
+    private func createUser(name: String, email: String, password: String) {
         self.userManager.registerUser(name: name, email: email, typeLogin: .NORMAL) { result in
+            switch result {
+            case .success:
+                self.loginUser(email: email, password: password)
+            case .failure(let error):
+                self.onError?(error.localizedDescription)
+            }
+        }
+    }
+    private func loginUser(email: String, password: String) {
+        authManager.loginUser(email: email, password: password) { result in
             switch result {
             case .success:
                 self.onFinish?()
             case .failure(let error):
-                self.onError?(error.localizedDescription)
+                switch AuthErrorCode(rawValue: error._code) {
+                case .userNotFound:
+                    self.onError?(String.localizeString(localizedString: "error-login-email-not-found"))
+                case .wrongPassword:
+                    self.onError?(String.localizeString(localizedString: "error-login-password-wrong"))
+                default:
+                    self.onError?(String.localizeString(localizedString: "error-unknown"))
+                }
             }
         }
     }

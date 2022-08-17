@@ -50,6 +50,22 @@ class MockAuthManager: AuthProtocol {
             completion(.failure(NSError(domain: "Error", code: 0)))
         }
     }
+    func sendPhoneNumberCode(phoneNumber: String, completion: @escaping (Result<String, Error>) -> Void) {
+        if phoneNumber.count < 16, phoneNumber.first == "+"{
+            completion(.success(""))
+        }else{
+            completion(.failure(NSError(domain: "Error", code: 0)))
+        }
+    }
+    
+    func verifyPhoneNumber(currentVerificationId: String, code: String, completion: @escaping (Result<AuthDataResult?, Error>) -> Void) {
+        if currentVerificationId.count > 5 , code.count == 4 {
+            completion(.success(nil))
+        }else{
+            completion(.failure(NSError(domain: "Error", code: 0)))
+        }
+    }
+    
 }
 
 class MockUserManager: UserManProtocol {
@@ -101,9 +117,30 @@ class SignupAuthTests: XCTestCase {
         signupViewmodel.signupUser(email: "john@doe.com", name: "john", password: "test", confirmPassword: "test")
         XCTAssert((signupViewmodel.userManager as? MockUserManager ?? MockUserManager()).registerUserGotCalled == false)
     }
+    // MARK: Phone authentication  Tests
+    func testSendPhoneNumberCode() {
+        authManager.sendPhoneNumberCode(phoneNumber:  TestResources.testPhoneNumber ){ result in
+            switch result {
+            case .success (let result):
+                XCTAssertEqual(result, "")
+            case .failure (let result):
+                XCTAssertNotNil(result)
+            }
+        }
+    }
+    func testVerifyPhoneNumber() {
+        authManager.verifyPhoneNumber(currentVerificationId: TestResources.verificationId, code: TestResources.testCode){ result in
+            switch result {
+            case .success (let result):
+               XCTAssertNil(result)
+            case .failure (let result):
+               XCTAssertNotNil(result)
+            }
+        }
+    }
     // MARK: Google Signin Tests
     func testGoogleSignValidToken() {
-        authManager.isValidToken = true
+        authManager.isValidToken = false
         authManager.signInWithGoogle(target: UIViewController()) { result in
             switch result {
             case .success:
