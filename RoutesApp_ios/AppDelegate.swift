@@ -9,6 +9,7 @@ import UIKit
 import CoreData
 import FacebookCore
 import FirebaseCore
+import GoogleMaps
 import IQKeyboardManagerSwift
 
 @main
@@ -30,6 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     application,
                     didFinishLaunchingWithOptions: launchOptions
                 )
+        // MARK: Google Maps config
+        GMSServices.provideAPIKey("AIzaSyA4VdaDrf4ABX1Sb7IOx8ZbzuF43SKqMRY")
         FirebaseApp.configure()
         IQKeyboardManager.shared.enable = true
         return true
