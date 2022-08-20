@@ -22,19 +22,28 @@ class HomeViewController: UIViewController {
         setupMap()
     }
 
-    @IBAction func logout(_ sender: Any) {
-        viewmodel.logout()
-        SceneDelegate.shared?.setupRootControllerIfNeeded(validUser: viewmodel.authManager.userIsLoggedIn())
-    }
-
     func setupViews() {
         currentLocationButton.layer.cornerRadius = 25
         currentLocationButton.clipsToBounds = true
-        let tap = UITapGestureRecognizer(target: self, action: #selector(currentLocationAction))
-        currentLocationButton.addGestureRecognizer(tap)
+
+        let burguerButton = UIButton(type: .custom)
+        burguerButton.frame = CGRect(x: 0, y: 0, width: 45, height: 45)
+        burguerButton.backgroundColor = currentLocationButton.tintColor
+        burguerButton.tintColor = .white
+        burguerButton.setImage(UIImage(systemName: "line.3.horizontal"), for: .normal)
+        burguerButton.layer.cornerRadius = burguerButton.frame.size.height / 2
+        burguerButton.clipsToBounds = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(burgerButtonAction))
+        burguerButton.addGestureRecognizer(tap)
+
+        let counterButtonItem = UIBarButtonItem(customView: burguerButton)
+        navigationItem.leftBarButtonItems = [counterButtonItem]
     }
 
-    @objc func currentLocationAction() {
+    @objc func burgerButtonAction() {
+    }
+
+    @IBAction func currentLocationAction(_ sender: Any) {
         guard CLLocationManager.locationServicesEnabled() else {
             locationManager.requestWhenInUseAuthorization()
             return
@@ -64,15 +73,9 @@ class HomeViewController: UIViewController {
     }
 
     func setupMap() {
-        let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 6.0)
-        do {
-          if let styleURL = Bundle.main.url(forResource: "silver-style", withExtension: "json") {
-            mapView.mapStyle = try GMSMapStyle(contentsOfFileURL: styleURL)
-          }
-        } catch {
-          NSLog("One or more of the map styles failed to load. \(error)")
-        }
-        mapView.camera = camera
+      if let styleURL = Bundle.main.url(forResource: "silver-style", withExtension: "json") {
+        mapView.mapStyle = try? GMSMapStyle(contentsOfFileURL: styleURL)
+      }
     }
 
     func cameraMoveToLocation(toLocation: CLLocationCoordinate2D?) {
@@ -82,17 +85,22 @@ class HomeViewController: UIViewController {
     }
 
     private func showRequestPermissionsAlert() {
-        let alertController = UIAlertController(title: "Permission is required", message: "Please go to Settings and turn on the location permission", preferredStyle: .alert)
+        let alertController = UIAlertController(title: String.localizeString(localizedString: "localization-permission-alert-title"),
+            message: String.localizeString(localizedString: "localization-permission-alert-message"), preferredStyle: .alert)
 
-        let settingsAction = UIAlertAction(title: "Settings", style: .default) { (_) -> Void in
+        let settingsAction = UIAlertAction(title:
+            String.localizeString(localizedString: "localization-permission-alert-settings"),
+               style: .default) { (_) -> Void in
             guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
                 return
             }
             if UIApplication.shared.canOpenURL(settingsUrl) {
-                UIApplication.shared.open(settingsUrl, completionHandler: { (success) in })
+                UIApplication.shared.open(settingsUrl, completionHandler: { (_) in })
              }
         }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+        let cancelAction = UIAlertAction(title:
+            String.localizeString(localizedString: "localization-permission-alert-cancel"),
+             style: .default, handler: nil)
 
         alertController.addAction(cancelAction)
         alertController.addAction(settingsAction)

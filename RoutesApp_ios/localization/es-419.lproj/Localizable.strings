@@ -17,3 +17,10 @@
 "error-login-password-wrong" = "La contraseña no es correcta";
 // Default
 "error-unknown" = "Algo salio mal";
+// Tabbar controller
+"home" = "Inicio";
+// Localization permission alert
+"localization-permission-alert-title" = "Permiso de localización";
+"localization-permission-alert-message" = "Por favor, cambie su configuración en los permisos de localización";
+"localization-permission-alert-cancel" = "Cancelar";
+"localization-permission-alert-settings" = "Configuración";
