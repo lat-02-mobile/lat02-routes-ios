@@ -18,6 +18,8 @@ protocol AuthProtocol {
     func signInWithFacebook(target: UIViewController, completion: @escaping (Result<(credential: NSObject, email: String), Error>) -> Void)
     func firebaseSocialMediaSignIn(with credential: NSObject, completion: @escaping (Result<NSObject?, Error>) -> Void)
     func loginUser(email: String, password: String, completion: @escaping (Result<AuthDataResult?, Error>) -> Void)
+    func sendPhoneNumberCode(phoneNumber: String, completion: @escaping (Result<String, Error>) -> Void)
+    func verifyPhoneNumber(currentVerificationId: String, code: String, completion: @escaping (Result<AuthDataResult?, Error>) -> Void)
     func logout() -> Bool
     func userIsLoggedIn() -> Bool
 }
@@ -73,6 +75,32 @@ class FirebaseAuthManager: AuthProtocol {
     }
     func loginUser(email: String, password: String, completion: @escaping (Result<AuthDataResult?, Error>) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+            if let error = error {
+                completion(.failure(error))
+            } else if let authResult = authResult {
+                completion(.success(authResult))
+            }
+        }
+    }
+    func sendPhoneNumberCode(phoneNumber: String, completion: @escaping (Result<String, Error>) -> Void) {
+        let localLanguage = NSLocale.current.languageCode
+        Auth.auth().languageCode = localLanguage
+        Auth.auth().settings?.isAppVerificationDisabledForTesting = false
+        PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber, uiDelegate: nil) { (verificationID, error) in
+            if let error = error {
+                completion(.failure(error))
+            } else if let verificationID = verificationID {
+                completion(.success(verificationID))
+            }
+        }
+    }
+    func verifyPhoneNumber(currentVerificationId: String, code: String, completion: @escaping (Result<AuthDataResult?, Error>) -> Void) {
+        let user = Auth.auth().currentUser
+        let credential = PhoneAuthProvider.provider().credential(
+             withVerificationID: currentVerificationId,
+             verificationCode: code
+         )
+        user?.link(with: credential) { authResult, error in
             if let error = error {
                 completion(.failure(error))
             } else if let authResult = authResult {

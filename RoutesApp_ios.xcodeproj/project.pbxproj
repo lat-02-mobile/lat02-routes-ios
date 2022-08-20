@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		2AEC15664C895431B8BEB002 /* Pods_RoutesApp_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F808C389CD2F19D7212160C0 /* Pods_RoutesApp_iosTests.framework */; };
 		2E0F8B864F00537D40070409 /* Pods_RoutesApp_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A3327C701B0A7C956D7435B /* Pods_RoutesApp_ios.framework */; };
+		843D043F28AAF3F800C4DF25 /* PhoneAuthenticationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 843D044128AAF3F800C4DF25 /* PhoneAuthenticationViewController.xib */; };
+		845D228928A7050000E9A660 /* PhoneAuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D228728A7050000E9A660 /* PhoneAuthenticationViewController.swift */; };
+		847A59E228A820F5005CEA25 /* PhoneAuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A59E128A820F5005CEA25 /* PhoneAuthenticationViewModel.swift */; };
 		C20A86D128A3383F0000EF7C /* ConstantVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A86D028A3383F0000EF7C /* ConstantVariables.swift */; };
 		C20A86D328A338E30000EF7C /* TestResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A86D228A338E30000EF7C /* TestResources.swift */; };
 		C20A86D528A339540000EF7C /* AuthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A86D428A339540000EF7C /* AuthTests.swift */; };
@@ -62,6 +65,11 @@
 		3A3327C701B0A7C956D7435B /* Pods_RoutesApp_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoutesApp_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D152D581E4EDDDF42A64061 /* Pods_RoutesApp_ios_RoutesApp_iosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoutesApp_ios_RoutesApp_iosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		745BD9E5A26FC5292BC03A32 /* Pods-RoutesApp_ios-RoutesApp_iosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutesApp_ios-RoutesApp_iosUITests.debug.xcconfig"; path = "Target Support Files/Pods-RoutesApp_ios-RoutesApp_iosUITests/Pods-RoutesApp_ios-RoutesApp_iosUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		843D044028AAF3F800C4DF25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PhoneAuthenticationViewController.xib; sourceTree = "<group>"; };
+		843D044328AAF3FE00C4DF25 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PhoneAuthenticationViewController.strings; sourceTree = "<group>"; };
+		843D044528AAF40E00C4DF25 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/PhoneAuthenticationViewController.strings"; sourceTree = "<group>"; };
+		845D228728A7050000E9A660 /* PhoneAuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAuthenticationViewController.swift; sourceTree = "<group>"; };
+		847A59E128A820F5005CEA25 /* PhoneAuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAuthenticationViewModel.swift; sourceTree = "<group>"; };
 		8E4554EE6A9F1EB0D5124479 /* Pods-RoutesApp_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutesApp_ios.release.xcconfig"; path = "Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios.release.xcconfig"; sourceTree = "<group>"; };
 		A81C730CD57A1098D9C868BE /* Pods-RoutesApp_iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutesApp_iosTests.debug.xcconfig"; path = "Target Support Files/Pods-RoutesApp_iosTests/Pods-RoutesApp_iosTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C20A86D028A3383F0000EF7C /* ConstantVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantVariables.swift; sourceTree = "<group>"; };
@@ -145,6 +153,40 @@
 				F4F2DC09BBC0577CE2B41D46 /* Pods-RoutesApp_iosTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		845D228328A7042D00E9A660 /* phoneauthentication */ = {
+			isa = PBXGroup;
+			children = (
+				845D228628A7047000E9A660 /* viewmodels */,
+				845D228528A7046500E9A660 /* controller */,
+				845D228428A7045600E9A660 /* views */,
+			);
+			path = phoneauthentication;
+			sourceTree = "<group>";
+		};
+		845D228428A7045600E9A660 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				843D044128AAF3F800C4DF25 /* PhoneAuthenticationViewController.xib */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		845D228528A7046500E9A660 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				845D228728A7050000E9A660 /* PhoneAuthenticationViewController.swift */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		845D228628A7047000E9A660 /* viewmodels */ = {
+			isa = PBXGroup;
+			children = (
+				847A59E128A820F5005CEA25 /* PhoneAuthenticationViewModel.swift */,
+			);
+			path = viewmodels;
 			sourceTree = "<group>";
 		};
 		B463F0B0A8306905C724BFE4 /* Frameworks */ = {
@@ -352,6 +394,7 @@
 		C2E9771528987DCB009F4B94 /* authentication */ = {
 			isa = PBXGroup;
 			children = (
+				845D228328A7042D00E9A660 /* phoneauthentication */,
 				C2E9771728987DDF009F4B94 /* login */,
 				C2E9771628987DD5009F4B94 /* signup */,
 			);
@@ -551,6 +594,7 @@
 				C2E976E02898701C009F4B94 /* Main.storyboard in Resources */,
 				C2112DE2289A18FB009601AB /* HomeViewController.xib in Resources */,
 				C2BB145C28A1529E0083CA1E /* Localizable.strings in Resources */,
+				843D043F28AAF3F800C4DF25 /* PhoneAuthenticationViewController.xib in Resources */,
 				C2BB145228A150A70083CA1E /* SignupViewController.xib in Resources */,
 				CE0F8D3528AD357F00F2C753 /* silver-style.json in Resources */,
 			);
@@ -684,7 +728,9 @@
 				C2E9772028987F2A009F4B94 /* SignupViewController.swift in Sources */,
 				C2E9772B28987F79009F4B94 /* User.swift in Sources */,
 				C215EF0C28A4BB5D00371DB6 /* ViewModel.swift in Sources */,
+				847A59E228A820F5005CEA25 /* PhoneAuthenticationViewModel.swift in Sources */,
 				C2436385289A2CD6003C1A44 /* FirebaseFirestoreManager.swift in Sources */,
+				845D228928A7050000E9A660 /* PhoneAuthenticationViewController.swift in Sources */,
 				C2436389289A2D21003C1A44 /* BaseModel.swift in Sources */,
 				C2E976DB2898701C009F4B94 /* SceneDelegate.swift in Sources */,
 				C2E976E32898701C009F4B94 /* RoutesApp_ios.xcdatamodeld in Sources */,
@@ -715,6 +761,16 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		843D044128AAF3F800C4DF25 /* PhoneAuthenticationViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				843D044028AAF3F800C4DF25 /* Base */,
+				843D044328AAF3FE00C4DF25 /* en */,
+				843D044528AAF40E00C4DF25 /* es-419 */,
+			);
+			name = PhoneAuthenticationViewController.xib;
+			sourceTree = "<group>";
+		};
 		C215EF0F28A4C1BC00371DB6 /* LoginViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (

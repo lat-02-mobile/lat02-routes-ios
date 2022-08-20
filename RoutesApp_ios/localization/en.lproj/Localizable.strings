@@ -15,6 +15,18 @@
 // Login
 "error-login-email-not-found" = "There is no user with this email. Make sure this is the right one";
 "error-login-password-wrong" = "The password is not correct";
+// Phone authentication
+"error-phoneauthentication-no-country-code" = "Please select country code number";
+"error-phoneauthentication-no-phone-number" = "Please enter your phone number";
+"error-codeverification" = "The code does not match";
+"error-codeverification-no-code-enter" = "No code was entered";
+"code-forwarded-codeverification" = "The code was forwarded";
+"code-verification-alert-title" = "Please enter code";
+"code-verification-alert-cancel" = "Cancel";
+"code-verification-alert-verify" = "Verfiy";
+"code-verification-alert-Resend" = "Resend";
+"code" = "Code";
+
 // Default
 "error-unknown" = "Something went wrong";
 // Tabbar controller
