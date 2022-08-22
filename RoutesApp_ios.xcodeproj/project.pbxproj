@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		2AEC15664C895431B8BEB002 /* Pods_RoutesApp_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F808C389CD2F19D7212160C0 /* Pods_RoutesApp_iosTests.framework */; };
 		2E0F8B864F00537D40070409 /* Pods_RoutesApp_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A3327C701B0A7C956D7435B /* Pods_RoutesApp_ios.framework */; };
+		84067C4A28B3B1CD00549300 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84067C4828B3B1CD00549300 /* SettingsViewController.swift */; };
+		84067C4C28B3B5BD00549300 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84067C4E28B3B5BD00549300 /* SettingsViewController.xib */; };
+		84067C6128B3BF9C00549300 /* CityPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84067C5F28B3BF9C00549300 /* CityPickerViewController.swift */; };
+		84067C6228B3BF9C00549300 /* CityPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84067C6028B3BF9C00549300 /* CityPickerViewController.xib */; };
+		84067C6528B3D0A700549300 /* CitySplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84067C6328B3D0A700549300 /* CitySplashViewController.swift */; };
+		84067C6628B3D0A700549300 /* CitySplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84067C6428B3D0A700549300 /* CitySplashViewController.xib */; };
+		84067C6828B3D3AA00549300 /* CityPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84067C6728B3D3AA00549300 /* CityPickerViewModel.swift */; };
+		84067C6A28B3D58500549300 /* CityFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84067C6928B3D58500549300 /* CityFirebaseManager.swift */; };
 		843D043F28AAF3F800C4DF25 /* PhoneAuthenticationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 843D044128AAF3F800C4DF25 /* PhoneAuthenticationViewController.xib */; };
 		845D228928A7050000E9A660 /* PhoneAuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D228728A7050000E9A660 /* PhoneAuthenticationViewController.swift */; };
 		847A59E228A820F5005CEA25 /* PhoneAuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A59E128A820F5005CEA25 /* PhoneAuthenticationViewModel.swift */; };
@@ -64,6 +72,16 @@
 		3A3327C701B0A7C956D7435B /* Pods_RoutesApp_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoutesApp_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D152D581E4EDDDF42A64061 /* Pods_RoutesApp_ios_RoutesApp_iosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoutesApp_ios_RoutesApp_iosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		745BD9E5A26FC5292BC03A32 /* Pods-RoutesApp_ios-RoutesApp_iosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutesApp_ios-RoutesApp_iosUITests.debug.xcconfig"; path = "Target Support Files/Pods-RoutesApp_ios-RoutesApp_iosUITests/Pods-RoutesApp_ios-RoutesApp_iosUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		84067C4828B3B1CD00549300 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		84067C4D28B3B5BD00549300 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SettingsViewController.xib; sourceTree = "<group>"; };
+		84067C5828B3BCF600549300 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SettingsViewController.strings; sourceTree = "<group>"; };
+		84067C5A28B3BCF900549300 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/SettingsViewController.strings"; sourceTree = "<group>"; };
+		84067C5F28B3BF9C00549300 /* CityPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityPickerViewController.swift; sourceTree = "<group>"; };
+		84067C6028B3BF9C00549300 /* CityPickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CityPickerViewController.xib; sourceTree = "<group>"; };
+		84067C6328B3D0A700549300 /* CitySplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySplashViewController.swift; sourceTree = "<group>"; };
+		84067C6428B3D0A700549300 /* CitySplashViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CitySplashViewController.xib; sourceTree = "<group>"; };
+		84067C6728B3D3AA00549300 /* CityPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityPickerViewModel.swift; sourceTree = "<group>"; };
+		84067C6928B3D58500549300 /* CityFirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityFirebaseManager.swift; sourceTree = "<group>"; };
 		843D044028AAF3F800C4DF25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PhoneAuthenticationViewController.xib; sourceTree = "<group>"; };
 		843D044328AAF3FE00C4DF25 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PhoneAuthenticationViewController.strings; sourceTree = "<group>"; };
 		843D044528AAF40E00C4DF25 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/PhoneAuthenticationViewController.strings"; sourceTree = "<group>"; };
@@ -151,6 +169,75 @@
 				F4F2DC09BBC0577CE2B41D46 /* Pods-RoutesApp_iosTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		84067C4428B3B15700549300 /* settings */ = {
+			isa = PBXGroup;
+			children = (
+				84067C4728B3B19900549300 /* views */,
+				84067C4628B3B19100549300 /* controllers */,
+				84067C4528B3B16400549300 /* viewmodels */,
+			);
+			path = settings;
+			sourceTree = "<group>";
+		};
+		84067C4528B3B16400549300 /* viewmodels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = viewmodels;
+			sourceTree = "<group>";
+		};
+		84067C4628B3B19100549300 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				84067C4828B3B1CD00549300 /* SettingsViewController.swift */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		84067C4728B3B19900549300 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				84067C4E28B3B5BD00549300 /* SettingsViewController.xib */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		84067C5B28B3BF4D00549300 /* citypicker */ = {
+			isa = PBXGroup;
+			children = (
+				84067C5E28B3BF7500549300 /* viewmodels */,
+				84067C5D28B3BF6900549300 /* controllers */,
+				84067C5C28B3BF6100549300 /* views */,
+			);
+			path = citypicker;
+			sourceTree = "<group>";
+		};
+		84067C5C28B3BF6100549300 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				84067C6428B3D0A700549300 /* CitySplashViewController.xib */,
+				84067C6028B3BF9C00549300 /* CityPickerViewController.xib */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		84067C5D28B3BF6900549300 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				84067C5F28B3BF9C00549300 /* CityPickerViewController.swift */,
+				84067C6328B3D0A700549300 /* CitySplashViewController.swift */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		84067C5E28B3BF7500549300 /* viewmodels */ = {
+			isa = PBXGroup;
+			children = (
+				84067C6728B3D3AA00549300 /* CityPickerViewModel.swift */,
+			);
+			path = viewmodels;
 			sourceTree = "<group>";
 		};
 		845D228328A7042D00E9A660 /* phoneauthentication */ = {
@@ -246,6 +333,7 @@
 				C2436384289A2CD6003C1A44 /* FirebaseFirestoreManager.swift */,
 				C2436386289A2CE4003C1A44 /* FirebaseAuthManager.swift */,
 				C24BD6E928A134C3007FCAB7 /* UserFirebaseManager.swift */,
+				84067C6928B3D58500549300 /* CityFirebaseManager.swift */,
 			);
 			path = managers;
 			sourceTree = "<group>";
@@ -332,6 +420,8 @@
 		C2E9770E28987CFE009F4B94 /* modules */ = {
 			isa = PBXGroup;
 			children = (
+				84067C5B28B3BF4D00549300 /* citypicker */,
+				84067C4428B3B15700549300 /* settings */,
 				C2112DDB289A18C3009601AB /* home */,
 				C2E9771528987DCB009F4B94 /* authentication */,
 			);
@@ -579,11 +669,14 @@
 				CEF1970428A6073000C82AE3 /* GoogleService-Info.plist in Resources */,
 				C2E976E82898701D009F4B94 /* LaunchScreen.storyboard in Resources */,
 				C2E976E52898701D009F4B94 /* Assets.xcassets in Resources */,
+				84067C6628B3D0A700549300 /* CitySplashViewController.xib in Resources */,
 				C2E976E02898701C009F4B94 /* Main.storyboard in Resources */,
 				C2112DE2289A18FB009601AB /* HomeViewController.xib in Resources */,
 				C2BB145C28A1529E0083CA1E /* Localizable.strings in Resources */,
 				843D043F28AAF3F800C4DF25 /* PhoneAuthenticationViewController.xib in Resources */,
+				84067C6228B3BF9C00549300 /* CityPickerViewController.xib in Resources */,
 				C2BB145228A150A70083CA1E /* SignupViewController.xib in Resources */,
+				84067C4C28B3B5BD00549300 /* SettingsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -686,11 +779,13 @@
 				C2E9772428987F3C009F4B94 /* LoginViewController.swift in Sources */,
 				C20A86D128A3383F0000EF7C /* ConstantVariables.swift in Sources */,
 				C2E976DD2898701C009F4B94 /* ViewController.swift in Sources */,
+				84067C6828B3D3AA00549300 /* CityPickerViewModel.swift in Sources */,
 				C2436387289A2CE4003C1A44 /* FirebaseAuthManager.swift in Sources */,
 				C2BB146328A16CB60083CA1E /* CoreDataManager.swift in Sources */,
 				C24BD6EA28A134C3007FCAB7 /* UserFirebaseManager.swift in Sources */,
 				C215EF0928A4B1F500371DB6 /* HomeVIewModel.swift in Sources */,
 				C2E9772928987F57009F4B94 /* SignupViewModel.swift in Sources */,
+				84067C4A28B3B1CD00549300 /* SettingsViewController.swift in Sources */,
 				C2E976D92898701C009F4B94 /* AppDelegate.swift in Sources */,
 				C2E9772F28987FA0009F4B94 /* NetworkManager.swift in Sources */,
 				C2112DE1289A18FB009601AB /* HomeViewController.swift in Sources */,
@@ -701,10 +796,13 @@
 				847A59E228A820F5005CEA25 /* PhoneAuthenticationViewModel.swift in Sources */,
 				C2436385289A2CD6003C1A44 /* FirebaseFirestoreManager.swift in Sources */,
 				845D228928A7050000E9A660 /* PhoneAuthenticationViewController.swift in Sources */,
+				84067C6128B3BF9C00549300 /* CityPickerViewController.swift in Sources */,
 				C2436389289A2D21003C1A44 /* BaseModel.swift in Sources */,
 				C2E976DB2898701C009F4B94 /* SceneDelegate.swift in Sources */,
+				84067C6528B3D0A700549300 /* CitySplashViewController.swift in Sources */,
 				C2E976E32898701C009F4B94 /* RoutesApp_ios.xcdatamodeld in Sources */,
 				C2E9772728987F48009F4B94 /* LoginViewModel.swift in Sources */,
+				84067C6A28B3D58500549300 /* CityFirebaseManager.swift in Sources */,
 				C2E977332898802F009F4B94 /* Encodable.swift in Sources */,
 				C2E9773128987FB9009F4B94 /* FloatingButton.swift in Sources */,
 			);
@@ -731,6 +829,16 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		84067C4E28B3B5BD00549300 /* SettingsViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84067C4D28B3B5BD00549300 /* Base */,
+				84067C5828B3BCF600549300 /* en */,
+				84067C5A28B3BCF900549300 /* es-419 */,
+			);
+			name = SettingsViewController.xib;
+			sourceTree = "<group>";
+		};
 		843D044128AAF3F800C4DF25 /* PhoneAuthenticationViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -914,7 +1022,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = X2663B4F4Y;
+				DEVELOPMENT_TEAM = 64NHHJ7YTA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RoutesApp_ios/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -943,7 +1051,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = X2663B4F4Y;
+				DEVELOPMENT_TEAM = 64NHHJ7YTA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RoutesApp_ios/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

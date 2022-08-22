@@ -55,7 +55,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         tabBarVC.tabBar.barTintColor = .black
         // Add VCs to TabBarVC
         tabBarVC.viewControllers = [
-            createNavController(for: HomeViewController(), title: "Home", image: UIImage(systemName: "newspaper.fill")!)
+            createNavController(for: HomeViewController(), title: "Home", image: UIImage(systemName: "newspaper.fill")!),
+            createNavController(for: SettingsViewController(), title: "Settings", image: UIImage(systemName: "newspaper.fill")!)
         ]
         return tabBarVC
     }
