@@ -51,14 +51,11 @@ class HomeViewController: UIViewController {
         // check the permission status
         switch locationManager.authorizationStatus {
         case .authorizedAlways, .authorizedWhenInUse:
-            print("Authorize.")
             self.locationManager.startUpdatingLocation()
             self.cameraMoveToLocation(toLocation: self.viewmodel.currentPosition)
         case .notDetermined, .restricted, .denied:
             // redirect the users to settings
             showRequestPermissionsAlert()
-        default:
-            print("Unathorized.")
         }
     }
 
@@ -115,7 +112,6 @@ extension HomeViewController: CLLocationManagerDelegate {
     }
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("error:: \(error.localizedDescription)")
         locationManager.requestWhenInUseAuthorization()
     }
 
