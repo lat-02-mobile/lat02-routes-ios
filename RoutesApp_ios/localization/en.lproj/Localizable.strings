@@ -29,3 +29,6 @@
 
 // Default
 "error-unknown" = "Something went wrong";
+
+// City Picker Splash
+"welcome-message" = "Welcome to";

@@ -9,4 +9,9 @@ import Foundation
 
 class ConstantVariables {
     static let databaseName = "RoutesApp_ios"
+    static let cityCellNib = "CityTableViewCell"
+    static let cityCellIdentifier = "CityCell"
+    static let defaults = UserDefaults.standard
+    static let deflaunchApp = "LaunchFirstTime"
+    static let defCitySelected = "CitySelected"
 }

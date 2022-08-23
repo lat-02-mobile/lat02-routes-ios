@@ -72,6 +72,9 @@
                                                     </constraints>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain"/>
+                                                    <connections>
+                                                        <action selector="changeUbication:" destination="-1" eventType="touchUpInside" id="CYG-e0-Mw6"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>

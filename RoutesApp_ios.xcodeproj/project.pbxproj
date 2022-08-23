@@ -12,11 +12,15 @@
 		84067C4A28B3B1CD00549300 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84067C4828B3B1CD00549300 /* SettingsViewController.swift */; };
 		84067C4C28B3B5BD00549300 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84067C4E28B3B5BD00549300 /* SettingsViewController.xib */; };
 		84067C6128B3BF9C00549300 /* CityPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84067C5F28B3BF9C00549300 /* CityPickerViewController.swift */; };
-		84067C6228B3BF9C00549300 /* CityPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84067C6028B3BF9C00549300 /* CityPickerViewController.xib */; };
 		84067C6528B3D0A700549300 /* CitySplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84067C6328B3D0A700549300 /* CitySplashViewController.swift */; };
 		84067C6628B3D0A700549300 /* CitySplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84067C6428B3D0A700549300 /* CitySplashViewController.xib */; };
 		84067C6828B3D3AA00549300 /* CityPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84067C6728B3D3AA00549300 /* CityPickerViewModel.swift */; };
 		84067C6A28B3D58500549300 /* CityFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84067C6928B3D58500549300 /* CityFirebaseManager.swift */; };
+		84067C6E28B4206600549300 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84067C6D28B4206600549300 /* Country.swift */; };
+		84067C7028B4257E00549300 /* CityRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84067C6F28B4257E00549300 /* CityRoute.swift */; };
+		84067C7328B4305300549300 /* CityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84067C7128B4305300549300 /* CityTableViewCell.swift */; };
+		84067C7428B4305300549300 /* CityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84067C7228B4305300549300 /* CityTableViewCell.xib */; };
+		84067C7528B5721400549300 /* CityPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84067C7728B5721400549300 /* CityPickerViewController.xib */; };
 		843D043F28AAF3F800C4DF25 /* PhoneAuthenticationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 843D044128AAF3F800C4DF25 /* PhoneAuthenticationViewController.xib */; };
 		845D228928A7050000E9A660 /* PhoneAuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D228728A7050000E9A660 /* PhoneAuthenticationViewController.swift */; };
 		847A59E228A820F5005CEA25 /* PhoneAuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A59E128A820F5005CEA25 /* PhoneAuthenticationViewModel.swift */; };
@@ -77,11 +81,17 @@
 		84067C5828B3BCF600549300 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SettingsViewController.strings; sourceTree = "<group>"; };
 		84067C5A28B3BCF900549300 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/SettingsViewController.strings"; sourceTree = "<group>"; };
 		84067C5F28B3BF9C00549300 /* CityPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityPickerViewController.swift; sourceTree = "<group>"; };
-		84067C6028B3BF9C00549300 /* CityPickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CityPickerViewController.xib; sourceTree = "<group>"; };
 		84067C6328B3D0A700549300 /* CitySplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySplashViewController.swift; sourceTree = "<group>"; };
 		84067C6428B3D0A700549300 /* CitySplashViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CitySplashViewController.xib; sourceTree = "<group>"; };
 		84067C6728B3D3AA00549300 /* CityPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityPickerViewModel.swift; sourceTree = "<group>"; };
 		84067C6928B3D58500549300 /* CityFirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityFirebaseManager.swift; sourceTree = "<group>"; };
+		84067C6D28B4206600549300 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
+		84067C6F28B4257E00549300 /* CityRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityRoute.swift; sourceTree = "<group>"; };
+		84067C7128B4305300549300 /* CityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTableViewCell.swift; sourceTree = "<group>"; };
+		84067C7228B4305300549300 /* CityTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CityTableViewCell.xib; sourceTree = "<group>"; };
+		84067C7628B5721400549300 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CityPickerViewController.xib; sourceTree = "<group>"; };
+		84067C7928B5721700549300 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CityPickerViewController.strings; sourceTree = "<group>"; };
+		84067C7B28B5721A00549300 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/CityPickerViewController.strings"; sourceTree = "<group>"; };
 		843D044028AAF3F800C4DF25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PhoneAuthenticationViewController.xib; sourceTree = "<group>"; };
 		843D044328AAF3FE00C4DF25 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PhoneAuthenticationViewController.strings; sourceTree = "<group>"; };
 		843D044528AAF40E00C4DF25 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/PhoneAuthenticationViewController.strings"; sourceTree = "<group>"; };
@@ -218,7 +228,9 @@
 			isa = PBXGroup;
 			children = (
 				84067C6428B3D0A700549300 /* CitySplashViewController.xib */,
-				84067C6028B3BF9C00549300 /* CityPickerViewController.xib */,
+				84067C7728B5721400549300 /* CityPickerViewController.xib */,
+				84067C7128B4305300549300 /* CityTableViewCell.swift */,
+				84067C7228B4305300549300 /* CityTableViewCell.xib */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -568,6 +580,8 @@
 			children = (
 				C2E9772A28987F79009F4B94 /* User.swift */,
 				C2436388289A2D21003C1A44 /* BaseModel.swift */,
+				84067C6D28B4206600549300 /* Country.swift */,
+				84067C6F28B4257E00549300 /* CityRoute.swift */,
 			);
 			path = remote;
 			sourceTree = "<group>";
@@ -674,7 +688,8 @@
 				C2112DE2289A18FB009601AB /* HomeViewController.xib in Resources */,
 				C2BB145C28A1529E0083CA1E /* Localizable.strings in Resources */,
 				843D043F28AAF3F800C4DF25 /* PhoneAuthenticationViewController.xib in Resources */,
-				84067C6228B3BF9C00549300 /* CityPickerViewController.xib in Resources */,
+				84067C7528B5721400549300 /* CityPickerViewController.xib in Resources */,
+				84067C7428B4305300549300 /* CityTableViewCell.xib in Resources */,
 				C2BB145228A150A70083CA1E /* SignupViewController.xib in Resources */,
 				84067C4C28B3B5BD00549300 /* SettingsViewController.xib in Resources */,
 			);
@@ -776,6 +791,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84067C7028B4257E00549300 /* CityRoute.swift in Sources */,
 				C2E9772428987F3C009F4B94 /* LoginViewController.swift in Sources */,
 				C20A86D128A3383F0000EF7C /* ConstantVariables.swift in Sources */,
 				C2E976DD2898701C009F4B94 /* ViewController.swift in Sources */,
@@ -789,6 +805,7 @@
 				C2E976D92898701C009F4B94 /* AppDelegate.swift in Sources */,
 				C2E9772F28987FA0009F4B94 /* NetworkManager.swift in Sources */,
 				C2112DE1289A18FB009601AB /* HomeViewController.swift in Sources */,
+				84067C7328B4305300549300 /* CityTableViewCell.swift in Sources */,
 				C2BB146128A153390083CA1E /* StringExtension.swift in Sources */,
 				C2E9772028987F2A009F4B94 /* SignupViewController.swift in Sources */,
 				C2E9772B28987F79009F4B94 /* User.swift in Sources */,
@@ -804,6 +821,7 @@
 				C2E9772728987F48009F4B94 /* LoginViewModel.swift in Sources */,
 				84067C6A28B3D58500549300 /* CityFirebaseManager.swift in Sources */,
 				C2E977332898802F009F4B94 /* Encodable.swift in Sources */,
+				84067C6E28B4206600549300 /* Country.swift in Sources */,
 				C2E9773128987FB9009F4B94 /* FloatingButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -837,6 +855,16 @@
 				84067C5A28B3BCF900549300 /* es-419 */,
 			);
 			name = SettingsViewController.xib;
+			sourceTree = "<group>";
+		};
+		84067C7728B5721400549300 /* CityPickerViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84067C7628B5721400549300 /* Base */,
+				84067C7928B5721700549300 /* en */,
+				84067C7B28B5721A00549300 /* es-419 */,
+			);
+			name = CityPickerViewController.xib;
 			sourceTree = "<group>";
 		};
 		843D044128AAF3F800C4DF25 /* PhoneAuthenticationViewController.xib */ = {
