@@ -23,7 +23,7 @@
 "code-forwarded-codeverification" = "The code was forwarded";
 "code-verification-alert-title" = "Please enter code";
 "code-verification-alert-cancel" = "Cancel";
-"code-verification-alert-verify" = "Verfiy";
+"code-verification-alert-verify" = "Verify";
 "code-verification-alert-Resend" = "Resend";
 "code" = "Code";
 
