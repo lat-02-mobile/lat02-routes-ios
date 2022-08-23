@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Current location is needed when app is in use</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -21,23 +23,23 @@
 			</array>
 		</dict>
 	</dict>
-    <key>CFBundleURLTypes</key>
-    <array>
-        <dict>
-            <key>CFBundleTypeRole</key>
-            <string>Editor</string>
-            <key>CFBundleURLSchemes</key>
-            <array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
                 <string>REVERSED_CLIENT</string>
                 <string>fbFB_APP_IDENTIFIER</string>
-            </array>
-        </dict>
-    </array>
+			</array>
+		</dict>
+	</array>
     <key>FacebookAppID</key>
     <string>FB_APP_IDENTIFIER</string>
     <key>FacebookClientToken</key>
     <string>FB_TOKEN_CLIENT</string>
-    <key>FacebookDisplayName</key>
-    <string>Routes App</string>
+	<key>FacebookDisplayName</key>
+	<string>Routes App</string>
 </dict>
 </plist>

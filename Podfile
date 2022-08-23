@@ -14,6 +14,7 @@ target 'RoutesApp_ios' do
   pod 'SwiftAlertView', '2.2.1'
   pod 'FacebookCore', '0.9.0'
   pod 'FacebookLogin', '0.9.0'
+  pod 'GoogleMaps', '7.0.0'
 
   target 'RoutesApp_iosTests' do
     inherit! :search_paths

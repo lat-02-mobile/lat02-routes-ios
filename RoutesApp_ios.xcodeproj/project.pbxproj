@@ -46,6 +46,7 @@
 		C2E9772F28987FA0009F4B94 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E9772E28987FA0009F4B94 /* NetworkManager.swift */; };
 		C2E9773128987FB9009F4B94 /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E9773028987FB9009F4B94 /* FloatingButton.swift */; };
 		C2E977332898802F009F4B94 /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E977322898802F009F4B94 /* Encodable.swift */; };
+		CE0F8D3528AD357F00F2C753 /* silver-style.json in Resources */ = {isa = PBXBuildFile; fileRef = CE0F8D3428AD357F00F2C753 /* silver-style.json */; };
 		CEF1970428A6073000C82AE3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CEF1970328A6073000C82AE3 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -112,6 +113,7 @@
 		C2E9772E28987FA0009F4B94 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		C2E9773028987FB9009F4B94 /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
 		C2E977322898802F009F4B94 /* Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encodable.swift; sourceTree = "<group>"; };
+		CE0F8D3428AD357F00F2C753 /* silver-style.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "silver-style.json"; sourceTree = "<group>"; };
 		CEF1970328A6073000C82AE3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F4F2DC09BBC0577CE2B41D46 /* Pods-RoutesApp_iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutesApp_iosTests.release.xcconfig"; path = "Target Support Files/Pods-RoutesApp_iosTests/Pods-RoutesApp_iosTests.release.xcconfig"; sourceTree = "<group>"; };
 		F808C389CD2F19D7212160C0 /* Pods_RoutesApp_iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoutesApp_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -282,6 +284,7 @@
 		C2E976D72898701C009F4B94 /* RoutesApp_ios */ = {
 			isa = PBXGroup;
 			children = (
+				CE0F8D3228AD317700F2C753 /* resources */,
 				C2BB145928A152580083CA1E /* localization */,
 				C2E9770C28987CEA009F4B94 /* utilities */,
 				C2E9770D28987CF7009F4B94 /* repository */,
@@ -482,6 +485,14 @@
 			path = remote;
 			sourceTree = "<group>";
 		};
+		CE0F8D3228AD317700F2C753 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				CE0F8D3428AD357F00F2C753 /* silver-style.json */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -495,6 +506,7 @@
 				C2E976D22898701C009F4B94 /* Frameworks */,
 				C2E976D32898701C009F4B94 /* Resources */,
 				EE0DAA6B74EC6710C75DCEE4 /* [CP] Embed Pods Frameworks */,
+				2461B11DAA7FD736A989E50B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -584,6 +596,7 @@
 				C2BB145C28A1529E0083CA1E /* Localizable.strings in Resources */,
 				843D043F28AAF3F800C4DF25 /* PhoneAuthenticationViewController.xib in Resources */,
 				C2BB145228A150A70083CA1E /* SignupViewController.xib in Resources */,
+				CE0F8D3528AD357F00F2C753 /* silver-style.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -597,6 +610,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2461B11DAA7FD736A989E50B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		921599980040BA71BA285A76 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
