@@ -6,8 +6,11 @@
 //
 
 import Foundation
+import CoreLocation
+
 class HomeViewModel {
     var authManager: AuthProtocol = FirebaseAuthManager.shared
+    var currentPosition: CLLocationCoordinate2D?
     func logout() {
         authManager.logout()
     }

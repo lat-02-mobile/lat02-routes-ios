@@ -30,5 +30,13 @@
 // Default
 "error-unknown" = "Something went wrong";
 
+// Tabbar controller
+"home" = "Home";
+// Localization permission alert
+"localization-permission-alert-title" = "Localization Permission";
+"localization-permission-alert-message" = "Please go to Settings and turn on the location permission";
+"localization-permission-alert-cancel" = "Cancel";
+"localization-permission-alert-settings" = "Settings";
+
 // City Picker Splash
 "welcome-message" = "Welcome to";

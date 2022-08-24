@@ -9,6 +9,7 @@ import UIKit
 import CoreData
 import FacebookCore
 import FirebaseCore
+import GoogleMaps
 import IQKeyboardManagerSwift
 
 @main
@@ -19,17 +20,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         // Use Firebase library to configure APIs
         if #available(iOS 15, *) {
-                let navigationBarAppearance = UINavigationBarAppearance()
-                navigationBarAppearance.configureWithTransparentBackground()
-                UINavigationBar.appearance().standardAppearance = navigationBarAppearance
-                UINavigationBar.appearance().compactAppearance = navigationBarAppearance
-                UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
+            let navigationBarAppearance = UINavigationBarAppearance()
+            navigationBarAppearance.configureWithTransparentBackground()
+            UINavigationBar.appearance().standardAppearance = navigationBarAppearance
+            UINavigationBar.appearance().compactAppearance = navigationBarAppearance
+            UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
         }
         // MARK: Facebook SDK config
         ApplicationDelegate.shared.application(
                     application,
                     didFinishLaunchingWithOptions: launchOptions
                 )
+        // MARK: Google Maps config
+        GMSServices.provideAPIKey("${GOOGLE_MAPS_API_KEY}")
         FirebaseApp.configure()
         IQKeyboardManager.shared.enable = true
         return true

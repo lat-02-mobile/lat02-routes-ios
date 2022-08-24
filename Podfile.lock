@@ -22,6 +22,11 @@ PODS:
     - FBSDKLoginKit/Login (= 5.15.1)
   - FBSDKLoginKit/Login (5.15.1):
     - FBSDKCoreKit (~> 5.0)
+  - GoogleMaps (7.0.0):
+    - GoogleMaps/Maps (= 7.0.0)
+  - GoogleMaps/Base (7.0.0)
+  - GoogleMaps/Maps (7.0.0):
+    - GoogleMaps/Base
   - GoogleSignIn (6.2.2):
     - AppAuth (~> 1.5)
     - GTMAppAuth (~> 1.3)
@@ -39,6 +44,7 @@ DEPENDENCIES:
   - CountryPickerSwift (= 1.8)
   - FacebookCore (= 0.9.0)
   - FacebookLogin (= 0.9.0)
+  - GoogleMaps (= 7.0.0)
   - GoogleSignIn (= 6.2.2)
   - IQKeyboardManagerSwift (= 6.2.1)
   - SVProgressHUD (= 2.2.5)
@@ -53,6 +59,7 @@ SPEC REPOS:
     - FacebookLogin
     - FBSDKCoreKit
     - FBSDKLoginKit
+    - GoogleMaps
     - GoogleSignIn
     - GTMAppAuth
     - GTMSessionFetcher
@@ -68,6 +75,7 @@ SPEC CHECKSUMS:
   FacebookLogin: 6cee9fd6e1fe976fe8f7eec199e27b28b14f5d63
   FBSDKCoreKit: 1d5acf7c9d7a2f92bb1a242dc60cae5b7adb91df
   FBSDKLoginKit: f1ea8026a58b52d30c9f2e6a58ca7d813619fb83
+  GoogleMaps: 6e9c923ca035989709fcb5771544fda4cc5fa2a4
   GoogleSignIn: 3c68388ac221f379676e8f1cb115df3aaf73b93f
   GTMAppAuth: 4d8f864896f3646f0c33baf38a28362f4c601e15
   GTMSessionFetcher: 5595ec75acf5be50814f81e9189490412bad82ba
@@ -76,6 +84,6 @@ SPEC CHECKSUMS:
   SwiftAlertView: e61a63206f19e8e3295f13a58d6464fea4a6946a
   SwiftLint: f80f1be7fa96d30e0aa68e58d45d4ea1ccaac519
 
-PODFILE CHECKSUM: 2993d57dd14ac0b3621b94b67f461ac2c003eae5
+PODFILE CHECKSUM: 83bbb0a8a72cec0eed2e5231f49c5ce0fc110056
 
 COCOAPODS: 1.11.3
