@@ -59,12 +59,11 @@ extension CityPickerViewController: UITableViewDelegate, UITableViewDataSource {
         cell.selectionStyle = .none
 
         let city = viewmodel.cities[indexPath.row]
-        cell.setData(city: city.name, country: "Bolivia")
-        /*self.viewmodel.getCountry(id: city.countryId) { countries in
+        self.viewmodel.getCountry(id: city.countryId) { countries in
             if let country = countries.first {
                 cell.setData(city: city.name, country: country.name)
             }
-        }*/
+        }
 
         return cell
     }

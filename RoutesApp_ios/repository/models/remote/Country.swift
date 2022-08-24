@@ -6,7 +6,9 @@
 //
 
 import Foundation
+import Firebase
 import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 struct Country: Codable, Equatable, BaseModel {
     var id: String
@@ -15,5 +17,5 @@ struct Country: Codable, Equatable, BaseModel {
     var phone: String
     var createdAt: Date
     var updatedAt: Date
-    var cities: String
+    var cities: [DocumentReference]
 }

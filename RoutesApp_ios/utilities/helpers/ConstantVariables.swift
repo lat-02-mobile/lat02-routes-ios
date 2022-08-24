@@ -14,4 +14,6 @@ class ConstantVariables {
     static let defaults = UserDefaults.standard
     static let deflaunchApp = "LaunchFirstTime"
     static let defCitySelected = "CitySelected"
+    
+    static let primaryColor = "primary-color"
 }

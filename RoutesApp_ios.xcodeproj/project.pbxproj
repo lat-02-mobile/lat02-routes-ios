@@ -21,6 +21,7 @@
 		84067C7328B4305300549300 /* CityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84067C7128B4305300549300 /* CityTableViewCell.swift */; };
 		84067C7428B4305300549300 /* CityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84067C7228B4305300549300 /* CityTableViewCell.xib */; };
 		84067C7528B5721400549300 /* CityPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84067C7728B5721400549300 /* CityPickerViewController.xib */; };
+		84067C7D28B57EFC00549300 /* FirebaseFirestoreSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 84067C7C28B57EFC00549300 /* FirebaseFirestoreSwift-Beta */; };
 		843D043F28AAF3F800C4DF25 /* PhoneAuthenticationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 843D044128AAF3F800C4DF25 /* PhoneAuthenticationViewController.xib */; };
 		845D228928A7050000E9A660 /* PhoneAuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D228728A7050000E9A660 /* PhoneAuthenticationViewController.swift */; };
 		847A59E228A820F5005CEA25 /* PhoneAuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A59E128A820F5005CEA25 /* PhoneAuthenticationViewModel.swift */; };
@@ -152,6 +153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E0F8B864F00537D40070409 /* Pods_RoutesApp_ios.framework in Frameworks */,
+				84067C7D28B57EFC00549300 /* FirebaseFirestoreSwift-Beta in Frameworks */,
 				C2436380289A27CC003C1A44 /* FirebaseAuth in Frameworks */,
 				C2436382289A27CC003C1A44 /* FirebaseFirestore in Frameworks */,
 			);
@@ -608,6 +610,7 @@
 			packageProductDependencies = (
 				C243637F289A27CC003C1A44 /* FirebaseAuth */,
 				C2436381289A27CC003C1A44 /* FirebaseFirestore */,
+				84067C7C28B57EFC00549300 /* FirebaseFirestoreSwift-Beta */,
 			);
 			productName = RoutesApp_ios;
 			productReference = C2E976D52898701C009F4B94 /* RoutesApp_ios.app */;
@@ -1186,6 +1189,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		84067C7C28B57EFC00549300 /* FirebaseFirestoreSwift-Beta */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C243637E289A27CC003C1A44 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseFirestoreSwift-Beta";
+		};
 		C243637F289A27CC003C1A44 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C243637E289A27CC003C1A44 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

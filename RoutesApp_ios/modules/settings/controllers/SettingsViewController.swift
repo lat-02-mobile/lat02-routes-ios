@@ -15,9 +15,10 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         setUpCityName()
+        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
 
     @IBAction func changeUbication(_ sender: Any) {
@@ -28,6 +29,7 @@ class SettingsViewController: UIViewController {
 
     func setUpCityName() {
         guard let citySelected = ConstantVariables.defaults.string(forKey: ConstantVariables.defCitySelected) else { return }
+        ubicationLabel.textColor = UIColor(named: ConstantVariables.primaryColor)
         ubicationLabel.text = citySelected
     }
 

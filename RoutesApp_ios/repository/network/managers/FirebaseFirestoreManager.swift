@@ -50,7 +50,8 @@ class FirebaseFirestoreManager {
             completion(.success(items))
         }
     }
-    func getDocumentsByParameterContains<T: Decodable>(type: T.Type, forCollection collection: FirebaseCollections, field: String, parameter: String,  completion: @escaping ( Result<[T], Error>) -> Void  ) {
+    func getDocumentsByParameterContains<T: Decodable>(type: T.Type, forCollection collection: FirebaseCollections, field: String, parameter: String,
+                                                       completion: @escaping ( Result<[T], Error>) -> Void  ) {
         db.collection(collection.rawValue).whereField(field, isEqualTo: parameter).getDocuments { querySnapshot, error in
             guard error == nil else { return completion(.failure(error!)) }
             guard let documents = querySnapshot?.documents else { return completion(.success([])) }
@@ -61,6 +62,28 @@ class FirebaseFirestoreManager {
                    let item = try? json.decode(type, from: data) {
                     items.append(item)
                 }
+            }
+            completion(.success(items))
+        }
+    }
+    func getCountryById(forCollection collection: FirebaseCollections, field: String, parameter: String,
+                                                      completion: @escaping ( Result<[Country], Error>) -> Void  ) {
+        db.collection(collection.rawValue).whereField(field, isEqualTo: parameter).getDocuments { querySnapshot, error in
+            guard error == nil else { return completion(.failure(error!)) }
+            guard let documents = querySnapshot?.documents else { return completion(.success([])) }
+            var items = [Country]()
+
+            for document in documents {
+                let id = document.get("id") as? String ?? ""
+                let name = document.get("name") as? String ?? ""
+                let code = document.get("code") as? String ?? ""
+                let phone = document.get("phone") as? String ?? ""
+                let createdAt = document.get("createdAt") as? Date ?? Date()
+                let updatedAt = document.get("updatedAt") as? Date ?? Date()
+                let cities = document.get("cities") as? [DocumentReference] ?? [DocumentReference]()
+
+                let country = Country(id: id, name: name, code: code, phone: phone, createdAt: createdAt, updatedAt: updatedAt, cities: cities)
+                items.append(country)
             }
             completion(.success(items))
         }
