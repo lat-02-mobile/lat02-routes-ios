@@ -100,13 +100,29 @@
                                         <constraint firstItem="cce-ur-Xna" firstAttribute="leading" secondItem="1VF-7U-TV6" secondAttribute="leading" id="ohW-2W-kv9"/>
                                     </constraints>
                                 </stackView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Oa-qi-IZf">
+                                    <rect key="frame" x="60" y="763" width="294" height="35"/>
+                                    <color key="backgroundColor" name="primary-color"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="35" id="8p2-lX-baA"/>
+                                    </constraints>
+                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                    <connections>
+                                        <action selector="signOut:" destination="-1" eventType="touchUpInside" id="lH2-DJ-fQ1"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstItem="BEh-xW-Qg5" firstAttribute="top" secondItem="boC-DF-7QK" secondAttribute="top" id="36T-ro-bZK"/>
                                 <constraint firstAttribute="trailing" secondItem="BEh-xW-Qg5" secondAttribute="trailing" id="acy-wH-PHm"/>
+                                <constraint firstAttribute="bottom" secondItem="8Oa-qi-IZf" secondAttribute="bottom" constant="20" id="alK-0m-lRZ"/>
+                                <constraint firstAttribute="trailing" secondItem="8Oa-qi-IZf" secondAttribute="trailing" constant="60" id="cwd-g2-tWP"/>
                                 <constraint firstItem="1VF-7U-TV6" firstAttribute="leading" secondItem="boC-DF-7QK" secondAttribute="leading" constant="30" id="hqe-QM-CpU"/>
                                 <constraint firstItem="BEh-xW-Qg5" firstAttribute="leading" secondItem="boC-DF-7QK" secondAttribute="leading" id="mW3-p1-2gf"/>
+                                <constraint firstItem="8Oa-qi-IZf" firstAttribute="leading" secondItem="boC-DF-7QK" secondAttribute="leading" constant="60" id="mmB-S5-lVO"/>
                                 <constraint firstAttribute="trailing" secondItem="1VF-7U-TV6" secondAttribute="trailing" constant="30" id="nIM-H7-Dzb"/>
                             </constraints>
                         </view>

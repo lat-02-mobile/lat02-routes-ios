@@ -1,5 +1,11 @@
 
-/* Class = "UILabel"; text = "Label"; ObjectID = "BY9-KT-Pxu"; */
+/* Class = "UIButton"; configuration.title = "Button"; ObjectID = "8Oa-qi-IZf"; */
+"8Oa-qi-IZf.configuration.title" = "Cerrar Sesion";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "8Oa-qi-IZf"; */
+"8Oa-qi-IZf.normalTitle" = "Cerrar Sesion";
+
+/* Class = "UILabel"; text = "Ubication"; ObjectID = "BY9-KT-Pxu"; */
 "BY9-KT-Pxu.text" = "Ubicacion";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "sUh-C5-AWI"; */

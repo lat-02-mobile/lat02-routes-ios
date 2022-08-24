@@ -12,6 +12,8 @@ class CitySplashViewController: UIViewController {
     @IBOutlet weak var cityNameLabel: UILabel!
     var timer = Timer()
     var city: String = ""
+    var cityLat: String = ""
+    var cityLng: String = ""
     let viewmodel = HomeViewModel()
 
     override func viewDidLoad() {
@@ -26,12 +28,16 @@ class CitySplashViewController: UIViewController {
     }
 
     func setUpCityName() {
-        guard !city.isEmpty else { return }
+        guard !city.isEmpty, !cityLat.isEmpty, !cityLng.isEmpty else { return }
         let desc = (String.localizeString(localizedString: "welcome-message"))
         let text = "\(desc) \(city)"
         cityNameLabel.text = text
 
+        let lat = Double(cityLat)
+        let lng = Double(cityLng)
         ConstantVariables.defaults.set(city, forKey: ConstantVariables.defCitySelected)
+        ConstantVariables.defaults.set(lat, forKey: ConstantVariables.defCityLat)
+        ConstantVariables.defaults.set(lng, forKey: ConstantVariables.defCityLong)
     }
 
     func initTimer() {

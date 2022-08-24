@@ -18,6 +18,14 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         verifyFirstTimeApp()
+        setupViews()
+        initializeTheLocationManager()
+        setupMap()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        cityLocation()
     }
 
     func verifyFirstTimeApp() {
@@ -28,14 +36,6 @@ class HomeViewController: UIViewController {
         let vc = CityPickerViewController()
         vc.isSettingsController = false
         show(vc, sender: nil)
-    }
-
-    @IBAction func logout(_ sender: Any) {
-        viewmodel.logout()
-        SceneDelegate.shared?.setupRootControllerIfNeeded(validUser: viewmodel.authManager.userIsLoggedIn())
-        setupViews()
-        initializeTheLocationManager()
-        setupMap()
     }
 
     func setupViews() {
@@ -57,6 +57,25 @@ class HomeViewController: UIViewController {
     }
 
     @objc func burgerButtonAction() {
+    }
+
+    func cityLocation() {
+        let lat = ConstantVariables.defaults.double(forKey: ConstantVariables.defCityLat)
+        let lng = ConstantVariables.defaults.double(forKey: ConstantVariables.defCityLong)
+        guard lat != nil, lng != nil else { return }
+
+        self.mapView.clear()
+        DispatchQueue.main.async {
+            let position = CLLocationCoordinate2D(latitude: lat, longitude: lng)
+            // let marker = GMSMarker(position: position)
+            let bounds: GMSCoordinateBounds = GMSCoordinateBounds(coordinate: position, coordinate: position)
+            // marker.title = "Snippet Title"
+            // marker.map = self.mapView
+            // marker.snippet = "Snippet Text"
+            let camera = self.mapView.camera(for: bounds, insets: UIEdgeInsets())
+            self.mapView.animate(with: GMSCameraUpdate.fit(bounds, withPadding: 15.0))
+            self.mapView.camera = camera!
+        }
     }
 
     @IBAction func currentLocationAction(_ sender: Any) {

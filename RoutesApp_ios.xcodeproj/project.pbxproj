@@ -80,8 +80,6 @@
 		745BD9E5A26FC5292BC03A32 /* Pods-RoutesApp_ios-RoutesApp_iosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutesApp_ios-RoutesApp_iosUITests.debug.xcconfig"; path = "Target Support Files/Pods-RoutesApp_ios-RoutesApp_iosUITests/Pods-RoutesApp_ios-RoutesApp_iosUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		84067C4828B3B1CD00549300 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		84067C4D28B3B5BD00549300 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SettingsViewController.xib; sourceTree = "<group>"; };
-		84067C5828B3BCF600549300 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SettingsViewController.strings; sourceTree = "<group>"; };
-		84067C5A28B3BCF900549300 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/SettingsViewController.strings"; sourceTree = "<group>"; };
 		84067C5F28B3BF9C00549300 /* CityPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityPickerViewController.swift; sourceTree = "<group>"; };
 		84067C6328B3D0A700549300 /* CitySplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySplashViewController.swift; sourceTree = "<group>"; };
 		84067C6428B3D0A700549300 /* CitySplashViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CitySplashViewController.xib; sourceTree = "<group>"; };
@@ -94,6 +92,8 @@
 		84067C7628B5721400549300 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CityPickerViewController.xib; sourceTree = "<group>"; };
 		84067C7928B5721700549300 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CityPickerViewController.strings; sourceTree = "<group>"; };
 		84067C7B28B5721A00549300 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/CityPickerViewController.strings"; sourceTree = "<group>"; };
+		84067C8528B5D74700549300 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SettingsViewController.strings; sourceTree = "<group>"; };
+		84067C8728B5D74A00549300 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/SettingsViewController.strings"; sourceTree = "<group>"; };
 		843D044028AAF3F800C4DF25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PhoneAuthenticationViewController.xib; sourceTree = "<group>"; };
 		843D044328AAF3FE00C4DF25 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PhoneAuthenticationViewController.strings; sourceTree = "<group>"; };
 		843D044528AAF40E00C4DF25 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/PhoneAuthenticationViewController.strings"; sourceTree = "<group>"; };
@@ -884,8 +884,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				84067C4D28B3B5BD00549300 /* Base */,
-				84067C5828B3BCF600549300 /* en */,
-				84067C5A28B3BCF900549300 /* es-419 */,
+				84067C8528B5D74700549300 /* en */,
+				84067C8728B5D74A00549300 /* es-419 */,
 			);
 			name = SettingsViewController.xib;
 			sourceTree = "<group>";

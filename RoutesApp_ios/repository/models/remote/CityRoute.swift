@@ -11,4 +11,6 @@ struct CityRoute: Codable, Equatable, BaseModel {
     var id: String
     var name: String
     var countryId: String
+    var lat: String
+    var lng: String
 }
