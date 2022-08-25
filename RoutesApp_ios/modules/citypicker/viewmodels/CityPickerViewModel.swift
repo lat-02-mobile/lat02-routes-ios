@@ -13,7 +13,19 @@ class CityPickerViewModel {
     var onError: ((_ error: String) -> Void)?
     var cities = [CityRoute]()
 
-    func getCities(text: String, completion: @escaping ((_ cities: [CityRoute]) -> Void)) {
+    func getCities(completion: ( () -> Void )?) {
+        cityManager.getCities { result in
+            switch result {
+            case.success(let cities):
+                self.cities = cities
+                completion?()
+            case.failure(let error):
+                self.onError?(error.localizedDescription)
+            }
+        }
+    }
+
+    func getCitiesByName(text: String, completion: @escaping ((_ cities: [CityRoute]) -> Void)) {
         cityManager.getCitiesByName(parameter: text) { result in
             switch result {
             case.success(let cities):

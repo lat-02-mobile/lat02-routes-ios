@@ -23,8 +23,8 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UW8-of-XUZ">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZhK-8k-irg">
-                            <rect key="frame" x="176.5" y="100" width="61.5" height="29"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZhK-8k-irg">
+                            <rect key="frame" x="20" y="100" width="374" height="29"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
@@ -36,17 +36,19 @@
                                 <constraint firstAttribute="width" constant="130" id="i6e-uk-OFt"/>
                             </constraints>
                         </imageView>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="city-picker-background" translatesAutoresizingMaskIntoConstraints="NO" id="B7F-sF-RY9">
-                            <rect key="frame" x="0.0" y="299" width="414" height="499"/>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalCompressionResistancePriority="749" image="city-picker-background" translatesAutoresizingMaskIntoConstraints="NO" id="B7F-sF-RY9">
+                            <rect key="frame" x="-140" y="299" width="654" height="499"/>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" name="background-color"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="B7F-sF-RY9" secondAttribute="trailing" id="9wg-3F-uha"/>
+                        <constraint firstItem="B7F-sF-RY9" firstAttribute="leading" secondItem="UW8-of-XUZ" secondAttribute="leading" constant="-140" id="82u-k2-KDh"/>
                         <constraint firstItem="MCe-OQ-BaC" firstAttribute="top" secondItem="ZhK-8k-irg" secondAttribute="bottom" constant="30" id="Lte-X8-NEE"/>
-                        <constraint firstItem="B7F-sF-RY9" firstAttribute="leading" secondItem="UW8-of-XUZ" secondAttribute="leading" id="Uqe-Cu-M4q"/>
-                        <constraint firstAttribute="bottom" secondItem="B7F-sF-RY9" secondAttribute="bottom" constant="20" id="YMq-Gr-f6O"/>
-                        <constraint firstItem="B7F-sF-RY9" firstAttribute="top" secondItem="MCe-OQ-BaC" secondAttribute="bottom" constant="10" id="sHg-gN-Fth"/>
+                        <constraint firstAttribute="trailing" secondItem="ZhK-8k-irg" secondAttribute="trailing" constant="20" id="SfO-wO-s2z"/>
+                        <constraint firstItem="B7F-sF-RY9" firstAttribute="top" secondItem="MCe-OQ-BaC" secondAttribute="bottom" constant="10" id="Vzg-Wn-Te0"/>
+                        <constraint firstAttribute="bottom" secondItem="B7F-sF-RY9" secondAttribute="bottom" constant="20" id="YDS-8Q-8u6"/>
+                        <constraint firstAttribute="trailing" secondItem="B7F-sF-RY9" secondAttribute="trailing" constant="-100" id="qms-A5-awh"/>
+                        <constraint firstItem="ZhK-8k-irg" firstAttribute="leading" secondItem="UW8-of-XUZ" secondAttribute="leading" constant="20" id="us3-DX-8e1"/>
                         <constraint firstItem="ZhK-8k-irg" firstAttribute="top" secondItem="UW8-of-XUZ" secondAttribute="top" constant="100" id="ypk-Gl-6Xl"/>
                     </constraints>
                 </view>
@@ -65,7 +67,7 @@
         </view>
     </objects>
     <resources>
-        <image name="city-picker-background" width="375" height="483"/>
+        <image name="city-picker-background" width="512" height="512"/>
         <image name="city-picker-emoji" width="133" height="134"/>
         <namedColor name="background-color">
             <color red="0.0" green="0.27450980392156865" blue="0.58823529411764708" alpha="0.75" colorSpace="custom" customColorSpace="sRGB"/>

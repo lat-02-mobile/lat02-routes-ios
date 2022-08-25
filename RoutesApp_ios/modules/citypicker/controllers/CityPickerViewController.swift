@@ -7,6 +7,7 @@
 
 import UIKit
 import SVProgressHUD
+import SwiftUI
 
 class CityPickerViewController: UIViewController {
 
@@ -20,6 +21,7 @@ class CityPickerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        getCities()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -28,13 +30,25 @@ class CityPickerViewController: UIViewController {
     }
 
     func setupView() {
+        let placeholder = (String.localizeString(localizedString: "city-search-bar"))
+        self.citySearchBar.searchTextField.backgroundColor = UIColor .white
+        self.citySearchBar.barTintColor = UIColor .clear
+        self.citySearchBar.backgroundImage = UIImage()
+        self.citySearchBar.placeholder = placeholder
+        backButtonView.layer.cornerRadius = backButtonView.bounds.size.width * 0.5
+
         self.cityTableView.delegate = self
         self.cityTableView.dataSource = self
         self.citySearchBar.delegate = self
-        backButtonView.layer.cornerRadius = backButtonView.bounds.size.width * 0.5
 
         let uiNib = UINib(nibName: ConstantVariables.cityCellNib, bundle: nil)
         self.cityTableView.register(uiNib, forCellReuseIdentifier: ConstantVariables.cityCellIdentifier)
+    }
+
+    func getCities() {
+        viewmodel.getCities {
+            self.cityTableView.reloadData()
+        }
     }
 
     @IBAction func goBack(_ sender: Any) {
@@ -83,7 +97,7 @@ extension CityPickerViewController: UISearchBarDelegate {
         guard let text = searchBar.text else { return }
 
         if !text.isEmpty {
-            viewmodel.getCities(text: text) { cities in
+            viewmodel.getCitiesByName(text: text) { cities in
                 self.viewmodel.cities = cities
                 self.cityTableView.reloadData()
             }

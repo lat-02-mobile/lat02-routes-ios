@@ -50,6 +50,21 @@ class FirebaseFirestoreManager {
             completion(.success(items))
         }
     }
+    func getDocumentsWithLimit<T: Decodable>(type: T.Type, forCollection collection: FirebaseCollections, limit: Int, completion: @escaping ( Result<[T], Error>) -> Void  ) {
+        db.collection(collection.rawValue).limit(to: limit).getDocuments { querySnapshot, error in
+            guard error == nil else { return completion(.failure(error!)) }
+            guard let documents = querySnapshot?.documents else { return completion(.success([])) }
+            var items = [T]()
+            let json = JSONDecoder()
+            for document in documents {
+                if let data = try? JSONSerialization.data(withJSONObject: document.data(), options: []),
+                   let item = try? json.decode(type, from: data) {
+                    items.append(item)
+                }
+            }
+            completion(.success(items))
+        }
+    }
     func getDocumentsByParameterContains<T: Decodable>(type: T.Type, forCollection collection: FirebaseCollections, field: String, parameter: String,
                                                        completion: @escaping ( Result<[T], Error>) -> Void  ) {
         db.collection(collection.rawValue).whereField(field, isEqualTo: parameter).getDocuments { querySnapshot, error in

@@ -14,6 +14,7 @@ class HomeViewController: UIViewController {
     var locationManager = CLLocationManager()
     @IBOutlet var mapView: GMSMapView!
     @IBOutlet var currentLocationButton: UIButton!
+    var zoom: Float = 15
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,10 +22,6 @@ class HomeViewController: UIViewController {
         setupViews()
         initializeTheLocationManager()
         setupMap()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         cityLocation()
     }
 
@@ -67,14 +64,7 @@ class HomeViewController: UIViewController {
         self.mapView.clear()
         DispatchQueue.main.async {
             let position = CLLocationCoordinate2D(latitude: lat, longitude: lng)
-            // let marker = GMSMarker(position: position)
-            let bounds: GMSCoordinateBounds = GMSCoordinateBounds(coordinate: position, coordinate: position)
-            // marker.title = "Snippet Title"
-            // marker.map = self.mapView
-            // marker.snippet = "Snippet Text"
-            let camera = self.mapView.camera(for: bounds, insets: UIEdgeInsets())
-            self.mapView.animate(with: GMSCameraUpdate.fit(bounds, withPadding: 15.0))
-            self.mapView.camera = camera!
+            self.cameraMoveToLocation(toLocation: position)
         }
     }
 
@@ -94,6 +84,16 @@ class HomeViewController: UIViewController {
         }
     }
 
+    @IBAction func zoomIn(_ sender: Any) {
+        zoom += 1
+        self.mapView.animate(toZoom: zoom)
+    }
+
+    @IBAction func zoomOut(_ sender: Any) {
+        zoom -= 1
+        self.mapView.animate(toZoom: zoom)
+    }
+
     func initializeTheLocationManager() {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
@@ -107,12 +107,13 @@ class HomeViewController: UIViewController {
     func setupMap() {
       if let styleURL = Bundle.main.url(forResource: "silver-style", withExtension: "json") {
         mapView.mapStyle = try? GMSMapStyle(contentsOfFileURL: styleURL)
+        mapView.settings.zoomGestures = true
       }
     }
 
     func cameraMoveToLocation(toLocation: CLLocationCoordinate2D?) {
         if toLocation != nil {
-            mapView.animate(to: GMSCameraPosition.camera(withTarget: toLocation!, zoom: 15))
+            mapView.animate(to: GMSCameraPosition.camera(withTarget: toLocation!, zoom: zoom))
         }
     }
 

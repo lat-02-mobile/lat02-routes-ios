@@ -38,5 +38,6 @@
 "localization-permission-alert-cancel" = "Cancel";
 "localization-permission-alert-settings" = "Settings";
 
-// City Picker Splash
+// City Picker
 "welcome-message" = "Welcome to";
+"city-search-bar" = "Search";
