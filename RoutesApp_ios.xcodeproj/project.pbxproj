@@ -22,6 +22,8 @@
 		84067C7428B4305300549300 /* CityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84067C7228B4305300549300 /* CityTableViewCell.xib */; };
 		84067C7528B5721400549300 /* CityPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84067C7728B5721400549300 /* CityPickerViewController.xib */; };
 		84067C7D28B57EFC00549300 /* FirebaseFirestoreSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 84067C7C28B57EFC00549300 /* FirebaseFirestoreSwift-Beta */; };
+		84067C8928B8272000549300 /* CityPickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84067C8828B8272000549300 /* CityPickerTests.swift */; };
+		84067C8B28B95EDA00549300 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84067C8A28B95ED900549300 /* SettingsViewModel.swift */; };
 		843D043F28AAF3F800C4DF25 /* PhoneAuthenticationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 843D044128AAF3F800C4DF25 /* PhoneAuthenticationViewController.xib */; };
 		845D228928A7050000E9A660 /* PhoneAuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D228728A7050000E9A660 /* PhoneAuthenticationViewController.swift */; };
 		847A59E228A820F5005CEA25 /* PhoneAuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A59E128A820F5005CEA25 /* PhoneAuthenticationViewModel.swift */; };
@@ -94,6 +96,8 @@
 		84067C7B28B5721A00549300 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/CityPickerViewController.strings"; sourceTree = "<group>"; };
 		84067C8528B5D74700549300 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SettingsViewController.strings; sourceTree = "<group>"; };
 		84067C8728B5D74A00549300 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/SettingsViewController.strings"; sourceTree = "<group>"; };
+		84067C8828B8272000549300 /* CityPickerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityPickerTests.swift; sourceTree = "<group>"; };
+		84067C8A28B95ED900549300 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		843D044028AAF3F800C4DF25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PhoneAuthenticationViewController.xib; sourceTree = "<group>"; };
 		843D044328AAF3FE00C4DF25 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PhoneAuthenticationViewController.strings; sourceTree = "<group>"; };
 		843D044528AAF40E00C4DF25 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/PhoneAuthenticationViewController.strings"; sourceTree = "<group>"; };
@@ -198,6 +202,7 @@
 		84067C4528B3B16400549300 /* viewmodels */ = {
 			isa = PBXGroup;
 			children = (
+				84067C8A28B95ED900549300 /* SettingsViewModel.swift */,
 			);
 			path = viewmodels;
 			sourceTree = "<group>";
@@ -410,6 +415,7 @@
 				C2E976F22898701D009F4B94 /* RoutesApp_iosTests.swift */,
 				C20A86D228A338E30000EF7C /* TestResources.swift */,
 				C20A86D428A339540000EF7C /* AuthTests.swift */,
+				84067C8828B8272000549300 /* CityPickerTests.swift */,
 			);
 			path = RoutesApp_iosTests;
 			sourceTree = "<group>";
@@ -832,6 +838,7 @@
 				C2436387289A2CE4003C1A44 /* FirebaseAuthManager.swift in Sources */,
 				C2BB146328A16CB60083CA1E /* CoreDataManager.swift in Sources */,
 				C24BD6EA28A134C3007FCAB7 /* UserFirebaseManager.swift in Sources */,
+				84067C8B28B95EDA00549300 /* SettingsViewModel.swift in Sources */,
 				C215EF0928A4B1F500371DB6 /* HomeVIewModel.swift in Sources */,
 				C2E9772928987F57009F4B94 /* SignupViewModel.swift in Sources */,
 				84067C4A28B3B1CD00549300 /* SettingsViewController.swift in Sources */,
@@ -865,6 +872,7 @@
 			files = (
 				C2E976F32898701D009F4B94 /* RoutesApp_iosTests.swift in Sources */,
 				C20A86D528A339540000EF7C /* AuthTests.swift in Sources */,
+				84067C8928B8272000549300 /* CityPickerTests.swift in Sources */,
 				C20A86D328A338E30000EF7C /* TestResources.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

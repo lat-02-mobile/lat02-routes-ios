@@ -18,18 +18,20 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        verifyFirstTimeApp()
+        let app = ConstantVariables.defaults.bool(forKey: ConstantVariables.deflaunchApp)
+        if app {
+            verifyCitySelectedApp()
+        }
         setupViews()
         initializeTheLocationManager()
         setupMap()
         cityLocation()
     }
 
-    func verifyFirstTimeApp() {
-        let app = ConstantVariables.defaults.bool(forKey: ConstantVariables.deflaunchApp)
-        let citySelected = ConstantVariables.defaults.string(forKey: ConstantVariables.defCitySelected)
+    func verifyCitySelectedApp() {
+        guard let citySelected = ConstantVariables.defaults.string(forKey: ConstantVariables.defCitySelected) else { return }
+        guard citySelected.isEmpty else { return }
 
-        guard app, (citySelected == nil) else { return }
         let vc = CityPickerViewController()
         vc.isSettingsController = false
         show(vc, sender: nil)
@@ -59,12 +61,14 @@ class HomeViewController: UIViewController {
     func cityLocation() {
         let lat = ConstantVariables.defaults.double(forKey: ConstantVariables.defCityLat)
         let lng = ConstantVariables.defaults.double(forKey: ConstantVariables.defCityLong)
-        guard lat != nil, lng != nil else { return }
-
-        self.mapView.clear()
-        DispatchQueue.main.async {
-            let position = CLLocationCoordinate2D(latitude: lat, longitude: lng)
-            self.cameraMoveToLocation(toLocation: position)
+        if lat == 0, lng == 0 {
+            verifyCitySelectedApp()
+        } else {
+            self.mapView.clear()
+            DispatchQueue.main.async {
+                let position = CLLocationCoordinate2D(latitude: lat, longitude: lng)
+                self.cameraMoveToLocation(toLocation: position)
+            }
         }
     }
 

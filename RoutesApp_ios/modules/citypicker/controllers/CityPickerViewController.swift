@@ -21,6 +21,7 @@ class CityPickerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        initViewModel()
         getCities()
     }
 
@@ -45,10 +46,20 @@ class CityPickerViewController: UIViewController {
         self.cityTableView.register(uiNib, forCellReuseIdentifier: ConstantVariables.cityCellIdentifier)
     }
 
-    func getCities() {
-        viewmodel.getCities {
-            self.cityTableView.reloadData()
+    func initViewModel() {
+        viewmodel.onFinish = { [weak self] in
+            guard let strongSelf = self else {return}
+            SVProgressHUD.dismiss()
+            strongSelf.cityTableView.reloadData()
         }
+        viewmodel.onError = { [weak self] error in
+            SVProgressHUD.dismiss()
+        }
+    }
+
+    func getCities() {
+        SVProgressHUD.show()
+        viewmodel.getCities()
     }
 
     @IBAction func goBack(_ sender: Any) {
@@ -95,12 +106,20 @@ extension CityPickerViewController: UITableViewDelegate, UITableViewDataSource {
 extension CityPickerViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let text = searchBar.text else { return }
-
         if !text.isEmpty {
-            viewmodel.getCitiesByName(text: text) { cities in
-                self.viewmodel.cities = cities
-                self.cityTableView.reloadData()
-            }
+            SVProgressHUD.show()
+            viewmodel.getCitiesByName(text: text)
+        }
+    }
+
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard let text = searchBar.text else { return }
+        if text.isEmpty {
+            self.viewmodel.cities = self.viewmodel.citiesOriginalList
+            self.cityTableView.reloadData()
+        } else {
+            viewmodel.filterCity(text: text)
+            self.cityTableView.reloadData()
         }
     }
 }

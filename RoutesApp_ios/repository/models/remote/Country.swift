@@ -7,7 +7,6 @@
 
 import Foundation
 import Firebase
-import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 struct Country: Codable, Equatable, BaseModel {

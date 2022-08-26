@@ -11,10 +11,11 @@ class CitySplashViewController: UIViewController {
 
     @IBOutlet weak var cityNameLabel: UILabel!
     var timer = Timer()
-    var city: String = ""
-    var cityLat: String = ""
-    var cityLng: String = ""
-    let viewmodel = HomeViewModel()
+    var city = ""
+    var country = ""
+    var cityLat = ""
+    var cityLng = ""
+    let viewmodel = CityPickerViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()

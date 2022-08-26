@@ -8,28 +8,32 @@
 import Foundation
 
 class CityPickerViewModel {
+    var authManager: AuthProtocol = FirebaseAuthManager.shared
     var cityManager: CityManagerProtocol = CityFirebaseManager.shared
     var onFinish: (() -> Void)?
     var onError: ((_ error: String) -> Void)?
     var cities = [CityRoute]()
+    var citiesOriginalList = [CityRoute]()
 
-    func getCities(completion: ( () -> Void )?) {
+    func getCities() {
         cityManager.getCities { result in
             switch result {
             case.success(let cities):
                 self.cities = cities
-                completion?()
+                self.citiesOriginalList = cities
+                self.onFinish?()
             case.failure(let error):
                 self.onError?(error.localizedDescription)
             }
         }
     }
 
-    func getCitiesByName(text: String, completion: @escaping ((_ cities: [CityRoute]) -> Void)) {
+    func getCitiesByName(text: String) {
         cityManager.getCitiesByName(parameter: text) { result in
             switch result {
             case.success(let cities):
-                completion(cities)
+                self.cities = cities
+                self.onFinish?()
             case.failure(let error):
                 self.onError?(error.localizedDescription)
             }
@@ -45,5 +49,11 @@ class CityPickerViewModel {
                 self.onError?(error.localizedDescription)
             }
         }
+    }
+
+    func filterCity(text: String) {
+        cities = cities.filter({
+            $0.name.contains(text)
+        })
     }
 }

@@ -11,7 +11,7 @@ class SettingsViewController: UIViewController {
 
     @IBOutlet weak var ubicationButton: UIButton!
     @IBOutlet weak var ubicationLabel: UILabel!
-    let viewmodel = HomeViewModel()
+    let viewmodel = SettingsViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +35,12 @@ class SettingsViewController: UIViewController {
     }
 
     @IBAction func signOut(_ sender: Any) {
-        viewmodel.logout()
+        let result = viewmodel.logout()
+        guard result else { return }
+
+        ConstantVariables.defaults.set("", forKey: ConstantVariables.defCitySelected)
+        ConstantVariables.defaults.set(0, forKey: ConstantVariables.defCityLat)
+        ConstantVariables.defaults.set(0, forKey: ConstantVariables.defCityLong)
         SceneDelegate.shared?.setupRootControllerIfNeeded(validUser: viewmodel.authManager.userIsLoggedIn())
     }
 }
