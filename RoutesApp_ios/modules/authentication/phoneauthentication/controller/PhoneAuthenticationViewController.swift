@@ -36,6 +36,8 @@ class PhoneAuthenticationViewController: UIViewController {
         alertView.isEnabledValidationLabel = true
         alertView.isDismissOnActionButtonClicked = false
         alertView.cancelButtonIndex = 2
+        alertView.validationLabelTopMargin = CGFloat(15)
+        alertView.validationLabelSideMargin = CGFloat(15)
         alertView.onButtonClicked { alertView, buttonIndex in
             switch buttonIndex {
             case 0:

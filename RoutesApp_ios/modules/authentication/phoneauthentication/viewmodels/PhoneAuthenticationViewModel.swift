@@ -46,10 +46,16 @@ class PhoneAuthenticationViewModel: ViewModel {
              case .success:
                  self.codeVerified = true
              case .failure(let error):
-                 print(error)
-                 self.onCodeVerficationError?(String.localizeString(localizedString: "error-codeverification"))
+                 let codeError: NSError = error as NSError
+                 switch codeError.code {
+                 case 17025:
+                     self.onCodeVerficationError?(String.localizeString(localizedString: "error-code-verification-alert-already-linked"))
+                 case 17044:
+                     self.onCodeVerficationError?(String.localizeString(localizedString: "error-codeverification"))
+                 default:
+                     self.onCodeVerficationError?(String.localizeString(localizedString: "error-unknown"))
+                 }
              }
          }
      }
-
 }
