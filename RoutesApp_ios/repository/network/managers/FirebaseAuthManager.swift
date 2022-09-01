@@ -88,8 +88,6 @@ class FirebaseAuthManager: AuthProtocol {
         Auth.auth().settings?.isAppVerificationDisabledForTesting = false
         PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber, uiDelegate: nil) { (verificationID, error) in
             if let error = error {
-                print("Envio")
-                print(error)
                 completion(.failure(error))
             } else if let verificationID = verificationID {
                 completion(.success(verificationID))
