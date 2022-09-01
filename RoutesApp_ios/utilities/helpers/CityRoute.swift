@@ -7,25 +7,16 @@
 
 import Foundation
 import CoreLocation
+import Firebase
 
-struct CityRoute: Codable {
-    let id: String
+struct Line: Codable, Equatable {
     let name: String
-    let transportationMethods: [TrasportationMethod]
-}
-
-struct TrasportationMethod: Codable {
-    let name: String
-    let lines: [Route]
-}
-
-struct Route: Codable, Equatable {
-    let name: String
+    let categoryRef: String
     let routePoints: [Coordinate]
     let start: Coordinate
     let stops: [Coordinate]
 
-    static func == (lhs: Route, rhs: Route) -> Bool {
+    static func == (lhs: Line, rhs: Line) -> Bool {
         return lhs.name == rhs.name
     }
 }
@@ -44,20 +35,11 @@ struct Coordinate: Codable, Equatable {
 }
 
 struct LinesCandidate: Codable {
-    var originList: [TransportationWithLines]
-    var destinationList: [TransportationWithLines]
-}
-
-struct TransportationWithLines: Codable, Equatable {
-    let name: String
-    let line: Route
-
-    static func == (lhs: TransportationWithLines, rhs: TransportationWithLines) -> Bool {
-        return lhs.name == rhs.name && lhs.line == rhs.line
-    }
+    var originList: [Line]
+    var destinationList: [Line]
 }
 
 struct AvailableTransport {
     var connectionPoint: Int?
-    var transports: [TransportationWithLines] = []
+    var transports: [Line] = []
 }

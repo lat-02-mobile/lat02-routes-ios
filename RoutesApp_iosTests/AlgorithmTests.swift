@@ -9,26 +9,20 @@ import XCTest
 @testable import RoutesApp_ios
 
 class AlgorithmTests: XCTestCase {
-    var transportMethod1: TrasportationMethod?
-    var transportMethod2: TrasportationMethod?
-    var cityRouteForAlgorithm: CityRoute?
+    var line1: Line?
+    var line2: Line?
 
     override func setUpWithError() throws {
         // MARK: Route 1
         let routePoints1 = TestResources.points1Array
         let stops1 = TestResources.stops1Array
-        transportMethod1 = TrasportationMethod(name: "Bus", lines: [Route(name: "01", routePoints: routePoints1,
-           start: routePoints1[0], stops: stops1)])
+        line1 = Line(name: "01", categoryRef: "LineCategories/DW8blCpvs0OXwkozaEhn",
+                     routePoints: routePoints1, start: routePoints1[0], stops: stops1)
         // MARK: Route 2
         let routePoints2 = TestResources.points2Array
         let stops2 = TestResources.stops2Array
-        transportMethod2 = TrasportationMethod(name: "Mini", lines: [Route(name: "1001", routePoints: routePoints2,
-           start: routePoints2[0], stops: stops2)])
-        // MARK: CityRoute
-        guard let transportMethod1 = transportMethod1,
-              let transportMethod2 = transportMethod2 else { return }
-
-        cityRouteForAlgorithm = CityRoute(id: "1", name: "La Paz", transportationMethods: [transportMethod1, transportMethod2])
+        line2 = Line(name: "1001", categoryRef: "LineCategories/JY8blWsvs0OXwkozaJlb",
+                     routePoints: routePoints2, start: routePoints2[0], stops: stops2)
     }
 
     override func tearDownWithError() throws {
@@ -40,13 +34,14 @@ class AlgorithmTests: XCTestCase {
         let minDistance = 200.0
         let minDistanceBtwStops = 200.0
 
-        guard let cityRouteForAlgorithm = cityRouteForAlgorithm else {
+        guard let line1 = line1,
+                let line2 = line2 else {
             XCTAssertTrue(false)
             return
         }
 
         let result = Algorithm.shared.findAvailableRoutes(origin: originPoint, destination: destinationPoint,
-            cityRoute: cityRouteForAlgorithm, minDistanceBtwPoints: minDistance, minDistanceBtwStops: minDistanceBtwStops)
+            lines: [line1, line2], minDistanceBtwPoints: minDistance, minDistanceBtwStops: minDistanceBtwStops)
         XCTAssertGreaterThan(result.count, 0)
     }
 
@@ -56,13 +51,14 @@ class AlgorithmTests: XCTestCase {
         let minDistance = 200.0
         let minDistanceBtwStops = 200.0
 
-        guard let cityRouteForAlgorithm = cityRouteForAlgorithm else {
+        guard let line1 = line1,
+                let line2 = line2 else {
             XCTAssertTrue(false)
             return
         }
 
         let result = Algorithm.shared.findAvailableRoutes(origin: originPoint, destination: destinationPoint,
-            cityRoute: cityRouteForAlgorithm, minDistanceBtwPoints: minDistance, minDistanceBtwStops: minDistanceBtwStops)
+            lines: [line1, line2], minDistanceBtwPoints: minDistance, minDistanceBtwStops: minDistanceBtwStops)
         XCTAssertNotNil(result[0].connectionPoint)
     }
 

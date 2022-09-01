@@ -12,21 +12,17 @@ class Algorithm {
     static var shared = Algorithm()
 
     func findAvailableRoutes(origin: CLLocationCoordinate2D, destination: CLLocationCoordinate2D,
-                             cityRoute: CityRoute, minDistanceBtwPoints: Double, minDistanceBtwStops: Double) -> [AvailableTransport] {
+                             lines: [Line], minDistanceBtwPoints: Double, minDistanceBtwStops: Double) -> [AvailableTransport] {
         var availableTransports = [AvailableTransport]()
-        var originCandidates = [TransportationWithLines]()
-        var destinationCandidates = [TransportationWithLines]()
-        for transport in cityRoute.transportationMethods {
-            // MARK: Add one line routes
-            let oneRouteLines = getOneRouteLines(origin: origin, destination: destination,
-                 transport: transport, minDistanceBtwStops: minDistanceBtwStops)
-            availableTransports.insert(contentsOf: oneRouteLines, at: 0)
-            // MARK: Add route candidates
-            originCandidates.insert(contentsOf: getOriginRoutes(origin: origin, transport: transport,
-                   minDistanceBtwStops: minDistanceBtwStops), at: 0)
-            destinationCandidates.insert(contentsOf: getDestinationRoutes(destination: destination,
-                   transport: transport, minDistanceBtwStops: minDistanceBtwStops), at: 0)
-        }
+        // MARK: Add route candidates
+        let originCandidates = getOriginRoutes(origin: origin, lines: lines,
+           minDistanceBtwStops: minDistanceBtwStops)
+        let destinationCandidates = getDestinationRoutes(destination: destination,
+             lines: lines, minDistanceBtwStops: minDistanceBtwStops)
+        // MARK: Add one line routes
+        let oneRouteLines = getOneRouteLines(origin: origin, destination: destination,
+             lines: lines, minDistanceBtwStops: minDistanceBtwStops)
+        availableTransports.insert(contentsOf: oneRouteLines, at: 0)
         let candidates = LinesCandidate(originList: originCandidates, destinationList: destinationCandidates)
         // MARK: Add the combined routes
         let combinedAvailableTransports = getCombinedRoutes(origin: origin, destination: destination,
@@ -38,9 +34,9 @@ class Algorithm {
     }
 
     private func getOneRouteLines(origin: CLLocationCoordinate2D, destination: CLLocationCoordinate2D,
-                                  transport: TrasportationMethod, minDistanceBtwStops: Double) -> [AvailableTransport] {
+                                  lines: [Line], minDistanceBtwStops: Double) -> [AvailableTransport] {
         var availableTransports = [AvailableTransport]()
-        for line in transport.lines {
+        for line in lines {
             let nearestStopToOrigin = line.stops.min(by: {
                 $0.toCLLocationCoordinate2D().distance(to: origin) <= $1.toCLLocationCoordinate2D().distance(to: origin)
             })
@@ -64,19 +60,18 @@ class Algorithm {
                 let indexDestinationPoint = getIndexWhere(coordinate: nearestStopToDestination, coordinateList: line.routePoints)
 
                 // MARK: New SubLine
-                let newLine = Array(line.routePoints[indexOriginPoint...indexDestinationPoint])
+                let newRoutePoints = Array(line.routePoints[indexOriginPoint...indexDestinationPoint])
 
-                let route = Route(name: line.name, routePoints: newLine, start: line.start, stops: newStops)
-                availableTransports.append(AvailableTransport(connectionPoint: nil,
-                      transports: [TransportationWithLines(name: transport.name, line: route)]))
+                let newLine = Line(name: line.name, categoryRef: line.categoryRef, routePoints: newRoutePoints, start: line.start, stops: newStops)
+                availableTransports.append(AvailableTransport(connectionPoint: nil, transports: [newLine]))
             }
         }
         return availableTransports
     }
 
-    private func getOriginRoutes(origin: CLLocationCoordinate2D, transport: TrasportationMethod, minDistanceBtwStops: Double) -> [TransportationWithLines] {
-        var originRoutes = [TransportationWithLines]()
-        for line in transport.lines {
+    private func getOriginRoutes(origin: CLLocationCoordinate2D, lines: [Line], minDistanceBtwStops: Double) -> [Line] {
+        var originRoutes = [Line]()
+        for line in lines {
             let nearestStopToOrigin = line.stops.min(by: {
                 $0.toCLLocationCoordinate2D().distance(to: origin) < $1.toCLLocationCoordinate2D().distance(to: origin)
             })
@@ -89,18 +84,18 @@ class Algorithm {
 
                 // MARK: Slice Route points
                 let indexOriginPoint = getIndexWhere(coordinate: nearestStopToOrigin, coordinateList: line.routePoints)
-                let newLine = Array(line.routePoints[indexOriginPoint...])
+                let newRoutePoints = Array(line.routePoints[indexOriginPoint...])
 
-                let route = Route(name: line.name, routePoints: newLine, start: line.start, stops: newStops)
-                originRoutes.append(TransportationWithLines(name: transport.name, line: route))
+                let newLine = Line(name: line.name, categoryRef: line.categoryRef, routePoints: newRoutePoints, start: line.start, stops: newStops)
+                originRoutes.append(newLine)
             }
         }
         return originRoutes
     }
 
-    private func getDestinationRoutes(destination: CLLocationCoordinate2D, transport: TrasportationMethod, minDistanceBtwStops: Double) -> [TransportationWithLines] {
-        var destinationRoutes = [TransportationWithLines]()
-        for line in transport.lines {
+    private func getDestinationRoutes(destination: CLLocationCoordinate2D, lines: [Line], minDistanceBtwStops: Double) -> [Line] {
+        var destinationRoutes = [Line]()
+        for line in lines {
             let nearestStopToDestination = line.stops.min(by: {
                 $0.toCLLocationCoordinate2D().distance(to: destination) < $1.toCLLocationCoordinate2D().distance(to: destination)
             })
@@ -113,10 +108,10 @@ class Algorithm {
 
                 // MARK: Slice Route points
                 let indexDestinationPoint = getIndexWhere(coordinate: nearestStopToDestination, coordinateList: line.routePoints)
-                let newLine = Array(line.routePoints[...indexDestinationPoint])
+                let newRoutePoints = Array(line.routePoints[...indexDestinationPoint])
 
-                let route = Route(name: line.name, routePoints: newLine, start: line.start, stops: newStops)
-                destinationRoutes.append(TransportationWithLines(name: transport.name, line: route))
+                let newLine = Line(name: line.name, categoryRef: line.categoryRef, routePoints: newRoutePoints, start: line.start, stops: newStops)
+                destinationRoutes.append(newLine)
             }
         }
         return destinationRoutes
@@ -130,29 +125,29 @@ class Algorithm {
                 if routeFromOrigin == routeFromDestination {
                     continue
                 }
-                for stop in routeFromDestination.line.stops {
-                    let nearestStopToOrigin = routeFromOrigin.line.stops.min(by: {
+                for stop in routeFromDestination.stops {
+                    let nearestStopToOrigin = routeFromOrigin.stops.min(by: {
                         $0.toCLLocationCoordinate2D().distance(to: stop.toCLLocationCoordinate2D()) <=
                             $1.toCLLocationCoordinate2D().distance(to: stop.toCLLocationCoordinate2D())
                     })
                     guard let nearestStopToOrigin = nearestStopToOrigin else { continue }
-                    let indexOfNearestStopToOrigin = getIndexWhere(coordinate: nearestStopToOrigin, coordinateList: routeFromOrigin.line.stops)
+                    let indexOfNearestStopToOrigin = getIndexWhere(coordinate: nearestStopToOrigin, coordinateList: routeFromOrigin.stops)
                     if nearestStopToOrigin.toCLLocationCoordinate2D().distance(to: stop.toCLLocationCoordinate2D()) <= minDistanceBtwStops {
                         // MARK: Origin line splice
-                        let indexOfOriginRoute = getIndexWhere(coordinate: nearestStopToOrigin, coordinateList: routeFromOrigin.line.routePoints)
-                        let lineOriginRoute = Array(routeFromOrigin.line.routePoints[0...indexOfOriginRoute])
-                        let originStops = Array(routeFromOrigin.line.stops[0...indexOfNearestStopToOrigin])
-                        let originTransportation = TransportationWithLines(name: routeFromOrigin.name,
-                           line: Route(name: routeFromOrigin.line.name, routePoints: lineOriginRoute,
-                           start: routeFromOrigin.line.start, stops: originStops))
+                        let indexOfOriginRoute = getIndexWhere(coordinate: nearestStopToOrigin, coordinateList: routeFromOrigin.routePoints)
+                        let lineOriginRoute = Array(routeFromOrigin.routePoints[0...indexOfOriginRoute])
+                        let originStops = Array(routeFromOrigin.stops[0...indexOfNearestStopToOrigin])
+                        let originTransportation = Line(name: routeFromOrigin.name,
+                            categoryRef: routeFromOrigin.categoryRef, routePoints: lineOriginRoute,
+                            start: routeFromOrigin.start, stops: originStops)
                         // MARK: Destination line splice
-                        let indexOfDestinationRoute = getIndexWhere(coordinate: stop, coordinateList: routeFromDestination.line.routePoints)
-                        let indexOfDestinationStop = getIndexWhere(coordinate: stop, coordinateList: routeFromDestination.line.stops)
-                        let lineDestinationRoute = Array(routeFromDestination.line.routePoints[indexOfDestinationRoute...])
-                        let destinationStops = Array(routeFromDestination.line.stops[indexOfDestinationStop...])
-                        let destinationTransportation = TransportationWithLines(name: routeFromDestination.name,
-                            line: Route(name: routeFromDestination.line.name, routePoints: lineDestinationRoute,
-                            start: routeFromDestination.line.start, stops: destinationStops))
+                        let indexOfDestinationRoute = getIndexWhere(coordinate: stop, coordinateList: routeFromDestination.routePoints)
+                        let indexOfDestinationStop = getIndexWhere(coordinate: stop, coordinateList: routeFromDestination.stops)
+                        let lineDestinationRoute = Array(routeFromDestination.routePoints[indexOfDestinationRoute...])
+                        let destinationStops = Array(routeFromDestination.stops[indexOfDestinationStop...])
+                        let destinationTransportation = Line(name: routeFromDestination.name,
+                             categoryRef: routeFromDestination.categoryRef, routePoints: lineDestinationRoute,
+                             start: routeFromDestination.start, stops: destinationStops)
                         // MARK: Add the combined transportation
                         availableTransports.append(AvailableTransport(connectionPoint: indexOfNearestStopToOrigin,
                               transports: [originTransportation, destinationTransportation]))
