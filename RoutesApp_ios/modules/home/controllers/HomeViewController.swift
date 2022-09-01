@@ -14,12 +14,27 @@ class HomeViewController: UIViewController {
     var locationManager = CLLocationManager()
     @IBOutlet var mapView: GMSMapView!
     @IBOutlet var currentLocationButton: UIButton!
+    var zoom: Float = 15
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let app = ConstantVariables.defaults.bool(forKey: ConstantVariables.deflaunchApp)
+        if app {
+            verifyCitySelectedApp()
+        }
         setupViews()
         initializeTheLocationManager()
         setupMap()
+        cityLocation()
+    }
+
+    func verifyCitySelectedApp() {
+        guard let citySelected = ConstantVariables.defaults.string(forKey: ConstantVariables.defCitySelected) else { return }
+        guard citySelected.isEmpty else { return }
+
+        let vc = CityPickerViewController()
+        vc.isSettingsController = false
+        show(vc, sender: nil)
     }
 
     func setupViews() {
@@ -43,6 +58,20 @@ class HomeViewController: UIViewController {
     @objc func burgerButtonAction() {
     }
 
+    func cityLocation() {
+        let lat = ConstantVariables.defaults.double(forKey: ConstantVariables.defCityLat)
+        let lng = ConstantVariables.defaults.double(forKey: ConstantVariables.defCityLong)
+        if lat == 0, lng == 0 {
+            verifyCitySelectedApp()
+        } else {
+            self.mapView.clear()
+            DispatchQueue.main.async {
+                let position = CLLocationCoordinate2D(latitude: lat, longitude: lng)
+                self.cameraMoveToLocation(toLocation: position)
+            }
+        }
+    }
+
     @IBAction func currentLocationAction(_ sender: Any) {
         guard CLLocationManager.locationServicesEnabled() else {
             locationManager.requestWhenInUseAuthorization()
@@ -59,6 +88,16 @@ class HomeViewController: UIViewController {
         }
     }
 
+    @IBAction func zoomIn(_ sender: Any) {
+        zoom += 1
+        self.mapView.animate(toZoom: zoom)
+    }
+
+    @IBAction func zoomOut(_ sender: Any) {
+        zoom -= 1
+        self.mapView.animate(toZoom: zoom)
+    }
+
     func initializeTheLocationManager() {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
@@ -72,12 +111,13 @@ class HomeViewController: UIViewController {
     func setupMap() {
       if let styleURL = Bundle.main.url(forResource: "silver-style", withExtension: "json") {
         mapView.mapStyle = try? GMSMapStyle(contentsOfFileURL: styleURL)
+        mapView.settings.zoomGestures = true
       }
     }
 
     func cameraMoveToLocation(toLocation: CLLocationCoordinate2D?) {
         if toLocation != nil {
-            mapView.animate(to: GMSCameraPosition.camera(withTarget: toLocation!, zoom: 15))
+            mapView.animate(to: GMSCameraPosition.camera(withTarget: toLocation!, zoom: zoom))
         }
     }
 

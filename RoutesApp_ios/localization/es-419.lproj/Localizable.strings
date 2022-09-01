@@ -30,6 +30,7 @@
 
 // Default
 "error-unknown" = "Algo salio mal";
+
 // Tabbar controller
 "home" = "Inicio";
 // Localization permission alert
@@ -37,3 +38,7 @@
 "localization-permission-alert-message" = "Por favor, cambie su configuración en los permisos de localización";
 "localization-permission-alert-cancel" = "Cancelar";
 "localization-permission-alert-settings" = "Configuración";
+
+// City Picker
+"welcome-message" = "Bienvenido a";
+"city-search-bar" = "Buscar";

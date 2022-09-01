@@ -15,6 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         Self.shared = self
+        isFirstLaunch()
         setupRootControllerIfNeeded(validUser: FirebaseAuthManager.shared.userIsLoggedIn())
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         appDelegate.window = self.window
@@ -32,6 +33,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             sourceApplication: nil,
             annotation: [UIApplication.OpenURLOptionsKey.annotation]
         )
+    }
+
+    func isFirstLaunch() {
+        let defaults = UserDefaults.standard
+        if UIApplication.isFirstTimeOpening() {
+            defaults.set(true, forKey: ConstantVariables.deflaunchApp)
+        } else {
+            defaults.set(false, forKey: ConstantVariables.deflaunchApp)
+        }
     }
 
     func setupRootControllerIfNeeded(validUser: Bool) {
@@ -60,7 +70,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             createNavController(for: HomeViewController(), title: String.localizeString(localizedString: "home"), image: UIImage(systemName: "bus")!),
             createNavController(for: HomeViewController(), title: "", image: UIImage(systemName: "mappin.and.ellipse")!),
             createNavController(for: HomeViewController(), title: "", image: UIImage(systemName: "suit.heart")!),
-            createNavController(for: HomeViewController(), title: "", image: UIImage(systemName: "gearshape.fill")!)
+            createNavController(for: SettingsViewController(), title: "", image: UIImage(systemName: "gearshape.fill")!)
         ]
         return tabBarVC
     }
