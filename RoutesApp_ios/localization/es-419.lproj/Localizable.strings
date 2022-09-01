@@ -25,6 +25,7 @@
 "code-verification-alert-cancel" = "Cancelar";
 "code-verification-alert-verify" = "Verificar";
 "code-verification-alert-Resend" = "Reenviar";
+"error-code-verification-alert-already-linked" = "Este teléfono ya está vinculado a otra cuenta";
 "code" = "Código";
 
 // Default

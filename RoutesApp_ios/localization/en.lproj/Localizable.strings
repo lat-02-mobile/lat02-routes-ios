@@ -25,6 +25,7 @@
 "code-verification-alert-cancel" = "Cancel";
 "code-verification-alert-verify" = "Verfiy";
 "code-verification-alert-Resend" = "Resend";
+"error-code-verification-alert-already-linked" = "This phone is already linked to another account";
 "code" = "Code";
 
 // Default
