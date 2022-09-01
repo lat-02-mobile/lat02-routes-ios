@@ -25,9 +25,6 @@ class AlgorithmTests: XCTestCase {
                      routePoints: routePoints2, start: routePoints2[0], stops: stops2)
     }
 
-    override func tearDownWithError() throws {
-    }
-
     func testWhenGivenLinePassThroughOriginDestination() throws {
         let originPoint = Coordinate(latitude: -16.52094, longitude: -68.12419).toCLLocationCoordinate2D()
         let destinationPoint = Coordinate(latitude: -16.52355, longitude: -68.12269).toCLLocationCoordinate2D()
@@ -61,12 +58,4 @@ class AlgorithmTests: XCTestCase {
             lines: [line1, line2], minDistanceBtwPoints: minDistance, minDistanceBtwStops: minDistanceBtwStops)
         XCTAssertNotNil(result[0].connectionPoint)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }

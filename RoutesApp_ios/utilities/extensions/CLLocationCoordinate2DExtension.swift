@@ -8,7 +8,7 @@
 import CoreLocation
 
 extension CLLocationCoordinate2D {
-    /// Returns the distance between two coordinates in meters.
+    // Returns the distance between two coordinates in meters.
     func distance(to: CLLocationCoordinate2D) -> CLLocationDistance {
         return CLLocation(latitude: latitude, longitude: longitude)
             .distance(from: CLLocation(latitude: to.latitude, longitude: to.longitude))

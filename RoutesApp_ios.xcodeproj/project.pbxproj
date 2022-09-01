@@ -48,7 +48,7 @@
 		C2E977332898802F009F4B94 /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E977322898802F009F4B94 /* Encodable.swift */; };
 		CE0F8D3528AD357F00F2C753 /* silver-style.json in Resources */ = {isa = PBXBuildFile; fileRef = CE0F8D3428AD357F00F2C753 /* silver-style.json */; };
 		CE65448B28BD148B003B599B /* Algorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65448A28BD148B003B599B /* Algorithm.swift */; };
-		CE65448D28BD174C003B599B /* CityRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65448C28BD174C003B599B /* CityRoute.swift */; };
+		CE65448D28BD174C003B599B /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65448C28BD174C003B599B /* Line.swift */; };
 		CE8CE8F028BE493F003270D7 /* AlgorithmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8CE8EF28BE493F003270D7 /* AlgorithmTests.swift */; };
 		CE93A8A328BD3ECD00296532 /* CLLocationCoordinate2DExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE93A8A228BD3ECD00296532 /* CLLocationCoordinate2DExtension.swift */; };
 		CEF1970428A6073000C82AE3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CEF1970328A6073000C82AE3 /* GoogleService-Info.plist */; };
@@ -119,7 +119,7 @@
 		C2E977322898802F009F4B94 /* Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encodable.swift; sourceTree = "<group>"; };
 		CE0F8D3428AD357F00F2C753 /* silver-style.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "silver-style.json"; sourceTree = "<group>"; };
 		CE65448A28BD148B003B599B /* Algorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Algorithm.swift; sourceTree = "<group>"; };
-		CE65448C28BD174C003B599B /* CityRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CityRoute.swift; path = RoutesApp_ios/utilities/helpers/CityRoute.swift; sourceTree = SOURCE_ROOT; };
+		CE65448C28BD174C003B599B /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Line.swift; path = RoutesApp_ios/utilities/helpers/Line.swift; sourceTree = SOURCE_ROOT; };
 		CE8CE8EF28BE493F003270D7 /* AlgorithmTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgorithmTests.swift; sourceTree = "<group>"; };
 		CE93A8A228BD3ECD00296532 /* CLLocationCoordinate2DExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2DExtension.swift; sourceTree = "<group>"; };
 		CEF1970328A6073000C82AE3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -483,7 +483,7 @@
 		C2FEFC3A289B6150006E7579 /* local */ = {
 			isa = PBXGroup;
 			children = (
-				CE65448C28BD174C003B599B /* CityRoute.swift */,
+				CE65448C28BD174C003B599B /* Line.swift */,
 			);
 			path = local;
 			sourceTree = "<group>";
@@ -745,7 +745,7 @@
 				845D228928A7050000E9A660 /* PhoneAuthenticationViewController.swift in Sources */,
 				C2436389289A2D21003C1A44 /* BaseModel.swift in Sources */,
 				C2E976DB2898701C009F4B94 /* SceneDelegate.swift in Sources */,
-				CE65448D28BD174C003B599B /* CityRoute.swift in Sources */,
+				CE65448D28BD174C003B599B /* Line.swift in Sources */,
 				C2E976E32898701C009F4B94 /* RoutesApp_ios.xcdatamodeld in Sources */,
 				CE93A8A328BD3ECD00296532 /* CLLocationCoordinate2DExtension.swift in Sources */,
 				C2E9772728987F48009F4B94 /* LoginViewModel.swift in Sources */,
