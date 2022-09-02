@@ -85,7 +85,11 @@ struct LinesCandidate: Codable {
     var destinationList: [Line]
 }
 
-struct AvailableTransport {
+struct AvailableTransport: Equatable {
     var connectionPoint: Int?
     var transports: [Line] = []
+
+    static func == (lhs: AvailableTransport, rhs: AvailableTransport) -> Bool {
+        return lhs.connectionPoint == rhs.connectionPoint && lhs.transports == rhs.transports
+    }
 }

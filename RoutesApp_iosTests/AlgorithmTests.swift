@@ -37,9 +37,12 @@ class AlgorithmTests: XCTestCase {
             return
         }
 
+        let expectedLine = Line(name: line1.name, categoryRef: line1.categoryRef,
+                routePoints: Array(line1.routePoints[2...5]), start: line1.start, stops: Array(line1.stops[0...2]),
+                averageVelocity: line1.averageVelocity)
         let result = Algorithm.shared.findAvailableRoutes(origin: originPoint, destination: destinationPoint,
             lines: [line1, line2], minDistanceBtwPoints: minDistance, minDistanceBtwStops: minDistanceBtwStops)
-        XCTAssertGreaterThan(result.count, 0)
+        XCTAssertEqual(expectedLine, result[0].transports[0])
     }
 
     func testWhenGivenLinesNeedToCombineLines() throws {
@@ -54,9 +57,20 @@ class AlgorithmTests: XCTestCase {
             return
         }
 
+        let expectedSubLineA = Line(name: line1.name, categoryRef: line1.categoryRef,
+                routePoints: Array(line1.routePoints[3...10]), start: line1.start, stops: Array(line1.stops[1...4]),
+                averageVelocity: line1.averageVelocity)
+
+        let expectedSubLineB = Line(name: line2.name, categoryRef: line2.categoryRef,
+                routePoints: Array(line2.routePoints[5...8]), start: line2.start, stops: Array(line2.stops[1...2]),
+                averageVelocity: line2.averageVelocity)
+
+        let expectedAvailableTransport = AvailableTransport(connectionPoint: 3,
+                transports: [expectedSubLineA, expectedSubLineB])
+
         let result = Algorithm.shared.findAvailableRoutes(origin: originPoint, destination: destinationPoint,
             lines: [line1, line2], minDistanceBtwPoints: minDistance, minDistanceBtwStops: minDistanceBtwStops)
-        XCTAssertNotNil(result[0].connectionPoint)
+        XCTAssertEqual(expectedAvailableTransport, result[0])
     }
 
     func testWhenGivenLinesHasOneLineAndCombinedRoute() throws {
@@ -71,8 +85,23 @@ class AlgorithmTests: XCTestCase {
             return
         }
 
+        let expectedSubLineA = Line(name: line1.name, categoryRef: line1.categoryRef,
+                routePoints: Array(line1.routePoints[3...10]), start: line1.start, stops: Array(line1.stops[2...4]),
+                averageVelocity: line1.averageVelocity)
+
+        let expectedSubLineB = Line(name: line2.name, categoryRef: line2.categoryRef,
+                routePoints: [line2.routePoints[5]], start: line2.start, stops: [line2.stops[1]],
+                averageVelocity: line2.averageVelocity)
+
+        let expectedCombinedAvailableTransport = AvailableTransport(connectionPoint: 3,
+                transports: [expectedSubLineA, expectedSubLineB])
+
+        let expectedOneLineAvailableTransport = AvailableTransport(connectionPoint: nil,
+                transports: [expectedSubLineA])
+
         let result = Algorithm.shared.findAvailableRoutes(origin: originPoint, destination: destinationPoint,
             lines: [line1, line2], minDistanceBtwPoints: minDistance, minDistanceBtwStops: minDistanceBtwStops)
-        XCTAssertNotNil(result[0].connectionPoint)
+
+        XCTAssertEqual([expectedCombinedAvailableTransport, expectedOneLineAvailableTransport], result)
     }
 }
