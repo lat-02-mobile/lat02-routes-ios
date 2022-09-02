@@ -25,10 +25,12 @@
 "code-verification-alert-cancel" = "Cancelar";
 "code-verification-alert-verify" = "Verificar";
 "code-verification-alert-Resend" = "Reenviar";
+"error-code-verification-alert-already-linked" = "Este teléfono ya está vinculado a otra cuenta";
 "code" = "Código";
 
 // Default
 "error-unknown" = "Algo salio mal";
+
 // Tabbar controller
 "home" = "Inicio";
 // Localization permission alert
@@ -36,3 +38,7 @@
 "localization-permission-alert-message" = "Por favor, cambie su configuración en los permisos de localización";
 "localization-permission-alert-cancel" = "Cancelar";
 "localization-permission-alert-settings" = "Configuración";
+
+// City Picker
+"welcome-message" = "Bienvenido a";
+"city-search-bar" = "Buscar";

@@ -53,3 +53,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 }
+
+extension UIApplication {
+    class func isFirstTimeOpening() -> Bool {
+        let defaults = ConstantVariables.defaults
+        guard defaults.integer(forKey: "hasRun") == 0 else { return false }
+        defaults.set(1, forKey: "hasRun")
+        return true
+    }
+}

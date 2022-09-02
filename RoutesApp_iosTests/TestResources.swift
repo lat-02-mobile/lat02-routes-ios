@@ -6,7 +6,10 @@
 //
 
 import Foundation
+@testable import Firebase
+@testable import FirebaseFirestoreSwift
 @testable import RoutesApp_ios
+
 
 class TestResources {
     static let testUserEmail = "john@doe.com"
@@ -56,4 +59,10 @@ class TestResources {
         Coordinate(latitude: -16.5246006, longitude: -68.1232156),
         Coordinate(latitude: -16.5241937, longitude: -68.1204527)
      ]
+
+    static let testCityRouteName = "testCity"
+    static let testCountryId = "testCountry"
+    static let testCityRoute = CityRoute(id: "test", name: "testCity", countryId: "countryTest", lat: "-35", lng: "-17")
+    static let testCountry = Country(id: "test", name: "testCountry", code: "test", phone: "test", createdAt: Date(), updatedAt: Date(), cities: [DocumentReference]())
+
 }
