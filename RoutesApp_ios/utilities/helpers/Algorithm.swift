@@ -14,18 +14,31 @@ class Algorithm {
     func findAvailableRoutes(origin: CLLocationCoordinate2D, destination: CLLocationCoordinate2D,
                              lines: [Line], minDistanceBtwPoints: Double, minDistanceBtwStops: Double) -> [AvailableTransport] {
         var availableTransports = [AvailableTransport]()
-        // MARK: Add route candidates
-        let originCandidates = getOriginRoutes(origin: origin, lines: lines,
-           minDistanceBtwStops: minDistanceBtwStops)
-        let destinationCandidates = getDestinationRoutes(destination: destination,
-             lines: lines, minDistanceBtwStops: minDistanceBtwStops)
-        // MARK: Add one line routes
-        let oneRouteLines = getOneRouteLines(origin: origin, destination: destination,
-             lines: lines, minDistanceBtwStops: minDistanceBtwStops)
-        availableTransports.insert(contentsOf: oneRouteLines, at: 0)
+        var originCandidates = [Line]()
+        var destinationCandidates = [Line]()
+        for line in lines {
+            // MARK: Add origin line candidate
+            let originLineCandidate = getOriginRouteLine(origin: origin, line: line,
+                                                      minDistanceBtwStops: minDistanceBtwStops)
+            if let originLineCandidate = originLineCandidate {
+                originCandidates.append(originLineCandidate)
+            }
+            // MARK: Add route candidate
+            let destinationLineCandidate = getDestinationRouteLine(destination: destination,
+                 line: line, minDistanceBtwStops: minDistanceBtwStops)
+            if let destinationLineCandidate = destinationLineCandidate {
+                destinationCandidates.append(destinationLineCandidate)
+            }
+            // MARK: Add one line routes
+            let oneLineRoute = getOneRouteLine(origin: origin, destination: destination,
+                 line: line, minDistanceBtwStops: minDistanceBtwStops)
+            if let oneLineRoute = oneLineRoute {
+                availableTransports.append(oneLineRoute)
+            }
+        }
         let candidates = LinesCandidate(originList: originCandidates, destinationList: destinationCandidates)
         // MARK: Add the combined routes
-        let combinedAvailableTransports = getCombinedRoutes(origin: origin, destination: destination,
+        let combinedAvailableTransports = getCombinedRouteLines(origin: origin, destination: destination,
             candidates: candidates, minDistanceBtwPoints: minDistanceBtwPoints,
             minDistanceBtwStops: minDistanceBtwStops)
         availableTransports.insert(contentsOf: combinedAvailableTransports, at: 0)
@@ -33,63 +46,47 @@ class Algorithm {
         return availableTransports
     }
 
-    private func getOneRouteLines(origin: CLLocationCoordinate2D, destination: CLLocationCoordinate2D,
-                                  lines: [Line], minDistanceBtwStops: Double) -> [AvailableTransport] {
-        var availableTransports = [AvailableTransport]()
-        for line in lines {
-            let nearestStopToOrigin = line.stops.min(by: {
-                $0.toCLLocationCoordinate2D().distance(to: origin) <= $1.toCLLocationCoordinate2D().distance(to: origin)
-            })
+    private func getOneRouteLine(origin: CLLocationCoordinate2D, destination: CLLocationCoordinate2D,
+                                 line: Line, minDistanceBtwStops: Double) -> AvailableTransport? {
+        let nearestStopToOrigin = line.stops.min(by: {
+            $0.toCLLocationCoordinate2D().distance(to: origin) <= $1.toCLLocationCoordinate2D().distance(to: origin)
+        })
 
-            let nearestStopToDestination = line.stops.min(by: {
-                $0.toCLLocationCoordinate2D().distance(to: destination) <= $1.toCLLocationCoordinate2D().distance(to: destination)
-            })
+        let nearestStopToDestination = line.stops.min(by: {
+            $0.toCLLocationCoordinate2D().distance(to: destination) <= $1.toCLLocationCoordinate2D().distance(to: destination)
+        })
 
-            if let nearestStopToDestination = nearestStopToDestination,
-               let nearestStopToOrigin = nearestStopToOrigin,
-               isInDelimitedArea(coordinateA: nearestStopToDestination, coordinateB: destination.toCoordinate(), distance: minDistanceBtwStops),
-               isInDelimitedArea(coordinateA: nearestStopToOrigin, coordinateB: origin.toCoordinate(), distance: minDistanceBtwStops) {
-                let newLine = line.slice(from: nearestStopToOrigin, till: nearestStopToDestination)
-                availableTransports.append(AvailableTransport(connectionPoint: nil, transports: [newLine]))
-            }
-        }
-        return availableTransports
+        guard let nearestStopToDestination = nearestStopToDestination,
+           let nearestStopToOrigin = nearestStopToOrigin,
+           isInDelimitedArea(coordinateA: nearestStopToDestination, coordinateB: destination.toCoordinate(), distance: minDistanceBtwStops),
+           isInDelimitedArea(coordinateA: nearestStopToOrigin, coordinateB: origin.toCoordinate(), distance: minDistanceBtwStops) else { return nil }
+        let newLine = line.slice(from: nearestStopToOrigin, till: nearestStopToDestination)
+        return AvailableTransport(connectionPoint: nil, transports: [newLine])
     }
 
-    private func getOriginRoutes(origin: CLLocationCoordinate2D, lines: [Line], minDistanceBtwStops: Double) -> [Line] {
-        var originRoutes = [Line]()
-        for line in lines {
-            let nearestStopToOrigin = line.stops.min(by: {
-                $0.toCLLocationCoordinate2D().distance(to: origin) < $1.toCLLocationCoordinate2D().distance(to: origin)
-            })
+    private func getOriginRouteLine(origin: CLLocationCoordinate2D, line: Line, minDistanceBtwStops: Double) -> Line? {
+        let nearestStopToOrigin = line.stops.min(by: {
+            $0.toCLLocationCoordinate2D().distance(to: origin) < $1.toCLLocationCoordinate2D().distance(to: origin)
+        })
 
-            if let nearestStopToOrigin = nearestStopToOrigin,
-               isInDelimitedArea(coordinateA: nearestStopToOrigin, coordinateB: origin.toCoordinate(), distance: minDistanceBtwStops) {
-                let newLine = line.slice(from: nearestStopToOrigin)
-                originRoutes.append(newLine)
-            }
-        }
-        return originRoutes
+        guard let nearestStopToOrigin = nearestStopToOrigin,
+           isInDelimitedArea(coordinateA: nearestStopToOrigin, coordinateB: origin.toCoordinate(), distance: minDistanceBtwStops) else { return nil }
+        return line.slice(from: nearestStopToOrigin)
     }
 
-    private func getDestinationRoutes(destination: CLLocationCoordinate2D, lines: [Line], minDistanceBtwStops: Double) -> [Line] {
-        var destinationRoutes = [Line]()
-        for line in lines {
-            let nearestStopToDestination = line.stops.min(by: {
-                $0.toCLLocationCoordinate2D().distance(to: destination) < $1.toCLLocationCoordinate2D().distance(to: destination)
-            })
+    private func getDestinationRouteLine(destination: CLLocationCoordinate2D, line: Line, minDistanceBtwStops: Double) -> Line? {
+        let nearestStopToDestination = line.stops.min(by: {
+            $0.toCLLocationCoordinate2D().distance(to: destination) < $1.toCLLocationCoordinate2D().distance(to: destination)
+        })
 
-            if let nearestStopToDestination = nearestStopToDestination,
-               isInDelimitedArea(coordinateA: nearestStopToDestination, coordinateB: destination.toCoordinate(), distance: minDistanceBtwStops) {
-                let newLine = line.slice(till: nearestStopToDestination)
-                destinationRoutes.append(newLine)
-            }
-        }
-        return destinationRoutes
+        guard let nearestStopToDestination = nearestStopToDestination, isInDelimitedArea(coordinateA: nearestStopToDestination,
+             coordinateB: destination.toCoordinate(), distance: minDistanceBtwStops) else { return nil }
+        return line.slice(till: nearestStopToDestination)
     }
 
-    private func getCombinedRoutes(origin: CLLocationCoordinate2D, destination: CLLocationCoordinate2D,
-                                   candidates: LinesCandidate, minDistanceBtwPoints: Double, minDistanceBtwStops: Double) -> [AvailableTransport] {
+    private func getCombinedRouteLines(origin: CLLocationCoordinate2D, destination: CLLocationCoordinate2D,
+                                       candidates: LinesCandidate, minDistanceBtwPoints: Double,
+                                       minDistanceBtwStops: Double) -> [AvailableTransport] {
         var availableTransports: [AvailableTransport] = []
         for routeFromOrigin in candidates.originList {
             for routeFromDestination in candidates.destinationList {
@@ -99,13 +96,18 @@ class Algorithm {
                         $0.toCLLocationCoordinate2D().distance(to: stop.toCLLocationCoordinate2D()) <=
                             $1.toCLLocationCoordinate2D().distance(to: stop.toCLLocationCoordinate2D())
                     })
-                    guard let nearestStopToOrigin = nearestStopToOrigin else { continue }
+                    let nearestStopToDestination = routeFromDestination.stops.min(by: {
+                        $0.toCLLocationCoordinate2D().distance(to: stop.toCLLocationCoordinate2D()) <=
+                            $1.toCLLocationCoordinate2D().distance(to: stop.toCLLocationCoordinate2D())
+                    })
+                    guard let nearestStopToOrigin = nearestStopToOrigin,
+                        let nearestStopToDestination = nearestStopToDestination else { continue }
                     if isInDelimitedArea(coordinateA: nearestStopToOrigin, coordinateB: stop, distance: minDistanceBtwStops) {
                         let connectionPoint = getIndexWhere(coordinate: nearestStopToOrigin, coordinateList: routeFromOrigin.stops)
                         // MARK: Origin line splice
                         let newOriginLine = routeFromOrigin.slice(till: nearestStopToOrigin)
                         // MARK: Destination line splice
-                        let newDestinationLine = routeFromOrigin.slice(from: nearestStopToOrigin)
+                        let newDestinationLine = routeFromDestination.slice(from: nearestStopToDestination)
                         // MARK: Add the combined transportation
                         availableTransports.append(AvailableTransport(connectionPoint: connectionPoint,
                               transports: [newOriginLine, newDestinationLine]))

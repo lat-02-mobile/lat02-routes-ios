@@ -15,6 +15,8 @@ struct Line: Codable, Equatable {
     let routePoints: [Coordinate]
     let start: Coordinate
     let stops: [Coordinate]
+    // Average velocity in meters per second
+    var averageVelocity: Double
 
     static func == (lhs: Line, rhs: Line) -> Bool {
         return lhs.name == rhs.name
@@ -28,7 +30,7 @@ struct Line: Codable, Equatable {
         let stops = Array(stops[0...indexOfCoordinateStop])
         return Line(name: name,
             categoryRef: categoryRef, routePoints: routePoints,
-            start: start, stops: stops)
+                    start: start, stops: stops, averageVelocity: averageVelocity)
     }
 
     // Returns a new line from the given coordinate till the end
@@ -39,7 +41,7 @@ struct Line: Codable, Equatable {
         let stops = Array(stops[indexOfCoordinateStop...])
         return Line(name: name,
              categoryRef: categoryRef, routePoints: routePoints,
-             start: start, stops: stops)
+                    start: start, stops: stops, averageVelocity: averageVelocity)
     }
 
     // Returns a new line from-till
@@ -56,7 +58,8 @@ struct Line: Codable, Equatable {
         // MARK: New RoutePoints
         let newRoutePoints = Array(routePoints[indexOriginPoint...indexDestinationPoint])
 
-        return Line(name: name, categoryRef: categoryRef, routePoints: newRoutePoints, start: start, stops: newStops)
+        return Line(name: name, categoryRef: categoryRef, routePoints: newRoutePoints,
+                    start: start, stops: newStops, averageVelocity: averageVelocity)
     }
 
     private func getIndexWhere(coordinate: Coordinate, coordinateList: [Coordinate]) -> Int {
