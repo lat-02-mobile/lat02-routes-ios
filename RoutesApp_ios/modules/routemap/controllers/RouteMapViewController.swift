@@ -4,7 +4,7 @@ import Firebase
 
 class RouteMapViewController: UIViewController {
     private var zoom: Float = 15
-    var linePath : LinePath!
+    var linePath: LinePath!
     var locationManager = CLLocationManager()
     var currentPosition: CLLocationCoordinate2D?
     @IBOutlet weak var mapView: GMSMapView!
