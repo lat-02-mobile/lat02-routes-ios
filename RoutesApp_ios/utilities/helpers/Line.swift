@@ -85,6 +85,15 @@ struct LinesCandidate: Codable {
     var destinationList: [Line]
 }
 
+struct LinePath: Codable, Equatable {
+    let name: String
+    let category: String
+    let routePoints: [Coordinate]
+    let start: Coordinate
+    let end: Coordinate
+    let stops: [Coordinate]
+}
+
 struct AvailableTransport: Equatable {
     var connectionPoint: Int?
     var transports: [Line] = []
