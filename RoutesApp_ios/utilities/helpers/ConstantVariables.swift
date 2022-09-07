@@ -18,4 +18,8 @@ class ConstantVariables {
     static let defCityLong = "CityLongitude"
 
     static let primaryColor = "primary-color"
+
+    // PlaceTableViewCell
+    static let placeCellNib = "PlaceTableViewCell"
+    static let placeCellIdentifier = "PlaceCell"
 }

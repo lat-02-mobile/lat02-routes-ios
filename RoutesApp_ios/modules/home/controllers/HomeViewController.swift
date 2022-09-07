@@ -7,6 +7,7 @@
 
 import UIKit
 import GoogleMaps
+import GooglePlaces
 
 class HomeViewController: UIViewController {
 
@@ -14,6 +15,7 @@ class HomeViewController: UIViewController {
     var locationManager = CLLocationManager()
     @IBOutlet var mapView: GMSMapView!
     @IBOutlet var currentLocationButton: UIButton!
+    @IBOutlet weak var searchButton: UIButton!
     var zoom: Float = 15
 
     override func viewDidLoad() {
@@ -143,6 +145,29 @@ class HomeViewController: UIViewController {
         alertController.addAction(settingsAction)
         self.present(alertController, animated: true, completion: nil)
     }
+
+    @IBAction func showSearchPage(_ sender: Any) {
+
+        let latSW = mapView.projection.visibleRegion().nearRight.latitude
+        let lonSW = mapView.projection.visibleRegion().farLeft.longitude
+
+        let latNE = mapView.projection.visibleRegion().farLeft.latitude
+        let lonNE = mapView.projection.visibleRegion().nearRight.longitude
+
+        let northEast = CLLocationCoordinate2DMake(latNE, lonNE)
+        let southWest = CLLocationCoordinate2DMake(latSW, lonSW)
+
+        let filterLocation = GMSPlaceRectangularLocationOption(northEast, southWest)
+
+        let viewController = SearchLocationViewController(placeBias: filterLocation)
+
+        if let presentationController = viewController.presentationController as? UISheetPresentationController {
+            presentationController.detents = [.medium()]
+        }
+
+        self.present(viewController, animated: true)
+    }
+
 }
 
 extension HomeViewController: CLLocationManagerDelegate {
