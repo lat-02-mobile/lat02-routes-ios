@@ -9,6 +9,8 @@ import Foundation
 import GooglePlaces
 
 class SearchLocationViewModel: ViewModel {
+    var onFinishGetPlaceCoordinates: (() -> Void)?
+
     let googleMapsManager = GoogleMapsManager.shared
     private var placesList = [Place]()
     var placesCount: Int {
@@ -29,5 +31,16 @@ class SearchLocationViewModel: ViewModel {
 
     func getPlaceAt(index: Int) -> Place {
         placesList[index]
+    }
+
+    func getPlaceCoordinatesByPlaceId(_ placeId: String, completion: @escaping(CLLocationCoordinate2D) -> Void) {
+        googleMapsManager.placeIDToLocation(placeID: placeId) { result in
+            switch result {
+            case.success(let location):
+                completion(location)
+            case.failure(let error):
+                self.onError?(error.localizedDescription)
+            }
+        }
     }
 }

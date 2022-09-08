@@ -15,7 +15,9 @@ class HomeViewController: UIViewController {
     var locationManager = CLLocationManager()
     @IBOutlet var mapView: GMSMapView!
     @IBOutlet var currentLocationButton: UIButton!
+    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var continueButton: UIButton!
     var zoom: Float = 15
 
     override func viewDidLoad() {
@@ -43,21 +45,14 @@ class HomeViewController: UIViewController {
         currentLocationButton.layer.cornerRadius = 25
         currentLocationButton.clipsToBounds = true
 
-        let burguerButton = UIButton(type: .custom)
-        burguerButton.frame = CGRect(x: 0, y: 0, width: 45, height: 45)
-        burguerButton.backgroundColor = currentLocationButton.tintColor
-        burguerButton.tintColor = .white
-        burguerButton.setImage(UIImage(systemName: "line.3.horizontal"), for: .normal)
-        burguerButton.layer.cornerRadius = burguerButton.frame.size.height / 2
-        burguerButton.clipsToBounds = true
-        let tap = UITapGestureRecognizer(target: self, action: #selector(burgerButtonAction))
-        burguerButton.addGestureRecognizer(tap)
+        backButton.layer.cornerRadius = 25
+        backButton.clipsToBounds = true
 
-        let counterButtonItem = UIBarButtonItem(customView: burguerButton)
-        navigationItem.leftBarButtonItems = [counterButtonItem]
-    }
+        continueButton.layer.cornerRadius = 25
+        continueButton.clipsToBounds = true
 
-    @objc func burgerButtonAction() {
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+
     }
 
     func cityLocation() {
@@ -98,6 +93,51 @@ class HomeViewController: UIViewController {
     @IBAction func zoomOut(_ sender: Any) {
         zoom -= 1
         self.mapView.animate(toZoom: zoom)
+    }
+
+    @IBAction func backButtonAction(_ sender: Any) {
+        switch viewmodel.pointsSelectionStatus {
+        case.pendingOrigin:
+            return
+        case.pendingDestination:
+            viewmodel.pointsSelectionStatus = .pendingOrigin
+            viewmodel.origin?.map = mapView
+            viewmodel.origin?.map = nil
+            viewmodel.origin = nil
+            backButton.isHidden = true
+        case.bothSelected:
+            viewmodel.pointsSelectionStatus = .pendingDestination
+            viewmodel.destination?.map = mapView
+            viewmodel.destination?.map = nil
+            viewmodel.destination = nil
+        }
+
+    }
+
+    @IBAction func continueButtonAction(_ sender: Any) {
+        let position = mapView.camera.target
+        let pos = GMSMarker(position: position)
+
+        switch viewmodel.pointsSelectionStatus {
+        case.pendingOrigin:
+            pos.title = "Origin"
+            pos.icon = UIImage(named: "origin_point")
+            pos.map = mapView
+            viewmodel.origin = pos
+            viewmodel.pointsSelectionStatus = .pendingDestination
+
+        case.pendingDestination:
+            pos.title = "Destination"
+            pos.icon = UIImage(named: "destination_point")
+            pos.map = mapView
+            viewmodel.destination = pos
+            viewmodel.pointsSelectionStatus = .bothSelected
+
+        case.bothSelected:
+            self.showToast(message: "Done, searching for best Routes")
+        }
+
+        backButton.isHidden = false
     }
 
     func initializeTheLocationManager() {
@@ -160,6 +200,7 @@ class HomeViewController: UIViewController {
         let filterLocation = GMSPlaceRectangularLocationOption(northEast, southWest)
 
         let viewController = SearchLocationViewController(placeBias: filterLocation)
+        viewController.delegate = self
 
         if let presentationController = viewController.presentationController as? UISheetPresentationController {
             presentationController.detents = [.medium()]
@@ -168,8 +209,33 @@ class HomeViewController: UIViewController {
         self.present(viewController, animated: true)
     }
 
+    func showToast(message: String) {
+        let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: self.view.frame.size.height-100, width: 150, height: 35))
+        toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        toastLabel.textColor = UIColor.white
+        toastLabel.textAlignment = .center
+        toastLabel.text = message
+        toastLabel.alpha = 1.0
+        toastLabel.layer.cornerRadius = 10
+        toastLabel.clipsToBounds  =  true
+        self.view.addSubview(toastLabel)
+        UIView.animate(withDuration: 4.0, delay: 0.1, options: .curveEaseOut, animations: {
+             toastLabel.alpha = 0.0
+        }, completion: { _ in
+            toastLabel.removeFromSuperview()
+        })
+    }
+
 }
 
+// MARK: SearchLocation Delegate
+extension HomeViewController: SearchLocationDelegate {
+    func onPlaceTap(location: CLLocationCoordinate2D) {
+        self.cameraMoveToLocation(toLocation: location)
+    }
+}
+
+// MARK: CLLocationManager Delegate
 extension HomeViewController: CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

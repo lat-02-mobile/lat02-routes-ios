@@ -10,12 +10,18 @@ import SVProgressHUD
 import CoreLocation
 import GooglePlaces
 
+protocol SearchLocationDelegate: AnyObject {
+    func onPlaceTap(location: CLLocationCoordinate2D)
+}
+
 class SearchLocationViewController: UIViewController {
 
     let placeBias: GMSPlaceLocationBias!
     @IBOutlet weak var searchTitle: UILabel!
     @IBOutlet weak var placeSearchBar: UISearchBar!
     @IBOutlet weak var placesTableView: UITableView!
+
+    var delegate: SearchLocationDelegate?
 
     private let viewModel = SearchLocationViewModel()
 
@@ -71,6 +77,14 @@ extension SearchLocationViewController: UITableViewDelegate, UITableViewDataSour
         let place = viewModel.getPlaceAt(index: indexPath.row)
         cell.setData(place: place)
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let place = viewModel.getPlaceAt(index: indexPath.row)
+        viewModel.getPlaceCoordinatesByPlaceId(place.identifier) { location in
+            self.delegate?.onPlaceTap(location: location)
+            self.dismiss(animated: true)
+        }
     }
 }
 

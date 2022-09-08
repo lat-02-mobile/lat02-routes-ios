@@ -9,7 +9,8 @@ import Foundation
 import GooglePlaces
 
 enum PlacesError: Error {
-    case failedToRetrieve
+    case failedToRetrievePlaces
+    case failedToRetrievePlaceInfo
 }
 
 protocol GoogleMapsManagerProtocol {
@@ -28,16 +29,26 @@ class GoogleMapsManager: GoogleMapsManagerProtocol {
         client.findAutocompletePredictions(
             fromQuery: query,
             filter: filter,
-
             sessionToken: nil) { results, error in
             guard let results = results, error == nil else {
-                completion(.failure(PlacesError.failedToRetrieve))
+                completion(.failure(PlacesError.failedToRetrievePlaces))
                 return
             }
             let places: [Place] = results.compactMap({
                 Place(name: $0.attributedFullText.string, identifier: $0.placeID)
             })
             completion(.success(places))
+        }
+    }
+
+    func placeIDToLocation(placeID: String, completion: @escaping(Result<CLLocationCoordinate2D, Error>) -> Void) {
+        let fields: GMSPlaceField = GMSPlaceField(rawValue: UInt(GMSPlaceField.coordinate.rawValue))
+        client.fetchPlace(fromPlaceID: placeID, placeFields: fields, sessionToken: nil) { result, error in
+            guard let result = result, error == nil else {
+                completion(.failure(PlacesError.failedToRetrievePlaceInfo))
+                return
+            }
+            completion(.success(result.coordinate))
         }
     }
 }
