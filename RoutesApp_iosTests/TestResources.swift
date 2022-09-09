@@ -9,7 +9,8 @@ import Foundation
 @testable import Firebase
 @testable import FirebaseFirestoreSwift
 @testable import RoutesApp_ios
-
+import CoreLocation
+@testable import GooglePlaces
 
 class TestResources {
     static let testUserEmail = "john@doe.com"
@@ -63,6 +64,11 @@ class TestResources {
     static let testCityRouteName = "testCity"
     static let testCountryId = "testCountry"
     static let testCityRoute = CityRoute(id: "test", name: "testCity", countryId: "countryTest", lat: "-35", lng: "-17")
-    static let testCountry = Country(id: "test", name: "testCountry", code: "test", phone: "test", createdAt: Date(), updatedAt: Date(), cities: [DocumentReference]())
+    static let testCountry = Country(
+        id: "test", name: "testCountry", code: "test", phone: "test", createdAt: Date(), updatedAt: Date(), cities: [DocumentReference]()
+    )
 
+    static let findPlacesTest = Place(name: "A place name", identifier: "123456")
+    static let queryToSendTest = "place"
+    static let placeBiasTest = GMSPlaceRectangularLocationOption(CLLocationCoordinate2D(), CLLocationCoordinate2D())
 }

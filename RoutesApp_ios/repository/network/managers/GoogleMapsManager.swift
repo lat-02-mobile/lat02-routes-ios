@@ -15,6 +15,7 @@ enum PlacesError: Error {
 
 protocol GoogleMapsManagerProtocol {
     func findPlaces(query: String, placeBias: GMSPlaceLocationBias, completion: @escaping(Result<[Place], Error>) -> Void)
+    func placeIDToLocation(placeID: String, completion: @escaping(Result<CLLocationCoordinate2D, Error>) -> Void)
 }
 
 class GoogleMapsManager: GoogleMapsManagerProtocol {

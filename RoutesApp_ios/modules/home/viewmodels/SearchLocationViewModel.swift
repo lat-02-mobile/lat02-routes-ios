@@ -11,7 +11,7 @@ import GooglePlaces
 class SearchLocationViewModel: ViewModel {
     var onFinishGetPlaceCoordinates: (() -> Void)?
 
-    let googleMapsManager = GoogleMapsManager.shared
+    var googleMapsManager: GoogleMapsManagerProtocol = GoogleMapsManager.shared
     private var placesList = [Place]()
     var placesCount: Int {
         placesList.count

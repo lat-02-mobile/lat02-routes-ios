@@ -32,6 +32,7 @@
 		844F9A2E28C84718004A95A0 /* SearchLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F9A2D28C84718004A95A0 /* SearchLocationViewModel.swift */; };
 		844F9A3128C84E63004A95A0 /* PlaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F9A2F28C84E63004A95A0 /* PlaceTableViewCell.swift */; };
 		844F9A3228C84E63004A95A0 /* PlaceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 844F9A3028C84E63004A95A0 /* PlaceTableViewCell.xib */; };
+		844F9A3A28CBEA7D004A95A0 /* SearchLocationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F9A3928CBEA7D004A95A0 /* SearchLocationTest.swift */; };
 		845D228928A7050000E9A660 /* PhoneAuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D228728A7050000E9A660 /* PhoneAuthenticationViewController.swift */; };
 		847A59E228A820F5005CEA25 /* PhoneAuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A59E128A820F5005CEA25 /* PhoneAuthenticationViewModel.swift */; };
 		C20A86D128A3383F0000EF7C /* ConstantVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A86D028A3383F0000EF7C /* ConstantVariables.swift */; };
@@ -119,6 +120,7 @@
 		844F9A2D28C84718004A95A0 /* SearchLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationViewModel.swift; sourceTree = "<group>"; };
 		844F9A2F28C84E63004A95A0 /* PlaceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceTableViewCell.swift; sourceTree = "<group>"; };
 		844F9A3028C84E63004A95A0 /* PlaceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceTableViewCell.xib; sourceTree = "<group>"; };
+		844F9A3928CBEA7D004A95A0 /* SearchLocationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationTest.swift; sourceTree = "<group>"; };
 		845D228728A7050000E9A660 /* PhoneAuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAuthenticationViewController.swift; sourceTree = "<group>"; };
 		847A59E128A820F5005CEA25 /* PhoneAuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAuthenticationViewModel.swift; sourceTree = "<group>"; };
 		8E4554EE6A9F1EB0D5124479 /* Pods-RoutesApp_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutesApp_ios.release.xcconfig"; path = "Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios.release.xcconfig"; sourceTree = "<group>"; };
@@ -445,6 +447,7 @@
 				C20A86D428A339540000EF7C /* AuthTests.swift */,
 				CE8CE8EF28BE493F003270D7 /* AlgorithmTests.swift */,
 				84067C8828B8272000549300 /* CityPickerTests.swift */,
+				844F9A3928CBEA7D004A95A0 /* SearchLocationTest.swift */,
 			);
 			path = RoutesApp_iosTests;
 			sourceTree = "<group>";
@@ -905,6 +908,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				844F9A3A28CBEA7D004A95A0 /* SearchLocationTest.swift in Sources */,
 				C2E976F32898701D009F4B94 /* RoutesApp_iosTests.swift in Sources */,
 				CE8CE8F028BE493F003270D7 /* AlgorithmTests.swift in Sources */,
 				C20A86D528A339540000EF7C /* AuthTests.swift in Sources */,
