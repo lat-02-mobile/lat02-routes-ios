@@ -17,6 +17,8 @@ protocol SearchLocationDelegate: AnyObject {
 class SearchLocationViewController: UIViewController {
 
     let placeBias: GMSPlaceLocationBias!
+    let selectionStatus: PointsSelectionStatus!
+
     @IBOutlet weak var searchTitle: UILabel!
     @IBOutlet weak var placeSearchBar: UISearchBar!
     @IBOutlet weak var placesTableView: UITableView!
@@ -25,8 +27,9 @@ class SearchLocationViewController: UIViewController {
 
     private let viewModel = SearchLocationViewModel()
 
-    init(placeBias: GMSPlaceLocationBias) {
+    init(placeBias: GMSPlaceLocationBias, selectionStatus: PointsSelectionStatus) {
         self.placeBias = placeBias
+        self.selectionStatus = selectionStatus
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -43,8 +46,20 @@ class SearchLocationViewController: UIViewController {
         placesTableView.dataSource = self
         let nib = UINib(nibName: ConstantVariables.placeCellNib, bundle: nil)
         placesTableView.register(nib, forCellReuseIdentifier: ConstantVariables.placeCellIdentifier)
-
         placeSearchBar.delegate = self
+
+        placeSearchBar.backgroundImage = UIImage()
+        placeSearchBar.searchTextField.backgroundColor = .white
+
+        switch self.selectionStatus {
+        case.pendingOrigin:
+            self.searchTitle.text = String.localizeString(localizedString: "origin")
+        case.pendingDestination:
+            self.searchTitle.text = String.localizeString(localizedString: "destination")
+
+        case.bothSelected, .none:
+            return
+        }
     }
 
     private func initViewModel() {

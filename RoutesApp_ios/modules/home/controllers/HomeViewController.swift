@@ -13,6 +13,7 @@ class HomeViewController: UIViewController {
 
     let viewmodel = HomeViewModel()
     var locationManager = CLLocationManager()
+    @IBOutlet weak var labelHelper: UILabel!
     @IBOutlet var mapView: GMSMapView!
     @IBOutlet var currentLocationButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
@@ -51,6 +52,9 @@ class HomeViewController: UIViewController {
         continueButton.layer.cornerRadius = 25
         continueButton.clipsToBounds = true
 
+        searchButton.contentVerticalAlignment = .top
+
+        labelHelper.text = String.localizeString(localizedString: "select-origin")
         self.navigationController?.setNavigationBarHidden(true, animated: false)
 
     }
@@ -100,12 +104,14 @@ class HomeViewController: UIViewController {
         case.pendingOrigin:
             return
         case.pendingDestination:
+            labelHelper.text = String.localizeString(localizedString: "select-origin")
             viewmodel.pointsSelectionStatus = .pendingOrigin
             viewmodel.origin?.map = mapView
             viewmodel.origin?.map = nil
             viewmodel.origin = nil
             backButton.isHidden = true
         case.bothSelected:
+            labelHelper.text = String.localizeString(localizedString: "select-destination")
             viewmodel.pointsSelectionStatus = .pendingDestination
             viewmodel.destination?.map = mapView
             viewmodel.destination?.map = nil
@@ -120,21 +126,24 @@ class HomeViewController: UIViewController {
 
         switch viewmodel.pointsSelectionStatus {
         case.pendingOrigin:
-            pos.title = "Origin"
+            pos.title = String.localizeString(localizedString: "origin")
+            labelHelper.text = String.localizeString(localizedString: "select-destination")
             pos.icon = UIImage(named: "origin_point")
             pos.map = mapView
             viewmodel.origin = pos
             viewmodel.pointsSelectionStatus = .pendingDestination
 
         case.pendingDestination:
-            pos.title = "Destination"
+            pos.title = String.localizeString(localizedString: "destination")
+            labelHelper.text = String.localizeString(localizedString: "done")
             pos.icon = UIImage(named: "destination_point")
             pos.map = mapView
             viewmodel.destination = pos
             viewmodel.pointsSelectionStatus = .bothSelected
 
         case.bothSelected:
-            self.showToast(message: "Done, searching for best Routes")
+            // Call logic to run algorithm with routes
+            self.showToast(message: "Done")
         }
 
         backButton.isHidden = false
@@ -199,7 +208,7 @@ class HomeViewController: UIViewController {
 
         let filterLocation = GMSPlaceRectangularLocationOption(northEast, southWest)
 
-        let viewController = SearchLocationViewController(placeBias: filterLocation)
+        let viewController = SearchLocationViewController(placeBias: filterLocation, selectionStatus: viewmodel.pointsSelectionStatus)
         viewController.delegate = self
 
         if let presentationController = viewController.presentationController as? UISheetPresentationController {
@@ -219,7 +228,7 @@ class HomeViewController: UIViewController {
         toastLabel.layer.cornerRadius = 10
         toastLabel.clipsToBounds  =  true
         self.view.addSubview(toastLabel)
-        UIView.animate(withDuration: 4.0, delay: 0.1, options: .curveEaseOut, animations: {
+        UIView.animate(withDuration: 5.0, delay: 0.1, options: .curveEaseOut, animations: {
              toastLabel.alpha = 0.0
         }, completion: { _ in
             toastLabel.removeFromSuperview()
