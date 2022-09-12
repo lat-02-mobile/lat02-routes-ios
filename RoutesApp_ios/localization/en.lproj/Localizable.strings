@@ -42,3 +42,12 @@
 // City Picker
 "welcome-message" = "Welcome to";
 "city-search-bar" = "Search";
+
+// HomeController
+"origin" = "Origin";
+"destination"= "Destination";
+
+"select-origin" = "Select origin";
+"select-destination" = "Select destination";
+
+"done" = "done";

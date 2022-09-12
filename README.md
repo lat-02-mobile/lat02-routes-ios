@@ -23,3 +23,17 @@ Routes repository for ios
 At the end of the Google and Facebook login setup, the info.plist should look similar to the following:
 
 ![Captura de Pantalla 2022-08-15 a la(s) 17 32 45](https://user-images.githubusercontent.com/20176876/184722573-283160ba-bf72-477e-aef0-ce34099bd453.png)
+
+### Set up Google Maps and Places for searching functionality
+
+1. Go to [Google Cloud Console](https://console.cloud.google.com/) and in the Credentials option, under APIs & Services section
+
+2. In that page you'll see a list of generated keys, search for **Places API Key** and **Google Maps iOS SDK**, on the right side of those items, there's a _SHOW_KEY_ button. Click on it and copy the key value to the AppDelegate.swift file and replace the hole string with key values where corresponds.
+
+```swift
+        GMSServices.provideAPIKey("${GOOGLE_MAPS_API_KEY}")
+        GMSPlacesClient.provideAPIKey("${GOOGLE_PLACES_API_KEY}")
+        // Should look like this after replacing the values
+        GMSServices.provideAPIKey("COPIED_FOR_MAPS_KEY")
+        GMSPlacesClient.provideAPIKey("COPIED_KEY_FOR GOOGLE_PLACES")
+```
