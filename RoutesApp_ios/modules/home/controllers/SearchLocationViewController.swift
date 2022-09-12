@@ -53,9 +53,9 @@ class SearchLocationViewController: UIViewController {
 
         switch self.selectionStatus {
         case.pendingOrigin:
-            self.searchTitle.text = String.localizeString(localizedString: "origin")
+            self.searchTitle.text = String.localizeString(localizedString: ConstantVariables.origin)
         case.pendingDestination:
-            self.searchTitle.text = String.localizeString(localizedString: "destination")
+            self.searchTitle.text = String.localizeString(localizedString: ConstantVariables.destination)
 
         case.bothSelected, .none:
             return

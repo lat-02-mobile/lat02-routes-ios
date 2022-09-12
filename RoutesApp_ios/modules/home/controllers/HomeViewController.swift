@@ -54,7 +54,7 @@ class HomeViewController: UIViewController {
 
         searchButton.contentVerticalAlignment = .top
 
-        labelHelper.text = String.localizeString(localizedString: "select-origin")
+        labelHelper.text = String.localizeString(localizedString: ConstantVariables.selectOrigin)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
 
     }
@@ -104,14 +104,14 @@ class HomeViewController: UIViewController {
         case.pendingOrigin:
             return
         case.pendingDestination:
-            labelHelper.text = String.localizeString(localizedString: "select-origin")
+            labelHelper.text = String.localizeString(localizedString: ConstantVariables.selectOrigin)
             viewmodel.pointsSelectionStatus = .pendingOrigin
             viewmodel.origin?.map = mapView
             viewmodel.origin?.map = nil
             viewmodel.origin = nil
             backButton.isHidden = true
         case.bothSelected:
-            labelHelper.text = String.localizeString(localizedString: "select-destination")
+            labelHelper.text = String.localizeString(localizedString: ConstantVariables.selectDestination)
             viewmodel.pointsSelectionStatus = .pendingDestination
             viewmodel.destination?.map = mapView
             viewmodel.destination?.map = nil
@@ -126,24 +126,24 @@ class HomeViewController: UIViewController {
 
         switch viewmodel.pointsSelectionStatus {
         case.pendingOrigin:
-            pos.title = String.localizeString(localizedString: "origin")
-            labelHelper.text = String.localizeString(localizedString: "select-destination")
-            pos.icon = UIImage(named: "origin_point")
+            pos.title = String.localizeString(localizedString: ConstantVariables.origin)
+            labelHelper.text = String.localizeString(localizedString: ConstantVariables.selectDestination)
+            pos.icon = UIImage(named: ConstantVariables.originPoint)
             pos.map = mapView
             viewmodel.origin = pos
             viewmodel.pointsSelectionStatus = .pendingDestination
 
         case.pendingDestination:
-            pos.title = String.localizeString(localizedString: "destination")
-            labelHelper.text = String.localizeString(localizedString: "done")
-            pos.icon = UIImage(named: "destination_point")
+            pos.title = String.localizeString(localizedString: ConstantVariables.destination)
+            labelHelper.text = String.localizeString(localizedString: ConstantVariables.done)
+            pos.icon = UIImage(named: ConstantVariables.destinationPoint)
             pos.map = mapView
             viewmodel.destination = pos
             viewmodel.pointsSelectionStatus = .bothSelected
 
         case.bothSelected:
             // Call logic to run algorithm with routes
-            self.showToast(message: "Done")
+            self.showToast(message: ConstantVariables.done)
         }
 
         backButton.isHidden = false
@@ -173,11 +173,12 @@ class HomeViewController: UIViewController {
     }
 
     private func showRequestPermissionsAlert() {
-        let alertController = UIAlertController(title: String.localizeString(localizedString: "localization-permission-alert-title"),
-            message: String.localizeString(localizedString: "localization-permission-alert-message"), preferredStyle: .alert)
+        let alertController = UIAlertController(title: String.localizeString(localizedString: ConstantVariables.localizationPermissionAlertTitle),
+                                                message: String.localizeString(localizedString: ConstantVariables.localizationPermissionAlertMessage),
+                                                preferredStyle: .alert)
 
         let settingsAction = UIAlertAction(title:
-            String.localizeString(localizedString: "localization-permission-alert-settings"),
+            String.localizeString(localizedString: ConstantVariables.localizationPermissionAlertSettings),
                style: .default) { (_) -> Void in
             guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
                 return
@@ -187,7 +188,7 @@ class HomeViewController: UIViewController {
              }
         }
         let cancelAction = UIAlertAction(title:
-            String.localizeString(localizedString: "localization-permission-alert-cancel"),
+                                            String.localizeString(localizedString: ConstantVariables.localizationPermissionAlertCancel),
              style: .default, handler: nil)
 
         alertController.addAction(cancelAction)
