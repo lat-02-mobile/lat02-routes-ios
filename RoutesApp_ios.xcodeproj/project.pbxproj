@@ -34,6 +34,7 @@
 		8498F8AC28CF4B27008641D9 /* RouteListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8498F8A628CF4B27008641D9 /* RouteListTableViewCell.xib */; };
 		8498F8AD28CF4B27008641D9 /* RouteListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8498F8A828CF4B27008641D9 /* RouteListViewController.xib */; };
 		8498F8AE28CF4B27008641D9 /* RouteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8498F8A928CF4B27008641D9 /* RouteListViewController.swift */; };
+		8498F8B028D0D50B008641D9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8498F8AF28D0D50B008641D9 /* GoogleService-Info.plist */; };
 		84A5B67A28C698C5006AB7F9 /* RouteMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A5B67828C698C4006AB7F9 /* RouteMapViewController.swift */; };
 		84A5B67B28C698C5006AB7F9 /* RouteMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A5B67928C698C4006AB7F9 /* RouteMapViewController.xib */; };
 		C20A86D128A3383F0000EF7C /* ConstantVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A86D028A3383F0000EF7C /* ConstantVariables.swift */; };
@@ -75,7 +76,6 @@
 		CE65448D28BD174C003B599B /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65448C28BD174C003B599B /* Line.swift */; };
 		CE8CE8F028BE493F003270D7 /* AlgorithmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8CE8EF28BE493F003270D7 /* AlgorithmTests.swift */; };
 		CE93A8A328BD3ECD00296532 /* CLLocationCoordinate2DExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE93A8A228BD3ECD00296532 /* CLLocationCoordinate2DExtension.swift */; };
-		CEF1970428A6073000C82AE3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CEF1970328A6073000C82AE3 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +123,7 @@
 		8498F8A628CF4B27008641D9 /* RouteListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RouteListTableViewCell.xib; sourceTree = "<group>"; };
 		8498F8A828CF4B27008641D9 /* RouteListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RouteListViewController.xib; sourceTree = "<group>"; };
 		8498F8A928CF4B27008641D9 /* RouteListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteListViewController.swift; sourceTree = "<group>"; };
+		8498F8AF28D0D50B008641D9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		84A5B67828C698C4006AB7F9 /* RouteMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteMapViewController.swift; sourceTree = "<group>"; };
 		84A5B67928C698C4006AB7F9 /* RouteMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RouteMapViewController.xib; sourceTree = "<group>"; };
 		8E4554EE6A9F1EB0D5124479 /* Pods-RoutesApp_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutesApp_ios.release.xcconfig"; path = "Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios.release.xcconfig"; sourceTree = "<group>"; };
@@ -173,7 +174,6 @@
 		CE65448C28BD174C003B599B /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Line.swift; path = RoutesApp_ios/utilities/helpers/Line.swift; sourceTree = SOURCE_ROOT; };
 		CE8CE8EF28BE493F003270D7 /* AlgorithmTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgorithmTests.swift; sourceTree = "<group>"; };
 		CE93A8A228BD3ECD00296532 /* CLLocationCoordinate2DExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2DExtension.swift; sourceTree = "<group>"; };
-		CEF1970328A6073000C82AE3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F4F2DC09BBC0577CE2B41D46 /* Pods-RoutesApp_iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutesApp_iosTests.release.xcconfig"; path = "Target Support Files/Pods-RoutesApp_iosTests/Pods-RoutesApp_iosTests.release.xcconfig"; sourceTree = "<group>"; };
 		F808C389CD2F19D7212160C0 /* Pods_RoutesApp_iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoutesApp_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDCC7F618DD2DA0577071C41 /* Pods-RoutesApp_ios-RoutesApp_iosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutesApp_ios-RoutesApp_iosUITests.release.xcconfig"; path = "Target Support Files/Pods-RoutesApp_ios-RoutesApp_iosUITests/Pods-RoutesApp_ios-RoutesApp_iosUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -490,7 +490,7 @@
 				C2E976E42898701D009F4B94 /* Assets.xcassets */,
 				C2E976E62898701D009F4B94 /* LaunchScreen.storyboard */,
 				C2E976E92898701D009F4B94 /* Info.plist */,
-				CEF1970328A6073000C82AE3 /* GoogleService-Info.plist */,
+				8498F8AF28D0D50B008641D9 /* GoogleService-Info.plist */,
 				C2E976E12898701C009F4B94 /* RoutesApp_ios.xcdatamodeld */,
 			);
 			path = RoutesApp_ios;
@@ -796,7 +796,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C215EF0D28A4C1BC00371DB6 /* LoginViewController.xib in Resources */,
-				CEF1970428A6073000C82AE3 /* GoogleService-Info.plist in Resources */,
 				C2E976E82898701D009F4B94 /* LaunchScreen.storyboard in Resources */,
 				C2E976E52898701D009F4B94 /* Assets.xcassets in Resources */,
 				84067C6628B3D0A700549300 /* CitySplashViewController.xib in Resources */,
@@ -806,6 +805,7 @@
 				84A5B67B28C698C5006AB7F9 /* RouteMapViewController.xib in Resources */,
 				8498F8AD28CF4B27008641D9 /* RouteListViewController.xib in Resources */,
 				8498F8AC28CF4B27008641D9 /* RouteListTableViewCell.xib in Resources */,
+				8498F8B028D0D50B008641D9 /* GoogleService-Info.plist in Resources */,
 				843D043F28AAF3F800C4DF25 /* PhoneAuthenticationViewController.xib in Resources */,
 				84067C7528B5721400549300 /* CityPickerViewController.xib in Resources */,
 				84067C7428B4305300549300 /* CityTableViewCell.xib in Resources */,

@@ -20,7 +20,7 @@ class RouteListViewController: UIViewController, UITableViewDataSource, UITableV
             self.routeListTableView.reloadData()
         }
 
-        routeListTableView.register(UINib.init(nibName: "RouteListTableViewCell", bundle: nil), forCellReuseIdentifier: "RouteListTableViewCell")
+        routeListTableView.register(UINib.init(nibName: ConstantVariables.routeListCell, bundle: nil), forCellReuseIdentifier: "RouteListTableViewCell")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -28,7 +28,7 @@ class RouteListViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func setupNavigationBar() {
-        navigationItem.title = "Route List"
+        navigationItem.title = ConstantVariables.routeTitle
         self.navigationItem.largeTitleDisplayMode = .always
         navigationController?.navigationBar.barTintColor = UIColor(named: ConstantVariables.primaryColor)
         let routeListVC = RouteListViewController()
@@ -55,7 +55,7 @@ class RouteListViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let tableViewCell = tableView.dequeueReusableCell(withIdentifier: "RouteListTableViewCell", for: indexPath) as? RouteListTableViewCell else {
+        guard let tableViewCell = tableView.dequeueReusableCell(withIdentifier: ConstantVariables.routeListCell, for: indexPath) as? RouteListTableViewCell else {
             return  UITableViewCell()
         }
         let line =  routeListDetailViewModel.routeListDetailModels[indexPath.row]
