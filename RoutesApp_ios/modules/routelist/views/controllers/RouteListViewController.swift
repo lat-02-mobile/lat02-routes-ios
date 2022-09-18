@@ -40,7 +40,7 @@ class RouteListViewController: UIViewController, UITableViewDataSource, UITableV
     }
 
     func setIcon() {
-        let filterIcon = UIImage(named: "filter-icon")?.withRenderingMode(.alwaysOriginal)
+        let filterIcon = UIImage(named: ConstantVariables.filterIcon)?.withRenderingMode(.alwaysOriginal)
         let filterButton = UIBarButtonItem(image: filterIcon, style: .plain, target: self, action: #selector(showFilterPopUp))
 
         navigationItem.rightBarButtonItem = filterButton

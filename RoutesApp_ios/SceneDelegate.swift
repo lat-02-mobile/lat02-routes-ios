@@ -67,8 +67,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         tabBarVC.tabBar.backgroundColor = .white
         // Add VCs to TabBarVC
         tabBarVC.viewControllers = [
-            createNavController(for: RouteListViewController(), title: "Home", image: UIImage(systemName: "bus.fill")!),
-            createNavController(for: HomeViewController(), title: String.localizeString(localizedString: "home"), image: UIImage(systemName: "bus")!),
+            createNavController(for: RouteListViewController(), title: String.localizeString(localizedString: "home"), image: UIImage(systemName: "bus.fill")!),
+            createNavController(for: HomeViewController(), title: "", image: UIImage(systemName: "bus")!),
             createNavController(for: HomeViewController(), title: "", image: UIImage(systemName: "mappin.and.ellipse")!),
             createNavController(for: HomeViewController(), title: "", image: UIImage(systemName: "suit.heart")!),
             createNavController(for: SettingsViewController(), title: "", image: UIImage(systemName: "gearshape.fill")!)
