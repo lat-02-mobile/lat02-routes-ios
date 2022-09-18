@@ -24,7 +24,15 @@
 		84067C7D28B57EFC00549300 /* FirebaseFirestoreSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 84067C7C28B57EFC00549300 /* FirebaseFirestoreSwift-Beta */; };
 		84067C8928B8272000549300 /* CityPickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84067C8828B8272000549300 /* CityPickerTests.swift */; };
 		84067C8B28B95EDA00549300 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84067C8A28B95ED900549300 /* SettingsViewModel.swift */; };
+		8420E0C728C68E89000068F9 /* SearchLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8420E0C528C68E89000068F9 /* SearchLocationViewController.swift */; };
+		8420E0C828C68E89000068F9 /* SearchLocationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8420E0C628C68E89000068F9 /* SearchLocationViewController.xib */; };
 		843D043F28AAF3F800C4DF25 /* PhoneAuthenticationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 843D044128AAF3F800C4DF25 /* PhoneAuthenticationViewController.xib */; };
+		844F9A2928C7F542004A95A0 /* GoogleMapsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F9A2828C7F542004A95A0 /* GoogleMapsManager.swift */; };
+		844F9A2C28C7FD51004A95A0 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F9A2B28C7FD51004A95A0 /* Place.swift */; };
+		844F9A2E28C84718004A95A0 /* SearchLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F9A2D28C84718004A95A0 /* SearchLocationViewModel.swift */; };
+		844F9A3128C84E63004A95A0 /* PlaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F9A2F28C84E63004A95A0 /* PlaceTableViewCell.swift */; };
+		844F9A3228C84E63004A95A0 /* PlaceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 844F9A3028C84E63004A95A0 /* PlaceTableViewCell.xib */; };
+		844F9A3A28CBEA7D004A95A0 /* SearchLocationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F9A3928CBEA7D004A95A0 /* SearchLocationTest.swift */; };
 		845D228928A7050000E9A660 /* PhoneAuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D228728A7050000E9A660 /* PhoneAuthenticationViewController.swift */; };
 		847A59E228A820F5005CEA25 /* PhoneAuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A59E128A820F5005CEA25 /* PhoneAuthenticationViewModel.swift */; };
 		8498F89D28CF4892008641D9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8498F89C28CF4892008641D9 /* Constants.swift */; };
@@ -111,9 +119,17 @@
 		84067C8728B5D74A00549300 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/SettingsViewController.strings"; sourceTree = "<group>"; };
 		84067C8828B8272000549300 /* CityPickerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityPickerTests.swift; sourceTree = "<group>"; };
 		84067C8A28B95ED900549300 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		8420E0C528C68E89000068F9 /* SearchLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationViewController.swift; sourceTree = "<group>"; };
+		8420E0C628C68E89000068F9 /* SearchLocationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchLocationViewController.xib; sourceTree = "<group>"; };
 		843D044028AAF3F800C4DF25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PhoneAuthenticationViewController.xib; sourceTree = "<group>"; };
 		843D044328AAF3FE00C4DF25 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PhoneAuthenticationViewController.strings; sourceTree = "<group>"; };
 		843D044528AAF40E00C4DF25 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/PhoneAuthenticationViewController.strings"; sourceTree = "<group>"; };
+		844F9A2828C7F542004A95A0 /* GoogleMapsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapsManager.swift; sourceTree = "<group>"; };
+		844F9A2B28C7FD51004A95A0 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		844F9A2D28C84718004A95A0 /* SearchLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationViewModel.swift; sourceTree = "<group>"; };
+		844F9A2F28C84E63004A95A0 /* PlaceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceTableViewCell.swift; sourceTree = "<group>"; };
+		844F9A3028C84E63004A95A0 /* PlaceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceTableViewCell.xib; sourceTree = "<group>"; };
+		844F9A3928CBEA7D004A95A0 /* SearchLocationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationTest.swift; sourceTree = "<group>"; };
 		845D228728A7050000E9A660 /* PhoneAuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAuthenticationViewController.swift; sourceTree = "<group>"; };
 		847A59E128A820F5005CEA25 /* PhoneAuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAuthenticationViewModel.swift; sourceTree = "<group>"; };
 		8498F89C28CF4892008641D9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -171,7 +187,7 @@
 		C2E977322898802F009F4B94 /* Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encodable.swift; sourceTree = "<group>"; };
 		CE0F8D3428AD357F00F2C753 /* silver-style.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "silver-style.json"; sourceTree = "<group>"; };
 		CE65448A28BD148B003B599B /* Algorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Algorithm.swift; sourceTree = "<group>"; };
-		CE65448C28BD174C003B599B /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Line.swift; path = RoutesApp_ios/utilities/helpers/Line.swift; sourceTree = SOURCE_ROOT; };
+		CE65448C28BD174C003B599B /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Line.swift; path = RoutesApp_ios/repository/models/remote/Line.swift; sourceTree = SOURCE_ROOT; };
 		CE8CE8EF28BE493F003270D7 /* AlgorithmTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgorithmTests.swift; sourceTree = "<group>"; };
 		CE93A8A228BD3ECD00296532 /* CLLocationCoordinate2DExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2DExtension.swift; sourceTree = "<group>"; };
 		F4F2DC09BBC0577CE2B41D46 /* Pods-RoutesApp_iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutesApp_iosTests.release.xcconfig"; path = "Target Support Files/Pods-RoutesApp_iosTests/Pods-RoutesApp_iosTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -287,6 +303,15 @@
 			path = viewmodels;
 			sourceTree = "<group>";
 		};
+		8420E0C428C682AA000068F9 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				844F9A2F28C84E63004A95A0 /* PlaceTableViewCell.swift */,
+				844F9A3028C84E63004A95A0 /* PlaceTableViewCell.xib */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
 		845D228328A7042D00E9A660 /* phoneauthentication */ = {
 			isa = PBXGroup;
 			children = (
@@ -395,9 +420,9 @@
 		C2112DDB289A18C3009601AB /* home */ = {
 			isa = PBXGroup;
 			children = (
+				8420E0C428C682AA000068F9 /* views */,
 				C2112DDC289A18C9009601AB /* viewmodels */,
 				C2112DDE289A18DB009601AB /* controllers */,
-				C2112DDD289A18D6009601AB /* views */,
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -406,15 +431,9 @@
 			isa = PBXGroup;
 			children = (
 				C215EF0828A4B1F400371DB6 /* HomeVIewModel.swift */,
+				844F9A2D28C84718004A95A0 /* SearchLocationViewModel.swift */,
 			);
 			path = viewmodels;
-			sourceTree = "<group>";
-		};
-		C2112DDD289A18D6009601AB /* views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = views;
 			sourceTree = "<group>";
 		};
 		C2112DDE289A18DB009601AB /* controllers */ = {
@@ -422,6 +441,8 @@
 			children = (
 				C2112DDF289A18FB009601AB /* HomeViewController.swift */,
 				C2112DE0289A18FB009601AB /* HomeViewController.xib */,
+				8420E0C528C68E89000068F9 /* SearchLocationViewController.swift */,
+				8420E0C628C68E89000068F9 /* SearchLocationViewController.xib */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -442,6 +463,7 @@
 				C2436386289A2CE4003C1A44 /* FirebaseAuthManager.swift */,
 				C24BD6E928A134C3007FCAB7 /* UserFirebaseManager.swift */,
 				84067C6928B3D58500549300 /* CityFirebaseManager.swift */,
+				844F9A2828C7F542004A95A0 /* GoogleMapsManager.swift */,
 			);
 			path = managers;
 			sourceTree = "<group>";
@@ -504,6 +526,7 @@
 				C20A86D428A339540000EF7C /* AuthTests.swift */,
 				CE8CE8EF28BE493F003270D7 /* AlgorithmTests.swift */,
 				84067C8828B8272000549300 /* CityPickerTests.swift */,
+				844F9A3928CBEA7D004A95A0 /* SearchLocationTest.swift */,
 			);
 			path = RoutesApp_iosTests;
 			sourceTree = "<group>";
@@ -545,7 +568,6 @@
 			isa = PBXGroup;
 			children = (
 				C2FEFC43289B78F1006E7579 /* remote */,
-				C2FEFC3A289B6150006E7579 /* local */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -672,22 +694,16 @@
 			path = views;
 			sourceTree = "<group>";
 		};
-		C2FEFC3A289B6150006E7579 /* local */ = {
-			isa = PBXGroup;
-			children = (
-				CE65448C28BD174C003B599B /* Line.swift */,
-			);
-			path = local;
-			sourceTree = "<group>";
-		};
 		C2FEFC43289B78F1006E7579 /* remote */ = {
 			isa = PBXGroup;
 			children = (
+				CE65448C28BD174C003B599B /* Line.swift */,
 				C2E9772A28987F79009F4B94 /* User.swift */,
 				C2436388289A2D21003C1A44 /* BaseModel.swift */,
 				8498F89E28CF49DD008641D9 /* Lines.swift */,
 				84067C6D28B4206600549300 /* Country.swift */,
 				84067C6F28B4257E00549300 /* CityRoute.swift */,
+				844F9A2B28C7FD51004A95A0 /* Place.swift */,
 			);
 			path = remote;
 			sourceTree = "<group>";
@@ -801,6 +817,7 @@
 				84067C6628B3D0A700549300 /* CitySplashViewController.xib in Resources */,
 				C2E976E02898701C009F4B94 /* Main.storyboard in Resources */,
 				C2112DE2289A18FB009601AB /* HomeViewController.xib in Resources */,
+				8420E0C828C68E89000068F9 /* SearchLocationViewController.xib in Resources */,
 				C2BB145C28A1529E0083CA1E /* Localizable.strings in Resources */,
 				84A5B67B28C698C5006AB7F9 /* RouteMapViewController.xib in Resources */,
 				8498F8AD28CF4B27008641D9 /* RouteListViewController.xib in Resources */,
@@ -812,6 +829,7 @@
 				C2BB145228A150A70083CA1E /* SignupViewController.xib in Resources */,
 				84067C4C28B3B5BD00549300 /* SettingsViewController.xib in Resources */,
 				CE0F8D3528AD357F00F2C753 /* silver-style.json in Resources */,
+				844F9A3228C84E63004A95A0 /* PlaceTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -933,8 +951,10 @@
 				84067C7028B4257E00549300 /* CityRoute.swift in Sources */,
 				C2E9772428987F3C009F4B94 /* LoginViewController.swift in Sources */,
 				C20A86D128A3383F0000EF7C /* ConstantVariables.swift in Sources */,
+				844F9A2E28C84718004A95A0 /* SearchLocationViewModel.swift in Sources */,
 				C2E976DD2898701C009F4B94 /* ViewController.swift in Sources */,
 				84067C6828B3D3AA00549300 /* CityPickerViewModel.swift in Sources */,
+				8420E0C728C68E89000068F9 /* SearchLocationViewController.swift in Sources */,
 				C2436387289A2CE4003C1A44 /* FirebaseAuthManager.swift in Sources */,
 				C2BB146328A16CB60083CA1E /* CoreDataManager.swift in Sources */,
 				C24BD6EA28A134C3007FCAB7 /* UserFirebaseManager.swift in Sources */,
@@ -948,16 +968,22 @@
 				C2112DE1289A18FB009601AB /* HomeViewController.swift in Sources */,
 				84067C7328B4305300549300 /* CityTableViewCell.swift in Sources */,
 				C2BB146128A153390083CA1E /* StringExtension.swift in Sources */,
+
 				8498F8AA28CF4B27008641D9 /* RouteDetailViewModel.swift in Sources */,
+
+				844F9A3128C84E63004A95A0 /* PlaceTableViewCell.swift in Sources */,
+
 				C2E9772028987F2A009F4B94 /* SignupViewController.swift in Sources */,
 				8498F8AE28CF4B27008641D9 /* RouteListViewController.swift in Sources */,
 				C2E9772B28987F79009F4B94 /* User.swift in Sources */,
 				C215EF0C28A4BB5D00371DB6 /* ViewModel.swift in Sources */,
+				844F9A2928C7F542004A95A0 /* GoogleMapsManager.swift in Sources */,
 				847A59E228A820F5005CEA25 /* PhoneAuthenticationViewModel.swift in Sources */,
 				C2436385289A2CD6003C1A44 /* FirebaseFirestoreManager.swift in Sources */,
 				845D228928A7050000E9A660 /* PhoneAuthenticationViewController.swift in Sources */,
 				84067C6128B3BF9C00549300 /* CityPickerViewController.swift in Sources */,
 				C2436389289A2D21003C1A44 /* BaseModel.swift in Sources */,
+				844F9A2C28C7FD51004A95A0 /* Place.swift in Sources */,
 				C2E976DB2898701C009F4B94 /* SceneDelegate.swift in Sources */,
 				CE65448D28BD174C003B599B /* Line.swift in Sources */,
 				84067C6528B3D0A700549300 /* CitySplashViewController.swift in Sources */,
@@ -977,6 +1003,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				844F9A3A28CBEA7D004A95A0 /* SearchLocationTest.swift in Sources */,
 				C2E976F32898701D009F4B94 /* RoutesApp_iosTests.swift in Sources */,
 				CE8CE8F028BE493F003270D7 /* AlgorithmTests.swift in Sources */,
 				C20A86D528A339540000EF7C /* AuthTests.swift in Sources */,
