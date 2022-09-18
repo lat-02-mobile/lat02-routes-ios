@@ -17,6 +17,7 @@ enum FirebaseCollections: String {
     case Users
     case Countries
     case CityRoute
+    case Lines
 }
 
 class FirebaseFirestoreManager {
@@ -101,6 +102,42 @@ class FirebaseFirestoreManager {
                 items.append(country)
             }
             completion(.success(items))
+        }
+    }
+
+    func getLines<T: Decodable>(type: T.Type, forCollection collection: FirebaseCollections, completion: @escaping ( Result<[T], Error>) -> Void  ) {
+
+        db.collection("Lines").addSnapshotListener { (snapshot, _) in
+            guard let snapshot = snapshot else { return }
+
+            do {
+                var objects = [T]()
+                for document in snapshot.documents {
+                    let decoder = Firestore.Decoder()
+                    if let item = try? decoder.decode(T.self, from: document.data()) {
+                        objects.append(item)
+                    }
+                }
+                completion(.success(objects))
+            }
+        }
+    }
+
+    func getLinesCategory<T: Decodable>(type: T.Type, forCollection collection: FirebaseCollections, completion: @escaping ( Result<[T], Error>) -> Void  ) {
+
+        db.collection("LineCategories").addSnapshotListener { (snapshot, _) in
+            guard let snapshot = snapshot else { return }
+
+            do {
+                var objects = [T]()
+                for document in snapshot.documents {
+                    let decoder = Firestore.Decoder()
+                    if let item = try? decoder.decode(T.self, from: document.data()) {
+                        objects.append(item)
+                    }
+                }
+                completion(.success(objects))
+            }
         }
     }
 }

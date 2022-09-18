@@ -67,7 +67,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         tabBarVC.tabBar.backgroundColor = .white
         // Add VCs to TabBarVC
         tabBarVC.viewControllers = [
-            createNavController(for: HomeViewController(), title: String.localizeString(localizedString: "home"), image: UIImage(systemName: "bus")!),
+            createNavController(for: RouteListViewController(), title: String.localizeString(localizedString: "home"), image: UIImage(systemName: "bus.fill")!),
+            createNavController(for: HomeViewController(), title: "", image: UIImage(systemName: "bus")!),
             createNavController(for: HomeViewController(), title: "", image: UIImage(systemName: "mappin.and.ellipse")!),
             createNavController(for: HomeViewController(), title: "", image: UIImage(systemName: "suit.heart")!),
             createNavController(for: SettingsViewController(), title: "", image: UIImage(systemName: "gearshape.fill")!)
@@ -81,6 +82,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let navController = UINavigationController(rootViewController: rootViewController)
         navController.tabBarItem.title = title
         navController.tabBarItem.image = image
+        navController.navigationBar.tintColor = .white
+
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = ColorConstants.headerColor
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+
+        navController.navigationBar.standardAppearance = appearance
+        navController.navigationBar.scrollEdgeAppearance = appearance
+        navController.modalPresentationStyle = .overFullScreen
+
+        rootViewController.navigationItem.title = title
         return navController
     }
 
