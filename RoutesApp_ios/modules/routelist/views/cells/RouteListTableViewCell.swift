@@ -14,7 +14,7 @@ class RouteListTableViewCell: UITableViewCell {
     @IBOutlet weak var routeLine: UILabel!
     @IBOutlet weak var routeCategory: UILabel!
     @IBOutlet weak var latLongitudeDescription: UILabel!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
     }

@@ -33,7 +33,7 @@ struct Lines: Codable {
     let stops: [GeoPoint]?
 }
 
-struct LinesCategory: Codable { //5 objects
+struct LinesCategory: Codable {
     let id: String?
     let nameEng: String?
     let nameEsp: String?
