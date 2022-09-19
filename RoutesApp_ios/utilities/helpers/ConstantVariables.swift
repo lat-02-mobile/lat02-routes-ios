@@ -18,4 +18,24 @@ class ConstantVariables {
     static let defCityLong = "CityLongitude"
 
     static let primaryColor = "primary-color"
+
+    // PlaceTableViewCell
+    static let placeCellNib = "PlaceTableViewCell"
+    static let placeCellIdentifier = "PlaceCell"
+
+    // image names
+    static let destinationPoint = "destination_point"
+    static let originPoint = "origin_point"
+
+    // localized strings
+    static let origin = "origin"
+    static let selectOrigin = "select-origin"
+    static let selectDestination = "select-destination"
+    static let destination = "destination"
+    static let done = "done"
+
+    static let localizationPermissionAlertTitle = "localization-permission-alert-title"
+    static let localizationPermissionAlertMessage = "localization-permission-alert-message"
+    static let localizationPermissionAlertSettings = "localization-permission-alert-settings"
+    static let localizationPermissionAlertCancel = "localization-permission-alert-cancel"
 }

@@ -27,6 +27,7 @@ PODS:
   - GoogleMaps/Base (7.1.0)
   - GoogleMaps/Maps (7.1.0):
     - GoogleMaps/Base
+  - GooglePlaces (7.1.0)
   - GoogleSignIn (6.2.2):
     - AppAuth (~> 1.5)
     - GTMAppAuth (~> 1.3)
@@ -36,6 +37,7 @@ PODS:
     - GTMSessionFetcher/Core (~> 1.5)
   - GTMSessionFetcher/Core (1.7.2)
   - IQKeyboardManagerSwift (6.2.1)
+  - Kingfisher (7.3.2)
   - SVProgressHUD (2.2.5)
   - SwiftAlertView (2.2.1)
   - SwiftLint (0.47.1)
@@ -45,8 +47,10 @@ DEPENDENCIES:
   - FacebookCore (= 0.9.0)
   - FacebookLogin (= 0.9.0)
   - GoogleMaps (= 7.1.0)
+  - GooglePlaces (= 7.1.0)
   - GoogleSignIn (= 6.2.2)
   - IQKeyboardManagerSwift (= 6.2.1)
+  - Kingfisher (~> 7.0)
   - SVProgressHUD (= 2.2.5)
   - SwiftAlertView (= 2.2.1)
   - SwiftLint (= 0.47.1)
@@ -60,10 +64,12 @@ SPEC REPOS:
     - FBSDKCoreKit
     - FBSDKLoginKit
     - GoogleMaps
+    - GooglePlaces
     - GoogleSignIn
     - GTMAppAuth
     - GTMSessionFetcher
     - IQKeyboardManagerSwift
+    - Kingfisher
     - SVProgressHUD
     - SwiftAlertView
     - SwiftLint
@@ -76,14 +82,16 @@ SPEC CHECKSUMS:
   FBSDKCoreKit: 1d5acf7c9d7a2f92bb1a242dc60cae5b7adb91df
   FBSDKLoginKit: f1ea8026a58b52d30c9f2e6a58ca7d813619fb83
   GoogleMaps: bc56ffb0324e345a2d91bac1a64a920f9c8f1b20
+  GooglePlaces: 187946335ec3dc624de71c0a9ddcc712f19b0ee1
   GoogleSignIn: 3c68388ac221f379676e8f1cb115df3aaf73b93f
   GTMAppAuth: 4d8f864896f3646f0c33baf38a28362f4c601e15
   GTMSessionFetcher: 5595ec75acf5be50814f81e9189490412bad82ba
   IQKeyboardManagerSwift: 0f0ae8935360b4003e6ea1ac7c19898f01e2f7c7
+  Kingfisher: 0086ad83719761ba9b2cdaf6ef4d5b4878cbae23
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftAlertView: e61a63206f19e8e3295f13a58d6464fea4a6946a
   SwiftLint: f80f1be7fa96d30e0aa68e58d45d4ea1ccaac519
 
-PODFILE CHECKSUM: b680251a4c1221a539a4627c2b99f9008279b5f2
+PODFILE CHECKSUM: d5b26a061da00a877487b4e1c4cad0b1c9c75aba
 
 COCOAPODS: 1.11.3

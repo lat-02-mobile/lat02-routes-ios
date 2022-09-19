@@ -7,13 +7,18 @@
 
 import UIKit
 import GoogleMaps
+import GooglePlaces
 
 class HomeViewController: UIViewController {
 
     let viewmodel = HomeViewModel()
     var locationManager = CLLocationManager()
+    @IBOutlet weak var labelHelper: UILabel!
     @IBOutlet var mapView: GMSMapView!
     @IBOutlet var currentLocationButton: UIButton!
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var continueButton: UIButton!
     var zoom: Float = 15
 
     override func viewDidLoad() {
@@ -41,21 +46,17 @@ class HomeViewController: UIViewController {
         currentLocationButton.layer.cornerRadius = 25
         currentLocationButton.clipsToBounds = true
 
-        let burguerButton = UIButton(type: .custom)
-        burguerButton.frame = CGRect(x: 0, y: 0, width: 45, height: 45)
-        burguerButton.backgroundColor = currentLocationButton.tintColor
-        burguerButton.tintColor = .white
-        burguerButton.setImage(UIImage(systemName: "line.3.horizontal"), for: .normal)
-        burguerButton.layer.cornerRadius = burguerButton.frame.size.height / 2
-        burguerButton.clipsToBounds = true
-        let tap = UITapGestureRecognizer(target: self, action: #selector(burgerButtonAction))
-        burguerButton.addGestureRecognizer(tap)
+        backButton.layer.cornerRadius = 25
+        backButton.clipsToBounds = true
 
-        let counterButtonItem = UIBarButtonItem(customView: burguerButton)
-        navigationItem.leftBarButtonItems = [counterButtonItem]
-    }
+        continueButton.layer.cornerRadius = 25
+        continueButton.clipsToBounds = true
 
-    @objc func burgerButtonAction() {
+        searchButton.contentVerticalAlignment = .top
+
+        labelHelper.text = String.localizeString(localizedString: ConstantVariables.selectOrigin)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+
     }
 
     func cityLocation() {
@@ -85,6 +86,8 @@ class HomeViewController: UIViewController {
         case .notDetermined, .restricted, .denied:
             // redirect the users to settings
             showRequestPermissionsAlert()
+        @unknown default:
+            showRequestPermissionsAlert()
         }
     }
 
@@ -98,6 +101,56 @@ class HomeViewController: UIViewController {
         self.mapView.animate(toZoom: zoom)
     }
 
+    @IBAction func backButtonAction(_ sender: Any) {
+        switch viewmodel.pointsSelectionStatus {
+        case.pendingOrigin:
+            return
+        case.pendingDestination:
+            labelHelper.text = String.localizeString(localizedString: ConstantVariables.selectOrigin)
+            viewmodel.pointsSelectionStatus = .pendingOrigin
+            viewmodel.origin?.map = mapView
+            viewmodel.origin?.map = nil
+            viewmodel.origin = nil
+            backButton.isHidden = true
+        case.bothSelected:
+            labelHelper.text = String.localizeString(localizedString: ConstantVariables.selectDestination)
+            viewmodel.pointsSelectionStatus = .pendingDestination
+            viewmodel.destination?.map = mapView
+            viewmodel.destination?.map = nil
+            viewmodel.destination = nil
+        }
+
+    }
+
+    @IBAction func continueButtonAction(_ sender: Any) {
+        let position = mapView.camera.target
+        let pos = GMSMarker(position: position)
+
+        switch viewmodel.pointsSelectionStatus {
+        case.pendingOrigin:
+            pos.title = String.localizeString(localizedString: ConstantVariables.origin)
+            labelHelper.text = String.localizeString(localizedString: ConstantVariables.selectDestination)
+            pos.icon = UIImage(named: ConstantVariables.originPoint)
+            pos.map = mapView
+            viewmodel.origin = pos
+            viewmodel.pointsSelectionStatus = .pendingDestination
+
+        case.pendingDestination:
+            pos.title = String.localizeString(localizedString: ConstantVariables.destination)
+            labelHelper.text = String.localizeString(localizedString: ConstantVariables.done)
+            pos.icon = UIImage(named: ConstantVariables.destinationPoint)
+            pos.map = mapView
+            viewmodel.destination = pos
+            viewmodel.pointsSelectionStatus = .bothSelected
+
+        case.bothSelected:
+            // Call logic to run algorithm with routes
+            self.showToast(message: ConstantVariables.done)
+        }
+
+        backButton.isHidden = false
+    }
+
     func initializeTheLocationManager() {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
@@ -109,10 +162,12 @@ class HomeViewController: UIViewController {
     }
 
     func setupMap() {
-      if let styleURL = Bundle.main.url(forResource: "silver-style", withExtension: "json") {
-        mapView.mapStyle = try? GMSMapStyle(contentsOfFileURL: styleURL)
-        mapView.settings.zoomGestures = true
-      }
+        mapView.settings.compassButton = true
+        mapView.isMyLocationEnabled = true
+        if let styleURL = Bundle.main.url(forResource: "silver-style", withExtension: "json") {
+            mapView.mapStyle = try? GMSMapStyle(contentsOfFileURL: styleURL)
+            mapView.settings.zoomGestures = true
+        }
     }
 
     func cameraMoveToLocation(toLocation: CLLocationCoordinate2D?) {
@@ -122,11 +177,12 @@ class HomeViewController: UIViewController {
     }
 
     private func showRequestPermissionsAlert() {
-        let alertController = UIAlertController(title: String.localizeString(localizedString: "localization-permission-alert-title"),
-            message: String.localizeString(localizedString: "localization-permission-alert-message"), preferredStyle: .alert)
+        let alertController = UIAlertController(title: String.localizeString(localizedString: ConstantVariables.localizationPermissionAlertTitle),
+                                                message: String.localizeString(localizedString: ConstantVariables.localizationPermissionAlertMessage),
+                                                preferredStyle: .alert)
 
         let settingsAction = UIAlertAction(title:
-            String.localizeString(localizedString: "localization-permission-alert-settings"),
+            String.localizeString(localizedString: ConstantVariables.localizationPermissionAlertSettings),
                style: .default) { (_) -> Void in
             guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
                 return
@@ -136,15 +192,78 @@ class HomeViewController: UIViewController {
              }
         }
         let cancelAction = UIAlertAction(title:
-            String.localizeString(localizedString: "localization-permission-alert-cancel"),
+                                            String.localizeString(localizedString: ConstantVariables.localizationPermissionAlertCancel),
              style: .default, handler: nil)
 
         alertController.addAction(cancelAction)
         alertController.addAction(settingsAction)
         self.present(alertController, animated: true, completion: nil)
     }
+
+    @IBAction func showSearchPage(_ sender: Any) {
+
+        let latSW = mapView.projection.visibleRegion().nearRight.latitude
+        let lonSW = mapView.projection.visibleRegion().farLeft.longitude
+
+        let latNE = mapView.projection.visibleRegion().farLeft.latitude
+        let lonNE = mapView.projection.visibleRegion().nearRight.longitude
+
+        let northEast = CLLocationCoordinate2DMake(latNE, lonNE)
+        let southWest = CLLocationCoordinate2DMake(latSW, lonSW)
+
+        let filterLocation = GMSPlaceRectangularLocationOption(northEast, southWest)
+
+        let viewController = SearchLocationViewController(placeBias: filterLocation, selectionStatus: viewmodel.pointsSelectionStatus)
+        viewController.delegate = self
+
+        if let presentationController = viewController.presentationController as? UISheetPresentationController {
+            presentationController.detents = [.medium()]
+        }
+
+        self.present(viewController, animated: true)
+    }
+    @IBAction func showRouteDetail(_ sender: Any) {
+        let viewController = RouteDetailViewController(map: self.mapView)
+//        viewController.delegate = self
+
+        if let presentationController = viewController.presentationController as? UISheetPresentationController {
+            presentationController.detents = [.medium()]
+        }
+
+        self.present(viewController, animated: true)
+//        let camera = GMSCameraPosition.camera(
+//            withTarget: viewmodel.currentPosition!, zoom: zoom, bearing: 0, viewingAngle: 90
+//        )
+//        mapView.animate(to: camera)
+    }
+
+    func showToast(message: String) {
+        let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: self.view.frame.size.height-100, width: 150, height: 35))
+        toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        toastLabel.textColor = UIColor.white
+        toastLabel.textAlignment = .center
+        toastLabel.text = message
+        toastLabel.alpha = 1.0
+        toastLabel.layer.cornerRadius = 10
+        toastLabel.clipsToBounds  =  true
+        self.view.addSubview(toastLabel)
+        UIView.animate(withDuration: 5.0, delay: 0.1, options: .curveEaseOut, animations: {
+             toastLabel.alpha = 0.0
+        }, completion: { _ in
+            toastLabel.removeFromSuperview()
+        })
+    }
+
 }
 
+// MARK: SearchLocation Delegate
+extension HomeViewController: SearchLocationDelegate {
+    func onPlaceTap(location: CLLocationCoordinate2D) {
+        self.cameraMoveToLocation(toLocation: location)
+    }
+}
+
+// MARK: CLLocationManager Delegate
 extension HomeViewController: CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

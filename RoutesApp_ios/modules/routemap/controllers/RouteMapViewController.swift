@@ -18,7 +18,7 @@ class RouteMapViewController: UIViewController {
         drawStopsMarkers()
     }
     private func setupMap() {
-        if let styleURL = Bundle.main.url(forResource: "silver-style", withExtension: "json") {
+        if let styleURL = Bundle.main	.url(forResource: "silver-style", withExtension: "json") {
           mapView.mapStyle = try? GMSMapStyle(contentsOfFileURL: styleURL)
           mapView.settings.zoomGestures = true
           mapView.settings.myLocationButton = true
