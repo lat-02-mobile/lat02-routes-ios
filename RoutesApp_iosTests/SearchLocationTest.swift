@@ -31,6 +31,9 @@ class MockGoogleMapsManager: GoogleMapsManagerProtocol {
             placeIdToLocationGotCalled = false
         }
     }
+
+    func getDirections(url: URL?, origin: Coordinate, destination: Coordinate, completion: @escaping (Result<GDirectionsResponse, Error>) -> Void) {
+    }
 }
 
 class SearchLocationTest: XCTestCase {

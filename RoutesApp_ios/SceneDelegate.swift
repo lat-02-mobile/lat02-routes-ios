@@ -68,7 +68,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Add VCs to TabBarVC
         tabBarVC.viewControllers = [
             createNavController(for: HomeViewController(), title: String.localizeString(localizedString: "home"), image: UIImage(systemName: "bus")!),
-            createNavController(for: HomeViewController(), title: "", image: UIImage(systemName: "mappin.and.ellipse")!),
+            createNavController(for: PossibleRoutesViewController(), title: "",
+                                image: UIImage(systemName: "mappin.and.ellipse")!),
             createNavController(for: HomeViewController(), title: "", image: UIImage(systemName: "suit.heart")!),
             createNavController(for: SettingsViewController(), title: "", image: UIImage(systemName: "gearshape.fill")!)
         ]

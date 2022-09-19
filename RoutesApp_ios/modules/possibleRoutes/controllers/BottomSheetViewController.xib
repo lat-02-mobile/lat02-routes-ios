@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BottomSheetViewController" customModule="RoutesApp_ios" customModuleProvider="target">
+            <connections>
+                <outlet property="contentStackView" destination="Wce-0f-50s" id="4EW-aj-QFY"/>
+                <outlet property="tableView" destination="N3M-6B-L9C" id="6ih-yJ-mov"/>
+                <outlet property="titleLabel" destination="8H9-tm-hDe" id="tqk-GK-eA5"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Wce-0f-50s">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2T1-Yp-41e">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Routes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8H9-tm-hDe">
+                                    <rect key="frame" x="12" y="13.5" width="402" height="23"/>
+                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                    <color key="textColor" name="primary-color"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="8H9-tm-hDe" firstAttribute="leading" secondItem="2T1-Yp-41e" secondAttribute="leading" constant="12" id="3Sq-T4-g9K"/>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="DqP-aL-dGL"/>
+                                <constraint firstAttribute="trailing" secondItem="8H9-tm-hDe" secondAttribute="trailing" id="HBw-nd-EUK"/>
+                                <constraint firstAttribute="height" constant="50" id="axf-OU-lJq"/>
+                                <constraint firstItem="8H9-tm-hDe" firstAttribute="centerY" secondItem="2T1-Yp-41e" secondAttribute="centerY" id="oUe-Ph-LCP"/>
+                            </constraints>
+                        </view>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="N3M-6B-L9C">
+                            <rect key="frame" x="0.0" y="50" width="414" height="846"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </tableView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="N3M-6B-L9C" secondAttribute="bottom" id="8aR-TM-duB"/>
+                        <constraint firstItem="N3M-6B-L9C" firstAttribute="top" secondItem="2T1-Yp-41e" secondAttribute="bottom" id="UwY-mY-a42"/>
+                        <constraint firstAttribute="trailing" secondItem="N3M-6B-L9C" secondAttribute="trailing" id="cMR-IY-K5o"/>
+                        <constraint firstItem="N3M-6B-L9C" firstAttribute="leading" secondItem="Wce-0f-50s" secondAttribute="leading" id="rEU-dO-J7H"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="Wce-0f-50s" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="AP0-g4-ZZH"/>
+                <constraint firstAttribute="bottom" secondItem="Wce-0f-50s" secondAttribute="bottom" id="Cf7-xN-x7P"/>
+                <constraint firstItem="Wce-0f-50s" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="DAx-w3-S0x"/>
+                <constraint firstItem="Wce-0f-50s" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="uwg-en-NSQ"/>
+            </constraints>
+            <point key="canvasLocation" x="131.8840579710145" y="30.803571428571427"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="primary-color">
+            <color red="0.0" green="0.27450980392156865" blue="0.58823529411764708" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
