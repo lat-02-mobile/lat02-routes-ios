@@ -32,7 +32,7 @@ class MockGoogleMapsManager: GoogleMapsManagerProtocol {
         }
     }
 
-    func getDirections(url: URL?, origin: Coordinate, destination: Coordinate, completion: @escaping (Result<GDirectionsResponse, Error>) -> Void) {
+    func getDirections(origin: Coordinate, destination: Coordinate, completion: @escaping (Result<GDirectionsResponse, Error>) -> Void) {
     }
 }
 

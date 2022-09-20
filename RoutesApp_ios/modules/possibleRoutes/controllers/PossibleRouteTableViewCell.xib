@@ -57,6 +57,12 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="estimatedTimeLabel" destination="2OE-mn-CnR" id="JYC-l2-s57"/>
+                <outlet property="mainBackgroundView" destination="H2p-sc-9uM" id="zJo-te-4Gy"/>
+                <outlet property="routeLabel" destination="wcM-X7-fXi" id="vb5-di-Wsz"/>
+                <outlet property="transportCategoryImage" destination="QaL-cU-v5h" id="Oty-fX-g0w"/>
+            </connections>
             <point key="canvasLocation" x="131.8840579710145" y="30.803571428571427"/>
         </tableViewCell>
     </objects>

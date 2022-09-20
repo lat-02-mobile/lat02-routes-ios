@@ -21,9 +21,7 @@ class GoogleMapsHelper {
         polyline.map = map
     }
 
-    func drawDotPolyline(map: GMSMapView, list: [Coordinate], hexColor: String = "#004696") {
-        let path = GMSMutablePath()
-        list.forEach({ path.add($0.toCLLocationCoordinate2D()) })
+    func drawDotPolyline(map: GMSMapView, path: GMSPath, hexColor: String = "#004696") {
         let polyline = GMSPolyline(path: path)
         let styles = [GMSStrokeStyle.solidColor(ColorHelper.shared.hexStringToUIColor(hex: hexColor)), GMSStrokeStyle.solidColor(.clear)]
         let lengths = [NSNumber(5), NSNumber(5)]

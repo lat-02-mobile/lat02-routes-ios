@@ -21,7 +21,7 @@ enum DirectionsError: Error {
 protocol GoogleMapsManagerProtocol {
     func findPlaces(query: String, placeBias: GMSPlaceLocationBias, completion: @escaping(Result<[Place], Error>) -> Void)
     func placeIDToLocation(placeID: String, completion: @escaping(Result<CLLocationCoordinate2D, Error>) -> Void)
-    func getDirections(url: URL?, origin: Coordinate, destination: Coordinate, completion: @escaping(Result<GDirectionsResponse, Error>) -> Void)
+    func getDirections(origin: Coordinate, destination: Coordinate, completion: @escaping(Result<GDirectionsResponse, Error>) -> Void)
 }
 
 class GoogleMapsManager: GoogleMapsManagerProtocol {
@@ -61,7 +61,7 @@ class GoogleMapsManager: GoogleMapsManagerProtocol {
         }
     }
 
-    func getDirections(url: URL?, origin: Coordinate, destination: Coordinate, completion: @escaping(Result<GDirectionsResponse, Error>) -> Void) {
+    func getDirections(origin: Coordinate, destination: Coordinate, completion: @escaping(Result<GDirectionsResponse, Error>) -> Void) {
         guard let url = URL(string: directionsApi
             + "?origin=\(origin.latitude),\(origin.longitude)" + "&destination=\(destination.latitude),\(destination.longitude)"
             + "&mode=walking&key=\(directionsApiKey)") else { return completion(.failure(DirectionsError.failedToRetrieveDirections)) }
