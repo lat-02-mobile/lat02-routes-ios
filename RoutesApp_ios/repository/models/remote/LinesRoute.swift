@@ -11,7 +11,7 @@ import Firebase
 
 extension GeoPoint: GeoPointType {}
 
-struct LineRoute: Codable {
+struct LinesRoute: Codable {
     let id: String?
     let idLine: String?
     let line: DocumentReference

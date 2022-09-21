@@ -14,10 +14,11 @@ struct LineRoute: Codable, Equatable {
     let name: String
     let id: String
     let idLine: String
-    let line: DocumentReference
+    let line: String
     let routePoints: [Coordinate]
     let start: Coordinate
     let stops: [Coordinate]
+    let end: Coordinate
     // Average velocity in meters per second
     var averageVelocity: Double
 
@@ -31,8 +32,8 @@ struct LineRoute: Codable, Equatable {
         let indexOfCoordinateStop = getIndexWhere(coordinate: coordinate, coordinateList: stops)
         let routePoints = Array(routePoints[0...indexOfCoordinatePoint])
         let stops = Array(stops[0...indexOfCoordinateStop])
-        return LineRoute(name: name,id: id, idLine: idLine, line: line, routePoints: routePoints,
-                    start: start, stops: stops, averageVelocity: averageVelocity)
+        return LineRoute(name: name, id: id, idLine: idLine, line: line, routePoints: routePoints,
+                         start: start, stops: stops, end: end, averageVelocity: averageVelocity)
     }
 
     // Returns a new line from the given coordinate till the end
@@ -41,7 +42,7 @@ struct LineRoute: Codable, Equatable {
         let indexOfCoordinateStop = getIndexWhere(coordinate: coordinate, coordinateList: stops)
         let routePoints = Array(routePoints[indexOfCoordinatePoint...])
         let stops = Array(stops[indexOfCoordinateStop...])
-        return LineRoute(name: name,id: id, idLine: idLine, line: line, routePoints: routePoints, start: start, stops: stops, averageVelocity: averageVelocity)
+        return LineRoute(name: name, id: id, idLine: idLine, line: line, routePoints: routePoints, start: start, stops: stops, end: end, averageVelocity: averageVelocity)
     }
 
     // Returns a new line from-till
@@ -58,7 +59,7 @@ struct LineRoute: Codable, Equatable {
         // MARK: New RoutePoints
         let newRoutePoints = Array(routePoints[indexOriginPoint...indexDestinationPoint])
 
-        return LineRoute(name: name,id: id, idLine: idLine, line: line, routePoints: newRoutePoints, start: start, stops: newStops, averageVelocity: averageVelocity)
+        return LineRoute(name: name, id: id, idLine: idLine, line: line, routePoints: newRoutePoints, start: start, stops: newStops, end: end, averageVelocity: averageVelocity)
     }
 
     private func getIndexWhere(coordinate: Coordinate, coordinateList: [Coordinate]) -> Int {
@@ -94,6 +95,7 @@ struct Line: Codable, Equatable {
     let routePath: [LineRoute]
 }
 
+// Used in RouteMap
 struct LinePath: Codable, Equatable {
     let name: String
     let idCategory: String

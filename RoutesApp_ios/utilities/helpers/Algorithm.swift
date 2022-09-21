@@ -12,10 +12,10 @@ class Algorithm {
     static var shared = Algorithm()
 
     func findAvailableRoutes(origin: CLLocationCoordinate2D, destination: CLLocationCoordinate2D,
-                             lines: [Line], minDistanceBtwPoints: Double, minDistanceBtwStops: Double) -> [AvailableTransport] {
+                             lines: [LineRoute], minDistanceBtwPoints: Double, minDistanceBtwStops: Double) -> [AvailableTransport] {
         var availableTransports = [AvailableTransport]()
-        var originCandidates = [Line]()
-        var destinationCandidates = [Line]()
+        var originCandidates = [LineRoute]()
+        var destinationCandidates = [LineRoute]()
         for line in lines {
             // MARK: Add origin line candidate
             let originLineCandidate = getOriginRouteLine(origin: origin, line: line,
@@ -47,7 +47,7 @@ class Algorithm {
     }
 
     private func getOneRouteLine(origin: CLLocationCoordinate2D, destination: CLLocationCoordinate2D,
-                                 line: Line, minDistanceBtwStops: Double) -> AvailableTransport? {
+                                 line: LineRoute, minDistanceBtwStops: Double) -> AvailableTransport? {
         let nearestStopToOrigin = line.stops.min(by: {
             $0.toCLLocationCoordinate2D().distance(to: origin) <= $1.toCLLocationCoordinate2D().distance(to: origin)
         })
@@ -64,7 +64,7 @@ class Algorithm {
         return AvailableTransport(connectionPoint: nil, transports: [newLine])
     }
 
-    private func getOriginRouteLine(origin: CLLocationCoordinate2D, line: Line, minDistanceBtwStops: Double) -> Line? {
+    private func getOriginRouteLine(origin: CLLocationCoordinate2D, line: LineRoute, minDistanceBtwStops: Double) -> LineRoute? {
         let nearestStopToOrigin = line.stops.min(by: {
             $0.toCLLocationCoordinate2D().distance(to: origin) < $1.toCLLocationCoordinate2D().distance(to: origin)
         })
@@ -74,7 +74,7 @@ class Algorithm {
         return line.slice(from: nearestStopToOrigin)
     }
 
-    private func getDestinationRouteLine(destination: CLLocationCoordinate2D, line: Line, minDistanceBtwStops: Double) -> Line? {
+    private func getDestinationRouteLine(destination: CLLocationCoordinate2D, line: LineRoute, minDistanceBtwStops: Double) -> LineRoute? {
         let nearestStopToDestination = line.stops.min(by: {
             $0.toCLLocationCoordinate2D().distance(to: destination) < $1.toCLLocationCoordinate2D().distance(to: destination)
         })

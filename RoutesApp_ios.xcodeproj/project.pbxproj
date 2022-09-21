@@ -26,7 +26,7 @@
 		84067C8B28B95EDA00549300 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84067C8A28B95ED900549300 /* SettingsViewModel.swift */; };
 		8420E0C728C68E89000068F9 /* SearchLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8420E0C528C68E89000068F9 /* SearchLocationViewController.swift */; };
 		8420E0C828C68E89000068F9 /* SearchLocationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8420E0C628C68E89000068F9 /* SearchLocationViewController.xib */; };
-		84246F8C28DB0B65004748DD /* LineRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84246F8B28DB0B65004748DD /* LineRoute.swift */; };
+		84246F8C28DB0B65004748DD /* LinesRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84246F8B28DB0B65004748DD /* LinesRoute.swift */; };
 		843D043F28AAF3F800C4DF25 /* PhoneAuthenticationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 843D044128AAF3F800C4DF25 /* PhoneAuthenticationViewController.xib */; };
 		844F9A2928C7F542004A95A0 /* GoogleMapsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F9A2828C7F542004A95A0 /* GoogleMapsManager.swift */; };
 		844F9A2C28C7FD51004A95A0 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F9A2B28C7FD51004A95A0 /* Place.swift */; };
@@ -122,7 +122,7 @@
 		84067C8A28B95ED900549300 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		8420E0C528C68E89000068F9 /* SearchLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationViewController.swift; sourceTree = "<group>"; };
 		8420E0C628C68E89000068F9 /* SearchLocationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchLocationViewController.xib; sourceTree = "<group>"; };
-		84246F8B28DB0B65004748DD /* LineRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineRoute.swift; sourceTree = "<group>"; };
+		84246F8B28DB0B65004748DD /* LinesRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinesRoute.swift; sourceTree = "<group>"; };
 		843D044028AAF3F800C4DF25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PhoneAuthenticationViewController.xib; sourceTree = "<group>"; };
 		843D044328AAF3FE00C4DF25 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PhoneAuthenticationViewController.strings; sourceTree = "<group>"; };
 		843D044528AAF40E00C4DF25 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/PhoneAuthenticationViewController.strings"; sourceTree = "<group>"; };
@@ -706,7 +706,7 @@
 				84067C6D28B4206600549300 /* Country.swift */,
 				84067C6F28B4257E00549300 /* Cities.swift */,
 				844F9A2B28C7FD51004A95A0 /* Place.swift */,
-				84246F8B28DB0B65004748DD /* LineRoute.swift */,
+				84246F8B28DB0B65004748DD /* LinesRoute.swift */,
 			);
 			path = remote;
 			sourceTree = "<group>";
@@ -982,7 +982,7 @@
 				C2436385289A2CD6003C1A44 /* FirebaseFirestoreManager.swift in Sources */,
 				845D228928A7050000E9A660 /* PhoneAuthenticationViewController.swift in Sources */,
 				84067C6128B3BF9C00549300 /* CityPickerViewController.swift in Sources */,
-				84246F8C28DB0B65004748DD /* LineRoute.swift in Sources */,
+				84246F8C28DB0B65004748DD /* LinesRoute.swift in Sources */,
 				C2436389289A2D21003C1A44 /* BaseModel.swift in Sources */,
 				844F9A2C28C7FD51004A95A0 /* Place.swift in Sources */,
 				C2E976DB2898701C009F4B94 /* SceneDelegate.swift in Sources */,
