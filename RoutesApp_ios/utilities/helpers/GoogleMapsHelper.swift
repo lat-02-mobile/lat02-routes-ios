@@ -45,4 +45,15 @@ class GoogleMapsHelper {
         newMarker.groundAnchor = CGPoint(x: 0.5, y: 0.5)
         newMarker.map = map
     }
+
+    func getTotalPolylineDistance(coordList: [Coordinate]) -> Double {
+        var totalDistance = 0.0
+        for i in 0..<coordList.count - 1 {
+            let start = coordList[i].toCLLocationCoordinate2D()
+            let end = coordList[i + 1].toCLLocationCoordinate2D()
+            let distance = start.distance(to: end)
+            totalDistance += distance
+        }
+        return totalDistance
+    }
 }

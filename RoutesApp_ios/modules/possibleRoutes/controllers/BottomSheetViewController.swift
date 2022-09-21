@@ -46,13 +46,17 @@ class BottomSheetViewController: UIViewController {
 
     private func drawSelectedRoute() {
         guard let map = viewModel.map else { return }
+        map.clear()
         let selectedRoute = viewModel.getSelectedRoute()
         guard !selectedRoute.transports.isEmpty else { return }
 
+        var combinedTransportLines = [Coordinate]()
+
         for line in selectedRoute.transports {
             GoogleMapsHelper.shared.drawPolyline(map: map, list: line.routePoints)
-            GoogleMapsHelper.shared.fitAllMarkers(map: map, list: line.routePoints)
+            combinedTransportLines += line.routePoints
         }
+        GoogleMapsHelper.shared.fitAllMarkers(map: map, list: combinedTransportLines)
         guard let firstLine = selectedRoute.transports.first,
            let first = firstLine.routePoints.first else { return }
 
