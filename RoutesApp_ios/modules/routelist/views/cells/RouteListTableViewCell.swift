@@ -26,8 +26,5 @@ class RouteListTableViewCell: UITableViewCell {
     func updateCellModel(routeListDetailModel: RouteListDetailModel) {
         routeCategory.text = routeListDetailModel.nameEng
         routeLine.text = routeListDetailModel.name
-        let lat = routeListDetailModel.start?.latitude
-        let lon = routeListDetailModel.start?.longitude
-        latLongitudeDescription.text = "\(Double(round(1000*(lat ?? 0))/1000)), \(Double(round(1000*(lon ?? 0))/1000))"
     }
 }

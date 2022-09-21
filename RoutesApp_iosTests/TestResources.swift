@@ -63,7 +63,7 @@ class TestResources {
 
     static let testCityRouteName = "testCity"
     static let testCountryId = "testCountry"
-    static let testCityRoute = CityRoute(id: "test", name: "testCity", countryId: "countryTest", lat: "-35", lng: "-17")
+    static let testCityRoute = Cities(id: "test", name: "testCity", countryId: "countryTest", lat: "-35", lng: "-17")
     static let testCountry = Country(
         id: "test", name: "testCountry", code: "test", phone: "test", createdAt: Date(), updatedAt: Date(), cities: [DocumentReference]()
     )

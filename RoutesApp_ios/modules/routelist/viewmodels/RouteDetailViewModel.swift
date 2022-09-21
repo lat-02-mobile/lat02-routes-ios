@@ -50,13 +50,9 @@ class RouteDetailViewModel {
             let lineCategory = linesCategory.filter {$0.id == routeListModel.idCategory}.first
             let idCity = routeListModel.idCity
             let nameList = routeListModel.name
-            let routePoints = routeListModel.routePoints
             let lineEn = lineCategory?.nameEng
             let lineEs = lineCategory?.nameEsp
-            let lineStart = routeListModel.start
-            let lineEnd = routeListModel.end
-            
-            let routemodel = RouteListDetailModel(idCity: idCity, name: nameList, routePoints: routePoints, line: lineEn, start: lineStart, end: lineEnd, nameEng: lineEn, nameEsp: lineEs)
+            let routemodel = RouteListDetailModel(idCity: idCity, name: nameList, line: lineEn, nameEng: lineEn, nameEsp: lineEs)
             let routeListDetailModel = routemodel
             routeListDetailModels.append(routeListDetailModel)
         }

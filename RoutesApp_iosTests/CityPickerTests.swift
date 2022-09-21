@@ -12,7 +12,7 @@ class MockCityManager: CityManagerProtocol {
     var getCitiesByNameGotCalled = false
     var getCitiesGotCalled = false
     
-    func getCitiesByName(parameter: String, completion: @escaping (Result<[CityRoute], Error>) -> Void) {
+    func getCitiesByName(parameter: String, completion: @escaping (Result<[Cities], Error>) -> Void) {
         if !parameter.isEmpty {
             completion(.success([TestResources.testCityRoute]))
             getCitiesByNameGotCalled = true
@@ -30,7 +30,7 @@ class MockCityManager: CityManagerProtocol {
         }
     }
     
-    func getCities(completion: @escaping (Result<[CityRoute], Error>) -> Void) {
+    func getCities(completion: @escaping (Result<[Cities], Error>) -> Void) {
         completion(.success([TestResources.testCityRoute]))
         getCitiesGotCalled = true
     }

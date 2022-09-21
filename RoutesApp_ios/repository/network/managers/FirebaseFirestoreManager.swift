@@ -16,7 +16,7 @@ enum FirebaseErrors: Error {
 enum FirebaseCollections: String {
     case Users
     case Countries
-    case CityRoute
+    case Cities
     case Lines
 }
 
