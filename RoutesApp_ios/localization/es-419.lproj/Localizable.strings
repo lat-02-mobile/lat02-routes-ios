@@ -51,3 +51,6 @@
 "select-destination" = "Seleccione punto de destino";
 
 "done" = "Hecho";
+
+// Lines - RouteList
+"routeTitle" = "Líneas";

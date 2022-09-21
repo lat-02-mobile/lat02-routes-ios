@@ -18,9 +18,8 @@ class ConstantVariables {
     static let defCityLong = "CityLongitude"
     static let primaryColor = "primary-color"
     static let routeListCell = "RouteListTableViewCell"
-    static let routeTitle = "Route List"
+    static let routeTitle = "routeTitle"
     static let filterIcon = "filter-icon"
-
 
     // PlaceTableViewCell
     static let placeCellNib = "PlaceTableViewCell"

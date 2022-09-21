@@ -19,8 +19,9 @@ class RouteListViewController: UIViewController, UITableViewDataSource, UITableV
         routeListDetailViewModel.getLines {
             self.routeListTableView.reloadData()
         }
-        
-        routeListTableView.register(UINib.init(nibName: ConstantVariables.routeListCell, bundle: nil), forCellReuseIdentifier: ConstantVariables.routeListCell)
+
+        routeListTableView.register(UINib.init(nibName: ConstantVariables.routeListCell, bundle: nil),
+            forCellReuseIdentifier: ConstantVariables.routeListCell)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -28,7 +29,7 @@ class RouteListViewController: UIViewController, UITableViewDataSource, UITableV
     }
 
     func setupNavigationBar() {
-        navigationItem.title = ConstantVariables.routeTitle
+        navigationItem.title = String.localizeString(localizedString: ConstantVariables.routeTitle)
         self.navigationItem.largeTitleDisplayMode = .always
         navigationController?.navigationBar.barTintColor = UIColor(named: ConstantVariables.primaryColor)
         let routeListVC = RouteListViewController()
@@ -47,7 +48,15 @@ class RouteListViewController: UIViewController, UITableViewDataSource, UITableV
     }
 
     @objc func showFilterPopUp() {
-
+        let viewControllerToPresent = RouteListFilterViewController()
+        if let sheet = viewControllerToPresent.sheetPresentationController {
+            sheet.detents = [.medium(), .large()]
+            sheet.largestUndimmedDetentIdentifier = .medium
+            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+            sheet.prefersEdgeAttachedInCompactHeight = true
+            sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
+        }
+        present(viewControllerToPresent, animated: true, completion: nil)
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
