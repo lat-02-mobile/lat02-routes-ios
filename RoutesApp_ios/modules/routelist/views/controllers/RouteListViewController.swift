@@ -19,7 +19,7 @@ class RouteListViewController: UIViewController, UITableViewDataSource, UITableV
         routeListDetailViewModel.getLines {
             self.routeListTableView.reloadData()
         }
-        
+
         routeListTableView.register(UINib.init(nibName: ConstantVariables.routeListCell, bundle: nil), forCellReuseIdentifier: ConstantVariables.routeListCell)
     }
 
