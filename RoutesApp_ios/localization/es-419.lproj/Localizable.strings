@@ -51,3 +51,6 @@
 "select-destination" = "Seleccione punto de destino";
 
 "done" = "Hecho";
+
+// Possible Routes to take
+"recommended" = " (recomendada)";

@@ -92,7 +92,7 @@ extension BottomSheetViewController: UITableViewDelegate, UITableViewDataSource 
         let cell = tableView.dequeueReusableCell(withIdentifier: PossibleRouteTableViewCell.identifier,
              for: indexPath) as? PossibleRouteTableViewCell ?? PossibleRouteTableViewCell(style: .value1,
               reuseIdentifier: PossibleRouteTableViewCell.identifier)
-        cell.setupStyle(isSelected: viewModel.possibleRoutesSelectedIndex == indexPath.row)
+        cell.setupStyle(selectedIndex: viewModel.possibleRoutesSelectedIndex, currentIndex: indexPath.row)
         return cell
     }
 
@@ -105,5 +105,9 @@ extension BottomSheetViewController: UITableViewDelegate, UITableViewDataSource 
         viewModel.possibleRoutesSelectedIndex = indexPath.row
         self.tableView.reloadRows(at: indexPathList, with: .fade)
         drawSelectedRoute()
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        80
     }
 }

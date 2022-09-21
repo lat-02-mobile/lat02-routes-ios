@@ -40,7 +40,7 @@ class ConstantVariables {
     static let localizationPermissionAlertCancel = "localization-permission-alert-cancel"
 
     // Google Maps helper
-    static let polylinePadding = 50
+    static let polylinePadding = 80
     static let originMarkerName = "origin_point"
     static let destinationMarkerName = "destination_point"
     static let stopMarkerName = "route-stop"

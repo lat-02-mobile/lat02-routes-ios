@@ -51,3 +51,6 @@
 "select-destination" = "Select destination";
 
 "done" = "done";
+
+// Possible Routes to take
+"recommended" = " (recommended)";

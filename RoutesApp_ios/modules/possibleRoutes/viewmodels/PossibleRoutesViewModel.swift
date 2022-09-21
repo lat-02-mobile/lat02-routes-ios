@@ -90,8 +90,8 @@ class PossibleRoutesViewModel: ViewModel {
                      routePoints: routePoints2, start: routePoints2[0], stops: stops2, averageVelocity: 30.2)
 
         let originPoint = Coordinate(latitude: -16.52153, longitude: -68.12278).toCLLocationCoordinate2D()
-        let destinationPoint = Coordinate(latitude: -16.52423, longitude: -68.1203).toCLLocationCoordinate2D()
-//        let destinationPoint = Coordinate(latitude: -16.52445, longitude: -68.12298).toCLLocationCoordinate2D()
+//        let destinationPoint = Coordinate(latitude: -16.52423, longitude: -68.1203).toCLLocationCoordinate2D()
+        let destinationPoint = Coordinate(latitude: -16.52445, longitude: -68.12298).toCLLocationCoordinate2D()
         let minDistance = 200.0
         let minDistanceBtwStops = 200.0
 

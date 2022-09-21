@@ -26,10 +26,10 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2T1-Yp-41e">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Routes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8H9-tm-hDe">
-                                    <rect key="frame" x="12" y="13.5" width="402" height="23"/>
+                                    <rect key="frame" x="12" y="23.5" width="402" height="23"/>
                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                     <color key="textColor" name="primary-color"/>
                                     <nil key="highlightedColor"/>
@@ -38,14 +38,13 @@
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstItem="8H9-tm-hDe" firstAttribute="leading" secondItem="2T1-Yp-41e" secondAttribute="leading" constant="12" id="3Sq-T4-g9K"/>
-                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="DqP-aL-dGL"/>
                                 <constraint firstAttribute="trailing" secondItem="8H9-tm-hDe" secondAttribute="trailing" id="HBw-nd-EUK"/>
-                                <constraint firstAttribute="height" constant="50" id="axf-OU-lJq"/>
+                                <constraint firstAttribute="height" constant="70" id="axf-OU-lJq"/>
                                 <constraint firstItem="8H9-tm-hDe" firstAttribute="centerY" secondItem="2T1-Yp-41e" secondAttribute="centerY" id="oUe-Ph-LCP"/>
                             </constraints>
                         </view>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="N3M-6B-L9C">
-                            <rect key="frame" x="0.0" y="50" width="414" height="846"/>
+                            <rect key="frame" x="0.0" y="70" width="414" height="826"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </tableView>
                     </subviews>
