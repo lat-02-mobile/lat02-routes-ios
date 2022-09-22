@@ -28,7 +28,7 @@ class RouteListViewController: UIViewController, UITableViewDataSource, UITableV
     }
 
     func setupNavigationBar() {
-        navigationItem.title = ConstantVariables.routeTitle
+        navigationItem.title = String.localizeString(localizedString: "Lines")
         self.navigationItem.largeTitleDisplayMode = .always
         navigationController?.navigationBar.barTintColor = UIColor(named: ConstantVariables.primaryColor)
         let routeListVC = RouteListViewController()
