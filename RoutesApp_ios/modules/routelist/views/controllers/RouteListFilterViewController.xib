@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RouteListFilterViewController" customModule="RoutesApp_ios" customModuleProvider="target">
             <connections>
                 <outlet property="doneButton" destination="8JB-IE-i3I" id="arh-xl-EHn"/>
+                <outlet property="filterTitleLabel" destination="Q3i-79-hEe" id="rV8-gb-krQ"/>
                 <outlet property="resetButton" destination="K2J-Ti-HOh" id="0E3-LT-SuK"/>
                 <outlet property="tableView" destination="Wob-Iu-2pQ" id="B7R-JR-d5m"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

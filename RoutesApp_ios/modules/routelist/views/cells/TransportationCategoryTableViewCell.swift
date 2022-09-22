@@ -26,7 +26,8 @@ class TransportationCategoryTableViewCell: UITableViewCell {
         selectionStyle = .none
     }
 
-    func setStyle(selectedIndex: Int, currentIndex: Int) {
+    func setStyle(selectedIndex: Int, currentIndex: Int, lineCategory: LinesCategory) {
+        transportationNameLabel.text = lineCategory.nameEng
         if selectedIndex == currentIndex {
             checkMarkImage.isHidden = false
             transportationNameLabel.font = UIFont.boldSystemFont(ofSize: 18.0)

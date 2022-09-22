@@ -12,10 +12,13 @@ class RouteDetailViewModel {
     let firebaseManager = FirebaseFirestoreManager.shared
 
     private var routeListModel: [Lines] = []
-    private var linesCategory: [LinesCategory] = []
+    var linesCategory: [LinesCategory] = []
     var routeListDetailModels: [RouteListDetailModel] = []
+    var filteredRouteListDetailModels: [RouteListDetailModel] = []
     var onError: ((_ error: String) -> Void)?
     var db = Firestore.firestore()
+    var reloadTable: (() -> Void)?
+    var selectedFilterIndex = -1
 
     func getLines(completion: @escaping () -> Void) {
 
@@ -37,6 +40,7 @@ class RouteDetailViewModel {
             case .success(let lines):
                 self.linesCategory = lines
                 self.mapRouteListDetailModel()
+                self.filteredRouteListDetailModels = self.routeListDetailModels
                 completion()
             case .failure(let error):
                 self.onError?(error.localizedDescription)
@@ -48,17 +52,45 @@ class RouteDetailViewModel {
     func mapRouteListDetailModel() {
         for routeListModel in routeListModel {
             let lineCategory = linesCategory.filter {$0.id == routeListModel.idCategory}.first
+            guard let category = lineCategory else { continue }
             let idCity = routeListModel.idCity
             let nameList = routeListModel.name
             let routePoints = routeListModel.routePoints
-            let lineEn = lineCategory?.nameEng
-            let lineEs = lineCategory?.nameEsp
+            let lineEn = category.nameEng
+            let lineEs = category.nameEsp
             let lineStart = routeListModel.start
             let lineEnd = routeListModel.end
-            
-            let routemodel = RouteListDetailModel(idCity: idCity, name: nameList, routePoints: routePoints, line: lineEn, start: lineStart, end: lineEnd, nameEng: lineEn, nameEsp: lineEs)
+
+            let routemodel = RouteListDetailModel(idCity: idCity, name: nameList, routePoints: routePoints,
+                  line: lineEn, start: lineStart, end: lineEnd, nameEng: lineEn, nameEsp: lineEs, category: category)
             let routeListDetailModel = routemodel
             routeListDetailModels.append(routeListDetailModel)
         }
+    }
+
+    func filterRouteListBy(query: String) {
+        let normalizedQuery = query.uppercased()
+        filteredRouteListDetailModels = filteredRouteListDetailModels.filter({ route in
+            guard let routeName = route.name else { return true }
+            if let routeNameEsp = route.nameEsp,
+               let routeNameEng = route.nameEng {
+                return routeName.uppercased().contains(normalizedQuery) ||
+                    routeNameEsp.uppercased().contains(normalizedQuery) ||
+                    routeNameEng.uppercased().contains(normalizedQuery)
+            }
+            return routeName.uppercased().contains(normalizedQuery)
+        })
+        reloadTable?()
+    }
+
+    func filterRouteListBy(transportationCategory: LinesCategory) {
+        filteredRouteListDetailModels = filteredRouteListDetailModels.filter({ $0.category.id == transportationCategory.id })
+        reloadTable?()
+    }
+
+    func resetRouteList() {
+        filteredRouteListDetailModels = routeListDetailModels
+        selectedFilterIndex = -1
+        reloadTable?()
     }
 }

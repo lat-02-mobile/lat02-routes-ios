@@ -20,6 +20,7 @@ struct RouteListDetailModel {
     let end: GeoPoint?
     let nameEng: String?
     let nameEsp: String?
+    let category: LinesCategory
 }
 
 struct Lines: Codable {

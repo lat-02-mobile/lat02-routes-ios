@@ -12,22 +12,34 @@ class RouteListFilterViewController: UIViewController {
     @IBOutlet var resetButton: UIButton!
     @IBOutlet var tableView: UITableView!
     @IBOutlet var doneButton: UIButton!
+    @IBOutlet var filterTitleLabel: UILabel!
 
-    var resetFilters = false
-    var selectedIndex = -1
+    var viewModel: RouteDetailViewModel
+
+    init(viewModel: RouteDetailViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        filterTitleLabel.text = String.localizeString(localizedString: ConstantVariables.localizationLinesFilterTitle)
         setupTable()
     }
 
     @IBAction func doneAction(_ sender: Any) {
+        guard viewModel.selectedFilterIndex != -1 else { return }
+        let currentTransportationLine = viewModel.linesCategory[viewModel.selectedFilterIndex]
+        viewModel.filterRouteListBy(transportationCategory: currentTransportationLine)
     }
 
     @IBAction func resetAction(_ sender: Any) {
-        resetFilters = true
-        tableView.reloadRows(at: [IndexPath(item: selectedIndex, section: 0)], with: .automatic)
-        // Todo: Reset lines list from viewModel
+        viewModel.resetRouteList()
+        tableView.reloadData()
     }
 
     func setupTable() {
@@ -41,19 +53,15 @@ class RouteListFilterViewController: UIViewController {
 
 extension RouteListFilterViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        10
+        viewModel.linesCategory.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TransportationCategoryTableViewCell.identifier, for: indexPath)
             as? TransportationCategoryTableViewCell ?? TransportationCategoryTableViewCell(style: .default,
                     reuseIdentifier: TransportationCategoryTableViewCell.identifier)
-        if resetFilters {
-            cell.resetStyle()
-            resetFilters = false
-        } else {
-            cell.setStyle(selectedIndex: selectedIndex, currentIndex: indexPath.row)
-        }
+        cell.setStyle(selectedIndex: viewModel.selectedFilterIndex, currentIndex: indexPath.row,
+                      lineCategory: viewModel.linesCategory[indexPath.row])
         return cell
     }
 
@@ -63,11 +71,11 @@ extension RouteListFilterViewController: UITableViewDelegate, UITableViewDataSou
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         var indexPathList = [IndexPath]()
-        if selectedIndex != -1 {
-            indexPathList.append(IndexPath(item: selectedIndex, section: 0))
+        if viewModel.selectedFilterIndex != -1 {
+            indexPathList.append(IndexPath(item: viewModel.selectedFilterIndex, section: 0))
         }
         indexPathList.append(indexPath)
-        selectedIndex = indexPath.row
+        viewModel.selectedFilterIndex = indexPath.row
         tableView.reloadRows(at: indexPathList, with: .automatic)
     }
 }
