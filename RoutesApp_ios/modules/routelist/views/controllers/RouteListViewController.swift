@@ -51,12 +51,11 @@ class RouteListViewController: UIViewController, UITableViewDataSource, UITableV
         let viewControllerToPresent = RouteListFilterViewController()
         if let sheet = viewControllerToPresent.sheetPresentationController {
             sheet.detents = [.medium(), .large()]
-            sheet.largestUndimmedDetentIdentifier = .medium
             sheet.prefersScrollingExpandsWhenScrolledToEdge = false
             sheet.prefersEdgeAttachedInCompactHeight = true
             sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
         }
-        present(viewControllerToPresent, animated: true, completion: nil)
+        present(viewControllerToPresent, animated: true)
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
