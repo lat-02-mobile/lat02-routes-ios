@@ -67,11 +67,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         tabBarVC.tabBar.backgroundColor = .white
         // Add VCs to TabBarVC
         tabBarVC.viewControllers = [
-            createNavController(for: RouteListViewController(), title: String.localizeString(localizedString: "home"), image: UIImage(systemName: "bus.fill")!),
-            createNavController(for: HomeViewController(), title: String.localizeString(localizedString: "tourpoints"), image: UIImage(systemName: "mappin.and.ellipse")!),
-            createNavController(for: HomeViewController(), title: String.localizeString(localizedString: "map"), image: UIImage(systemName: "map.fill")!),
-            createNavController(for: HomeViewController(), title: String.localizeString(localizedString: "favorites"), image: UIImage(systemName: "suit.heart")!),
-            createNavController(for: SettingsViewController(), title: String.localizeString(localizedString: "settings"), image: UIImage(systemName: "gearshape.fill")!)
+            createNavController(for: RouteListViewController(), title: String.localizeString(localizedString: "home"),
+                image: UIImage(systemName: "bus.fill")!),
+            createNavController(for: HomeViewController(), title: String.localizeString(localizedString: "tourpoints"),
+                image: UIImage(systemName: "mappin.and.ellipse")!),
+            createNavController(for: HomeViewController(), title: String.localizeString(localizedString: "map"),
+                image: UIImage(systemName: "map.fill")!),
+            createNavController(for: HomeViewController(), title: String.localizeString(localizedString: "favorites"),
+                image: UIImage(systemName: "suit.heart")!),
+            createNavController(for: SettingsViewController(), title: String.localizeString(localizedString: "settings"),
+                image: UIImage(systemName: "gearshape.fill")!)
         ]
         return tabBarVC
     }

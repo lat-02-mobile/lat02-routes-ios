@@ -42,7 +42,8 @@ struct LineRoute: Codable, Equatable {
         let indexOfCoordinateStop = getIndexWhere(coordinate: coordinate, coordinateList: stops)
         let routePoints = Array(routePoints[indexOfCoordinatePoint...])
         let stops = Array(stops[indexOfCoordinateStop...])
-        return LineRoute(name: name, id: id, idLine: idLine, line: line, routePoints: routePoints, start: start, stops: stops, end: end, averageVelocity: averageVelocity)
+        return LineRoute(name: name, id: id, idLine: idLine, line: line,
+                         routePoints: routePoints, start: start, stops: stops, end: end, averageVelocity: averageVelocity)
     }
 
     // Returns a new line from-till
@@ -59,7 +60,8 @@ struct LineRoute: Codable, Equatable {
         // MARK: New RoutePoints
         let newRoutePoints = Array(routePoints[indexOriginPoint...indexDestinationPoint])
 
-        return LineRoute(name: name, id: id, idLine: idLine, line: line, routePoints: newRoutePoints, start: start, stops: newStops, end: end, averageVelocity: averageVelocity)
+        return LineRoute(name: name, id: id, idLine: idLine, line: line,
+                         routePoints: newRoutePoints, start: start, stops: newStops, end: end, averageVelocity: averageVelocity)
     }
 
     private func getIndexWhere(coordinate: Coordinate, coordinateList: [Coordinate]) -> Int {

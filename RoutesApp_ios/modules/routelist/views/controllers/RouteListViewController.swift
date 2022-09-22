@@ -19,8 +19,8 @@ class RouteListViewController: UIViewController, UITableViewDataSource, UITableV
         routeListDetailViewModel.getLines {
             self.routeListTableView.reloadData()
         }
-
-        routeListTableView.register(UINib.init(nibName: ConstantVariables.routeListCell, bundle: nil), forCellReuseIdentifier: ConstantVariables.routeListCell)
+        routeListTableView.register(UINib.init(nibName: ConstantVariables.routeListCell,
+        bundle: nil), forCellReuseIdentifier: ConstantVariables.routeListCell)
     }
 
     override func viewWillAppear(_ animated: Bool) {
