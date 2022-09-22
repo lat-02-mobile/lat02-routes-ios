@@ -33,6 +33,11 @@
 
 // Tabbar controller
 "home" = "Home";
+"tourpoints" = "TourPoints";
+"map" = "Map";
+"favorites" = "Favorites";
+"settings" = "Settings";
+
 // Localization permission alert
 "localization-permission-alert-title" = "Localization Permission";
 "localization-permission-alert-message" = "Please go to Settings and turn on the location permission";
@@ -51,3 +56,5 @@
 "select-destination" = "Select destination";
 
 "done" = "done";
+
+"Lines" = "Lines";

@@ -19,8 +19,8 @@ class RouteListViewController: UIViewController, UITableViewDataSource, UITableV
         routeListDetailViewModel.getLines {
             self.routeListTableView.reloadData()
         }
-        
-        routeListTableView.register(UINib.init(nibName: ConstantVariables.routeListCell, bundle: nil), forCellReuseIdentifier: ConstantVariables.routeListCell)
+        routeListTableView.register(UINib.init(nibName: ConstantVariables.routeListCell,
+        bundle: nil), forCellReuseIdentifier: ConstantVariables.routeListCell)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -28,7 +28,7 @@ class RouteListViewController: UIViewController, UITableViewDataSource, UITableV
     }
 
     func setupNavigationBar() {
-        navigationItem.title = ConstantVariables.routeTitle
+        navigationItem.title = String.localizeString(localizedString: "Lines")
         self.navigationItem.largeTitleDisplayMode = .always
         navigationController?.navigationBar.barTintColor = UIColor(named: ConstantVariables.primaryColor)
         let routeListVC = RouteListViewController()

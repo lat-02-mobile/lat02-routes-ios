@@ -37,7 +37,7 @@
                             </constraints>
                         </imageView>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalCompressionResistancePriority="749" image="city-picker-background" translatesAutoresizingMaskIntoConstraints="NO" id="B7F-sF-RY9">
-                            <rect key="frame" x="-140" y="299" width="654" height="499"/>
+                            <rect key="frame" x="-140" y="299" width="694" height="499"/>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" name="background-color"/>
@@ -47,7 +47,7 @@
                         <constraint firstAttribute="trailing" secondItem="ZhK-8k-irg" secondAttribute="trailing" constant="20" id="SfO-wO-s2z"/>
                         <constraint firstItem="B7F-sF-RY9" firstAttribute="top" secondItem="MCe-OQ-BaC" secondAttribute="bottom" constant="10" id="Vzg-Wn-Te0"/>
                         <constraint firstAttribute="bottom" secondItem="B7F-sF-RY9" secondAttribute="bottom" constant="20" id="YDS-8Q-8u6"/>
-                        <constraint firstAttribute="trailing" secondItem="B7F-sF-RY9" secondAttribute="trailing" constant="-100" id="qms-A5-awh"/>
+                        <constraint firstAttribute="trailing" secondItem="B7F-sF-RY9" secondAttribute="trailing" constant="-140" id="qms-A5-awh"/>
                         <constraint firstItem="ZhK-8k-irg" firstAttribute="leading" secondItem="UW8-of-XUZ" secondAttribute="leading" constant="20" id="us3-DX-8e1"/>
                         <constraint firstItem="ZhK-8k-irg" firstAttribute="top" secondItem="UW8-of-XUZ" secondAttribute="top" constant="100" id="ypk-Gl-6Xl"/>
                     </constraints>

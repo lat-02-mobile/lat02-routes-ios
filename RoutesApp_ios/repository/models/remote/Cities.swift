@@ -7,10 +7,11 @@
 
 import Foundation
 
-struct CityRoute: Codable, Equatable, BaseModel {
+struct Cities: Codable, Equatable, BaseModel {
+    var country: String
     var id: String
-    var name: String
-    var countryId: String
+    var idCountry: String
     var lat: String
     var lng: String
+    var name: String
 }
