@@ -16,7 +16,7 @@ enum FirebaseErrors: Error {
 enum FirebaseCollections: String {
     case Users
     case Countries
-    case CityRoute
+    case Cities
     case Lines
 }
 
@@ -82,8 +82,7 @@ class FirebaseFirestoreManager {
             completion(.success(items))
         }
     }
-    func getCountryById(forCollection collection: FirebaseCollections, field: String, parameter: String,
-                                                      completion: @escaping ( Result<[Country], Error>) -> Void  ) {
+    func getCountryById(forCollection collection: FirebaseCollections, field: String, parameter: String, completion: @escaping ( Result<[Country], Error>) -> Void  ) {
         db.collection(collection.rawValue).whereField(field, isEqualTo: parameter).getDocuments { querySnapshot, error in
             guard error == nil else { return completion(.failure(error!)) }
             guard let documents = querySnapshot?.documents else { return completion(.success([])) }

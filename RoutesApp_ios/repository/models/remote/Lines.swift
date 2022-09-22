@@ -9,15 +9,10 @@ import Foundation
 import CodableFirebase
 import Firebase
 
-extension GeoPoint: GeoPointType {}
-
 struct RouteListDetailModel {
     let idCity: String?
     let name: String?
-    let routePoints: [GeoPoint]?
     let line: String?
-    let start: GeoPoint?
-    let end: GeoPoint?
     let nameEng: String?
     let nameEsp: String?
     let category: LinesCategory
@@ -25,13 +20,11 @@ struct RouteListDetailModel {
 
 struct Lines: Codable {
     let categoryRef: DocumentReference?
+    let enable: Bool?
+    let id: String?
     let idCity: String?
     let idCategory: String?
     let name: String?
-    let routePoints: [GeoPoint]?
-    let start: GeoPoint?
-    let end: GeoPoint?
-    let stops: [GeoPoint]?
 }
 
 struct LinesCategory: Codable {
