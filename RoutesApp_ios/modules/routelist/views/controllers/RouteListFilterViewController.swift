@@ -38,7 +38,7 @@ class RouteListFilterViewController: UIViewController {
     }
 
     @IBAction func resetAction(_ sender: Any) {
-        viewModel.resetRouteList()
+        viewModel.resetFilteredByCategoryRouteList()
         tableView.reloadData()
     }
 

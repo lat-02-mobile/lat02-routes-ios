@@ -13,8 +13,10 @@ class RouteDetailViewModel {
 
     private var routeListModel: [Lines] = []
     var linesCategory: [LinesCategory] = []
-    var routeListDetailModels: [RouteListDetailModel] = []
-    var filteredRouteListDetailModels: [RouteListDetailModel] = []
+    private var routeListDetailModels: [RouteListDetailModel] = []
+    var filteredRouteList: [RouteListDetailModel] = []
+    var filteredByCategoryRouteList: [RouteListDetailModel] = []
+    var filteredByQueryRouteList: [RouteListDetailModel] = []
     var onError: ((_ error: String) -> Void)?
     var db = Firestore.firestore()
     var reloadTable: (() -> Void)?
@@ -40,7 +42,9 @@ class RouteDetailViewModel {
             case .success(let lines):
                 self.linesCategory = lines
                 self.mapRouteListDetailModel()
-                self.filteredRouteListDetailModels = self.routeListDetailModels
+                self.filteredRouteList = self.routeListDetailModels
+                self.filteredByQueryRouteList = self.routeListDetailModels
+                self.filteredByCategoryRouteList = self.routeListDetailModels
                 completion()
             case .failure(let error):
                 self.onError?(error.localizedDescription)
@@ -69,8 +73,15 @@ class RouteDetailViewModel {
     }
 
     func filterRouteListBy(query: String) {
+        if query.isEmpty {
+            filteredByQueryRouteList = filteredByCategoryRouteList
+            filteredRouteList = filteredByCategoryRouteList
+            reloadTable?()
+            return
+        }
+
         let normalizedQuery = query.uppercased()
-        filteredRouteListDetailModels = filteredRouteListDetailModels.filter({ route in
+        filteredByQueryRouteList = filteredByCategoryRouteList.filter({ route in
             guard let routeName = route.name else { return true }
             if let routeNameEsp = route.nameEsp,
                let routeNameEng = route.nameEng {
@@ -80,17 +91,21 @@ class RouteDetailViewModel {
             }
             return routeName.uppercased().contains(normalizedQuery)
         })
+        filteredRouteList = filteredByQueryRouteList
         reloadTable?()
     }
 
     func filterRouteListBy(transportationCategory: LinesCategory) {
-        filteredRouteListDetailModels = filteredRouteListDetailModels.filter({ $0.category.id == transportationCategory.id })
+        filteredByCategoryRouteList = routeListDetailModels.filter({ $0.category.id == transportationCategory.id })
+        filteredRouteList = filteredByCategoryRouteList
         reloadTable?()
     }
 
-    func resetRouteList() {
-        filteredRouteListDetailModels = routeListDetailModels
+    func resetFilteredByCategoryRouteList() {
+        filteredByCategoryRouteList = routeListDetailModels
+        filteredRouteList = routeListDetailModels
         selectedFilterIndex = -1
         reloadTable?()
     }
+
 }

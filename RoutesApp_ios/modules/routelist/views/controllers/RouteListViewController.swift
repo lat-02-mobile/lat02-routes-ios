@@ -35,6 +35,7 @@ class RouteListViewController: UIViewController, UITableViewDataSource, UITableV
         navigationController?.navigationBar.barTintColor = UIColor(named: ConstantVariables.primaryColor)
         searchController = UISearchController()
         searchController!.searchResultsUpdater = self
+        searchController!.searchBar.delegate = self
         navigationItem.searchController = searchController
         let colorValue = [NSAttributedString.Key.foregroundColor: UIColor.white]
         UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = colorValue
@@ -60,7 +61,7 @@ class RouteListViewController: UIViewController, UITableViewDataSource, UITableV
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return routeListDetailViewModel.filteredRouteListDetailModels.count
+        return routeListDetailViewModel.filteredRouteList.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -68,17 +69,19 @@ class RouteListViewController: UIViewController, UITableViewDataSource, UITableV
         for: indexPath) as? RouteListTableViewCell else {
         return  UITableViewCell()
         }
-        let line =  routeListDetailViewModel.filteredRouteListDetailModels[indexPath.row]
+        let line =  routeListDetailViewModel.filteredRouteList[indexPath.row]
         tableViewCell.updateCellModel(routeListDetailModel: line)
         return tableViewCell
     }
 }
 
-extension RouteListViewController: UISearchResultsUpdating {
+extension RouteListViewController: UISearchResultsUpdating, UISearchBarDelegate {
     func updateSearchResults(for searchController: UISearchController) {
-        guard let text = searchController.searchBar.text,
-        !text.isEmpty else { return }
+        guard let text = searchController.searchBar.text else { return }
         routeListDetailViewModel.filterRouteListBy(query: text)
     }
 
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        routeListDetailViewModel.filterRouteListBy(query: "")
+    }
 }
