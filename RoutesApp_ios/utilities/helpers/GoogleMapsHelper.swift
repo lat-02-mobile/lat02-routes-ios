@@ -11,7 +11,7 @@ import GoogleMaps
 class GoogleMapsHelper {
     static var shared = GoogleMapsHelper()
 
-    func drawPolyline(map: GMSMapView, list: [Coordinate], hexColor: String = "#004696") {
+    func drawPolyline(map: GMSMapView, list: [Coordinate], hexColor: String = ConstantVariables.defaultPolylineColor) {
         let path = GMSMutablePath()
         list.forEach({ path.add($0.toCLLocationCoordinate2D()) })
         let polyline = GMSPolyline(path: path)
@@ -21,7 +21,7 @@ class GoogleMapsHelper {
         polyline.map = map
     }
 
-    func drawDotPolyline(map: GMSMapView, path: GMSPath, hexColor: String = "#004696") {
+    func drawDotPolyline(map: GMSMapView, path: GMSPath, hexColor: String = ConstantVariables.defaultPolylineColor) {
         let polyline = GMSPolyline(path: path)
         let styles = [GMSStrokeStyle.solidColor(ColorHelper.shared.hexStringToUIColor(hex: hexColor)), GMSStrokeStyle.solidColor(.clear)]
         let lengths = [NSNumber(5), NSNumber(5)]
