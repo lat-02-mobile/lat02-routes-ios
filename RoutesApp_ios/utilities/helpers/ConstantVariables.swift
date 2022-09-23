@@ -19,6 +19,7 @@ class ConstantVariables {
     static let primaryColor = "primary-color"
     static let routeListCell = "RouteListTableViewCell"
     static let filterIcon = "filter-icon"
+    static let lineRouteCell = "LineRouteTableViewCell"
 
     // PlaceTableViewCell
     static let placeCellNib = "PlaceTableViewCell"
