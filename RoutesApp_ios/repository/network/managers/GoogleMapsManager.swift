@@ -28,8 +28,6 @@ class GoogleMapsManager: GoogleMapsManagerProtocol {
     static let shared = GoogleMapsManager()
 
     private let client = GMSPlacesClient.shared()
-    private let directionsApi = "https://maps.googleapis.com/maps/api/directions/json"
-    private let directionsApiKey = "AIzaSyAnulpuAQtF2GDEV2LYYqOCh7PxZBPQVEI"
 
     func findPlaces(query: String, placeBias: GMSPlaceLocationBias, completion: @escaping(Result<[Place], Error>) -> Void) {
         let filter = GMSAutocompleteFilter()
@@ -62,9 +60,11 @@ class GoogleMapsManager: GoogleMapsManagerProtocol {
     }
 
     func getDirections(origin: Coordinate, destination: Coordinate, completion: @escaping(Result<GDirectionsResponse, Error>) -> Void) {
-        guard let url = URL(string: directionsApi
+        guard let url = URL(string: ConstantVariables.directionsApi
             + "?origin=\(origin.latitude),\(origin.longitude)" + "&destination=\(destination.latitude),\(destination.longitude)"
-            + "&mode=walking&key=\(directionsApiKey)") else { return completion(.failure(DirectionsError.failedToRetrieveDirections)) }
+            + "&mode=walking&key=\(ConstantVariables.directionsApiKey)") else {
+            return completion(.failure(DirectionsError.failedToRetrieveDirections))
+        }
         NetworkManager.shared.get(GDirectionsResponse.self, from: url) { result in
             switch result {
             case .success(let directionsResponse):

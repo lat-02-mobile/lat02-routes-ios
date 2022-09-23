@@ -36,6 +36,12 @@ class PossibleRoutesViewModel: ViewModel {
         return possibleRoutes[possibleRoutesSelectedIndex]
     }
 
+    func sortPossibleRoutes() {
+        possibleRoutes.sort(by: { routeA, routeB  in
+            routeA.calculateTotalDistance() < routeB.calculateTotalDistance()
+        })
+    }
+
     // swiftlint:disable function_body_length
     func getPossibleRoutes(completion: @escaping ([AvailableTransport]) -> Void) {
         let stops1Array = [

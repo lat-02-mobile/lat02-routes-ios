@@ -40,6 +40,7 @@ class BottomSheetViewController: UIViewController {
     func loadPossibleRoutes() {
         viewModel.getPossibleRoutes { possibleRoutes in
             self.viewModel.possibleRoutes = possibleRoutes
+            self.viewModel.sortPossibleRoutes()
             self.tableView.reloadData()
         }
     }

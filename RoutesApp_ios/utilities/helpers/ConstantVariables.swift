@@ -50,4 +50,8 @@ class ConstantVariables {
 
     // Possible Routes
     static let recommended = "recommended"
+
+    // Google Directions API
+    static let directionsApi = "https://maps.googleapis.com/maps/api/directions/json"
+    static let directionsApiKey = "${GOOGLE_DIRECTIONS_API_KEY}"
 }

@@ -84,6 +84,7 @@
 		CE19B2FB28DCEDD400840426 /* RouteListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE19B2FA28DCEDD400840426 /* RouteListTests.swift */; };
 		CE19B2FD28DCF2F500840426 /* RouteListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE19B2FC28DCF2F500840426 /* RouteListManager.swift */; };
 		CE1D1DD828DD4C0600F61040 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D1DD728DD4C0600F61040 /* ImageHelper.swift */; };
+		CE3BB7B528DE4665004BFA07 /* PossibleRoutesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3BB7B428DE4665004BFA07 /* PossibleRoutesTests.swift */; };
 		CE5D11BC28DBC89800AD875D /* RouteListFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5D11BA28DBC89800AD875D /* RouteListFilterViewController.swift */; };
 		CE5D11BD28DBC89800AD875D /* RouteListFilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE5D11BB28DBC89800AD875D /* RouteListFilterViewController.xib */; };
 		CE5D11C028DC07D300AD875D /* TransportationCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5D11BE28DC07D300AD875D /* TransportationCategoryTableViewCell.swift */; };
@@ -208,6 +209,7 @@
 		CE19B2FA28DCEDD400840426 /* RouteListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteListTests.swift; sourceTree = "<group>"; };
 		CE19B2FC28DCF2F500840426 /* RouteListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteListManager.swift; sourceTree = "<group>"; };
 		CE1D1DD728DD4C0600F61040 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
+		CE3BB7B428DE4665004BFA07 /* PossibleRoutesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PossibleRoutesTests.swift; sourceTree = "<group>"; };
 		CE5D11BA28DBC89800AD875D /* RouteListFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteListFilterViewController.swift; sourceTree = "<group>"; };
 		CE5D11BB28DBC89800AD875D /* RouteListFilterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RouteListFilterViewController.xib; sourceTree = "<group>"; };
 		CE5D11BE28DC07D300AD875D /* TransportationCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportationCategoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -554,6 +556,7 @@
 				84067C8828B8272000549300 /* CityPickerTests.swift */,
 				844F9A3928CBEA7D004A95A0 /* SearchLocationTest.swift */,
 				CE19B2FA28DCEDD400840426 /* RouteListTests.swift */,
+				CE3BB7B428DE4665004BFA07 /* PossibleRoutesTests.swift */,
 			);
 			path = RoutesApp_iosTests;
 			sourceTree = "<group>";
@@ -1099,6 +1102,7 @@
 			files = (
 				844F9A3A28CBEA7D004A95A0 /* SearchLocationTest.swift in Sources */,
 				C2E976F32898701D009F4B94 /* RoutesApp_iosTests.swift in Sources */,
+				CE3BB7B528DE4665004BFA07 /* PossibleRoutesTests.swift in Sources */,
 				CE19B2FB28DCEDD400840426 /* RouteListTests.swift in Sources */,
 				CE8CE8F028BE493F003270D7 /* AlgorithmTests.swift in Sources */,
 				C20A86D528A339540000EF7C /* AuthTests.swift in Sources */,

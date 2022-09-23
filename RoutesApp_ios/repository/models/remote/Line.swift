@@ -132,7 +132,7 @@ struct AvailableTransport: Equatable {
         return totalMins
     }
 
-    private func calculateTotalDistance() -> Int {
+    func calculateTotalDistance() -> Int {
         var totalDistance = 0
         for line in transports {
             totalDistance += Int(GoogleMapsHelper.shared.getTotalPolylineDistance(coordList: line.routePoints))
