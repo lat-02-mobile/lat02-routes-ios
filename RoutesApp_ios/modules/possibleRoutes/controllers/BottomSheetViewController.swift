@@ -49,14 +49,21 @@ class BottomSheetViewController: UIViewController {
         map.clear()
         let selectedRoute = viewModel.getSelectedRoute()
         guard !selectedRoute.transports.isEmpty else { return }
+        fitMap(map: map, selectedRoute: selectedRoute)
+        drawMarkers(map: map, selectedRoute: selectedRoute)
+    }
 
+    private func fitMap(map: GMSMapView, selectedRoute: AvailableTransport) {
         var combinedTransportLines = [Coordinate]()
 
         for line in selectedRoute.transports {
-            GoogleMapsHelper.shared.drawPolyline(map: map, list: line.routePoints)
+            GoogleMapsHelper.shared.drawPolyline(map: map, list: line.routePoints, hexColor: line.color)
             combinedTransportLines += line.routePoints
         }
         GoogleMapsHelper.shared.fitAllMarkers(map: map, list: combinedTransportLines)
+    }
+
+    private func drawMarkers(map: GMSMapView, selectedRoute: AvailableTransport) {
         guard let firstLine = selectedRoute.transports.first,
            let first = firstLine.routePoints.first else { return }
 
@@ -77,6 +84,10 @@ class BottomSheetViewController: UIViewController {
         GoogleMapsHelper.shared.addCustomMarker(map: map, position: secondStop,
             icon: UIImage(named: ConstantVariables.stopMarkerName))
 
+        drawWalkPath(map: map, firstStop: firstStop, secondStop: secondStop)
+    }
+
+    private func drawWalkPath(map: GMSMapView, firstStop: Coordinate, secondStop: Coordinate) {
         viewModel.getDirections(origin: firstStop, destination: secondStop) { path in
             GoogleMapsHelper.shared.drawDotPolyline(map: map, path: path)
         }
@@ -92,7 +103,8 @@ extension BottomSheetViewController: UITableViewDelegate, UITableViewDataSource 
         let cell = tableView.dequeueReusableCell(withIdentifier: PossibleRouteTableViewCell.identifier,
              for: indexPath) as? PossibleRouteTableViewCell ?? PossibleRouteTableViewCell(style: .value1,
               reuseIdentifier: PossibleRouteTableViewCell.identifier)
-        cell.setupStyle(selectedIndex: viewModel.possibleRoutesSelectedIndex, currentIndex: indexPath.row)
+        let currentPossibleRoute = viewModel.possibleRoutes[indexPath.row]
+        cell.setupStyle(selectedIndex: viewModel.possibleRoutesSelectedIndex, currentIndex: indexPath.row, possibleRoute: currentPossibleRoute)
         return cell
     }
 

@@ -56,4 +56,8 @@ class GoogleMapsHelper {
         }
         return totalDistance
     }
+
+    func getEstimatedTimeToArrive(averageVelocityMeterSec: Double, totalDistanceMeters: Double) -> Double {
+        return (totalDistanceMeters * (1 / averageVelocityMeterSec)) / 60
+    }
 }

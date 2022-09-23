@@ -78,20 +78,33 @@ class PossibleRoutesViewModel: ViewModel {
             Coordinate(latitude: -16.5241937, longitude: -68.1204527)
          ]
 
+        let categories = [
+            LinesCategory(id: "1", nameEng: "Cableway", nameEsp: "Teleférico",
+                  blackIcon: "https://firebasestorage.googleapis.com/v0/b/routes-app-8c8e4.appspot.com/o/lineCategories%2Fcable_way_black.png?alt=media&token=d43f6279-265c-4a56-bf61-6579c2e9c391",
+                  whiteIcon: "https://firebasestorage.googleapis.com/v0/b/routes-app-8c8e4.appspot.com/o/lineCategories%2Fcable_way_white.png?alt=media&token=98c4cf19-fb19-40a2-af4c-8f4e67b0f5f5"),
+            LinesCategory(id: "2", nameEng: "Subway", nameEsp: "Tren",
+                  blackIcon: "https://firebasestorage.googleapis.com/v0/b/routes-app-8c8e4.appspot.com/o/lineCategories%2Fsubway_black.png?alt=media&token=7f8c755c-da68-4b85-8bc1-1df26ecb92d8",
+                  whiteIcon: "https://firebasestorage.googleapis.com/v0/b/routes-app-8c8e4.appspot.com/o/lineCategories%2Fsubway_white.png?alt=media&token=c3fe8f8e-7696-4879-b042-52e710f94842"),
+            LinesCategory(id: "3", nameEng: "Bus", nameEsp: "Bus",
+                  blackIcon: "https://firebasestorage.googleapis.com/v0/b/routes-app-8c8e4.appspot.com/o/lineCategories%2Fbus_black.png?alt=media&token=21c3ba52-27ed-499a-933a-a31c8f2062ba",
+                  whiteIcon: "https://firebasestorage.googleapis.com/v0/b/routes-app-8c8e4.appspot.com/o/lineCategories%2Fbus_white.png?alt=media&token=980b407c-2fc7-4fd2-b8da-a5504a7c7f1c")
+        ]
         // MARK: Route 1
         let routePoints1 = points1Array
         let stops1 = stops1Array
         let line1 = LineRoute(name: "01", id: "01", idLine: "Zy8i3x4nQH0os7TaCizc", line: "Lines/4MhlK4IGLhTL6wcf50xk",
-            routePoints: routePoints1, start: routePoints1[0], stops: stops1, end: routePoints1[1], averageVelocity: 20.5)
+                              routePoints: routePoints1, start: routePoints1[0], stops: stops1, end: routePoints1.last!, averageVelocity: 2.3
+                              ,
+              blackIcon: categories[0].blackIcon!, whiteIcon: categories[0].whiteIcon!, color: "#67F5ED")
         // MARK: Route 2
         let routePoints2 = points2Array
         let stops2 = stops2Array
         let line2 = LineRoute(name: "1001", id: "01", idLine: "Zy8i3x4nQH0os7TaCizc", line: "Lines/4MhlK4IGLhTL6wcf50xk",
-              routePoints: routePoints2, start: routePoints2[0], stops: stops2, end: routePoints2[1], averageVelocity: 30.2)
+              routePoints: routePoints2, start: routePoints2[0], stops: stops2, end: routePoints2.last!, averageVelocity: 3.2,
+              blackIcon: categories[2].blackIcon!, whiteIcon: categories[2].whiteIcon!, color: "#6495ED")
 
         let originPoint = Coordinate(latitude: -16.52153, longitude: -68.12278).toCLLocationCoordinate2D()
-//        let destinationPoint = Coordinate(latitude: -16.52423, longitude: -68.1203).toCLLocationCoordinate2D()
-        let destinationPoint = Coordinate(latitude: -16.52445, longitude: -68.12298).toCLLocationCoordinate2D()
+        let destinationPoint = Coordinate(latitude: -16.52423, longitude: -68.1203).toCLLocationCoordinate2D()
         let minDistance = 200.0
         let minDistanceBtwStops = 200.0
 

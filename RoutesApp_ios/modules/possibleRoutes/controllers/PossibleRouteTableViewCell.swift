@@ -26,19 +26,23 @@ class PossibleRouteTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
 
-    func setupStyle(selectedIndex: Int, currentIndex: Int) {
-        recommendedLabel.text = String.localizeString(localizedString: "recommended")
+    func setupStyle(selectedIndex: Int, currentIndex: Int, possibleRoute: AvailableTransport) {
+        recommendedLabel.text = String.localizeString(localizedString: ConstantVariables.recommended)
+        estimatedTimeLabel.text = "\(possibleRoute.calculateEstimatedTimeToArrive())"
         recommendedLabel.isHidden = (currentIndex != 0)
+        let transport = possibleRoute.transports[0]
         if selectedIndex == currentIndex {
             estimatedTimeLabel.textColor = .white
             routeLabel.textColor = .white
             recommendedLabel.textColor = .white
             mainBackgroundView.backgroundColor = UIColor(named: ConstantVariables.primaryColor)
+            ImageHelper.shared.downloadAndCacheImage(imageView: transportCategoryImage, urlString: transport.whiteIcon)
         } else {
             estimatedTimeLabel.textColor = UIColor(named: ConstantVariables.primaryColor)
             routeLabel.textColor = UIColor(named: ConstantVariables.primaryColor)
             recommendedLabel.textColor = UIColor(named: ConstantVariables.primaryColor)
             mainBackgroundView.backgroundColor = .white
+            ImageHelper.shared.downloadAndCacheImage(imageView: transportCategoryImage, urlString: transport.blackIcon)
         }
     }
 

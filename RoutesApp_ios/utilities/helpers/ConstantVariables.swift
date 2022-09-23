@@ -47,4 +47,7 @@ class ConstantVariables {
     static let destinationMarkerName = "destination_point"
     static let stopMarkerName = "route-stop"
     static let localizationLinesFilterTitle = "filter-title"
+
+    // Possible Routes
+    static let recommended = "recommended"
 }
