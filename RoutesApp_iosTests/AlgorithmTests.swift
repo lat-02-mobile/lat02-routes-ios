@@ -9,20 +9,20 @@ import XCTest
 @testable import RoutesApp_ios
 
 class AlgorithmTests: XCTestCase {
-    var line1: Line?
-    var line2: Line?
+    var line1: LineRoute?
+    var line2: LineRoute?
 
     override func setUpWithError() throws {
         // MARK: Route 1
         let routePoints1 = TestResources.points1Array
         let stops1 = TestResources.stops1Array
-        line1 = Line(name: "01", categoryRef: "LineCategories/DW8blCpvs0OXwkozaEhn",
-                     routePoints: routePoints1, start: routePoints1[0], stops: stops1, averageVelocity: 20.5)
+        line1 = LineRoute(name: "01", id: "01", idLine: "Zy8i3x4nQH0os7TaCizc", line: "Lines/4MhlK4IGLhTL6wcf50xk",
+            routePoints: routePoints1, start: routePoints1[0], stops: stops1, end: routePoints1[1], averageVelocity: 20.5)
         // MARK: Route 2
         let routePoints2 = TestResources.points2Array
         let stops2 = TestResources.stops2Array
-        line2 = Line(name: "1001", categoryRef: "LineCategories/JY8blWsvs0OXwkozaJlb",
-                     routePoints: routePoints2, start: routePoints2[0], stops: stops2, averageVelocity: 30.2)
+        line2 = LineRoute(name: "1001", id: "01", idLine: "Zy8i3x4nQH0os7TaCizc", line: "Lines/4MhlK4IGLhTL6wcf50xk",
+            routePoints: routePoints2, start: routePoints2[0], stops: stops2, end: routePoints2[1], averageVelocity: 30.2)
     }
 
     func testWhenGivenLinePassThroughOriginAndDestination() throws {
@@ -37,9 +37,9 @@ class AlgorithmTests: XCTestCase {
             return
         }
 
-        let expectedLine = Line(name: line1.name, categoryRef: line1.categoryRef,
-                routePoints: Array(line1.routePoints[2...5]), start: line1.start, stops: Array(line1.stops[0...2]),
-                averageVelocity: line1.averageVelocity)
+        let expectedLine = LineRoute(name: line1.name, id: line1.id, idLine: line1.idLine, line: line1.line,
+                                     routePoints: Array(line1.routePoints[2...5]), start: line1.start, stops: Array(line1.stops[0...2]),
+                                     end: line1.end, averageVelocity: line1.averageVelocity)
         let result = Algorithm.shared.findAvailableRoutes(origin: originPoint, destination: destinationPoint,
             lines: [line1, line2], minDistanceBtwPoints: minDistance, minDistanceBtwStops: minDistanceBtwStops)
         XCTAssertEqual(expectedLine, result[0].transports[0])
@@ -57,13 +57,13 @@ class AlgorithmTests: XCTestCase {
             return
         }
 
-        let expectedSubLineA = Line(name: line1.name, categoryRef: line1.categoryRef,
-                routePoints: Array(line1.routePoints[3...10]), start: line1.start, stops: Array(line1.stops[1...4]),
-                averageVelocity: line1.averageVelocity)
+        let expectedSubLineA = LineRoute(name: line1.name, id: line1.id, idLine: line1.idLine, line: line1.line,
+                                         routePoints: Array(line1.routePoints[3...10]), start: line1.start,
+                                         stops: Array(line1.stops[1...4]), end: line1.end, averageVelocity: line1.averageVelocity)
 
-        let expectedSubLineB = Line(name: line2.name, categoryRef: line2.categoryRef,
-                routePoints: Array(line2.routePoints[5...8]), start: line2.start, stops: Array(line2.stops[1...2]),
-                averageVelocity: line2.averageVelocity)
+        let expectedSubLineB = LineRoute(name: line2.name, id: line2.id, idLine: line2.idLine, line: line2.line,
+                                         routePoints: Array(line2.routePoints[5...8]), start: line2.start,
+                                         stops: Array(line2.stops[1...2]), end: line2.end, averageVelocity: line2.averageVelocity)
 
         let expectedAvailableTransport = AvailableTransport(connectionPoint: 3,
                 transports: [expectedSubLineA, expectedSubLineB])
@@ -85,13 +85,13 @@ class AlgorithmTests: XCTestCase {
             return
         }
 
-        let expectedSubLineA = Line(name: line1.name, categoryRef: line1.categoryRef,
-                routePoints: Array(line1.routePoints[3...10]), start: line1.start, stops: Array(line1.stops[2...4]),
-                averageVelocity: line1.averageVelocity)
+        let expectedSubLineA = LineRoute(name: line1.name, id: line1.id, idLine: line1.idLine, line: line1.line,
+                                         routePoints: Array(line1.routePoints[3...10]), start: line1.start,
+                                         stops: Array(line1.stops[2...4]), end: line1.end, averageVelocity: line1.averageVelocity)
 
-        let expectedSubLineB = Line(name: line2.name, categoryRef: line2.categoryRef,
-                routePoints: [line2.routePoints[5]], start: line2.start, stops: [line2.stops[1]],
-                averageVelocity: line2.averageVelocity)
+        let expectedSubLineB = LineRoute(name: line2.name, id: line2.id, idLine: line2.idLine, line: line2.line,
+                                            routePoints: [line2.routePoints[5]], start: line2.start, stops: [line2.stops[1]],
+                                            end: line2.end, averageVelocity: line2.averageVelocity)
 
         let expectedCombinedAvailableTransport = AvailableTransport(connectionPoint: 3,
                 transports: [expectedSubLineA, expectedSubLineB])

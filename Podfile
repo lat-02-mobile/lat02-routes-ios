@@ -7,6 +7,7 @@ target 'RoutesApp_ios' do
 
   # Pods for RoutesApp_ios
   pod 'SwiftLint', '0.47.1'
+  pod 'CodableFirebase'
   pod 'SVProgressHUD', '2.2.5'
   pod 'IQKeyboardManagerSwift', '6.2.1'
   pod 'GoogleSignIn', '6.2.2'
@@ -16,6 +17,7 @@ target 'RoutesApp_ios' do
   pod 'FacebookLogin', '0.9.0'
   pod 'GoogleMaps', '7.0.0'
   pod 'GooglePlaces', '7.1.0'
+  pod 'Kingfisher', '~> 7.0'
 
   target 'RoutesApp_iosTests' do
     inherit! :search_paths

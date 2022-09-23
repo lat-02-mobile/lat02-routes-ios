@@ -12,8 +12,8 @@ class CityPickerViewModel {
     var cityManager: CityManagerProtocol = CityFirebaseManager.shared
     var onFinish: (() -> Void)?
     var onError: ((_ error: String) -> Void)?
-    var cities = [CityRoute]()
-    var citiesOriginalList = [CityRoute]()
+    var cities = [Cities]()
+    var citiesOriginalList = [Cities]()
 
     func getCities() {
         cityManager.getCities { result in

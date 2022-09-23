@@ -81,13 +81,13 @@ class PossibleRoutesViewModel: ViewModel {
         // MARK: Route 1
         let routePoints1 = points1Array
         let stops1 = stops1Array
-        let line1 = Line(name: "01", categoryRef: "LineCategories/DW8blCpvs0OXwkozaEhn",
-                     routePoints: routePoints1, start: routePoints1[0], stops: stops1, averageVelocity: 20.5)
+        let line1 = LineRoute(name: "01", id: "01", idLine: "Zy8i3x4nQH0os7TaCizc", line: "Lines/4MhlK4IGLhTL6wcf50xk",
+            routePoints: routePoints1, start: routePoints1[0], stops: stops1, end: routePoints1[1], averageVelocity: 20.5)
         // MARK: Route 2
         let routePoints2 = points2Array
         let stops2 = stops2Array
-        let line2 = Line(name: "1001", categoryRef: "LineCategories/JY8blWsvs0OXwkozaJlb",
-                     routePoints: routePoints2, start: routePoints2[0], stops: stops2, averageVelocity: 30.2)
+        let line2 = LineRoute(name: "1001", id: "01", idLine: "Zy8i3x4nQH0os7TaCizc", line: "Lines/4MhlK4IGLhTL6wcf50xk",
+              routePoints: routePoints2, start: routePoints2[0], stops: stops2, end: routePoints2[1], averageVelocity: 30.2)
 
         let originPoint = Coordinate(latitude: -16.52153, longitude: -68.12278).toCLLocationCoordinate2D()
 //        let destinationPoint = Coordinate(latitude: -16.52423, longitude: -68.1203).toCLLocationCoordinate2D()

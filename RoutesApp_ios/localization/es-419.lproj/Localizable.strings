@@ -33,6 +33,11 @@
 
 // Tabbar controller
 "home" = "Inicio";
+"tourpoints" = "Sitios";
+"map" = "Mapa";
+"favorites" = "Favoritos";
+"settings" = "Configuraciones";
+
 // Localization permission alert
 "localization-permission-alert-title" = "Permiso de localización";
 "localization-permission-alert-message" = "Por favor, cambie su configuración en los permisos de localización";
@@ -54,3 +59,7 @@
 
 // Possible Routes to take
 "recommended" = " (recomendada)";
+// Lines - RouteList
+"routeTitle" = "Líneas";
+"filter-title" = "Filtrar por categoría";
+"Lines" = "Lineas";

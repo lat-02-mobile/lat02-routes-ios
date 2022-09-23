@@ -16,8 +16,10 @@ class ConstantVariables {
     static let defCitySelected = "CitySelected"
     static let defCityLat = "CityLatitude"
     static let defCityLong = "CityLongitude"
-
     static let primaryColor = "primary-color"
+    static let routeListCell = "RouteListTableViewCell"
+    static let routeTitle = "routeTitle"
+    static let filterIcon = "filter-icon"
 
     // PlaceTableViewCell
     static let placeCellNib = "PlaceTableViewCell"
@@ -44,4 +46,5 @@ class ConstantVariables {
     static let originMarkerName = "origin_point"
     static let destinationMarkerName = "destination_point"
     static let stopMarkerName = "route-stop"
+    static let localizationLinesFilterTitle = "filter-title"
 }

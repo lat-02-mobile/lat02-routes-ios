@@ -16,7 +16,8 @@ enum FirebaseErrors: Error {
 enum FirebaseCollections: String {
     case Users
     case Countries
-    case CityRoute
+    case Cities
+    case Lines
 }
 
 class FirebaseFirestoreManager {
@@ -81,8 +82,7 @@ class FirebaseFirestoreManager {
             completion(.success(items))
         }
     }
-    func getCountryById(forCollection collection: FirebaseCollections, field: String, parameter: String,
-                                                      completion: @escaping ( Result<[Country], Error>) -> Void  ) {
+    func getCountryById(forCollection collection: FirebaseCollections, field: String, parameter: String, completion: @escaping ( Result<[Country], Error>) -> Void  ) {
         db.collection(collection.rawValue).whereField(field, isEqualTo: parameter).getDocuments { querySnapshot, error in
             guard error == nil else { return completion(.failure(error!)) }
             guard let documents = querySnapshot?.documents else { return completion(.success([])) }
@@ -101,6 +101,42 @@ class FirebaseFirestoreManager {
                 items.append(country)
             }
             completion(.success(items))
+        }
+    }
+
+    func getLines<T: Decodable>(type: T.Type, forCollection collection: FirebaseCollections, completion: @escaping ( Result<[T], Error>) -> Void  ) {
+
+        db.collection("Lines").addSnapshotListener { (snapshot, _) in
+            guard let snapshot = snapshot else { return }
+
+            do {
+                var objects = [T]()
+                for document in snapshot.documents {
+                    let decoder = Firestore.Decoder()
+                    if let item = try? decoder.decode(T.self, from: document.data()) {
+                        objects.append(item)
+                    }
+                }
+                completion(.success(objects))
+            }
+        }
+    }
+
+    func getLinesCategory<T: Decodable>(type: T.Type, forCollection collection: FirebaseCollections, completion: @escaping ( Result<[T], Error>) -> Void  ) {
+
+        db.collection("LineCategories").addSnapshotListener { (snapshot, _) in
+            guard let snapshot = snapshot else { return }
+
+            do {
+                var objects = [T]()
+                for document in snapshot.documents {
+                    let decoder = Firestore.Decoder()
+                    if let item = try? decoder.decode(T.self, from: document.data()) {
+                        objects.append(item)
+                    }
+                }
+                completion(.success(objects))
+            }
         }
     }
 }

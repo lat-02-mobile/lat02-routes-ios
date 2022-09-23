@@ -63,7 +63,7 @@ class TestResources {
 
     static let testCityRouteName = "testCity"
     static let testCountryId = "testCountry"
-    static let testCityRoute = CityRoute(id: "test", name: "testCity", countryId: "countryTest", lat: "-35", lng: "-17")
+    static let testCityRoute = Cities(country: "test", id: "testid", idCountry: "countryTest", lat: "-35", lng: "-17", name: "testCity")
     static let testCountry = Country(
         id: "test", name: "testCountry", code: "test", phone: "test", createdAt: Date(), updatedAt: Date(), cities: [DocumentReference]()
     )
@@ -71,4 +71,15 @@ class TestResources {
     static let findPlacesTest = Place(name: "A place name", identifier: "123456")
     static let queryToSendTest = "place"
     static let placeBiasTest = GMSPlaceRectangularLocationOption(CLLocationCoordinate2D(), CLLocationCoordinate2D())
+
+    static let lines = [
+        Lines(categoryRef: nil, enable: true, id: "1", idCity: "1", idCategory: "1", name: "Line E"),
+        Lines(categoryRef: nil, enable: true, id: "2", idCity: "1", idCategory: "2", name: "Line 5"),
+        Lines(categoryRef: nil, enable: true, id: "3", idCity: "1", idCategory: "2", name: "Line 72")
+    ]
+
+    static let lineCategories = [
+        LinesCategory(id: "1", nameEng: "Subway", nameEsp: "Subway", blackIcon: "", whiteIcon: ""),
+        LinesCategory(id: "2", nameEng: "Bus", nameEsp: "Bus", blackIcon: "", whiteIcon: "")
+    ]
 }
