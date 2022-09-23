@@ -37,12 +37,3 @@ At the end of the Google and Facebook login setup, the info.plist should look si
         GMSServices.provideAPIKey("COPIED_FOR_MAPS_KEY")
         GMSPlacesClient.provideAPIKey("COPIED_KEY_FOR GOOGLE_PLACES")
 ```
-### Set up the Google Directions API for searching functionality
-
-1. Go to [Google Cloud Console](https://console.cloud.google.com/) and in the Credentials option, under APIs & Services section.
-
-2. In that page you'll see a list of generated keys, search for the **Direction API Key**, on the right side of that item, there's a _SHOW_KEY_ button. Click on it and copy the key value to the ConstantVariables.swift file and replace the hole string with key value.
-
-```swift
-        static let directionsApiKey = "${GOOGLE_DIRECTIONS_API_KEY}"
-```
