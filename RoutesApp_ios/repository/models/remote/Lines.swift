@@ -12,7 +12,6 @@ import Firebase
 struct RouteListDetailModel {
     let idCity: String?
     let name: String?
-    let line: String?
     let nameEng: String?
     let nameEsp: String?
     let category: LinesCategory

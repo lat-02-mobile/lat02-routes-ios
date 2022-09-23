@@ -1,10 +1,3 @@
-//
-//  RouteListFilterViewController.swift
-//  RoutesApp_ios
-//
-//  Created by user on 21/9/22.
-//
-
 import UIKit
 
 class RouteListFilterViewController: UIViewController {
@@ -14,9 +7,9 @@ class RouteListFilterViewController: UIViewController {
     @IBOutlet var doneButton: UIButton!
     @IBOutlet var filterTitleLabel: UILabel!
 
-    var viewModel: RouteDetailViewModel
+    var viewModel: RouteListViewModel
 
-    init(viewModel: RouteDetailViewModel) {
+    init(viewModel: RouteListViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }

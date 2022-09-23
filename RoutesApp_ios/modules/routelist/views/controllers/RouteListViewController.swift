@@ -10,19 +10,19 @@ import UIKit
 class RouteListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var routeListTableView: UITableView!
-    var routeListDetailViewModel = RouteDetailViewModel()
+    var routeListViewModel = RouteListViewModel()
     var searchController: UISearchController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
         setIcon()
-        routeListDetailViewModel.getLines {
+        routeListViewModel.getLines {
             self.routeListTableView.reloadData()
         }
         routeListTableView.register(UINib.init(nibName: ConstantVariables.routeListCell, bundle: nil),
             forCellReuseIdentifier: ConstantVariables.routeListCell)
-        routeListDetailViewModel.reloadTable = routeListTableView.reloadData
+        routeListViewModel.reloadData = routeListTableView.reloadData
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -50,7 +50,7 @@ class RouteListViewController: UIViewController, UITableViewDataSource, UITableV
     }
 
     @objc func showFilterPopUp() {
-        let viewControllerToPresent = RouteListFilterViewController(viewModel: routeListDetailViewModel)
+        let viewControllerToPresent = RouteListFilterViewController(viewModel: routeListViewModel)
         if let sheet = viewControllerToPresent.sheetPresentationController {
             sheet.detents = [.medium(), .large()]
             sheet.prefersScrollingExpandsWhenScrolledToEdge = false
@@ -61,7 +61,7 @@ class RouteListViewController: UIViewController, UITableViewDataSource, UITableV
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return routeListDetailViewModel.filteredRouteList.count
+        return routeListViewModel.filteredRouteList.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -69,7 +69,7 @@ class RouteListViewController: UIViewController, UITableViewDataSource, UITableV
         for: indexPath) as? RouteListTableViewCell else {
         return  UITableViewCell()
         }
-        let line =  routeListDetailViewModel.filteredRouteList[indexPath.row]
+        let line =  routeListViewModel.filteredRouteList[indexPath.row]
         tableViewCell.updateCellModel(routeListDetailModel: line)
         return tableViewCell
     }
@@ -78,10 +78,10 @@ class RouteListViewController: UIViewController, UITableViewDataSource, UITableV
 extension RouteListViewController: UISearchResultsUpdating, UISearchBarDelegate {
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else { return }
-        routeListDetailViewModel.filterRouteListBy(query: text)
+        routeListViewModel.filterRouteListBy(query: text)
     }
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        routeListDetailViewModel.filterRouteListBy(query: "")
+        routeListViewModel.filterRouteListBy(query: "")
     }
 }

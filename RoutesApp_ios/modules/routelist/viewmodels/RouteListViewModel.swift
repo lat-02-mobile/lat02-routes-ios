@@ -8,23 +8,21 @@
 import Foundation
 import FirebaseFirestore
 
-class RouteDetailViewModel {
-    let firebaseManager = FirebaseFirestoreManager.shared
+class RouteListViewModel: ViewModel {
+    var routeListManager: RouteListManagerProtocol = RouteListManager.shared
 
-    private var routeListModel: [Lines] = []
+    var routeListModel: [Lines] = []
     var linesCategory: [LinesCategory] = []
-    private var routeListDetailModels: [RouteListDetailModel] = []
+    var routeListDetailModels: [RouteListDetailModel] = []
     var filteredRouteList: [RouteListDetailModel] = []
     var filteredByCategoryRouteList: [RouteListDetailModel] = []
     var filteredByQueryRouteList: [RouteListDetailModel] = []
-    var onError: ((_ error: String) -> Void)?
     var db = Firestore.firestore()
-    var reloadTable: (() -> Void)?
+
     var selectedFilterIndex = -1
 
     func getLines(completion: @escaping () -> Void) {
-
-        firebaseManager.getLines(type: Lines.self, forCollection: .Lines) { result in
+        routeListManager.getLines { result in
             switch result {
             case .success(let lines):
                 self.routeListModel = lines
@@ -37,7 +35,7 @@ class RouteDetailViewModel {
     }
 
     func getCategories(completion: @escaping () -> Void) {
-        firebaseManager.getLinesCategory(type: LinesCategory.self, forCollection: .Lines) { result in
+        routeListManager.getCategories { result in
             switch result {
             case .success(let lines):
                 self.linesCategory = lines
@@ -61,9 +59,8 @@ class RouteDetailViewModel {
             let nameList = routeListModel.name
             let lineEn = category.nameEng
             let lineEs = category.nameEsp
-            let routemodel = RouteListDetailModel(idCity: idCity, name: nameList, line: lineEn, nameEng: lineEn, nameEsp: lineEs, category: category)
-            let routeListDetailModel = routemodel
-            routeListDetailModels.append(routeListDetailModel)
+            let routemodel = RouteListDetailModel(idCity: idCity, name: nameList, nameEng: lineEn, nameEsp: lineEs, category: category)
+            routeListDetailModels.append(routemodel)
         }
     }
 
@@ -71,7 +68,7 @@ class RouteDetailViewModel {
         if query.isEmpty {
             filteredByQueryRouteList = filteredByCategoryRouteList
             filteredRouteList = filteredByCategoryRouteList
-            reloadTable?()
+            reloadData?()
             return
         }
 
@@ -87,20 +84,20 @@ class RouteDetailViewModel {
             return routeName.uppercased().contains(normalizedQuery)
         })
         filteredRouteList = filteredByQueryRouteList
-        reloadTable?()
+        reloadData?()
     }
 
     func filterRouteListBy(transportationCategory: LinesCategory) {
         filteredByCategoryRouteList = routeListDetailModels.filter({ $0.category.id == transportationCategory.id })
         filteredRouteList = filteredByCategoryRouteList
-        reloadTable?()
+        reloadData?()
     }
 
     func resetFilteredByCategoryRouteList() {
         filteredByCategoryRouteList = routeListDetailModels
         filteredRouteList = routeListDetailModels
         selectedFilterIndex = -1
-        reloadTable?()
+        reloadData?()
     }
 
 }
