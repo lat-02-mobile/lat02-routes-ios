@@ -30,15 +30,15 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.googleusercontent.apps.11042396908-eocvrc8aj9qnk099m0kbjqdoe3a6d2hc</string>
-				<string>fb3146525082229053</string>
+				<string>REVERSED_CLIENT</string>
+				<string>fbFB_APP_IDENTIFIER</string>
 			</array>
 		</dict>
 	</array>
 	<key>FacebookAppID</key>
-	<string>3146525082229053</string>
+	<string>FB_APP_IDENTIFIER</string>
 	<key>FacebookClientToken</key>
-	<string>131412692dc6c5687212fa62aa82474a</string>
+	<string>FB_TOKEN_CLIENT</string>
 	<key>FacebookDisplayName</key>
 	<string>Routes App</string>
 </dict>

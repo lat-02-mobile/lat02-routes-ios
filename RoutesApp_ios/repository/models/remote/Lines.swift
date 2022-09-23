@@ -30,4 +30,6 @@ struct LinesCategory: Codable {
     let id: String?
     let nameEng: String?
     let nameEsp: String?
+    let blackIcon: String?
+    let whiteIcon: String?
 }

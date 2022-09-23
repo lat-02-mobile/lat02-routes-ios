@@ -17,6 +17,7 @@ target 'RoutesApp_ios' do
   pod 'FacebookLogin', '0.9.0'
   pod 'GoogleMaps', '7.1.0'
   pod 'GooglePlaces', '7.1.0'
+  pod 'Kingfisher', '~> 7.0'
 
   target 'RoutesApp_iosTests' do
     inherit! :search_paths

@@ -79,7 +79,7 @@ class TestResources {
     ]
 
     static let lineCategories = [
-        LinesCategory(id: "1", nameEng: "Subway", nameEsp: "Subway"),
-        LinesCategory(id: "2", nameEng: "Bus", nameEsp: "Bus")
+        LinesCategory(id: "1", nameEng: "Subway", nameEsp: "Subway", blackIcon: "", whiteIcon: ""),
+        LinesCategory(id: "2", nameEng: "Bus", nameEsp: "Bus", blackIcon: "", whiteIcon: "")
     ]
 }

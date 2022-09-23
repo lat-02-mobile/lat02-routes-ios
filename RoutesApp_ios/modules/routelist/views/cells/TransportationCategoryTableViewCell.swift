@@ -1,4 +1,5 @@
 import UIKit
+import Kingfisher
 
 class TransportationCategoryTableViewCell: UITableViewCell {
 
@@ -21,6 +22,7 @@ class TransportationCategoryTableViewCell: UITableViewCell {
 
     func setStyle(selectedIndex: Int, currentIndex: Int, lineCategory: LinesCategory) {
         transportationNameLabel.text = lineCategory.nameEng
+        ImageHelper.shared.downloadAndCacheImage(imageView: transportationImage, urlString: lineCategory.blackIcon ?? "")
         if selectedIndex == currentIndex {
             checkMarkImage.isHidden = false
             transportationNameLabel.font = UIFont.boldSystemFont(ofSize: 18.0)
