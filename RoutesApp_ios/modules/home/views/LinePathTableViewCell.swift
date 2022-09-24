@@ -22,10 +22,10 @@ class LinePathTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-    func setData(line: LinePath) {
-        categoryImageView.image = UIImage(named: line.category.lowercased())
-        nameLabel.text = "\(line.category), \(line.name)"
-        if line.category == "Walk" {
+    func setData(line: LineRoute) {
+        categoryImageView.image = UIImage(named: line.line.lowercased())
+        nameLabel.text = "\(line.line), \(line.name)"
+        if line.line == "Walk" {
             distanceLabel.text = "100m"
             distanceLabel.isHidden = false
         }

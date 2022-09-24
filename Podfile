@@ -7,6 +7,7 @@ target 'RoutesApp_ios' do
 
   # Pods for RoutesApp_ios
   pod 'SwiftLint', '0.47.1'
+  pod 'CodableFirebase'
   pod 'SVProgressHUD', '2.2.5'
   pod 'IQKeyboardManagerSwift', '6.2.1'
   pod 'GoogleSignIn', '6.2.2'

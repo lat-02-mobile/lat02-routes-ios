@@ -18,7 +18,7 @@ class RouteDetailViewController: UIViewController {
     @IBOutlet weak var linesTableView: UITableView!
     @IBOutlet weak var favoriteButton: UIButton!
     let mapView: GMSMapView!
-    var routePath: [LinePath] = []
+    var routePath = AvailableTransport(connectionPoint: 8, transports: [])
     init(map: GMSMapView) {
         self.mapView = map
         super.init(nibName: nil, bundle: nil)
@@ -30,24 +30,33 @@ class RouteDetailViewController: UIViewController {
         super.viewDidLoad()
         setupViews()
         fake()
-        if !routePath.isEmpty {
-            for i in stride(from: 0, to: routePath.count - 1, by: 2) where i < routePath.count - 1 {
-                routePath.insert(LinePath(
-                    name: "Walk",
-                    category: "Walk",
-                    routePoints: [],
-                    start: Coordinate(latitude: 0, longitude: 0),
-                    end: Coordinate(latitude: 0, longitude: 0),
-                    stops: []), at: i + 1)
-            }
-            linesTableView.reloadData()
-//            routePath.forEach { linePath in
-//                drawRoute(linePath: linePath)
+        if !routePath.transports.isEmpty {
+//            routePath.transports.forEach { lineRoute in
+//                drawRoute(lineRoute: lineRoute)
 //            }
+            for i in stride(from: 0, to: routePath.transports.count - 1, by: 2) where i < routePath.transports.count - 1 {
+                routePath.transports.insert(LineRoute(
+                    name: "Walk",
+                    id: "12",
+                    idLine: "fds",
+                    line: "Walk",
+                    routePoints: [routePath.transports[i].routePoints.last! as Coordinate,
+                                  routePath.transports[i + 1].routePoints.first! as Coordinate],
+                    start: Coordinate(latitude: 0, longitude: 0),
+                    stops: [],
+                    end: Coordinate(latitude: 0, longitude: 0),
+                    averageVelocity: 5.4
+                ), at: i + 1)
+            }
+            print("Qt trans after: \(routePath.transports.count)")
+            print("Walk: \(routePath.transports[1])")
+            linesTableView.reloadData()
+            routePath.transports.forEach { lineRoute in
+                drawRoute(lineRoute: lineRoute)
+            }
         }
     }
     @IBAction func saveAsFavorite(_ sender: Any) {
-        showAddFavoriteDialog(withName: "something")
     }
     private func setupViews() {
         linesTableView.delegate = self
@@ -87,8 +96,15 @@ class RouteDetailViewController: UIViewController {
         var routeStopsFake = [Coordinate]()
         routeStopsFake.append(Coordinate(latitude: -17.3974338574844, longitude: -66.1999486028894))
         let endFake = Coordinate(latitude: -17.387536220579, longitude: -66.19517707040428)
-        let linePath1 = LinePath(name: "Line 3", category: "Bus", routePoints: routePointsFake, start: startFake, end: endFake, stops: routeStopsFake)
-        self.routePath.append(linePath1)
+        let lineRoute1 = LineRoute(
+            name: "Ruta de ida", id: "12", idLine: "fds", line: "Line 3",
+            routePoints: routePointsFake,
+            start: startFake,
+            stops: routeStopsFake,
+            end: endFake,
+            averageVelocity: 5.4
+        )
+        self.routePath.transports.append(lineRoute1)
         // Second path
 //        let startFake2 = Coordinate(latitude: -17.395167, longitude: -66.176963)
 //        var routePointsFake2 = [Coordinate]()
@@ -112,17 +128,22 @@ class RouteDetailViewController: UIViewController {
 //        var routeStopsFake2 = [Coordinate]()
 //        routeStopsFake2.append(Coordinate(latitude: -17.396059, longitude: -66.175451))
 //        let endFake2 = Coordinate(latitude: -17.400923, longitude: -66.177607)
-//        let linePath2 = LinePath(name: "Line E",
-//                                 category: "Bus",
-//                                 routePoints: routePointsFake2,
-//                                 start: startFake2,
-//                                 end: endFake2,
-//                                 stops: routeStopsFake2)
-//        self.routePath.append(linePath2)
+//        let lineRoute2 = LineRoute(
+//            name: "Ruta de vuelta",
+//            id: "12",
+//            idLine: "fds",
+//            line: "Line E",
+//            routePoints: routePointsFake2,
+//            start: startFake2,
+//            stops: routeStopsFake2,
+//            end: endFake2,
+//            averageVelocity: 9.4
+//        )
+//        self.routePath.transports.append(lineRoute2)
     }
-    private func drawRoute(linePath: LinePath) {
+    private func drawRoute(lineRoute: LineRoute) {
         let path = GMSMutablePath()
-        for route in linePath.routePoints {
+        for route in lineRoute.routePoints {
             path.add(route.toCLLocationCoordinate2D())
         }
         let polyline = GMSPolyline(path: path)
@@ -155,31 +176,31 @@ class RouteDetailViewController: UIViewController {
         marker.title =  String.localizeString(localizedString: "end")
         marker.map = mapView
     }
-    func showAddFavoriteDialog(withName: String) {
-        let alert = UIAlertController(title: "Save Destination", message: "These coordinates will be saved", preferredStyle: .alert)
-        alert.addTextField { (textField: UITextField) -> Void in
-            textField.placeholder = "Add caption"
-        }
-        alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { _ in
-            if (alert.textFields?.first) != nil {
-                self.favoriteButton.setImage(UIImage(systemName: "heart.fill")?.withTintColor(.white, renderingMode: .alwaysOriginal), for: .normal)
-//                self.saveSelectedImageInCoreData(withName: withName, withExtension: withExtension, data: data, caption: textField.text ?? "")
-            }
-        }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .default))
-        present(alert, animated: true)
-    }
 }
 
 extension RouteDetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        routePath.count
+        routePath.transports.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: LinePathTableViewCell.linePathCellIdentifier, for: indexPath)
             as? LinePathTableViewCell else { return UITableViewCell() }
-        cell.setData(line: routePath[indexPath.row])
+        cell.setData(line: routePath.transports[indexPath.row])
         return cell
     }
+}
 
+extension GMSMapView {
+    func drawPolyline(_ path: GMSMutablePath) -> GMSPolyline? {
+      let polyline = GMSPolyline(path: path)
+      polyline.strokeWidth = 3.0
+      polyline.geodesic = true
+      let styles: [GMSStrokeStyle] = [.solidColor(.black), .solidColor(.clear)]
+      let scale = 1.0 / projection.points(forMeters: 1.0, at: camera.target)
+      let dashLength = NSNumber(value: 3.5 * Float(scale))
+      let gapLength = NSNumber(value: 3.0 * Float(scale))
+      polyline.spans = GMSStyleSpans(path, styles, [dashLength, gapLength], .rhumb)
+      polyline.map = self
+      return polyline
+   }
 }
