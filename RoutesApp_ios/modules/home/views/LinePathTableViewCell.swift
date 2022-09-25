@@ -16,18 +16,22 @@ class LinePathTableViewCell: UITableViewCell {
     @IBOutlet weak var distanceLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        distanceLabel.isHidden = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-    func setData(line: LineRoute) {
-        categoryImageView.image = UIImage(named: line.line.lowercased())
+    func setData(line: LineRoute, distance: Double? = nil) {
         nameLabel.text = "\(line.line), \(line.name)"
+        if let distance = distance {
+            distanceLabel.text = String(distance) + "m"
+        } else {
+            distanceLabel.text = String(GoogleMapsHelper.shared.getTotalPolylineDistance(coordList: line.routePoints)) + "m"
+        }
         if line.line == "Walk" {
-            distanceLabel.text = "100m"
-            distanceLabel.isHidden = false
+            categoryImageView.image = UIImage(named: line.line.lowercased())
+        } else {
+            ImageHelper.shared.downloadAndCacheImage(imageView: categoryImageView, urlString: line.blackIcon)
         }
     }
 }

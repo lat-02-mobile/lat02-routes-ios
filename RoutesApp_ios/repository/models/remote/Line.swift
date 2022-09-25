@@ -21,6 +21,25 @@ struct LineRoute: Codable, Equatable {
     let end: Coordinate
     // Average velocity in meters per second
     var averageVelocity: Double
+    let blackIcon: String
+    let whiteIcon: String
+    let color: String
+    static func getWalkLineRoute(routePoints: [Coordinate]) -> LineRoute {
+        return LineRoute(
+            name: "Walk",
+            id: "00000000000",
+            idLine: "00000000000",
+            line: "Walk",
+            routePoints: routePoints,
+            start: Coordinate(latitude: 0, longitude: 0),
+            stops: [],
+            end: Coordinate(latitude: 0, longitude: 0),
+            averageVelocity: 5.4,
+            blackIcon: "",
+            whiteIcon: "",
+            color: "#67F5ED"
+        )
+    }
 
     static func == (lhs: LineRoute, rhs: LineRoute) -> Bool {
         return lhs.name == rhs.name
@@ -33,7 +52,8 @@ struct LineRoute: Codable, Equatable {
         let routePoints = Array(routePoints[0...indexOfCoordinatePoint])
         let stops = Array(stops[0...indexOfCoordinateStop])
         return LineRoute(name: name, id: id, idLine: idLine, line: line, routePoints: routePoints,
-                         start: start, stops: stops, end: end, averageVelocity: averageVelocity)
+                         start: start, stops: stops, end: end, averageVelocity: averageVelocity,
+                         blackIcon: blackIcon, whiteIcon: whiteIcon, color: color)
     }
 
     // Returns a new line from the given coordinate till the end
@@ -43,7 +63,8 @@ struct LineRoute: Codable, Equatable {
         let routePoints = Array(routePoints[indexOfCoordinatePoint...])
         let stops = Array(stops[indexOfCoordinateStop...])
         return LineRoute(name: name, id: id, idLine: idLine, line: line,
-                         routePoints: routePoints, start: start, stops: stops, end: end, averageVelocity: averageVelocity)
+                         routePoints: routePoints, start: start, stops: stops, end: end, averageVelocity: averageVelocity,
+                         blackIcon: blackIcon, whiteIcon: whiteIcon, color: color)
     }
 
     // Returns a new line from-till
@@ -61,7 +82,8 @@ struct LineRoute: Codable, Equatable {
         let newRoutePoints = Array(routePoints[indexOriginPoint...indexDestinationPoint])
 
         return LineRoute(name: name, id: id, idLine: idLine, line: line,
-                         routePoints: newRoutePoints, start: start, stops: newStops, end: end, averageVelocity: averageVelocity)
+            routePoints: newRoutePoints, start: start, stops: newStops, end: end,
+            averageVelocity: averageVelocity, blackIcon: blackIcon, whiteIcon: whiteIcon, color: color)
     }
 
     private func getIndexWhere(coordinate: Coordinate, coordinateList: [Coordinate]) -> Int {
@@ -115,5 +137,22 @@ struct AvailableTransport: Equatable {
 
     static func == (lhs: AvailableTransport, rhs: AvailableTransport) -> Bool {
         return lhs.connectionPoint == rhs.connectionPoint && lhs.transports == rhs.transports
+    }
+
+    func calculateEstimatedTimeToArrive() -> Int {
+        var totalMins = 0
+        for line in transports {
+            totalMins += Int(GoogleMapsHelper.shared.getEstimatedTimeToArrive(averageVelocityMeterSec: line.averageVelocity,
+             totalDistanceMeters: Double(calculateTotalDistance())))
+        }
+        return totalMins
+    }
+
+    func calculateTotalDistance() -> Int {
+        var totalDistance = 0
+        for line in transports {
+            totalDistance += Int(GoogleMapsHelper.shared.getTotalPolylineDistance(coordList: line.routePoints))
+        }
+        return totalDistance
     }
 }

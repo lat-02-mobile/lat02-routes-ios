@@ -146,6 +146,7 @@ class HomeViewController: UIViewController {
         case.bothSelected:
             // Call logic to run algorithm with routes
             self.showToast(message: ConstantVariables.done)
+            self.showRouteDetail()
         }
 
         backButton.isHidden = false
@@ -222,7 +223,7 @@ class HomeViewController: UIViewController {
 
         self.present(viewController, animated: true)
     }
-    @IBAction func showRouteDetail(_ sender: Any) {
+    func showRouteDetail() {
         let viewController = RouteDetailViewController(map: self.mapView)
 //        viewController.delegate = self
 
