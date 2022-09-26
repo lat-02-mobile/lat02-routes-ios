@@ -59,7 +59,12 @@
 
 // Possible Routes to take
 "recommended" = " (recommended)";
+
 // Lines - RouteList
 "routeTitle" = "Lines";
 "filter-title" = "Sort lines by line category";
 "Lines" = "Lines";
+
+// Route Detail
+"route-detail-no-matches-adressess" = "No Matching Addresses Found";
+"route-detail-unable-to-get-location" = "Unable to get location";

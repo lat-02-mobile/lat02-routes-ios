@@ -12,9 +12,12 @@ import GoogleMaps
 class RouteDetailViewController: UIViewController {
     @IBOutlet weak var linesTableView: UITableView!
     @IBOutlet weak var favoriteButton: UIButton!
+    @IBOutlet weak var destinationLabel: UILabel!
+    @IBOutlet weak var originLabel: UILabel!
     let mapView: GMSMapView!
-    var viewModel = PossibleRoutesViewModel()
-    var walkingPathDistances = [Double]()
+    var possibleRoutesViewModel = PossibleRoutesViewModel()
+    var walkingPathDistances = [Double?]()
+    lazy var geocoder = CLGeocoder()
     // MARK: The following variable are only for test purposes. Delete these when refactor for official code
     var routePath = AvailableTransport(connectionPoint: 8, transports: [
         LineRoute(
@@ -50,7 +53,7 @@ class RouteDetailViewController: UIViewController {
             start: Coordinate(latitude: -17.399995087026774, longitude: -66.20014299508014),
             stops: [Coordinate(latitude: -17.3974338574844, longitude: -66.1999486028894)],
             end: Coordinate(latitude: -17.387536220579, longitude: -66.19517707040428),
-            averageVelocity: 5.4,
+            averageVelocity: 3.2,
             blackIcon: "https://firebasestorage.googleapis.com/v0/b/routes-app-8c8e4.appspot.com/o/lineCategories%2Fcable_way_black.png?alt=media&token=d43f6279-265c-4a56-bf61-6579c2e9c391",
             whiteIcon: "https://firebasestorage.googleapis.com/v0/b/routes-app-8c8e4.appspot.com/o/lineCategories%2Fcable_way_white.png?alt=media&token=98c4cf19-fb19-40a2-af4c-8f4e67b0f5f5",
             color: "#67F5ED"
@@ -82,7 +85,7 @@ class RouteDetailViewController: UIViewController {
             start: Coordinate(latitude: -17.395167, longitude: -66.176963),
             stops: [Coordinate(latitude: -17.396059, longitude: -66.175451)],
             end: Coordinate(latitude: -17.400923, longitude: -66.177607),
-            averageVelocity: 9.4,
+            averageVelocity: 3.2,
             blackIcon: "https://firebasestorage.googleapis.com/v0/b/routes-app-8c8e4.appspot.com/o/lineCategories%2Fcable_way_black.png?alt=media&token=d43f6279-265c-4a56-bf61-6579c2e9c391",
             whiteIcon: "https://firebasestorage.googleapis.com/v0/b/routes-app-8c8e4.appspot.com/o/lineCategories%2Fcable_way_white.png?alt=media&token=98c4cf19-fb19-40a2-af4c-8f4e67b0f5f5",
             color: "#67F5ED"
@@ -99,8 +102,33 @@ class RouteDetailViewController: UIViewController {
         setupViews()
         getRoutePathDetails()
         fitMapRoutePath()
+        getStreetName()
     }
     @IBAction func saveAsFavorite(_ sender: Any) {
+    }
+    private func getStreetName() {
+        let locationDestination = CLLocation(latitude: -17.400923, longitude: -66.177607)
+        let locationOrigin = CLLocation(latitude: -17.399995087026774, longitude: -66.20014299508014)
+        // Geocode Location
+        geocoder.reverseGeocodeLocation(locationOrigin) { (placemarks, error) in
+            // Process Response
+            self.processResponse(withPlacemarks: placemarks, error: error, labelTarget: self.originLabel)
+            self.geocoder.reverseGeocodeLocation(locationDestination) { (placemarks, error) in
+                // Process Response
+                self.processResponse(withPlacemarks: placemarks, error: error, labelTarget: self.destinationLabel)
+            }
+        }
+    }
+    private func processResponse(withPlacemarks placemarks: [CLPlacemark]?, error: Error?, labelTarget: UILabel) {
+        if let error = error {
+            labelTarget.text = String.localizeString(localizedString: "route-detail-unable-to-get-location") + error.localizedDescription
+        } else {
+            if let placemarks = placemarks, let placemark = placemarks.first {
+                labelTarget.text = placemark.singleStreetAddress
+            } else {
+                labelTarget.text = String.localizeString(localizedString: "route-detail-no-matches-adressess")
+            }
+        }
     }
     private func getRoutePathDetails() {
         if !routePath.transports.isEmpty {
@@ -108,12 +136,13 @@ class RouteDetailViewController: UIViewController {
                 routePath.transports.insert(LineRoute.getWalkLineRoute(routePoints: [routePath.transports[i].routePoints.last! as Coordinate,
                     routePath.transports[i + 1].routePoints.first! as Coordinate]), at: i + 1)
             }
+            walkingPathDistances = Array(repeating: nil, count: routePath.transports.count)
             for i in 0...routePath.transports.count - 1 {
                 let lineRoute = routePath.transports[i]
                 if lineRoute.line == "Walk" {
-                    viewModel.getDirections(origin: lineRoute.routePoints[0], destination: lineRoute.routePoints[1]) { path in
+                    possibleRoutesViewModel.getDirections(origin: lineRoute.routePoints[0], destination: lineRoute.routePoints[1]) { path in
                         GoogleMapsHelper.shared.drawDotPolyline(map: self.mapView, path: path)
-                        self.walkingPathDistances.append(GoogleMapsHelper.shared.getGMSPathDistance(path: path))
+                        self.walkingPathDistances[i] = (GoogleMapsHelper.shared.getGMSPathDistance(path: path))
                         self.linesTableView.reloadRows(at: [IndexPath(row: i, section: 0)], with: .fade)
                     }
                 } else {
@@ -149,11 +178,8 @@ extension RouteDetailViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: LinePathTableViewCell.linePathCellIdentifier, for: indexPath)
             as? LinePathTableViewCell else { return UITableViewCell() }
-        if routePath.transports[indexPath.row].line == "Walk" {
-            cell.setData(line: self.routePath.transports[indexPath.row], distance: self.walkingPathDistances.first)
-            if self.walkingPathDistances.first != nil {
-                self.walkingPathDistances.removeFirst()
-            }
+        if routePath.transports[indexPath.row].line == "Walk", let walkDist = walkingPathDistances[indexPath.row] {
+            cell.setData(line: self.routePath.transports[indexPath.row], distance: walkDist)
         } else {
             cell.setData(line: routePath.transports[indexPath.row])
         }

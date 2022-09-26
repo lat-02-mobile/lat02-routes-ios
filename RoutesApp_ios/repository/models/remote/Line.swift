@@ -34,7 +34,7 @@ struct LineRoute: Codable, Equatable {
             start: Coordinate(latitude: 0, longitude: 0),
             stops: [],
             end: Coordinate(latitude: 0, longitude: 0),
-            averageVelocity: 5.4,
+            averageVelocity: 87.1728,
             blackIcon: "",
             whiteIcon: "",
             color: "#67F5ED"
