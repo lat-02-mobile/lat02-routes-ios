@@ -69,7 +69,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         tabBarVC.viewControllers = [
             createNavController(for: RouteListViewController(), title: String.localizeString(localizedString: "home"),
                 image: UIImage(systemName: "bus.fill")!),
-            createNavController(for: HomeViewController(), title: String.localizeString(localizedString: "tourpoints"),
+            createNavController(for: PossibleRoutesViewController(), title: String.localizeString(localizedString: "tourpoints"),
                 image: UIImage(systemName: "mappin.and.ellipse")!),
             createNavController(for: HomeViewController(), title: String.localizeString(localizedString: "map"),
                 image: UIImage(systemName: "map.fill")!),

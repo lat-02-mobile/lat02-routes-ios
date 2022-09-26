@@ -15,7 +15,7 @@ target 'RoutesApp_ios' do
   pod 'SwiftAlertView', '2.2.1'
   pod 'FacebookCore', '0.9.0'
   pod 'FacebookLogin', '0.9.0'
-  pod 'GoogleMaps', '7.1.0'
+  pod 'GoogleMaps', '7.0.0'
   pod 'GooglePlaces', '7.1.0'
   pod 'Kingfisher', '~> 7.0'
 

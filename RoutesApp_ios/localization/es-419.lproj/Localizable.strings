@@ -57,6 +57,8 @@
 
 "done" = "Hecho";
 
+// Possible Routes to take
+"recommended" = " (recomendada)";
 // Lines - RouteList
 "routeTitle" = "Líneas";
 "filter-title" = "Filtrar por categoría";
