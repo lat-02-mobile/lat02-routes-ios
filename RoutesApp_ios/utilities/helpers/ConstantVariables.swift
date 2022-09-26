@@ -18,6 +18,7 @@ class ConstantVariables {
     static let defCityLong = "CityLongitude"
     static let primaryColor = "primary-color"
     static let routeListCell = "RouteListTableViewCell"
+    static let routeTitle = "routeTitle"
     static let filterIcon = "filter-icon"
 
     // PlaceTableViewCell
@@ -39,4 +40,6 @@ class ConstantVariables {
     static let localizationPermissionAlertMessage = "localization-permission-alert-message"
     static let localizationPermissionAlertSettings = "localization-permission-alert-settings"
     static let localizationPermissionAlertCancel = "localization-permission-alert-cancel"
+
+    static let localizationLinesFilterTitle = "filter-title"
 }

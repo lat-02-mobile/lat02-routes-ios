@@ -10,17 +10,19 @@ import UIKit
 class RouteListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var routeListTableView: UITableView!
-    var routeListDetailViewModel = RouteDetailViewModel()
+    var routeListViewModel = RouteListViewModel()
+    var searchController: UISearchController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
         setIcon()
-        routeListDetailViewModel.getLines {
+        routeListViewModel.getLines {
             self.routeListTableView.reloadData()
         }
-        routeListTableView.register(UINib.init(nibName: ConstantVariables.routeListCell,
-        bundle: nil), forCellReuseIdentifier: ConstantVariables.routeListCell)
+        routeListTableView.register(UINib.init(nibName: ConstantVariables.routeListCell, bundle: nil),
+            forCellReuseIdentifier: ConstantVariables.routeListCell)
+        routeListViewModel.reloadData = routeListTableView.reloadData
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -28,11 +30,12 @@ class RouteListViewController: UIViewController, UITableViewDataSource, UITableV
     }
 
     func setupNavigationBar() {
-        navigationItem.title = String.localizeString(localizedString: "Lines")
+        navigationItem.title = String.localizeString(localizedString: ConstantVariables.routeTitle)
         self.navigationItem.largeTitleDisplayMode = .always
         navigationController?.navigationBar.barTintColor = UIColor(named: ConstantVariables.primaryColor)
-        let routeListVC = RouteListViewController()
-        let searchController = UISearchController(searchResultsController: routeListVC)
+        searchController = UISearchController()
+        searchController!.searchResultsUpdater = self
+        searchController!.searchBar.delegate = self
         navigationItem.searchController = searchController
         let colorValue = [NSAttributedString.Key.foregroundColor: UIColor.white]
         UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = colorValue
@@ -47,11 +50,18 @@ class RouteListViewController: UIViewController, UITableViewDataSource, UITableV
     }
 
     @objc func showFilterPopUp() {
-
+        let viewControllerToPresent = RouteListFilterViewController(viewModel: routeListViewModel)
+        if let sheet = viewControllerToPresent.sheetPresentationController {
+            sheet.detents = [.medium(), .large()]
+            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+            sheet.prefersEdgeAttachedInCompactHeight = true
+            sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
+        }
+        present(viewControllerToPresent, animated: true)
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return routeListDetailViewModel.routeListDetailModels.count
+        return routeListViewModel.filteredRouteList.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -59,8 +69,19 @@ class RouteListViewController: UIViewController, UITableViewDataSource, UITableV
         for: indexPath) as? RouteListTableViewCell else {
         return  UITableViewCell()
         }
-        let line =  routeListDetailViewModel.routeListDetailModels[indexPath.row]
+        let line =  routeListViewModel.filteredRouteList[indexPath.row]
         tableViewCell.updateCellModel(routeListDetailModel: line)
         return tableViewCell
+    }
+}
+
+extension RouteListViewController: UISearchResultsUpdating, UISearchBarDelegate {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text else { return }
+        routeListViewModel.filterRouteListBy(query: text)
+    }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        routeListViewModel.filterRouteListBy(query: "")
     }
 }

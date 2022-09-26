@@ -57,4 +57,7 @@
 
 "done" = "done";
 
+// Lines - RouteList
+"routeTitle" = "Lines";
+"filter-title" = "Sort lines by line category";
 "Lines" = "Lines";
