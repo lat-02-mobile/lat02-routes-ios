@@ -20,6 +20,7 @@ class ConstantVariables {
     static let routeListCell = "RouteListTableViewCell"
     static let routeTitle = "routeTitle"
     static let filterIcon = "filter-icon"
+    static let lineRouteCell = "LineRouteTableViewCell"
 
     // PlaceTableViewCell
     static let placeCellNib = "PlaceTableViewCell"

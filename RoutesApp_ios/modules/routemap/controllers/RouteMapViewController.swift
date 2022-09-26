@@ -7,6 +7,7 @@ class RouteMapViewController: UIViewController {
     var linePath: LinePath!
     var locationManager = CLLocationManager()
     var currentPosition: CLLocationCoordinate2D?
+    var isSettingsController = true
     @IBOutlet weak var mapView: GMSMapView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,6 +17,10 @@ class RouteMapViewController: UIViewController {
         drawRoute()
         drawInitialMarkers()
         drawStopsMarkers()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     private func setupMap() {
         if let styleURL = Bundle.main.url(forResource: "silver-style", withExtension: "json") {
@@ -33,6 +38,9 @@ class RouteMapViewController: UIViewController {
         self.mapView.animate(toZoom: zoom)
     }
     @IBAction func backButton(_ sender: Any) {
+        guard isSettingsController else { return }
+        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
     }
     private func drawRoute() {
         let path = GMSMutablePath()

@@ -103,11 +103,23 @@ struct Line: Codable, Equatable {
     let routePath: [LineRoute]
 }
 
+struct LineRouteInfo: Codable, Equatable {
+    let name: String
+    let id: String
+    let idLine: String
+    let line: DocumentReference
+    let routePoints: [GeoPoint]
+    let start: GeoPoint
+    let stops: [GeoPoint]
+    let end: GeoPoint
+}
+
 // Used in RouteMap
 struct LinePath: Codable, Equatable {
     let name: String
-    let idCategory: String
-    let enable: Bool
+    let id: String
+    let idLine: String
+    let line: DocumentReference
     let routePoints: [Coordinate]
     let start: Coordinate
     let end: Coordinate
