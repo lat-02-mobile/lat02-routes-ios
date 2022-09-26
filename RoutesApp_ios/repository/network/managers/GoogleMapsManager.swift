@@ -13,9 +13,15 @@ enum PlacesError: Error {
     case failedToRetrievePlaceInfo
 }
 
+enum DirectionsError: Error {
+    case failedToRetrieveDirections
+    case failedToRetrieveDirectionsInfo
+}
+
 protocol GoogleMapsManagerProtocol {
     func findPlaces(query: String, placeBias: GMSPlaceLocationBias, completion: @escaping(Result<[Place], Error>) -> Void)
     func placeIDToLocation(placeID: String, completion: @escaping(Result<CLLocationCoordinate2D, Error>) -> Void)
+    func getDirections(origin: Coordinate, destination: Coordinate, completion: @escaping(Result<GDirectionsResponse, Error>) -> Void)
 }
 
 class GoogleMapsManager: GoogleMapsManagerProtocol {
@@ -50,6 +56,22 @@ class GoogleMapsManager: GoogleMapsManagerProtocol {
                 return
             }
             completion(.success(result.coordinate))
+        }
+    }
+
+    func getDirections(origin: Coordinate, destination: Coordinate, completion: @escaping(Result<GDirectionsResponse, Error>) -> Void) {
+        guard let url = URL(string: ConstantVariables.directionsApi
+            + "?origin=\(origin.latitude),\(origin.longitude)" + "&destination=\(destination.latitude),\(destination.longitude)"
+            + "&mode=walking&key=\(ConstantVariables.directionsApiKey)") else {
+            return completion(.failure(DirectionsError.failedToRetrieveDirections))
+        }
+        NetworkManager.shared.get(GDirectionsResponse.self, from: url) { result in
+            switch result {
+            case .success(let directionsResponse):
+                completion(.success(directionsResponse))
+            case .failure(let error):
+                completion(.failure(error))
+            }
         }
     }
 }

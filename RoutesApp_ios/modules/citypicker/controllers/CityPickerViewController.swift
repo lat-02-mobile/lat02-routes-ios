@@ -51,7 +51,7 @@ class CityPickerViewController: UIViewController {
             SVProgressHUD.dismiss()
             strongSelf.cityTableView.reloadData()
         }
-        viewmodel.onError = { [weak self] error in
+            viewmodel.onError = { _ in
             SVProgressHUD.dismiss()
         }
     }
