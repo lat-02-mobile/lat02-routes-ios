@@ -21,7 +21,12 @@ class MockRouteListManager: RouteListManagerProtocol {
     }
 
     func getLineRoute(idLine: String, completion: @escaping (Result<[LineRouteInfo], Error>) -> Void) {
-    }
+            if hasLines {
+                completion(.success(TestResources.LineRoutes))
+                return
+            }
+            completion(.failure(NSError(domain: "Error", code: 0)))
+        }
 }
 
 class RouteListTests: XCTestCase {

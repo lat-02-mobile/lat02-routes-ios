@@ -14,6 +14,7 @@ enum Units: String {
 }
 
 class ConstantVariables {
+    static let lineRouteCell = "LineRouteTableViewCell"
     static let databaseName = "RoutesApp_ios"
     static let cityCellNib = "CityTableViewCell"
     static let cityCellIdentifier = "CityCell"
@@ -46,6 +47,8 @@ class ConstantVariables {
     static let localizationPermissionAlertMessage = "localization-permission-alert-message"
     static let localizationPermissionAlertSettings = "localization-permission-alert-settings"
     static let localizationPermissionAlertCancel = "localization-permission-alert-cancel"
+    static let routeDetailUnableToGetLocation = "route-detail-unable-to-get-location"
+    static let routeDetailNoMatchesAdresses = "route-detail-no-matches-adressess"
 
     // Google Maps helper
     static let polylinePadding = 80

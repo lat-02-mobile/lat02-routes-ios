@@ -121,12 +121,12 @@ class RouteDetailViewController: UIViewController {
     }
     private func processResponse(withPlacemarks placemarks: [CLPlacemark]?, error: Error?, labelTarget: UILabel) {
         if let error = error {
-            labelTarget.text = String.localizeString(localizedString: "route-detail-unable-to-get-location") + error.localizedDescription
+            labelTarget.text = String.localizeString(localizedString: ConstantVariables.routeDetailUnableToGetLocation) + error.localizedDescription
         } else {
             if let placemarks = placemarks, let placemark = placemarks.first {
                 labelTarget.text = placemark.singleStreetAddress
             } else {
-                labelTarget.text = String.localizeString(localizedString: "route-detail-no-matches-adressess")
+                labelTarget.text = String.localizeString(localizedString: ConstantVariables.routeDetailNoMatchesAdresses)
             }
         }
     }

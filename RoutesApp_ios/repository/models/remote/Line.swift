@@ -124,7 +124,7 @@ struct LineRouteInfo: Codable, Equatable {
     let name: String
     let id: String
     let idLine: String
-    let line: DocumentReference
+    let line: DocumentReference?
     let routePoints: [GeoPoint]
     let start: GeoPoint
     let stops: [GeoPoint]
