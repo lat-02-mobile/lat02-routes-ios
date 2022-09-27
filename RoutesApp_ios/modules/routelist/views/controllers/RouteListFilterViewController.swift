@@ -14,8 +14,8 @@ class RouteListFilterViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
     }
 
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    required convenience init?(coder: NSCoder) {
+        self.init(viewModel: RouteListViewModel())
     }
 
     override func viewDidLoad() {
