@@ -59,7 +59,6 @@
 
 // Possible Routes to take
 "recommended" = " (recommended)";
-
 // Lines - RouteList
 "routeTitle" = "Lines";
 "filter-title" = "Sort lines by line category";

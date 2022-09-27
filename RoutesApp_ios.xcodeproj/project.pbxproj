@@ -63,7 +63,7 @@
 		C2436387289A2CE4003C1A44 /* FirebaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2436386289A2CE4003C1A44 /* FirebaseAuthManager.swift */; };
 		C2436389289A2D21003C1A44 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2436388289A2D21003C1A44 /* BaseModel.swift */; };
 		C24BD6EA28A134C3007FCAB7 /* UserFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24BD6E928A134C3007FCAB7 /* UserFirebaseManager.swift */; };
-		C2745DCE28E29B52003C17E4 /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2745DCD28E29B52003C17E4 /* Env.swift */; };
+		C2745DD028E2AF69003C17E4 /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2745DCF28E2AF69003C17E4 /* Env.swift */; };
 		C27EB66628D3689200A1E742 /* LinePathTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27EB66428D3689200A1E742 /* LinePathTableViewCell.swift */; };
 		C27EB66728D3689200A1E742 /* LinePathTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C27EB66528D3689200A1E742 /* LinePathTableViewCell.xib */; };
 		C290E5EF28D272C90019782F /* RouteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C290E5ED28D272C90019782F /* RouteDetailViewController.swift */; };
@@ -189,7 +189,7 @@
 		C2436386289A2CE4003C1A44 /* FirebaseAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManager.swift; sourceTree = "<group>"; };
 		C2436388289A2D21003C1A44 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		C24BD6E928A134C3007FCAB7 /* UserFirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFirebaseManager.swift; sourceTree = "<group>"; };
-		C2745DCD28E29B52003C17E4 /* Env.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Env.swift; sourceTree = "<group>"; };
+		C2745DCF28E2AF69003C17E4 /* Env.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Env.swift; sourceTree = "<group>"; };
 		C27885D0261499B18A8C0B66 /* Pods_RoutesApp_iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoutesApp_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C27EB66428D3689200A1E742 /* LinePathTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinePathTableViewCell.swift; sourceTree = "<group>"; };
 		C27EB66528D3689200A1E742 /* LinePathTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LinePathTableViewCell.xib; sourceTree = "<group>"; };
@@ -572,7 +572,7 @@
 				C2E9770D28987CF7009F4B94 /* repository */,
 				C2E9770E28987CFE009F4B94 /* modules */,
 				C2E976D82898701C009F4B94 /* AppDelegate.swift */,
-				C2745DCD28E29B52003C17E4 /* Env.swift */,
+				C2745DCF28E2AF69003C17E4 /* Env.swift */,
 				C2E976DA2898701C009F4B94 /* SceneDelegate.swift */,
 				C2E976DC2898701C009F4B94 /* ViewController.swift */,
 				C2E976DE2898701C009F4B94 /* Main.storyboard */,
@@ -1111,7 +1111,7 @@
 				844F9A2928C7F542004A95A0 /* GoogleMapsManager.swift in Sources */,
 				847A59E228A820F5005CEA25 /* PhoneAuthenticationViewModel.swift in Sources */,
 				C290E5EF28D272C90019782F /* RouteDetailViewController.swift in Sources */,
-				C2745DCE28E29B52003C17E4 /* Env.swift in Sources */,
+				C2745DD028E2AF69003C17E4 /* Env.swift in Sources */,
 				CE7FBADC28D565F2001175D3 /* BottomSheetViewController.swift in Sources */,
 				CE5D11BC28DBC89800AD875D /* RouteListFilterViewController.swift in Sources */,
 				C2436385289A2CD6003C1A44 /* FirebaseFirestoreManager.swift in Sources */,

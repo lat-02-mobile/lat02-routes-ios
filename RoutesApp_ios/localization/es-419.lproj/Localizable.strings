@@ -59,12 +59,10 @@
 
 // Possible Routes to take
 "recommended" = " (recomendada)";
-
 // Lines - RouteList
 "routeTitle" = "Líneas";
 "filter-title" = "Filtrar por categoría";
 "Lines" = "Lineas";
-
 
 // Route Detail
 "route-detail-no-matches-adressess" = "No se encontraron direcciones";

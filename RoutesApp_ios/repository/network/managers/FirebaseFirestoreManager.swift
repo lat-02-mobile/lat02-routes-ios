@@ -18,6 +18,7 @@ enum FirebaseCollections: String {
     case Countries
     case Cities
     case Lines
+    case LineRoute
 }
 
 class FirebaseFirestoreManager {
@@ -108,7 +109,11 @@ class FirebaseFirestoreManager {
 
         db.collection("Lines").addSnapshotListener { (snapshot, _) in
             guard let snapshot = snapshot else { return }
-
+        }
+    }
+    func getLineWithBooleanCondition<T: Decodable>(type: T.Type, forCollection collection: FirebaseCollections, enable: Bool, completion: @escaping ( Result<[T], Error>) -> Void  ) {
+        db.collection(collection.rawValue).whereField("enable", isEqualTo: enable).getDocuments { (snapshot, _) in
+            guard let snapshot = snapshot else { return }
             do {
                 var objects = [T]()
                 for document in snapshot.documents {
@@ -121,9 +126,22 @@ class FirebaseFirestoreManager {
             }
         }
     }
-
+    func getLineRoute<T: Decodable>(type: T.Type, forCollection collection: FirebaseCollections, id: String, completion: @escaping ( Result<[T], Error>) -> Void  ) {
+        db.collection(collection.rawValue).whereField("idLine", isEqualTo: id).getDocuments { (snapshot, _) in
+            guard let snapshot = snapshot else { return }
+            do {
+                var objects = [T]()
+                for document in snapshot.documents {
+                    let decoder = Firestore.Decoder()
+                    if let item = try? decoder.decode(T.self, from: document.data()) {
+                        objects.append(item)
+                    }
+                }
+                completion(.success(objects))
+            }
+        }
+    }
     func getLinesCategory<T: Decodable>(type: T.Type, forCollection collection: FirebaseCollections, completion: @escaping ( Result<[T], Error>) -> Void  ) {
-
         db.collection("LineCategories").addSnapshotListener { (snapshot, _) in
             guard let snapshot = snapshot else { return }
 

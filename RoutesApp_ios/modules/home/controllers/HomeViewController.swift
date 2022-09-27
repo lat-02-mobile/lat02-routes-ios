@@ -225,17 +225,12 @@ class HomeViewController: UIViewController {
     }
     func showRouteDetail() {
         let viewController = RouteDetailViewController(map: self.mapView)
-//        viewController.delegate = self
 
         if let presentationController = viewController.presentationController as? UISheetPresentationController {
             presentationController.detents = [.medium()]
         }
 
         self.present(viewController, animated: true)
-//        let camera = GMSCameraPosition.camera(
-//            withTarget: viewmodel.currentPosition!, zoom: zoom, bearing: 0, viewingAngle: 90
-//        )
-//        mapView.animate(to: camera)
     }
 
     func showToast(message: String) {
