@@ -10,7 +10,6 @@
 # Icon must end with two \r
 Icon
 
-
 # Thumbnails
 ._*
 
@@ -125,6 +124,9 @@ iOSInjectionProject/
 
 # Google Services
 GoogleService-Info.plist
+
+# Env Variables
+Env.swift
 
 # End of https://www.toptal.com/developers/gitignore/api/swift,macos
 

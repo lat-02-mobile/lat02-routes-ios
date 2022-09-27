@@ -59,7 +59,7 @@ class ConstantVariables {
 
     // Google Directions API
     static let directionsApi = "https://maps.googleapis.com/maps/api/directions/json"
-    static let directionsApiKey = ProcessInfo.processInfo.environment["GOOGLE_DIRECTIONS_API_KEY"] ?? ""
+    static let directionsApiKey = Env.GOOGLE_DIRECTIONS_API_KEY
 
     // MAP
     static let defaultPolylineColor = "#004696"
