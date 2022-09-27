@@ -620,13 +620,11 @@
 		C2E9770E28987CFE009F4B94 /* modules */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
+
 				84437A2628DCFB5A00186B73 /* lineRouteList */,
 				8498F8A028CF4B27008641D9 /* lineList */,
-=======
 				CE7FBACD28D36A89001175D3 /* possibleRoutes */,
 				8498F8A028CF4B27008641D9 /* routelist */,
->>>>>>> develop
 				84A5B67628C698C4006AB7F9 /* routemap */,
 				84067C5B28B3BF4D00549300 /* citypicker */,
 				84067C4428B3B15700549300 /* settings */,
