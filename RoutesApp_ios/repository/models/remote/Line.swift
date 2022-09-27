@@ -26,10 +26,10 @@ struct LineRoute: Codable, Equatable {
     let color: String
     static func getWalkLineRoute(routePoints: [Coordinate]) -> LineRoute {
         return LineRoute(
-            name: "Walk",
+            name: self.lineWalkName,
             id: "00000000000",
             idLine: "00000000000",
-            line: "Walk",
+            line: self.lineWalkName,
             routePoints: routePoints,
             start: Coordinate(latitude: 0, longitude: 0),
             stops: [],
