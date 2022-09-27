@@ -9,6 +9,7 @@ import Foundation
 
 protocol RouteListManagerProtocol {
     func getLines(completion: @escaping(Result<[Lines], Error>) -> Void)
+    func getLineRoute(idLine: String, completion: @escaping(Result<[LineRouteInfo], Error>) -> Void)
     func getCategories(completion: @escaping (Result<[LinesCategory], Error>) -> Void)
 }
 
@@ -17,7 +18,7 @@ class RouteListManager: RouteListManagerProtocol {
     let firebaseManager = FirebaseFirestoreManager.shared
 
     func getLines(completion: @escaping(Result<[Lines], Error>) -> Void) {
-        firebaseManager.getLines(type: Lines.self, forCollection: .Lines) { result in
+        firebaseManager.getLineWithBooleanCondition(type: Lines.self, forCollection: .Lines, enable: true) { result in
             switch result {
             case .success(let lines):
                 completion(.success(lines))
@@ -26,7 +27,16 @@ class RouteListManager: RouteListManagerProtocol {
             }
         }
     }
-
+    func getLineRoute(idLine: String, completion: @escaping(Result<[LineRouteInfo], Error>) -> Void) {
+        firebaseManager.getLineRoute(type: LineRouteInfo.self, forCollection: .LineRoute, id: idLine ) { result in
+            switch result {
+            case .success(let lines):
+                completion(.success(lines))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
     func getCategories(completion: @escaping (Result<[LinesCategory], Error>) -> Void) {
         firebaseManager.getLinesCategory(type: LinesCategory.self, forCollection: .Lines) { result in
             switch result {

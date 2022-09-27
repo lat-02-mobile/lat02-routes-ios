@@ -2,7 +2,7 @@ import UIKit
 
 class LineRouteViewController: UIViewController {
     @IBOutlet weak var routeListTableView: UITableView!
-    var routeDetailViewModel = RouteDetailViewModel()
+    var routeDetailViewModel = RouteListViewModel()
     var lineRouteList: [LineRouteInfo] = []
     override func viewDidLoad() {
         super.viewDidLoad()
