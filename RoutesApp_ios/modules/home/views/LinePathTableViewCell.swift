@@ -26,13 +26,15 @@ class LinePathTableViewCell: UITableViewCell {
         nameLabel.text = "\(line.line), \(line.name)"
         if let distance = distance {
             distanceLabel.text = distance.fixMetersResult()
-            timeLabel.text = String(Int(distance / line.averageVelocity)) + "min"
+            timeLabel.text = ConstantVariables.valueWithUnit(unit: .minutes,
+                                                             value: String(Int(distance / line.averageVelocity)))
         } else {
             let routeDistance = GoogleMapsHelper.shared.getTotalPolylineDistance(coordList: line.routePoints)
             distanceLabel.text = routeDistance.fixMetersResult()
-            timeLabel.text = String(Int(routeDistance / (line.averageVelocity * 60))) + "min"
+            timeLabel.text = ConstantVariables.valueWithUnit(unit: .minutes,
+                                                             value: String(Int(routeDistance / (line.averageVelocity * 60))))
         }
-        if line.line == "Walk" {
+        if line.line == LineRoute.lineWalkName {
             categoryImageView.image = UIImage(named: line.line.lowercased())
         } else {
             ImageHelper.shared.downloadAndCacheImage(imageView: categoryImageView, urlString: line.blackIcon)

@@ -69,3 +69,6 @@
 // Route Detail
 "route-detail-no-matches-adressess" = "No se encontraron direcciones";
 "route-detail-unable-to-get-location" = "No se puede obtener la ubicacion";
+"meters" = "%@ m";
+"kilometers" = "%@ km";
+"minutes" = "%@ min";

@@ -40,6 +40,7 @@ struct LineRoute: Codable, Equatable {
             color: "#67F5ED"
         )
     }
+    static let lineWalkName = "Walk"
 
     static func == (lhs: LineRoute, rhs: LineRoute) -> Bool {
         return lhs.name == rhs.name

@@ -139,7 +139,7 @@ class RouteDetailViewController: UIViewController {
             walkingPathDistances = Array(repeating: nil, count: routePath.transports.count)
             for i in 0...routePath.transports.count - 1 {
                 let lineRoute = routePath.transports[i]
-                if lineRoute.line == "Walk" {
+                if lineRoute.line == LineRoute.lineWalkName {
                     possibleRoutesViewModel.getDirections(origin: lineRoute.routePoints[0], destination: lineRoute.routePoints[1]) { path in
                         GoogleMapsHelper.shared.drawDotPolyline(map: self.mapView, path: path)
                         self.walkingPathDistances[i] = (GoogleMapsHelper.shared.getGMSPathDistance(path: path))
@@ -178,7 +178,7 @@ extension RouteDetailViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: LinePathTableViewCell.linePathCellIdentifier, for: indexPath)
             as? LinePathTableViewCell else { return UITableViewCell() }
-        if routePath.transports[indexPath.row].line == "Walk", let walkDist = walkingPathDistances[indexPath.row] {
+        if routePath.transports[indexPath.row].line == LineRoute.lineWalkName, let walkDist = walkingPathDistances[indexPath.row] {
             cell.setData(line: self.routePath.transports[indexPath.row], distance: walkDist)
         } else {
             cell.setData(line: routePath.transports[indexPath.row])

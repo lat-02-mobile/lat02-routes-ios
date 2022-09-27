@@ -7,6 +7,12 @@
 
 import Foundation
 
+enum Units: String {
+    case meters
+    case kilometers
+    case minutes
+}
+
 class ConstantVariables {
     static let databaseName = "RoutesApp_ios"
     static let cityCellNib = "CityTableViewCell"
@@ -57,4 +63,9 @@ class ConstantVariables {
 
     // MAP
     static let defaultPolylineColor = "#004696"
+
+    // Units
+    static func valueWithUnit(unit localizedString: Units, value: String) -> String {
+        return String.localizedStringWithFormat(NSLocalizedString(localizedString.rawValue, comment: ""), value)
+    }
 }

@@ -11,9 +11,9 @@ extension Double {
     func fixMetersResult() -> String {
         if self >= 1000 {
             let kmResult = String(format: "%.2f", self.fromMetersToKm())
-            return "\(kmResult) km"
+            return ConstantVariables.valueWithUnit(unit: .kilometers, value: kmResult)
         }
-        return "\(Int(self.rounded())) m"
+        return ConstantVariables.valueWithUnit(unit: .meters, value: (String(Int(self.rounded()))))
     }
     func fromMetersToKm() -> Double {
         return self/1000
