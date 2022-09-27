@@ -3,7 +3,7 @@ import EzPopup
 class RouteListViewController: UIViewController {
 
     @IBOutlet weak var lineListTableView: UITableView!
-    var routeDetailViewModel = RouteDetailViewModel()
+    var routeDetailViewModel = RouteListViewModel()
     let lineRouteViewController = LineRouteViewController()
 
     override func viewDidLoad() {
@@ -66,10 +66,10 @@ class RouteListViewController: UIViewController {
 
 extension RouteListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return routeDetailViewModel.lineListDetailModel.count
+        return routeDetailViewModel.routeListDetailModels.count
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let lineId = routeDetailViewModel.lineList[indexPath.row].id ?? ""
+        let lineId = routeDetailViewModel.routeListModel[indexPath.row].id ?? ""
         routeDetailViewModel.getLineRoute(id: lineId)
     }
 
@@ -78,7 +78,7 @@ extension RouteListViewController: UITableViewDataSource, UITableViewDelegate {
         for: indexPath) as? RouteListTableViewCell else {
         return  UITableViewCell()
         }
-        let line =  routeDetailViewModel.lineListDetailModel[indexPath.row]
+        let line =  routeDetailViewModel.routeListDetailModels[indexPath.row]
         tableViewCell.updateCellModel(routeListDetailModel: line)
         return tableViewCell
     }

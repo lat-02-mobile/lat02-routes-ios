@@ -6,19 +6,22 @@
 //
 
 import Foundation
-import FirebaseFirestore
 
 class RouteListViewModel: ViewModel {
     var routeListManager: RouteListManagerProtocol = RouteListManager.shared
-
     var routeListModel: [Lines] = []
     var linesCategory: [LinesCategory] = []
+    var lineRouteList: [LineRouteInfo] = []
     var routeListDetailModels: [RouteListDetailModel] = []
     var filteredRouteList: [RouteListDetailModel] = []
     var filteredByCategoryRouteList: [RouteListDetailModel] = []
     var filteredByQueryRouteList: [RouteListDetailModel] = []
-    var db = Firestore.firestore()
-
+    var fecthedLineRoute = { () -> Void in}
+       var lineFetched: Bool = false {
+           didSet {
+               fecthedLineRoute()
+           }
+       }
     var selectedFilterIndex = -1
 
     func getLines(completion: @escaping () -> Void) {
@@ -33,6 +36,18 @@ class RouteListViewModel: ViewModel {
             }
         }
     }
+    func getLineRoute(id: String) {
+        routeListManager.getLineRoute(idLine: id) { result in
+            switch result {
+            case .success(let lines):
+                self.lineRouteList = lines
+                self.lineFetched = true
+            case .failure(let error):
+                self.onError?(error.localizedDescription)
+            }
+        }
+
+      }
 
     func getCategories(completion: @escaping () -> Void) {
         routeListManager.getCategories { result in
@@ -50,6 +65,23 @@ class RouteListViewModel: ViewModel {
             }
         }
     }
+    func convertToLinePath(lineRouteInfo: LineRouteInfo) -> LinePath {
+           let start = Coordinate(latitude: lineRouteInfo.start.latitude, longitude: lineRouteInfo.start.longitude)
+           let end = Coordinate(latitude: lineRouteInfo.end.latitude, longitude: lineRouteInfo.end.longitude)
+           var routePoints = [Coordinate]()
+           var stops = [Coordinate]()
+           for line in lineRouteInfo.routePoints {
+               let coordinate = Coordinate(latitude: line.latitude, longitude: line.longitude)
+               routePoints.append(coordinate)
+           }
+           for stop in lineRouteInfo.stops {
+               let coordinate = Coordinate(latitude: stop.latitude, longitude: stop.longitude)
+               stops.append(coordinate)
+           }
+           let linePath = LinePath(name: lineRouteInfo.name, id: lineRouteInfo.id, idLine: lineRouteInfo.id,
+                                   line: lineRouteInfo.line, routePoints: routePoints, start: start, end: end, stops: stops)
+          return linePath
+       }
 
     func mapRouteListDetailModel() {
         for routeListModel in routeListModel {

@@ -19,6 +19,9 @@ class MockRouteListManager: RouteListManagerProtocol {
         }
         completion(.failure(NSError(domain: "Error", code: 0)))
     }
+
+    func getLineRoute(idLine: String, completion: @escaping (Result<[LineRouteInfo], Error>) -> Void) {
+    }
 }
 
 class RouteListTests: XCTestCase {

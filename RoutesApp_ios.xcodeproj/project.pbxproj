@@ -623,6 +623,9 @@
 		C2E9770E28987CFE009F4B94 /* modules */ = {
 			isa = PBXGroup;
 			children = (
+
+				84437A2628DCFB5A00186B73 /* lineRouteList */,
+				8498F8A028CF4B27008641D9 /* lineList */,
 				CE7FBACD28D36A89001175D3 /* possibleRoutes */,
 				8498F8A028CF4B27008641D9 /* routelist */,
 				84A5B67628C698C4006AB7F9 /* routemap */,
