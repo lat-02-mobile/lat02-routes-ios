@@ -1,0 +1,39 @@
+
+/* Class = "UIButton"; configuration.title = " Log in with Facebook"; ObjectID = "4Bb-NP-JAH"; */
+"4Bb-NP-JAH.configuration.title" = " Log in with Facebook";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "4Bb-NP-JAH"; */
+"4Bb-NP-JAH.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Please log in to continue"; ObjectID = "Egx-gW-mgn"; */
+"Egx-gW-mgn.text" = "Please log in to continue";
+
+/* Class = "UIButton"; configuration.title = " Log in with Google"; ObjectID = "Mtg-5L-AQ8"; */
+"Mtg-5L-AQ8.configuration.title" = " Log in with Google";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Mtg-5L-AQ8"; */
+"Mtg-5L-AQ8.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "You don't have an account yet? Join us!"; ObjectID = "U7m-DK-POO"; */
+"U7m-DK-POO.text" = "You don't have an account yet? Join us!";
+
+/* Class = "UIButton"; configuration.title = "Login "; ObjectID = "X0f-nF-Zjp"; */
+"X0f-nF-Zjp.configuration.title" = "Login ";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "X0f-nF-Zjp"; */
+"X0f-nF-Zjp.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Welcome"; ObjectID = "dpn-oE-U7I"; */
+"dpn-oE-U7I.text" = "Welcome";
+
+/* Class = "UIButton"; configuration.title = "SIGN UP"; ObjectID = "gsl-0m-ocw"; */
+"gsl-0m-ocw.configuration.title" = "SIGN UP";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "gsl-0m-ocw"; */
+"gsl-0m-ocw.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Password"; ObjectID = "vBc-Eq-NSG"; */
+"vBc-Eq-NSG.text" = "Password";
+
+/* Class = "UILabel"; text = "Email"; ObjectID = "zQk-6R-7Ac"; */
+"zQk-6R-7Ac.text" = "Email";

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21G115" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="FavoriteDestination" representedClassName="FavoriteDestination" syncable="YES">
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="latitude" optional="YES" attributeType="String"/>
+        <attribute name="longitude" optional="YES" attributeType="String"/>
+        <attribute name="name" attributeType="String"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserData" inverseName="favoriteDestinations" inverseEntity="UserData"/>
+    </entity>
+    <entity name="UserData" representedClassName="UserData" syncable="YES">
+        <attribute name="city" optional="YES" attributeType="String"/>
+        <relationship name="favoriteDestinations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="FavoriteDestination" inverseName="user" inverseEntity="FavoriteDestination"/>
+    </entity>
+    <elements>
+        <element name="UserData" positionX="-63" positionY="-18" width="128" height="59"/>
+        <element name="FavoriteDestination" positionX="-63" positionY="0" width="128" height="119"/>
+    </elements>
+</model>

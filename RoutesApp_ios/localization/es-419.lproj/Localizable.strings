@@ -1,0 +1,74 @@
+/* 
+  Localizable.strings
+  RoutesApp_ios
+
+  Created by Alvaro Choque on 8/8/22.
+  
+*/
+// Signup
+"error-signup-name" = "El nombre no puede estar vacio";
+"error-signup-passwords" = "Las contraseñas no coinciden";
+"error-signup-password-weak" = "La contraseña debe tener como minimo 6 caracteres";
+"error-signup-email" = "El email es invalido";
+"error-signup-email-exist" = "El email ya esta en uso por otro tipo de autenticacion";
+"error-signup-email-empty" = "El email no puede estar vacio";
+// Login
+"error-login-email-not-found" = "No existe un usuario con este correo. Asegurate que es el correcto";
+"error-login-password-wrong" = "La contraseña no es correcta";
+// Phone authentication
+"error-phoneauthentication-no-country-code" = "Seleccione el número de código de país";
+"error-phoneauthentication-no-phone-number" = "Por favor, introduzca su número de teléfono";
+"error-codeverification" = "El código no coincide";
+"error-codeverification-no-code-enter" = "Ninguno código fue introducido";
+"code-forwarded-codeverification" = "El código fue reenviado";
+"code-verification-alert-title" = "Introduzca el código";
+"code-verification-alert-cancel" = "Cancelar";
+"code-verification-alert-verify" = "Verificar";
+"code-verification-alert-Resend" = "Reenviar";
+"error-code-verification-alert-already-linked" = "Este teléfono ya está vinculado a otra cuenta";
+"code" = "Código";
+
+// Default
+"error-unknown" = "Algo salio mal";
+
+// Tabbar controller
+"home" = "Inicio";
+"tourpoints" = "Sitios";
+"map" = "Mapa";
+"favorites" = "Favoritos";
+"settings" = "Configuraciones";
+
+// Localization permission alert
+"localization-permission-alert-title" = "Permiso de localización";
+"localization-permission-alert-message" = "Por favor, cambie su configuración en los permisos de localización";
+"localization-permission-alert-cancel" = "Cancelar";
+"localization-permission-alert-settings" = "Configuración";
+
+// City Picker
+"welcome-message" = "Bienvenido a";
+"city-search-bar" = "Buscar";
+
+// HomeController
+"origin" = "Origen";
+"destination"= "Destino";
+
+"select-origin" = "Seleccione punto de origen";
+"select-destination" = "Seleccione punto de destino";
+
+"done" = "Hecho";
+
+// Possible Routes to take
+"recommended" = " (recomendada)";
+
+// Lines - RouteList
+"routeTitle" = "Líneas";
+"filter-title" = "Filtrar por categoría";
+"Lines" = "Lineas";
+
+
+// Route Detail
+"route-detail-no-matches-adressess" = "No se encontraron direcciones";
+"route-detail-unable-to-get-location" = "No se puede obtener la ubicacion";
+"meters" = "%@ m";
+"kilometers" = "%@ km";
+"minutes" = "%@ min";
