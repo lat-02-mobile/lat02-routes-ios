@@ -23,8 +23,10 @@ class ConstantVariables {
     static let primaryColor = "primary-color"
     static let mapStyle = "silver-style"
     static let mapStyleExt = "json"
-    static let routeListCell = "RouteListTableViewCell"
     static let filterIcon = "filter-icon"
+    static let routeListCell = "RouteListTableViewCell"
+    static let routeTitle = "routeTitle"
+    static let lineRouteCell = "LineRouteTableViewCell"
 
     // PlaceTableViewCell
     static let placeCellNib = "PlaceTableViewCell"
@@ -45,4 +47,21 @@ class ConstantVariables {
     static let localizationPermissionAlertMessage = "localization-permission-alert-message"
     static let localizationPermissionAlertSettings = "localization-permission-alert-settings"
     static let localizationPermissionAlertCancel = "localization-permission-alert-cancel"
+
+    // Google Maps helper
+    static let polylinePadding = 80
+    static let originMarkerName = "origin_point"
+    static let destinationMarkerName = "destination_point"
+    static let stopMarkerName = "route-stop"
+    static let localizationLinesFilterTitle = "filter-title"
+
+    // Possible Routes
+    static let recommended = "recommended"
+
+    // Google Directions API
+    static let directionsApi = "https://maps.googleapis.com/maps/api/directions/json"
+    static let directionsApiKey = "${GOOGLE_DIRECTIONS_API_KEY}"
+
+    // MAP
+    static let defaultPolylineColor = "#004696"
 }

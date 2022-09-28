@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RouteListViewController" customModule="RoutesApp_ios" customModuleProvider="target">
             <connections>
-                <outlet property="routeListTableView" destination="tGl-L3-8Ee" id="uJX-za-xf5"/>
+                <outlet property="lineListTableView" destination="tGl-L3-8Ee" id="uJX-za-xf5"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -36,7 +36,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="tGl-L3-8Ee" secondAttribute="bottom" constant="15" id="dFn-tM-7ye"/>
                 <constraint firstItem="tGl-L3-8Ee" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="n6w-KO-pOx"/>
             </constraints>
-            <point key="canvasLocation" x="132" y="80"/>
+            <point key="canvasLocation" x="178" y="58"/>
         </view>
     </objects>
     <resources>

@@ -60,18 +60,6 @@
             ReferencedContainer = "container:RoutesApp_ios.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <EnvironmentVariables>
-         <EnvironmentVariable
-            key = "GOOGLE_MAPS_API_KEY"
-            value = "AIzaSyA4VdaDrf4ABX1Sb7IOx8ZbzuF43SKqMRY"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-         <EnvironmentVariable
-            key = "GOOGLE_PLACES_API_KEY"
-            value = "AIzaSyBHB3Ncg6LhVPhUaKEFmKB3Nv0TgV6T5q0"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-      </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"

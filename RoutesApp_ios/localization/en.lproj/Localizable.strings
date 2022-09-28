@@ -66,4 +66,9 @@
 "save-dest" = "Save Destination";
 "choose-name-for-new-fav-dest" = "Please choose a name for save these coordinates as a favorite destination";
 "write-name" = "Write a name";
+// Possible Routes to take
+"recommended" = " (recommended)";
+// Lines - RouteList
+"routeTitle" = "Lines";
+"filter-title" = "Sort lines by line category";
 "Lines" = "Lines";
