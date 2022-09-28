@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RouteDetailViewController" customModule="RoutesApp_ios" customModuleProvider="target">
+            <connections>
+                <outlet property="favoriteButton" destination="GAu-D4-SpK" id="HrD-Bq-Iev"/>
+                <outlet property="linesTableView" destination="NVa-S2-Y6r" id="xZh-44-B9o"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OmQ-3m-eK9">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="eTI-qr-H3w">
+                            <rect key="frame" x="20" y="20" width="374" height="50"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Route 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ne9-AS-nB4">
+                                    <rect key="frame" x="0.0" y="0.0" width="93" height="50"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="highlightedColor" systemColor="labelColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GAu-D4-SpK">
+                                    <rect key="frame" x="324" y="0.0" width="50" height="50"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="50" id="NzO-oU-FiD"/>
+                                        <constraint firstAttribute="height" constant="50" id="ha1-rg-kJe"/>
+                                    </constraints>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal">
+                                        <imageReference key="image" image="heart" catalog="system" symbolScale="large" renderingMode="hierarchical-single">
+                                            <hierarchicalColors>
+                                                <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color systemColor="secondaryLabelColor"/>
+                                                <color systemColor="tertiaryLabelColor"/>
+                                            </hierarchicalColors>
+                                        </imageReference>
+                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25" scale="large" weight="bold"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="saveAsFavorite:" destination="-1" eventType="touchUpInside" id="p2J-xl-oeJ"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <viewLayoutGuide key="safeArea" id="s67-dd-KjG"/>
+                    <color key="backgroundColor" name="primary-color"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="eTI-qr-H3w" secondAttribute="trailing" constant="20" id="Q8q-pb-xWA"/>
+                        <constraint firstItem="eTI-qr-H3w" firstAttribute="top" secondItem="OmQ-3m-eK9" secondAttribute="top" constant="20" id="woY-Cq-I4Z"/>
+                        <constraint firstItem="eTI-qr-H3w" firstAttribute="leading" secondItem="OmQ-3m-eK9" secondAttribute="leading" constant="20" id="yJI-7C-WBV"/>
+                        <constraint firstItem="s67-dd-KjG" firstAttribute="bottom" secondItem="eTI-qr-H3w" secondAttribute="bottom" constant="20" id="zFn-Ag-7xV"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="NVa-S2-Y6r">
+                    <rect key="frame" x="10" y="100" width="394" height="752"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="NVa-S2-Y6r" secondAttribute="trailing" constant="10" id="16N-bn-X4p"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="NVa-S2-Y6r" secondAttribute="bottom" constant="10" id="8zk-NE-B3N"/>
+                <constraint firstItem="OmQ-3m-eK9" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="JKg-ak-90h"/>
+                <constraint firstItem="OmQ-3m-eK9" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="NAM-9o-hfB"/>
+                <constraint firstItem="NVa-S2-Y6r" firstAttribute="top" secondItem="OmQ-3m-eK9" secondAttribute="bottom" constant="10" id="QVQ-Ml-6mq"/>
+                <constraint firstItem="NVa-S2-Y6r" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="Qo0-a9-Wkw"/>
+                <constraint firstItem="OmQ-3m-eK9" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="YTZ-VI-c1a"/>
+            </constraints>
+            <point key="canvasLocation" x="139" y="97"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="heart" catalog="system" width="128" height="109"/>
+        <namedColor name="primary-color">
+            <color red="0.0" green="0.27450980392156865" blue="0.58823529411764708" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="tertiaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

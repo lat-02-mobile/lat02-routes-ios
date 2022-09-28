@@ -1,0 +1,69 @@
+/* 
+  Localizable.strings
+  RoutesApp_ios
+
+  Created by Alvaro Choque on 8/8/22.
+  
+*/
+// Signup
+"error-signup-name" = "The name can not be empty";
+"error-signup-passwords" = "The passwords do not match";
+"error-signup-password-weak" = "The password must be 6 characters long or more";
+"error-signup-email" = "This email address is badly formatted";
+"error-signup-email-exist" = "This email is already in use by some auth method";
+"error-signup-email-empty" = "The email field can not be empty";
+// Login
+"error-login-email-not-found" = "There is no user with this email. Make sure this is the right one";
+"error-login-password-wrong" = "The password is not correct";
+// Phone authentication
+"error-phoneauthentication-no-country-code" = "Please select country code number";
+"error-phoneauthentication-no-phone-number" = "Please enter your phone number";
+"error-codeverification" = "The code does not match";
+"error-codeverification-no-code-enter" = "No code was entered";
+"code-forwarded-codeverification" = "The code was forwarded";
+"code-verification-alert-title" = "Please enter code";
+"code-verification-alert-cancel" = "Cancel";
+"code-verification-alert-verify" = "Verify";
+"code-verification-alert-Resend" = "Resend";
+"error-code-verification-alert-already-linked" = "This phone is already linked to another account";
+"code" = "Code";
+
+// Default
+"error-unknown" = "Something went wrong";
+
+// Tabbar controller
+"home" = "Home";
+"tourpoints" = "TourPoints";
+"map" = "Map";
+"favorites" = "Favorites";
+"settings" = "Settings";
+
+// Localization permission alert
+"localization-permission-alert-title" = "Localization Permission";
+"localization-permission-alert-message" = "Please go to Settings and turn on the location permission";
+"localization-permission-alert-cancel" = "Cancel";
+"localization-permission-alert-settings" = "Settings";
+
+// City Picker
+"welcome-message" = "Welcome to";
+"city-search-bar" = "Search";
+
+// HomeController
+"origin" = "Origin";
+"destination"= "Destination";
+
+"select-origin" = "Select origin";
+"select-destination" = "Select destination";
+
+"done" = "done";
+
+// Save favorite dialogs
+"cancel" = "Cancel";
+"yes" = "Yes";
+"save" = "Save";
+"sure-want-remove-fav-dest" = "Are you sure you want to remove the favorite destination";
+"remove-fav-dest" = "Remove Favorite destination";
+"save-dest" = "Save Destination";
+"choose-name-for-new-fav-dest" = "Please choose a name for save these coordinates as a favorite destination";
+"write-name" = "Write a name";
+"Lines" = "Lines";
