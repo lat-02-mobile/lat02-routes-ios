@@ -86,6 +86,8 @@ class HomeViewController: UIViewController {
         case .notDetermined, .restricted, .denied:
             // redirect the users to settings
             showRequestPermissionsAlert()
+        @unknown default:
+            showRequestPermissionsAlert()
         }
     }
 
@@ -144,6 +146,7 @@ class HomeViewController: UIViewController {
         case.bothSelected:
             // Call logic to run algorithm with routes
             self.showToast(message: ConstantVariables.done)
+            self.showRouteDetail()
         }
 
         backButton.isHidden = false
@@ -160,10 +163,12 @@ class HomeViewController: UIViewController {
     }
 
     func setupMap() {
-      if let styleURL = Bundle.main.url(forResource: "silver-style", withExtension: "json") {
-        mapView.mapStyle = try? GMSMapStyle(contentsOfFileURL: styleURL)
-        mapView.settings.zoomGestures = true
-      }
+        mapView.settings.compassButton = true
+        mapView.isMyLocationEnabled = true
+        if let styleURL = Bundle.main.url(forResource: "silver-style", withExtension: "json") {
+            mapView.mapStyle = try? GMSMapStyle(contentsOfFileURL: styleURL)
+            mapView.settings.zoomGestures = true
+        }
     }
 
     func cameraMoveToLocation(toLocation: CLLocationCoordinate2D?) {
@@ -211,6 +216,15 @@ class HomeViewController: UIViewController {
 
         let viewController = SearchLocationViewController(placeBias: filterLocation, selectionStatus: viewmodel.pointsSelectionStatus)
         viewController.delegate = self
+
+        if let presentationController = viewController.presentationController as? UISheetPresentationController {
+            presentationController.detents = [.medium()]
+        }
+
+        self.present(viewController, animated: true)
+    }
+    func showRouteDetail() {
+        let viewController = RouteDetailViewController(map: self.mapView)
 
         if let presentationController = viewController.presentationController as? UISheetPresentationController {
             presentationController.detents = [.medium()]

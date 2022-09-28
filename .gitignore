@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Created by https://www.toptal.com/developers/gitignore/api/swift,macos
 # Edit at https://www.toptal.com/developers/gitignore?templates=swift,macos
 
@@ -50,6 +49,7 @@ xcuserdata/
 ## compatibility with Xcode 3 and earlier (ignoring not required starting Xcode 4)
 build/
 DerivedData/
+Package.resolved
 *.moved-aside
 *.pbxuser
 !default.pbxuser
@@ -125,6 +125,9 @@ iOSInjectionProject/
 
 # Google Services
 GoogleService-Info.plist
+
+# Env Variables
+Env.swift
 
 # End of https://www.toptal.com/developers/gitignore/api/swift,macos
 

@@ -33,8 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     didFinishLaunchingWithOptions: launchOptions
                 )
         // MARK: Google Maps config
-        GMSServices.provideAPIKey("${GOOGLE_MAPS_API_KEY}")
-        GMSPlacesClient.provideAPIKey("${GOOGLE_PLACES_API_KEY}")
+        GMSServices.provideAPIKey(Env.GOOGLE_MAPS_API_KEY)
+        GMSPlacesClient.provideAPIKey(Env.GOOGLE_PLACES_API_KEY)
         FirebaseApp.configure()
         IQKeyboardManager.shared.enable = true
         return true

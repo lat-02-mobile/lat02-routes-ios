@@ -79,7 +79,7 @@ class RouteListViewModel: ViewModel {
                stops.append(coordinate)
            }
            let linePath = LinePath(name: lineRouteInfo.name, id: lineRouteInfo.id, idLine: lineRouteInfo.id,
-                                   line: lineRouteInfo.line, routePoints: routePoints, start: start, end: end, stops: stops)
+                                   line: lineRouteInfo.line!, routePoints: routePoints, start: start, end: end, stops: stops)
           return linePath
        }
 

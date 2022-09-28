@@ -57,6 +57,16 @@ class GoogleMapsHelper {
         return totalDistance
     }
 
+    func getGMSPathDistance(path: GMSPath) -> Double {
+        var coordsList = [Coordinate]()
+        for i in 0...Int(path.count()) {
+            let coord = Coordinate(latitude: path.coordinate(at: UInt(i)).latitude,
+                                   longitude: path.coordinate(at: UInt(i)).longitude)
+            coordsList.append(coord)
+        }
+        return getTotalPolylineDistance(coordList: coordsList)
+    }
+
     func getEstimatedTimeToArrive(averageVelocityMeterSec: Double, totalDistanceMeters: Double) -> Double {
         return (totalDistanceMeters * (1 / averageVelocityMeterSec)) / 60
     }

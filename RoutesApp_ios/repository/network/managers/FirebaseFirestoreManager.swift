@@ -105,6 +105,12 @@ class FirebaseFirestoreManager {
         }
     }
 
+    func getLines<T: Decodable>(type: T.Type, forCollection collection: FirebaseCollections, completion: @escaping ( Result<[T], Error>) -> Void  ) {
+
+        db.collection("Lines").addSnapshotListener { (snapshot, _) in
+            guard let snapshot = snapshot else { return }
+        }
+    }
     func getLineWithBooleanCondition<T: Decodable>(type: T.Type, forCollection collection: FirebaseCollections, enable: Bool, completion: @escaping ( Result<[T], Error>) -> Void  ) {
         db.collection(collection.rawValue).whereField("enable", isEqualTo: enable).getDocuments { (snapshot, _) in
             guard let snapshot = snapshot else { return }

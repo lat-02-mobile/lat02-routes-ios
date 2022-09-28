@@ -38,7 +38,6 @@ class AlgorithmTests: XCTestCase {
             XCTAssertTrue(false)
             return
         }
-
         let expectedLine = LineRoute(name: line1.name, id: line1.id, idLine: line1.idLine, line: line1.line,
                                      routePoints: Array(line1.routePoints[2...5]), start: line1.start, stops: Array(line1.stops[0...2]),
                                      end: line1.end, averageVelocity: line1.averageVelocity,
@@ -53,7 +52,6 @@ class AlgorithmTests: XCTestCase {
         let destinationPoint = Coordinate(latitude: -16.52423, longitude: -68.1203).toCLLocationCoordinate2D()
         let minDistance = 200.0
         let minDistanceBtwStops = 200.0
-
         guard let line1 = line1,
                 let line2 = line2 else {
             XCTAssertTrue(false)
@@ -83,13 +81,11 @@ class AlgorithmTests: XCTestCase {
         let destinationPoint = Coordinate(latitude: -16.52445, longitude: -68.12298).toCLLocationCoordinate2D()
         let minDistance = 200.0
         let minDistanceBtwStops = 200.0
-
         guard let line1 = line1,
                 let line2 = line2 else {
             XCTAssertTrue(false)
             return
         }
-
         let expectedSubLineA = LineRoute(name: line1.name, id: line1.id, idLine: line1.idLine, line: line1.line,
                                          routePoints: Array(line1.routePoints[3...10]), start: line1.start,
                                          stops: Array(line1.stops[2...4]), end: line1.end, averageVelocity: line1.averageVelocity,

@@ -24,6 +24,23 @@ struct LineRoute: Codable, Equatable {
     let blackIcon: String
     let whiteIcon: String
     let color: String
+    static func getWalkLineRoute(routePoints: [Coordinate]) -> LineRoute {
+        return LineRoute(
+            name: self.lineWalkName,
+            id: "00000000000",
+            idLine: "00000000000",
+            line: self.lineWalkName,
+            routePoints: routePoints,
+            start: Coordinate(latitude: 0, longitude: 0),
+            stops: [],
+            end: Coordinate(latitude: 0, longitude: 0),
+            averageVelocity: 87.1728,
+            blackIcon: "",
+            whiteIcon: "",
+            color: "#67F5ED"
+        )
+    }
+    static let lineWalkName = "Walk"
 
     static func == (lhs: LineRoute, rhs: LineRoute) -> Bool {
         return lhs.name == rhs.name
@@ -107,7 +124,7 @@ struct LineRouteInfo: Codable, Equatable {
     let name: String
     let id: String
     let idLine: String
-    let line: DocumentReference
+    let line: DocumentReference?
     let routePoints: [GeoPoint]
     let start: GeoPoint
     let stops: [GeoPoint]

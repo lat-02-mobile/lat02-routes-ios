@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		18DA1586610AD7489095C383 /* Pods_RoutesApp_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEB14F92BF2684A2A8BEFBAE /* Pods_RoutesApp_ios.framework */; };
+		7BACD81FF49650362FA6BC4A /* Pods_RoutesApp_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C27885D0261499B18A8C0B66 /* Pods_RoutesApp_iosTests.framework */; };
 		84067C4A28B3B1CD00549300 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84067C4828B3B1CD00549300 /* SettingsViewController.swift */; };
 		84067C4C28B3B5BD00549300 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84067C4E28B3B5BD00549300 /* SettingsViewController.xib */; };
 		84067C6128B3BF9C00549300 /* CityPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84067C5F28B3BF9C00549300 /* CityPickerViewController.swift */; };
@@ -28,10 +28,6 @@
 		84246F8C28DB0B65004748DD /* LinesRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84246F8B28DB0B65004748DD /* LinesRoute.swift */; };
 		84246F9528DC9C9E004748DD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84246F9428DC9C9E004748DD /* GoogleService-Info.plist */; };
 		843D043F28AAF3F800C4DF25 /* PhoneAuthenticationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 843D044128AAF3F800C4DF25 /* PhoneAuthenticationViewController.xib */; };
-		84437A2928DCFB9C00186B73 /* LineRouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84437A2728DCFB9C00186B73 /* LineRouteViewController.swift */; };
-		84437A2A28DCFB9D00186B73 /* LineRouteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84437A2828DCFB9C00186B73 /* LineRouteViewController.xib */; };
-		84437A2E28DD1E9B00186B73 /* LineRouteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84437A2C28DD1E9B00186B73 /* LineRouteTableViewCell.swift */; };
-		84437A2F28DD1E9B00186B73 /* LineRouteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84437A2D28DD1E9B00186B73 /* LineRouteTableViewCell.xib */; };
 		844F9A2928C7F542004A95A0 /* GoogleMapsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F9A2828C7F542004A95A0 /* GoogleMapsManager.swift */; };
 		844F9A2C28C7FD51004A95A0 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F9A2B28C7FD51004A95A0 /* Place.swift */; };
 		844F9A2E28C84718004A95A0 /* SearchLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F9A2D28C84718004A95A0 /* SearchLocationViewModel.swift */; };
@@ -42,14 +38,9 @@
 		847A59E228A820F5005CEA25 /* PhoneAuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A59E128A820F5005CEA25 /* PhoneAuthenticationViewModel.swift */; };
 		8498F89D28CF4892008641D9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8498F89C28CF4892008641D9 /* Constants.swift */; };
 		8498F89F28CF49DD008641D9 /* Lines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8498F89E28CF49DD008641D9 /* Lines.swift */; };
-		8498F8AA28CF4B27008641D9 /* RouteListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8498F8A228CF4B27008641D9 /* RouteListViewModel.swift */; };
-		8498F8AB28CF4B27008641D9 /* RouteListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8498F8A528CF4B27008641D9 /* RouteListTableViewCell.swift */; };
-		8498F8AC28CF4B27008641D9 /* RouteListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8498F8A628CF4B27008641D9 /* RouteListTableViewCell.xib */; };
-		8498F8AD28CF4B27008641D9 /* RouteListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8498F8A828CF4B27008641D9 /* RouteListViewController.xib */; };
-		8498F8AE28CF4B27008641D9 /* RouteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8498F8A928CF4B27008641D9 /* RouteListViewController.swift */; };
 		84A5B67A28C698C5006AB7F9 /* RouteMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A5B67828C698C4006AB7F9 /* RouteMapViewController.swift */; };
 		84A5B67B28C698C5006AB7F9 /* RouteMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A5B67928C698C4006AB7F9 /* RouteMapViewController.xib */; };
-		B9C35A44A48CD079453A05F5 /* Pods_RoutesApp_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F63FC449150CD3892C72876 /* Pods_RoutesApp_iosTests.framework */; };
+		C2078D5128CF79C300312BB0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C2078D5028CF79C300312BB0 /* GoogleService-Info.plist */; };
 		C20A86D128A3383F0000EF7C /* ConstantVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A86D028A3383F0000EF7C /* ConstantVariables.swift */; };
 		C20A86D328A338E30000EF7C /* TestResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A86D228A338E30000EF7C /* TestResources.swift */; };
 		C20A86D528A339540000EF7C /* AuthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A86D428A339540000EF7C /* AuthTests.swift */; };
@@ -58,12 +49,32 @@
 		C215EF0928A4B1F500371DB6 /* HomeVIewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C215EF0828A4B1F400371DB6 /* HomeVIewModel.swift */; };
 		C215EF0C28A4BB5D00371DB6 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C215EF0B28A4BB5D00371DB6 /* ViewModel.swift */; };
 		C215EF0D28A4C1BC00371DB6 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C215EF0F28A4C1BC00371DB6 /* LoginViewController.xib */; };
+		C2414D8428E1CDF200CDF73A /* ClPlaceMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2414D8328E1CDF200CDF73A /* ClPlaceMark.swift */; };
+		C2414D8628E1DCDC00CDF73A /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2414D8528E1DCDB00CDF73A /* Double.swift */; };
+		C2414D8728E1F08000CDF73A /* RouteDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2414D8928E1F08000CDF73A /* RouteDetailViewController.xib */; };
 		C2436380289A27CC003C1A44 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = C243637F289A27CC003C1A44 /* FirebaseAuth */; };
 		C2436382289A27CC003C1A44 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = C2436381289A27CC003C1A44 /* FirebaseFirestore */; };
 		C2436385289A2CD6003C1A44 /* FirebaseFirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2436384289A2CD6003C1A44 /* FirebaseFirestoreManager.swift */; };
 		C2436387289A2CE4003C1A44 /* FirebaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2436386289A2CE4003C1A44 /* FirebaseAuthManager.swift */; };
 		C2436389289A2D21003C1A44 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2436388289A2D21003C1A44 /* BaseModel.swift */; };
 		C24BD6EA28A134C3007FCAB7 /* UserFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24BD6E928A134C3007FCAB7 /* UserFirebaseManager.swift */; };
+		C2745DD028E2AF69003C17E4 /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2745DCF28E2AF69003C17E4 /* Env.swift */; };
+		C278972D28E3B48100FF2796 /* RouteListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C278972028E3B48100FF2796 /* RouteListViewModel.swift */; };
+		C278972F28E3B48100FF2796 /* TransportationCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C278972428E3B48100FF2796 /* TransportationCategoryTableViewCell.swift */; };
+		C278973028E3B48100FF2796 /* RouteListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C278972528E3B48100FF2796 /* RouteListTableViewCell.swift */; };
+		C278973128E3B48100FF2796 /* TransportationCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C278972628E3B48100FF2796 /* TransportationCategoryTableViewCell.xib */; };
+		C278973228E3B48100FF2796 /* RouteListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C278972728E3B48100FF2796 /* RouteListTableViewCell.xib */; };
+		C278973328E3B48100FF2796 /* RouteListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C278972928E3B48100FF2796 /* RouteListViewController.xib */; };
+		C278973428E3B48100FF2796 /* RouteListFilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C278972A28E3B48100FF2796 /* RouteListFilterViewController.xib */; };
+		C278973528E3B48100FF2796 /* RouteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C278972B28E3B48100FF2796 /* RouteListViewController.swift */; };
+		C278973628E3B48100FF2796 /* RouteListFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C278972C28E3B48100FF2796 /* RouteListFilterViewController.swift */; };
+		C278975128E3B8D900FF2796 /* LineRouteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C278974C28E3B8D800FF2796 /* LineRouteViewController.xib */; };
+		C278975228E3B8D900FF2796 /* LineRouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C278974D28E3B8D800FF2796 /* LineRouteViewController.swift */; };
+		C278975328E3B8D900FF2796 /* LineRouteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C278974F28E3B8D800FF2796 /* LineRouteTableViewCell.swift */; };
+		C278975428E3B8D900FF2796 /* LineRouteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C278975028E3B8D800FF2796 /* LineRouteTableViewCell.xib */; };
+		C27EB66628D3689200A1E742 /* LinePathTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27EB66428D3689200A1E742 /* LinePathTableViewCell.swift */; };
+		C27EB66728D3689200A1E742 /* LinePathTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C27EB66528D3689200A1E742 /* LinePathTableViewCell.xib */; };
+		C290E5EF28D272C90019782F /* RouteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C290E5ED28D272C90019782F /* RouteDetailViewController.swift */; };
 		C2BB145228A150A70083CA1E /* SignupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2BB145428A150A70083CA1E /* SignupViewController.xib */; };
 		C2BB145C28A1529E0083CA1E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C2BB145E28A1529E0083CA1E /* Localizable.strings */; };
 		C2BB146128A153390083CA1E /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BB146028A153390083CA1E /* StringExtension.swift */; };
@@ -89,10 +100,6 @@
 		CE19B2FD28DCF2F500840426 /* RouteListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE19B2FC28DCF2F500840426 /* RouteListManager.swift */; };
 		CE1D1DD828DD4C0600F61040 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D1DD728DD4C0600F61040 /* ImageHelper.swift */; };
 		CE3BB7B528DE4665004BFA07 /* PossibleRoutesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3BB7B428DE4665004BFA07 /* PossibleRoutesTests.swift */; };
-		CE5D11BC28DBC89800AD875D /* RouteListFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5D11BA28DBC89800AD875D /* RouteListFilterViewController.swift */; };
-		CE5D11BD28DBC89800AD875D /* RouteListFilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE5D11BB28DBC89800AD875D /* RouteListFilterViewController.xib */; };
-		CE5D11C028DC07D300AD875D /* TransportationCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5D11BE28DC07D300AD875D /* TransportationCategoryTableViewCell.swift */; };
-		CE5D11C128DC07D300AD875D /* TransportationCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE5D11BF28DC07D300AD875D /* TransportationCategoryTableViewCell.xib */; };
 		CE65448B28BD148B003B599B /* Algorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65448A28BD148B003B599B /* Algorithm.swift */; };
 		CE65448D28BD174C003B599B /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65448C28BD174C003B599B /* Line.swift */; };
 		CE7FBAD428D36B5E001175D3 /* PossibleRouteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7FBAD228D36B5E001175D3 /* PossibleRouteTableViewCell.swift */; };
@@ -107,6 +114,7 @@
 		CE7FBAEF28D937D9001175D3 /* PossibleRoutesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7FBAEE28D937D9001175D3 /* PossibleRoutesViewModel.swift */; };
 		CE8CE8F028BE493F003270D7 /* AlgorithmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8CE8EF28BE493F003270D7 /* AlgorithmTests.swift */; };
 		CE93A8A328BD3ECD00296532 /* CLLocationCoordinate2DExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE93A8A228BD3ECD00296532 /* CLLocationCoordinate2DExtension.swift */; };
+		E08FCE9F3476665076D3B80B /* Pods_RoutesApp_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BDCB6FC3F011245E98E9BBE /* Pods_RoutesApp_ios.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,9 +128,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1F63FC449150CD3892C72876 /* Pods_RoutesApp_iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoutesApp_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		33D1541B29EAC74D75C1D604 /* Pods-RoutesApp_ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutesApp_ios.debug.xcconfig"; path = "Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios.debug.xcconfig"; sourceTree = "<group>"; };
-		3FC5E517E626DA7213D8C677 /* Pods-RoutesApp_iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutesApp_iosTests.debug.xcconfig"; path = "Target Support Files/Pods-RoutesApp_iosTests/Pods-RoutesApp_iosTests.debug.xcconfig"; sourceTree = "<group>"; };
+		137E275CEBB5A0D95D01F9F6 /* Pods-RoutesApp_ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutesApp_ios.debug.xcconfig"; path = "Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios.debug.xcconfig"; sourceTree = "<group>"; };
+		7BDCB6FC3F011245E98E9BBE /* Pods_RoutesApp_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoutesApp_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84067C4828B3B1CD00549300 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		84067C4D28B3B5BD00549300 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SettingsViewController.xib; sourceTree = "<group>"; };
 		84067C5F28B3BF9C00549300 /* CityPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityPickerViewController.swift; sourceTree = "<group>"; };
@@ -148,10 +155,6 @@
 		843D044028AAF3F800C4DF25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PhoneAuthenticationViewController.xib; sourceTree = "<group>"; };
 		843D044328AAF3FE00C4DF25 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PhoneAuthenticationViewController.strings; sourceTree = "<group>"; };
 		843D044528AAF40E00C4DF25 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/PhoneAuthenticationViewController.strings"; sourceTree = "<group>"; };
-		84437A2728DCFB9C00186B73 /* LineRouteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineRouteViewController.swift; sourceTree = "<group>"; };
-		84437A2828DCFB9C00186B73 /* LineRouteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LineRouteViewController.xib; sourceTree = "<group>"; };
-		84437A2C28DD1E9B00186B73 /* LineRouteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineRouteTableViewCell.swift; sourceTree = "<group>"; };
-		84437A2D28DD1E9B00186B73 /* LineRouteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LineRouteTableViewCell.xib; sourceTree = "<group>"; };
 		844F9A2828C7F542004A95A0 /* GoogleMapsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapsManager.swift; sourceTree = "<group>"; };
 		844F9A2B28C7FD51004A95A0 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		844F9A2D28C84718004A95A0 /* SearchLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationViewModel.swift; sourceTree = "<group>"; };
@@ -162,14 +165,10 @@
 		847A59E128A820F5005CEA25 /* PhoneAuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAuthenticationViewModel.swift; sourceTree = "<group>"; };
 		8498F89C28CF4892008641D9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8498F89E28CF49DD008641D9 /* Lines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lines.swift; sourceTree = "<group>"; };
-		8498F8A228CF4B27008641D9 /* RouteListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteListViewModel.swift; sourceTree = "<group>"; };
-		8498F8A528CF4B27008641D9 /* RouteListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteListTableViewCell.swift; sourceTree = "<group>"; };
-		8498F8A628CF4B27008641D9 /* RouteListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RouteListTableViewCell.xib; sourceTree = "<group>"; };
-		8498F8A828CF4B27008641D9 /* RouteListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RouteListViewController.xib; sourceTree = "<group>"; };
-		8498F8A928CF4B27008641D9 /* RouteListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteListViewController.swift; sourceTree = "<group>"; };
 		84A5B67828C698C4006AB7F9 /* RouteMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteMapViewController.swift; sourceTree = "<group>"; };
 		84A5B67928C698C4006AB7F9 /* RouteMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RouteMapViewController.xib; sourceTree = "<group>"; };
-		85076F218097728B93D65C47 /* Pods-RoutesApp_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutesApp_ios.release.xcconfig"; path = "Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios.release.xcconfig"; sourceTree = "<group>"; };
+		9AEE711EB6947D6DD8648C6F /* Pods-RoutesApp_iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutesApp_iosTests.release.xcconfig"; path = "Target Support Files/Pods-RoutesApp_iosTests/Pods-RoutesApp_iosTests.release.xcconfig"; sourceTree = "<group>"; };
+		C2078D5028CF79C300312BB0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C20A86D028A3383F0000EF7C /* ConstantVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantVariables.swift; sourceTree = "<group>"; };
 		C20A86D228A338E30000EF7C /* TestResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResources.swift; sourceTree = "<group>"; };
 		C20A86D428A339540000EF7C /* AuthTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTests.swift; sourceTree = "<group>"; };
@@ -180,10 +179,33 @@
 		C215EF0E28A4C1BC00371DB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LoginViewController.xib; sourceTree = "<group>"; };
 		C215EF1128A4C1BE00371DB6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LoginViewController.strings; sourceTree = "<group>"; };
 		C215EF1328A4C1BF00371DB6 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/LoginViewController.strings"; sourceTree = "<group>"; };
+		C2414D8328E1CDF200CDF73A /* ClPlaceMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClPlaceMark.swift; sourceTree = "<group>"; };
+		C2414D8528E1DCDB00CDF73A /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
+		C2414D8828E1F08000CDF73A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/RouteDetailViewController.xib; sourceTree = "<group>"; };
+		C2414D8B28E1F08400CDF73A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/RouteDetailViewController.strings; sourceTree = "<group>"; };
+		C2414D8D28E1F08500CDF73A /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/RouteDetailViewController.strings"; sourceTree = "<group>"; };
 		C2436384289A2CD6003C1A44 /* FirebaseFirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseFirestoreManager.swift; sourceTree = "<group>"; };
 		C2436386289A2CE4003C1A44 /* FirebaseAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManager.swift; sourceTree = "<group>"; };
 		C2436388289A2D21003C1A44 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		C24BD6E928A134C3007FCAB7 /* UserFirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFirebaseManager.swift; sourceTree = "<group>"; };
+		C2745DCF28E2AF69003C17E4 /* Env.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Env.swift; sourceTree = "<group>"; };
+		C27885D0261499B18A8C0B66 /* Pods_RoutesApp_iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoutesApp_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C278972028E3B48100FF2796 /* RouteListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteListViewModel.swift; sourceTree = "<group>"; };
+		C278972428E3B48100FF2796 /* TransportationCategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransportationCategoryTableViewCell.swift; sourceTree = "<group>"; };
+		C278972528E3B48100FF2796 /* RouteListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteListTableViewCell.swift; sourceTree = "<group>"; };
+		C278972628E3B48100FF2796 /* TransportationCategoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransportationCategoryTableViewCell.xib; sourceTree = "<group>"; };
+		C278972728E3B48100FF2796 /* RouteListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RouteListTableViewCell.xib; sourceTree = "<group>"; };
+		C278972928E3B48100FF2796 /* RouteListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RouteListViewController.xib; sourceTree = "<group>"; };
+		C278972A28E3B48100FF2796 /* RouteListFilterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RouteListFilterViewController.xib; sourceTree = "<group>"; };
+		C278972B28E3B48100FF2796 /* RouteListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteListViewController.swift; sourceTree = "<group>"; };
+		C278972C28E3B48100FF2796 /* RouteListFilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteListFilterViewController.swift; sourceTree = "<group>"; };
+		C278974C28E3B8D800FF2796 /* LineRouteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LineRouteViewController.xib; sourceTree = "<group>"; };
+		C278974D28E3B8D800FF2796 /* LineRouteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineRouteViewController.swift; sourceTree = "<group>"; };
+		C278974F28E3B8D800FF2796 /* LineRouteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineRouteTableViewCell.swift; sourceTree = "<group>"; };
+		C278975028E3B8D800FF2796 /* LineRouteTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LineRouteTableViewCell.xib; sourceTree = "<group>"; };
+		C27EB66428D3689200A1E742 /* LinePathTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinePathTableViewCell.swift; sourceTree = "<group>"; };
+		C27EB66528D3689200A1E742 /* LinePathTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LinePathTableViewCell.xib; sourceTree = "<group>"; };
+		C290E5ED28D272C90019782F /* RouteDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDetailViewController.swift; sourceTree = "<group>"; };
 		C2BB144A28A14E330083CA1E /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		C2BB145328A150A70083CA1E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SignupViewController.xib; sourceTree = "<group>"; };
 		C2BB145628A150AE0083CA1E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SignupViewController.strings; sourceTree = "<group>"; };
@@ -211,15 +233,12 @@
 		C2E9772E28987FA0009F4B94 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		C2E9773028987FB9009F4B94 /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
 		C2E977322898802F009F4B94 /* Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encodable.swift; sourceTree = "<group>"; };
+		CDF0D85219E9C26C4997D317 /* Pods-RoutesApp_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutesApp_ios.release.xcconfig"; path = "Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios.release.xcconfig"; sourceTree = "<group>"; };
 		CE0F8D3428AD357F00F2C753 /* silver-style.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "silver-style.json"; sourceTree = "<group>"; };
 		CE19B2FA28DCEDD400840426 /* RouteListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteListTests.swift; sourceTree = "<group>"; };
 		CE19B2FC28DCF2F500840426 /* RouteListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteListManager.swift; sourceTree = "<group>"; };
 		CE1D1DD728DD4C0600F61040 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
 		CE3BB7B428DE4665004BFA07 /* PossibleRoutesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PossibleRoutesTests.swift; sourceTree = "<group>"; };
-		CE5D11BA28DBC89800AD875D /* RouteListFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteListFilterViewController.swift; sourceTree = "<group>"; };
-		CE5D11BB28DBC89800AD875D /* RouteListFilterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RouteListFilterViewController.xib; sourceTree = "<group>"; };
-		CE5D11BE28DC07D300AD875D /* TransportationCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportationCategoryTableViewCell.swift; sourceTree = "<group>"; };
-		CE5D11BF28DC07D300AD875D /* TransportationCategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransportationCategoryTableViewCell.xib; sourceTree = "<group>"; };
 		CE65448A28BD148B003B599B /* Algorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Algorithm.swift; sourceTree = "<group>"; };
 		CE65448C28BD174C003B599B /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Line.swift; path = RoutesApp_ios/repository/models/remote/Line.swift; sourceTree = SOURCE_ROOT; };
 		CE7FBAD228D36B5E001175D3 /* PossibleRouteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PossibleRouteTableViewCell.swift; sourceTree = "<group>"; };
@@ -234,8 +253,7 @@
 		CE7FBAEE28D937D9001175D3 /* PossibleRoutesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PossibleRoutesViewModel.swift; sourceTree = "<group>"; };
 		CE8CE8EF28BE493F003270D7 /* AlgorithmTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgorithmTests.swift; sourceTree = "<group>"; };
 		CE93A8A228BD3ECD00296532 /* CLLocationCoordinate2DExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2DExtension.swift; sourceTree = "<group>"; };
-		D3DDAF2091150263BA9DBA63 /* Pods-RoutesApp_iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutesApp_iosTests.release.xcconfig"; path = "Target Support Files/Pods-RoutesApp_iosTests/Pods-RoutesApp_iosTests.release.xcconfig"; sourceTree = "<group>"; };
-		DEB14F92BF2684A2A8BEFBAE /* Pods_RoutesApp_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoutesApp_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F74CB6C8C354EBAF824D691C /* Pods-RoutesApp_iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutesApp_iosTests.debug.xcconfig"; path = "Target Support Files/Pods-RoutesApp_iosTests/Pods-RoutesApp_iosTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,7 +264,7 @@
 				84067C7D28B57EFC00549300 /* FirebaseFirestoreSwift-Beta in Frameworks */,
 				C2436380289A27CC003C1A44 /* FirebaseAuth in Frameworks */,
 				C2436382289A27CC003C1A44 /* FirebaseFirestore in Frameworks */,
-				18DA1586610AD7489095C383 /* Pods_RoutesApp_ios.framework in Frameworks */,
+				E08FCE9F3476665076D3B80B /* Pods_RoutesApp_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,29 +272,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B9C35A44A48CD079453A05F5 /* Pods_RoutesApp_iosTests.framework in Frameworks */,
+				7BACD81FF49650362FA6BC4A /* Pods_RoutesApp_iosTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6A09EA645D8A4A03578D2636 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				DEB14F92BF2684A2A8BEFBAE /* Pods_RoutesApp_ios.framework */,
-				1F63FC449150CD3892C72876 /* Pods_RoutesApp_iosTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		7078ACACC070D6AFAFF653A6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				33D1541B29EAC74D75C1D604 /* Pods-RoutesApp_ios.debug.xcconfig */,
-				85076F218097728B93D65C47 /* Pods-RoutesApp_ios.release.xcconfig */,
-				3FC5E517E626DA7213D8C677 /* Pods-RoutesApp_iosTests.debug.xcconfig */,
-				D3DDAF2091150263BA9DBA63 /* Pods-RoutesApp_iosTests.release.xcconfig */,
+				137E275CEBB5A0D95D01F9F6 /* Pods-RoutesApp_ios.debug.xcconfig */,
+				CDF0D85219E9C26C4997D317 /* Pods-RoutesApp_ios.release.xcconfig */,
+				F74CB6C8C354EBAF824D691C /* Pods-RoutesApp_iosTests.debug.xcconfig */,
+				9AEE711EB6947D6DD8648C6F /* Pods-RoutesApp_iosTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -358,27 +367,10 @@
 			children = (
 				844F9A2F28C84E63004A95A0 /* PlaceTableViewCell.swift */,
 				844F9A3028C84E63004A95A0 /* PlaceTableViewCell.xib */,
+				C27EB66428D3689200A1E742 /* LinePathTableViewCell.swift */,
+				C27EB66528D3689200A1E742 /* LinePathTableViewCell.xib */,
 			);
 			path = views;
-			sourceTree = "<group>";
-		};
-		84437A2628DCFB5A00186B73 /* lineRouteList */ = {
-			isa = PBXGroup;
-			children = (
-				84437A2B28DD1E6600186B73 /* cells */,
-				84437A2728DCFB9C00186B73 /* LineRouteViewController.swift */,
-				84437A2828DCFB9C00186B73 /* LineRouteViewController.xib */,
-			);
-			path = lineRouteList;
-			sourceTree = "<group>";
-		};
-		84437A2B28DD1E6600186B73 /* cells */ = {
-			isa = PBXGroup;
-			children = (
-				84437A2C28DD1E9B00186B73 /* LineRouteTableViewCell.swift */,
-				84437A2D28DD1E9B00186B73 /* LineRouteTableViewCell.xib */,
-			);
-			path = cells;
 			sourceTree = "<group>";
 		};
 		845D228328A7042D00E9A660 /* phoneauthentication */ = {
@@ -415,54 +407,6 @@
 			path = viewmodels;
 			sourceTree = "<group>";
 		};
-		8498F8A028CF4B27008641D9 /* lineList */ = {
-			isa = PBXGroup;
-			children = (
-				8498F8A128CF4B27008641D9 /* viewmodels */,
-				8498F8A328CF4B27008641D9 /* views */,
-			);
-			path = lineList;
-			sourceTree = "<group>";
-		};
-		8498F8A128CF4B27008641D9 /* viewmodels */ = {
-			isa = PBXGroup;
-			children = (
-				8498F8A228CF4B27008641D9 /* RouteListViewModel.swift */,
-			);
-			path = viewmodels;
-			sourceTree = "<group>";
-		};
-		8498F8A328CF4B27008641D9 /* views */ = {
-			isa = PBXGroup;
-			children = (
-				8498F8A428CF4B27008641D9 /* cells */,
-				8498F8A728CF4B27008641D9 /* controllers */,
-			);
-			path = views;
-			sourceTree = "<group>";
-		};
-		8498F8A428CF4B27008641D9 /* cells */ = {
-			isa = PBXGroup;
-			children = (
-				8498F8A528CF4B27008641D9 /* RouteListTableViewCell.swift */,
-				8498F8A628CF4B27008641D9 /* RouteListTableViewCell.xib */,
-				CE5D11BE28DC07D300AD875D /* TransportationCategoryTableViewCell.swift */,
-				CE5D11BF28DC07D300AD875D /* TransportationCategoryTableViewCell.xib */,
-			);
-			path = cells;
-			sourceTree = "<group>";
-		};
-		8498F8A728CF4B27008641D9 /* controllers */ = {
-			isa = PBXGroup;
-			children = (
-				8498F8A828CF4B27008641D9 /* RouteListViewController.xib */,
-				8498F8A928CF4B27008641D9 /* RouteListViewController.swift */,
-				CE5D11BA28DBC89800AD875D /* RouteListFilterViewController.swift */,
-				CE5D11BB28DBC89800AD875D /* RouteListFilterViewController.xib */,
-			);
-			path = controllers;
-			sourceTree = "<group>";
-		};
 		84A5B67628C698C4006AB7F9 /* routemap */ = {
 			isa = PBXGroup;
 			children = (
@@ -478,6 +422,15 @@
 				84A5B67928C698C4006AB7F9 /* RouteMapViewController.xib */,
 			);
 			path = controllers;
+			sourceTree = "<group>";
+		};
+		B815B93365E7CD23940B4151 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7BDCB6FC3F011245E98E9BBE /* Pods_RoutesApp_ios.framework */,
+				C27885D0261499B18A8C0B66 /* Pods_RoutesApp_iosTests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		C2112DDB289A18C3009601AB /* home */ = {
@@ -506,6 +459,8 @@
 				C2112DE0289A18FB009601AB /* HomeViewController.xib */,
 				8420E0C528C68E89000068F9 /* SearchLocationViewController.swift */,
 				8420E0C628C68E89000068F9 /* SearchLocationViewController.xib */,
+				C290E5ED28D272C90019782F /* RouteDetailViewController.swift */,
+				C2414D8928E1F08000CDF73A /* RouteDetailViewController.xib */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -516,6 +471,13 @@
 				C215EF0B28A4BB5D00371DB6 /* ViewModel.swift */,
 			);
 			path = abstractClasses;
+			sourceTree = "<group>";
+		};
+		C2353BC528D899C600BF4856 /* local */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = local;
 			sourceTree = "<group>";
 		};
 		C2436383289A2CA7003C1A44 /* managers */ = {
@@ -532,11 +494,77 @@
 			path = managers;
 			sourceTree = "<group>";
 		};
+		C278971E28E3B48100FF2796 /* lineList */ = {
+			isa = PBXGroup;
+			children = (
+				C278971F28E3B48100FF2796 /* viewmodels */,
+				C278972228E3B48100FF2796 /* views */,
+			);
+			path = lineList;
+			sourceTree = "<group>";
+		};
+		C278971F28E3B48100FF2796 /* viewmodels */ = {
+			isa = PBXGroup;
+			children = (
+				C278972028E3B48100FF2796 /* RouteListViewModel.swift */,
+			);
+			path = viewmodels;
+			sourceTree = "<group>";
+		};
+		C278972228E3B48100FF2796 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				C278972328E3B48100FF2796 /* cells */,
+				C278972828E3B48100FF2796 /* controllers */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		C278972328E3B48100FF2796 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				C278972428E3B48100FF2796 /* TransportationCategoryTableViewCell.swift */,
+				C278972528E3B48100FF2796 /* RouteListTableViewCell.swift */,
+				C278972628E3B48100FF2796 /* TransportationCategoryTableViewCell.xib */,
+				C278972728E3B48100FF2796 /* RouteListTableViewCell.xib */,
+			);
+			path = cells;
+			sourceTree = "<group>";
+		};
+		C278972828E3B48100FF2796 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C278972928E3B48100FF2796 /* RouteListViewController.xib */,
+				C278972A28E3B48100FF2796 /* RouteListFilterViewController.xib */,
+				C278972B28E3B48100FF2796 /* RouteListViewController.swift */,
+				C278972C28E3B48100FF2796 /* RouteListFilterViewController.swift */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		C278974B28E3B8D800FF2796 /* lineRouteList */ = {
+			isa = PBXGroup;
+			children = (
+				C278974C28E3B8D800FF2796 /* LineRouteViewController.xib */,
+				C278974D28E3B8D800FF2796 /* LineRouteViewController.swift */,
+				C278974E28E3B8D800FF2796 /* cells */,
+			);
+			path = lineRouteList;
+			sourceTree = "<group>";
+		};
+		C278974E28E3B8D800FF2796 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				C278974F28E3B8D800FF2796 /* LineRouteTableViewCell.swift */,
+				C278975028E3B8D800FF2796 /* LineRouteTableViewCell.xib */,
+			);
+			path = cells;
+			sourceTree = "<group>";
+		};
 		C2BB145928A152580083CA1E /* localization */ = {
 			isa = PBXGroup;
 			children = (
 				C2BB145E28A1529E0083CA1E /* Localizable.strings */,
-				C2BB146028A153390083CA1E /* StringExtension.swift */,
 			);
 			path = localization;
 			sourceTree = "<group>";
@@ -548,7 +576,7 @@
 				C2E976F12898701D009F4B94 /* RoutesApp_iosTests */,
 				C2E976D62898701C009F4B94 /* Products */,
 				7078ACACC070D6AFAFF653A6 /* Pods */,
-				6A09EA645D8A4A03578D2636 /* Frameworks */,
+				B815B93365E7CD23940B4151 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -571,12 +599,14 @@
 				C2E9770D28987CF7009F4B94 /* repository */,
 				C2E9770E28987CFE009F4B94 /* modules */,
 				C2E976D82898701C009F4B94 /* AppDelegate.swift */,
+				C2745DCF28E2AF69003C17E4 /* Env.swift */,
 				C2E976DA2898701C009F4B94 /* SceneDelegate.swift */,
 				C2E976DC2898701C009F4B94 /* ViewController.swift */,
 				C2E976DE2898701C009F4B94 /* Main.storyboard */,
 				C2E976E42898701D009F4B94 /* Assets.xcassets */,
 				C2E976E62898701D009F4B94 /* LaunchScreen.storyboard */,
 				C2E976E92898701D009F4B94 /* Info.plist */,
+				C2078D5028CF79C300312BB0 /* GoogleService-Info.plist */,
 				C2E976E12898701C009F4B94 /* RoutesApp_ios.xcdatamodeld */,
 			);
 			path = RoutesApp_ios;
@@ -620,11 +650,9 @@
 		C2E9770E28987CFE009F4B94 /* modules */ = {
 			isa = PBXGroup;
 			children = (
-
-				84437A2628DCFB5A00186B73 /* lineRouteList */,
-				8498F8A028CF4B27008641D9 /* lineList */,
+				C278974B28E3B8D800FF2796 /* lineRouteList */,
+				C278971E28E3B48100FF2796 /* lineList */,
 				CE7FBACD28D36A89001175D3 /* possibleRoutes */,
-				8498F8A028CF4B27008641D9 /* routelist */,
 				84A5B67628C698C4006AB7F9 /* routemap */,
 				84067C5B28B3BF4D00549300 /* citypicker */,
 				84067C4428B3B15700549300 /* settings */,
@@ -637,6 +665,7 @@
 		C2E9770F28987D56009F4B94 /* models */ = {
 			isa = PBXGroup;
 			children = (
+				C2353BC528D899C600BF4856 /* local */,
 				C2FEFC43289B78F1006E7579 /* remote */,
 			);
 			path = models;
@@ -683,8 +712,11 @@
 		C2E9771428987DC2009F4B94 /* extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C2BB146028A153390083CA1E /* StringExtension.swift */,
 				C2E977322898802F009F4B94 /* Encodable.swift */,
 				CE93A8A228BD3ECD00296532 /* CLLocationCoordinate2DExtension.swift */,
+				C2414D8328E1CDF200CDF73A /* ClPlaceMark.swift */,
+				C2414D8528E1DCDB00CDF73A /* Double.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -836,13 +868,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C2E977022898701D009F4B94 /* Build configuration list for PBXNativeTarget "RoutesApp_ios" */;
 			buildPhases = (
-				9DC182247694E53D23D8430B /* [CP] Check Pods Manifest.lock */,
+				849305FD0264EA06CD3EC89F /* [CP] Check Pods Manifest.lock */,
 				C2E9770B2898716A009F4B94 /* SwiftLint */,
 				C2E976D12898701C009F4B94 /* Sources */,
 				C2E976D22898701C009F4B94 /* Frameworks */,
 				C2E976D32898701C009F4B94 /* Resources */,
-				085E15082F0A6AC97AAF0C03 /* [CP] Embed Pods Frameworks */,
-				A68D43B974E4D1C890AEAF5B /* [CP] Copy Pods Resources */,
+				CBF081E38661D5789FB5CC5D /* [CP] Embed Pods Frameworks */,
+				76C81C1BEAD4F7A1C61BB5AD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -862,7 +894,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C2E977052898701D009F4B94 /* Build configuration list for PBXNativeTarget "RoutesApp_iosTests" */;
 			buildPhases = (
-				830CC09D4CBD136F4BDCA5CB /* [CP] Check Pods Manifest.lock */,
+				057AF563D5A6C06AD3696288 /* [CP] Check Pods Manifest.lock */,
 				C2E976EA2898701D009F4B94 /* Sources */,
 				C2E976EB2898701D009F4B94 /* Frameworks */,
 				C2E976EC2898701D009F4B94 /* Resources */,
@@ -926,22 +958,22 @@
 			files = (
 				C215EF0D28A4C1BC00371DB6 /* LoginViewController.xib in Resources */,
 				C2E976E82898701D009F4B94 /* LaunchScreen.storyboard in Resources */,
-				84437A2A28DCFB9D00186B73 /* LineRouteViewController.xib in Resources */,
+				C2078D5128CF79C300312BB0 /* GoogleService-Info.plist in Resources */,
 				C2E976E52898701D009F4B94 /* Assets.xcassets in Resources */,
-				84437A2F28DD1E9B00186B73 /* LineRouteTableViewCell.xib in Resources */,
 				84067C6628B3D0A700549300 /* CitySplashViewController.xib in Resources */,
+				C278973128E3B48100FF2796 /* TransportationCategoryTableViewCell.xib in Resources */,
+				C278975128E3B8D900FF2796 /* LineRouteViewController.xib in Resources */,
 				C2E976E02898701C009F4B94 /* Main.storyboard in Resources */,
-				CE5D11C128DC07D300AD875D /* TransportationCategoryTableViewCell.xib in Resources */,
+				C278973428E3B48100FF2796 /* RouteListFilterViewController.xib in Resources */,
 				C2112DE2289A18FB009601AB /* HomeViewController.xib in Resources */,
-				CE5D11BD28DBC89800AD875D /* RouteListFilterViewController.xib in Resources */,
 				8420E0C828C68E89000068F9 /* SearchLocationViewController.xib in Resources */,
 				C2BB145C28A1529E0083CA1E /* Localizable.strings in Resources */,
+				C278975428E3B8D900FF2796 /* LineRouteTableViewCell.xib in Resources */,
 				84A5B67B28C698C5006AB7F9 /* RouteMapViewController.xib in Resources */,
 				CE7FBAE328D6CA38001175D3 /* PossibleRoutesViewController.xib in Resources */,
 				CE7FBADD28D565F2001175D3 /* BottomSheetViewController.xib in Resources */,
-				8498F8AD28CF4B27008641D9 /* RouteListViewController.xib in Resources */,
-				8498F8AC28CF4B27008641D9 /* RouteListTableViewCell.xib in Resources */,
 				843D043F28AAF3F800C4DF25 /* PhoneAuthenticationViewController.xib in Resources */,
+				C2414D8728E1F08000CDF73A /* RouteDetailViewController.xib in Resources */,
 				84067C7528B5721400549300 /* CityPickerViewController.xib in Resources */,
 				84067C7428B4305300549300 /* CityTableViewCell.xib in Resources */,
 				C2BB145228A150A70083CA1E /* SignupViewController.xib in Resources */,
@@ -949,7 +981,10 @@
 				84067C4C28B3B5BD00549300 /* SettingsViewController.xib in Resources */,
 				84246F9528DC9C9E004748DD /* GoogleService-Info.plist in Resources */,
 				CE0F8D3528AD357F00F2C753 /* silver-style.json in Resources */,
+				C278973328E3B48100FF2796 /* RouteListViewController.xib in Resources */,
 				844F9A3228C84E63004A95A0 /* PlaceTableViewCell.xib in Resources */,
+				C27EB66728D3689200A1E742 /* LinePathTableViewCell.xib in Resources */,
+				C278973228E3B48100FF2796 /* RouteListTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -963,24 +998,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		085E15082F0A6AC97AAF0C03 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		830CC09D4CBD136F4BDCA5CB /* [CP] Check Pods Manifest.lock */ = {
+		057AF563D5A6C06AD3696288 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1002,7 +1020,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9DC182247694E53D23D8430B /* [CP] Check Pods Manifest.lock */ = {
+		76C81C1BEAD4F7A1C61BB5AD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		849305FD0264EA06CD3EC89F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1024,23 +1059,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A68D43B974E4D1C890AEAF5B /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		C2E9770B2898716A009F4B94 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1059,6 +1077,23 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
+		CBF081E38661D5789FB5CC5D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1068,9 +1103,13 @@
 			files = (
 				CE7FBAEF28D937D9001175D3 /* PossibleRoutesViewModel.swift in Sources */,
 				84A5B67A28C698C5006AB7F9 /* RouteMapViewController.swift in Sources */,
+				C2414D8628E1DCDC00CDF73A /* Double.swift in Sources */,
+				84067C7028B4257E00549300 /* Cities.swift in Sources */,
+				C27EB66628D3689200A1E742 /* LinePathTableViewCell.swift in Sources */,
 				8498F89D28CF4892008641D9 /* Constants.swift in Sources */,
 				84067C7028B4257E00549300 /* Cities.swift in Sources */,
 				C2E9772428987F3C009F4B94 /* LoginViewController.swift in Sources */,
+				C278973528E3B48100FF2796 /* RouteListViewController.swift in Sources */,
 				C20A86D128A3383F0000EF7C /* ConstantVariables.swift in Sources */,
 				844F9A2E28C84718004A95A0 /* SearchLocationViewModel.swift in Sources */,
 				C2E976DD2898701C009F4B94 /* ViewController.swift in Sources */,
@@ -1082,36 +1121,37 @@
 				84067C8B28B95EDA00549300 /* SettingsViewModel.swift in Sources */,
 				C215EF0928A4B1F500371DB6 /* HomeVIewModel.swift in Sources */,
 				C2E9772928987F57009F4B94 /* SignupViewModel.swift in Sources */,
-				8498F8AB28CF4B27008641D9 /* RouteListTableViewCell.swift in Sources */,
+				C278973628E3B48100FF2796 /* RouteListFilterViewController.swift in Sources */,
 				84067C4A28B3B1CD00549300 /* SettingsViewController.swift in Sources */,
 				CE7FBAE228D6CA38001175D3 /* PossibleRoutesViewController.swift in Sources */,
 				C2E976D92898701C009F4B94 /* AppDelegate.swift in Sources */,
 				C2E9772F28987FA0009F4B94 /* NetworkManager.swift in Sources */,
 				C2112DE1289A18FB009601AB /* HomeViewController.swift in Sources */,
 				84067C7328B4305300549300 /* CityTableViewCell.swift in Sources */,
-				CE5D11C028DC07D300AD875D /* TransportationCategoryTableViewCell.swift in Sources */,
 				C2BB146128A153390083CA1E /* StringExtension.swift in Sources */,
-				8498F8AA28CF4B27008641D9 /* RouteListViewModel.swift in Sources */,
 				844F9A3128C84E63004A95A0 /* PlaceTableViewCell.swift in Sources */,
 				C2E9772028987F2A009F4B94 /* SignupViewController.swift in Sources */,
+				C278975228E3B8D900FF2796 /* LineRouteViewController.swift in Sources */,
 				CE19B2FD28DCF2F500840426 /* RouteListManager.swift in Sources */,
-				8498F8AE28CF4B27008641D9 /* RouteListViewController.swift in Sources */,
 				C2E9772B28987F79009F4B94 /* User.swift in Sources */,
 				CE7FBAE728D8B022001175D3 /* GDirectionsResponse.swift in Sources */,
 				C215EF0C28A4BB5D00371DB6 /* ViewModel.swift in Sources */,
 				CE7FBAD428D36B5E001175D3 /* PossibleRouteTableViewCell.swift in Sources */,
 				844F9A2928C7F542004A95A0 /* GoogleMapsManager.swift in Sources */,
 				847A59E228A820F5005CEA25 /* PhoneAuthenticationViewModel.swift in Sources */,
+				C290E5EF28D272C90019782F /* RouteDetailViewController.swift in Sources */,
+				C2745DD028E2AF69003C17E4 /* Env.swift in Sources */,
 				CE7FBADC28D565F2001175D3 /* BottomSheetViewController.swift in Sources */,
-				CE5D11BC28DBC89800AD875D /* RouteListFilterViewController.swift in Sources */,
 				C2436385289A2CD6003C1A44 /* FirebaseFirestoreManager.swift in Sources */,
 				845D228928A7050000E9A660 /* PhoneAuthenticationViewController.swift in Sources */,
+				C278972F28E3B48100FF2796 /* TransportationCategoryTableViewCell.swift in Sources */,
 				84067C6128B3BF9C00549300 /* CityPickerViewController.swift in Sources */,
 				84246F8C28DB0B65004748DD /* LinesRoute.swift in Sources */,
+				C2414D8428E1CDF200CDF73A /* ClPlaceMark.swift in Sources */,
 				C2436389289A2D21003C1A44 /* BaseModel.swift in Sources */,
 				844F9A2C28C7FD51004A95A0 /* Place.swift in Sources */,
+				C278973028E3B48100FF2796 /* RouteListTableViewCell.swift in Sources */,
 				C2E976DB2898701C009F4B94 /* SceneDelegate.swift in Sources */,
-				84437A2928DCFB9C00186B73 /* LineRouteViewController.swift in Sources */,
 				CE65448D28BD174C003B599B /* Line.swift in Sources */,
 				84067C6528B3D0A700549300 /* CitySplashViewController.swift in Sources */,
 				C2E976E32898701C009F4B94 /* RoutesApp_ios.xcdatamodeld in Sources */,
@@ -1124,8 +1164,9 @@
 				CE1D1DD828DD4C0600F61040 /* ImageHelper.swift in Sources */,
 				C2E977332898802F009F4B94 /* Encodable.swift in Sources */,
 				84067C6E28B4206600549300 /* Country.swift in Sources */,
-				84437A2E28DD1E9B00186B73 /* LineRouteTableViewCell.swift in Sources */,
 				C2E9773128987FB9009F4B94 /* FloatingButton.swift in Sources */,
+				C278975328E3B8D900FF2796 /* LineRouteTableViewCell.swift in Sources */,
+				C278972D28E3B48100FF2796 /* RouteListViewModel.swift in Sources */,
 				CE65448B28BD148B003B599B /* Algorithm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1194,6 +1235,16 @@
 				C215EF1328A4C1BF00371DB6 /* es-419 */,
 			);
 			name = LoginViewController.xib;
+			sourceTree = "<group>";
+		};
+		C2414D8928E1F08000CDF73A /* RouteDetailViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C2414D8828E1F08000CDF73A /* Base */,
+				C2414D8B28E1F08400CDF73A /* en */,
+				C2414D8D28E1F08500CDF73A /* es-419 */,
+			);
+			name = RouteDetailViewController.xib;
 			sourceTree = "<group>";
 		};
 		C2BB145428A150A70083CA1E /* SignupViewController.xib */ = {
@@ -1353,13 +1404,13 @@
 		};
 		C2E977032898701D009F4B94 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 33D1541B29EAC74D75C1D604 /* Pods-RoutesApp_ios.debug.xcconfig */;
+			baseConfigurationReference = 137E275CEBB5A0D95D01F9F6 /* Pods-RoutesApp_ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 64NHHJ7YTA;
+				DEVELOPMENT_TEAM = X2663B4F4Y;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RoutesApp_ios/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1377,18 +1428,19 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = NO;
 			};
 			name = Debug;
 		};
 		C2E977042898701D009F4B94 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 85076F218097728B93D65C47 /* Pods-RoutesApp_ios.release.xcconfig */;
+			baseConfigurationReference = CDF0D85219E9C26C4997D317 /* Pods-RoutesApp_ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 64NHHJ7YTA;
+				DEVELOPMENT_TEAM = X2663B4F4Y;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RoutesApp_ios/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1406,18 +1458,20 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = NO;
 			};
 			name = Release;
 		};
 		C2E977062898701D009F4B94 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3FC5E517E626DA7213D8C677 /* Pods-RoutesApp_iosTests.debug.xcconfig */;
+			baseConfigurationReference = F74CB6C8C354EBAF824D691C /* Pods-RoutesApp_iosTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = X2663B4F4Y;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MARKETING_VERSION = 1.0;
@@ -1432,13 +1486,14 @@
 		};
 		C2E977072898701D009F4B94 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D3DDAF2091150263BA9DBA63 /* Pods-RoutesApp_iosTests.release.xcconfig */;
+			baseConfigurationReference = 9AEE711EB6947D6DD8648C6F /* Pods-RoutesApp_iosTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = X2663B4F4Y;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MARKETING_VERSION = 1.0;
