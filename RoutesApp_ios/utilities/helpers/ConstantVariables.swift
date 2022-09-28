@@ -31,6 +31,8 @@ class ConstantVariables {
     static let originPoint = "origin_point"
 
     // localized strings
+    static let search = "search-bar"
+
     static let origin = "origin"
     static let selectOrigin = "select-origin"
     static let selectDestination = "select-destination"

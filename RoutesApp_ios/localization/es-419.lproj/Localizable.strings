@@ -30,6 +30,7 @@
 
 // Default
 "error-unknown" = "Algo salio mal";
+"search-bar" = "Buscar";
 
 // Tabbar controller
 "home" = "Inicio";
@@ -46,7 +47,6 @@
 
 // City Picker
 "welcome-message" = "Bienvenido a";
-"city-search-bar" = "Buscar";
 
 // HomeController
 "origin" = "Origen";

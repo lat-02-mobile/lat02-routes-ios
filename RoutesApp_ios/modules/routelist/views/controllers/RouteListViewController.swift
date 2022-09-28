@@ -9,9 +9,9 @@ import UIKit
 
 class RouteListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var routeListTableView: UITableView!
     var routeListViewModel = RouteListViewModel()
-    var searchController: UISearchController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,13 +33,12 @@ class RouteListViewController: UIViewController, UITableViewDataSource, UITableV
         navigationItem.title = String.localizeString(localizedString: ConstantVariables.routeTitle)
         self.navigationItem.largeTitleDisplayMode = .always
         navigationController?.navigationBar.barTintColor = UIColor(named: ConstantVariables.primaryColor)
-        searchController = UISearchController()
-        searchController!.searchResultsUpdater = self
-        searchController!.searchBar.delegate = self
-        navigationItem.searchController = searchController
-        let colorValue = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = colorValue
-        UINavigationBar.appearance().isTranslucent = false
+        searchBar.backgroundImage = UIImage()
+        searchBar.searchTextField.backgroundColor = .white
+        searchBar.placeholder = String.localizeString(localizedString: ConstantVariables.search)
+        searchBar.delegate = self
+        routeListTableView.delegate = self
+        routeListTableView.dataSource = self
     }
 
     func setIcon() {
@@ -75,9 +74,9 @@ class RouteListViewController: UIViewController, UITableViewDataSource, UITableV
     }
 }
 
-extension RouteListViewController: UISearchResultsUpdating, UISearchBarDelegate {
-    func updateSearchResults(for searchController: UISearchController) {
-        guard let text = searchController.searchBar.text else { return }
+extension RouteListViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard let text = searchBar.text else { return }
         routeListViewModel.filterRouteListBy(query: text)
     }
 

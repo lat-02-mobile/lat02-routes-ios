@@ -19,7 +19,7 @@ class TourpointsViewController: UIViewController {
         super.viewDidLoad()
         setUpViews()
         initViewModel()
-
+        setIcon()
     }
 
     private func setUpViews() {
@@ -29,7 +29,14 @@ class TourpointsViewController: UIViewController {
         tourpointTableView.register(uiNib, forCellReuseIdentifier: TourpointTableViewCell.identifier)
         tourpointSearchbar.backgroundImage = UIImage()
         tourpointSearchbar.searchTextField.backgroundColor = .white
+        tourpointSearchbar.placeholder = String.localizeString(localizedString: ConstantVariables.search)
         SVProgressHUD.show()
+    }
+
+    func setIcon() {
+        let filterIcon = UIImage(named: ConstantVariables.filterIcon)?.withRenderingMode(.alwaysOriginal)
+        let filterButton = UIBarButtonItem(image: filterIcon, style: .plain, target: self, action: nil)
+        navigationItem.rightBarButtonItem = filterButton
     }
 
     private func initViewModel() {
