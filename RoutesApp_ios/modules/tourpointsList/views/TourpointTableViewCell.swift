@@ -12,14 +12,21 @@ class TourpointTableViewCell: UITableViewCell {
     static let nibName = "TourpointTableViewCell"
     static let identifier = "TourpointTableViewCell"
 
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
 
-        // Configure the view for the selected state
+    func updateCellModel(tourpointInfo: TourpointInfo) {
+        nameLabel.text = tourpointInfo.name
+        categoryLabel.text = tourpointInfo.category
+        addressLabel.text = tourpointInfo.address
     }
 }

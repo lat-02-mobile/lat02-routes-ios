@@ -38,6 +38,10 @@
 		844F9A4528E3488C004A95A0 /* TourpointsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 844F9A4328E3488C004A95A0 /* TourpointsViewController.xib */; };
 		844F9A4928E3D560004A95A0 /* TourpointTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F9A4728E3D560004A95A0 /* TourpointTableViewCell.swift */; };
 		844F9A4A28E3D560004A95A0 /* TourpointTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 844F9A4828E3D560004A95A0 /* TourpointTableViewCell.xib */; };
+		844F9A4C28E47B14004A95A0 /* Tourpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F9A4B28E47B14004A95A0 /* Tourpoint.swift */; };
+		844F9A4E28E49594004A95A0 /* TourpointsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F9A4D28E49594004A95A0 /* TourpointsManager.swift */; };
+		844F9A5028E49C99004A95A0 /* GeoPointExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F9A4F28E49C99004A95A0 /* GeoPointExtension.swift */; };
+		844F9A5228E49EA7004A95A0 /* TourpointsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F9A5128E49EA7004A95A0 /* TourpointsViewModel.swift */; };
 		845D228928A7050000E9A660 /* PhoneAuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D228728A7050000E9A660 /* PhoneAuthenticationViewController.swift */; };
 		847A59E228A820F5005CEA25 /* PhoneAuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A59E128A820F5005CEA25 /* PhoneAuthenticationViewModel.swift */; };
 		8498F89D28CF4892008641D9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8498F89C28CF4892008641D9 /* Constants.swift */; };
@@ -158,6 +162,10 @@
 		844F9A4328E3488C004A95A0 /* TourpointsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TourpointsViewController.xib; sourceTree = "<group>"; };
 		844F9A4728E3D560004A95A0 /* TourpointTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourpointTableViewCell.swift; sourceTree = "<group>"; };
 		844F9A4828E3D560004A95A0 /* TourpointTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TourpointTableViewCell.xib; sourceTree = "<group>"; };
+		844F9A4B28E47B14004A95A0 /* Tourpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tourpoint.swift; sourceTree = "<group>"; };
+		844F9A4D28E49594004A95A0 /* TourpointsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourpointsManager.swift; sourceTree = "<group>"; };
+		844F9A4F28E49C99004A95A0 /* GeoPointExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoPointExtension.swift; sourceTree = "<group>"; };
+		844F9A5128E49EA7004A95A0 /* TourpointsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourpointsViewModel.swift; sourceTree = "<group>"; };
 		845D228728A7050000E9A660 /* PhoneAuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAuthenticationViewController.swift; sourceTree = "<group>"; };
 		847A59E128A820F5005CEA25 /* PhoneAuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAuthenticationViewModel.swift; sourceTree = "<group>"; };
 		8498F89C28CF4892008641D9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -375,6 +383,7 @@
 		844F9A4028E347FF004A95A0 /* viewmodels */ = {
 			isa = PBXGroup;
 			children = (
+				844F9A5128E49EA7004A95A0 /* TourpointsViewModel.swift */,
 			);
 			path = viewmodels;
 			sourceTree = "<group>";
@@ -544,6 +553,7 @@
 				84067C6928B3D58500549300 /* CityFirebaseManager.swift */,
 				844F9A2828C7F542004A95A0 /* GoogleMapsManager.swift */,
 				CE19B2FC28DCF2F500840426 /* RouteListManager.swift */,
+				844F9A4D28E49594004A95A0 /* TourpointsManager.swift */,
 			);
 			path = managers;
 			sourceTree = "<group>";
@@ -699,6 +709,7 @@
 			children = (
 				C2E977322898802F009F4B94 /* Encodable.swift */,
 				CE93A8A228BD3ECD00296532 /* CLLocationCoordinate2DExtension.swift */,
+				844F9A4F28E49C99004A95A0 /* GeoPointExtension.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -793,6 +804,7 @@
 				844F9A2B28C7FD51004A95A0 /* Place.swift */,
 				CE7FBAE628D8B022001175D3 /* GDirectionsResponse.swift */,
 				84246F8B28DB0B65004748DD /* LinesRoute.swift */,
+				844F9A4B28E47B14004A95A0 /* Tourpoint.swift */,
 			);
 			path = remote;
 			sourceTree = "<group>";
@@ -1092,6 +1104,7 @@
 				84067C4A28B3B1CD00549300 /* SettingsViewController.swift in Sources */,
 				CE7FBAE228D6CA38001175D3 /* PossibleRoutesViewController.swift in Sources */,
 				C2E976D92898701C009F4B94 /* AppDelegate.swift in Sources */,
+				844F9A5028E49C99004A95A0 /* GeoPointExtension.swift in Sources */,
 				C2E9772F28987FA0009F4B94 /* NetworkManager.swift in Sources */,
 				C2112DE1289A18FB009601AB /* HomeViewController.swift in Sources */,
 				84067C7328B4305300549300 /* CityTableViewCell.swift in Sources */,
@@ -1100,6 +1113,8 @@
 				8498F8AA28CF4B27008641D9 /* RouteListViewModel.swift in Sources */,
 				844F9A3128C84E63004A95A0 /* PlaceTableViewCell.swift in Sources */,
 				C2E9772028987F2A009F4B94 /* SignupViewController.swift in Sources */,
+				844F9A4E28E49594004A95A0 /* TourpointsManager.swift in Sources */,
+				844F9A4C28E47B14004A95A0 /* Tourpoint.swift in Sources */,
 				CE19B2FD28DCF2F500840426 /* RouteListManager.swift in Sources */,
 				8498F8AE28CF4B27008641D9 /* RouteListViewController.swift in Sources */,
 				C2E9772B28987F79009F4B94 /* User.swift in Sources */,
@@ -1121,6 +1136,7 @@
 				84067C6528B3D0A700549300 /* CitySplashViewController.swift in Sources */,
 				844F9A4428E3488C004A95A0 /* TourpointsViewController.swift in Sources */,
 				C2E976E32898701C009F4B94 /* RoutesApp_ios.xcdatamodeld in Sources */,
+				844F9A5228E49EA7004A95A0 /* TourpointsViewModel.swift in Sources */,
 				CE7FBAE928D8B8EB001175D3 /* GoogleMapsHelper.swift in Sources */,
 				CE93A8A328BD3ECD00296532 /* CLLocationCoordinate2DExtension.swift in Sources */,
 				8498F89F28CF49DD008641D9 /* Lines.swift in Sources */,

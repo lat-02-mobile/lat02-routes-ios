@@ -23,8 +23,8 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="5an-xL-jyP">
                                 <rect key="frame" x="0.0" y="0.0" width="362" height="24"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8fS-93-Kdt">
-                                        <rect key="frame" x="0.0" y="0.0" width="253.5" height="24"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8fS-93-Kdt">
+                                        <rect key="frame" x="0.0" y="0.0" width="235.5" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -37,7 +37,7 @@
                                     </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="8fS-93-Kdt" firstAttribute="width" secondItem="5an-xL-jyP" secondAttribute="width" multiplier="0.7" id="5cS-WA-GkK"/>
+                                    <constraint firstItem="8fS-93-Kdt" firstAttribute="width" secondItem="5an-xL-jyP" secondAttribute="width" multiplier="0.65" id="5cS-WA-GkK"/>
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zMh-3Z-YHq">
@@ -57,6 +57,11 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="addressLabel" destination="zMh-3Z-YHq" id="POa-Bo-FAZ"/>
+                <outlet property="categoryLabel" destination="fib-q4-tTg" id="ngz-St-FWU"/>
+                <outlet property="nameLabel" destination="8fS-93-Kdt" id="ksK-Zr-Vbw"/>
+            </connections>
             <point key="canvasLocation" x="197.10144927536234" y="125.89285714285714"/>
         </tableViewCell>
     </objects>
