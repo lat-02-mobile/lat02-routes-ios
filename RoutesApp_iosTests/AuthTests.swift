@@ -75,7 +75,6 @@ class MockAuthManager: AuthProtocol {
         }
     }
 }
-
 class MockUserManager: UserManProtocol {
     var registerUserGotCalled = false
     var getUsersGotCalled = false
@@ -127,7 +126,7 @@ class SignupAuthTests: XCTestCase {
     }
     // MARK: Phone authentication  Tests
     func testSendPhoneNumberCode() {
-        authManager.sendPhoneNumberCode(phoneNumber: TestResources.testPhoneNumber ) { result in
+        authManager.sendPhoneNumberCode( phoneNumber: TestResources.testPhoneNumber ) { result in
             switch result {
             case .success(let result):
                 XCTAssertEqual(result, "")

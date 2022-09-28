@@ -82,14 +82,6 @@
                         <constraint firstAttribute="height" constant="50" id="LMT-dn-a9j"/>
                     </constraints>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TT1-Jg-mpg">
-                    <rect key="frame" x="30" y="671" width="101" height="31"/>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="filled" title="Show Route"/>
-                    <connections>
-                        <action selector="showRouteDetail:" destination="-1" eventType="touchUpInside" id="bav-Yr-YJ6"/>
-                    </connections>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gIV-pd-CbO">
                     <rect key="frame" x="30" y="722" width="50" height="50"/>
                     <constraints>
@@ -126,7 +118,6 @@
                 <constraint firstItem="EaU-gK-3rL" firstAttribute="top" secondItem="Hgu-Nf-lgy" secondAttribute="bottom" constant="10" id="0KO-o0-FgO"/>
                 <constraint firstItem="sZ7-RE-9nF" firstAttribute="centerY" secondItem="al4-vy-i8x" secondAttribute="centerY" constant="-18" id="1g0-He-zxI"/>
                 <constraint firstItem="LRi-Kf-RAz" firstAttribute="top" secondItem="gIV-pd-CbO" secondAttribute="bottom" constant="30" id="2jO-ZW-PnN"/>
-                <constraint firstItem="TT1-Jg-mpg" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="9ds-4V-A3M"/>
                 <constraint firstItem="T64-Vl-YK6" firstAttribute="top" secondItem="EaU-gK-3rL" secondAttribute="bottom" constant="10" id="AG4-D9-CSP"/>
                 <constraint firstItem="LRi-Kf-RAz" firstAttribute="top" secondItem="al4-vy-i8x" secondAttribute="bottom" id="AVK-N7-tge"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Hgu-Nf-lgy" secondAttribute="trailing" constant="30" id="Azz-Oh-NUz"/>
@@ -138,7 +129,6 @@
                 <constraint firstItem="al4-vy-i8x" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="WQW-pj-JXq"/>
                 <constraint firstItem="LRi-Kf-RAz" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="ZVP-i1-sJO"/>
                 <constraint firstItem="al4-vy-i8x" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="aYg-yu-tr1"/>
-                <constraint firstItem="LRi-Kf-RAz" firstAttribute="top" secondItem="TT1-Jg-mpg" secondAttribute="bottom" constant="100" id="b6f-F5-EE1"/>
                 <constraint firstItem="LRi-Kf-RAz" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="dD8-nx-q8K"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="apv-IL-Jcn" secondAttribute="bottom" constant="5" id="h7C-AI-1nf"/>
                 <constraint firstItem="sZ7-RE-9nF" firstAttribute="centerX" secondItem="al4-vy-i8x" secondAttribute="centerX" id="iSN-T5-jBU"/>

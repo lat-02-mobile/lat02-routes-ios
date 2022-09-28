@@ -82,4 +82,16 @@ class TestResources {
         LinesCategory(id: "1", nameEng: "Subway", nameEsp: "Subway", blackIcon: "", whiteIcon: ""),
         LinesCategory(id: "2", nameEng: "Bus", nameEsp: "Bus", blackIcon: "", whiteIcon: "")
     ]
+
+    static let RoutePoints = [GeoPoint(latitude: 1, longitude: 1), GeoPoint(latitude: 1, longitude: 1)]
+        static let Stops = [GeoPoint(latitude: 1, longitude: 1), GeoPoint(latitude: 1, longitude: 1)]
+
+   static let LineRoutes = [
+        LineRouteInfo(name: "Route1", id: "wsws2344d3f", idLine: "1",
+                      line: nil, routePoints: RoutePoints, start: GeoPoint(latitude: 1, longitude: 1),
+                      stops: Stops, end: GeoPoint(latitude: 1, longitude: 1)),
+        LineRouteInfo(name: "Route1", id: "wsws2344d3f", idLine: "1",
+                      line: nil, routePoints: RoutePoints, start: GeoPoint(latitude: 1, longitude: 1),
+                      stops: Stops, end: GeoPoint(latitude: 1, longitude: 1))
+   ]
 }

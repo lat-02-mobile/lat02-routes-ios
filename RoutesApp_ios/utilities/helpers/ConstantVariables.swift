@@ -7,6 +7,12 @@
 
 import Foundation
 
+enum Units: String {
+    case meters
+    case kilometers
+    case minutes
+}
+
 class ConstantVariables {
     static let databaseName = "RoutesApp_ios"
     static let cityCellNib = "CityTableViewCell"
@@ -47,6 +53,8 @@ class ConstantVariables {
     static let localizationPermissionAlertMessage = "localization-permission-alert-message"
     static let localizationPermissionAlertSettings = "localization-permission-alert-settings"
     static let localizationPermissionAlertCancel = "localization-permission-alert-cancel"
+    static let routeDetailUnableToGetLocation = "route-detail-unable-to-get-location"
+    static let routeDetailNoMatchesAdresses = "route-detail-no-matches-adressess"
 
     // Google Maps helper
     static let polylinePadding = 80
@@ -60,8 +68,13 @@ class ConstantVariables {
 
     // Google Directions API
     static let directionsApi = "https://maps.googleapis.com/maps/api/directions/json"
-    static let directionsApiKey = "${GOOGLE_DIRECTIONS_API_KEY}"
+    static let directionsApiKey = Env.GOOGLE_DIRECTIONS_API_KEY
 
     // MAP
     static let defaultPolylineColor = "#004696"
+
+    // Units
+    static func valueWithUnit(unit localizedString: Units, value: String) -> String {
+        return String.localizedStringWithFormat(NSLocalizedString(localizedString.rawValue, comment: ""), value)
+    }
 }

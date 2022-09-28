@@ -56,19 +56,10 @@ class AlgorithmTests: XCTestCase {
             XCTAssertTrue(false)
             return
         }
-
-        let expectedLine = LineRoute(name: line1.name,
-                                     id: line1.id,
-                                     idLine: line1.idLine,
-                                     line: line1.line,
-                                     routePoints: Array(line1.routePoints[2...5]),
-                                     start: line1.start,
-                                     stops: Array(line1.stops[0...2]),
-                                     end: line1.end,
-                                     averageVelocity: line1.averageVelocity,
-                                     blackIcon: "",
-                                     whiteIcon: "",
-                                     color: "")
+        let expectedLine = LineRoute(name: line1.name, id: line1.id, idLine: line1.idLine, line: line1.line,
+                                     routePoints: Array(line1.routePoints[2...5]), start: line1.start, stops: Array(line1.stops[0...2]),
+                                     end: line1.end, averageVelocity: line1.averageVelocity,
+                                     blackIcon: "", whiteIcon: "", color: "")
         let result = Algorithm.shared.findAvailableRoutes(origin: originPoint, destination: destinationPoint,
             lines: [line1, line2], minDistanceBtwPoints: minDistance, minDistanceBtwStops: minDistanceBtwStops)
         XCTAssertEqual(expectedLine, result[0].transports[0])
@@ -79,7 +70,6 @@ class AlgorithmTests: XCTestCase {
         let destinationPoint = Coordinate(latitude: -16.52423, longitude: -68.1203).toCLLocationCoordinate2D()
         let minDistance = 200.0
         let minDistanceBtwStops = 200.0
-
         guard let line1 = line1,
                 let line2 = line2 else {
             XCTAssertTrue(false)
@@ -125,38 +115,20 @@ class AlgorithmTests: XCTestCase {
         let destinationPoint = Coordinate(latitude: -16.52445, longitude: -68.12298).toCLLocationCoordinate2D()
         let minDistance = 200.0
         let minDistanceBtwStops = 200.0
-
         guard let line1 = line1,
                 let line2 = line2 else {
             XCTAssertTrue(false)
             return
         }
+        let expectedSubLineA = LineRoute(name: line1.name, id: line1.id, idLine: line1.idLine, line: line1.line,
+                                         routePoints: Array(line1.routePoints[3...10]), start: line1.start,
+                                         stops: Array(line1.stops[2...4]), end: line1.end, averageVelocity: line1.averageVelocity,
+                                         blackIcon: "", whiteIcon: "", color: "")
 
-        let expectedSubLineA = LineRoute(name: line1.name,
-                                         id: line1.id,
-                                         idLine: line1.idLine,
-                                         line: line1.line,
-                                         routePoints: Array(line1.routePoints[3...10]),
-                                         start: line1.start,
-                                         stops: Array(line1.stops[2...4]),
-                                         end: line1.end,
-                                         averageVelocity: line1.averageVelocity,
-                                         blackIcon: "",
-                                         whiteIcon: "",
-                                         color: "")
-
-        let expectedSubLineB = LineRoute(name: line2.name,
-                                         id: line2.id,
-                                         idLine: line2.idLine,
-                                         line: line2.line,
-                                         routePoints: [line2.routePoints[5]],
-                                         start: line2.start,
-                                         stops: [line2.stops[1]],
-                                         end: line2.end,
-                                         averageVelocity: line2.averageVelocity,
-                                         blackIcon: "",
-                                         whiteIcon: "",
-                                         color: "")
+        let expectedSubLineB = LineRoute(name: line2.name, id: line2.id, idLine: line2.idLine, line: line2.line,
+                                            routePoints: [line2.routePoints[5]], start: line2.start, stops: [line2.stops[1]],
+                                            end: line2.end, averageVelocity: line2.averageVelocity,
+                                         blackIcon: "", whiteIcon: "", color: "")
 
         let expectedCombinedAvailableTransport = AvailableTransport(connectionPoint: 3,
                 transports: [expectedSubLineA, expectedSubLineB])
