@@ -122,7 +122,6 @@ class LoginViewModel {
             switch result {
             case .success(let users):
                 let foundUser = users.filter {$0.email == email}
-                print("User Logged: \(foundUser)")
                 if !foundUser.isEmpty {
                     completion(foundUser.first!.id)
                 }

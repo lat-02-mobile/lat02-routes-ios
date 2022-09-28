@@ -18,7 +18,7 @@ class AlgorithmTests: XCTestCase {
         let stops1 = TestResources.stops1Array
         line1 = LineRoute(name: "01",
                           id: "01",
-                          idLine: "Zy8i3x4nQH0os7TaCizc",
+                          idLine: "1111",
                           line: "Lines/4MhlK4IGLhTL6wcf50xk",
                           routePoints: routePoints1,
                           start: routePoints1[0],
@@ -33,7 +33,7 @@ class AlgorithmTests: XCTestCase {
         let stops2 = TestResources.stops2Array
         line2 = LineRoute(name: "1001",
                           id: "01",
-                          idLine: "Zy8i3x4nQH0os7TaCizc",
+                          idLine: "2222",
                           line: "Lines/4MhlK4IGLhTL6wcf50xk",
                           routePoints: routePoints2,
                           start: routePoints2[0],

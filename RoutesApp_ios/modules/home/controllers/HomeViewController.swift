@@ -231,10 +231,6 @@ class HomeViewController: UIViewController {
         }
 
         self.present(viewController, animated: true)
-//        let camera = GMSCameraPosition.camera(
-//            withTarget: viewmodel.currentPosition!, zoom: zoom, bearing: 0, viewingAngle: 90
-//        )
-//        mapView.animate(to: camera)
     }
 
     func showToast(message: String) {
