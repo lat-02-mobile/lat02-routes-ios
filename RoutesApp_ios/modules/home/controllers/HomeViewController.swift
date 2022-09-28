@@ -165,7 +165,7 @@ class HomeViewController: UIViewController {
     func setupMap() {
         mapView.settings.compassButton = true
         mapView.isMyLocationEnabled = true
-        if let styleURL = Bundle.main.url(forResource: "silver-style", withExtension: "json") {
+        if let styleURL = Bundle.main.url(forResource: ConstantVariables.mapStyle, withExtension: ConstantVariables.mapStyleExt) {
             mapView.mapStyle = try? GMSMapStyle(contentsOfFileURL: styleURL)
             mapView.settings.zoomGestures = true
         }
@@ -225,7 +225,7 @@ class HomeViewController: UIViewController {
     }
     func showRouteDetail() {
         let viewController = RouteDetailViewController(map: self.mapView)
-
+        viewController.delegate = self
         if let presentationController = viewController.presentationController as? UISheetPresentationController {
             presentationController.detents = [.medium()]
         }
@@ -256,6 +256,21 @@ class HomeViewController: UIViewController {
 extension HomeViewController: SearchLocationDelegate {
     func onPlaceTap(location: CLLocationCoordinate2D) {
         self.cameraMoveToLocation(toLocation: location)
+    }
+}
+
+extension HomeViewController: RouteDetailDelegate {
+    func getLatitude() -> Double? {
+        if let destination = viewmodel.destination {
+            return Double(destination.position.latitude)
+        }
+        return nil
+    }
+    func getLongitude() -> Double? {
+        if let destination = viewmodel.destination {
+            return Double(destination.position.longitude)
+        }
+        return nil
     }
 }
 

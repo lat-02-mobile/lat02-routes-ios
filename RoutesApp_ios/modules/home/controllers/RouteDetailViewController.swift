@@ -9,6 +9,11 @@ import UIKit
 import FirebaseFirestore
 import GoogleMaps
 
+protocol RouteDetailDelegate: AnyObject {
+    func getLatitude() -> Double?
+    func getLongitude() -> Double?
+}
+
 class RouteDetailViewController: UIViewController {
     @IBOutlet weak var linesTableView: UITableView!
     @IBOutlet weak var favoriteButton: UIButton!
@@ -17,6 +22,10 @@ class RouteDetailViewController: UIViewController {
     let mapView: GMSMapView!
     var possibleRoutesViewModel = PossibleRoutesViewModel()
     var walkingPathDistances = [Double?]()
+    let viewmodel = PopupRouteDetailViewModel()
+    var delegate: RouteDetailDelegate?
+    var isFavorite = false
+    var currFav: FavoriteDest?
     lazy var geocoder = CLGeocoder()
     // MARK: The following variable are only for test purposes. Delete these when refactor for official code
     var routePath = AvailableTransport(connectionPoint: 8, transports: [
@@ -103,9 +112,32 @@ class RouteDetailViewController: UIViewController {
         getRoutePathDetails()
         fitMapRoutePath()
         getStreetName()
+        print(viewmodel.getAllFavorites())
+        // MARK: For populate the routes
+        // MARK: Check if the selected destination is a favorite
+        if let latitude = self.delegate?.getLatitude(), let longitude = self.delegate?.getLongitude() {
+            if let nearestFav = viewmodel.getNearestFavDest(lat: latitude, lng: longitude) {
+                currFav = nearestFav
+                let nearestPoint = CLLocationCoordinate2D(latitude: Double(nearestFav.latitude!)!, longitude: Double(nearestFav.longitude!)!)
+                isFavorite = true
+                mapView.animate(to: GMSCameraPosition.camera(withTarget: nearestPoint, zoom: 17))
+                self.favoriteButton.setImage(UIImage(
+                    systemName: "heart.fill")?
+                    .withTintColor(UIColor(named: ConstantVariables.primaryColor)!,
+                                   renderingMode: .alwaysOriginal),
+                                             for: .normal)
+            }
+        }
     }
+
     @IBAction func saveAsFavorite(_ sender: Any) {
+        if !isFavorite {
+            showAddFavoriteDialog()
+        } else {
+            removeFromFavoritesDialog()
+        }
     }
+
     private func getStreetName() {
         let locationDestination = CLLocation(latitude: -17.400923, longitude: -66.177607)
         let locationOrigin = CLLocation(latitude: -17.399995087026774, longitude: -66.20014299508014)
@@ -152,6 +184,7 @@ class RouteDetailViewController: UIViewController {
             linesTableView.reloadData()
         }
     }
+
     private func fitMapRoutePath() {
         let path = GMSMutablePath()
         routePath.transports.forEach { lineRoute in
@@ -161,7 +194,55 @@ class RouteDetailViewController: UIViewController {
         for index in 1...path.count() {
             bounds = bounds.includingCoordinate(path.coordinate(at: index))
         }
-        mapView.animate(with: GMSCameraUpdate.fit(bounds, withPadding: 30.0))
+        mapView.animate(with: GMSCameraUpdate.fit(bounds, withPadding: 90.0))
+    }
+
+    func showAddFavoriteDialog() {
+        let alert = UIAlertController(
+            title: String.localizeString(localizedString: "save-dest"),
+            message: String.localizeString(localizedString: "choose-name-for-new-fav-dest"),
+            preferredStyle: .alert)
+        alert.addTextField { (textField: UITextField) -> Void in
+            textField.placeholder = String.localizeString(localizedString: "write-name")
+        }
+        alert.addAction(UIAlertAction(title: String.localizeString(localizedString: "save"), style: .default, handler: { _ in
+            self.isFavorite = true
+            if let textField = alert.textFields?.first, let favName = textField.text {
+                self.favoriteButton.setImage(UIImage(
+                    systemName: "heart.fill")?
+                    .withTintColor(UIColor(named: ConstantVariables.primaryColor)!,
+                                   renderingMode: .alwaysOriginal),
+                                             for: .normal)
+                if let latitude = self.delegate?.getLatitude(), let longitude = self.delegate?.getLongitude() {
+                    self.viewmodel.saveDestination(latitude: latitude,
+                                                   longitude: longitude,
+                                                   name: favName)
+                    if let nearestFav = self.viewmodel.getNearestFavDest(lat: latitude, lng: longitude) {
+                        self.currFav = nearestFav
+                    }
+                }
+            }
+        }))
+        alert.addAction(UIAlertAction(title: String.localizeString(localizedString: "cancel"), style: .default))
+        present(alert, animated: true)
+    }
+    func removeFromFavoritesDialog() {
+        let alert = UIAlertController(
+            title: "\(String.localizeString(localizedString: "remove-fav-dest"))",
+            message: "\(String.localizeString(localizedString: "sure-want-remove-fav-dest")) (\(self.currFav!.name ?? ""))",
+            preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: String.localizeString(localizedString: "yes"), style: .default, handler: { _ in
+            self.favoriteButton.setImage(UIImage(
+                systemName: "heart")?
+                .withTintColor(UIColor(named: ConstantVariables.primaryColor)!,
+                               renderingMode: .alwaysOriginal),
+                                         for: .normal)
+            if self.viewmodel.removeFavorite(favId: self.currFav!.id) {
+                self.isFavorite = false
+            }
+        }))
+        alert.addAction(UIAlertAction(title: String.localizeString(localizedString: "cancel"), style: .default))
+        present(alert, animated: true)
     }
     private func setupViews() {
         linesTableView.delegate = self

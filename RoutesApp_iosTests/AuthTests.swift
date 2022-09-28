@@ -224,6 +224,7 @@ class LoginAuthTests: XCTestCase {
     var loginViewmodel = MockLoginViewModel()
     override func setUpWithError() throws {
         loginViewmodel.authManager = MockAuthManager()
+        loginViewmodel.userManager = MockUserManager()
         loginViewmodel.onFinish = {
             self.loginViewmodel.onFinishGotCalled = true
         }

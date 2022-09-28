@@ -57,6 +57,15 @@
 
 "done" = "Hecho";
 
+// Save favorite dialogs
+"cancel" = "Cancelar";
+"yes" = "Si";
+"save" = "Guardar";
+"sure-want-remove-fav-dest" = "¿Esta seguro/a que desea eliminar este destino favorito?";
+"remove-fav-dest" = "Eliminar Destino Favorito";
+"save-dest" = "Guardar Destino";
+"choose-name-for-new-fav-dest" = "Por favor elige un nombre para guardar estas coordenadas como un destino favorito";
+"write-name" = "Escribe un nombre";
 // Possible Routes to take
 "recommended" = " (recomendada)";
 // Lines - RouteList

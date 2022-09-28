@@ -19,6 +19,9 @@ class LoginViewModel {
         authManager.loginUser(email: email, password: password) { result in
             switch result {
             case .success:
+                self.getUserByEmail(for: email) { userId in
+                    ConstantVariables.defaults.set(userId, forKey: ConstantVariables.defUserLoggedId)
+                }
                 self.onFinish?()
             case .failure(let error):
                 switch AuthErrorCode(rawValue: error._code) {
@@ -44,7 +47,15 @@ class LoginViewModel {
                         return
                     }
                     if let user = user, user.typeLogin == UserTypeLogin.GOOGLE.rawValue {
-                        self.signUpWithFirebase(credential: credential) {_ in}
+                        self.signUpWithFirebase(credential: credential) { authData in
+                            guard let authData = authData as? AuthDataResult else {
+                                self.onError?(String.localizeString(localizedString: "error-unknown"))
+                                return
+                            }
+                            self.getUserByEmail(for: authData.user.email ?? "") { userId in
+                                ConstantVariables.defaults.set(userId, forKey: ConstantVariables.defUserLoggedId)
+                            }
+                        }
                         return
                     }
                     self.signUpWithFirebase(credential: credential) { authData in
@@ -90,7 +101,10 @@ class LoginViewModel {
         self.userManager.registerUser(name: name, email: email, typeLogin: type) { result in
             switch result {
             case .success:
-                self.onFinish?()
+                self.getUserByEmail(for: email) { userId in
+                    ConstantVariables.defaults.set(userId, forKey: ConstantVariables.defUserLoggedId)
+                    self.onFinish?()
+                }
             case .failure(let error):
                 switch AuthErrorCode(rawValue: error._code) {
                 case .userNotFound:
@@ -100,6 +114,19 @@ class LoginViewModel {
                 default:
                     self.onError?(String.localizeString(localizedString: "error-unknown"))
                 }
+            }
+        }
+    }
+    private func getUserByEmail(for email: String, completion: @escaping ((_ userId: String) -> Void)) {
+        userManager.getUsers { result in
+            switch result {
+            case .success(let users):
+                let foundUser = users.filter {$0.email == email}
+                if !foundUser.isEmpty {
+                    completion(foundUser.first!.id)
+                }
+            case .failure(let error):
+                self.onError?(error.localizedDescription)
             }
         }
     }
@@ -115,7 +142,15 @@ class LoginViewModel {
                         return
                     }
                     if let user = user, user.typeLogin == UserTypeLogin.FACEBOOK.rawValue {
-                        self.signUpWithFirebase(credential: credential) {_ in}
+                        self.signUpWithFirebase(credential: credential) { authData in
+                            guard let authData = authData as? AuthDataResult else {
+                                self.onError?(String.localizeString(localizedString: "error-unknown"))
+                                return
+                            }
+                            self.getUserByEmail(for: authData.user.email ?? "") { userId in
+                                ConstantVariables.defaults.set(userId, forKey: ConstantVariables.defUserLoggedId)
+                            }
+                        }
                         return
                     }
                     self.signUpWithFirebase(credential: credential) { authData in

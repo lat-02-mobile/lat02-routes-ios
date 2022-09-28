@@ -14,7 +14,6 @@ enum Units: String {
 }
 
 class ConstantVariables {
-    static let lineRouteCell = "LineRouteTableViewCell"
     static let databaseName = "RoutesApp_ios"
     static let cityCellNib = "CityTableViewCell"
     static let cityCellIdentifier = "CityCell"
@@ -23,10 +22,17 @@ class ConstantVariables {
     static let defCitySelected = "CitySelected"
     static let defCityLat = "CityLatitude"
     static let defCityLong = "CityLongitude"
+    static let defCityId = "CityId"
+    static let defUserLoggedId = "LoggedUserId"
+
+    // Resources
     static let primaryColor = "primary-color"
+    static let mapStyle = "silver-style"
+    static let mapStyleExt = "json"
+    static let filterIcon = "filter-icon"
     static let routeListCell = "RouteListTableViewCell"
     static let routeTitle = "routeTitle"
-    static let filterIcon = "filter-icon"
+    static let lineRouteCell = "LineRouteTableViewCell"
 
     // PlaceTableViewCell
     static let placeCellNib = "PlaceTableViewCell"

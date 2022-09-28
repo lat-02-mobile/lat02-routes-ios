@@ -57,6 +57,12 @@
 		C2436385289A2CD6003C1A44 /* FirebaseFirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2436384289A2CD6003C1A44 /* FirebaseFirestoreManager.swift */; };
 		C2436387289A2CE4003C1A44 /* FirebaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2436386289A2CE4003C1A44 /* FirebaseAuthManager.swift */; };
 		C2436389289A2D21003C1A44 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2436388289A2D21003C1A44 /* BaseModel.swift */; };
+		C249BB1B28E4F8D200E6BA85 /* PopupRouteDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C249BB1A28E4F8D200E6BA85 /* PopupRouteDetailViewModel.swift */; };
+		C249BB1F28E4F9A400E6BA85 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C249BB1D28E4F9A400E6BA85 /* CoreDataManager.swift */; };
+		C249BB2028E4F9A400E6BA85 /* FavoriteDestinationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C249BB1E28E4F9A400E6BA85 /* FavoriteDestinationsManager.swift */; };
+		C249BB2328E4F9BC00E6BA85 /* FavoriteDest+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C249BB2128E4F9BC00E6BA85 /* FavoriteDest+CoreDataClass.swift */; };
+		C249BB2428E4F9BC00E6BA85 /* FavoriteDest+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C249BB2228E4F9BC00E6BA85 /* FavoriteDest+CoreDataProperties.swift */; };
+		C249BB2628E4F9DE00E6BA85 /* CLLocationDistanceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C249BB2528E4F9DE00E6BA85 /* CLLocationDistanceExtension.swift */; };
 		C24BD6EA28A134C3007FCAB7 /* UserFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24BD6E928A134C3007FCAB7 /* UserFirebaseManager.swift */; };
 		C2745DD028E2AF69003C17E4 /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2745DCF28E2AF69003C17E4 /* Env.swift */; };
 		C278972D28E3B48100FF2796 /* RouteListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C278972028E3B48100FF2796 /* RouteListViewModel.swift */; };
@@ -78,7 +84,6 @@
 		C2BB145228A150A70083CA1E /* SignupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2BB145428A150A70083CA1E /* SignupViewController.xib */; };
 		C2BB145C28A1529E0083CA1E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C2BB145E28A1529E0083CA1E /* Localizable.strings */; };
 		C2BB146128A153390083CA1E /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BB146028A153390083CA1E /* StringExtension.swift */; };
-		C2BB146328A16CB60083CA1E /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BB146228A16CB60083CA1E /* CoreDataManager.swift */; };
 		C2E976D92898701C009F4B94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E976D82898701C009F4B94 /* AppDelegate.swift */; };
 		C2E976DB2898701C009F4B94 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E976DA2898701C009F4B94 /* SceneDelegate.swift */; };
 		C2E976DD2898701C009F4B94 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E976DC2898701C009F4B94 /* ViewController.swift */; };
@@ -187,6 +192,12 @@
 		C2436384289A2CD6003C1A44 /* FirebaseFirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseFirestoreManager.swift; sourceTree = "<group>"; };
 		C2436386289A2CE4003C1A44 /* FirebaseAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManager.swift; sourceTree = "<group>"; };
 		C2436388289A2D21003C1A44 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
+		C249BB1A28E4F8D200E6BA85 /* PopupRouteDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupRouteDetailViewModel.swift; sourceTree = "<group>"; };
+		C249BB1D28E4F9A400E6BA85 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		C249BB1E28E4F9A400E6BA85 /* FavoriteDestinationsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteDestinationsManager.swift; sourceTree = "<group>"; };
+		C249BB2128E4F9BC00E6BA85 /* FavoriteDest+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FavoriteDest+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C249BB2228E4F9BC00E6BA85 /* FavoriteDest+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FavoriteDest+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C249BB2528E4F9DE00E6BA85 /* CLLocationDistanceExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLLocationDistanceExtension.swift; sourceTree = "<group>"; };
 		C24BD6E928A134C3007FCAB7 /* UserFirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFirebaseManager.swift; sourceTree = "<group>"; };
 		C2745DCF28E2AF69003C17E4 /* Env.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Env.swift; sourceTree = "<group>"; };
 		C27885D0261499B18A8C0B66 /* Pods_RoutesApp_iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoutesApp_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -213,7 +224,6 @@
 		C2BB145D28A1529E0083CA1E /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		C2BB145F28A152AE0083CA1E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C2BB146028A153390083CA1E /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
-		C2BB146228A16CB60083CA1E /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		C2E976D52898701C009F4B94 /* RoutesApp_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoutesApp_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2E976D82898701C009F4B94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2E976DA2898701C009F4B94 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -447,6 +457,7 @@
 			isa = PBXGroup;
 			children = (
 				C215EF0828A4B1F400371DB6 /* HomeVIewModel.swift */,
+				C249BB1A28E4F8D200E6BA85 /* PopupRouteDetailViewModel.swift */,
 				844F9A2D28C84718004A95A0 /* SearchLocationViewModel.swift */,
 			);
 			path = viewmodels;
@@ -476,6 +487,8 @@
 		C2353BC528D899C600BF4856 /* local */ = {
 			isa = PBXGroup;
 			children = (
+				C249BB2128E4F9BC00E6BA85 /* FavoriteDest+CoreDataClass.swift */,
+				C249BB2228E4F9BC00E6BA85 /* FavoriteDest+CoreDataProperties.swift */,
 			);
 			path = local;
 			sourceTree = "<group>";
@@ -490,6 +503,15 @@
 				84067C6928B3D58500549300 /* CityFirebaseManager.swift */,
 				844F9A2828C7F542004A95A0 /* GoogleMapsManager.swift */,
 				CE19B2FC28DCF2F500840426 /* RouteListManager.swift */,
+			);
+			path = managers;
+			sourceTree = "<group>";
+		};
+		C249BB1C28E4F9A400E6BA85 /* managers */ = {
+			isa = PBXGroup;
+			children = (
+				C249BB1D28E4F9A400E6BA85 /* CoreDataManager.swift */,
+				C249BB1E28E4F9A400E6BA85 /* FavoriteDestinationsManager.swift */,
 			);
 			path = managers;
 			sourceTree = "<group>";
@@ -674,7 +696,7 @@
 		C2E9771028987D5B009F4B94 /* local */ = {
 			isa = PBXGroup;
 			children = (
-				C2BB146228A16CB60083CA1E /* CoreDataManager.swift */,
+				C249BB1C28E4F9A400E6BA85 /* managers */,
 			);
 			path = local;
 			sourceTree = "<group>";
@@ -715,6 +737,7 @@
 				C2BB146028A153390083CA1E /* StringExtension.swift */,
 				C2E977322898802F009F4B94 /* Encodable.swift */,
 				CE93A8A228BD3ECD00296532 /* CLLocationCoordinate2DExtension.swift */,
+				C249BB2528E4F9DE00E6BA85 /* CLLocationDistanceExtension.swift */,
 				C2414D8328E1CDF200CDF73A /* ClPlaceMark.swift */,
 				C2414D8528E1DCDB00CDF73A /* Double.swift */,
 			);
@@ -1105,6 +1128,7 @@
 				84A5B67A28C698C5006AB7F9 /* RouteMapViewController.swift in Sources */,
 				C2414D8628E1DCDC00CDF73A /* Double.swift in Sources */,
 				84067C7028B4257E00549300 /* Cities.swift in Sources */,
+				C249BB1B28E4F8D200E6BA85 /* PopupRouteDetailViewModel.swift in Sources */,
 				C27EB66628D3689200A1E742 /* LinePathTableViewCell.swift in Sources */,
 				8498F89D28CF4892008641D9 /* Constants.swift in Sources */,
 				84067C7028B4257E00549300 /* Cities.swift in Sources */,
@@ -1116,7 +1140,6 @@
 				84067C6828B3D3AA00549300 /* CityPickerViewModel.swift in Sources */,
 				8420E0C728C68E89000068F9 /* SearchLocationViewController.swift in Sources */,
 				C2436387289A2CE4003C1A44 /* FirebaseAuthManager.swift in Sources */,
-				C2BB146328A16CB60083CA1E /* CoreDataManager.swift in Sources */,
 				C24BD6EA28A134C3007FCAB7 /* UserFirebaseManager.swift in Sources */,
 				84067C8B28B95EDA00549300 /* SettingsViewModel.swift in Sources */,
 				C215EF0928A4B1F500371DB6 /* HomeVIewModel.swift in Sources */,
@@ -1127,12 +1150,14 @@
 				C2E976D92898701C009F4B94 /* AppDelegate.swift in Sources */,
 				C2E9772F28987FA0009F4B94 /* NetworkManager.swift in Sources */,
 				C2112DE1289A18FB009601AB /* HomeViewController.swift in Sources */,
+				C249BB2428E4F9BC00E6BA85 /* FavoriteDest+CoreDataProperties.swift in Sources */,
 				84067C7328B4305300549300 /* CityTableViewCell.swift in Sources */,
 				C2BB146128A153390083CA1E /* StringExtension.swift in Sources */,
 				844F9A3128C84E63004A95A0 /* PlaceTableViewCell.swift in Sources */,
 				C2E9772028987F2A009F4B94 /* SignupViewController.swift in Sources */,
 				C278975228E3B8D900FF2796 /* LineRouteViewController.swift in Sources */,
 				CE19B2FD28DCF2F500840426 /* RouteListManager.swift in Sources */,
+				C249BB2328E4F9BC00E6BA85 /* FavoriteDest+CoreDataClass.swift in Sources */,
 				C2E9772B28987F79009F4B94 /* User.swift in Sources */,
 				CE7FBAE728D8B022001175D3 /* GDirectionsResponse.swift in Sources */,
 				C215EF0C28A4BB5D00371DB6 /* ViewModel.swift in Sources */,
@@ -1142,6 +1167,7 @@
 				C290E5EF28D272C90019782F /* RouteDetailViewController.swift in Sources */,
 				C2745DD028E2AF69003C17E4 /* Env.swift in Sources */,
 				CE7FBADC28D565F2001175D3 /* BottomSheetViewController.swift in Sources */,
+				C249BB2028E4F9A400E6BA85 /* FavoriteDestinationsManager.swift in Sources */,
 				C2436385289A2CD6003C1A44 /* FirebaseFirestoreManager.swift in Sources */,
 				845D228928A7050000E9A660 /* PhoneAuthenticationViewController.swift in Sources */,
 				C278972F28E3B48100FF2796 /* TransportationCategoryTableViewCell.swift in Sources */,
@@ -1154,6 +1180,7 @@
 				C2E976DB2898701C009F4B94 /* SceneDelegate.swift in Sources */,
 				CE65448D28BD174C003B599B /* Line.swift in Sources */,
 				84067C6528B3D0A700549300 /* CitySplashViewController.swift in Sources */,
+				C249BB1F28E4F9A400E6BA85 /* CoreDataManager.swift in Sources */,
 				C2E976E32898701C009F4B94 /* RoutesApp_ios.xcdatamodeld in Sources */,
 				CE7FBAE928D8B8EB001175D3 /* GoogleMapsHelper.swift in Sources */,
 				CE93A8A328BD3ECD00296532 /* CLLocationCoordinate2DExtension.swift in Sources */,
@@ -1161,6 +1188,7 @@
 				C2E9772728987F48009F4B94 /* LoginViewModel.swift in Sources */,
 				84067C6A28B3D58500549300 /* CityFirebaseManager.swift in Sources */,
 				CE7FBAED28D8BFEC001175D3 /* ColorHelper.swift in Sources */,
+				C249BB2628E4F9DE00E6BA85 /* CLLocationDistanceExtension.swift in Sources */,
 				CE1D1DD828DD4C0600F61040 /* ImageHelper.swift in Sources */,
 				C2E977332898802F009F4B94 /* Encodable.swift in Sources */,
 				84067C6E28B4206600549300 /* Country.swift in Sources */,
