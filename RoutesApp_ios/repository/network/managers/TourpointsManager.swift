@@ -20,7 +20,7 @@ class TourpointsManager: TourpointsManagerProtocol {
         firebaseManager.getTourPoints { result in
             switch result {
             case.success(let tourpoints):
-                self.firebaseManager.getTourPointCategories { categories in
+                self.firebaseManager.getDocuments(type: TourpointCategory.self, forCollection: .TourpointsCategory) { categories in
                     switch categories {
                     case.success(let categories):
                         let info = tourpoints.compactMap({$0.toTourpointInfo(categories: categories, isLocationEng: currentLocale != "es")})

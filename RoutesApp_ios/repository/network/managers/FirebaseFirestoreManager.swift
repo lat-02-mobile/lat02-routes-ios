@@ -164,13 +164,4 @@ class FirebaseFirestoreManager {
             completion(.success(tourPoints))
         }
     }
-
-    func getTourPointCategories(completion: @escaping (Result<[TourpointCategory], Error>) -> Void) {
-        db.collection(FirebaseCollections.TourpointsCategory.rawValue).getDocuments { querySnapshot, error in
-            guard error == nil else { return completion(.failure(error!)) }
-            guard let documents = querySnapshot?.documents else { return completion(.success([])) }
-            let categories = documents.compactMap({try?$0.data(as: TourpointCategory.self)})
-            completion(.success(categories))
-        }
-    }
 }
