@@ -8,7 +8,7 @@
 import Foundation
 
 class TourpointsViewModel: ViewModel {
-    var tourpointsManager: TourpointsManager = TourpointsManager.shared
+    var tourpointsManager: TourpointsManagerProtocol = TourpointsManager.shared
 
     private var tourpointList = [TourpointInfo]()
     var pointsCount: Int {

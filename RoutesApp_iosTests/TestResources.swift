@@ -82,4 +82,9 @@ class TestResources {
         LinesCategory(id: "1", nameEng: "Subway", nameEsp: "Subway", blackIcon: "", whiteIcon: ""),
         LinesCategory(id: "2", nameEng: "Bus", nameEsp: "Bus", blackIcon: "", whiteIcon: "")
     ]
+
+    static let tourpointsInfo = [
+        TourpointInfo(address: "Addres 1", destination: Coordinate(latitude: 0, longitude: 0), name: "Name 1",
+                      category: "Category 1", urlImage: "URL Image")
+    ]
 }

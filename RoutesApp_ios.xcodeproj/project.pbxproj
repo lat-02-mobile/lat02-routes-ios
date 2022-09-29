@@ -42,6 +42,7 @@
 		844F9A4E28E49594004A95A0 /* TourpointsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F9A4D28E49594004A95A0 /* TourpointsManager.swift */; };
 		844F9A5028E49C99004A95A0 /* GeoPointExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F9A4F28E49C99004A95A0 /* GeoPointExtension.swift */; };
 		844F9A5228E49EA7004A95A0 /* TourpointsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F9A5128E49EA7004A95A0 /* TourpointsViewModel.swift */; };
+		844F9A5428E5C5C7004A95A0 /* TourpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F9A5328E5C5C7004A95A0 /* TourpointTests.swift */; };
 		845D228928A7050000E9A660 /* PhoneAuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D228728A7050000E9A660 /* PhoneAuthenticationViewController.swift */; };
 		847A59E228A820F5005CEA25 /* PhoneAuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A59E128A820F5005CEA25 /* PhoneAuthenticationViewModel.swift */; };
 		8498F89D28CF4892008641D9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8498F89C28CF4892008641D9 /* Constants.swift */; };
@@ -166,6 +167,7 @@
 		844F9A4D28E49594004A95A0 /* TourpointsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourpointsManager.swift; sourceTree = "<group>"; };
 		844F9A4F28E49C99004A95A0 /* GeoPointExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoPointExtension.swift; sourceTree = "<group>"; };
 		844F9A5128E49EA7004A95A0 /* TourpointsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourpointsViewModel.swift; sourceTree = "<group>"; };
+		844F9A5328E5C5C7004A95A0 /* TourpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourpointTests.swift; sourceTree = "<group>"; };
 		845D228728A7050000E9A660 /* PhoneAuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAuthenticationViewController.swift; sourceTree = "<group>"; };
 		847A59E128A820F5005CEA25 /* PhoneAuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAuthenticationViewModel.swift; sourceTree = "<group>"; };
 		8498F89C28CF4892008641D9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -619,6 +621,7 @@
 				844F9A3928CBEA7D004A95A0 /* SearchLocationTest.swift */,
 				CE19B2FA28DCEDD400840426 /* RouteListTests.swift */,
 				CE3BB7B428DE4665004BFA07 /* PossibleRoutesTests.swift */,
+				844F9A5328E5C5C7004A95A0 /* TourpointTests.swift */,
 			);
 			path = RoutesApp_iosTests;
 			sourceTree = "<group>";
@@ -1163,6 +1166,7 @@
 				CE8CE8F028BE493F003270D7 /* AlgorithmTests.swift in Sources */,
 				C20A86D528A339540000EF7C /* AuthTests.swift in Sources */,
 				84067C8928B8272000549300 /* CityPickerTests.swift in Sources */,
+				844F9A5428E5C5C7004A95A0 /* TourpointTests.swift in Sources */,
 				C20A86D328A338E30000EF7C /* TestResources.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
