@@ -9,7 +9,7 @@ import Foundation
 
 protocol CityManagerProtocol {
     func getCitiesByName(parameter: String, completion: @escaping(Result<[Cities], Error>) -> Void)
-    func getCountryById(id: String, completion: @escaping(Result<[Country], Error>) -> Void)
+    func getCountryById(id: String, completion: @escaping(Result<Country, Error>) -> Void)
     func getCities(completion: @escaping(Result<[Cities], Error>) -> Void)
 }
 
@@ -26,8 +26,8 @@ class CityFirebaseManager: CityManagerProtocol {
                                                              field: "name", parameter: parameter, completion: completion)
     }
 
-    func getCountryById(id: String, completion: @escaping (Result<[Country], Error>) -> Void) {
-        self.firebaseManager.getCountryById(forCollection: .Countries, field: "id",
-                                            parameter: id, completion: completion)
+    func getCountryById(id: String, completion: @escaping (Result<Country, Error>) -> Void) {
+        self.firebaseManager.getSingleDocumentById(type: Country.self, forCollection: .Countries,
+                                            documentID: id, completion: completion)
     }
 }

@@ -65,7 +65,7 @@ class TestResources {
     static let testCountryId = "testCountry"
     static let testCityRoute = Cities(country: "test", id: "testid", idCountry: "countryTest", lat: "-35", lng: "-17", name: "testCity")
     static let testCountry = Country(
-        id: "test", name: "testCountry", code: "test", phone: "test", createdAt: Date(), updatedAt: Date(), cities: [DocumentReference]()
+        id: "test", name: "testCountry", code: "test", phone: "test", createdAt: nil, updatedAt: nil, cities: [DocumentReference]()
     )
 
     static let findPlacesTest = Place(name: "A place name", identifier: "123456")
@@ -87,7 +87,7 @@ class TestResources {
         TourpointInfo(address: "Addres 1", destination: Coordinate(latitude: 0, longitude: 0), name: "Name 1",
                       category: "Category 1", urlImage: "URL Image")
     ]
-    
+
     static let RoutePoints = [GeoPoint(latitude: 1, longitude: 1), GeoPoint(latitude: 1, longitude: 1)]
     static let Stops = [GeoPoint(latitude: 1, longitude: 1), GeoPoint(latitude: 1, longitude: 1)]
 

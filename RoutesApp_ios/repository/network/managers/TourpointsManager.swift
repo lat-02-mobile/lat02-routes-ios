@@ -17,7 +17,7 @@ class TourpointsManager: TourpointsManagerProtocol {
 
     func getTourpointList(completion: @escaping (Result<[TourpointInfo], Error>) -> Void) {
         let currentLocale = Locale.current.languageCode
-        firebaseManager.getTourPoints { result in
+        firebaseManager.getDocumentsFromCity(type: Tourpoint.self, forCollection: .Tourpoints, usingReference: true) { result in
             switch result {
             case.success(let tourpoints):
                 self.firebaseManager.getDocuments(type: TourpointCategory.self, forCollection: .TourpointsCategory) { categories in

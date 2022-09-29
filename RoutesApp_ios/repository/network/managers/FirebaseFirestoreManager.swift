@@ -18,6 +18,7 @@ enum FirebaseCollections: String {
     case Countries
     case Cities
     case Lines
+    case LineCategories
     case Tourpoints
     case TourpointsCategory
     case LineRoute
@@ -74,94 +75,43 @@ class FirebaseFirestoreManager {
         db.collection(collection.rawValue).whereField(field, isEqualTo: parameter).getDocuments { querySnapshot, error in
             guard error == nil else { return completion(.failure(error!)) }
             guard let documents = querySnapshot?.documents else { return completion(.success([])) }
-            var items = [T]()
-            let json = JSONDecoder()
+            var objects = [T]()
             for document in documents {
-                if let data = try? JSONSerialization.data(withJSONObject: document.data(), options: []),
-                   let item = try? json.decode(type, from: data) {
-                    items.append(item)
+                let decoder = Firestore.Decoder()
+                if let item = try? decoder.decode(T.self, from: document.data()) {
+                    objects.append(item)
                 }
             }
-            completion(.success(items))
+            completion(.success(objects))
         }
     }
-    func getCountryById(forCollection collection: FirebaseCollections, field: String, parameter: String, completion: @escaping ( Result<[Country], Error>) -> Void  ) {
-        db.collection(collection.rawValue).whereField(field, isEqualTo: parameter).getDocuments { querySnapshot, error in
+    func getSingleDocumentById<T: Decodable>(type: T.Type, forCollection collection: FirebaseCollections, documentID: String, completion: @escaping ( Result<T, Error>) -> Void  ) {
+        db.collection(collection.rawValue).document(documentID).getDocument { querySnapshot, error in
             guard error == nil else { return completion(.failure(error!)) }
-            guard let documents = querySnapshot?.documents else { return completion(.success([])) }
-            var items = [Country]()
-
-            for document in documents {
-                let id = document.get("id") as? String ?? ""
-                let name = document.get("name") as? String ?? ""
-                let code = document.get("code") as? String ?? ""
-                let phone = document.get("phone") as? String ?? ""
-                let createdAt = document.get("createdAt") as? Date ?? Date()
-                let updatedAt = document.get("updatedAt") as? Date ?? Date()
-                let cities = document.get("cities") as? [DocumentReference] ?? [DocumentReference]()
-
-                let country = Country(id: id, name: name, code: code, phone: phone, createdAt: createdAt, updatedAt: updatedAt, cities: cities)
-                items.append(country)
-            }
-            completion(.success(items))
-        }
-    }
-
-    func getLineWithBooleanCondition<T: Decodable>(type: T.Type, forCollection collection: FirebaseCollections, enable: Bool, completion: @escaping ( Result<[T], Error>) -> Void  ) {
-        db.collection(collection.rawValue).whereField("enable", isEqualTo: enable).getDocuments { (snapshot, _) in
-            guard let snapshot = snapshot else { return }
             do {
-                var objects = [T]()
-                for document in snapshot.documents {
-                    let decoder = Firestore.Decoder()
-                    if let item = try? decoder.decode(T.self, from: document.data()) {
-                        objects.append(item)
-                    }
-                }
-                completion(.success(objects))
+                guard let snap = querySnapshot, let document = try snap.data(as: type) else { return }
+                completion(.success(document))
+            } catch {
+                completion(.failure(FirebaseErrors.ErrorToDecodeItem))
             }
-        }
-    }
-    func getLineRoute<T: Decodable>(type: T.Type, forCollection collection: FirebaseCollections, id: String, completion: @escaping ( Result<[T], Error>) -> Void  ) {
-        db.collection(collection.rawValue).whereField("idLine", isEqualTo: id).getDocuments { (snapshot, _) in
-            guard let snapshot = snapshot else { return }
-            do {
-                var objects = [T]()
-                for document in snapshot.documents {
-                    let decoder = Firestore.Decoder()
-                    if let item = try? decoder.decode(T.self, from: document.data()) {
-                        objects.append(item)
-                    }
-                }
-                completion(.success(objects))
-            }
-        }
-    }
-    func getLinesCategory<T: Decodable>(type: T.Type, forCollection collection: FirebaseCollections, completion: @escaping ( Result<[T], Error>) -> Void  ) {
-        db.collection("LineCategories").addSnapshotListener { (snapshot, _) in
-            guard let snapshot = snapshot else { return }
 
-            do {
-                var objects = [T]()
-                for document in snapshot.documents {
-                    let decoder = Firestore.Decoder()
-                    if let item = try? decoder.decode(T.self, from: document.data()) {
-                        objects.append(item)
-                    }
-                }
-                completion(.success(objects))
-            }
         }
     }
 
-    func getTourPoints(completion: @escaping (Result<[Tourpoint], Error>) -> Void) {
+    func getDocumentsFromCity<T: Decodable>(type: T.Type, forCollection collection: FirebaseCollections, usingReference: Bool = false,
+                                            completion: @escaping (Result<[T], Error>) -> Void) {
         guard let currentCity = ConstantVariables.defaults.string(forKey: ConstantVariables.defCityId) else { return }
-        let cityRef = db.collection(FirebaseCollections.Cities.rawValue).document(currentCity)
-        db.collection(FirebaseCollections.Tourpoints.rawValue).whereField("idCity", isEqualTo: cityRef).getDocuments { querySnapshot, error in
+        var cityRef: Any // it's any bacause it can be a string or a documentReference
+        if usingReference {
+            cityRef = db.collection(FirebaseCollections.Cities.rawValue).document(currentCity)
+        } else {
+            cityRef = currentCity
+        }
+        db.collection(collection.rawValue).whereField("idCity", isEqualTo: cityRef).getDocuments { querySnapshot, error in
             guard error == nil else { return completion(.failure(error!)) }
             guard let documents = querySnapshot?.documents else { return completion(.success([])) }
-            let tourPoints = documents.compactMap({try?$0.data(as: Tourpoint.self)})
-            completion(.success(tourPoints))
+            let finalDocuments = documents.compactMap({try?$0.data(as: T.self)})
+            completion(.success(finalDocuments))
         }
     }
 }
