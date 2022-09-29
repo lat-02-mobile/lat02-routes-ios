@@ -57,9 +57,25 @@
 
 "done" = "Hecho";
 
+// Save favorite dialogs
+"cancel" = "Cancelar";
+"yes" = "Si";
+"save" = "Guardar";
+"sure-want-remove-fav-dest" = "¿Esta seguro/a que desea eliminar este destino favorito?";
+"remove-fav-dest" = "Eliminar Destino Favorito";
+"save-dest" = "Guardar Destino";
+"choose-name-for-new-fav-dest" = "Por favor elige un nombre para guardar estas coordenadas como un destino favorito";
+"write-name" = "Escribe un nombre";
 // Possible Routes to take
 "recommended" = " (recomendada)";
 // Lines - RouteList
 "routeTitle" = "Líneas";
 "filter-title" = "Filtrar por categoría";
 "Lines" = "Lineas";
+
+// Route Detail
+"route-detail-no-matches-adressess" = "No se encontraron direcciones";
+"route-detail-unable-to-get-location" = "No se puede obtener la ubicacion";
+"meters" = "%@ m";
+"kilometers" = "%@ km";
+"minutes" = "%@ min";

@@ -1,6 +1,6 @@
 #!/bin/bash
 echo “------------ Running pre-commit hook------------”
-xcodebuild -quiet -workspace RoutesApp_ios.xcworkspace -scheme "RoutesApp_ios" -destination 'platform=iOS Simulator,name=iPhone 13 Pro,OS=15.5' test
+xcodebuild ARCHS=x86_64 ONLY_ACTIVE_ARCH=NO -quiet -workspace RoutesApp_ios.xcworkspace -scheme "RoutesApp_ios" -destination 'platform=iOS Simulator,name=iPhone 13 Pro,OS=15.5' test
 if [ $? -ne 0 ]; then
  echo “------------TESTS MUST PASS BEFORE COMMIT!!!------------”
  exit 1

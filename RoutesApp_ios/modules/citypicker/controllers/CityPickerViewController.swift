@@ -51,7 +51,7 @@ class CityPickerViewController: UIViewController {
             SVProgressHUD.dismiss()
             strongSelf.cityTableView.reloadData()
         }
-            viewmodel.onError = { _ in
+        viewmodel.onError = { _ in
             SVProgressHUD.dismiss()
         }
     }
@@ -97,6 +97,7 @@ extension CityPickerViewController: UITableViewDelegate, UITableViewDataSource {
         let vc = CitySplashViewController()
         vc.idCity = city.id
         vc.city = city.name
+        vc.cityId = city.id
         vc.cityLat = city.lat
         vc.cityLng = city.lng
         show(vc, sender: nil)

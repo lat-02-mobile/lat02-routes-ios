@@ -12,6 +12,7 @@ class CitySplashViewController: UIViewController {
     @IBOutlet weak var cityNameLabel: UILabel!
     var idCity = ""
     var timer = Timer()
+    var cityId = ""
     var city = ""
     var country = ""
     var cityLat = ""
@@ -41,6 +42,7 @@ class CitySplashViewController: UIViewController {
         ConstantVariables.defaults.set(idCity, forKey: ConstantVariables.defIdCitySelected)
         ConstantVariables.defaults.set(lat, forKey: ConstantVariables.defCityLat)
         ConstantVariables.defaults.set(lng, forKey: ConstantVariables.defCityLong)
+        ConstantVariables.defaults.set(cityId, forKey: ConstantVariables.defCityId)
     }
 
     func initTimer() {

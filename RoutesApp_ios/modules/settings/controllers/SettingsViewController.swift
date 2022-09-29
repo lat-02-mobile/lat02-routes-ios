@@ -41,6 +41,8 @@ class SettingsViewController: UIViewController {
         ConstantVariables.defaults.set("", forKey: ConstantVariables.defCitySelected)
         ConstantVariables.defaults.set(0, forKey: ConstantVariables.defCityLat)
         ConstantVariables.defaults.set(0, forKey: ConstantVariables.defCityLong)
+        CoreDataManager.shared.deleteAll()
+        ConstantVariables.defaults.removeObject(forKey: ConstantVariables.defUserLoggedId)
         SceneDelegate.shared?.setupRootControllerIfNeeded(validUser: viewmodel.authManager.userIsLoggedIn())
     }
 }
