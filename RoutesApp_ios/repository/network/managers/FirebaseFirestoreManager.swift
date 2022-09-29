@@ -30,6 +30,10 @@ class FirebaseFirestoreManager {
     func getDocID(forCollection collection: FirebaseCollections) -> String {
         db.collection(collection.rawValue).document().documentID
     }
+
+    func getDocReference(forCollection collection: FirebaseCollections, documentID: String) -> DocumentReference {
+        db.collection(collection.rawValue).document(documentID)
+    }
     func addDocument<T: Encodable & BaseModel>(document: T, collection: FirebaseCollections, completion: @escaping ( Result<T, Error>) -> Void  ) {
         guard let itemDict = document.dict else { return completion(.failure(FirebaseErrors.ErrorToDecodeItem)) }
         db.collection(collection.rawValue).document(document.id).setData(itemDict) { error in
@@ -70,19 +74,13 @@ class FirebaseFirestoreManager {
             completion(.success(items))
         }
     }
-    func getDocumentsByParameterContains<T: Decodable>(type: T.Type, forCollection collection: FirebaseCollections, field: String, parameter: String,
+    func getDocumentsByParameterContains<T: Decodable>(type: T.Type, forCollection collection: FirebaseCollections, field: String, parameter: Any,
                                                        completion: @escaping ( Result<[T], Error>) -> Void  ) {
         db.collection(collection.rawValue).whereField(field, isEqualTo: parameter).getDocuments { querySnapshot, error in
             guard error == nil else { return completion(.failure(error!)) }
             guard let documents = querySnapshot?.documents else { return completion(.success([])) }
-            var objects = [T]()
-            for document in documents {
-                let decoder = Firestore.Decoder()
-                if let item = try? decoder.decode(T.self, from: document.data()) {
-                    objects.append(item)
-                }
-            }
-            completion(.success(objects))
+            let finalDocuments = documents.compactMap({try?$0.data(as: type)})
+            completion(.success(finalDocuments))
         }
     }
     func getSingleDocumentById<T: Decodable>(type: T.Type, forCollection collection: FirebaseCollections, documentID: String, completion: @escaping ( Result<T, Error>) -> Void  ) {
@@ -95,23 +93,6 @@ class FirebaseFirestoreManager {
                 completion(.failure(FirebaseErrors.ErrorToDecodeItem))
             }
 
-        }
-    }
-
-    func getDocumentsFromCity<T: Decodable>(type: T.Type, forCollection collection: FirebaseCollections, usingReference: Bool = false,
-                                            completion: @escaping (Result<[T], Error>) -> Void) {
-        guard let currentCity = ConstantVariables.defaults.string(forKey: ConstantVariables.defCityId) else { return }
-        var cityRef: Any // it's any bacause it can be a string or a documentReference
-        if usingReference {
-            cityRef = db.collection(FirebaseCollections.Cities.rawValue).document(currentCity)
-        } else {
-            cityRef = currentCity
-        }
-        db.collection(collection.rawValue).whereField("idCity", isEqualTo: cityRef).getDocuments { querySnapshot, error in
-            guard error == nil else { return completion(.failure(error!)) }
-            guard let documents = querySnapshot?.documents else { return completion(.success([])) }
-            let finalDocuments = documents.compactMap({try?$0.data(as: T.self)})
-            completion(.success(finalDocuments))
         }
     }
 }

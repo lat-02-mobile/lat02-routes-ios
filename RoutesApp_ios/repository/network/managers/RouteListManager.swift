@@ -16,9 +16,10 @@ protocol RouteListManagerProtocol {
 class RouteListManager: RouteListManagerProtocol {
     static let shared = RouteListManager()
     let firebaseManager = FirebaseFirestoreManager.shared
+    let cityManager = CityFirebaseManager.shared
 
     func getLines(completion: @escaping(Result<[Lines], Error>) -> Void) {
-        firebaseManager.getDocumentsFromCity(type: Lines.self, forCollection: .Lines) { result in
+        cityManager.getDocumentsFromCity(type: Lines.self, forCollection: .Lines) { result in
             switch result {
             case .success(let lines):
                 let enabledLines = lines.filter { line in

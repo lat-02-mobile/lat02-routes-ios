@@ -30,4 +30,17 @@ class CityFirebaseManager: CityManagerProtocol {
         self.firebaseManager.getSingleDocumentById(type: Country.self, forCollection: .Countries,
                                             documentID: id, completion: completion)
     }
+
+    func getDocumentsFromCity<T: Decodable>(type: T.Type, forCollection collection: FirebaseCollections, usingReference: Bool = false,
+                                            completion: @escaping (Result<[T], Error>) -> Void) {
+        guard let currentCity = ConstantVariables.defaults.string(forKey: ConstantVariables.defCityId) else { return }
+        var cityRef: Any // it's any bacause it can be a string or a documentReference
+        if usingReference {
+            cityRef = firebaseManager.getDocReference(forCollection: .Cities, documentID: currentCity)
+        } else {
+            cityRef = currentCity
+        }
+        firebaseManager.getDocumentsByParameterContains(type: type, forCollection: collection,
+                                                        field: "idCity", parameter: cityRef, completion: completion)
+    }
 }

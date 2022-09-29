@@ -14,10 +14,11 @@ protocol TourpointsManagerProtocol {
 class TourpointsManager: TourpointsManagerProtocol {
     static let shared = TourpointsManager()
     let firebaseManager = FirebaseFirestoreManager.shared
+    let cityManager = CityFirebaseManager.shared
 
     func getTourpointList(completion: @escaping (Result<[TourpointInfo], Error>) -> Void) {
         let currentLocale = Locale.current.languageCode
-        firebaseManager.getDocumentsFromCity(type: Tourpoint.self, forCollection: .Tourpoints, usingReference: true) { result in
+        cityManager.getDocumentsFromCity(type: Tourpoint.self, forCollection: .Tourpoints, usingReference: true) { result in
             switch result {
             case.success(let tourpoints):
                 self.firebaseManager.getDocuments(type: TourpointCategory.self, forCollection: .TourpointsCategory) { categories in
