@@ -16,19 +16,25 @@ protocol RouteListManagerProtocol {
 class RouteListManager: RouteListManagerProtocol {
     static let shared = RouteListManager()
     let firebaseManager = FirebaseFirestoreManager.shared
+    let cityManager = CityFirebaseManager.shared
 
     func getLines(completion: @escaping(Result<[Lines], Error>) -> Void) {
-        firebaseManager.getLineWithBooleanCondition(type: Lines.self, forCollection: .Lines, enable: true) { result in
+        cityManager.getDocumentsFromCity(type: Lines.self, forCollection: .Lines) { result in
             switch result {
             case .success(let lines):
-                completion(.success(lines))
+                let enabledLines = lines.filter { line in
+                    guard let enabledLine = line.enable else { return false }
+                    return enabledLine
+                }
+                completion(.success(enabledLines))
             case .failure(let error):
                 completion(.failure(error))
             }
         }
     }
     func getLineRoute(idLine: String, completion: @escaping(Result<[LineRouteInfo], Error>) -> Void) {
-        firebaseManager.getLineRoute(type: LineRouteInfo.self, forCollection: .LineRoute, id: idLine ) { result in
+        firebaseManager.getDocumentsByParameterContains(type: LineRouteInfo.self, forCollection: .LineRoute, field: "idLine",
+                                                        parameter: idLine) { result in
             switch result {
             case .success(let lines):
                 completion(.success(lines))
@@ -38,7 +44,7 @@ class RouteListManager: RouteListManagerProtocol {
         }
     }
     func getCategories(completion: @escaping (Result<[LinesCategory], Error>) -> Void) {
-        firebaseManager.getLinesCategory(type: LinesCategory.self, forCollection: .Lines) { result in
+        firebaseManager.getDocuments(type: LinesCategory.self, forCollection: .LineCategories) { result in
             switch result {
             case .success(let lines):
                 completion(.success(lines))

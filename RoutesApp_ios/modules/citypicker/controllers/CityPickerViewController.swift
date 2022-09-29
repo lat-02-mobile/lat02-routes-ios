@@ -30,7 +30,7 @@ class CityPickerViewController: UIViewController {
     }
 
     func setupView() {
-        let placeholder = (String.localizeString(localizedString: "city-search-bar"))
+        let placeholder = (String.localizeString(localizedString: ConstantVariables.search))
         self.citySearchBar.searchTextField.backgroundColor = UIColor .white
         self.citySearchBar.barTintColor = UIColor .clear
         self.citySearchBar.backgroundImage = UIImage()
@@ -83,10 +83,8 @@ extension CityPickerViewController: UITableViewDelegate, UITableViewDataSource {
         cell.selectionStyle = .none
 
         let city = viewmodel.cities[indexPath.row]
-        self.viewmodel.getCountry(id: city.idCountry) { countries in
-            if let country = countries.first {
-                cell.setData(city: city.name, country: country.name)
-            }
+        self.viewmodel.getCountry(id: city.idCountry) { country in
+            cell.setData(city: city.name, country: country.name)
         }
 
         return cell
