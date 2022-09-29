@@ -95,7 +95,6 @@ extension CityPickerViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let city = viewmodel.cities[indexPath.row]
         let vc = CitySplashViewController()
-        vc.idCity = city.id
         vc.city = city.name
         vc.cityId = city.id
         vc.cityLat = city.lat

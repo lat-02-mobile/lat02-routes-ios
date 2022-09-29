@@ -10,7 +10,6 @@ import UIKit
 class CitySplashViewController: UIViewController {
 
     @IBOutlet weak var cityNameLabel: UILabel!
-    var idCity = ""
     var timer = Timer()
     var cityId = ""
     var city = ""
@@ -31,7 +30,7 @@ class CitySplashViewController: UIViewController {
     }
 
     func setUpCityName() {
-        guard !city.isEmpty, !idCity.isEmpty, !cityLat.isEmpty, !cityLng.isEmpty else { return }
+        guard !city.isEmpty, !cityId.isEmpty, !cityLat.isEmpty, !cityLng.isEmpty else { return }
         let desc = (String.localizeString(localizedString: "welcome-message"))
         let text = "\(desc) \(city)"
         cityNameLabel.text = text
@@ -39,7 +38,6 @@ class CitySplashViewController: UIViewController {
         let lat = Double(cityLat)
         let lng = Double(cityLng)
         ConstantVariables.defaults.set(city, forKey: ConstantVariables.defCitySelected)
-        ConstantVariables.defaults.set(idCity, forKey: ConstantVariables.defIdCitySelected)
         ConstantVariables.defaults.set(lat, forKey: ConstantVariables.defCityLat)
         ConstantVariables.defaults.set(lng, forKey: ConstantVariables.defCityLong)
         ConstantVariables.defaults.set(cityId, forKey: ConstantVariables.defCityId)

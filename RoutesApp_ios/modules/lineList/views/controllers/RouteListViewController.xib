@@ -11,8 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RouteListViewController" customModule="RoutesApp_ios" customModuleProvider="target">
             <connections>
-                <outlet property="routeListTableView" destination="F8I-wr-loB" id="hST-5v-t3y"/>
-                <outlet property="searchBar" destination="KQE-Fk-HEY" id="iIy-kN-0fa"/>
+                <outlet property="lineListTableView" destination="F8I-wr-loB" id="Crt-dN-gbP"/>
+                <outlet property="searchBar" destination="KQE-Fk-HEY" id="U5T-lu-HON"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

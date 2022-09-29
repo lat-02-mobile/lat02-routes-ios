@@ -107,12 +107,6 @@ class FirebaseFirestoreManager {
         }
     }
 
-    func getLines<T: Decodable>(type: T.Type, forCollection collection: FirebaseCollections, completion: @escaping ( Result<[T], Error>) -> Void  ) {
-
-        db.collection("Lines").addSnapshotListener { (snapshot, _) in
-            guard let snapshot = snapshot else { return }
-        }
-    }
     func getLineWithBooleanCondition<T: Decodable>(type: T.Type, forCollection collection: FirebaseCollections, enable: Bool, completion: @escaping ( Result<[T], Error>) -> Void  ) {
         db.collection(collection.rawValue).whereField("enable", isEqualTo: enable).getDocuments { (snapshot, _) in
             guard let snapshot = snapshot else { return }
@@ -161,7 +155,7 @@ class FirebaseFirestoreManager {
     }
 
     func getTourPoints(completion: @escaping (Result<[Tourpoint], Error>) -> Void) {
-        guard let currentCity = ConstantVariables.defaults.string(forKey: ConstantVariables.defIdCitySelected) else { return }
+        guard let currentCity = ConstantVariables.defaults.string(forKey: ConstantVariables.defCityId) else { return }
         let cityRef = db.collection(FirebaseCollections.Cities.rawValue).document(currentCity)
         db.collection(FirebaseCollections.Tourpoints.rawValue).whereField("idCity", isEqualTo: cityRef).getDocuments { querySnapshot, error in
             guard error == nil else { return completion(.failure(error!)) }
