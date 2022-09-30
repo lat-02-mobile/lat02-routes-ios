@@ -11,6 +11,7 @@ protocol RouteListManagerProtocol {
     func getLines(completion: @escaping(Result<[Lines], Error>) -> Void)
     func getLineRoute(idLine: String, completion: @escaping(Result<[LineRouteInfo], Error>) -> Void)
     func getCategories(completion: @escaping (Result<[LinesCategory], Error>) -> Void)
+    func getLinesRoutesByLineAsync(idLine: String) async throws -> [LineRouteInfo]
 }
 
 class RouteListManager: RouteListManagerProtocol {
@@ -27,6 +28,7 @@ class RouteListManager: RouteListManagerProtocol {
             }
         }
     }
+
     func getLineRoute(idLine: String, completion: @escaping(Result<[LineRouteInfo], Error>) -> Void) {
         firebaseManager.getLineRoute(type: LineRouteInfo.self, forCollection: .LineRoute, id: idLine ) { result in
             switch result {
@@ -37,6 +39,7 @@ class RouteListManager: RouteListManagerProtocol {
             }
         }
     }
+
     func getCategories(completion: @escaping (Result<[LinesCategory], Error>) -> Void) {
         firebaseManager.getLinesCategory(type: LinesCategory.self, forCollection: .Lines) { result in
             switch result {
@@ -45,6 +48,19 @@ class RouteListManager: RouteListManagerProtocol {
             case .failure(let error):
                 completion(.failure(error))
             }
+        }
+    }
+
+    func getLinesRoutesByLineAsync(idLine: String) async throws -> [LineRouteInfo] {
+        do {
+            let lineRoutes = try await firebaseManager.getDocumentsByParameterContainsAsync(
+                type: LineRouteInfo.self,
+                forCollection: .LineRoute,
+                field: "idLine",
+                parameter: idLine)
+            return lineRoutes
+        } catch let error {
+            throw error
         }
     }
 }

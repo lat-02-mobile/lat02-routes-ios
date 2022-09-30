@@ -11,6 +11,7 @@ import FirebaseFirestore
 enum FirebaseErrors: Error {
     case ErrorToDecodeItem
     case InvalidUser
+    case DocumentNotFound
 }
 
 enum FirebaseCollections: String {
@@ -19,6 +20,7 @@ enum FirebaseCollections: String {
     case Cities
     case Lines
     case LineRoute
+    case LineCategories
 }
 
 class FirebaseFirestoreManager {
@@ -52,6 +54,36 @@ class FirebaseFirestoreManager {
             completion(.success(items))
         }
     }
+
+    func getDocumentsAsync<T: Decodable>(type: T.Type, forCollection collection: FirebaseCollections) async throws -> [T] {
+        do {
+            let querySnapshot = try await db.collection(collection.rawValue).getDocuments()
+            let documents = querySnapshot.documents
+            var items = [T]()
+            let decoder = Firestore.Decoder()
+            for document in documents {
+                let item = try decoder.decode(T.self, from: document.data())
+                items.append(item)
+            }
+            return items
+        } catch let error {
+            throw error
+        }
+    }
+
+    func getDocumentByIdAsync<T: Decodable>(docId: String, type: T.Type, forCollection collection: FirebaseCollections) async throws -> T {
+        do {
+            let querySnapshot = try await db.collection(collection.rawValue).whereField("id", isEqualTo: docId).getDocuments()
+            let decoder = Firestore.Decoder()
+            if let document = querySnapshot.documents.first {
+                return try decoder.decode(T.self, from: document.data())
+            }
+            throw FirebaseErrors.DocumentNotFound
+        } catch let error {
+            throw error
+        }
+    }
+
     func getDocumentsWithLimit<T: Decodable>(type: T.Type, forCollection collection: FirebaseCollections, limit: Int, completion: @escaping ( Result<[T], Error>) -> Void  ) {
         db.collection(collection.rawValue).limit(to: limit).getDocuments { querySnapshot, error in
             guard error == nil else { return completion(.failure(error!)) }
@@ -67,6 +99,7 @@ class FirebaseFirestoreManager {
             completion(.success(items))
         }
     }
+
     func getDocumentsByParameterContains<T: Decodable>(type: T.Type, forCollection collection: FirebaseCollections, field: String, parameter: String,
                                                        completion: @escaping ( Result<[T], Error>) -> Void  ) {
         db.collection(collection.rawValue).whereField(field, isEqualTo: parameter).getDocuments { querySnapshot, error in
@@ -83,6 +116,23 @@ class FirebaseFirestoreManager {
             completion(.success(items))
         }
     }
+
+    func getDocumentsByParameterContainsAsync<T: Decodable>(type: T.Type, forCollection collection: FirebaseCollections, field: String, parameter: String) async throws -> [T] {
+        do {
+            let querySnapshot = try await db.collection(collection.rawValue).whereField(field, isEqualTo: parameter).getDocuments()
+            let documents = querySnapshot.documents
+            var items = [T]()
+            let decoder = Firestore.Decoder()
+            for document in documents {
+                let item = try decoder.decode(T.self, from: document.data())
+                items.append(item)
+            }
+            return items
+        } catch let error {
+            throw error
+        }
+    }
+
     func getCountryById(forCollection collection: FirebaseCollections, field: String, parameter: String, completion: @escaping ( Result<[Country], Error>) -> Void  ) {
         db.collection(collection.rawValue).whereField(field, isEqualTo: parameter).getDocuments { querySnapshot, error in
             guard error == nil else { return completion(.failure(error!)) }

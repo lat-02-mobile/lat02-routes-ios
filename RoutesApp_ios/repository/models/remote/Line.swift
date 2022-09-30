@@ -24,6 +24,7 @@ struct LineRoute: Codable, Equatable {
     let blackIcon: String
     let whiteIcon: String
     let color: String
+
     static func getWalkLineRoute(routePoints: [Coordinate]) -> LineRoute {
         return LineRoute(
             name: self.lineWalkName,
@@ -40,6 +41,7 @@ struct LineRoute: Codable, Equatable {
             color: "#67F5ED"
         )
     }
+
     static let lineWalkName = "Walk"
 
     static func == (lhs: LineRoute, rhs: LineRoute) -> Bool {
@@ -117,9 +119,9 @@ struct Line: Codable, Equatable {
     let idCategory: String
     let idCity: String
     let name: String
-    let routePath: [LineRoute]
 }
 
+// Used for obtain the Firestore response (LineRoute entity)
 struct LineRouteInfo: Codable, Equatable {
     let name: String
     let id: String
@@ -129,6 +131,43 @@ struct LineRouteInfo: Codable, Equatable {
     let start: GeoPoint
     let stops: [GeoPoint]
     let end: GeoPoint
+    let averageVelocity: String
+    let color: String
+
+    static private let lineCatManager = LineCategoryFirebaseManager.shared
+    static private let lineManager = LineFirebaseManager.shared
+
+    func toLineRoute() async throws -> LineRoute {
+        let line = try await LineRouteInfo.lineManager.getLineByIdAsync(lineId: idLine)
+        let lineCategory = try await LineRouteInfo.lineCatManager.getLineCategoryByIdAsync(lineId: line.idCategory ?? "")
+        let startAsCoordinate = Coordinate(latitude: self.start.latitude, longitude: self.start.longitude)
+        let endAsCoordinate = Coordinate(latitude: self.end.latitude, longitude: self.end.longitude)
+        var lineRoutePointsAsCoordinates = [Coordinate]()
+        self.routePoints.forEach { routePoint in
+            lineRoutePointsAsCoordinates.append(Coordinate(latitude: routePoint.latitude,
+                                                           longitude: routePoint.longitude))
+        }
+
+        var lineRouteStopsAsCoordinates = [Coordinate]()
+        self.stops.forEach { stop in
+            lineRouteStopsAsCoordinates.append(Coordinate(latitude: stop.latitude,
+                                                          longitude: stop.longitude))
+        }
+
+        let lineRoute = LineRoute(name: self.name,
+                                  id: self.id,
+                                  idLine: self.idLine,
+                                  line: self.line?.path ?? "",
+                                  routePoints: lineRoutePointsAsCoordinates,
+                                  start: startAsCoordinate,
+                                  stops: lineRouteStopsAsCoordinates,
+                                  end: endAsCoordinate,
+                                  averageVelocity: Double(self.averageVelocity)!,
+                                  blackIcon: lineCategory.blackIcon ?? "",
+                                  whiteIcon: lineCategory.whiteIcon ?? "",
+                                  color: self.color)
+        return lineRoute
+    }
 }
 
 // Used in RouteMap

@@ -27,10 +27,43 @@ class HomeViewController: UIViewController {
         if app {
             verifyCitySelectedApp()
         }
+        initViewModel()
         setupViews()
         initializeTheLocationManager()
         setupMap()
         cityLocation()
+    }
+
+    func initViewModel() {
+        self.viewmodel.runAlgorithm = { [weak self] in
+//            print("origin latitude: \(self?.viewmodel.origin?.position.latitude)")
+//            print("origin longitude: \(self?.viewmodel.origin?.position.longitude)")
+//            print("destination latitude: \(self?.viewmodel.destination?.position.latitude)")
+//            print("destination longitude: \(self?.viewmodel.destination?.position.longitude)")
+            if let origin = self?.viewmodel.origin, let destination = self?.viewmodel.destination {
+                let algOrigin = CLLocationCoordinate2D(latitude: -17.395475,
+                                                       longitude: -66.17532)
+                let algDestination = CLLocationCoordinate2D(latitude: -17.398454,
+                                                            longitude: -66.17588)
+                let availableTransports = Algorithm.shared.findAvailableRoutes(origin: algOrigin,
+                                                                               destination: algDestination,
+                                                                               lines: (self?.viewmodel.lineRoutes)!,
+                                                                               minDistanceBtwPoints: Algorithm.minDistanceBtwPointsAndStops,
+                                                                               minDistanceBtwStops: Algorithm.minDistanceBtwPointsAndStops)
+                print("availableTransports: \(availableTransports.count)")
+                DispatchQueue.main.sync {
+                    let viewModel = PossibleRoutesViewModel()
+                    viewModel.map = self?.mapView
+                    let viewController = BottomSheetViewController(viewModel: viewModel, possibleRoutes: availableTransports)
+                    viewController.delegate = self
+                    if let presentationController = viewController.presentationController as? UISheetPresentationController {
+                        presentationController.detents = [.medium()]
+                    }
+                    self?.present(viewController, animated: true)
+    //                self?.showRouteDetail()
+                }
+            }
+        }
     }
 
     func verifyCitySelectedApp() {
@@ -146,7 +179,10 @@ class HomeViewController: UIViewController {
         case.bothSelected:
             // Call logic to run algorithm with routes
             self.showToast(message: ConstantVariables.done)
-            self.showRouteDetail()
+            Task.init {
+                try? await viewmodel.getLineRouteForCurrentCity()
+                print("data: \(viewmodel.lineRoutes)")
+            }
         }
 
         backButton.isHidden = false
@@ -252,6 +288,13 @@ class HomeViewController: UIViewController {
 
 }
 
+// MARK: ShowPossibleRoutes Delegate
+extension HomeViewController: BottomSheetDelegate {
+    func showSelectedRoute() {
+        self.showRouteDetail()
+    }
+}
+
 // MARK: SearchLocation Delegate
 extension HomeViewController: SearchLocationDelegate {
     func onPlaceTap(location: CLLocationCoordinate2D) {
@@ -259,6 +302,7 @@ extension HomeViewController: SearchLocationDelegate {
     }
 }
 
+// MARK: RouteDetail Delegate
 extension HomeViewController: RouteDetailDelegate {
     func getLatitude() -> Double? {
         if let destination = viewmodel.destination {

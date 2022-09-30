@@ -89,9 +89,9 @@ class TestResources {
    static let LineRoutes = [
         LineRouteInfo(name: "Route1", id: "wsws2344d3f", idLine: "1",
                       line: nil, routePoints: RoutePoints, start: GeoPoint(latitude: 1, longitude: 1),
-                      stops: Stops, end: GeoPoint(latitude: 1, longitude: 1)),
+                      stops: Stops, end: GeoPoint(latitude: 1, longitude: 1), averageVelocity: "", color: ""),
         LineRouteInfo(name: "Route1", id: "wsws2344d3f", idLine: "1",
                       line: nil, routePoints: RoutePoints, start: GeoPoint(latitude: 1, longitude: 1),
-                      stops: Stops, end: GeoPoint(latitude: 1, longitude: 1))
+                      stops: Stops, end: GeoPoint(latitude: 1, longitude: 1), averageVelocity: "", color: "")
    ]
 }

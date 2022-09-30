@@ -42,8 +42,7 @@ class PossibleRoutesViewModel: ViewModel {
         })
     }
 
-    // swiftlint:disable function_body_length
-    func getPossibleRoutes(completion: @escaping ([AvailableTransport]) -> Void) {
+    /* func getPossibleRoutes(completion: @escaping ([AvailableTransport]) -> Void) {
         let stops1Array = [
             Coordinate(latitude: -16.52130602845841, longitude: -68.12417648825397),
             Coordinate(latitude: -16.521670987319112, longitude: -68.12320625310048),
@@ -117,5 +116,5 @@ class PossibleRoutesViewModel: ViewModel {
         let result = Algorithm.shared.findAvailableRoutes(origin: originPoint, destination: destinationPoint,
             lines: [line1, line2], minDistanceBtwPoints: minDistance, minDistanceBtwStops: minDistanceBtwStops)
         completion(result)
-    }
+    } */
 }

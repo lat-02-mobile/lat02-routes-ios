@@ -8,15 +8,21 @@
 import UIKit
 import GoogleMaps
 
+protocol BottomSheetDelegate: AnyObject {
+    func showSelectedRoute()
+}
+
 class BottomSheetViewController: UIViewController {
 
     @IBOutlet var contentStackView: UIStackView!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var tableView: UITableView!
     var viewModel: PossibleRoutesViewModel
+    var delegate: BottomSheetDelegate?
 
-    init(viewModel: PossibleRoutesViewModel) {
+    init(viewModel: PossibleRoutesViewModel, possibleRoutes: [AvailableTransport]) {
         self.viewModel = viewModel
+        self.viewModel.possibleRoutes = possibleRoutes
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -27,7 +33,7 @@ class BottomSheetViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTable()
-        loadPossibleRoutes()
+//        loadPossibleRoutes()
     }
 
     func setupTable() {
@@ -37,13 +43,13 @@ class BottomSheetViewController: UIViewController {
         tableView.dataSource = self
     }
 
-    func loadPossibleRoutes() {
-        viewModel.getPossibleRoutes { possibleRoutes in
-            self.viewModel.possibleRoutes = possibleRoutes
-            self.viewModel.sortPossibleRoutes()
-            self.tableView.reloadData()
-        }
-    }
+//    func loadPossibleRoutes() {
+//        viewModel.getPossibleRoutes { possibleRoutes in
+//            self.viewModel.possibleRoutes = possibleRoutes
+//            self.viewModel.sortPossibleRoutes()
+//            self.tableView.reloadData()
+//        }
+//    }
 
     private func drawSelectedRoute() {
         guard let map = viewModel.map else { return }
@@ -110,14 +116,17 @@ extension BottomSheetViewController: UITableViewDelegate, UITableViewDataSource 
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var indexPathList = [IndexPath]()
-        if viewModel.possibleRoutesSelectedIndex != -1 {
-            indexPathList.append(IndexPath(row: viewModel.possibleRoutesSelectedIndex, section: 0))
-        }
-        indexPathList.append(indexPath)
-        viewModel.possibleRoutesSelectedIndex = indexPath.row
-        self.tableView.reloadRows(at: indexPathList, with: .fade)
-        drawSelectedRoute()
+//        var indexPathList = [IndexPath]()
+//        if viewModel.possibleRoutesSelectedIndex != -1 {
+//            indexPathList.append(IndexPath(row: viewModel.possibleRoutesSelectedIndex, section: 0))
+//        }
+//        indexPathList.append(indexPath)
+//        viewModel.possibleRoutesSelectedIndex = indexPath.row
+//        self.tableView.reloadRows(at: indexPathList, with: .fade)
+//        drawSelectedRoute()
+        print("selectedRoute")
+        self.dismiss(animated: true)
+        delegate?.showSelectedRoute()
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

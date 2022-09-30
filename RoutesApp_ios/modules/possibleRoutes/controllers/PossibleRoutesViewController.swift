@@ -43,10 +43,10 @@ class PossibleRoutesViewController: UIViewController {
 
     @objc
     func showPossibleRoutesPage() {
-        let viewController = BottomSheetViewController(viewModel: viewModel)
-        if let presentationController = viewController.presentationController as? UISheetPresentationController {
-            presentationController.detents = [.medium()]
-        }
-        self.present(viewController, animated: true)
+//        let viewController = BottomSheetViewController(viewModel: viewModel)
+//        if let presentationController = viewController.presentationController as? UISheetPresentationController {
+//            presentationController.detents = [.medium()]
+//        }
+//        self.present(viewController, animated: true)
     }
 }

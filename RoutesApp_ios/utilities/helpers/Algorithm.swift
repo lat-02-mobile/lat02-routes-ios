@@ -10,6 +10,7 @@ import CoreLocation
 
 class Algorithm {
     static var shared = Algorithm()
+    static var minDistanceBtwPointsAndStops = 200.0
 
     func findAvailableRoutes(origin: CLLocationCoordinate2D, destination: CLLocationCoordinate2D,
                              lines: [LineRoute], minDistanceBtwPoints: Double, minDistanceBtwStops: Double) -> [AvailableTransport] {

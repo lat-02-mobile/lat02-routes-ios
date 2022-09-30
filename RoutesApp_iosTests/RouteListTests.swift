@@ -2,6 +2,10 @@ import XCTest
 @testable import RoutesApp_ios
 
 class MockRouteListManager: RouteListManagerProtocol {
+    func getLinesRoutesByLineAsync(idLine: String) async throws -> [LineRouteInfo] {
+        return []
+    }
+
     var hasLines = true
     var hasCategories = true
     func getLines(completion: @escaping (Result<[Lines], Error>) -> Void) {

@@ -3,7 +3,7 @@ import EzPopup
 class RouteListViewController: UIViewController {
 
     @IBOutlet weak var lineListTableView: UITableView!
-    var routeDetailViewModel = RouteListViewModel()
+    var routeListViewModel = RouteListViewModel()
     let lineRouteViewController = LineRouteViewController()
 
     override func viewDidLoad() {
@@ -13,7 +13,7 @@ class RouteListViewController: UIViewController {
         setupNavigationBar()
         setIcon()
         initViewModel()
-        routeDetailViewModel.getLines {
+        routeListViewModel.getLines {
             self.lineListTableView.reloadData()
         }
         lineListTableView.register(UINib.init(nibName: ConstantVariables.routeListCell,
@@ -24,8 +24,8 @@ class RouteListViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     func initViewModel() {
-        routeDetailViewModel.fecthedLineRoute = { [weak self] () in
-            guard let lineRouteList = self?.routeDetailViewModel.lineRouteList else { return }
+        routeListViewModel.fecthedLineRoute = { [weak self] () in
+            guard let lineRouteList = self?.routeListViewModel.lineRouteList else { return }
             if lineRouteList.count > 1 {
                 self?.lineRouteViewController.lineRouteList = lineRouteList
                 let screenSize: CGRect = UIScreen.main.bounds
@@ -35,7 +35,7 @@ class RouteListViewController: UIViewController {
                 popupVC.cornerRadius = 10
                 self?.present(popupVC, animated: true)
             } else if lineRouteList.count == 1 {
-                let linePath = self?.routeDetailViewModel.convertToLinePath(lineRouteInfo: lineRouteList[0])
+                let linePath = self?.routeListViewModel.convertToLinePath(lineRouteInfo: lineRouteList[0])
                 let routeMapViewController = RouteMapViewController()
                 routeMapViewController.linePath = linePath
                 self?.present(routeMapViewController, animated: false)
@@ -66,11 +66,11 @@ class RouteListViewController: UIViewController {
 
 extension RouteListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return routeDetailViewModel.routeListDetailModels.count
+        return routeListViewModel.routeListDetailModels.count
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let lineId = routeDetailViewModel.routeListModel[indexPath.row].id ?? ""
-        routeDetailViewModel.getLineRoute(id: lineId)
+        let lineId = routeListViewModel.routeListModel[indexPath.row].id ?? ""
+        routeListViewModel.getLineRoute(id: lineId)
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -78,7 +78,7 @@ extension RouteListViewController: UITableViewDataSource, UITableViewDelegate {
         for: indexPath) as? RouteListTableViewCell else {
         return  UITableViewCell()
         }
-        let line =  routeDetailViewModel.routeListDetailModels[indexPath.row]
+        let line =  routeListViewModel.routeListDetailModels[indexPath.row]
         tableViewCell.updateCellModel(routeListDetailModel: line)
         return tableViewCell
     }
