@@ -10,6 +10,7 @@ import CoreLocation
 
 class Algorithm {
     static var shared = Algorithm()
+    static var minDistanceBtwPointsAndStops = 200.0
 
     func findAvailableRoutes(origin: CLLocationCoordinate2D, destination: CLLocationCoordinate2D,
                              lines: [LineRoute], minDistanceBtwPoints: Double, minDistanceBtwStops: Double) -> [AvailableTransport] {
@@ -17,6 +18,13 @@ class Algorithm {
         var originCandidates = [LineRoute]()
         var destinationCandidates = [LineRoute]()
         for line in lines {
+            // MARK: Add one line routes
+            let oneLineRoute = getOneRouteLine(origin: origin, destination: destination,
+                 line: line, minDistanceBtwStops: minDistanceBtwStops)
+            if let oneLineRoute = oneLineRoute {
+                availableTransports.append(oneLineRoute)
+                continue
+            }
             // MARK: Add origin line candidate
             let originLineCandidate = getOriginRouteLine(origin: origin, line: line,
                                                       minDistanceBtwStops: minDistanceBtwStops)
@@ -28,12 +36,6 @@ class Algorithm {
                  line: line, minDistanceBtwStops: minDistanceBtwStops)
             if let destinationLineCandidate = destinationLineCandidate {
                 destinationCandidates.append(destinationLineCandidate)
-            }
-            // MARK: Add one line routes
-            let oneLineRoute = getOneRouteLine(origin: origin, destination: destination,
-                 line: line, minDistanceBtwStops: minDistanceBtwStops)
-            if let oneLineRoute = oneLineRoute {
-                availableTransports.append(oneLineRoute)
             }
         }
         let candidates = LinesCandidate(originList: originCandidates, destinationList: destinationCandidates)
