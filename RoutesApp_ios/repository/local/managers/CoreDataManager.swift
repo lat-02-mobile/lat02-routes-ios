@@ -11,6 +11,7 @@ import CoreData
 class CoreDataManager {
     static var shared = CoreDataManager()
     lazy var persistentContainer: NSPersistentContainer = {
+        ValueTransformer.setValueTransformer(CoordinateTransformer(), forName: NSValueTransformerName(ConstantVariables.transformerName))
         let container = NSPersistentContainer(name: ConstantVariables.databaseName)
         container.loadPersistentStores(completionHandler: { (_, error) in
             if let error = error as NSError? {

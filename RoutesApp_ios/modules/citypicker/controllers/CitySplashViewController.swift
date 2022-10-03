@@ -16,7 +16,7 @@ class CitySplashViewController: UIViewController {
     var country = ""
     var cityLat = ""
     var cityLng = ""
-    let viewmodel = CityPickerViewModel()
+    let viewmodel = CitySplashViewModel.shared
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +48,8 @@ class CitySplashViewController: UIViewController {
         timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(updateMaps), userInfo: nil, repeats: true)
     }
 
-    @objc func updateMaps() {
+    @objc
+    private func updateMaps() {
         timer.invalidate()
         SceneDelegate.shared?.setupRootControllerIfNeeded(validUser: viewmodel.authManager.userIsLoggedIn())
     }

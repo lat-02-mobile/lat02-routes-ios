@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21G115" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21F79" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="FavoriteDest" representedClassName="FavoriteDest" syncable="YES">
         <attribute name="createdAt" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
@@ -9,7 +9,62 @@
         <attribute name="longitude" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="LineCategoryEntity" representedClassName="LineCategoryEntity" syncable="YES">
+        <attribute name="blackIcon" attributeType="String"/>
+        <attribute name="createdAt" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" attributeType="String"/>
+        <attribute name="nameEng" attributeType="String"/>
+        <attribute name="nameEsp" attributeType="String"/>
+        <attribute name="whiteIcon" attributeType="String"/>
+        <relationship name="lines" toMany="YES" deletionRule="Cascade" destinationEntity="LineEntity" inverseName="category" inverseEntity="LineEntity"/>
+    </entity>
+    <entity name="LineEntity" representedClassName="LineEntity" syncable="YES">
+        <attribute name="createdAt" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="enable" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="id" attributeType="String"/>
+        <attribute name="idCategory" attributeType="String"/>
+        <attribute name="name" attributeType="String"/>
+        <relationship name="category" maxCount="1" deletionRule="Cascade" destinationEntity="LineCategoryEntity" inverseName="lines" inverseEntity="LineCategoryEntity"/>
+        <relationship name="routes" toMany="YES" deletionRule="Cascade" destinationEntity="LineRouteEntity" inverseName="line" inverseEntity="LineRouteEntity"/>
+    </entity>
+    <entity name="LineRouteEntity" representedClassName="LineRouteEntity" syncable="YES">
+        <attribute name="createdAt" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="end" attributeType="Transformable" valueTransformerName="CoordinateTransformer" customClassName="NSCoordinates"/>
+        <attribute name="id" attributeType="String"/>
+        <attribute name="idLine" attributeType="String"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="start" attributeType="Transformable" valueTransformerName="CoordinateTransformer" customClassName="NSCoordinates"/>
+        <relationship name="line" maxCount="1" deletionRule="Cascade" destinationEntity="LineEntity" inverseName="routes" inverseEntity="LineEntity"/>
+        <relationship name="routePoints" toMany="YES" deletionRule="Cascade" destinationEntity="PointHolder" inverseName="route" inverseEntity="PointHolder"/>
+    </entity>
+    <entity name="PointHolder" representedClassName="PointHolder" syncable="YES">
+        <attribute name="idLine" attributeType="String"/>
+        <attribute name="isStop" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="point" attributeType="Transformable" valueTransformerName="CoordinateTransformer" customClassName="NSCoordinates"/>
+        <relationship name="route" maxCount="1" deletionRule="Nullify" destinationEntity="LineRouteEntity" inverseName="routePoints" inverseEntity="LineRouteEntity"/>
+    </entity>
+    <entity name="TourpointCategoryEntity" representedClassName="TourpointCategoryEntity" syncable="YES">
+        <attribute name="createdAt" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="descriptionEng" attributeType="String"/>
+        <attribute name="descriptionEsp" attributeType="String"/>
+        <attribute name="id" attributeType="String"/>
+        <relationship name="tourpoints" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="TourpointEntity" inverseName="category" inverseEntity="TourpointEntity"/>
+    </entity>
+    <entity name="TourpointEntity" representedClassName="TourpointEntity" syncable="YES">
+        <attribute name="address" attributeType="String"/>
+        <attribute name="createdAt" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="destination" attributeType="Transformable" valueTransformerName="CoordinateTransformer" customClassName="NSCoordinates"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="urlImage" attributeType="String"/>
+        <relationship name="category" maxCount="1" deletionRule="Cascade" destinationEntity="TourpointCategoryEntity" inverseName="tourpoints" inverseEntity="TourpointCategoryEntity"/>
+    </entity>
     <elements>
         <element name="FavoriteDest" positionX="-198" positionY="-18" width="128" height="148"/>
+        <element name="LineEntity" positionX="-189" positionY="54" width="128" height="134"/>
+        <element name="LineCategoryEntity" positionX="-171" positionY="63" width="128" height="134"/>
+        <element name="LineRouteEntity" positionX="-153" positionY="117" width="128" height="149"/>
+        <element name="PointHolder" positionX="-135" positionY="126" width="128" height="89"/>
+        <element name="TourpointCategoryEntity" positionX="-108" positionY="153" width="128" height="104"/>
+        <element name="TourpointEntity" positionX="-153" positionY="99" width="128" height="119"/>
     </elements>
 </model>

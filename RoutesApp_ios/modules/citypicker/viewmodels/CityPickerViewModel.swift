@@ -8,7 +8,7 @@
 import Foundation
 
 class CityPickerViewModel {
-    var authManager: AuthProtocol = FirebaseAuthManager.shared
+
     var cityManager: CityManagerProtocol = CityFirebaseManager.shared
     var onFinish: (() -> Void)?
     var onError: ((_ error: String) -> Void)?
