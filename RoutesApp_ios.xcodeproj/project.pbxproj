@@ -82,9 +82,12 @@
 		C27EB66728D3689200A1E742 /* LinePathTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C27EB66528D3689200A1E742 /* LinePathTableViewCell.xib */; };
 		C290E5EF28D272C90019782F /* RouteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C290E5ED28D272C90019782F /* RouteDetailViewController.swift */; };
 		C2B42E2428E5D10600B44FC0 /* LineFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B42E2328E5D10600B44FC0 /* LineFirebaseManager.swift */; };
+		C2B635CA28EB29FA003200EF /* StringResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B635C928EB29FA003200EF /* StringResources.swift */; };
 		C2BB145228A150A70083CA1E /* SignupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2BB145428A150A70083CA1E /* SignupViewController.xib */; };
 		C2BB145C28A1529E0083CA1E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C2BB145E28A1529E0083CA1E /* Localizable.strings */; };
 		C2BB146128A153390083CA1E /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BB146028A153390083CA1E /* StringExtension.swift */; };
+		C2C5249428EBC66800D8B892 /* LineCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C5249328EBC66800D8B892 /* LineCategory.swift */; };
+		C2C5249628EBD4EE00D8B892 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C5249528EBD4EE00D8B892 /* Toast.swift */; };
 		C2C853DE28E65D9D00B8D9CF /* LineCategoryFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C853DD28E65D9D00B8D9CF /* LineCategoryFirebaseManager.swift */; };
 		C2E976D92898701C009F4B94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E976D82898701C009F4B94 /* AppDelegate.swift */; };
 		C2E976DB2898701C009F4B94 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E976DA2898701C009F4B94 /* SceneDelegate.swift */; };
@@ -108,7 +111,7 @@
 		CE1D1DD828DD4C0600F61040 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D1DD728DD4C0600F61040 /* ImageHelper.swift */; };
 		CE3BB7B528DE4665004BFA07 /* PossibleRoutesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3BB7B428DE4665004BFA07 /* PossibleRoutesTests.swift */; };
 		CE65448B28BD148B003B599B /* Algorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65448A28BD148B003B599B /* Algorithm.swift */; };
-		CE65448D28BD174C003B599B /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65448C28BD174C003B599B /* Line.swift */; };
+		CE65448D28BD174C003B599B /* LineRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65448C28BD174C003B599B /* LineRoute.swift */; };
 		CE7FBAD428D36B5E001175D3 /* PossibleRouteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7FBAD228D36B5E001175D3 /* PossibleRouteTableViewCell.swift */; };
 		CE7FBAD528D36B5E001175D3 /* PossibleRouteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE7FBAD328D36B5E001175D3 /* PossibleRouteTableViewCell.xib */; };
 		CE7FBADC28D565F2001175D3 /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7FBADA28D565F2001175D3 /* BottomSheetViewController.swift */; };
@@ -220,6 +223,7 @@
 		C27EB66528D3689200A1E742 /* LinePathTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LinePathTableViewCell.xib; sourceTree = "<group>"; };
 		C290E5ED28D272C90019782F /* RouteDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDetailViewController.swift; sourceTree = "<group>"; };
 		C2B42E2328E5D10600B44FC0 /* LineFirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineFirebaseManager.swift; sourceTree = "<group>"; };
+		C2B635C928EB29FA003200EF /* StringResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringResources.swift; sourceTree = "<group>"; };
 		C2BB144A28A14E330083CA1E /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		C2BB145328A150A70083CA1E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SignupViewController.xib; sourceTree = "<group>"; };
 		C2BB145628A150AE0083CA1E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SignupViewController.strings; sourceTree = "<group>"; };
@@ -227,6 +231,8 @@
 		C2BB145D28A1529E0083CA1E /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		C2BB145F28A152AE0083CA1E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C2BB146028A153390083CA1E /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		C2C5249328EBC66800D8B892 /* LineCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineCategory.swift; sourceTree = "<group>"; };
+		C2C5249528EBD4EE00D8B892 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		C2C853DD28E65D9D00B8D9CF /* LineCategoryFirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineCategoryFirebaseManager.swift; sourceTree = "<group>"; };
 		C2E976D52898701C009F4B94 /* RoutesApp_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoutesApp_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2E976D82898701C009F4B94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -254,7 +260,7 @@
 		CE1D1DD728DD4C0600F61040 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
 		CE3BB7B428DE4665004BFA07 /* PossibleRoutesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PossibleRoutesTests.swift; sourceTree = "<group>"; };
 		CE65448A28BD148B003B599B /* Algorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Algorithm.swift; sourceTree = "<group>"; };
-		CE65448C28BD174C003B599B /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Line.swift; path = RoutesApp_ios/repository/models/remote/Line.swift; sourceTree = SOURCE_ROOT; };
+		CE65448C28BD174C003B599B /* LineRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LineRoute.swift; path = RoutesApp_ios/repository/models/remote/LineRoute.swift; sourceTree = SOURCE_ROOT; };
 		CE7FBAD228D36B5E001175D3 /* PossibleRouteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PossibleRouteTableViewCell.swift; sourceTree = "<group>"; };
 		CE7FBAD328D36B5E001175D3 /* PossibleRouteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PossibleRouteTableViewCell.xib; sourceTree = "<group>"; };
 		CE7FBADA28D565F2001175D3 /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
@@ -724,6 +730,7 @@
 				CE7FBAE828D8B8EB001175D3 /* GoogleMapsHelper.swift */,
 				CE7FBAEC28D8BFEC001175D3 /* ColorHelper.swift */,
 				CE1D1DD728DD4C0600F61040 /* ImageHelper.swift */,
+				C2B635C928EB29FA003200EF /* StringResources.swift */,
 			);
 			path = helpers;
 			sourceTree = "<group>";
@@ -733,6 +740,7 @@
 			children = (
 				C2E9773028987FB9009F4B94 /* FloatingButton.swift */,
 				8498F89C28CF4892008641D9 /* Constants.swift */,
+				C2C5249528EBD4EE00D8B892 /* Toast.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -831,7 +839,7 @@
 		C2FEFC43289B78F1006E7579 /* remote */ = {
 			isa = PBXGroup;
 			children = (
-				CE65448C28BD174C003B599B /* Line.swift */,
+				CE65448C28BD174C003B599B /* LineRoute.swift */,
 				C2E9772A28987F79009F4B94 /* User.swift */,
 				C2436388289A2D21003C1A44 /* BaseModel.swift */,
 				8498F89E28CF49DD008641D9 /* Lines.swift */,
@@ -840,6 +848,7 @@
 				844F9A2B28C7FD51004A95A0 /* Place.swift */,
 				CE7FBAE628D8B022001175D3 /* GDirectionsResponse.swift */,
 				84246F8B28DB0B65004748DD /* LinesRoute.swift */,
+				C2C5249328EBC66800D8B892 /* LineCategory.swift */,
 			);
 			path = remote;
 			sourceTree = "<group>";
@@ -1133,6 +1142,7 @@
 				CE7FBAEF28D937D9001175D3 /* PossibleRoutesViewModel.swift in Sources */,
 				84A5B67A28C698C5006AB7F9 /* RouteMapViewController.swift in Sources */,
 				C2414D8628E1DCDC00CDF73A /* Double.swift in Sources */,
+				C2C5249428EBC66800D8B892 /* LineCategory.swift in Sources */,
 				84067C7028B4257E00549300 /* Cities.swift in Sources */,
 				C249BB1B28E4F8D200E6BA85 /* PopupRouteDetailViewModel.swift in Sources */,
 				C27EB66628D3689200A1E742 /* LinePathTableViewCell.swift in Sources */,
@@ -1170,6 +1180,7 @@
 				CE7FBAE728D8B022001175D3 /* GDirectionsResponse.swift in Sources */,
 				C215EF0C28A4BB5D00371DB6 /* ViewModel.swift in Sources */,
 				CE7FBAD428D36B5E001175D3 /* PossibleRouteTableViewCell.swift in Sources */,
+				C2C5249628EBD4EE00D8B892 /* Toast.swift in Sources */,
 				844F9A2928C7F542004A95A0 /* GoogleMapsManager.swift in Sources */,
 				847A59E228A820F5005CEA25 /* PhoneAuthenticationViewModel.swift in Sources */,
 				C290E5EF28D272C90019782F /* RouteDetailViewController.swift in Sources */,
@@ -1178,6 +1189,7 @@
 				C249BB2028E4F9A400E6BA85 /* FavoriteDestinationsManager.swift in Sources */,
 				C2436385289A2CD6003C1A44 /* FirebaseFirestoreManager.swift in Sources */,
 				845D228928A7050000E9A660 /* PhoneAuthenticationViewController.swift in Sources */,
+				C2B635CA28EB29FA003200EF /* StringResources.swift in Sources */,
 				C278972F28E3B48100FF2796 /* TransportationCategoryTableViewCell.swift in Sources */,
 				84067C6128B3BF9C00549300 /* CityPickerViewController.swift in Sources */,
 				84246F8C28DB0B65004748DD /* LinesRoute.swift in Sources */,
@@ -1186,7 +1198,7 @@
 				844F9A2C28C7FD51004A95A0 /* Place.swift in Sources */,
 				C278973028E3B48100FF2796 /* RouteListTableViewCell.swift in Sources */,
 				C2E976DB2898701C009F4B94 /* SceneDelegate.swift in Sources */,
-				CE65448D28BD174C003B599B /* Line.swift in Sources */,
+				CE65448D28BD174C003B599B /* LineRoute.swift in Sources */,
 				84067C6528B3D0A700549300 /* CitySplashViewController.swift in Sources */,
 				C249BB1F28E4F9A400E6BA85 /* CoreDataManager.swift in Sources */,
 				C2E976E32898701C009F4B94 /* RoutesApp_ios.xcdatamodeld in Sources */,

@@ -74,6 +74,7 @@
 "Lines" = "Lines";
 
 // Route Detail
+"loading-possible-routes" = "Loading possible routes";
 "route-detail-no-matches-adressess" = "No Matching Addresses Found";
 "route-detail-unable-to-get-location" = "Unable to get location";
 "meters" = "%@ m";

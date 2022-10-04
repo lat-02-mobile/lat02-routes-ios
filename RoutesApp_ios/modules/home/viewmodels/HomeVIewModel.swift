@@ -14,6 +14,7 @@ case pendingOrigin, pendingDestination, bothSelected
 }
 
 class HomeViewModel {
+    var selectedAvailableTransport: AvailableTransport?
     var currentPosition: CLLocationCoordinate2D?
     var origin: GMSMarker?
     var destination: GMSMarker?
@@ -34,7 +35,7 @@ class HomeViewModel {
             var finalLineRoutes = [LineRouteInfo]()
             print("Here are the lines: \(linesByCity.count)" )
             for line in linesByCity {
-                let lineRoutes = try await routeListManager.getLinesRoutesByLineAsync(idLine: line.id)
+                let lineRoutes = try await routeListManager.getLinesRoutesByLineAsync(idLine: line.id ?? "")
                 finalLineRoutes.append(contentsOf: lineRoutes)
             }
             print("Here are the lineRoutes: \(finalLineRoutes.count)")
@@ -52,7 +53,6 @@ class HomeViewModel {
             }
             return finalLineRoutes
         } catch let error {
-            print("errorroror: \(error)")
             throw error
         }
     }

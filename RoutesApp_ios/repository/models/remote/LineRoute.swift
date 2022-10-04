@@ -10,6 +10,7 @@ import CoreLocation
 import CodableFirebase
 import Firebase
 
+// Used in algorithm
 struct LineRoute: Codable, Equatable {
     let name: String
     let id: String
@@ -112,15 +113,6 @@ struct LinesCandidate: Codable {
     var destinationList: [LineRoute]
 }
 
-struct Line: Codable, Equatable {
-    let categoryRef: DocumentReference
-    let enable: Bool
-    let id: String
-    let idCategory: String
-    let idCity: String
-    let name: String
-}
-
 // Used for obtain the Firestore response (LineRoute entity)
 struct LineRouteInfo: Codable, Equatable {
     let name: String
@@ -157,7 +149,7 @@ struct LineRouteInfo: Codable, Equatable {
         let lineRoute = LineRoute(name: self.name,
                                   id: self.id,
                                   idLine: self.idLine,
-                                  line: self.line?.path ?? "",
+                                  line: line.name ?? "",
                                   routePoints: lineRoutePointsAsCoordinates,
                                   start: startAsCoordinate,
                                   stops: lineRouteStopsAsCoordinates,

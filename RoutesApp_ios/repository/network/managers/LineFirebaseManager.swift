@@ -43,9 +43,9 @@ class LineFirebaseManager {
         }
     }
 
-    func getLinesByCityAsync(cityId: String) async throws -> [Line] {
+    func getLinesByCityAsync(cityId: String) async throws -> [Lines] {
         do {
-            let lines = try await firebaseManager.getDocumentsAsync(type: Line.self, forCollection: .Lines)
+            let lines = try await firebaseManager.getDocumentsAsync(type: Lines.self, forCollection: .Lines)
             let finalLines = lines.filter({$0.idCity == cityId && $0.enable == true})
             return finalLines
         } catch let error {
