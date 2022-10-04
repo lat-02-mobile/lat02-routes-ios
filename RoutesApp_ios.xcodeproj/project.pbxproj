@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7BACD81FF49650362FA6BC4A /* Pods_RoutesApp_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C27885D0261499B18A8C0B66 /* Pods_RoutesApp_iosTests.framework */; };
 		84067C4A28B3B1CD00549300 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84067C4828B3B1CD00549300 /* SettingsViewController.swift */; };
 		84067C4C28B3B5BD00549300 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84067C4E28B3B5BD00549300 /* SettingsViewController.xib */; };
 		84067C6128B3BF9C00549300 /* CityPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84067C5F28B3BF9C00549300 /* CityPickerViewController.swift */; };
@@ -50,6 +49,7 @@
 		8498F89F28CF49DD008641D9 /* Lines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8498F89E28CF49DD008641D9 /* Lines.swift */; };
 		84A5B67A28C698C5006AB7F9 /* RouteMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A5B67828C698C4006AB7F9 /* RouteMapViewController.swift */; };
 		84A5B67B28C698C5006AB7F9 /* RouteMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A5B67928C698C4006AB7F9 /* RouteMapViewController.xib */; };
+		959B7170FF24406C939DC60B /* Pods_RoutesApp_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA0743D620F2F740C78E285 /* Pods_RoutesApp_ios.framework */; };
 		C20A86D128A3383F0000EF7C /* ConstantVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A86D028A3383F0000EF7C /* ConstantVariables.swift */; };
 		C20A86D328A338E30000EF7C /* TestResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A86D228A338E30000EF7C /* TestResources.swift */; };
 		C20A86D528A339540000EF7C /* AuthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A86D428A339540000EF7C /* AuthTests.swift */; };
@@ -108,6 +108,7 @@
 		C2E9772F28987FA0009F4B94 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E9772E28987FA0009F4B94 /* NetworkManager.swift */; };
 		C2E9773128987FB9009F4B94 /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E9773028987FB9009F4B94 /* FloatingButton.swift */; };
 		C2E977332898802F009F4B94 /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E977322898802F009F4B94 /* Encodable.swift */; };
+		C5CE0DF941BD5E74DA30213C /* Pods_RoutesApp_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31EE8B34AA2330FC0954FC44 /* Pods_RoutesApp_iosTests.framework */; };
 		CE0F8D3528AD357F00F2C753 /* silver-style.json in Resources */ = {isa = PBXBuildFile; fileRef = CE0F8D3428AD357F00F2C753 /* silver-style.json */; };
 		CE19B2FB28DCEDD400840426 /* RouteListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE19B2FA28DCEDD400840426 /* RouteListTests.swift */; };
 		CE19B2FD28DCF2F500840426 /* RouteListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE19B2FC28DCF2F500840426 /* RouteListManager.swift */; };
@@ -127,7 +128,6 @@
 		CE7FBAEF28D937D9001175D3 /* PossibleRoutesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7FBAEE28D937D9001175D3 /* PossibleRoutesViewModel.swift */; };
 		CE8CE8F028BE493F003270D7 /* AlgorithmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8CE8EF28BE493F003270D7 /* AlgorithmTests.swift */; };
 		CE93A8A328BD3ECD00296532 /* CLLocationCoordinate2DExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE93A8A228BD3ECD00296532 /* CLLocationCoordinate2DExtension.swift */; };
-		E08FCE9F3476665076D3B80B /* Pods_RoutesApp_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BDCB6FC3F011245E98E9BBE /* Pods_RoutesApp_ios.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,8 +141,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		137E275CEBB5A0D95D01F9F6 /* Pods-RoutesApp_ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutesApp_ios.debug.xcconfig"; path = "Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios.debug.xcconfig"; sourceTree = "<group>"; };
-		7BDCB6FC3F011245E98E9BBE /* Pods_RoutesApp_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoutesApp_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		31EE8B34AA2330FC0954FC44 /* Pods_RoutesApp_iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoutesApp_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A72441BA0C7E9C4DD4A024C /* Pods-RoutesApp_iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutesApp_iosTests.debug.xcconfig"; path = "Target Support Files/Pods-RoutesApp_iosTests/Pods-RoutesApp_iosTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6FA0743D620F2F740C78E285 /* Pods_RoutesApp_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoutesApp_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7257BFCB83288F00AB939769 /* Pods-RoutesApp_ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutesApp_ios.debug.xcconfig"; path = "Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios.debug.xcconfig"; sourceTree = "<group>"; };
 		84067C4828B3B1CD00549300 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		84067C4D28B3B5BD00549300 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SettingsViewController.xib; sourceTree = "<group>"; };
 		84067C5F28B3BF9C00549300 /* CityPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityPickerViewController.swift; sourceTree = "<group>"; };
@@ -190,7 +192,6 @@
 		8498F89E28CF49DD008641D9 /* Lines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lines.swift; sourceTree = "<group>"; };
 		84A5B67828C698C4006AB7F9 /* RouteMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteMapViewController.swift; sourceTree = "<group>"; };
 		84A5B67928C698C4006AB7F9 /* RouteMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RouteMapViewController.xib; sourceTree = "<group>"; };
-		9AEE711EB6947D6DD8648C6F /* Pods-RoutesApp_iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutesApp_iosTests.release.xcconfig"; path = "Target Support Files/Pods-RoutesApp_iosTests/Pods-RoutesApp_iosTests.release.xcconfig"; sourceTree = "<group>"; };
 		C20A86D028A3383F0000EF7C /* ConstantVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantVariables.swift; sourceTree = "<group>"; };
 		C20A86D228A338E30000EF7C /* TestResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResources.swift; sourceTree = "<group>"; };
 		C20A86D428A339540000EF7C /* AuthTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTests.swift; sourceTree = "<group>"; };
@@ -216,7 +217,6 @@
 		C249BB2228E4F9BC00E6BA85 /* FavoriteDest+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FavoriteDest+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C249BB2528E4F9DE00E6BA85 /* CLLocationDistanceExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLLocationDistanceExtension.swift; sourceTree = "<group>"; };
 		C24BD6E928A134C3007FCAB7 /* UserFirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFirebaseManager.swift; sourceTree = "<group>"; };
-		C27885D0261499B18A8C0B66 /* Pods_RoutesApp_iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoutesApp_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C278972028E3B48100FF2796 /* RouteListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteListViewModel.swift; sourceTree = "<group>"; };
 		C278972428E3B48100FF2796 /* TransportationCategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransportationCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		C278972528E3B48100FF2796 /* RouteListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteListTableViewCell.swift; sourceTree = "<group>"; };
@@ -259,7 +259,7 @@
 		C2E9772E28987FA0009F4B94 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		C2E9773028987FB9009F4B94 /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
 		C2E977322898802F009F4B94 /* Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encodable.swift; sourceTree = "<group>"; };
-		CDF0D85219E9C26C4997D317 /* Pods-RoutesApp_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutesApp_ios.release.xcconfig"; path = "Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios.release.xcconfig"; sourceTree = "<group>"; };
+		C74C2944BAA64C9F9A25F1F8 /* Pods-RoutesApp_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutesApp_ios.release.xcconfig"; path = "Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios.release.xcconfig"; sourceTree = "<group>"; };
 		CE0F8D3428AD357F00F2C753 /* silver-style.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "silver-style.json"; sourceTree = "<group>"; };
 		CE19B2FA28DCEDD400840426 /* RouteListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteListTests.swift; sourceTree = "<group>"; };
 		CE19B2FC28DCF2F500840426 /* RouteListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteListManager.swift; sourceTree = "<group>"; };
@@ -279,7 +279,7 @@
 		CE7FBAEE28D937D9001175D3 /* PossibleRoutesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PossibleRoutesViewModel.swift; sourceTree = "<group>"; };
 		CE8CE8EF28BE493F003270D7 /* AlgorithmTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgorithmTests.swift; sourceTree = "<group>"; };
 		CE93A8A228BD3ECD00296532 /* CLLocationCoordinate2DExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2DExtension.swift; sourceTree = "<group>"; };
-		F74CB6C8C354EBAF824D691C /* Pods-RoutesApp_iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutesApp_iosTests.debug.xcconfig"; path = "Target Support Files/Pods-RoutesApp_iosTests/Pods-RoutesApp_iosTests.debug.xcconfig"; sourceTree = "<group>"; };
+		FA0A3E089EB4C395E8677B2B /* Pods-RoutesApp_iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutesApp_iosTests.release.xcconfig"; path = "Target Support Files/Pods-RoutesApp_iosTests/Pods-RoutesApp_iosTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,7 +290,7 @@
 				84067C7D28B57EFC00549300 /* FirebaseFirestoreSwift-Beta in Frameworks */,
 				C2436380289A27CC003C1A44 /* FirebaseAuth in Frameworks */,
 				C2436382289A27CC003C1A44 /* FirebaseFirestore in Frameworks */,
-				E08FCE9F3476665076D3B80B /* Pods_RoutesApp_ios.framework in Frameworks */,
+				959B7170FF24406C939DC60B /* Pods_RoutesApp_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,20 +298,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7BACD81FF49650362FA6BC4A /* Pods_RoutesApp_iosTests.framework in Frameworks */,
+				C5CE0DF941BD5E74DA30213C /* Pods_RoutesApp_iosTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D38C915BBEAC8E00CD74178 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6FA0743D620F2F740C78E285 /* Pods_RoutesApp_ios.framework */,
+				31EE8B34AA2330FC0954FC44 /* Pods_RoutesApp_iosTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7078ACACC070D6AFAFF653A6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				137E275CEBB5A0D95D01F9F6 /* Pods-RoutesApp_ios.debug.xcconfig */,
-				CDF0D85219E9C26C4997D317 /* Pods-RoutesApp_ios.release.xcconfig */,
-				F74CB6C8C354EBAF824D691C /* Pods-RoutesApp_iosTests.debug.xcconfig */,
-				9AEE711EB6947D6DD8648C6F /* Pods-RoutesApp_iosTests.release.xcconfig */,
+				7257BFCB83288F00AB939769 /* Pods-RoutesApp_ios.debug.xcconfig */,
+				C74C2944BAA64C9F9A25F1F8 /* Pods-RoutesApp_ios.release.xcconfig */,
+				3A72441BA0C7E9C4DD4A024C /* Pods-RoutesApp_iosTests.debug.xcconfig */,
+				FA0A3E089EB4C395E8677B2B /* Pods-RoutesApp_iosTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -486,15 +495,6 @@
 			path = controllers;
 			sourceTree = "<group>";
 		};
-		B815B93365E7CD23940B4151 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				7BDCB6FC3F011245E98E9BBE /* Pods_RoutesApp_ios.framework */,
-				C27885D0261499B18A8C0B66 /* Pods_RoutesApp_iosTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		C2112DDB289A18C3009601AB /* home */ = {
 			isa = PBXGroup;
 			children = (
@@ -651,7 +651,7 @@
 				C2E976F12898701D009F4B94 /* RoutesApp_iosTests */,
 				C2E976D62898701C009F4B94 /* Products */,
 				7078ACACC070D6AFAFF653A6 /* Pods */,
-				B815B93365E7CD23940B4151 /* Frameworks */,
+				2D38C915BBEAC8E00CD74178 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -939,13 +939,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C2E977022898701D009F4B94 /* Build configuration list for PBXNativeTarget "RoutesApp_ios" */;
 			buildPhases = (
-				849305FD0264EA06CD3EC89F /* [CP] Check Pods Manifest.lock */,
+				36C246281FD92D116BDBB5CB /* [CP] Check Pods Manifest.lock */,
 				C2E9770B2898716A009F4B94 /* SwiftLint */,
 				C2E976D12898701C009F4B94 /* Sources */,
 				C2E976D22898701C009F4B94 /* Frameworks */,
 				C2E976D32898701C009F4B94 /* Resources */,
-				CBF081E38661D5789FB5CC5D /* [CP] Embed Pods Frameworks */,
-				76C81C1BEAD4F7A1C61BB5AD /* [CP] Copy Pods Resources */,
+				0EAF5712B798455FAFC07012 /* [CP] Embed Pods Frameworks */,
+				E7A867E0A29255B14FA1A4D7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -965,7 +965,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C2E977052898701D009F4B94 /* Build configuration list for PBXNativeTarget "RoutesApp_iosTests" */;
 			buildPhases = (
-				057AF563D5A6C06AD3696288 /* [CP] Check Pods Manifest.lock */,
+				F5A383CDC534F3C1747C1B09 /* [CP] Check Pods Manifest.lock */,
 				C2E976EA2898701D009F4B94 /* Sources */,
 				C2E976EB2898701D009F4B94 /* Frameworks */,
 				C2E976EC2898701D009F4B94 /* Resources */,
@@ -1070,46 +1070,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		057AF563D5A6C06AD3696288 /* [CP] Check Pods Manifest.lock */ = {
+		0EAF5712B798455FAFC07012 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-RoutesApp_iosTests-checkManifestLockResult.txt",
+				"${PODS_ROOT}/Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		76C81C1BEAD4F7A1C61BB5AD /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		849305FD0264EA06CD3EC89F /* [CP] Check Pods Manifest.lock */ = {
+		36C246281FD92D116BDBB5CB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1149,21 +1127,43 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
-		CBF081E38661D5789FB5CC5D /* [CP] Embed Pods Frameworks */ = {
+		E7A867E0A29255B14FA1A4D7 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F5A383CDC534F3C1747C1B09 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RoutesApp_iosTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1488,7 +1488,7 @@
 		};
 		C2E977032898701D009F4B94 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 137E275CEBB5A0D95D01F9F6 /* Pods-RoutesApp_ios.debug.xcconfig */;
+			baseConfigurationReference = 7257BFCB83288F00AB939769 /* Pods-RoutesApp_ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1518,7 +1518,7 @@
 		};
 		C2E977042898701D009F4B94 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CDF0D85219E9C26C4997D317 /* Pods-RoutesApp_ios.release.xcconfig */;
+			baseConfigurationReference = C74C2944BAA64C9F9A25F1F8 /* Pods-RoutesApp_ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1548,7 +1548,7 @@
 		};
 		C2E977062898701D009F4B94 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F74CB6C8C354EBAF824D691C /* Pods-RoutesApp_iosTests.debug.xcconfig */;
+			baseConfigurationReference = 3A72441BA0C7E9C4DD4A024C /* Pods-RoutesApp_iosTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1570,7 +1570,7 @@
 		};
 		C2E977072898701D009F4B94 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9AEE711EB6947D6DD8648C6F /* Pods-RoutesApp_iosTests.release.xcconfig */;
+			baseConfigurationReference = FA0A3E089EB4C395E8677B2B /* Pods-RoutesApp_iosTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
