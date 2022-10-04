@@ -7,15 +7,25 @@
 
 import Foundation
 
-class LineFirebaseManager {
+protocol LineManagerProtocol {
+    func getLines(completion: @escaping(Result<[Lines], Error>) -> Void)
+    func getLineByIdAsync(lineId: String) async throws -> Lines
+    func getLinesByCity(cityId: String, completion: @escaping(Result<[Lines], Error>) -> Void)
+    func getLinesByCityAsync(cityId: String) async throws -> [Lines]
+    func getLinesForCurrentCity(completion: @escaping(Result<[Lines], Error>) -> Void)
+}
+
+class LineFirebaseManager: LineManagerProtocol {
     let firebaseManager = FirebaseFirestoreManager.shared
     static let shared = LineFirebaseManager()
+    let cityManager = CityFirebaseManager.shared
 
     func getLines(completion: @escaping(Result<[Lines], Error>) -> Void) {
-        firebaseManager.getLineWithBooleanCondition(type: Lines.self, forCollection: .Lines, enable: true) { result in
+        firebaseManager.getDocuments(type: Lines.self, forCollection: .Lines) { result in
             switch result {
             case .success(let lines):
-                completion(.success(lines))
+                let finalLines = lines.filter({$0.enable == true})
+                completion(.success(finalLines))
             case .failure(let error):
                 completion(.failure(error))
             }
@@ -32,11 +42,26 @@ class LineFirebaseManager {
     }
 
     func getLinesByCity(cityId: String, completion: @escaping(Result<[Lines], Error>) -> Void) {
-        firebaseManager.getLineWithBooleanCondition(type: Lines.self, forCollection: .Lines, enable: true) { result in
+        firebaseManager.getDocuments(type: Lines.self, forCollection: .Lines) { result in
             switch result {
             case .success(let lines):
                 let finalLines = lines.filter({$0.idCity == cityId})
                 completion(.success(finalLines))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+
+    func getLinesForCurrentCity(completion: @escaping(Result<[Lines], Error>) -> Void) {
+        cityManager.getDocumentsFromCity(type: Lines.self, forCollection: .Lines) { result in
+            switch result {
+            case .success(let lines):
+                let enabledLines = lines.filter { line in
+                    guard let enabledLine = line.enable else { return false }
+                    return enabledLine
+                }
+                completion(.success(enabledLines))
             case .failure(let error):
                 completion(.failure(error))
             }

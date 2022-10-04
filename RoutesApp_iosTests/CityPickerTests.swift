@@ -20,9 +20,9 @@ class MockCityManager: CityManagerProtocol {
             getCitiesByNameGotCalled = false
         }
     }
-    func getCountryById(id: String, completion: @escaping (Result<[Country], Error>) -> Void) {
+    func getCountryById(id: String, completion: @escaping (Result<Country, Error>) -> Void) {
         if !id.isEmpty {
-            completion(.success([TestResources.testCountry]))
+            completion(.success(TestResources.testCountry))
         } else {
             completion(.failure(NSError(domain: "Error", code: 0)))
         }

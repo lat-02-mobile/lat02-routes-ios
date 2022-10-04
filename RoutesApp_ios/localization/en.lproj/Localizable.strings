@@ -30,6 +30,7 @@
 
 // Default
 "error-unknown" = "Something went wrong";
+"search-bar" = "Search";
 
 // Tabbar controller
 "home" = "Home";
@@ -46,7 +47,6 @@
 
 // City Picker
 "welcome-message" = "Welcome to";
-"city-search-bar" = "Search";
 
 // HomeController
 "origin" = "Origin";
@@ -80,3 +80,4 @@
 "meters" = "%@ m";
 "kilometers" = "%@ km";
 "minutes" = "%@ min";
+"you-can-go-just-walk" = "You can reach the destination just walking";

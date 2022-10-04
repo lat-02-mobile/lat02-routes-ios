@@ -10,6 +10,7 @@ import CodableFirebase
 import Firebase
 
 struct RouteListDetailModel {
+    let id: String?
     let idCity: String?
     let name: String?
     let nameEng: String?

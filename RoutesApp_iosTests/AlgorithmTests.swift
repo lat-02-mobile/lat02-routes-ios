@@ -11,7 +11,9 @@ import XCTest
 class AlgorithmTests: XCTestCase {
     var line1: LineRoute?
     var line2: LineRoute?
+    var line3: LineRoute?
 
+    // swiftlint:disable function_body_length
     override func setUpWithError() throws {
         // MARK: Route 1
         let routePoints1 = TestResources.points1Array
@@ -40,6 +42,22 @@ class AlgorithmTests: XCTestCase {
                           stops: stops2,
                           end: routePoints2[1],
                           averageVelocity: 30.2,
+                          blackIcon: "",
+                          whiteIcon: "",
+                          color: "")
+
+        // MARK: Route 3
+        let routePoints3 = TestResources.points3Array
+        let stops3 = TestResources.stops3Array
+        line3 = LineRoute(name: "10",
+                          id: "3",
+                          idLine: "333",
+                          line: "Lines/4MhlK4IGLhTL6wcf512xk",
+                          routePoints: routePoints3,
+                          start: routePoints3[0],
+                          stops: stops3,
+                          end: routePoints3[3],
+                          averageVelocity: 4.2,
                           blackIcon: "",
                           whiteIcon: "",
                           color: "")
@@ -116,7 +134,8 @@ class AlgorithmTests: XCTestCase {
         let minDistance = 200.0
         let minDistanceBtwStops = 200.0
         guard let line1 = line1,
-                let line2 = line2 else {
+                let line2 = line2,
+                let line3 = line3 else {
             XCTAssertTrue(false)
             return
         }
@@ -126,18 +145,23 @@ class AlgorithmTests: XCTestCase {
                                          blackIcon: "", whiteIcon: "", color: "")
 
         let expectedSubLineB = LineRoute(name: line2.name, id: line2.id, idLine: line2.idLine, line: line2.line,
-                                            routePoints: [line2.routePoints[5]], start: line2.start, stops: [line2.stops[1]],
+                                         routePoints: Array(line2.routePoints[...5]), start: line2.start, stops: Array(line2.stops[0...1]),
                                             end: line2.end, averageVelocity: line2.averageVelocity,
                                          blackIcon: "", whiteIcon: "", color: "")
 
-        let expectedCombinedAvailableTransport = AvailableTransport(connectionPoint: 3,
-                transports: [expectedSubLineA, expectedSubLineB])
+        let expectedSubLineC = LineRoute(name: line3.name, id: line3.id, idLine: line3.idLine, line: line3.line,
+                                            routePoints: line3.routePoints, start: line3.start, stops: line3.stops,
+                                            end: line3.end, averageVelocity: line3.averageVelocity,
+                                         blackIcon: "", whiteIcon: "", color: "")
+
+        let expectedCombinedAvailableTransport = AvailableTransport(connectionPoint: 2,
+                transports: [expectedSubLineC, expectedSubLineB])
 
         let expectedOneLineAvailableTransport = AvailableTransport(connectionPoint: nil,
                 transports: [expectedSubLineA])
 
         let result = Algorithm.shared.findAvailableRoutes(origin: originPoint, destination: destinationPoint,
-            lines: [line1, line2], minDistanceBtwPoints: minDistance, minDistanceBtwStops: minDistanceBtwStops)
+            lines: [line1, line2, line3], minDistanceBtwPoints: minDistance, minDistanceBtwStops: minDistanceBtwStops)
 
         XCTAssertEqual([expectedCombinedAvailableTransport, expectedOneLineAvailableTransport], result)
     }

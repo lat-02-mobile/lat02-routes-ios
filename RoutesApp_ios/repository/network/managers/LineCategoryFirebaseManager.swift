@@ -7,7 +7,12 @@
 
 import Foundation
 
-class LineCategoryFirebaseManager {
+protocol LineCategoryManagerProtocol {
+    func getLineCategoryByIdAsync(lineId: String) async throws -> LinesCategory
+    func getCategories(completion: @escaping (Result<[LinesCategory], Error>) -> Void)
+}
+
+class LineCategoryFirebaseManager: LineCategoryManagerProtocol {
     let firebaseManager = FirebaseFirestoreManager.shared
     static let shared = LineCategoryFirebaseManager()
 
@@ -17,6 +22,17 @@ class LineCategoryFirebaseManager {
             return lineCategory
         } catch let error {
             throw error
+        }
+    }
+
+    func getCategories(completion: @escaping (Result<[LinesCategory], Error>) -> Void) {
+        firebaseManager.getDocuments(type: LinesCategory.self, forCollection: .LineCategories) { result in
+            switch result {
+            case .success(let lines):
+                completion(.success(lines))
+            case .failure(let error):
+                completion(.failure(error))
+            }
         }
     }
 }

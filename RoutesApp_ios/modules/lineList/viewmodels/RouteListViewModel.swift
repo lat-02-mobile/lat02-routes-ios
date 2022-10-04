@@ -8,11 +8,14 @@
 import Foundation
 
 class RouteListViewModel: ViewModel {
-    var routeListManager: RouteListManagerProtocol = RouteListManager.shared
+    var lineRouteManager: LineRouteManagerProtocol = LineRouteFirebaseManager.shared
+    var lineCategoryManager: LineCategoryManagerProtocol = LineCategoryFirebaseManager.shared
+    var lineManager: LineManagerProtocol = LineFirebaseManager.shared
+
     var routeListModel: [Lines] = []
     var linesCategory: [LinesCategory] = []
     var lineRouteList: [LineRouteInfo] = []
-    var routeListDetailModels: [RouteListDetailModel] = []
+    private var originalList = [RouteListDetailModel]()
     var filteredRouteList: [RouteListDetailModel] = []
     var filteredByCategoryRouteList: [RouteListDetailModel] = []
     var filteredByQueryRouteList: [RouteListDetailModel] = []
@@ -25,7 +28,7 @@ class RouteListViewModel: ViewModel {
     var selectedFilterIndex = -1
 
     func getLines(completion: @escaping () -> Void) {
-        routeListManager.getLines { result in
+        lineManager.getLinesForCurrentCity { result in
             switch result {
             case .success(let lines):
                 self.routeListModel = lines
@@ -37,7 +40,7 @@ class RouteListViewModel: ViewModel {
         }
     }
     func getLineRoute(id: String) {
-        routeListManager.getLineRoute(idLine: id) { result in
+        lineRouteManager.getLineRoute(idLine: id) { result in
             switch result {
             case .success(let lines):
                 self.lineRouteList = lines
@@ -50,14 +53,14 @@ class RouteListViewModel: ViewModel {
       }
 
     func getCategories(completion: @escaping () -> Void) {
-        routeListManager.getCategories { result in
+        lineCategoryManager.getCategories { result in
             switch result {
             case .success(let lines):
                 self.linesCategory = lines
-                self.mapRouteListDetailModel()
-                self.filteredRouteList = self.routeListDetailModels
-                self.filteredByQueryRouteList = self.routeListDetailModels
-                self.filteredByCategoryRouteList = self.routeListDetailModels
+                self.originalList = self.mapRouteListDetailModel(routeListModel: self.routeListModel)
+                self.filteredRouteList = self.originalList
+                self.filteredByQueryRouteList = self.originalList
+                self.filteredByCategoryRouteList = self.originalList
                 completion()
             case .failure(let error):
                 self.onError?(error.localizedDescription)
@@ -83,17 +86,20 @@ class RouteListViewModel: ViewModel {
           return linePath
        }
 
-    func mapRouteListDetailModel() {
+    func mapRouteListDetailModel(routeListModel: [Lines]) -> [RouteListDetailModel] {
+        var routeListDetailModels = [RouteListDetailModel]()
         for routeListModel in routeListModel {
             let lineCategory = linesCategory.filter {$0.id == routeListModel.idCategory}.first
             guard let category = lineCategory else { continue }
+            let id = routeListModel.id
             let idCity = routeListModel.idCity
             let nameList = routeListModel.name
             let lineEn = category.nameEng
             let lineEs = category.nameEsp
-            let routemodel = RouteListDetailModel(idCity: idCity, name: nameList, nameEng: lineEn, nameEsp: lineEs, category: category)
+            let routemodel = RouteListDetailModel(id: id, idCity: idCity, name: nameList, nameEng: lineEn, nameEsp: lineEs, category: category)
             routeListDetailModels.append(routemodel)
         }
+        return routeListDetailModels
     }
 
     func filterRouteListBy(query: String) {
@@ -120,14 +126,14 @@ class RouteListViewModel: ViewModel {
     }
 
     func filterRouteListBy(transportationCategory: LinesCategory) {
-        filteredByCategoryRouteList = routeListDetailModels.filter({ $0.category.id == transportationCategory.id })
+        filteredByCategoryRouteList = filteredRouteList.filter({ $0.category.id == transportationCategory.id })
         filteredRouteList = filteredByCategoryRouteList
         reloadData?()
     }
 
     func resetFilteredByCategoryRouteList() {
-        filteredByCategoryRouteList = routeListDetailModels
-        filteredRouteList = routeListDetailModels
+        filteredByCategoryRouteList = originalList
+        filteredRouteList = originalList
         selectedFilterIndex = -1
         reloadData?()
     }

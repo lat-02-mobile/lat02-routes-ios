@@ -61,11 +61,26 @@ class TestResources {
         Coordinate(latitude: -16.5241937, longitude: -68.1204527)
      ]
 
+    static let points3Array = [
+        Coordinate(latitude: -16.52154, longitude: -68.12311),
+        Coordinate(latitude: -16.52231, longitude: -68.12344),
+        Coordinate(latitude: -16.52236, longitude: -68.12433),
+        Coordinate(latitude: -16.52271, longitude: -68.1254),
+        Coordinate(latitude: -16.52353, longitude: -68.12601),
+        Coordinate(latitude: -16.52419, longitude: -68.12609)
+     ]
+
+    static let stops3Array = [
+        Coordinate(latitude: -16.52154, longitude: -68.12311),
+        Coordinate(latitude: -16.52236, longitude: -68.12433),
+        Coordinate(latitude: -16.52419, longitude: -68.12609)
+     ]
+
     static let testCityRouteName = "testCity"
     static let testCountryId = "testCountry"
     static let testCityRoute = Cities(country: "test", id: "testid", idCountry: "countryTest", lat: "-35", lng: "-17", name: "testCity")
     static let testCountry = Country(
-        id: "test", name: "testCountry", code: "test", phone: "test", createdAt: Date(), updatedAt: Date(), cities: [DocumentReference]()
+        id: "test", name: "testCountry", code: "test", phone: "test", createdAt: nil, updatedAt: nil, cities: [DocumentReference]()
     )
 
     static let findPlacesTest = Place(name: "A place name", identifier: "123456")
@@ -83,10 +98,15 @@ class TestResources {
         LinesCategory(id: "2", nameEng: "Bus", nameEsp: "Bus", blackIcon: "", whiteIcon: "")
     ]
 
-    static let RoutePoints = [GeoPoint(latitude: 1, longitude: 1), GeoPoint(latitude: 1, longitude: 1)]
-        static let Stops = [GeoPoint(latitude: 1, longitude: 1), GeoPoint(latitude: 1, longitude: 1)]
+    static let tourpointsInfo = [
+        TourpointInfo(address: "Addres 1", destination: Coordinate(latitude: 0, longitude: 0), name: "Name 1",
+                      category: "Category 1", urlImage: "URL Image")
+    ]
 
-   static let LineRoutes = [
+    static let RoutePoints = [GeoPoint(latitude: 1, longitude: 1), GeoPoint(latitude: 1, longitude: 1)]
+    static let Stops = [GeoPoint(latitude: 1, longitude: 1), GeoPoint(latitude: 1, longitude: 1)]
+
+    static let LineRoutes = [
         LineRouteInfo(name: "Route1", id: "wsws2344d3f", idLine: "1",
                       line: nil, routePoints: RoutePoints, start: GeoPoint(latitude: 1, longitude: 1),
                       stops: Stops, end: GeoPoint(latitude: 1, longitude: 1), averageVelocity: "", color: ""),

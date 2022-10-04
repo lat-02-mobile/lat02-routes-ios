@@ -115,8 +115,25 @@ class RouteDetailViewController: UIViewController {
         getRoutePathDetails()
         fitMapRoutePath()
         getStreetName()
-        print(viewmodel.getAllFavorites())
-        // MARK: Check if the selected destination is a favorite
+        checkIfFavorite()
+    }
+
+    @IBAction func saveAsFavorite(_ sender: Any) {
+        if !isFavorite {
+            showAddFavoriteDialog()
+        } else {
+            removeFromFavoritesDialog()
+        }
+    }
+
+    private func setupViews() {
+        linesTableView.delegate = self
+        linesTableView.dataSource = self
+        let nib = UINib(nibName: LinePathTableViewCell.linePathCellNib, bundle: nil)
+        linesTableView.register(nib, forCellReuseIdentifier: LinePathTableViewCell.linePathCellIdentifier)
+    }
+
+    private func checkIfFavorite() {
         if let latitude = self.delegate?.getDestination()?.latitude,
            let longitude = self.delegate?.getDestination()?.longitude {
             if let nearestFav = viewmodel.getNearestFavDest(lat: latitude, lng: longitude) {
@@ -133,14 +150,6 @@ class RouteDetailViewController: UIViewController {
         }
     }
 
-    @IBAction func saveAsFavorite(_ sender: Any) {
-        if !isFavorite {
-            showAddFavoriteDialog()
-        } else {
-            removeFromFavoritesDialog()
-        }
-    }
-
     private func drawMarkers() {
         guard let firstStop = routePath.transports.first?.routePoints.first,
               let lastStop = routePath.transports.last?.routePoints.last else { return }
@@ -151,12 +160,13 @@ class RouteDetailViewController: UIViewController {
     private func getStreetName() {
         guard let origin = delegate?.getOrigin(), let destination = delegate?.getDestination() else { return }
 
-//        let locationDestination = CLLocation(latitude: destination.latitude, longitude: destination.longitude)
-//        let locationOrigin = CLLocation(latitude: origin.latitude, longitude: origin.longitude)
-//        let locationDestination = CLLocation(latitude: -17.400923, longitude: -66.177607)
-//        let locationOrigin = CLLocation(latitude: -17.399995087026774, longitude: -66.20014299508014)
-        let locationDestination = CLLocation(latitude: -17.40157915826933, longitude: -66.17522176355124)
-        let locationOrigin = CLLocation(latitude: -17.395577469672943, longitude: -66.17612667381763)
+        // MARK: The following variables are used for test purposes
+//        let locationDestination = CLLocation(latitude: -17.40157915826933, longitude: -66.17522176355124)
+//        let locationOrigin = CLLocation(latitude: -17.395577469672943, longitude: -66.17612667381763)
+
+        let locationDestination = CLLocation(latitude: destination.latitude, longitude: destination.longitude)
+        let locationOrigin = CLLocation(latitude: origin.latitude, longitude: origin.longitude)
+
         // Geocode Location
         geocoder.reverseGeocodeLocation(locationOrigin) { (placemarks, error) in
             // Process Response
@@ -167,17 +177,19 @@ class RouteDetailViewController: UIViewController {
             }
         }
     }
+
     private func processResponse(withPlacemarks placemarks: [CLPlacemark]?, error: Error?, labelTarget: UILabel) {
         if let error = error {
-            labelTarget.text = String.localizeString(localizedString: ConstantVariables.routeDetailUnableToGetLocation) + error.localizedDescription
+            labelTarget.text = String.localizeString(localizedString: StringResources.routeDetailUnableToGetLocation) + error.localizedDescription
         } else {
             if let placemarks = placemarks, let placemark = placemarks.first {
                 labelTarget.text = placemark.singleStreetAddress
             } else {
-                labelTarget.text = String.localizeString(localizedString: ConstantVariables.routeDetailNoMatchesAdresses)
+                labelTarget.text = String.localizeString(localizedString: StringResources.routeDetailNoMatchesAdresses)
             }
         }
     }
+
     private func getRoutePathDetails() {
         if !routePath.transports.isEmpty {
             guard let origin = delegate?.getOrigin(), let destination = delegate?.getDestination() else { return }
@@ -186,22 +198,41 @@ class RouteDetailViewController: UIViewController {
                 routePath.transports.insert(LineRoute.getWalkLineRoute(routePoints: [routePath.transports[i].routePoints.last! as Coordinate,
                     routePath.transports[i + 1].routePoints.first! as Coordinate]), at: i + 1)
             }
+
+            // MARK: The following code is used for test purposes
 //            routePath.transports.insert(LineRoute.getWalkLineRoute(routePoints: [
-//                origin, (routePath.transports.first?.routePoints.first)! as Coordinate]), at: 0)
+//                Coordinate(latitude: -17.395577469672943, longitude: -66.17612667381763),
+//                (routePath.transports.first?.routePoints.first)! as Coordinate]), at: 0)
+
             routePath.transports.insert(LineRoute.getWalkLineRoute(routePoints: [
-                Coordinate(latitude: -17.395577469672943, longitude: -66.17612667381763),
-                (routePath.transports.first?.routePoints.first)! as Coordinate]), at: 0)
+                origin, (routePath.transports.first?.routePoints.first)! as Coordinate]), at: 0)
+
+            // MARK: The following code is used for test purposes
 //            routePath.transports.append(LineRoute.getWalkLineRoute(routePoints: [
-//                (routePath.transports.last?.routePoints.last)! as Coordinate, destination
+//                (routePath.transports.last?.routePoints.last)! as Coordinate,
+//                Coordinate(latitude: -17.40157915826933, longitude: -66.17522176355124)
 //            ]))
+
             routePath.transports.append(LineRoute.getWalkLineRoute(routePoints: [
-                (routePath.transports.last?.routePoints.last)! as Coordinate,
-                Coordinate(latitude: -17.40157915826933, longitude: -66.17522176355124)
+                (routePath.transports.last?.routePoints.last)! as Coordinate, destination
             ]))
+
             walkingPathDistances = Array(repeating: nil, count: routePath.transports.count)
             // Drawing all the paths in the map
             for i in 0...routePath.transports.count - 1 {
                 let lineRoute = routePath.transports[i]
+                if lineRoute.name != LineRoute.lineWalkName {
+                    if i > 1 {
+                        GoogleMapsHelper.shared.addCustomMarker(map: mapView,
+                                                                position: lineRoute.routePoints.first!,
+                                                                icon: UIImage(named: ConstantVariables.stopMarkerName))
+                    }
+                    if i < routePath.transports.count - 2 {
+                        GoogleMapsHelper.shared.addCustomMarker(map: mapView,
+                                                                position: lineRoute.routePoints.last!,
+                                                                icon: UIImage(named: ConstantVariables.stopMarkerName))
+                    }
+                }
                 if lineRoute.line == LineRoute.lineWalkName {
                     possibleRoutesViewModel.getDirections(origin: lineRoute.routePoints[0], destination: lineRoute.routePoints[1]) { path in
                         GoogleMapsHelper.shared.drawDotPolyline(map: self.mapView, path: path)
@@ -258,6 +289,7 @@ class RouteDetailViewController: UIViewController {
         alert.addAction(UIAlertAction(title: String.localizeString(localizedString: "cancel"), style: .default))
         present(alert, animated: true)
     }
+
     func removeFromFavoritesDialog() {
         let alert = UIAlertController(
             title: "\(String.localizeString(localizedString: "remove-fav-dest"))",
@@ -275,12 +307,6 @@ class RouteDetailViewController: UIViewController {
         }))
         alert.addAction(UIAlertAction(title: String.localizeString(localizedString: "cancel"), style: .default))
         present(alert, animated: true)
-    }
-    private func setupViews() {
-        linesTableView.delegate = self
-        linesTableView.dataSource = self
-        let nib = UINib(nibName: LinePathTableViewCell.linePathCellNib, bundle: nil)
-        linesTableView.register(nib, forCellReuseIdentifier: LinePathTableViewCell.linePathCellIdentifier)
     }
 }
 

@@ -19,8 +19,8 @@ class HomeViewModel {
     var origin: GMSMarker?
     var destination: GMSMarker?
     var pointsSelectionStatus = PointsSelectionStatus.pendingOrigin
-    var routeListManager: RouteListManagerProtocol = RouteListManager.shared
-    var lineManager = LineFirebaseManager.shared
+    var lineRouteManager: LineRouteManagerProtocol = LineRouteFirebaseManager.shared
+    var lineManager: LineManagerProtocol = LineFirebaseManager.shared
     var lineRoutes: [LineRoute] = [] {
         didSet {
             runAlgorithm?()
@@ -33,12 +33,10 @@ class HomeViewModel {
         do {
             let linesByCity = try await lineManager.getLinesByCityAsync(cityId: currentCityId)
             var finalLineRoutes = [LineRouteInfo]()
-            print("Here are the lines: \(linesByCity.count)" )
             for line in linesByCity {
-                let lineRoutes = try await routeListManager.getLinesRoutesByLineAsync(idLine: line.id ?? "")
+                let lineRoutes = try await lineRouteManager.getLinesRoutesByLineAsync(idLine: line.id ?? "")
                 finalLineRoutes.append(contentsOf: lineRoutes)
             }
-            print("Here are the lineRoutes: \(finalLineRoutes.count)")
             self.lineRoutes = try await parseLineRouteInfoToLineRoutes(lineRoutesInfo: finalLineRoutes)
         } catch let error {
            throw error

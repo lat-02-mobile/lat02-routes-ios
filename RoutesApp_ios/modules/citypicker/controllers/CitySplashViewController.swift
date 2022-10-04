@@ -30,7 +30,7 @@ class CitySplashViewController: UIViewController {
     }
 
     func setUpCityName() {
-        guard !city.isEmpty, !cityLat.isEmpty, !cityLng.isEmpty else { return }
+        guard !city.isEmpty, !cityId.isEmpty, !cityLat.isEmpty, !cityLng.isEmpty else { return }
         let desc = (String.localizeString(localizedString: "welcome-message"))
         let text = "\(desc) \(city)"
         cityNameLabel.text = text

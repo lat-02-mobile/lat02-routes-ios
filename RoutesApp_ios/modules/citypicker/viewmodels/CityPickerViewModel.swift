@@ -40,11 +40,11 @@ class CityPickerViewModel {
         }
     }
 
-    func getCountry(id: String, completion: @escaping ((_ cities: [Country]) -> Void)) {
+    func getCountry(id: String, completion: @escaping ((_ cities: Country) -> Void)) {
         cityManager.getCountryById(id: id) { result in
             switch result {
-            case.success(let countries):
-                completion(countries)
+            case.success(let country):
+                completion(country)
             case.failure(let error):
                 self.onError?(error.localizedDescription)
             }

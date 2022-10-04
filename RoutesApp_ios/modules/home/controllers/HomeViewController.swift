@@ -37,36 +37,25 @@ class HomeViewController: UIViewController {
 
     func initViewModel() {
         self.viewmodel.runAlgorithm = { [weak self] in
-//            print("origin latitude: \(self?.viewmodel.origin?.position.latitude)")
-//            print("origin longitude: \(self?.viewmodel.origin?.position.longitude)")
-//            print("destination latitude: \(self?.viewmodel.destination?.position.latitude)")
-//            print("destination longitude: \(self?.viewmodel.destination?.position.longitude)")
             if let origin = self?.viewmodel.origin, let destination = self?.viewmodel.destination {
-                let distanceBetweenCoords = GoogleMapsHelper.shared.getDistanceBetween2Points(
-                    origin: Coordinate(latitude: origin.position.latitude,
-                                       longitude: origin.position.longitude),
-                    destination: Coordinate(latitude: destination.position.latitude,
-                                            longitude: destination.position.longitude))
-//                if distanceBetweenCoords <= 500.0 {
-//                    DispatchQueue.main.sync {
-//                        self?.showToast(message: "You can go to this route just walking")
-//                        SVProgressHUD.dismiss()
-//                    }
-//                    return
-//                }
-                let algOrigin = CLLocationCoordinate2D(latitude: -17.395475,
-                                                       longitude: -66.17532)
-                let algDestination = CLLocationCoordinate2D(latitude: -17.398454,
-                                                            longitude: -66.17588)
+                // MARK: The following variables are for test purpose only
+//                let algOrigin = CLLocationCoordinate2D(latitude: -17.395475,
+//                                                       longitude: -66.17532)
+//                let algDestination = CLLocationCoordinate2D(latitude: -17.398454,
+//                                                            longitude: -66.17588)
+
+                let algOrigin = CLLocationCoordinate2D(latitude: origin.position.latitude,
+                                                       longitude: origin.position.longitude)
+                let algDestination = CLLocationCoordinate2D(latitude: destination.position.latitude,
+                                                            longitude: destination.position.longitude)
                 let availableTransports = Algorithm.shared.findAvailableRoutes(origin: algOrigin,
                                                                                destination: algDestination,
                                                                                lines: (self?.viewmodel.lineRoutes)!,
                                                                                minDistanceBtwPoints: Algorithm.minDistanceBtwPointsAndStops,
                                                                                minDistanceBtwStops: Algorithm.minDistanceBtwPointsAndStops)
-//                print("availableTransports: \(availableTransports.count)")
                 DispatchQueue.main.sync {
                     SVProgressHUD.dismiss()
-                    self?.labelHelper.text = "Route 1"
+                    self?.labelHelper.text = StringResources.route1
                     let viewModel = PossibleRoutesViewModel()
                     viewModel.map = self?.mapView
                     let viewController = BottomSheetViewController(viewModel: viewModel, possibleRoutes: availableTransports)
@@ -101,7 +90,7 @@ class HomeViewController: UIViewController {
 
         searchButton.contentVerticalAlignment = .top
 
-        labelHelper.text = String.localizeString(localizedString: ConstantVariables.selectOrigin)
+        labelHelper.text = String.localizeString(localizedString: StringResources.selectOrigin)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
 
     }
@@ -153,14 +142,14 @@ class HomeViewController: UIViewController {
         case.pendingOrigin:
             return
         case.pendingDestination:
-            labelHelper.text = String.localizeString(localizedString: ConstantVariables.selectOrigin)
+            labelHelper.text = String.localizeString(localizedString: StringResources.selectOrigin)
             viewmodel.pointsSelectionStatus = .pendingOrigin
             viewmodel.origin?.map = mapView
             viewmodel.origin?.map = nil
             viewmodel.origin = nil
             backButton.isHidden = true
         case.bothSelected:
-            labelHelper.text = String.localizeString(localizedString: ConstantVariables.selectDestination)
+            labelHelper.text = String.localizeString(localizedString: StringResources.selectDestination)
             viewmodel.pointsSelectionStatus = .pendingDestination
             viewmodel.destination?.map = mapView
             viewmodel.destination?.map = nil
@@ -177,16 +166,16 @@ class HomeViewController: UIViewController {
 
         switch viewmodel.pointsSelectionStatus {
         case.pendingOrigin:
-            pos.title = String.localizeString(localizedString: ConstantVariables.origin)
-            labelHelper.text = String.localizeString(localizedString: ConstantVariables.selectDestination)
+            pos.title = String.localizeString(localizedString: StringResources.origin)
+            labelHelper.text = String.localizeString(localizedString: StringResources.selectDestination)
             pos.icon = UIImage(named: ConstantVariables.originPoint)
             pos.map = mapView
             viewmodel.origin = pos
             viewmodel.pointsSelectionStatus = .pendingDestination
 
         case.pendingDestination:
-            pos.title = String.localizeString(localizedString: ConstantVariables.destination)
-            labelHelper.text = String.localizeString(localizedString: ConstantVariables.done)
+            pos.title = String.localizeString(localizedString: StringResources.destination)
+            labelHelper.text = String.localizeString(localizedString: StringResources.done)
             pos.icon = UIImage(named: ConstantVariables.destinationPoint)
             pos.map = mapView
             viewmodel.destination = pos
@@ -196,9 +185,20 @@ class HomeViewController: UIViewController {
             // Call logic to run algorithm with routes
             SVProgressHUD.show()
             Toast.showToast(target: self, message: String.localizeString(localizedString: StringResources.loadingPossibleRoutes))
-            Task.init {
-                try? await viewmodel.getLineRouteForCurrentCity()
-                print("data: \(viewmodel.lineRoutes)")
+            if let origin = viewmodel.origin, let destination = viewmodel.destination {
+                let distanceBetweenCoords = GoogleMapsHelper.shared.getDistanceBetween2Points(
+                    origin: Coordinate(latitude: origin.position.latitude,
+                                       longitude: origin.position.longitude),
+                    destination: Coordinate(latitude: destination.position.latitude,
+                                            longitude: destination.position.longitude))
+                if distanceBetweenCoords <= 500.0 {
+                    Toast.showToast(target: self, message: String.localizeString(localizedString: StringResources.youCanGoJustWalk))
+                    SVProgressHUD.dismiss()
+                } else {
+                    Task.init {
+                        try? await viewmodel.getLineRouteForCurrentCity()
+                    }
+                }
             }
         }
         backButton.isHidden = false
@@ -230,11 +230,11 @@ class HomeViewController: UIViewController {
     }
 
     private func showRequestPermissionsAlert() {
-        let alertController = UIAlertController(title: String.localizeString(localizedString: ConstantVariables.localizationPermissionAlertTitle),
-                                                message: String.localizeString(localizedString: ConstantVariables.localizationPermissionAlertMessage),
+        let alertController = UIAlertController(title: String.localizeString(localizedString: StringResources.localizationPermissionAlertTitle),
+                                                message: String.localizeString(localizedString: StringResources.localizationPermissionAlertMessage),
                                                 preferredStyle: .alert)
         let settingsAction = UIAlertAction(title:
-            String.localizeString(localizedString: ConstantVariables.localizationPermissionAlertSettings),
+            String.localizeString(localizedString: StringResources.localizationPermissionAlertSettings),
                style: .default) { (_) -> Void in
             guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
                 return
@@ -244,7 +244,7 @@ class HomeViewController: UIViewController {
              }
         }
         let cancelAction = UIAlertAction(title:
-                                            String.localizeString(localizedString: ConstantVariables.localizationPermissionAlertCancel),
+                                            String.localizeString(localizedString: StringResources.localizationPermissionAlertCancel),
              style: .default, handler: nil)
         alertController.addAction(cancelAction)
         alertController.addAction(settingsAction)
@@ -292,7 +292,6 @@ class HomeViewController: UIViewController {
 // MARK: ShowPossibleRoutes Delegate
 extension HomeViewController: BottomSheetDelegate {
     func showSelectedRoute(selectedRoute: AvailableTransport) {
-//        print("selected route: \(selectedRoute)")
         self.showRouteDetail(selectedAvailableTransport: selectedRoute)
         self.viewmodel.selectedAvailableTransport = selectedRoute
     }
