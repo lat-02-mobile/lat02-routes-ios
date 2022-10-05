@@ -61,6 +61,21 @@ class TestResources {
         Coordinate(latitude: -16.5241937, longitude: -68.1204527)
      ]
 
+    static let points3Array = [
+        Coordinate(latitude: -16.52154, longitude: -68.12311),
+        Coordinate(latitude: -16.52231, longitude: -68.12344),
+        Coordinate(latitude: -16.52236, longitude: -68.12433),
+        Coordinate(latitude: -16.52271, longitude: -68.1254),
+        Coordinate(latitude: -16.52353, longitude: -68.12601),
+        Coordinate(latitude: -16.52419, longitude: -68.12609)
+     ]
+
+    static let stops3Array = [
+        Coordinate(latitude: -16.52154, longitude: -68.12311),
+        Coordinate(latitude: -16.52236, longitude: -68.12433),
+        Coordinate(latitude: -16.52419, longitude: -68.12609)
+     ]
+
     static let testCityRouteName = "testCity"
     static let testCountryId = "testCountry"
     static let testCityRoute = Cities(country: "test", id: "testid", idCountry: "countryTest", lat: "-35", lng: "-17", name: "testCity")
