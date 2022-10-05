@@ -26,7 +26,18 @@ class CitySplashViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
-        initTimer()
+        initViewModel()
+    }
+
+    private func initViewModel() {
+        viewmodel.retrieveAllDataFromFirebase()
+        viewmodel.onFinish = { [weak self] in
+            guard let strongSelf = self else {return}
+            strongSelf.callSetUpRootController()
+        }
+        viewmodel.onError = { _ in
+            print("Error in controller")
+        }
     }
 
     func setUpCityName() {
@@ -43,14 +54,7 @@ class CitySplashViewController: UIViewController {
         ConstantVariables.defaults.set(cityId, forKey: ConstantVariables.defCityId)
     }
 
-    func initTimer() {
-        timer.invalidate()
-        timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(updateMaps), userInfo: nil, repeats: true)
-    }
-
-    @objc
-    private func updateMaps() {
-        timer.invalidate()
+    private func callSetUpRootController() {
         SceneDelegate.shared?.setupRootControllerIfNeeded(validUser: viewmodel.authManager.userIsLoggedIn())
     }
 }

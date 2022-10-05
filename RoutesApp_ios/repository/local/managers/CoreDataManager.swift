@@ -73,11 +73,21 @@ class CoreDataManager {
         }
         return false
     }
+
+    @discardableResult
     func deleteAll() -> Bool {
         let context = self.getContext()
-        let delete = NSBatchDeleteRequest(fetchRequest: FavoriteDest.fetchRequest())
+        let deleteFavorites = NSBatchDeleteRequest(fetchRequest: FavoriteDest.fetchRequest())
+        let deleteLines = NSBatchDeleteRequest(fetchRequest: LineEntity.fetchRequest())
+        let deleteCategoryLines = NSBatchDeleteRequest(fetchRequest: LineCategoryEntity.fetchRequest())
+        let deleteTourpointCategories = NSBatchDeleteRequest(fetchRequest: TourpointCategoryEntity.fetchRequest())
+        let deleteTourpoints = NSBatchDeleteRequest(fetchRequest: TourpointEntity.fetchRequest())
         do {
-            try context.execute(delete)
+            try context.execute(deleteFavorites)
+            try context.execute(deleteLines)
+            try context.execute(deleteCategoryLines)
+            try context.execute(deleteTourpointCategories)
+            try context.execute(deleteTourpoints)
             return true
         } catch {
             print("cant clean coredata")

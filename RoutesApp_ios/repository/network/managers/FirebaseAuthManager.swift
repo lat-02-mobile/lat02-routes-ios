@@ -123,7 +123,7 @@ class FirebaseAuthManager: AuthProtocol {
     func signInWithFacebook(target: UIViewController, completion: @escaping (Result<(credential: NSObject, email: String), Error>) -> Void) {
         try? Auth.auth().signOut()
         let fbLogin = LoginManager()
-        if let currentToken = AccessToken.current {
+        if AccessToken.current != nil {
             fbLogin.logOut()
         }
         fbLogin.logIn(permissions: ["public_profile", "email"],

@@ -11,5 +11,5 @@ import CoreData
 
 @objc(LineRouteEntity)
 public class LineRouteEntity: NSManagedObject {
-
+    static let name = "LineRouteEntity"
 }

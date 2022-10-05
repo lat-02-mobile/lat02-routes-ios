@@ -12,35 +12,42 @@ import CoreData
 extension LineRouteEntity {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<LineRouteEntity> {
-        return NSFetchRequest<LineRouteEntity>(entityName: "LineRouteEntity")
+        return NSFetchRequest<LineRouteEntity>(entityName: self.name)
     }
 
-    @NSManaged public var id: String?
-    @NSManaged public var idLine: String?
-    @NSManaged public var name: String?
-    @NSManaged public var start: NSCoordinates?
-    @NSManaged public var end: NSCoordinates?
-    @NSManaged public var createdAt: Date?
-    @NSManaged public var routePoints: NSSet?
-    @NSManaged public var line: LineEntity?
+    @NSManaged public var id: String
+    @NSManaged public var idLine: String
+    @NSManaged public var name: String
+    @NSManaged public var start: NSCoordinates
+    @NSManaged public var end: NSCoordinates
+    @NSManaged public var createdAt: Date
+    @NSManaged public var strRoutePoints: String
+    @NSManaged public var strStops: String
+    @NSManaged public var line: LineEntity
 
-}
+    public var stops: [Coordinate] {
+        get {
+           return (try? JSONDecoder().decode([Coordinate].self, from: Data(strStops.utf8))) ?? []
+        }
+        set {
+           do {
+               let stopsData = try JSONEncoder().encode(newValue)
+               strStops = String(data: stopsData, encoding: .utf8) ?? ""
+           } catch { strStops = "" }
+        }
+    }
 
-// MARK: Generated accessors for routePoints
-extension LineRouteEntity {
-
-    @objc(addRoutePointsObject:)
-    @NSManaged public func addToRoutePoints(_ value: PointHolder)
-
-    @objc(removeRoutePointsObject:)
-    @NSManaged public func removeFromRoutePoints(_ value: PointHolder)
-
-    @objc(addRoutePoints:)
-    @NSManaged public func addToRoutePoints(_ values: NSSet)
-
-    @objc(removeRoutePoints:)
-    @NSManaged public func removeFromRoutePoints(_ values: NSSet)
-
+    public var routePoints: [Coordinate] {
+        get {
+           return (try? JSONDecoder().decode([Coordinate].self, from: Data(strRoutePoints.utf8))) ?? []
+        }
+        set {
+           do {
+               let pointsData = try JSONEncoder().encode(newValue)
+               strRoutePoints = String(data: pointsData, encoding: .utf8) ?? ""
+           } catch { strRoutePoints = "" }
+        }
+    }
 }
 
 extension LineRouteEntity: Identifiable {

@@ -9,18 +9,28 @@ import XCTest
 @testable import RoutesApp_ios
 
 class MockTourpointsManager: TourpointsManagerProtocol {
-    var tourpointsAndCategoriesCalled = false
+    var tourpointsCalled = false
+    var tourpointsCategoryCalled = false
     var sendToError = false
-    func getTourpointList(completion: @escaping (Result<[TourpointInfo], Error>) -> Void) {
+    func getTourpointList(completion: @escaping (Result<[Tourpoint], Error>) -> Void) {
         if !sendToError {
-            tourpointsAndCategoriesCalled = true
-            completion(.success(TestResources.tourpointsInfo))
+            tourpointsCalled = true
+            completion(.success(TestResources.tourpoints))
         } else {
-            tourpointsAndCategoriesCalled = false
+            tourpointsCalled = false
             completion(.failure(NSError(domain: "Error", code: 0)))
         }
     }
 
+    func getTourpointCategories(completion: @escaping (Result<[TourpointCategory], Error>) -> Void) {
+        if !sendToError {
+            tourpointsCategoryCalled = true
+            completion(.success(TestResources.tourpointCategories))
+        } else {
+            tourpointsCategoryCalled = false
+            completion(.failure(NSError(domain: "Error", code: 0)))
+        }
+    }
 }
 
 class TourpointTests: XCTestCase {
@@ -35,12 +45,14 @@ class TourpointTests: XCTestCase {
 
     func testGetAllTourpointsFromCity() throws {
         tourpointsViewModel.getTourpoints()
-        XCTAssertTrue(mockManager.tourpointsAndCategoriesCalled)
+        XCTAssertTrue(mockManager.tourpointsCalled)
+        XCTAssertTrue(mockManager.tourpointsCategoryCalled)
     }
 
     func testGetAllTourpointsFromCityFailureCase() throws {
         mockManager.sendToError = true
         tourpointsViewModel.getTourpoints()
-        XCTAssertFalse(mockManager.tourpointsAndCategoriesCalled)
+        XCTAssertFalse(mockManager.tourpointsCalled)
+        XCTAssertFalse(mockManager.tourpointsCategoryCalled)
     }
 }

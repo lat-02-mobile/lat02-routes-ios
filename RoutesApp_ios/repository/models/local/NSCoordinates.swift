@@ -7,7 +7,9 @@
 
 import Foundation
 
-public class NSCoordinates: NSObject, NSCoding {
+public class NSCoordinates: NSObject, NSSecureCoding {
+    public static var supportsSecureCoding = true
+
     var latitude: Double
     var longitude: Double
 

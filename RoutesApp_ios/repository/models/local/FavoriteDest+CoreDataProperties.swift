@@ -12,7 +12,7 @@ import CoreData
 extension FavoriteDest {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<FavoriteDest> {
-        return NSFetchRequest<FavoriteDest>(entityName: "FavoriteDest")
+        return NSFetchRequest<FavoriteDest>(entityName: self.name)
     }
 
     @NSManaged public var createdAt: Date?

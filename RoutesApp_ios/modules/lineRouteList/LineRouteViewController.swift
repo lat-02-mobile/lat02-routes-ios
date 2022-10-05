@@ -31,7 +31,7 @@ extension LineRouteViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let linePath = self.routeDetailViewModel.convertToLinePath(lineRouteInfo: lineRouteList[indexPath.row])
+        let linePath = lineRouteList[indexPath.row].convertToLinePath()
         let routeMapViewController = RouteMapViewController()
         routeMapViewController.linePath = linePath
         show(routeMapViewController, sender: nil)

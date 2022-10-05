@@ -23,8 +23,7 @@ class RouteListManager: RouteListManagerProtocol {
             switch result {
             case .success(let lines):
                 let enabledLines = lines.filter { line in
-                    guard let enabledLine = line.enable else { return false }
-                    return enabledLine
+                    return line.enable
                 }
                 completion(.success(enabledLines))
             case .failure(let error):

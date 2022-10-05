@@ -64,8 +64,6 @@
 		84ED700528EB761D00781376 /* LineCategoryEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED6FF928EB761D00781376 /* LineCategoryEntity+CoreDataProperties.swift */; };
 		84ED700628EB761D00781376 /* LineEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED6FFA28EB761D00781376 /* LineEntity+CoreDataClass.swift */; };
 		84ED700728EB761D00781376 /* LineEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED6FFB28EB761D00781376 /* LineEntity+CoreDataProperties.swift */; };
-		84ED700828EB761D00781376 /* PointHolder+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED6FFC28EB761D00781376 /* PointHolder+CoreDataClass.swift */; };
-		84ED700928EB761D00781376 /* PointHolder+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED6FFD28EB761D00781376 /* PointHolder+CoreDataProperties.swift */; };
 		C20A86D128A3383F0000EF7C /* ConstantVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A86D028A3383F0000EF7C /* ConstantVariables.swift */; };
 		C20A86D328A338E30000EF7C /* TestResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A86D228A338E30000EF7C /* TestResources.swift */; };
 		C20A86D528A339540000EF7C /* AuthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A86D428A339540000EF7C /* AuthTests.swift */; };
@@ -220,8 +218,6 @@
 		84ED6FF928EB761D00781376 /* LineCategoryEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LineCategoryEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		84ED6FFA28EB761D00781376 /* LineEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LineEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		84ED6FFB28EB761D00781376 /* LineEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LineEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		84ED6FFC28EB761D00781376 /* PointHolder+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PointHolder+CoreDataClass.swift"; sourceTree = "<group>"; };
-		84ED6FFD28EB761D00781376 /* PointHolder+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PointHolder+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		9AEE711EB6947D6DD8648C6F /* Pods-RoutesApp_iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutesApp_iosTests.release.xcconfig"; path = "Target Support Files/Pods-RoutesApp_iosTests/Pods-RoutesApp_iosTests.release.xcconfig"; sourceTree = "<group>"; };
 		C20A86D028A3383F0000EF7C /* ConstantVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantVariables.swift; sourceTree = "<group>"; };
 		C20A86D228A338E30000EF7C /* TestResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResources.swift; sourceTree = "<group>"; };
@@ -582,8 +578,6 @@
 				84ED6FF928EB761D00781376 /* LineCategoryEntity+CoreDataProperties.swift */,
 				84ED6FFA28EB761D00781376 /* LineEntity+CoreDataClass.swift */,
 				84ED6FFB28EB761D00781376 /* LineEntity+CoreDataProperties.swift */,
-				84ED6FFC28EB761D00781376 /* PointHolder+CoreDataClass.swift */,
-				84ED6FFD28EB761D00781376 /* PointHolder+CoreDataProperties.swift */,
 				C249BB2128E4F9BC00E6BA85 /* FavoriteDest+CoreDataClass.swift */,
 				C249BB2228E4F9BC00E6BA85 /* FavoriteDest+CoreDataProperties.swift */,
 				84ED6FEA28EB217000781376 /* NSCoordinates.swift */,
@@ -1257,7 +1251,6 @@
 				847E0F8628E5E74300038A3A /* Env.swift in Sources */,
 				84ED700628EB761D00781376 /* LineEntity+CoreDataClass.swift in Sources */,
 				C249BB2428E4F9BC00E6BA85 /* FavoriteDest+CoreDataProperties.swift in Sources */,
-				84ED700928EB761D00781376 /* PointHolder+CoreDataProperties.swift in Sources */,
 				84067C7328B4305300549300 /* CityTableViewCell.swift in Sources */,
 				C2BB146128A153390083CA1E /* StringExtension.swift in Sources */,
 				844F9A3128C84E63004A95A0 /* PlaceTableViewCell.swift in Sources */,
@@ -1286,7 +1279,6 @@
 				84246F8C28DB0B65004748DD /* LinesRoute.swift in Sources */,
 				84ED700728EB761D00781376 /* LineEntity+CoreDataProperties.swift in Sources */,
 				C2414D8428E1CDF200CDF73A /* ClPlaceMark.swift in Sources */,
-				84ED700828EB761D00781376 /* PointHolder+CoreDataClass.swift in Sources */,
 				C2436389289A2D21003C1A44 /* BaseModel.swift in Sources */,
 				844F9A2C28C7FD51004A95A0 /* Place.swift in Sources */,
 				C278973028E3B48100FF2796 /* RouteListTableViewCell.swift in Sources */,

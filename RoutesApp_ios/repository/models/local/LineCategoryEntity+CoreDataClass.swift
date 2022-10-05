@@ -11,5 +11,5 @@ import CoreData
 
 @objc(LineCategoryEntity)
 public class LineCategoryEntity: NSManagedObject {
-
+    static let name = "LineCategoryEntity"
 }

@@ -11,5 +11,5 @@ import CoreData
 
 @objc(TourpointCategoryEntity)
 public class TourpointCategoryEntity: NSManagedObject {
-
+    static let name = "TourpointCategoryEntity"
 }

@@ -11,5 +11,5 @@ import CoreData
 
 @objc(LineEntity)
 public class LineEntity: NSManagedObject {
-
+    static let name = "LineEntity"
 }

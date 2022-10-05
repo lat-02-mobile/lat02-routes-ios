@@ -45,6 +45,8 @@ class ConstantVariables {
     // localized strings
     static let search = "search-bar"
 
+    static let spanishLocale = "es"
+
     static let origin = "origin"
     static let selectOrigin = "select-origin"
     static let selectDestination = "select-destination"
@@ -57,6 +59,8 @@ class ConstantVariables {
     static let localizationPermissionAlertCancel = "localization-permission-alert-cancel"
     static let routeDetailUnableToGetLocation = "route-detail-unable-to-get-location"
     static let routeDetailNoMatchesAdresses = "route-detail-no-matches-adressess"
+
+    static let errorUpdatingData = "error-updating-data"
 
     // Google Maps helper
     static let polylinePadding = 80
@@ -82,4 +86,5 @@ class ConstantVariables {
 
     // Transformer Name
     static let transformerName = "CoordinateTransformer"
+
 }

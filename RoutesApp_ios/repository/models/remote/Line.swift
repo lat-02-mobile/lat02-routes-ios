@@ -9,6 +9,7 @@ import Foundation
 import CoreLocation
 import CodableFirebase
 import Firebase
+import CoreData
 
 struct LineRoute: Codable, Equatable {
     let name: String
@@ -92,7 +93,7 @@ struct LineRoute: Codable, Equatable {
     }
 }
 
-struct Coordinate: Codable, Equatable {
+public struct Coordinate: Codable, Equatable {
     let latitude: Double
     let longitude: Double
 
@@ -100,7 +101,11 @@ struct Coordinate: Codable, Equatable {
         return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
 
-    static func == (lhs: Coordinate, rhs: Coordinate) -> Bool {
+    func toNSCoordinates() -> NSCoordinates {
+        return NSCoordinates(lat: latitude, lon: longitude)
+    }
+
+    public static func == (lhs: Coordinate, rhs: Coordinate) -> Bool {
         return lhs.latitude == rhs.latitude && lhs.longitude == rhs.longitude
     }
 }
@@ -129,6 +134,24 @@ struct LineRouteInfo: Codable, Equatable {
     let start: GeoPoint
     let stops: [GeoPoint]
     let end: GeoPoint
+
+    func convertToLinePath() -> LinePath {
+        let start = Coordinate(latitude: start.latitude, longitude: start.longitude)
+        let end = Coordinate(latitude: end.latitude, longitude: end.longitude)
+        var routePointsArray = [Coordinate]()
+        var stopsArray = [Coordinate]()
+        for line in routePoints {
+            let coordinate = Coordinate(latitude: line.latitude, longitude: line.longitude)
+            routePointsArray.append(coordinate)
+        }
+        for stop in stops {
+            let coordinate = Coordinate(latitude: stop.latitude, longitude: stop.longitude)
+            stopsArray.append(coordinate)
+        }
+        let linePath = LinePath(name: name, id: id, idLine: idLine,
+                                line: line, routePoints: routePointsArray, start: start, end: end, stops: stopsArray)
+        return linePath
+    }
 }
 
 // Used in RouteMap
@@ -136,11 +159,24 @@ struct LinePath: Codable, Equatable {
     let name: String
     let id: String
     let idLine: String
-    let line: DocumentReference
+    let line: DocumentReference?
     let routePoints: [Coordinate]
     let start: Coordinate
     let end: Coordinate
     let stops: [Coordinate]
+
+    func toEntity(context: NSManagedObjectContext) -> LineRouteEntity {
+        let entity = LineRouteEntity(context: context)
+        entity.name = name
+        entity.id = id
+        entity.idLine = idLine
+        entity.routePoints = routePoints
+        entity.start = start.toNSCoordinates()
+        entity.end = end.toNSCoordinates()
+        entity.stops = stops
+        entity.createdAt = Date()
+        return entity
+    }
 }
 
 // What the algorithm returns

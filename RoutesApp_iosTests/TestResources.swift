@@ -83,9 +83,13 @@ class TestResources {
         LinesCategory(id: "2", nameEng: "Bus", nameEsp: "Bus", blackIcon: "", whiteIcon: "")
     ]
 
-    static let tourpointsInfo = [
-        TourpointInfo(address: "Addres 1", destination: Coordinate(latitude: 0, longitude: 0), name: "Name 1",
-                      category: "Category 1", urlImage: "URL Image")
+    static let tourpoints = [
+        Tourpoint(address: "Address 1", categoryId: "123456", destination: GeoPoint(latitude: 0, longitude: 0), idCity: nil,
+                  name: "Line Name", tourPointsCategoryRef: nil, urlImage: "URL image")
+    ]
+
+    static let tourpointCategories = [
+        TourpointCategory(id: "123456", descriptionEng: "ENG", descriptionEsp: "ESP")
     ]
 
     static let RoutePoints = [GeoPoint(latitude: 1, longitude: 1), GeoPoint(latitude: 1, longitude: 1)]

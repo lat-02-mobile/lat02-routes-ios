@@ -8,7 +8,8 @@
 import Foundation
 
 protocol TourpointsManagerProtocol {
-    func getTourpointList(completion: @escaping (Result<[TourpointInfo], Error>) -> Void)
+    func getTourpointList(completion: @escaping (Result<[Tourpoint], Error>) -> Void)
+    func getTourpointCategories(completion: @escaping (Result<[TourpointCategory], Error>) -> Void)
 }
 
 class TourpointsManager: TourpointsManagerProtocol {
@@ -16,24 +17,19 @@ class TourpointsManager: TourpointsManagerProtocol {
     let firebaseManager = FirebaseFirestoreManager.shared
     let cityManager = CityFirebaseManager.shared
 
-    func getTourpointList(completion: @escaping (Result<[TourpointInfo], Error>) -> Void) {
-        let currentLocale = Locale.current.languageCode
+    func getTourpointList(completion: @escaping (Result<[Tourpoint], Error>) -> Void) {
         cityManager.getDocumentsFromCity(type: Tourpoint.self, forCollection: .Tourpoints, usingReference: true) { result in
             switch result {
             case.success(let tourpoints):
-                self.firebaseManager.getDocuments(type: TourpointCategory.self, forCollection: .TourpointsCategory) { categories in
-                    switch categories {
-                    case.success(let categories):
-                        let info = tourpoints.compactMap({$0.toTourpointInfo(categories: categories, isLocationEng: currentLocale != "es")})
-                        completion(.success(info))
-                    case.failure(let error):
-                        completion(.failure(error))
-                    }
-                }
+                completion(.success(tourpoints))
             case.failure(let error):
                 completion(.failure(error))
             }
         }
+    }
+
+    func getTourpointCategories(completion: @escaping (Result<[TourpointCategory], Error>) -> Void) {
+        firebaseManager.getDocuments(type: TourpointCategory.self, forCollection: .TourpointsCategory, completion: completion)
     }
 
 }
