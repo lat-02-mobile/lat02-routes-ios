@@ -50,12 +50,15 @@ class SearchLocationViewController: UIViewController {
 
         placeSearchBar.backgroundImage = UIImage()
         placeSearchBar.searchTextField.backgroundColor = .white
+        DispatchQueue.main.async {
+            self.placeSearchBar.searchTextField.textColor = .black
+        }
 
         switch self.selectionStatus {
         case.pendingOrigin:
-            self.searchTitle.text = String.localizeString(localizedString: ConstantVariables.origin)
+            self.searchTitle.text = String.localizeString(localizedString: StringResources.origin)
         case.pendingDestination:
-            self.searchTitle.text = String.localizeString(localizedString: ConstantVariables.destination)
+            self.searchTitle.text = String.localizeString(localizedString: StringResources.destination)
 
         case.bothSelected, .none:
             return

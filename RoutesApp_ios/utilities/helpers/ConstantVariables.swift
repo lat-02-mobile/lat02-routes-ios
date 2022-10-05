@@ -43,26 +43,14 @@ class ConstantVariables {
     static let originPoint = "origin_point"
 
     // localized strings
-    static let search = "search-bar"
-
-    static let origin = "origin"
-    static let selectOrigin = "select-origin"
-    static let selectDestination = "select-destination"
-    static let destination = "destination"
-    static let done = "done"
-
-    static let localizationPermissionAlertTitle = "localization-permission-alert-title"
-    static let localizationPermissionAlertMessage = "localization-permission-alert-message"
-    static let localizationPermissionAlertSettings = "localization-permission-alert-settings"
-    static let localizationPermissionAlertCancel = "localization-permission-alert-cancel"
-    static let routeDetailUnableToGetLocation = "route-detail-unable-to-get-location"
-    static let routeDetailNoMatchesAdresses = "route-detail-no-matches-adressess"
 
     // Google Maps helper
     static let polylinePadding = 80
     static let originMarkerName = "origin_point"
     static let destinationMarkerName = "destination_point"
     static let stopMarkerName = "route-stop"
+    static let endMarkerName = "route-end"
+    static let startMarkerName = "route-start"
     static let localizationLinesFilterTitle = "filter-title"
 
     // Possible Routes

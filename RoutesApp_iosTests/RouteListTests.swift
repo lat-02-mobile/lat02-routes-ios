@@ -1,15 +1,10 @@
 import XCTest
 @testable import RoutesApp_ios
 
-class MockRouteListManager: RouteListManagerProtocol {
-    var hasLines = true
+class MockLineCategoryManager: LineCategoryManagerProtocol {
     var hasCategories = true
-    func getLines(completion: @escaping (Result<[Lines], Error>) -> Void) {
-        if hasLines {
-            completion(.success(TestResources.lines))
-            return
-        }
-        completion(.failure(NSError(domain: "Error", code: 0)))
+    func getLineCategoryByIdAsync(lineId: String) async throws -> LinesCategory {
+        TestResources.lineCategories.first!
     }
 
     func getCategories(completion: @escaping (Result<[LinesCategory], Error>) -> Void) {
@@ -19,22 +14,68 @@ class MockRouteListManager: RouteListManagerProtocol {
         }
         completion(.failure(NSError(domain: "Error", code: 0)))
     }
+}
+
+class MockLineManager: LineManagerProtocol {
+    var hasLines = true
+    func getLines(completion: @escaping (Result<[Lines], Error>) -> Void) {
+        if hasLines {
+            completion(.success(TestResources.lines))
+            return
+        }
+        completion(.failure(NSError(domain: "Error", code: 0)))
+    }
+
+    func getLineByIdAsync(lineId: String) async throws -> Lines {
+        return TestResources.lines.first!
+    }
+
+    func getLinesByCity(cityId: String, completion: @escaping (Result<[Lines], Error>) -> Void) {
+        if hasLines {
+            completion(.success(TestResources.lines))
+            return
+        }
+        completion(.failure(NSError(domain: "Error", code: 0)))
+    }
+
+    func getLinesByCityAsync(cityId: String) async throws -> [Lines] {
+        return TestResources.lines
+    }
+
+    func getLinesForCurrentCity(completion: @escaping (Result<[Lines], Error>) -> Void) {
+        if hasLines {
+            completion(.success(TestResources.lines))
+            return
+        }
+        completion(.failure(NSError(domain: "Error", code: 0)))
+    }
+}
+
+class MockLineRouteManager: LineRouteManagerProtocol {
+    var hasLines = true
+    func getLinesRoutesByLineAsync(idLine: String) async throws -> [LineRouteInfo] {
+        return []
+    }
 
     func getLineRoute(idLine: String, completion: @escaping (Result<[LineRouteInfo], Error>) -> Void) {
-            if hasLines {
-                completion(.success(TestResources.LineRoutes))
-                return
-            }
-            completion(.failure(NSError(domain: "Error", code: 0)))
+        if hasLines {
+            completion(.success(TestResources.LineRoutes))
+            return
         }
+        completion(.failure(NSError(domain: "Error", code: 0)))
+    }
 }
 
 class RouteListTests: XCTestCase {
-    var routeListManager = MockRouteListManager()
+    var lineRouteManager = MockLineRouteManager()
+    var lineCategoryManager = MockLineCategoryManager()
+    var lineManager = MockLineManager()
     var routeListViewModel = RouteListViewModel()
 
     override func setUpWithError() throws {
-        routeListViewModel.routeListManager = routeListManager
+        routeListViewModel.lineRouteManager = lineRouteManager
+        routeListViewModel.lineCategoryManager = lineCategoryManager
+        routeListViewModel.lineManager = lineManager
         routeListViewModel.getLines {}
     }
 

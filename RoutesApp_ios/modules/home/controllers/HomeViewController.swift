@@ -8,6 +8,7 @@
 import UIKit
 import GoogleMaps
 import GooglePlaces
+import SVProgressHUD
 
 class HomeViewController: UIViewController {
 
@@ -27,10 +28,40 @@ class HomeViewController: UIViewController {
         if app {
             verifyCitySelectedApp()
         }
+        initViewModel()
         setupViews()
         initializeTheLocationManager()
         setupMap()
         cityLocation()
+    }
+
+    func initViewModel() {
+        self.viewmodel.runAlgorithm = { [weak self] in
+            if let origin = self?.viewmodel.origin, let destination = self?.viewmodel.destination {
+
+                let algOrigin = CLLocationCoordinate2D(latitude: origin.position.latitude,
+                                                       longitude: origin.position.longitude)
+                let algDestination = CLLocationCoordinate2D(latitude: destination.position.latitude,
+                                                            longitude: destination.position.longitude)
+                let availableTransports = Algorithm.shared.findAvailableRoutes(origin: algOrigin,
+                                                                               destination: algDestination,
+                                                                               lines: (self?.viewmodel.lineRoutes)!,
+                                                                               minDistanceBtwPoints: Algorithm.minDistanceBtwPointsAndStops,
+                                                                               minDistanceBtwStops: Algorithm.minDistanceBtwPointsAndStops)
+                DispatchQueue.main.sync {
+                    SVProgressHUD.dismiss()
+                    self?.labelHelper.text = StringResources.route1
+                    let viewModel = PossibleRoutesViewModel()
+                    viewModel.map = self?.mapView
+                    let viewController = BottomSheetViewController(viewModel: viewModel, possibleRoutes: availableTransports)
+                    viewController.delegate = self
+                    if let presentationController = viewController.presentationController as? UISheetPresentationController {
+                        presentationController.detents = [.medium()]
+                    }
+                    self?.present(viewController, animated: true)
+                }
+            }
+        }
     }
 
     func verifyCitySelectedApp() {
@@ -54,7 +85,7 @@ class HomeViewController: UIViewController {
 
         searchButton.contentVerticalAlignment = .top
 
-        labelHelper.text = String.localizeString(localizedString: ConstantVariables.selectOrigin)
+        labelHelper.text = String.localizeString(localizedString: StringResources.selectOrigin)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
 
     }
@@ -106,20 +137,22 @@ class HomeViewController: UIViewController {
         case.pendingOrigin:
             return
         case.pendingDestination:
-            labelHelper.text = String.localizeString(localizedString: ConstantVariables.selectOrigin)
+            labelHelper.text = String.localizeString(localizedString: StringResources.selectOrigin)
             viewmodel.pointsSelectionStatus = .pendingOrigin
             viewmodel.origin?.map = mapView
             viewmodel.origin?.map = nil
             viewmodel.origin = nil
             backButton.isHidden = true
         case.bothSelected:
-            labelHelper.text = String.localizeString(localizedString: ConstantVariables.selectDestination)
+            labelHelper.text = String.localizeString(localizedString: StringResources.selectDestination)
             viewmodel.pointsSelectionStatus = .pendingDestination
             viewmodel.destination?.map = mapView
             viewmodel.destination?.map = nil
             viewmodel.destination = nil
+            viewmodel.selectedAvailableTransport = nil
+            mapView.clear()
+            viewmodel.origin?.map = mapView
         }
-
     }
 
     @IBAction func continueButtonAction(_ sender: Any) {
@@ -128,16 +161,16 @@ class HomeViewController: UIViewController {
 
         switch viewmodel.pointsSelectionStatus {
         case.pendingOrigin:
-            pos.title = String.localizeString(localizedString: ConstantVariables.origin)
-            labelHelper.text = String.localizeString(localizedString: ConstantVariables.selectDestination)
+            pos.title = String.localizeString(localizedString: StringResources.origin)
+            labelHelper.text = String.localizeString(localizedString: StringResources.selectDestination)
             pos.icon = UIImage(named: ConstantVariables.originPoint)
             pos.map = mapView
             viewmodel.origin = pos
             viewmodel.pointsSelectionStatus = .pendingDestination
 
         case.pendingDestination:
-            pos.title = String.localizeString(localizedString: ConstantVariables.destination)
-            labelHelper.text = String.localizeString(localizedString: ConstantVariables.done)
+            pos.title = String.localizeString(localizedString: StringResources.destination)
+            labelHelper.text = String.localizeString(localizedString: StringResources.done)
             pos.icon = UIImage(named: ConstantVariables.destinationPoint)
             pos.map = mapView
             viewmodel.destination = pos
@@ -145,10 +178,24 @@ class HomeViewController: UIViewController {
 
         case.bothSelected:
             // Call logic to run algorithm with routes
-            self.showToast(message: ConstantVariables.done)
-            self.showRouteDetail()
+            SVProgressHUD.show()
+            Toast.showToast(target: self, message: String.localizeString(localizedString: StringResources.loadingPossibleRoutes))
+            if let origin = viewmodel.origin, let destination = viewmodel.destination {
+                let distanceBetweenCoords = GoogleMapsHelper.shared.getDistanceBetween2Points(
+                    origin: Coordinate(latitude: origin.position.latitude,
+                                       longitude: origin.position.longitude),
+                    destination: Coordinate(latitude: destination.position.latitude,
+                                            longitude: destination.position.longitude))
+                if distanceBetweenCoords <= 500.0 {
+                    Toast.showToast(target: self, message: String.localizeString(localizedString: StringResources.youCanGoJustWalk))
+                    SVProgressHUD.dismiss()
+                } else {
+                    Task.init {
+                        try? await viewmodel.getLineRouteForCurrentCity()
+                    }
+                }
+            }
         }
-
         backButton.isHidden = false
     }
 
@@ -178,12 +225,11 @@ class HomeViewController: UIViewController {
     }
 
     private func showRequestPermissionsAlert() {
-        let alertController = UIAlertController(title: String.localizeString(localizedString: ConstantVariables.localizationPermissionAlertTitle),
-                                                message: String.localizeString(localizedString: ConstantVariables.localizationPermissionAlertMessage),
+        let alertController = UIAlertController(title: String.localizeString(localizedString: StringResources.localizationPermissionAlertTitle),
+                                                message: String.localizeString(localizedString: StringResources.localizationPermissionAlertMessage),
                                                 preferredStyle: .alert)
-
         let settingsAction = UIAlertAction(title:
-            String.localizeString(localizedString: ConstantVariables.localizationPermissionAlertSettings),
+            String.localizeString(localizedString: StringResources.localizationPermissionAlertSettings),
                style: .default) { (_) -> Void in
             guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
                 return
@@ -193,15 +239,18 @@ class HomeViewController: UIViewController {
              }
         }
         let cancelAction = UIAlertAction(title:
-                                            String.localizeString(localizedString: ConstantVariables.localizationPermissionAlertCancel),
+                                            String.localizeString(localizedString: StringResources.localizationPermissionAlertCancel),
              style: .default, handler: nil)
-
         alertController.addAction(cancelAction)
         alertController.addAction(settingsAction)
         self.present(alertController, animated: true, completion: nil)
     }
 
     @IBAction func showSearchPage(_ sender: Any) {
+        if let selRoute = viewmodel.selectedAvailableTransport {
+            showRouteDetail(selectedAvailableTransport: selRoute)
+            return
+        }
 
         let latSW = mapView.projection.visibleRegion().nearRight.latitude
         let lonSW = mapView.projection.visibleRegion().farLeft.longitude
@@ -223,8 +272,9 @@ class HomeViewController: UIViewController {
 
         self.present(viewController, animated: true)
     }
-    func showRouteDetail() {
-        let viewController = RouteDetailViewController(map: self.mapView)
+
+    func showRouteDetail(selectedAvailableTransport: AvailableTransport) {
+        let viewController = RouteDetailViewController(map: self.mapView, routePath: selectedAvailableTransport)
         viewController.delegate = self
         if let presentationController = viewController.presentationController as? UISheetPresentationController {
             presentationController.detents = [.medium()]
@@ -232,24 +282,14 @@ class HomeViewController: UIViewController {
 
         self.present(viewController, animated: true)
     }
+}
 
-    func showToast(message: String) {
-        let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: self.view.frame.size.height-100, width: 150, height: 35))
-        toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
-        toastLabel.textColor = UIColor.white
-        toastLabel.textAlignment = .center
-        toastLabel.text = message
-        toastLabel.alpha = 1.0
-        toastLabel.layer.cornerRadius = 10
-        toastLabel.clipsToBounds  =  true
-        self.view.addSubview(toastLabel)
-        UIView.animate(withDuration: 5.0, delay: 0.1, options: .curveEaseOut, animations: {
-             toastLabel.alpha = 0.0
-        }, completion: { _ in
-            toastLabel.removeFromSuperview()
-        })
+// MARK: ShowPossibleRoutes Delegate
+extension HomeViewController: BottomSheetDelegate {
+    func showSelectedRoute(selectedRoute: AvailableTransport) {
+        self.showRouteDetail(selectedAvailableTransport: selectedRoute)
+        self.viewmodel.selectedAvailableTransport = selectedRoute
     }
-
 }
 
 // MARK: SearchLocation Delegate
@@ -259,16 +299,18 @@ extension HomeViewController: SearchLocationDelegate {
     }
 }
 
+// MARK: RouteDetail Delegate
 extension HomeViewController: RouteDetailDelegate {
-    func getLatitude() -> Double? {
-        if let destination = viewmodel.destination {
-            return Double(destination.position.latitude)
+    func getOrigin() -> Coordinate? {
+        if let origin = viewmodel.origin {
+            return Coordinate(latitude: origin.position.latitude, longitude: origin.position.longitude)
         }
         return nil
     }
-    func getLongitude() -> Double? {
+
+    func getDestination() -> Coordinate? {
         if let destination = viewmodel.destination {
-            return Double(destination.position.longitude)
+            return Coordinate(latitude: destination.position.latitude, longitude: destination.position.longitude)
         }
         return nil
     }

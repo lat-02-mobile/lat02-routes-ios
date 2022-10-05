@@ -29,7 +29,7 @@ class TourpointsViewController: UIViewController {
         tourpointTableView.register(uiNib, forCellReuseIdentifier: TourpointTableViewCell.identifier)
         tourpointSearchbar.backgroundImage = UIImage()
         tourpointSearchbar.searchTextField.backgroundColor = .white
-        tourpointSearchbar.placeholder = String.localizeString(localizedString: ConstantVariables.search)
+        tourpointSearchbar.placeholder = String.localizeString(localizedString: StringResources.search)
         SVProgressHUD.show()
     }
 

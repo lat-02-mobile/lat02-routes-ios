@@ -70,4 +70,10 @@ class GoogleMapsHelper {
     func getEstimatedTimeToArrive(averageVelocityMeterSec: Double, totalDistanceMeters: Double) -> Double {
         return (totalDistanceMeters * (1 / averageVelocityMeterSec)) / 60
     }
+
+    func getDistanceBetween2Points(origin: Coordinate, destination: Coordinate) -> Double {
+        let selectedDestination = CLLocation(latitude: destination.latitude, longitude: destination.longitude)
+        let selectedOrigin = CLLocation(latitude: origin.latitude, longitude: origin.longitude)
+        return selectedDestination.distance(from: selectedOrigin)
+    }
 }

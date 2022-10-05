@@ -4,8 +4,7 @@ class RouteListViewController: UIViewController {
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var lineListTableView: UITableView!
-
-    var routeDetailViewModel = RouteListViewModel()
+    var routeListViewModel = RouteListViewModel()
     let lineRouteViewController = LineRouteViewController()
 
     override func viewDidLoad() {
@@ -13,12 +12,12 @@ class RouteListViewController: UIViewController {
         setupNavigationBar()
         setIcon()
         initViewModel()
-        routeDetailViewModel.getLines {
+        routeListViewModel.getLines {
             self.lineListTableView.reloadData()
         }
         lineListTableView.register(UINib.init(nibName: ConstantVariables.routeListCell,
         bundle: nil), forCellReuseIdentifier: ConstantVariables.routeListCell)
-        routeDetailViewModel.reloadData = lineListTableView.reloadData
+        routeListViewModel.reloadData = lineListTableView.reloadData
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -26,8 +25,8 @@ class RouteListViewController: UIViewController {
     }
 
     func initViewModel() {
-        routeDetailViewModel.fecthedLineRoute = { [weak self] () in
-            guard let lineRouteList = self?.routeDetailViewModel.lineRouteList else { return }
+        routeListViewModel.fecthedLineRoute = { [weak self] () in
+            guard let lineRouteList = self?.routeListViewModel.lineRouteList else { return }
             if lineRouteList.count > 1 {
                 self?.lineRouteViewController.lineRouteList = lineRouteList
                 let screenSize: CGRect = UIScreen.main.bounds
@@ -37,7 +36,7 @@ class RouteListViewController: UIViewController {
                 popupVC.cornerRadius = 10
                 self?.present(popupVC, animated: true)
             } else if lineRouteList.count == 1 {
-                let linePath = self?.routeDetailViewModel.convertToLinePath(lineRouteInfo: lineRouteList[0])
+                let linePath = self?.routeListViewModel.convertToLinePath(lineRouteInfo: lineRouteList[0])
                 let routeMapViewController = RouteMapViewController()
                 routeMapViewController.linePath = linePath
                 self?.present(routeMapViewController, animated: false)
@@ -50,7 +49,7 @@ class RouteListViewController: UIViewController {
         lineListTableView.delegate = self
         searchBar.backgroundImage = UIImage()
         searchBar.searchTextField.backgroundColor = .white
-        searchBar.placeholder = String.localizeString(localizedString: ConstantVariables.search)
+        searchBar.placeholder = String.localizeString(localizedString: StringResources.search)
         searchBar.delegate = self
     }
 
@@ -61,7 +60,7 @@ class RouteListViewController: UIViewController {
     }
 
     @objc func showFilterPopUp() {
-        let viewControllerToPresent = RouteListFilterViewController(viewModel: routeDetailViewModel)
+        let viewControllerToPresent = RouteListFilterViewController(viewModel: routeListViewModel)
         if let sheet = viewControllerToPresent.sheetPresentationController {
             sheet.detents = [.medium(), .large()]
             sheet.prefersScrollingExpandsWhenScrolledToEdge = false
@@ -74,11 +73,11 @@ class RouteListViewController: UIViewController {
 
 extension RouteListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return routeDetailViewModel.filteredRouteList.count
+        return routeListViewModel.filteredRouteList.count
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let lineId = routeDetailViewModel.filteredRouteList[indexPath.row].id ?? ""
-        routeDetailViewModel.getLineRoute(id: lineId)
+        let lineId = routeListViewModel.routeListModel[indexPath.row].id ?? ""
+        routeListViewModel.getLineRoute(id: lineId)
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -86,7 +85,7 @@ extension RouteListViewController: UITableViewDataSource, UITableViewDelegate {
         for: indexPath) as? RouteListTableViewCell else {
         return  UITableViewCell()
         }
-        let line =  routeDetailViewModel.filteredRouteList[indexPath.row]
+        let line =  routeListViewModel.filteredRouteList[indexPath.row]
         tableViewCell.updateCellModel(routeListDetailModel: line)
         return tableViewCell
     }
@@ -95,10 +94,10 @@ extension RouteListViewController: UITableViewDataSource, UITableViewDelegate {
 extension RouteListViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         guard let text = searchBar.text else { return }
-        routeDetailViewModel.filterRouteListBy(query: text)
+        routeListViewModel.filterRouteListBy(query: text)
     }
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        routeDetailViewModel.filterRouteListBy(query: "")
+        routeListViewModel.filterRouteListBy(query: "")
     }
 }
