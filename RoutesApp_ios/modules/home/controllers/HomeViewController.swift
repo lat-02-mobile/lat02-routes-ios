@@ -38,11 +38,6 @@ class HomeViewController: UIViewController {
     func initViewModel() {
         self.viewmodel.runAlgorithm = { [weak self] in
             if let origin = self?.viewmodel.origin, let destination = self?.viewmodel.destination {
-                // MARK: The following variables are for test purpose only
-//                let algOrigin = CLLocationCoordinate2D(latitude: -17.395475,
-//                                                       longitude: -66.17532)
-//                let algDestination = CLLocationCoordinate2D(latitude: -17.398454,
-//                                                            longitude: -66.17588)
 
                 let algOrigin = CLLocationCoordinate2D(latitude: origin.position.latitude,
                                                        longitude: origin.position.longitude)

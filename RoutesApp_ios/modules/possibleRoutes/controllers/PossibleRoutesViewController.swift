@@ -18,7 +18,6 @@ class PossibleRoutesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupViews()
         setupMap()
     }
 
@@ -34,19 +33,5 @@ class PossibleRoutesViewController: UIViewController {
         if toLocation != nil {
             mapView.animate(to: GMSCameraPosition.camera(withTarget: toLocation!, zoom: zoom))
         }
-    }
-
-    func setupViews() {
-        let tap = UITapGestureRecognizer(target: self, action: #selector(showPossibleRoutesPage))
-        headerView.addGestureRecognizer(tap)
-    }
-
-    @objc
-    func showPossibleRoutesPage() {
-//        let viewController = BottomSheetViewController(viewModel: viewModel)
-//        if let presentationController = viewController.presentationController as? UISheetPresentationController {
-//            presentationController.detents = [.medium()]
-//        }
-//        self.present(viewController, animated: true)
     }
 }
