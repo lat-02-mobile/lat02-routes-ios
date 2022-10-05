@@ -30,7 +30,7 @@ class CityPickerViewController: UIViewController {
     }
 
     func setupView() {
-        let placeholder = (String.localizeString(localizedString: ConstantVariables.search))
+        let placeholder = (String.localizeString(localizedString: StringResources.search))
         self.citySearchBar.searchTextField.backgroundColor = UIColor .white
         self.citySearchBar.barTintColor = UIColor .clear
         self.citySearchBar.backgroundImage = UIImage()

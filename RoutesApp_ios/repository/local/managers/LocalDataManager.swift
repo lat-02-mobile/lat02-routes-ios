@@ -15,7 +15,9 @@ class LocalDataManager: LocalDataManagerProtocol {
     static let shared = LocalDataManager()
 
     private let tourpointsManager = TourpointsManager.shared
-    private let routelistManager = RouteListManager.shared
+    private let lineManager = LineFirebaseManager.shared
+    private let lineRouteManager = LineRouteFirebaseManager.shared
+    private let lineCategoryManager = LineCategoryFirebaseManager.shared
     private let coreDataManager = CoreDataManager.shared
     private let context = CoreDataManager.shared.getContext()
 
@@ -58,7 +60,7 @@ class LocalDataManager: LocalDataManagerProtocol {
     }
 
     private func getLineCategories(completion: @escaping(Result<Void, Error>) -> Void) {
-        routelistManager.getCategories { result in
+        lineCategoryManager.getCategories { result in
             switch result {
             case.success(let categories):
                 for category in categories {
@@ -73,7 +75,7 @@ class LocalDataManager: LocalDataManagerProtocol {
 
     private func getLines(categories: [LinesCategory], completion: @escaping(Result<Void, Error>) -> Void) {
         let currentLocale = Locale.current.languageCode
-        routelistManager.getLines { result in
+        lineManager.getLinesForCurrentCity { result in
             switch result {
             case.success(let lines):
                 for line in lines {
@@ -88,7 +90,7 @@ class LocalDataManager: LocalDataManagerProtocol {
     }
 
     private func getLineRoutes(line: LineEntity, completion: @escaping(Result<Void, Error>) -> Void) {
-        routelistManager.getLineRoute(idLine: line.id) { result in
+        lineRouteManager.getLineRoute(idLine: line.id) { result in
             switch result {
             case.success(let lineRoutes):
                 let lineRouteInfo = lineRoutes.map({$0.convertToLinePath().toEntity(context: self.coreDataManager.getContext())})

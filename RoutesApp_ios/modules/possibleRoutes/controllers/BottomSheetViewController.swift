@@ -8,15 +8,21 @@
 import UIKit
 import GoogleMaps
 
+protocol BottomSheetDelegate: AnyObject {
+    func showSelectedRoute(selectedRoute: AvailableTransport)
+}
+
 class BottomSheetViewController: UIViewController {
 
     @IBOutlet var contentStackView: UIStackView!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var tableView: UITableView!
     var viewModel: PossibleRoutesViewModel
+    var delegate: BottomSheetDelegate?
 
-    init(viewModel: PossibleRoutesViewModel) {
+    init(viewModel: PossibleRoutesViewModel, possibleRoutes: [AvailableTransport]) {
         self.viewModel = viewModel
+        self.viewModel.possibleRoutes = possibleRoutes
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -27,7 +33,6 @@ class BottomSheetViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTable()
-        loadPossibleRoutes()
     }
 
     func setupTable() {
@@ -37,21 +42,12 @@ class BottomSheetViewController: UIViewController {
         tableView.dataSource = self
     }
 
-    func loadPossibleRoutes() {
-        viewModel.getPossibleRoutes { possibleRoutes in
-            self.viewModel.possibleRoutes = possibleRoutes
-            self.viewModel.sortPossibleRoutes()
-            self.tableView.reloadData()
-        }
-    }
-
     private func drawSelectedRoute() {
         guard let map = viewModel.map else { return }
         map.clear()
         let selectedRoute = viewModel.getSelectedRoute()
         guard !selectedRoute.transports.isEmpty else { return }
         fitMap(map: map, selectedRoute: selectedRoute)
-        drawMarkers(map: map, selectedRoute: selectedRoute)
     }
 
     private func fitMap(map: GMSMapView, selectedRoute: AvailableTransport) {
@@ -62,30 +58,6 @@ class BottomSheetViewController: UIViewController {
             combinedTransportLines += line.routePoints
         }
         GoogleMapsHelper.shared.fitAllMarkers(map: map, list: combinedTransportLines)
-    }
-
-    private func drawMarkers(map: GMSMapView, selectedRoute: AvailableTransport) {
-        guard let firstLine = selectedRoute.transports.first,
-           let first = firstLine.routePoints.first else { return }
-
-        GoogleMapsHelper.shared.addCustomMarker(map: map, position: first, icon: UIImage(named: ConstantVariables.originMarkerName))
-
-        guard let lastLine = selectedRoute.transports.last,
-            let last = lastLine.routePoints.last else { return }
-
-        GoogleMapsHelper.shared.addCustomMarker(map: map, position: last, icon: UIImage(named: ConstantVariables.destinationMarkerName))
-
-        guard selectedRoute.transports.count > 1 else { return }
-
-        guard let firstStop = firstLine.stops.last,
-              let secondStop = lastLine.stops.first else { return }
-
-        GoogleMapsHelper.shared.addCustomMarker(map: map, position: firstStop,
-            icon: UIImage(named: ConstantVariables.stopMarkerName))
-        GoogleMapsHelper.shared.addCustomMarker(map: map, position: secondStop,
-            icon: UIImage(named: ConstantVariables.stopMarkerName))
-
-        drawWalkPath(map: map, firstStop: firstStop, secondStop: secondStop)
     }
 
     private func drawWalkPath(map: GMSMapView, firstStop: Coordinate, secondStop: Coordinate) {
@@ -110,14 +82,8 @@ extension BottomSheetViewController: UITableViewDelegate, UITableViewDataSource 
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var indexPathList = [IndexPath]()
-        if viewModel.possibleRoutesSelectedIndex != -1 {
-            indexPathList.append(IndexPath(row: viewModel.possibleRoutesSelectedIndex, section: 0))
-        }
-        indexPathList.append(indexPath)
-        viewModel.possibleRoutesSelectedIndex = indexPath.row
-        self.tableView.reloadRows(at: indexPathList, with: .fade)
-        drawSelectedRoute()
+        self.dismiss(animated: true)
+        delegate?.showSelectedRoute(selectedRoute: viewModel.possibleRoutes[indexPath.row])
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

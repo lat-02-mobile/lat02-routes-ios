@@ -8,7 +8,10 @@
 import Foundation
 
 class RouteListViewModel: ViewModel {
-    var routeListManager: RouteListManagerProtocol = RouteListManager.shared
+    var lineRouteManager: LineRouteManagerProtocol = LineRouteFirebaseManager.shared
+    var lineCategoryManager: LineCategoryManagerProtocol = LineCategoryFirebaseManager.shared
+    var lineManager: LineManagerProtocol = LineFirebaseManager.shared
+
     var routeListModel: [Lines] = []
     var linesCategory: [LinesCategory] = []
     var lineRouteList: [LineRouteInfo] = []
@@ -25,7 +28,7 @@ class RouteListViewModel: ViewModel {
     var selectedFilterIndex = -1
 
     func getLines(completion: @escaping () -> Void) {
-        routeListManager.getLines { result in
+        lineManager.getLinesForCurrentCity { result in
             switch result {
             case .success(let lines):
                 self.routeListModel = lines
@@ -37,7 +40,7 @@ class RouteListViewModel: ViewModel {
         }
     }
     func getLineRoute(id: String) {
-        routeListManager.getLineRoute(idLine: id) { result in
+        lineRouteManager.getLineRoute(idLine: id) { result in
             switch result {
             case .success(let lines):
                 self.lineRouteList = lines
@@ -50,7 +53,7 @@ class RouteListViewModel: ViewModel {
       }
 
     func getCategories(completion: @escaping () -> Void) {
-        routeListManager.getCategories { result in
+        lineCategoryManager.getCategories { result in
             switch result {
             case .success(let lines):
                 self.linesCategory = lines
