@@ -11,12 +11,15 @@ class CitySplashViewController: UIViewController {
 
     @IBOutlet weak var cityNameLabel: UILabel!
     var timer = Timer()
+    var timer2 = Timer()
     var cityId = ""
     var city = ""
     var country = ""
     var cityLat = ""
     var cityLng = ""
     let viewmodel = CitySplashViewModel.shared
+    private var fetchDataRunning = true
+    private var timerCounter: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,13 +33,11 @@ class CitySplashViewController: UIViewController {
     }
 
     private func initViewModel() {
-        viewmodel.retrieveAllDataFromFirebase()
+        initTimer()
+        viewmodel.retrieveAllDataFromFirebaseAndSave()
         viewmodel.onFinish = { [weak self] in
             guard let strongSelf = self else {return}
-            strongSelf.callSetUpRootController()
-        }
-        viewmodel.onError = { _ in
-            print("Error in controller")
+            strongSelf.fetchDataRunning = false
         }
     }
 
@@ -54,7 +55,16 @@ class CitySplashViewController: UIViewController {
         ConstantVariables.defaults.set(cityId, forKey: ConstantVariables.defCityId)
     }
 
-    private func callSetUpRootController() {
-        SceneDelegate.shared?.setupRootControllerIfNeeded(validUser: viewmodel.authManager.userIsLoggedIn())
+    func initTimer() {
+        timer.invalidate()
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(callSetUpRootController), userInfo: nil, repeats: true)
+    }
+
+    @objc private func callSetUpRootController() {
+        timerCounter += 1
+        if timerCounter >= 3 && !fetchDataRunning {
+            timer.invalidate()
+            SceneDelegate.shared?.setupRootControllerIfNeeded(validUser: viewmodel.authManager.userIsLoggedIn())
+        }
     }
 }

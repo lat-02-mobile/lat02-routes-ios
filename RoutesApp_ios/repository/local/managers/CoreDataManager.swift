@@ -8,11 +8,17 @@
 import Foundation
 import CoreData
 
-class CoreDataManager {
+enum CoreDataError: Error {
+    case Failed(cause: String)
+}
+
+open class CoreDataManager {
+    public static let name = ConstantVariables.databaseName
+    public init() {}
     static var shared = CoreDataManager()
-    lazy var persistentContainer: NSPersistentContainer = {
+    public lazy var persistentContainer: NSPersistentContainer = {
         ValueTransformer.setValueTransformer(CoordinateTransformer(), forName: NSValueTransformerName(ConstantVariables.transformerName))
-        let container = NSPersistentContainer(name: ConstantVariables.databaseName)
+        let container = NSPersistentContainer(name: CoreDataManager.name)
         container.loadPersistentStores(completionHandler: { (_, error) in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
