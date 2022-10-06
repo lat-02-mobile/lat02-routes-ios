@@ -8,14 +8,15 @@
 import Foundation
 import FirebaseFirestoreSwift
 import Firebase
+import CoreData
 
 struct Tourpoint: Codable {
     var address: String
     var categoryId: String
     var destination: GeoPoint
-    var idCity: DocumentReference
+    var idCity: DocumentReference?
     var name: String
-    var tourPointsCategoryRef: DocumentReference
+    var tourPointsCategoryRef: DocumentReference?
     var urlImage: String
 
     func toTourpointInfo(categories: [TourpointCategory], isLocationEng: Bool) -> TourpointInfo {
@@ -33,10 +34,28 @@ struct TourpointInfo {
     var name: String = ""
     var category: String = ""
     var urlImage: String = ""
+
+    func toEntity(context: NSManagedObjectContext) {
+        let entity = TourpointEntity(context: context)
+        entity.address = address
+        entity.destination = destination.toNSCoordinates()
+        entity.name = name
+        entity.category = category
+        entity.urlImage = urlImage
+        entity.createdAt = Date()
+    }
 }
 
 struct TourpointCategory: Codable, BaseModel {
     var id: String
     var descriptionEng: String
     var descriptionEsp: String
+
+    func toEntity(context: NSManagedObjectContext) {
+        let entity = TourpointCategoryEntity(context: context)
+        entity.createdAt = Date()
+        entity.descriptionEng = descriptionEng
+        entity.descriptionEsp = descriptionEsp
+        entity.id = id
+    }
 }

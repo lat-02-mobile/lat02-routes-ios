@@ -133,8 +133,10 @@ extension RouteMapViewController: GMSMapViewDelegate {
             self.cameraMoveToLocation(toLocation: self.currentPosition)
         case .notDetermined, .restricted, .denied:
             self.showRequestPermissionsAlert()
+        @unknown default:
+            return false
         }
-         return true
+        return true
     }
 }
 extension RouteMapViewController: CLLocationManagerDelegate {

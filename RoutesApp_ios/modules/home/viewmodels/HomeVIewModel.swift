@@ -34,7 +34,7 @@ class HomeViewModel {
             let linesByCity = try await lineManager.getLinesByCityAsync(cityId: currentCityId)
             var finalLineRoutes = [LineRouteInfo]()
             for line in linesByCity {
-                let lineRoutes = try await lineRouteManager.getLinesRoutesByLineAsync(idLine: line.id ?? "")
+                let lineRoutes = try await lineRouteManager.getLinesRoutesByLineAsync(idLine: line.id)
                 finalLineRoutes.append(contentsOf: lineRoutes)
             }
             self.lineRoutes = try await parseLineRouteInfoToLineRoutes(lineRoutesInfo: finalLineRoutes)

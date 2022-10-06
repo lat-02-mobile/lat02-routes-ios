@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21G115" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21F79" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="FavoriteDest" representedClassName="FavoriteDest" syncable="YES">
         <attribute name="createdAt" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
@@ -9,7 +9,53 @@
         <attribute name="longitude" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="LineCategoryEntity" representedClassName="LineCategoryEntity" syncable="YES">
+        <attribute name="blackIcon" attributeType="String"/>
+        <attribute name="createdAt" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" attributeType="String"/>
+        <attribute name="nameEng" attributeType="String"/>
+        <attribute name="nameEsp" attributeType="String"/>
+        <attribute name="whiteIcon" attributeType="String"/>
+    </entity>
+    <entity name="LineEntity" representedClassName="LineEntity" syncable="YES">
+        <attribute name="category" attributeType="String"/>
+        <attribute name="createdAt" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" attributeType="String"/>
+        <attribute name="idCategory" attributeType="String"/>
+        <attribute name="name" attributeType="String"/>
+        <relationship name="routesSet" toMany="YES" deletionRule="Cascade" destinationEntity="LineRouteEntity" inverseName="line" inverseEntity="LineRouteEntity"/>
+    </entity>
+    <entity name="LineRouteEntity" representedClassName="LineRouteEntity" syncable="YES">
+        <attribute name="createdAt" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="end" attributeType="Transformable" valueTransformerName="CoordinateTransformer" customClassName="NSCoordinates"/>
+        <attribute name="id" attributeType="String"/>
+        <attribute name="idLine" attributeType="String"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="start" attributeType="Transformable" valueTransformerName="CoordinateTransformer" customClassName="NSCoordinates"/>
+        <attribute name="strRoutePoints" optional="YES" attributeType="String"/>
+        <attribute name="strStops" attributeType="String"/>
+        <relationship name="line" maxCount="1" deletionRule="Cascade" destinationEntity="LineEntity" inverseName="routesSet" inverseEntity="LineEntity"/>
+    </entity>
+    <entity name="TourpointCategoryEntity" representedClassName="TourpointCategoryEntity" syncable="YES">
+        <attribute name="createdAt" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="descriptionEng" attributeType="String"/>
+        <attribute name="descriptionEsp" attributeType="String"/>
+        <attribute name="id" attributeType="String"/>
+    </entity>
+    <entity name="TourpointEntity" representedClassName="TourpointEntity" syncable="YES">
+        <attribute name="address" attributeType="String"/>
+        <attribute name="category" attributeType="String"/>
+        <attribute name="createdAt" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="destination" attributeType="Transformable" valueTransformerName="CoordinateTransformer" customClassName="NSCoordinates"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="urlImage" attributeType="String"/>
+    </entity>
     <elements>
         <element name="FavoriteDest" positionX="-198" positionY="-18" width="128" height="148"/>
+        <element name="LineEntity" positionX="-189" positionY="54" width="128" height="119"/>
+        <element name="LineCategoryEntity" positionX="-171" positionY="63" width="128" height="119"/>
+        <element name="LineRouteEntity" positionX="-153" positionY="117" width="128" height="164"/>
+        <element name="TourpointCategoryEntity" positionX="-108" positionY="153" width="128" height="89"/>
+        <element name="TourpointEntity" positionX="-153" positionY="99" width="128" height="119"/>
     </elements>
 </model>

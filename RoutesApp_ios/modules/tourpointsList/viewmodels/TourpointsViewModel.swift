@@ -16,11 +16,20 @@ class TourpointsViewModel: ViewModel {
     }
 
     func getTourpoints() {
+        let currentLocale = Locale.current.languageCode
         tourpointsManager.getTourpointList { result in
             switch result {
             case.success(let list):
-                self.tourpointList = list
-                self.onFinish?()
+                self.tourpointsManager.getTourpointCategories { categories in
+                    switch categories {
+                    case.success(let categories):
+                        self.tourpointList = list.compactMap({$0.toTourpointInfo(categories: categories,
+                                                                                 isLocationEng: currentLocale != ConstantVariables.spanishLocale)})
+                        self.onFinish?()
+                    case.failure(let error):
+                        self.onError?(error.localizedDescription)
+                    }
+                }
             case.failure(let error):
                 self.onError?(error.localizedDescription)
             }

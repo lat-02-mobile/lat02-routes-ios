@@ -11,5 +11,5 @@ import CoreData
 
 @objc(FavoriteDest)
 public class FavoriteDest: NSManagedObject {
-
+    static let name = "FavoriteDest"
 }

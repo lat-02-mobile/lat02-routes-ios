@@ -9,6 +9,7 @@ import Foundation
 import CoreLocation
 import CodableFirebase
 import Firebase
+import CoreData
 
 // Used in algorithm
 struct LineRoute: Codable, Equatable {
@@ -95,7 +96,7 @@ struct LineRoute: Codable, Equatable {
     }
 }
 
-struct Coordinate: Codable, Equatable {
+public struct Coordinate: Codable, Equatable {
     let latitude: Double
     let longitude: Double
 
@@ -103,7 +104,11 @@ struct Coordinate: Codable, Equatable {
         return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
 
-    static func == (lhs: Coordinate, rhs: Coordinate) -> Bool {
+    func toNSCoordinates() -> NSCoordinates {
+        return NSCoordinates(lat: latitude, lon: longitude)
+    }
+
+    public static func == (lhs: Coordinate, rhs: Coordinate) -> Bool {
         return lhs.latitude == rhs.latitude && lhs.longitude == rhs.longitude
     }
 }
@@ -131,7 +136,7 @@ struct LineRouteInfo: Codable, Equatable {
 
     func toLineRoute() async throws -> LineRoute {
         let line = try await LineRouteInfo.lineManager.getLineByIdAsync(lineId: idLine)
-        let lineCategory = try await LineRouteInfo.lineCatManager.getLineCategoryByIdAsync(lineId: line.idCategory ?? "")
+        let lineCategory = try await LineRouteInfo.lineCatManager.getLineCategoryByIdAsync(lineId: line.idCategory)
         let startAsCoordinate = Coordinate(latitude: self.start.latitude, longitude: self.start.longitude)
         let endAsCoordinate = Coordinate(latitude: self.end.latitude, longitude: self.end.longitude)
         var lineRoutePointsAsCoordinates = [Coordinate]()
@@ -149,16 +154,34 @@ struct LineRouteInfo: Codable, Equatable {
         let lineRoute = LineRoute(name: self.name,
                                   id: self.id,
                                   idLine: self.idLine,
-                                  line: line.name ?? "",
+                                  line: line.name,
                                   routePoints: lineRoutePointsAsCoordinates,
                                   start: startAsCoordinate,
                                   stops: lineRouteStopsAsCoordinates,
                                   end: endAsCoordinate,
                                   averageVelocity: Double(self.averageVelocity)!,
-                                  blackIcon: lineCategory.blackIcon ?? "",
-                                  whiteIcon: lineCategory.whiteIcon ?? "",
+                                  blackIcon: lineCategory.blackIcon,
+                                  whiteIcon: lineCategory.whiteIcon,
                                   color: self.color)
         return lineRoute
+    }
+
+    func convertToLinePath() -> LinePath {
+        let start = Coordinate(latitude: start.latitude, longitude: start.longitude)
+        let end = Coordinate(latitude: end.latitude, longitude: end.longitude)
+        var routePointsArray = [Coordinate]()
+        var stopsArray = [Coordinate]()
+        for line in routePoints {
+            let coordinate = Coordinate(latitude: line.latitude, longitude: line.longitude)
+            routePointsArray.append(coordinate)
+        }
+        for stop in stops {
+            let coordinate = Coordinate(latitude: stop.latitude, longitude: stop.longitude)
+            stopsArray.append(coordinate)
+        }
+        let linePath = LinePath(name: name, id: id, idLine: idLine,
+                                line: line, routePoints: routePointsArray, start: start, end: end, stops: stopsArray)
+        return linePath
     }
 }
 
@@ -167,11 +190,24 @@ struct LinePath: Codable, Equatable {
     let name: String
     let id: String
     let idLine: String
-    let line: DocumentReference
+    let line: DocumentReference?
     let routePoints: [Coordinate]
     let start: Coordinate
     let end: Coordinate
     let stops: [Coordinate]
+
+    func toEntity(context: NSManagedObjectContext) -> LineRouteEntity {
+        let entity = LineRouteEntity(context: context)
+        entity.name = name
+        entity.id = id
+        entity.idLine = idLine
+        entity.routePoints = routePoints
+        entity.start = start.toNSCoordinates()
+        entity.end = end.toNSCoordinates()
+        entity.stops = stops
+        entity.createdAt = Date()
+        return entity
+    }
 }
 
 // What the algorithm returns

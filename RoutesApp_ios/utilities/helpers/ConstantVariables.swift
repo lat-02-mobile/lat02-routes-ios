@@ -43,6 +43,24 @@ class ConstantVariables {
     static let originPoint = "origin_point"
 
     // localized strings
+    static let search = "search-bar"
+
+    static let spanishLocale = "es"
+
+    static let origin = "origin"
+    static let selectOrigin = "select-origin"
+    static let selectDestination = "select-destination"
+    static let destination = "destination"
+    static let done = "done"
+
+    static let localizationPermissionAlertTitle = "localization-permission-alert-title"
+    static let localizationPermissionAlertMessage = "localization-permission-alert-message"
+    static let localizationPermissionAlertSettings = "localization-permission-alert-settings"
+    static let localizationPermissionAlertCancel = "localization-permission-alert-cancel"
+    static let routeDetailUnableToGetLocation = "route-detail-unable-to-get-location"
+    static let routeDetailNoMatchesAdresses = "route-detail-no-matches-adressess"
+
+    static let errorUpdatingData = "error-updating-data"
 
     // Google Maps helper
     static let polylinePadding = 80
@@ -67,4 +85,8 @@ class ConstantVariables {
     static func valueWithUnit(unit localizedString: Units, value: String) -> String {
         return String.localizedStringWithFormat(NSLocalizedString(localizedString.rawValue, comment: ""), value)
     }
+
+    // Transformer Name
+    static let transformerName = "CoordinateTransformer"
+
 }

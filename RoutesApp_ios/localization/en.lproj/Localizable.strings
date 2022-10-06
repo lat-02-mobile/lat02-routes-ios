@@ -47,6 +47,7 @@
 
 // City Picker
 "welcome-message" = "Welcome to";
+"error-updating-data" = "Error updating data";
 
 // HomeController
 "origin" = "Origin";

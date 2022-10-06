@@ -8,10 +8,17 @@
 import Foundation
 import CoreData
 
-class CoreDataManager {
+enum CoreDataError: Error {
+    case Failed(cause: String)
+}
+
+open class CoreDataManager {
+    public static let name = ConstantVariables.databaseName
+    public init() {}
     static var shared = CoreDataManager()
-    lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: ConstantVariables.databaseName)
+    public lazy var persistentContainer: NSPersistentContainer = {
+        ValueTransformer.setValueTransformer(CoordinateTransformer(), forName: NSValueTransformerName(ConstantVariables.transformerName))
+        let container = NSPersistentContainer(name: CoreDataManager.name)
         container.loadPersistentStores(completionHandler: { (_, error) in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
@@ -72,11 +79,21 @@ class CoreDataManager {
         }
         return false
     }
+
+    @discardableResult
     func deleteAll() -> Bool {
         let context = self.getContext()
-        let delete = NSBatchDeleteRequest(fetchRequest: FavoriteDest.fetchRequest())
+        let deleteFavorites = NSBatchDeleteRequest(fetchRequest: FavoriteDest.fetchRequest())
+        let deleteLines = NSBatchDeleteRequest(fetchRequest: LineEntity.fetchRequest())
+        let deleteCategoryLines = NSBatchDeleteRequest(fetchRequest: LineCategoryEntity.fetchRequest())
+        let deleteTourpointCategories = NSBatchDeleteRequest(fetchRequest: TourpointCategoryEntity.fetchRequest())
+        let deleteTourpoints = NSBatchDeleteRequest(fetchRequest: TourpointEntity.fetchRequest())
         do {
-            try context.execute(delete)
+            try context.execute(deleteFavorites)
+            try context.execute(deleteLines)
+            try context.execute(deleteCategoryLines)
+            try context.execute(deleteTourpointCategories)
+            try context.execute(deleteTourpoints)
             return true
         } catch {
             print("cant clean coredata")

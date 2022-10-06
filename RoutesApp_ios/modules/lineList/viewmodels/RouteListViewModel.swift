@@ -68,23 +68,6 @@ class RouteListViewModel: ViewModel {
             }
         }
     }
-    func convertToLinePath(lineRouteInfo: LineRouteInfo) -> LinePath {
-           let start = Coordinate(latitude: lineRouteInfo.start.latitude, longitude: lineRouteInfo.start.longitude)
-           let end = Coordinate(latitude: lineRouteInfo.end.latitude, longitude: lineRouteInfo.end.longitude)
-           var routePoints = [Coordinate]()
-           var stops = [Coordinate]()
-           for line in lineRouteInfo.routePoints {
-               let coordinate = Coordinate(latitude: line.latitude, longitude: line.longitude)
-               routePoints.append(coordinate)
-           }
-           for stop in lineRouteInfo.stops {
-               let coordinate = Coordinate(latitude: stop.latitude, longitude: stop.longitude)
-               stops.append(coordinate)
-           }
-           let linePath = LinePath(name: lineRouteInfo.name, id: lineRouteInfo.id, idLine: lineRouteInfo.id,
-                                   line: lineRouteInfo.line!, routePoints: routePoints, start: start, end: end, stops: stops)
-          return linePath
-       }
 
     func mapRouteListDetailModel(routeListModel: [Lines]) -> [RouteListDetailModel] {
         var routeListDetailModels = [RouteListDetailModel]()

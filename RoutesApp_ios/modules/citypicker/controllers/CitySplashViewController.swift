@@ -16,7 +16,9 @@ class CitySplashViewController: UIViewController {
     var country = ""
     var cityLat = ""
     var cityLng = ""
-    let viewmodel = CityPickerViewModel()
+    let viewmodel = CitySplashViewModel.shared
+    private var fetchDataRunning = true
+    private var timerCounter: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +28,16 @@ class CitySplashViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
+        initViewModel()
+    }
+
+    private func initViewModel() {
         initTimer()
+        viewmodel.retrieveAllDataFromFirebaseAndSave()
+        viewmodel.onFinish = { [weak self] in
+            guard let strongSelf = self else {return}
+            strongSelf.fetchDataRunning = false
+        }
     }
 
     func setUpCityName() {
@@ -45,11 +56,14 @@ class CitySplashViewController: UIViewController {
 
     func initTimer() {
         timer.invalidate()
-        timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(updateMaps), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(callSetUpRootController), userInfo: nil, repeats: true)
     }
 
-    @objc func updateMaps() {
-        timer.invalidate()
-        SceneDelegate.shared?.setupRootControllerIfNeeded(validUser: viewmodel.authManager.userIsLoggedIn())
+    @objc private func callSetUpRootController() {
+        timerCounter += 1
+        if timerCounter >= 3 && !fetchDataRunning {
+            timer.invalidate()
+            SceneDelegate.shared?.setupRootControllerIfNeeded(validUser: viewmodel.authManager.userIsLoggedIn())
+        }
     }
 }

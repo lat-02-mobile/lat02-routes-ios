@@ -25,21 +25,22 @@ class RouteListViewController: UIViewController {
     }
 
     func initViewModel() {
-        routeListViewModel.fecthedLineRoute = { [weak self] () in
-            guard let lineRouteList = self?.routeListViewModel.lineRouteList else { return }
+        routeListViewModel.fecthedLineRoute = { [weak self] in
+            guard let strongSelf = self else {return}
+            let lineRouteList = strongSelf.routeListViewModel.lineRouteList
             if lineRouteList.count > 1 {
-                self?.lineRouteViewController.lineRouteList = lineRouteList
+                strongSelf.lineRouteViewController.lineRouteList = lineRouteList
                 let screenSize: CGRect = UIScreen.main.bounds
                 let width = screenSize.width - 30
                 let height = screenSize.height / 4
-                let popupVC = PopupViewController(contentController: self!.lineRouteViewController, popupWidth: width, popupHeight: height)
+                let popupVC = PopupViewController(contentController: strongSelf.lineRouteViewController, popupWidth: width, popupHeight: height)
                 popupVC.cornerRadius = 10
-                self?.present(popupVC, animated: true)
+                strongSelf.present(popupVC, animated: true)
             } else if lineRouteList.count == 1 {
-                let linePath = self?.routeListViewModel.convertToLinePath(lineRouteInfo: lineRouteList[0])
+                let linePath = lineRouteList[0].convertToLinePath()
                 let routeMapViewController = RouteMapViewController()
                 routeMapViewController.linePath = linePath
-                self?.present(routeMapViewController, animated: false)
+                strongSelf.present(routeMapViewController, animated: false)
             }
         }
     }
@@ -76,7 +77,7 @@ extension RouteListViewController: UITableViewDataSource, UITableViewDelegate {
         return routeListViewModel.filteredRouteList.count
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let lineId = routeListViewModel.routeListModel[indexPath.row].id ?? ""
+        let lineId = routeListViewModel.routeListModel[indexPath.row].id
         routeListViewModel.getLineRoute(id: lineId)
     }
 
