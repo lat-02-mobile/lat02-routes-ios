@@ -15,7 +15,6 @@ class CoordinateTransformer: ValueTransformer {
             let data = try NSKeyedArchiver.archivedData(withRootObject: coordinate, requiringSecureCoding: true)
             return data
         } catch {
-            print(error)
             return nil
         }
     }
@@ -26,7 +25,6 @@ class CoordinateTransformer: ValueTransformer {
             let coordinate = try NSKeyedUnarchiver.unarchivedObject(ofClass: NSCoordinates.self, from: data)
             return coordinate
         } catch {
-            print(error)
             return nil
         }
     }

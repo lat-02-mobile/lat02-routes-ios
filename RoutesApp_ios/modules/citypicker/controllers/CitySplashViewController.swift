@@ -11,7 +11,6 @@ class CitySplashViewController: UIViewController {
 
     @IBOutlet weak var cityNameLabel: UILabel!
     var timer = Timer()
-    var timer2 = Timer()
     var cityId = ""
     var city = ""
     var country = ""
