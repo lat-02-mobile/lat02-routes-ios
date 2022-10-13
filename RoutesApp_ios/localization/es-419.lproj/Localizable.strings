@@ -31,6 +31,8 @@
 // Default
 "error-unknown" = "Algo salio mal";
 "search-bar" = "Buscar";
+"edit" = "Editar";
+"delete" = "Borrar";
 
 // Tabbar controller
 "home" = "Inicio";
@@ -67,6 +69,9 @@
 "save-dest" = "Guardar Destino";
 "choose-name-for-new-fav-dest" = "Por favor elige un nombre para guardar estas coordenadas como un destino favorito";
 "write-name" = "Escribe un nombre";
+"edit-fav" = "Editar Destino favorito";
+"new-name-for-fav-dest" = "Por favor actualiza el nombre para el destino favorito";
+
 // Possible Routes to take
 "recommended" = " (recomendada)";
 // Lines - RouteList

@@ -40,4 +40,15 @@ class FavoriteDestinationsManager {
         }
         return false
     }
+
+    func updateFavoriteDestinationName(destination: FavoriteDest, newName: String, completion: @escaping(Result<Void, Error>) -> Void) {
+        let context = coreDataManager.getContext()
+        destination.name = newName
+        do {
+            try context.save()
+            completion(.success(()))
+        } catch {
+            completion(.failure(CoreDataError.Failed(cause: error.localizedDescription)))
+        }
+    }
 }
