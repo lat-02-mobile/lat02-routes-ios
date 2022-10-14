@@ -51,6 +51,11 @@ class ConstantVariables {
 
     static let spanishLocale = "es"
 
+    static let edit = "edit"
+    static let delete = "delete"
+    static let cancel = "cancel"
+    static let save = "save"
+
     static let origin = "origin"
     static let selectOrigin = "select-origin"
     static let selectDestination = "select-destination"
@@ -65,6 +70,13 @@ class ConstantVariables {
     static let routeDetailNoMatchesAdresses = "route-detail-no-matches-adressess"
 
     static let errorUpdatingData = "error-updating-data"
+
+    static let editFavAlertTitle = "edit-fav"
+    static let deleteFavAlertTitle = "remove-fav-dest"
+    static let removeAlerMessage = "sure-want-remove-fav-dest"
+    static let saveDestAlertTitle = "save-dest"
+    static let updateAlertMessage = "new-name-for-fav-dest"
+    static let favDestPlaceholder = "write-name"
 
     // Google Maps helper
     static let polylinePadding = 80

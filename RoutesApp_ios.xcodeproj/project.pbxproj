@@ -190,6 +190,11 @@
 		84ED700628EB761D00781376 /* LineEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED6FFA28EB761D00781376 /* LineEntity+CoreDataClass.swift */; };
 		84ED700728EB761D00781376 /* LineEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED6FFB28EB761D00781376 /* LineEntity+CoreDataProperties.swift */; };
 		84ED700B28EDC0D500781376 /* CitySplashViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED700A28EDC0D500781376 /* CitySplashViewModelTests.swift */; };
+		84ED701428F4E25D00781376 /* FavoritesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED701228F4E25D00781376 /* FavoritesListViewController.swift */; };
+		84ED701528F4E25D00781376 /* FavoritesListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84ED701328F4E25D00781376 /* FavoritesListViewController.xib */; };
+		84ED701728F4E28B00781376 /* FavoritesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED701628F4E28B00781376 /* FavoritesListViewModel.swift */; };
+		84ED701A28F4E74100781376 /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED701828F4E74100781376 /* FavoriteTableViewCell.swift */; };
+		84ED701B28F4E74100781376 /* FavoriteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84ED701928F4E74100781376 /* FavoriteTableViewCell.xib */; };
 		959B7170FF24406C939DC60B /* Pods_RoutesApp_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA0743D620F2F740C78E285 /* Pods_RoutesApp_ios.framework */; };
 		C20A86D128A3383F0000EF7C /* ConstantVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A86D028A3383F0000EF7C /* ConstantVariables.swift */; };
 		C20A86D328A338E30000EF7C /* TestResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A86D228A338E30000EF7C /* TestResources.swift */; };
@@ -353,6 +358,11 @@
 		84ED6FFA28EB761D00781376 /* LineEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LineEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		84ED6FFB28EB761D00781376 /* LineEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LineEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		84ED700A28EDC0D500781376 /* CitySplashViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySplashViewModelTests.swift; sourceTree = "<group>"; };
+		84ED701228F4E25D00781376 /* FavoritesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListViewController.swift; sourceTree = "<group>"; };
+		84ED701328F4E25D00781376 /* FavoritesListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesListViewController.xib; sourceTree = "<group>"; };
+		84ED701628F4E28B00781376 /* FavoritesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListViewModel.swift; sourceTree = "<group>"; };
+		84ED701828F4E74100781376 /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
+		84ED701928F4E74100781376 /* FavoriteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteTableViewCell.xib; sourceTree = "<group>"; };
 		C20A86D028A3383F0000EF7C /* ConstantVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantVariables.swift; sourceTree = "<group>"; };
 		C20A86D228A338E30000EF7C /* TestResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResources.swift; sourceTree = "<group>"; };
 		C20A86D428A339540000EF7C /* AuthTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTests.swift; sourceTree = "<group>"; };
@@ -673,6 +683,42 @@
 			path = controllers;
 			sourceTree = "<group>";
 		};
+		84ED700E28F4E1EB00781376 /* favoritesList */ = {
+			isa = PBXGroup;
+			children = (
+				84ED701128F4E22100781376 /* viewmodels */,
+				84ED701028F4E21700781376 /* controllers */,
+				84ED700F28F4E20500781376 /* views */,
+			);
+			path = favoritesList;
+			sourceTree = "<group>";
+		};
+		84ED700F28F4E20500781376 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				84ED701828F4E74100781376 /* FavoriteTableViewCell.swift */,
+				84ED701928F4E74100781376 /* FavoriteTableViewCell.xib */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		84ED701028F4E21700781376 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				84ED701228F4E25D00781376 /* FavoritesListViewController.swift */,
+				84ED701328F4E25D00781376 /* FavoritesListViewController.xib */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		84ED701128F4E22100781376 /* viewmodels */ = {
+			isa = PBXGroup;
+			children = (
+				84ED701628F4E28B00781376 /* FavoritesListViewModel.swift */,
+			);
+			path = viewmodels;
+			sourceTree = "<group>";
+		};
 		C2112DDB289A18C3009601AB /* home */ = {
 			isa = PBXGroup;
 			children = (
@@ -918,6 +964,7 @@
 		C2E9770E28987CFE009F4B94 /* modules */ = {
 			isa = PBXGroup;
 			children = (
+				84ED700E28F4E1EB00781376 /* favoritesList */,
 				844F9A3F28E347DE004A95A0 /* tourpointsList */,
 				C278974B28E3B8D800FF2796 /* lineRouteList */,
 				C278971E28E3B48100FF2796 /* lineList */,
@@ -1300,10 +1347,13 @@
 				8420E0C828C68E89000068F9 /* SearchLocationViewController.xib in Resources */,
 				C2BB145C28A1529E0083CA1E /* Localizable.strings in Resources */,
 				C278975428E3B8D900FF2796 /* LineRouteTableViewCell.xib in Resources */,
+				84ED701B28F4E74100781376 /* FavoriteTableViewCell.xib in Resources */,
 				84A5B67B28C698C5006AB7F9 /* RouteMapViewController.xib in Resources */,
 				CE7FBAE328D6CA38001175D3 /* PossibleRoutesViewController.xib in Resources */,
 				CE7FBADD28D565F2001175D3 /* BottomSheetViewController.xib in Resources */,
 				843D043F28AAF3F800C4DF25 /* PhoneAuthenticationViewController.xib in Resources */,
+				84ED701528F4E25D00781376 /* FavoritesListViewController.xib in Resources */,
+				847E0F8828E5E76300038A3A /* GoogleService-Info.plist in Resources */,
 				C2414D8728E1F08000CDF73A /* RouteDetailViewController.xib in Resources */,
 				84067C7528B5721400549300 /* CityPickerViewController.xib in Resources */,
 				84067C7428B4305300549300 /* CityTableViewCell.xib in Resources */,
@@ -1610,6 +1660,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84ED700028EB761D00781376 /* TourpointEntity+CoreDataClass.swift in Sources */,
+				84ED701728F4E28B00781376 /* FavoritesListViewModel.swift in Sources */,
 				CE7FBAEF28D937D9001175D3 /* PossibleRoutesViewModel.swift in Sources */,
 				84A5B67A28C698C5006AB7F9 /* RouteMapViewController.swift in Sources */,
 				C2414D8628E1DCDC00CDF73A /* Double.swift in Sources */,
@@ -1648,6 +1699,7 @@
 				84067C7328B4305300549300 /* CityTableViewCell.swift in Sources */,
 				C2BB146128A153390083CA1E /* StringExtension.swift in Sources */,
 				C2C853DE28E65D9D00B8D9CF /* LineCategoryFirebaseManager.swift in Sources */,
+				84ED701428F4E25D00781376 /* FavoritesListViewController.swift in Sources */,
 				844F9A3128C84E63004A95A0 /* PlaceTableViewCell.swift in Sources */,
 				C2B42E2428E5D10600B44FC0 /* LineFirebaseManager.swift in Sources */,
 				C2E9772028987F2A009F4B94 /* SignupViewController.swift in Sources */,
@@ -1675,6 +1727,7 @@
 				84ED6FE728EB122F00781376 /* LocalDataManager.swift in Sources */,
 				84067C6128B3BF9C00549300 /* CityPickerViewController.swift in Sources */,
 				84246F8C28DB0B65004748DD /* LinesRoute.swift in Sources */,
+				84ED701A28F4E74100781376 /* FavoriteTableViewCell.swift in Sources */,
 				84ED700728EB761D00781376 /* LineEntity+CoreDataProperties.swift in Sources */,
 				C2414D8428E1CDF200CDF73A /* ClPlaceMark.swift in Sources */,
 				C2436389289A2D21003C1A44 /* BaseModel.swift in Sources */,

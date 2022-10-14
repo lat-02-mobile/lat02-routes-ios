@@ -73,7 +73,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 image: UIImage(systemName: "mappin.and.ellipse")!),
             createNavController(for: HomeViewController(), title: String.localizeString(localizedString: "map"),
                 image: UIImage(systemName: "map.fill")!),
-            createNavController(for: HomeViewController(), title: String.localizeString(localizedString: "favorites"),
+            createNavController(for: FavoritesListViewController(), title: String.localizeString(localizedString: "favorites"),
                 image: UIImage(systemName: "suit.heart")!),
             createNavController(for: SettingsViewController(), title: String.localizeString(localizedString: "settings"),
                 image: UIImage(systemName: "gearshape.fill")!)
