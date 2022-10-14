@@ -94,10 +94,10 @@ class ConstantVariables {
     static let transformerName = "CoordinateTransformer"
      
     // Google Maps keys
-    static let gmsServicesProvideAPIKeyProduction = "AIzaSyA4VdaDrf4ABX1Sb7IOx8ZbzuF43SKqMRY"
-    static let gmsPlacesClientProvideAPIKeyProduction  = "AIzaSyA4VdaDrf4ABX1Sb7IOx8ZbzuF43SKqMRY"
-    static let gmsServicesProvideAPIKeyDevelopment = "AIzaSyA4VdaDrf4ABX1Sb7IOx8ZbzuF43SKqMRY"
-    static let gmsPlacesClientProvideAPIKeyDevelopment = "AIzaSyA4VdaDrf4ABX1Sb7IOx8ZbzuF43SKqMRY"
+    static let gmsServicesProvideAPIKeyProduction = ""
+    static let gmsPlacesClientProvideAPIKeyProduction  = ""
+    static let gmsServicesProvideAPIKeyDevelopment = ""
+    static let gmsPlacesClientProvideAPIKeyDevelopment = ""
 
 
 
