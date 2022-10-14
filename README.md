@@ -66,6 +66,9 @@ To select the environment, you must choose the corresponding "schema", which is 
 
 ![image](https://user-images.githubusercontent.com/106118394/195853137-12f6950c-8fae-4691-87ec-e4c6b0781ee7.png)
 
+Targets
+In the part of "targets/info" don´t forget to change the “URL types“
+![image](https://user-images.githubusercontent.com/106118394/195854612-e0ea36a9-da7f-4d09-b77e-07be06cdfff7.png)
 
 
 
