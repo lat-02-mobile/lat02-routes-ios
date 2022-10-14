@@ -15,15 +15,41 @@ extension LineRouteEntity {
         return NSFetchRequest<LineRouteEntity>(entityName: self.name)
     }
 
+    @NSManaged public var averageVelocity: String
+    @NSManaged public var color: String
+    @NSManaged public var createdAt: Date
     @NSManaged public var id: String
     @NSManaged public var idLine: String
     @NSManaged public var name: String
-    @NSManaged public var start: NSCoordinates
-    @NSManaged public var end: NSCoordinates
-    @NSManaged public var createdAt: Date
+    @NSManaged public var strEnd: String
     @NSManaged public var strRoutePoints: String
+    @NSManaged public var strStart: String
     @NSManaged public var strStops: String
     @NSManaged public var line: LineEntity
+
+    public var end: Coordinate {
+        get {
+            return (try? JSONDecoder().decode(Coordinate.self, from: Data(strEnd.utf8))) ?? Coordinate(latitude: 0, longitude: 0)
+        }
+        set {
+           do {
+               let endData = try JSONEncoder().encode(newValue)
+               strEnd = String(data: endData, encoding: .utf8) ?? ""
+           } catch { strEnd = "" }
+        }
+    }
+
+    public var start: Coordinate {
+        get {
+            return (try? JSONDecoder().decode(Coordinate.self, from: Data(strStart.utf8))) ?? Coordinate(latitude: 0, longitude: 0)
+        }
+        set {
+           do {
+               let startData = try JSONEncoder().encode(newValue)
+               strStart = String(data: startData, encoding: .utf8) ?? ""
+           } catch { strStart = "" }
+        }
+    }
 
     public var stops: [Coordinate] {
         get {

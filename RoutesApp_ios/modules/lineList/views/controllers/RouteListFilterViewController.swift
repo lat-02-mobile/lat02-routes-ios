@@ -27,8 +27,7 @@ class RouteListFilterViewController: UIViewController {
 
     @IBAction func doneAction(_ sender: Any) {
         guard viewModel.selectedFilterIndex != -1 else { return }
-        let currentTransportationLine = viewModel.linesCategory[viewModel.selectedFilterIndex]
-        viewModel.filterRouteListBy(transportationCategory: currentTransportationLine)
+        viewModel.applyFilters(query: viewModel.queryAux)
     }
 
     @IBAction func resetAction(_ sender: Any) {
@@ -47,7 +46,7 @@ class RouteListFilterViewController: UIViewController {
 
 extension RouteListFilterViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.linesCategory.count
+        viewModel.categories.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -55,12 +54,8 @@ extension RouteListFilterViewController: UITableViewDelegate, UITableViewDataSou
             as? TransportationCategoryTableViewCell ?? TransportationCategoryTableViewCell(style: .default,
                     reuseIdentifier: TransportationCategoryTableViewCell.identifier)
         cell.setStyle(selectedIndex: viewModel.selectedFilterIndex, currentIndex: indexPath.row,
-                      lineCategory: viewModel.linesCategory[indexPath.row])
+                      lineCategory: viewModel.categories[indexPath.row])
         return cell
-    }
-
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        50
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

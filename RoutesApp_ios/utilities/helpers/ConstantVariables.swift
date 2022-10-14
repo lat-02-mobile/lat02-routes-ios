@@ -98,7 +98,4 @@ class ConstantVariables {
         return String.localizedStringWithFormat(NSLocalizedString(localizedString.rawValue, comment: ""), value)
     }
 
-    // Transformer Name
-    static let transformerName = "CoordinateTransformer"
-
 }
