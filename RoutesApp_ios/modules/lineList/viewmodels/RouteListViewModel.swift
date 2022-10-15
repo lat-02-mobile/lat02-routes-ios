@@ -15,7 +15,7 @@ class RouteListViewModel: ViewModel {
     var categories = [LineCategoryEntity]()
 
     var queryAux = ""
-    var selectedFilterIndex = -1
+    var categoryAux: LineCategoryEntity?
 
     func getLines() {
         localDataManager.getDataFromCoreData(type: LineEntity.self, forEntity: LineEntity.name) { result in
@@ -42,13 +42,13 @@ class RouteListViewModel: ViewModel {
         }
     }
 
-    func applyFilters(query: String) {
-        queryAux = query
+    func applyFilters(query: String, selectedCat: LineCategoryEntity?) {
         filterLinesBy(query: query)
-        if selectedFilterIndex != -1 {
-            let selectedCat = categories[selectedFilterIndex]
-            filterLinesBy(category: selectedCat)
+        guard let category = selectedCat else {
+            onFinish?()
+            return
         }
+        filterLinesBy(category: category)
         onFinish?()
     }
 
@@ -67,7 +67,7 @@ class RouteListViewModel: ViewModel {
 
     func resetFilteredByCategoryRouteList() {
         filterLinesBy(query: queryAux)
-        selectedFilterIndex = -1
+        categoryAux = nil
         onFinish?()
     }
 

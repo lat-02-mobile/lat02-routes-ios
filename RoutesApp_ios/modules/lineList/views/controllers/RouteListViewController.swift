@@ -111,10 +111,10 @@ extension RouteListViewController: UITableViewDataSource, UITableViewDelegate {
 extension RouteListViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         guard let text = searchBar.text else { return }
-        routeListViewModel.applyFilters(query: text)
+        routeListViewModel.applyFilters(query: text, selectedCat: routeListViewModel.categoryAux)
     }
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        routeListViewModel.applyFilters(query: "")
+        routeListViewModel.applyFilters(query: "", selectedCat: routeListViewModel.categoryAux)
     }
 }

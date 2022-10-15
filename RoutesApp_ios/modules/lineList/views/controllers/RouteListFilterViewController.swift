@@ -9,6 +9,9 @@ class RouteListFilterViewController: UIViewController {
 
     var viewModel: RouteListViewModel
 
+    let currentLocale = Locale.current.languageCode
+    var isCurrentLocaleEsp = false
+
     init(viewModel: RouteListViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -22,12 +25,15 @@ class RouteListFilterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         filterTitleLabel.text = String.localizeString(localizedString: ConstantVariables.localizationLinesFilterTitle)
+        isCurrentLocaleEsp = currentLocale == ConstantVariables.spanishLocale
         setupTable()
     }
 
     @IBAction func doneAction(_ sender: Any) {
-        guard viewModel.selectedFilterIndex != -1 else { return }
-        viewModel.applyFilters(query: viewModel.queryAux)
+        if viewModel.categoryAux != nil {
+            viewModel.applyFilters(query: viewModel.queryAux, selectedCat: viewModel.categoryAux)
+        }
+
     }
 
     @IBAction func resetAction(_ sender: Any) {
@@ -53,18 +59,13 @@ extension RouteListFilterViewController: UITableViewDelegate, UITableViewDataSou
         let cell = tableView.dequeueReusableCell(withIdentifier: TransportationCategoryTableViewCell.identifier, for: indexPath)
             as? TransportationCategoryTableViewCell ?? TransportationCategoryTableViewCell(style: .default,
                     reuseIdentifier: TransportationCategoryTableViewCell.identifier)
-        cell.setStyle(selectedIndex: viewModel.selectedFilterIndex, currentIndex: indexPath.row,
-                      lineCategory: viewModel.categories[indexPath.row])
+        let category = viewModel.categories[indexPath.row]
+        cell.setStyle(isSameCategory: category.id == viewModel.categoryAux?.id, lineCategory: category, isCurrentLocaleEsp: isCurrentLocaleEsp)
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var indexPathList = [IndexPath]()
-        if viewModel.selectedFilterIndex != -1 {
-            indexPathList.append(IndexPath(item: viewModel.selectedFilterIndex, section: 0))
-        }
-        indexPathList.append(indexPath)
-        viewModel.selectedFilterIndex = indexPath.row
-        tableView.reloadRows(at: indexPathList, with: .automatic)
+        viewModel.categoryAux = viewModel.categories[indexPath.row]
+        tableView.reloadData()
     }
 }
