@@ -19,6 +19,7 @@ target 'RoutesApp_ios' do
   pod 'GooglePlaces', '7.1.0'
   pod 'EzPopup', '1.2.4'
   pod 'Kingfisher', '~> 7.0'
+  pod 'Amplitude', '~> 8.8.0' 
 
   target 'RoutesApp_iosTests' do
     inherit! :search_paths

@@ -1,4 +1,5 @@
 import UIKit
+import Amplitude
 
 class RouteListFilterViewController: UIViewController {
 
@@ -26,6 +27,7 @@ class RouteListFilterViewController: UIViewController {
     }
 
     @IBAction func doneAction(_ sender: Any) {
+        Amplitude.instance().setUserId("7iNh6jr6b6e1C2CjM2KMR70xQ4M2")
         guard viewModel.selectedFilterIndex != -1 else { return }
         let currentTransportationLine = viewModel.linesCategory[viewModel.selectedFilterIndex]
         viewModel.filterRouteListBy(transportationCategory: currentTransportationLine)
