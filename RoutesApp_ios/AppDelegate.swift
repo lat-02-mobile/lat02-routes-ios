@@ -12,11 +12,12 @@ import FirebaseCore
 import GoogleMaps
 import GooglePlaces
 import IQKeyboardManagerSwift
+import Amplitude
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    var environment: Environment = .none
     var window: UIWindow?
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         // Use Firebase library to configure APIs
@@ -32,10 +33,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     application,
                     didFinishLaunchingWithOptions: launchOptions
                 )
+        // MARK: Enviroment setting
+        #if PRODUCTION
+        environment = .production
+        #else
+        environment = .development
+        #endif
         // MARK: Google Maps config
-        GMSServices.provideAPIKey(Env.GOOGLE_MAPS_API_KEY)
-        GMSPlacesClient.provideAPIKey(Env.GOOGLE_PLACES_API_KEY)
+         switch environment {
+         case .development:
+             GMSServices.provideAPIKey(Env.gmsServicesProvideAPIKeyDevelopment)
+             GMSPlacesClient.provideAPIKey(Env.gmsPlacesClientProvideAPIKeyDevelopment)
+         case .production:
+             GMSServices.provideAPIKey(Env.gmsServicesProvideAPIKeyProduction)
+             GMSPlacesClient.provideAPIKey(Env.gmsPlacesClientProvideAPIKeyProduction)
+         case .none:
+             GMSServices.provideAPIKey("")
+             GMSPlacesClient.provideAPIKey("")
+         }
         FirebaseApp.configure()
+
+        // MARK: Amplitude config
+        Amplitude.instance().initializeApiKey(Env.AMPLITUDE_KEY)
+        Amplitude.instance().trackingSessionEvents = true
+        Amplitude.instance().logEvent("app_start")
         IQKeyboardManager.shared.enable = true
         return true
     }
