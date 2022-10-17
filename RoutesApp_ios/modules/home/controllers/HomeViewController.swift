@@ -37,7 +37,8 @@ class HomeViewController: UIViewController {
 
     func initViewModel() {
         self.viewmodel.runAlgorithm = { [weak self] in
-            if let origin = self?.viewmodel.origin, let destination = self?.viewmodel.destination {
+            guard let strongSelf = self else {return}
+            if let origin = strongSelf.viewmodel.origin, let destination = strongSelf.viewmodel.destination {
 
                 let algOrigin = CLLocationCoordinate2D(latitude: origin.position.latitude,
                                                        longitude: origin.position.longitude)
@@ -45,21 +46,20 @@ class HomeViewController: UIViewController {
                                                             longitude: destination.position.longitude)
                 let availableTransports = Algorithm.shared.findAvailableRoutes(origin: algOrigin,
                                                                                destination: algDestination,
-                                                                               lines: (self?.viewmodel.lineRoutes)!,
+                                                                               lines: strongSelf.viewmodel.lineRoutes,
                                                                                minDistanceBtwPoints: Algorithm.minDistanceBtwPointsAndStops,
                                                                                minDistanceBtwStops: Algorithm.minDistanceBtwPointsAndStops)
-                DispatchQueue.main.sync {
-                    SVProgressHUD.dismiss()
-                    self?.labelHelper.text = StringResources.route1
-                    let viewModel = PossibleRoutesViewModel()
-                    viewModel.map = self?.mapView
-                    let viewController = BottomSheetViewController(viewModel: viewModel, possibleRoutes: availableTransports)
-                    viewController.delegate = self
-                    if let presentationController = viewController.presentationController as? UISheetPresentationController {
-                        presentationController.detents = [.medium()]
-                    }
-                    self?.present(viewController, animated: true)
+
+                SVProgressHUD.dismiss()
+                strongSelf.labelHelper.text = StringResources.route1
+                let viewModel = PossibleRoutesViewModel()
+                viewModel.map = strongSelf.mapView
+                let viewController = BottomSheetViewController(viewModel: viewModel, possibleRoutes: availableTransports)
+                viewController.delegate = self
+                if let presentationController = viewController.presentationController as? UISheetPresentationController {
+                    presentationController.detents = [.medium()]
                 }
+                strongSelf.present(viewController, animated: true)
             }
         }
     }
@@ -190,9 +190,7 @@ class HomeViewController: UIViewController {
                     Toast.showToast(target: self, message: String.localizeString(localizedString: StringResources.youCanGoJustWalk))
                     SVProgressHUD.dismiss()
                 } else {
-                    Task.init {
-                        try? await viewmodel.getLineRouteForCurrentCity()
-                    }
+                    viewmodel.getLineRouteForCurrentCity()
                 }
             }
         }

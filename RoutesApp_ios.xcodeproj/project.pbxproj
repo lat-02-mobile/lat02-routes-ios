@@ -68,6 +68,7 @@
 		84ED701B28F4E74100781376 /* FavoriteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84ED701928F4E74100781376 /* FavoriteTableViewCell.xib */; };
 		84F6E68628F8BE87009D5635 /* MockLocalDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6E68528F8BE87009D5635 /* MockLocalDataManager.swift */; };
 		84F6E68828F9A109009D5635 /* Cities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6E68728F9A109009D5635 /* Cities.swift */; };
+		84F6E68A28FD95D7009D5635 /* LineEntityConverterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6E68928FD95D7009D5635 /* LineEntityConverterHelper.swift */; };
 		959B7170FF24406C939DC60B /* Pods_RoutesApp_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA0743D620F2F740C78E285 /* Pods_RoutesApp_ios.framework */; };
 		C20A86D128A3383F0000EF7C /* ConstantVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A86D028A3383F0000EF7C /* ConstantVariables.swift */; };
 		C20A86D328A338E30000EF7C /* TestResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A86D228A338E30000EF7C /* TestResources.swift */; };
@@ -235,6 +236,7 @@
 		84ED701928F4E74100781376 /* FavoriteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteTableViewCell.xib; sourceTree = "<group>"; };
 		84F6E68528F8BE87009D5635 /* MockLocalDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocalDataManager.swift; sourceTree = "<group>"; };
 		84F6E68728F9A109009D5635 /* Cities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cities.swift; sourceTree = "<group>"; };
+		84F6E68928FD95D7009D5635 /* LineEntityConverterHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineEntityConverterHelper.swift; sourceTree = "<group>"; };
 		C20A86D028A3383F0000EF7C /* ConstantVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantVariables.swift; sourceTree = "<group>"; };
 		C20A86D228A338E30000EF7C /* TestResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResources.swift; sourceTree = "<group>"; };
 		C20A86D428A339540000EF7C /* AuthTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTests.swift; sourceTree = "<group>"; };
@@ -874,6 +876,7 @@
 				CE7FBAEC28D8BFEC001175D3 /* ColorHelper.swift */,
 				CE1D1DD728DD4C0600F61040 /* ImageHelper.swift */,
 				C2B635C928EB29FA003200EF /* StringResources.swift */,
+				84F6E68928FD95D7009D5635 /* LineEntityConverterHelper.swift */,
 			);
 			path = helpers;
 			sourceTree = "<group>";
@@ -1340,6 +1343,7 @@
 				C249BB2028E4F9A400E6BA85 /* FavoriteDestinationsManager.swift in Sources */,
 				84ED700228EB761D00781376 /* LineRouteEntity+CoreDataClass.swift in Sources */,
 				C2436385289A2CD6003C1A44 /* FirebaseFirestoreManager.swift in Sources */,
+				84F6E68A28FD95D7009D5635 /* LineEntityConverterHelper.swift in Sources */,
 				845D228928A7050000E9A660 /* PhoneAuthenticationViewController.swift in Sources */,
 				C2B635CA28EB29FA003200EF /* StringResources.swift in Sources */,
 				C278972F28E3B48100FF2796 /* TransportationCategoryTableViewCell.swift in Sources */,
