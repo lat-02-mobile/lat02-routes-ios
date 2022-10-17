@@ -8,8 +8,9 @@ class RouteListViewController: UIViewController {
     @IBOutlet weak var lineListTableView: UITableView!
     var routeListViewModel = RouteListViewModel()
     let lineRouteViewController = LineRouteViewController()
-    let currentLocale = Locale.current.languageCode
-    var isCurrentLocaleEsp = false
+
+    private let currentLocale = Locale.current.languageCode
+    private var isCurrentLocaleEsp = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,8 +28,8 @@ class RouteListViewController: UIViewController {
     }
 
     func initViewModel() {
+        SVProgressHUD.show()
         isCurrentLocaleEsp = currentLocale == ConstantVariables.spanishLocale
-        routeListViewModel.getLines()
         routeListViewModel.onFinish = { [weak self] in
             guard let strongSelf = self else {return}
             SVProgressHUD.dismiss()
@@ -37,6 +38,7 @@ class RouteListViewController: UIViewController {
         routeListViewModel.onError = { _ in
             SVProgressHUD.dismiss()
         }
+        routeListViewModel.getLines()
     }
 
     func showLineRoutes(line: LineEntity) {

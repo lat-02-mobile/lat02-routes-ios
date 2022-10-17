@@ -31,6 +31,9 @@ class MockLocalDataManager: LocalDataManagerProtocol {
 
     var dataHasBeenRetrieved = false
     var sendWithError = false
+    var tourpointsCalled = false
+    var tourpointsCategoryCalled = false
+
     func retrieveAllDataFromFirebase(completion: @escaping (Result<Void, Error>) -> Void) {
         if sendWithError {
             completion(.failure(NSError(domain: "Error", code: 0)))
@@ -41,12 +44,24 @@ class MockLocalDataManager: LocalDataManagerProtocol {
     }
 
     func getDataFromCoreData<T: NSManagedObject>(type: T.Type, forEntity: String, completion: @escaping (Result<[T], Error>) -> Void) {
+        if sendWithError {
+            completion(.failure(NSError(domain: "Error", code: 0)))
+            return
+        }
         switch type {
         case is LineEntity.Type:
             let lines: [T] = convertLineToEntity()
             completion(.success(lines))
         case is LineCategoryEntity.Type:
             let categories: [T] = convertLineCategoryToEntity()
+            completion(.success(categories))
+        case is TourpointEntity.Type:
+            tourpointsCalled = true
+            let tourpoints: [T] = convertTourpointToEntity()
+            completion(.success(tourpoints))
+        case is TourpointCategoryEntity.Type:
+            tourpointsCategoryCalled = true
+            let categories: [T] = convertTourpointCategoryToEntity()
             completion(.success(categories))
         default:
             completion(.success([]))
@@ -71,13 +86,41 @@ class MockLocalDataManager: LocalDataManagerProtocol {
         return TestResources.lineCategories.map({ category in
             let entity = LineCategoryEntity(context: context)
             entity.id = category.id
-            entity.nameEng = category.id
-            entity.nameEsp = category.id
-            entity.whiteIcon = category.id
-            entity.blackIcon = category.id
+            entity.nameEng = category.nameEng
+            entity.nameEsp = category.nameEsp
+            entity.whiteIcon = category.whiteIcon
+            entity.blackIcon = category.blackIcon
             entity.createdAt = Date()
             // swiftlint:disable force_cast
             return entity as! T
         })
     }
+
+    private func convertTourpointToEntity<T>() -> [T] {
+        return TestResources.tourpoints.map({ tourpoint in
+            let entity = TourpointEntity(context: context)
+            entity.address = tourpoint.address
+            entity.category = TourpointCategoryEntity(context: context)
+            entity.createdAt = Date()
+            entity.destination = tourpoint.destination.toCoordinate()
+            entity.name = tourpoint.name
+            entity.urlImage = tourpoint.urlImage
+            // swiftlint:disable force_cast
+            return entity as! T
+        })
+    }
+
+    private func convertTourpointCategoryToEntity<T>() -> [T] {
+        return TestResources.tourpointCategories.map({ category in
+            let entity = TourpointCategoryEntity(context: context)
+            entity.id = category.id
+            entity.descriptionEng = category.descriptionEng
+            entity.descriptionEsp = category.descriptionEsp
+            entity.icon = category.icon
+            entity.createdAt = Date()
+            // swiftlint:disable force_cast
+            return entity as! T
+        })
+    }
+
 }
