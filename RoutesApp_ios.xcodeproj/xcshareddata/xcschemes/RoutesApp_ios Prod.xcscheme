@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8417ECF128F6FB340056201D"
-               BuildableName = "RoutesApp_ios Dev .app"
+               BuildableName = "RoutesApp_ios Prod.app"
                BlueprintName = "RoutesApp_ios Prod"
                ReferencedContainer = "container:RoutesApp_ios.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8417ECF128F6FB340056201D"
-            BuildableName = "RoutesApp_ios Dev .app"
+            BuildableName = "RoutesApp_ios Prod.app"
             BlueprintName = "RoutesApp_ios Prod"
             ReferencedContainer = "container:RoutesApp_ios.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8417ECF128F6FB340056201D"
-            BuildableName = "RoutesApp_ios Dev .app"
+            BuildableName = "RoutesApp_ios Prod.app"
             BlueprintName = "RoutesApp_ios Prod"
             ReferencedContainer = "container:RoutesApp_ios.xcodeproj">
          </BuildableReference>

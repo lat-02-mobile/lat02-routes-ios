@@ -40,11 +40,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // MARK: Google Maps config
          switch environment {
          case .development:
-             GMSServices.provideAPIKey(ConstantVariables.gmsServicesProvideAPIKeyDevelopment)
-             GMSPlacesClient.provideAPIKey(ConstantVariables.gmsPlacesClientProvideAPIKeyDevelopment)
+             GMSServices.provideAPIKey(Env.gmsServicesProvideAPIKeyDevelopment)
+             GMSPlacesClient.provideAPIKey(Env.gmsPlacesClientProvideAPIKeyDevelopment)
          case .production:
-             GMSServices.provideAPIKey(ConstantVariables.gmsServicesProvideAPIKeyProduction)
-             GMSPlacesClient.provideAPIKey(ConstantVariables.gmsPlacesClientProvideAPIKeyProduction)
+             GMSServices.provideAPIKey(Env.gmsServicesProvideAPIKeyProduction)
+             GMSPlacesClient.provideAPIKey(Env.gmsPlacesClientProvideAPIKeyProduction)
          case .none:
              GMSServices.provideAPIKey("")
              GMSPlacesClient.provideAPIKey("")
