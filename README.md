@@ -29,6 +29,7 @@ At the end of the Google and Facebook login setup, the info.plist should look si
 1. Go to [Google Cloud Console](https://console.cloud.google.com/) and in the Credentials option, under APIs & Services section
 
 2. In that page you'll see a list of generated keys, search for **Places API Key** and **Google Maps iOS SDK**, on the right side of those items, there's a _SHOW_KEY_ button. Click on it and copy the key value to the AppDelegate.swift file and replace the hole string with key values where corresponds.
+3.-This key where pasted to the Env.switf file
 
 ```swift
         GMSServices.provideAPIKey("${GOOGLE_MAPS_API_KEY}")
@@ -49,7 +50,7 @@ At the end of the Google and Facebook login setup, the info.plist should look si
 
 
 AppDelegate 
-In the appDelegate the keys of “Google Maps config” are found in the file of “utilities/helpers/Constant variables”, the production ones have the name of “gmsServicesProvideAPIKeyProduction, gmsPlacesClientProvideAPIKeyProduction” and the development ones have the name of “gmsServicesProvideAPIKeyDevelopment, gmsPlacesClientProvideAPIKeyDevelopment ” 
+In the appDelegate the keys of “Google Maps config” are found in the file of “Env.swift”, the production ones have the name of “gmsServicesProvideAPIKeyProduction, gmsPlacesClientProvideAPIKeyProduction” and the development ones have the name of “gmsServicesProvideAPIKeyDevelopment, gmsPlacesClientProvideAPIKeyDevelopment ” 
 
 Google Service 
 For the Google service you must drag the file to the xcode project, the following window will appear, in the “add to targets” section you must select the one it belongs to, either production or development 
