@@ -12,7 +12,11 @@ enum Units: String {
     case kilometers
     case minutes
 }
-
+enum Environment: String {
+    case development = "Development"
+    case production = "Production"
+    case none = "None"
+}
 class ConstantVariables {
     static let databaseName = "RoutesApp_ios"
     static let cityCellNib = "CityTableViewCell"
@@ -100,5 +104,4 @@ class ConstantVariables {
 
     // Transformer Name
     static let transformerName = "CoordinateTransformer"
-
 }

@@ -22,6 +22,135 @@
 		84067C7D28B57EFC00549300 /* FirebaseFirestoreSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 84067C7C28B57EFC00549300 /* FirebaseFirestoreSwift-Beta */; };
 		84067C8928B8272000549300 /* CityPickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84067C8828B8272000549300 /* CityPickerTests.swift */; };
 		84067C8B28B95EDA00549300 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84067C8A28B95ED900549300 /* SettingsViewModel.swift */; };
+		8417ECF928F6FB340056201D /* TourpointEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED6FF428EB761D00781376 /* TourpointEntity+CoreDataClass.swift */; };
+		8417ECFA28F6FB340056201D /* PossibleRoutesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7FBAEE28D937D9001175D3 /* PossibleRoutesViewModel.swift */; };
+		8417ECFB28F6FB340056201D /* RouteMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A5B67828C698C4006AB7F9 /* RouteMapViewController.swift */; };
+		8417ECFC28F6FB340056201D /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2414D8528E1DCDB00CDF73A /* Double.swift */; };
+		8417ECFD28F6FB340056201D /* LineCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C5249328EBC66800D8B892 /* LineCategory.swift */; };
+		8417ECFE28F6FB340056201D /* Cities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84067C6F28B4257E00549300 /* Cities.swift */; };
+		8417ECFF28F6FB340056201D /* PopupRouteDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C249BB1A28E4F8D200E6BA85 /* PopupRouteDetailViewModel.swift */; };
+		8417ED0028F6FB340056201D /* LinePathTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27EB66428D3689200A1E742 /* LinePathTableViewCell.swift */; };
+		8417ED0128F6FB340056201D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8498F89C28CF4892008641D9 /* Constants.swift */; };
+		8417ED0228F6FB340056201D /* TourpointEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED6FF528EB761D00781376 /* TourpointEntity+CoreDataProperties.swift */; };
+		8417ED0328F6FB340056201D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E9772228987F3C009F4B94 /* LoginViewController.swift */; };
+		8417ED0428F6FB340056201D /* RouteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C278972B28E3B48100FF2796 /* RouteListViewController.swift */; };
+		8417ED0528F6FB340056201D /* ConstantVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A86D028A3383F0000EF7C /* ConstantVariables.swift */; };
+		8417ED0628F6FB340056201D /* SearchLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F9A2D28C84718004A95A0 /* SearchLocationViewModel.swift */; };
+		8417ED0728F6FB340056201D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E976DC2898701C009F4B94 /* ViewController.swift */; };
+		8417ED0828F6FB340056201D /* CityPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84067C6728B3D3AA00549300 /* CityPickerViewModel.swift */; };
+		8417ED0928F6FB340056201D /* SearchLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8420E0C528C68E89000068F9 /* SearchLocationViewController.swift */; };
+		8417ED0A28F6FB340056201D /* FirebaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2436386289A2CE4003C1A44 /* FirebaseAuthManager.swift */; };
+		8417ED0B28F6FB340056201D /* TourpointCategoryEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED6FF228EB761D00781376 /* TourpointCategoryEntity+CoreDataClass.swift */; };
+		8417ED0C28F6FB340056201D /* CitySplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED6FF028EB600D00781376 /* CitySplashViewModel.swift */; };
+		8417ED0D28F6FB340056201D /* UserFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24BD6E928A134C3007FCAB7 /* UserFirebaseManager.swift */; };
+		8417ED0E28F6FB340056201D /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84067C8A28B95ED900549300 /* SettingsViewModel.swift */; };
+		8417ED0F28F6FB340056201D /* HomeVIewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C215EF0828A4B1F400371DB6 /* HomeVIewModel.swift */; };
+		8417ED1028F6FB340056201D /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E9772828987F57009F4B94 /* SignupViewModel.swift */; };
+		8417ED1128F6FB340056201D /* RouteListFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C278972C28E3B48100FF2796 /* RouteListFilterViewController.swift */; };
+		8417ED1228F6FB340056201D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84067C4828B3B1CD00549300 /* SettingsViewController.swift */; };
+		8417ED1328F6FB340056201D /* PossibleRoutesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7FBAE028D6CA38001175D3 /* PossibleRoutesViewController.swift */; };
+		8417ED1428F6FB340056201D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E976D82898701C009F4B94 /* AppDelegate.swift */; };
+		8417ED1528F6FB340056201D /* GeoPointExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F9A4F28E49C99004A95A0 /* GeoPointExtension.swift */; };
+		8417ED1628F6FB340056201D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E9772E28987FA0009F4B94 /* NetworkManager.swift */; };
+		8417ED1728F6FB340056201D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2112DDF289A18FB009601AB /* HomeViewController.swift */; };
+		8417ED1828F6FB340056201D /* LineCategoryEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED6FF828EB761D00781376 /* LineCategoryEntity+CoreDataClass.swift */; };
+		8417ED1928F6FB340056201D /* TourpointCategoryEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED6FF328EB761D00781376 /* TourpointCategoryEntity+CoreDataProperties.swift */; };
+		8417ED1B28F6FB340056201D /* LineEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED6FFA28EB761D00781376 /* LineEntity+CoreDataClass.swift */; };
+		8417ED1C28F6FB340056201D /* FavoriteDest+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C249BB2228E4F9BC00E6BA85 /* FavoriteDest+CoreDataProperties.swift */; };
+		8417ED1D28F6FB340056201D /* CityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84067C7128B4305300549300 /* CityTableViewCell.swift */; };
+		8417ED1E28F6FB340056201D /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BB146028A153390083CA1E /* StringExtension.swift */; };
+		8417ED1F28F6FB340056201D /* LineCategoryFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C853DD28E65D9D00B8D9CF /* LineCategoryFirebaseManager.swift */; };
+		8417ED2028F6FB340056201D /* PlaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F9A2F28C84E63004A95A0 /* PlaceTableViewCell.swift */; };
+		8417ED2128F6FB340056201D /* LineFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B42E2328E5D10600B44FC0 /* LineFirebaseManager.swift */; };
+		8417ED2228F6FB340056201D /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E9771E28987F2A009F4B94 /* SignupViewController.swift */; };
+		8417ED2328F6FB340056201D /* TourpointsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F9A4D28E49594004A95A0 /* TourpointsManager.swift */; };
+		8417ED2428F6FB340056201D /* Tourpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F9A4B28E47B14004A95A0 /* Tourpoint.swift */; };
+		8417ED2528F6FB340056201D /* LineRouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C278974D28E3B8D800FF2796 /* LineRouteViewController.swift */; };
+		8417ED2628F6FB340056201D /* LineRouteFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE19B2FC28DCF2F500840426 /* LineRouteFirebaseManager.swift */; };
+		8417ED2728F6FB340056201D /* FavoriteDest+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C249BB2128E4F9BC00E6BA85 /* FavoriteDest+CoreDataClass.swift */; };
+		8417ED2828F6FB340056201D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E9772A28987F79009F4B94 /* User.swift */; };
+		8417ED2928F6FB340056201D /* GDirectionsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7FBAE628D8B022001175D3 /* GDirectionsResponse.swift */; };
+		8417ED2A28F6FB340056201D /* NSCoordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED6FEA28EB217000781376 /* NSCoordinates.swift */; };
+		8417ED2B28F6FB340056201D /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C215EF0B28A4BB5D00371DB6 /* ViewModel.swift */; };
+		8417ED2C28F6FB340056201D /* PossibleRouteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7FBAD228D36B5E001175D3 /* PossibleRouteTableViewCell.swift */; };
+		8417ED2D28F6FB340056201D /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C5249528EBD4EE00D8B892 /* Toast.swift */; };
+		8417ED2E28F6FB340056201D /* GoogleMapsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F9A2828C7F542004A95A0 /* GoogleMapsManager.swift */; };
+		8417ED2F28F6FB340056201D /* PhoneAuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A59E128A820F5005CEA25 /* PhoneAuthenticationViewModel.swift */; };
+		8417ED3028F6FB340056201D /* RouteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C290E5ED28D272C90019782F /* RouteDetailViewController.swift */; };
+		8417ED3128F6FB340056201D /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7FBADA28D565F2001175D3 /* BottomSheetViewController.swift */; };
+		8417ED3228F6FB340056201D /* FavoriteDestinationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C249BB1E28E4F9A400E6BA85 /* FavoriteDestinationsManager.swift */; };
+		8417ED3328F6FB340056201D /* LineRouteEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED6FF628EB761D00781376 /* LineRouteEntity+CoreDataClass.swift */; };
+		8417ED3428F6FB340056201D /* FirebaseFirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2436384289A2CD6003C1A44 /* FirebaseFirestoreManager.swift */; };
+		8417ED3528F6FB340056201D /* PhoneAuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D228728A7050000E9A660 /* PhoneAuthenticationViewController.swift */; };
+		8417ED3628F6FB340056201D /* StringResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B635C928EB29FA003200EF /* StringResources.swift */; };
+		8417ED3728F6FB340056201D /* TransportationCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C278972428E3B48100FF2796 /* TransportationCategoryTableViewCell.swift */; };
+		8417ED3828F6FB340056201D /* LocalDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED6FE628EB122F00781376 /* LocalDataManager.swift */; };
+		8417ED3928F6FB340056201D /* CityPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84067C5F28B3BF9C00549300 /* CityPickerViewController.swift */; };
+		8417ED3A28F6FB340056201D /* LinesRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84246F8B28DB0B65004748DD /* LinesRoute.swift */; };
+		8417ED3B28F6FB340056201D /* LineEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED6FFB28EB761D00781376 /* LineEntity+CoreDataProperties.swift */; };
+		8417ED3C28F6FB340056201D /* ClPlaceMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2414D8328E1CDF200CDF73A /* ClPlaceMark.swift */; };
+		8417ED3D28F6FB340056201D /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2436388289A2D21003C1A44 /* BaseModel.swift */; };
+		8417ED3E28F6FB340056201D /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F9A2B28C7FD51004A95A0 /* Place.swift */; };
+		8417ED3F28F6FB340056201D /* RouteListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C278972528E3B48100FF2796 /* RouteListTableViewCell.swift */; };
+		8417ED4028F6FB340056201D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E976DA2898701C009F4B94 /* SceneDelegate.swift */; };
+		8417ED4128F6FB340056201D /* LineRouteEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED6FF728EB761D00781376 /* LineRouteEntity+CoreDataProperties.swift */; };
+		8417ED4228F6FB340056201D /* LineRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65448C28BD174C003B599B /* LineRoute.swift */; };
+		8417ED4328F6FB340056201D /* CitySplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84067C6328B3D0A700549300 /* CitySplashViewController.swift */; };
+		8417ED4428F6FB340056201D /* TourpointsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F9A4228E3488C004A95A0 /* TourpointsViewController.swift */; };
+		8417ED4528F6FB340056201D /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C249BB1D28E4F9A400E6BA85 /* CoreDataManager.swift */; };
+		8417ED4628F6FB340056201D /* RoutesApp_ios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C2E976E12898701C009F4B94 /* RoutesApp_ios.xcdatamodeld */; };
+		8417ED4728F6FB340056201D /* TourpointsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F9A5128E49EA7004A95A0 /* TourpointsViewModel.swift */; };
+		8417ED4828F6FB340056201D /* GoogleMapsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7FBAE828D8B8EB001175D3 /* GoogleMapsHelper.swift */; };
+		8417ED4928F6FB340056201D /* CLLocationCoordinate2DExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE93A8A228BD3ECD00296532 /* CLLocationCoordinate2DExtension.swift */; };
+		8417ED4A28F6FB340056201D /* Lines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8498F89E28CF49DD008641D9 /* Lines.swift */; };
+		8417ED4B28F6FB340056201D /* LineCategoryEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED6FF928EB761D00781376 /* LineCategoryEntity+CoreDataProperties.swift */; };
+		8417ED4C28F6FB340056201D /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E9772628987F48009F4B94 /* LoginViewModel.swift */; };
+		8417ED4D28F6FB340056201D /* CityFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84067C6928B3D58500549300 /* CityFirebaseManager.swift */; };
+		8417ED4E28F6FB340056201D /* CoordinateTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED6FE828EB17B900781376 /* CoordinateTransformer.swift */; };
+		8417ED4F28F6FB340056201D /* TourpointTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F9A4728E3D560004A95A0 /* TourpointTableViewCell.swift */; };
+		8417ED5028F6FB340056201D /* ColorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7FBAEC28D8BFEC001175D3 /* ColorHelper.swift */; };
+		8417ED5128F6FB340056201D /* CLLocationDistanceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C249BB2528E4F9DE00E6BA85 /* CLLocationDistanceExtension.swift */; };
+		8417ED5228F6FB340056201D /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D1DD728DD4C0600F61040 /* ImageHelper.swift */; };
+		8417ED5328F6FB340056201D /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E977322898802F009F4B94 /* Encodable.swift */; };
+		8417ED5428F6FB340056201D /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84067C6D28B4206600549300 /* Country.swift */; };
+		8417ED5528F6FB340056201D /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E9773028987FB9009F4B94 /* FloatingButton.swift */; };
+		8417ED5628F6FB340056201D /* LineRouteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C278974F28E3B8D800FF2796 /* LineRouteTableViewCell.swift */; };
+		8417ED5728F6FB340056201D /* RouteListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C278972028E3B48100FF2796 /* RouteListViewModel.swift */; };
+		8417ED5828F6FB340056201D /* Algorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65448A28BD148B003B599B /* Algorithm.swift */; };
+		8417ED5A28F6FB340056201D /* FirebaseFirestoreSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 8417ECF528F6FB340056201D /* FirebaseFirestoreSwift-Beta */; };
+		8417ED5B28F6FB340056201D /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 8417ECF228F6FB340056201D /* FirebaseAuth */; };
+		8417ED5C28F6FB340056201D /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 8417ECF428F6FB340056201D /* FirebaseFirestore */; };
+		8417ED5D28F6FB340056201D /* Pods_RoutesApp_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA0743D620F2F740C78E285 /* Pods_RoutesApp_ios.framework */; };
+		8417ED5F28F6FB340056201D /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C215EF0F28A4C1BC00371DB6 /* LoginViewController.xib */; };
+		8417ED6028F6FB340056201D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2E976E62898701D009F4B94 /* LaunchScreen.storyboard */; };
+		8417ED6128F6FB340056201D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2E976E42898701D009F4B94 /* Assets.xcassets */; };
+		8417ED6228F6FB340056201D /* CitySplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84067C6428B3D0A700549300 /* CitySplashViewController.xib */; };
+		8417ED6328F6FB340056201D /* TransportationCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C278972628E3B48100FF2796 /* TransportationCategoryTableViewCell.xib */; };
+		8417ED6428F6FB340056201D /* LineRouteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C278974C28E3B8D800FF2796 /* LineRouteViewController.xib */; };
+		8417ED6528F6FB340056201D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2E976DE2898701C009F4B94 /* Main.storyboard */; };
+		8417ED6628F6FB340056201D /* TourpointsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 844F9A4328E3488C004A95A0 /* TourpointsViewController.xib */; };
+		8417ED6728F6FB340056201D /* RouteListFilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C278972A28E3B48100FF2796 /* RouteListFilterViewController.xib */; };
+		8417ED6828F6FB340056201D /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2112DE0289A18FB009601AB /* HomeViewController.xib */; };
+		8417ED6928F6FB340056201D /* SearchLocationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8420E0C628C68E89000068F9 /* SearchLocationViewController.xib */; };
+		8417ED6A28F6FB340056201D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C2BB145E28A1529E0083CA1E /* Localizable.strings */; };
+		8417ED6B28F6FB340056201D /* LineRouteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C278975028E3B8D800FF2796 /* LineRouteTableViewCell.xib */; };
+		8417ED6C28F6FB340056201D /* RouteMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A5B67928C698C4006AB7F9 /* RouteMapViewController.xib */; };
+		8417ED6D28F6FB340056201D /* PossibleRoutesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE7FBAE128D6CA38001175D3 /* PossibleRoutesViewController.xib */; };
+		8417ED6E28F6FB340056201D /* BottomSheetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE7FBADB28D565F2001175D3 /* BottomSheetViewController.xib */; };
+		8417ED6F28F6FB340056201D /* PhoneAuthenticationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 843D044128AAF3F800C4DF25 /* PhoneAuthenticationViewController.xib */; };
+		8417ED7128F6FB340056201D /* RouteDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2414D8928E1F08000CDF73A /* RouteDetailViewController.xib */; };
+		8417ED7228F6FB340056201D /* CityPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84067C7728B5721400549300 /* CityPickerViewController.xib */; };
+		8417ED7328F6FB340056201D /* CityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84067C7228B4305300549300 /* CityTableViewCell.xib */; };
+		8417ED7428F6FB340056201D /* SignupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2BB145428A150A70083CA1E /* SignupViewController.xib */; };
+		8417ED7528F6FB340056201D /* PossibleRouteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE7FBAD328D36B5E001175D3 /* PossibleRouteTableViewCell.xib */; };
+		8417ED7628F6FB340056201D /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84067C4E28B3B5BD00549300 /* SettingsViewController.xib */; };
+		8417ED7728F6FB340056201D /* silver-style.json in Resources */ = {isa = PBXBuildFile; fileRef = CE0F8D3428AD357F00F2C753 /* silver-style.json */; };
+		8417ED7828F6FB340056201D /* TourpointTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 844F9A4828E3D560004A95A0 /* TourpointTableViewCell.xib */; };
+		8417ED7928F6FB340056201D /* RouteListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C278972928E3B48100FF2796 /* RouteListViewController.xib */; };
+		8417ED7A28F6FB340056201D /* PlaceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 844F9A3028C84E63004A95A0 /* PlaceTableViewCell.xib */; };
+		8417ED7B28F6FB340056201D /* LinePathTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C27EB66528D3689200A1E742 /* LinePathTableViewCell.xib */; };
+		8417ED7C28F6FB340056201D /* RouteListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C278972728E3B48100FF2796 /* RouteListTableViewCell.xib */; };
+		8417ED8928F99B260056201D /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8417ED8828F99B260056201D /* Env.swift */; };
 		8420E0C728C68E89000068F9 /* SearchLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8420E0C528C68E89000068F9 /* SearchLocationViewController.swift */; };
 		8420E0C828C68E89000068F9 /* SearchLocationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8420E0C628C68E89000068F9 /* SearchLocationViewController.xib */; };
 		84246F8C28DB0B65004748DD /* LinesRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84246F8B28DB0B65004748DD /* LinesRoute.swift */; };
@@ -44,8 +173,6 @@
 		845431A328FB4F9E000E669D /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 845431A228FB4F9E000E669D /* FirebaseCrashlytics */; };
 		845D228928A7050000E9A660 /* PhoneAuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D228728A7050000E9A660 /* PhoneAuthenticationViewController.swift */; };
 		847A59E228A820F5005CEA25 /* PhoneAuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A59E128A820F5005CEA25 /* PhoneAuthenticationViewModel.swift */; };
-		847E0F8628E5E74300038A3A /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E0F8528E5E74300038A3A /* Env.swift */; };
-		847E0F8828E5E76300038A3A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 847E0F8728E5E76300038A3A /* GoogleService-Info.plist */; };
 		8498F89D28CF4892008641D9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8498F89C28CF4892008641D9 /* Constants.swift */; };
 		8498F89F28CF49DD008641D9 /* Lines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8498F89E28CF49DD008641D9 /* Lines.swift */; };
 		84A5B67A28C698C5006AB7F9 /* RouteMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A5B67828C698C4006AB7F9 /* RouteMapViewController.swift */; };
@@ -189,6 +316,9 @@
 		84067C8728B5D74A00549300 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/SettingsViewController.strings"; sourceTree = "<group>"; };
 		84067C8828B8272000549300 /* CityPickerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityPickerTests.swift; sourceTree = "<group>"; };
 		84067C8A28B95ED900549300 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		8417ED8228F6FB340056201D /* RoutesApp_ios Prod.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RoutesApp_ios Prod.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8417ED8328F6FB350056201D /* prod-info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "prod-info.plist"; path = "/Users/admin/Desktop/lat02-routes-ios-110/prod-info.plist"; sourceTree = "<absolute>"; };
+		8417ED8828F99B260056201D /* Env.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Env.swift; sourceTree = "<group>"; };
 		8420E0C528C68E89000068F9 /* SearchLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationViewController.swift; sourceTree = "<group>"; };
 		8420E0C628C68E89000068F9 /* SearchLocationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchLocationViewController.xib; sourceTree = "<group>"; };
 		84246F8B28DB0B65004748DD /* LinesRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinesRoute.swift; sourceTree = "<group>"; };
@@ -212,8 +342,6 @@
 		844F9A5328E5C5C7004A95A0 /* TourpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourpointTests.swift; sourceTree = "<group>"; };
 		845D228728A7050000E9A660 /* PhoneAuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAuthenticationViewController.swift; sourceTree = "<group>"; };
 		847A59E128A820F5005CEA25 /* PhoneAuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAuthenticationViewModel.swift; sourceTree = "<group>"; };
-		847E0F8528E5E74300038A3A /* Env.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Env.swift; sourceTree = "<group>"; };
-		847E0F8728E5E76300038A3A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8498F89C28CF4892008641D9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8498F89E28CF49DD008641D9 /* Lines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lines.swift; sourceTree = "<group>"; };
 		84A5B67828C698C4006AB7F9 /* RouteMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteMapViewController.swift; sourceTree = "<group>"; };
@@ -334,6 +462,17 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		8417ED5928F6FB340056201D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8417ED5A28F6FB340056201D /* FirebaseFirestoreSwift-Beta in Frameworks */,
+				8417ED5B28F6FB340056201D /* FirebaseAuth in Frameworks */,
+				8417ED5C28F6FB340056201D /* FirebaseFirestore in Frameworks */,
+				8417ED5D28F6FB340056201D /* Pods_RoutesApp_ios.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C2E976D22898701C009F4B94 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -763,6 +902,7 @@
 			children = (
 				C2E976D52898701C009F4B94 /* RoutesApp_ios.app */,
 				C2E976EE2898701D009F4B94 /* RoutesApp_iosTests.xctest */,
+				8417ED8228F6FB340056201D /* RoutesApp_ios Prod.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -778,12 +918,12 @@
 				C2E976D82898701C009F4B94 /* AppDelegate.swift */,
 				C2E976DA2898701C009F4B94 /* SceneDelegate.swift */,
 				C2E976DC2898701C009F4B94 /* ViewController.swift */,
-				847E0F8528E5E74300038A3A /* Env.swift */,
-				847E0F8728E5E76300038A3A /* GoogleService-Info.plist */,
+				8417ED8828F99B260056201D /* Env.swift */,
 				C2E976DE2898701C009F4B94 /* Main.storyboard */,
 				C2E976E42898701D009F4B94 /* Assets.xcassets */,
 				C2E976E62898701D009F4B94 /* LaunchScreen.storyboard */,
 				C2E976E92898701D009F4B94 /* Info.plist */,
+				8417ED8328F6FB350056201D /* prod-info.plist */,
 				C2E976E12898701C009F4B94 /* RoutesApp_ios.xcdatamodeld */,
 			);
 			path = RoutesApp_ios;
@@ -1044,6 +1184,32 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		8417ECF128F6FB340056201D /* RoutesApp_ios Prod */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8417ED7F28F6FB340056201D /* Build configuration list for PBXNativeTarget "RoutesApp_ios Prod" */;
+			buildPhases = (
+				8417ECF628F6FB340056201D /* [CP] Check Pods Manifest.lock */,
+				8417ECF728F6FB340056201D /* SwiftLint */,
+				8417ECF828F6FB340056201D /* Sources */,
+				8417ED5928F6FB340056201D /* Frameworks */,
+				8417ED5E28F6FB340056201D /* Resources */,
+				8417ED7D28F6FB340056201D /* [CP] Embed Pods Frameworks */,
+				8417ED7E28F6FB340056201D /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "RoutesApp_ios Prod";
+			packageProductDependencies = (
+				8417ECF228F6FB340056201D /* FirebaseAuth */,
+				8417ECF428F6FB340056201D /* FirebaseFirestore */,
+				8417ECF528F6FB340056201D /* FirebaseFirestoreSwift-Beta */,
+			);
+			productName = RoutesApp_ios;
+			productReference = 8417ED8228F6FB340056201D /* RoutesApp_ios Prod.app */;
+			productType = "com.apple.product-type.application";
+		};
 		C2E976D42898701C009F4B94 /* RoutesApp_ios */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C2E977022898701D009F4B94 /* Build configuration list for PBXNativeTarget "RoutesApp_ios" */;
@@ -1129,11 +1295,48 @@
 			targets = (
 				C2E976D42898701C009F4B94 /* RoutesApp_ios */,
 				C2E976ED2898701D009F4B94 /* RoutesApp_iosTests */,
+				8417ECF128F6FB340056201D /* RoutesApp_ios Prod */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		8417ED5E28F6FB340056201D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8417ED5F28F6FB340056201D /* LoginViewController.xib in Resources */,
+				8417ED6028F6FB340056201D /* LaunchScreen.storyboard in Resources */,
+				8417ED6128F6FB340056201D /* Assets.xcassets in Resources */,
+				8417ED6228F6FB340056201D /* CitySplashViewController.xib in Resources */,
+				8417ED6328F6FB340056201D /* TransportationCategoryTableViewCell.xib in Resources */,
+				8417ED6428F6FB340056201D /* LineRouteViewController.xib in Resources */,
+				8417ED6528F6FB340056201D /* Main.storyboard in Resources */,
+				8417ED6628F6FB340056201D /* TourpointsViewController.xib in Resources */,
+				8417ED6728F6FB340056201D /* RouteListFilterViewController.xib in Resources */,
+				8417ED6828F6FB340056201D /* HomeViewController.xib in Resources */,
+				8417ED6928F6FB340056201D /* SearchLocationViewController.xib in Resources */,
+				8417ED6A28F6FB340056201D /* Localizable.strings in Resources */,
+				8417ED6B28F6FB340056201D /* LineRouteTableViewCell.xib in Resources */,
+				8417ED6C28F6FB340056201D /* RouteMapViewController.xib in Resources */,
+				8417ED6D28F6FB340056201D /* PossibleRoutesViewController.xib in Resources */,
+				8417ED6E28F6FB340056201D /* BottomSheetViewController.xib in Resources */,
+				8417ED6F28F6FB340056201D /* PhoneAuthenticationViewController.xib in Resources */,
+				8417ED7128F6FB340056201D /* RouteDetailViewController.xib in Resources */,
+				8417ED7228F6FB340056201D /* CityPickerViewController.xib in Resources */,
+				8417ED7328F6FB340056201D /* CityTableViewCell.xib in Resources */,
+				8417ED7428F6FB340056201D /* SignupViewController.xib in Resources */,
+				8417ED7528F6FB340056201D /* PossibleRouteTableViewCell.xib in Resources */,
+				8417ED7628F6FB340056201D /* SettingsViewController.xib in Resources */,
+				8417ED7728F6FB340056201D /* silver-style.json in Resources */,
+				8417ED7828F6FB340056201D /* TourpointTableViewCell.xib in Resources */,
+				8417ED7928F6FB340056201D /* RouteListViewController.xib in Resources */,
+				8417ED7A28F6FB340056201D /* PlaceTableViewCell.xib in Resources */,
+				8417ED7B28F6FB340056201D /* LinePathTableViewCell.xib in Resources */,
+				8417ED7C28F6FB340056201D /* RouteListTableViewCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C2E976D32898701C009F4B94 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1222,6 +1425,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		8417ECF628F6FB340056201D /* [CP] Check Pods Manifest.lock */ = {
 		845431A428FB4FBE000E669D /* Firebase Crashlytics */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1230,6 +1434,71 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RoutesApp_ios-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8417ECF728F6FB340056201D /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+		8417ED7D28F6FB340056201D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8417ED7E28F6FB340056201D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
 				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
 			);
@@ -1302,6 +1571,109 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		8417ECF828F6FB340056201D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8417ECF928F6FB340056201D /* TourpointEntity+CoreDataClass.swift in Sources */,
+				8417ECFA28F6FB340056201D /* PossibleRoutesViewModel.swift in Sources */,
+				8417ECFB28F6FB340056201D /* RouteMapViewController.swift in Sources */,
+				8417ECFC28F6FB340056201D /* Double.swift in Sources */,
+				8417ECFD28F6FB340056201D /* LineCategory.swift in Sources */,
+				8417ECFE28F6FB340056201D /* Cities.swift in Sources */,
+				8417ECFF28F6FB340056201D /* PopupRouteDetailViewModel.swift in Sources */,
+				8417ED0028F6FB340056201D /* LinePathTableViewCell.swift in Sources */,
+				8417ED0128F6FB340056201D /* Constants.swift in Sources */,
+				8417ECFE28F6FB340056201D /* Cities.swift in Sources */,
+				8417ED0228F6FB340056201D /* TourpointEntity+CoreDataProperties.swift in Sources */,
+				8417ED0328F6FB340056201D /* LoginViewController.swift in Sources */,
+				8417ED0428F6FB340056201D /* RouteListViewController.swift in Sources */,
+				8417ED0528F6FB340056201D /* ConstantVariables.swift in Sources */,
+				8417ED0628F6FB340056201D /* SearchLocationViewModel.swift in Sources */,
+				8417ED0728F6FB340056201D /* ViewController.swift in Sources */,
+				8417ED0828F6FB340056201D /* CityPickerViewModel.swift in Sources */,
+				8417ED0928F6FB340056201D /* SearchLocationViewController.swift in Sources */,
+				8417ED0A28F6FB340056201D /* FirebaseAuthManager.swift in Sources */,
+				8417ED0B28F6FB340056201D /* TourpointCategoryEntity+CoreDataClass.swift in Sources */,
+				8417ED0C28F6FB340056201D /* CitySplashViewModel.swift in Sources */,
+				8417ED0D28F6FB340056201D /* UserFirebaseManager.swift in Sources */,
+				8417ED0E28F6FB340056201D /* SettingsViewModel.swift in Sources */,
+				8417ED0F28F6FB340056201D /* HomeVIewModel.swift in Sources */,
+				8417ED1028F6FB340056201D /* SignupViewModel.swift in Sources */,
+				8417ED1128F6FB340056201D /* RouteListFilterViewController.swift in Sources */,
+				8417ED1228F6FB340056201D /* SettingsViewController.swift in Sources */,
+				8417ED1328F6FB340056201D /* PossibleRoutesViewController.swift in Sources */,
+				8417ED1428F6FB340056201D /* AppDelegate.swift in Sources */,
+				8417ED1528F6FB340056201D /* GeoPointExtension.swift in Sources */,
+				8417ED1628F6FB340056201D /* NetworkManager.swift in Sources */,
+				8417ED1728F6FB340056201D /* HomeViewController.swift in Sources */,
+				8417ED1828F6FB340056201D /* LineCategoryEntity+CoreDataClass.swift in Sources */,
+				8417ED1928F6FB340056201D /* TourpointCategoryEntity+CoreDataProperties.swift in Sources */,
+				8417ED1B28F6FB340056201D /* LineEntity+CoreDataClass.swift in Sources */,
+				8417ED1C28F6FB340056201D /* FavoriteDest+CoreDataProperties.swift in Sources */,
+				8417ED1D28F6FB340056201D /* CityTableViewCell.swift in Sources */,
+				8417ED1E28F6FB340056201D /* StringExtension.swift in Sources */,
+				8417ED1F28F6FB340056201D /* LineCategoryFirebaseManager.swift in Sources */,
+				8417ED2028F6FB340056201D /* PlaceTableViewCell.swift in Sources */,
+				8417ED2128F6FB340056201D /* LineFirebaseManager.swift in Sources */,
+				8417ED2228F6FB340056201D /* SignupViewController.swift in Sources */,
+				8417ED2328F6FB340056201D /* TourpointsManager.swift in Sources */,
+				8417ED2428F6FB340056201D /* Tourpoint.swift in Sources */,
+				8417ED2528F6FB340056201D /* LineRouteViewController.swift in Sources */,
+				8417ED2628F6FB340056201D /* LineRouteFirebaseManager.swift in Sources */,
+				8417ED2728F6FB340056201D /* FavoriteDest+CoreDataClass.swift in Sources */,
+				8417ED2828F6FB340056201D /* User.swift in Sources */,
+				8417ED2928F6FB340056201D /* GDirectionsResponse.swift in Sources */,
+				8417ED2A28F6FB340056201D /* NSCoordinates.swift in Sources */,
+				8417ED2B28F6FB340056201D /* ViewModel.swift in Sources */,
+				8417ED2C28F6FB340056201D /* PossibleRouteTableViewCell.swift in Sources */,
+				8417ED2D28F6FB340056201D /* Toast.swift in Sources */,
+				8417ED2E28F6FB340056201D /* GoogleMapsManager.swift in Sources */,
+				8417ED2F28F6FB340056201D /* PhoneAuthenticationViewModel.swift in Sources */,
+				8417ED3028F6FB340056201D /* RouteDetailViewController.swift in Sources */,
+				8417ED3128F6FB340056201D /* BottomSheetViewController.swift in Sources */,
+				8417ED3228F6FB340056201D /* FavoriteDestinationsManager.swift in Sources */,
+				8417ED3328F6FB340056201D /* LineRouteEntity+CoreDataClass.swift in Sources */,
+				8417ED3428F6FB340056201D /* FirebaseFirestoreManager.swift in Sources */,
+				8417ED3528F6FB340056201D /* PhoneAuthenticationViewController.swift in Sources */,
+				8417ED3628F6FB340056201D /* StringResources.swift in Sources */,
+				8417ED3728F6FB340056201D /* TransportationCategoryTableViewCell.swift in Sources */,
+				8417ED3828F6FB340056201D /* LocalDataManager.swift in Sources */,
+				8417ED3928F6FB340056201D /* CityPickerViewController.swift in Sources */,
+				8417ED3A28F6FB340056201D /* LinesRoute.swift in Sources */,
+				8417ED3B28F6FB340056201D /* LineEntity+CoreDataProperties.swift in Sources */,
+				8417ED3C28F6FB340056201D /* ClPlaceMark.swift in Sources */,
+				8417ED3D28F6FB340056201D /* BaseModel.swift in Sources */,
+				8417ED3E28F6FB340056201D /* Place.swift in Sources */,
+				8417ED3F28F6FB340056201D /* RouteListTableViewCell.swift in Sources */,
+				8417ED4028F6FB340056201D /* SceneDelegate.swift in Sources */,
+				8417ED4128F6FB340056201D /* LineRouteEntity+CoreDataProperties.swift in Sources */,
+				8417ED4228F6FB340056201D /* LineRoute.swift in Sources */,
+				8417ED4328F6FB340056201D /* CitySplashViewController.swift in Sources */,
+				8417ED4428F6FB340056201D /* TourpointsViewController.swift in Sources */,
+				8417ED4528F6FB340056201D /* CoreDataManager.swift in Sources */,
+				8417ED4628F6FB340056201D /* RoutesApp_ios.xcdatamodeld in Sources */,
+				8417ED4728F6FB340056201D /* TourpointsViewModel.swift in Sources */,
+				8417ED4828F6FB340056201D /* GoogleMapsHelper.swift in Sources */,
+				8417ED4928F6FB340056201D /* CLLocationCoordinate2DExtension.swift in Sources */,
+				8417ED4A28F6FB340056201D /* Lines.swift in Sources */,
+				8417ED4B28F6FB340056201D /* LineCategoryEntity+CoreDataProperties.swift in Sources */,
+				8417ED4C28F6FB340056201D /* LoginViewModel.swift in Sources */,
+				8417ED4D28F6FB340056201D /* CityFirebaseManager.swift in Sources */,
+				8417ED4E28F6FB340056201D /* CoordinateTransformer.swift in Sources */,
+				8417ED4F28F6FB340056201D /* TourpointTableViewCell.swift in Sources */,
+				8417ED5028F6FB340056201D /* ColorHelper.swift in Sources */,
+				8417ED5128F6FB340056201D /* CLLocationDistanceExtension.swift in Sources */,
+				8417ED5228F6FB340056201D /* ImageHelper.swift in Sources */,
+				8417ED5328F6FB340056201D /* Encodable.swift in Sources */,
+				8417ED5428F6FB340056201D /* Country.swift in Sources */,
+				8417ED5528F6FB340056201D /* FloatingButton.swift in Sources */,
+				8417ED5628F6FB340056201D /* LineRouteTableViewCell.swift in Sources */,
+				8417ED5728F6FB340056201D /* RouteListViewModel.swift in Sources */,
+				8417ED5828F6FB340056201D /* Algorithm.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C2E976D12898701C009F4B94 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1341,9 +1713,9 @@
 				C2112DE1289A18FB009601AB /* HomeViewController.swift in Sources */,
 				84ED700428EB761D00781376 /* LineCategoryEntity+CoreDataClass.swift in Sources */,
 				84ED6FFF28EB761D00781376 /* TourpointCategoryEntity+CoreDataProperties.swift in Sources */,
-				847E0F8628E5E74300038A3A /* Env.swift in Sources */,
 				84ED700628EB761D00781376 /* LineEntity+CoreDataClass.swift in Sources */,
 				C249BB2428E4F9BC00E6BA85 /* FavoriteDest+CoreDataProperties.swift in Sources */,
+				8417ED8928F99B260056201D /* Env.swift in Sources */,
 				84067C7328B4305300549300 /* CityTableViewCell.swift in Sources */,
 				C2BB146128A153390083CA1E /* StringExtension.swift in Sources */,
 				C2C853DE28E65D9D00B8D9CF /* LineCategoryFirebaseManager.swift in Sources */,
@@ -1526,6 +1898,70 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		8417ED8028F6FB340056201D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7257BFCB83288F00AB939769 /* Pods-RoutesApp_ios.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = X2663B4F4Y;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "prod-info.plist";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Current location is needed when app is in use";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_SWIFT_FLAGS = "-DPRODUCTION";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jalasoft.routesapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = NO;
+			};
+			name = Debug;
+		};
+		8417ED8128F6FB340056201D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C74C2944BAA64C9F9A25F1F8 /* Pods-RoutesApp_ios.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = X2663B4F4Y;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "prod-info.plist";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Current location is needed when app is in use";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_SWIFT_FLAGS = "-DPRODUCTION";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jalasoft.routesapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = NO;
+			};
+			name = Release;
+		};
 		C2E977002898701D009F4B94 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1581,6 +2017,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1635,6 +2072,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				OTHER_SWIFT_FLAGS = "";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -1664,6 +2102,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jalasoft.routesapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1695,6 +2134,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jalasoft.routesapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1751,6 +2191,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		8417ED7F28F6FB340056201D /* Build configuration list for PBXNativeTarget "RoutesApp_ios Prod" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8417ED8028F6FB340056201D /* Debug */,
+				8417ED8128F6FB340056201D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C2E976D02898701C009F4B94 /* Build configuration list for PBXProject "RoutesApp_ios" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1781,6 +2230,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		8417ECF328F6FB340056201D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = exactVersion;
+				version = 8.0.0;
+			};
+		};
 		C243637E289A27CC003C1A44 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -1797,6 +2254,20 @@
 			package = C243637E289A27CC003C1A44 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseFirestoreSwift-Beta";
 		};
+		8417ECF228F6FB340056201D /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8417ECF328F6FB340056201D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		8417ECF428F6FB340056201D /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8417ECF328F6FB340056201D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		8417ECF528F6FB340056201D /* FirebaseFirestoreSwift-Beta */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8417ECF328F6FB340056201D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseFirestoreSwift-Beta";
 		845431A228FB4F9E000E669D /* FirebaseCrashlytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C243637E289A27CC003C1A44 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

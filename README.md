@@ -29,6 +29,7 @@ At the end of the Google and Facebook login setup, the info.plist should look si
 1. Go to [Google Cloud Console](https://console.cloud.google.com/) and in the Credentials option, under APIs & Services section
 
 2. In that page you'll see a list of generated keys, search for **Places API Key** and **Google Maps iOS SDK**, on the right side of those items, there's a _SHOW_KEY_ button. Click on it and copy the key value to the AppDelegate.swift file and replace the hole string with key values where corresponds.
+3.-This key where pasted to the Env.switf file
 
 ```swift
         GMSServices.provideAPIKey("${GOOGLE_MAPS_API_KEY}")
@@ -46,3 +47,31 @@ At the end of the Google and Facebook login setup, the info.plist should look si
 ```swift
         static let directionsApiKey = "${GOOGLE_DIRECTIONS_API_KEY}"
 ```
+
+
+AppDelegate 
+In the appDelegate the keys of “Google Maps config” are found in the file of “Env.swift”, the production ones have the name of “gmsServicesProvideAPIKeyProduction, gmsPlacesClientProvideAPIKeyProduction” and the development ones have the name of “gmsServicesProvideAPIKeyDevelopment, gmsPlacesClientProvideAPIKeyDevelopment ” 
+
+Google Service 
+For the Google service you must drag the file to the xcode project, the following window will appear, in the “add to targets” section you must select the one it belongs to, either production or development 
+![image](https://user-images.githubusercontent.com/106118394/195852899-e4cd2d8f-875f-4269-8c10-ce981533dbfb.png)
+
+Archivo Env. 
+
+It will proceed to do the same as the Google service configuration. 
+
+
+Select development environment 
+
+To select the environment, you must choose the corresponding "schema", which is located at the top of the project ![image](https://user-images.githubusercontent.com/106118394/195853071-3e99e58d-b539-42bd-a8a6-447af5a0bb0e.png)
+
+![image](https://user-images.githubusercontent.com/106118394/195853137-12f6950c-8fae-4691-87ec-e4c6b0781ee7.png)
+
+Targets
+In the part of "targets/info" don´t forget to change the “URL types“
+![image](https://user-images.githubusercontent.com/106118394/195854612-e0ea36a9-da7f-4d09-b77e-07be06cdfff7.png)
+
+
+
+
+
