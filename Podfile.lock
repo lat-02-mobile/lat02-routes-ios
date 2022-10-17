@@ -1,4 +1,7 @@
 PODS:
+  - Amplitude (8.8.0):
+    - AnalyticsConnector (~> 1.0.0)
+  - AnalyticsConnector (1.0.0)
   - AppAuth (1.5.0):
     - AppAuth/Core (= 1.5.0)
     - AppAuth/ExternalUserAgent (= 1.5.0)
@@ -45,6 +48,7 @@ PODS:
   - SwiftLint (0.47.1)
 
 DEPENDENCIES:
+  - Amplitude (~> 8.8.0)
   - CodableFirebase
   - CountryPickerSwift (= 1.8)
   - EzPopup (= 1.2.4)
@@ -61,6 +65,8 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - Amplitude
+    - AnalyticsConnector
     - AppAuth
     - CodableFirebase
     - CountryPickerSwift
@@ -81,6 +87,8 @@ SPEC REPOS:
     - SwiftLint
 
 SPEC CHECKSUMS:
+  Amplitude: 710116f3539c225e86fb70a8abdcd20015683132
+  AnalyticsConnector: 4c386d5972ac9da86e22d668564dbbac97558754
   AppAuth: 80317d99ac7ff2801a2f18ff86b48cd315ed465d
   CodableFirebase: 0bf201991eeec35eb9fcd987d271ea463cf34a80
   CountryPickerSwift: 4c328ae9687322cacf541120f5c43f0e2c1ba194
@@ -100,6 +108,6 @@ SPEC CHECKSUMS:
   SwiftAlertView: e61a63206f19e8e3295f13a58d6464fea4a6946a
   SwiftLint: f80f1be7fa96d30e0aa68e58d45d4ea1ccaac519
 
-PODFILE CHECKSUM: c1664dc00c0e02b7aefaad38b05d86dff9f2b797
+PODFILE CHECKSUM: 4af547964026183b36f923b4c8dad7530697a1db
 
 COCOAPODS: 1.11.3

@@ -12,6 +12,7 @@ import FirebaseCore
 import GoogleMaps
 import GooglePlaces
 import IQKeyboardManagerSwift
+import Amplitude
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -36,6 +37,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GMSServices.provideAPIKey(Env.GOOGLE_MAPS_API_KEY)
         GMSPlacesClient.provideAPIKey(Env.GOOGLE_PLACES_API_KEY)
         FirebaseApp.configure()
+
+        // MARK: Amplitude config
+        Amplitude.instance().initializeApiKey(Env.AMPLITUDE_KEY)
+        Amplitude.instance().trackingSessionEvents = true
+        Amplitude.instance().logEvent("app_start")
         IQKeyboardManager.shared.enable = true
         return true
     }
