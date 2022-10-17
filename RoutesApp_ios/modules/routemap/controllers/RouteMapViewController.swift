@@ -4,7 +4,7 @@ import Firebase
 
 class RouteMapViewController: UIViewController {
     private var zoom: Float = 15
-    var linePath: LinePath!
+    var linePath: LineRouteEntity!
     var locationManager = CLLocationManager()
     var currentPosition: CLLocationCoordinate2D?
     var isSettingsController = true
@@ -48,7 +48,7 @@ class RouteMapViewController: UIViewController {
             path.add(route.toCLLocationCoordinate2D())
         }
         let polyline = GMSPolyline(path: path)
-        polyline.strokeColor =  UIColor(named: "primary-color") ?? .blue
+        polyline.strokeColor =  ColorHelper.shared.hexStringToUIColor(hex: linePath.color)
         polyline.strokeWidth = 6
         polyline.map = mapView
         var bounds = GMSCoordinateBounds()

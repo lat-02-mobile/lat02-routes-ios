@@ -101,7 +101,4 @@ class ConstantVariables {
     static func valueWithUnit(unit localizedString: Units, value: String) -> String {
         return String.localizedStringWithFormat(NSLocalizedString(localizedString.rawValue, comment: ""), value)
     }
-
-    // Transformer Name
-    static let transformerName = "CoordinateTransformer"
 }
