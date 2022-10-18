@@ -22,8 +22,9 @@ class RouteListTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
 
-    func updateCellModel(routeListDetailModel: RouteListDetailModel) {
-        routeCategory.text = routeListDetailModel.nameEng
-        routeLine.text = routeListDetailModel.name
+    func updateCellModel(line: LineEntity, isCurrentLocaleEsp: Bool) {
+        let nameInCurrentLocale = isCurrentLocaleEsp ? line.category.nameEsp : line.category.nameEng
+        routeCategory.text = nameInCurrentLocale
+        routeLine.text = line.name
     }
 }

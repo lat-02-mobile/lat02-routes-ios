@@ -19,8 +19,8 @@ extension LineEntity {
     @NSManaged public var name: String
     @NSManaged public var idCategory: String
     @NSManaged public var createdAt: Date
-    @NSManaged public var category: String
     @NSManaged public var routesSet: NSSet
+    @NSManaged public var category: LineCategoryEntity
 
     public var routes: [LineRouteEntity] {
         let set = routesSet as? Set<LineRouteEntity> ?? []

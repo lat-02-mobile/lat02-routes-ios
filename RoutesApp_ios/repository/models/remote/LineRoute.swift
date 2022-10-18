@@ -104,10 +104,6 @@ public struct Coordinate: Codable, Equatable {
         return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
 
-    func toNSCoordinates() -> NSCoordinates {
-        return NSCoordinates(lat: latitude, lon: longitude)
-    }
-
     public static func == (lhs: Coordinate, rhs: Coordinate) -> Bool {
         return lhs.latitude == rhs.latitude && lhs.longitude == rhs.longitude
     }
@@ -166,6 +162,21 @@ struct LineRouteInfo: Codable, Equatable {
         return lineRoute
     }
 
+    func toEntity(context: NSManagedObjectContext, line: LineEntity) {
+        let entity = LineRouteEntity(context: context)
+        entity.averageVelocity = averageVelocity
+        entity.color = color
+        entity.createdAt = Date()
+        entity.id = id
+        entity.idLine = idLine
+        entity.name = name
+        entity.end = end.toCoordinate()
+        entity.routePoints = routePoints.map({ $0.toCoordinate() })
+        entity.start = start.toCoordinate()
+        entity.stops = stops.map({ $0.toCoordinate() })
+        entity.line = line
+    }
+
     func convertToLinePath() -> LinePath {
         let start = Coordinate(latitude: start.latitude, longitude: start.longitude)
         let end = Coordinate(latitude: end.latitude, longitude: end.longitude)
@@ -195,19 +206,6 @@ struct LinePath: Codable, Equatable {
     let start: Coordinate
     let end: Coordinate
     let stops: [Coordinate]
-
-    func toEntity(context: NSManagedObjectContext) -> LineRouteEntity {
-        let entity = LineRouteEntity(context: context)
-        entity.name = name
-        entity.id = id
-        entity.idLine = idLine
-        entity.routePoints = routePoints
-        entity.start = start.toNSCoordinates()
-        entity.end = end.toNSCoordinates()
-        entity.stops = stops
-        entity.createdAt = Date()
-        return entity
-    }
 }
 
 // What the algorithm returns
