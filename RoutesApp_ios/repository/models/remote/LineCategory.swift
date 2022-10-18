@@ -15,7 +15,7 @@ struct LinesCategory: Codable {
     let blackIcon: String
     let whiteIcon: String
 
-    func toEntity(context: NSManagedObjectContext) {
+    func toEntity(context: NSManagedObjectContext) -> LineCategoryEntity {
         let entity = LineCategoryEntity(context: context)
         entity.id = id
         entity.nameEng = nameEng
@@ -23,5 +23,6 @@ struct LinesCategory: Codable {
         entity.blackIcon = blackIcon
         entity.whiteIcon = whiteIcon
         entity.createdAt = Date()
+        return entity
     }
 }

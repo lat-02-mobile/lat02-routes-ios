@@ -15,6 +15,9 @@ class TourpointsViewController: UIViewController {
 
     var viewmodel = TourpointsViewModel()
 
+    private let currentLocale = Locale.current.languageCode
+    private var isCurrentLocaleEsp = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpViews()
@@ -23,6 +26,7 @@ class TourpointsViewController: UIViewController {
     }
 
     private func setUpViews() {
+        isCurrentLocaleEsp = currentLocale == ConstantVariables.spanishLocale
         tourpointTableView.delegate = self
         tourpointTableView.dataSource = self
         let uiNib = UINib(nibName: TourpointTableViewCell.nibName, bundle: nil)
@@ -30,25 +34,27 @@ class TourpointsViewController: UIViewController {
         tourpointSearchbar.backgroundImage = UIImage()
         tourpointSearchbar.searchTextField.backgroundColor = .white
         tourpointSearchbar.placeholder = String.localizeString(localizedString: StringResources.search)
-        SVProgressHUD.show()
     }
 
-    func setIcon() {
+    private func setIcon() {
         let filterIcon = UIImage(named: ConstantVariables.filterIcon)?.withRenderingMode(.alwaysOriginal)
         let filterButton = UIBarButtonItem(image: filterIcon, style: .plain, target: self, action: nil)
         navigationItem.rightBarButtonItem = filterButton
     }
 
     private func initViewModel() {
-        viewmodel.getTourpoints()
-        viewmodel.onFinish = { [weak self] in
-            guard let strongSelf = self else {return}
+        SVProgressHUD.show()
+        viewmodel.onFinish = {
             SVProgressHUD.dismiss()
-            strongSelf.tourpointTableView.reloadData()
         }
         viewmodel.onError = { _ in
             SVProgressHUD.dismiss()
         }
+        viewmodel.getTourpoints()
+    }
+
+    private func dismissSVprogress() {
+        SVProgressHUD.dismiss()
     }
 
 }
@@ -63,7 +69,7 @@ extension TourpointsViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TourpointTableViewCell.identifier, for: indexPath)
                 as? TourpointTableViewCell else { return UITableViewCell()}
         let point = viewmodel.getPointAt(index: indexPath.row)
-        cell.updateCellModel(tourpointInfo: point)
+        cell.updateCellModel(tourpoint: point, isCurrenLocaleEsp: isCurrentLocaleEsp)
         return cell
     }
 }

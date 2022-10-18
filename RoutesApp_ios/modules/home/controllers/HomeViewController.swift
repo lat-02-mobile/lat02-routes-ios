@@ -44,23 +44,21 @@ class HomeViewController: UIViewController {
 
     func initViewModel() {
         self.viewmodel.runAlgorithm = { [weak self] in
-            if let origin = self?.viewmodel.origin, let destination = self?.viewmodel.destination {
-
+            guard let strongSelf = self else {return}
+            if let origin = strongSelf.viewmodel.origin, let destination = strongSelf.viewmodel.destination {
                 let algOrigin = CLLocationCoordinate2D(latitude: origin.position.latitude,
                                                        longitude: origin.position.longitude)
                 let algDestination = CLLocationCoordinate2D(latitude: destination.position.latitude,
                                                             longitude: destination.position.longitude)
-                self?.availableTransports = Algorithm.shared.findAvailableRoutes(origin: algOrigin,
+                strongSelf.availableTransports = Algorithm.shared.findAvailableRoutes(origin: algOrigin,
                                                                                destination: algDestination,
-                                                                               lines: (self?.viewmodel.lineRoutes)!,
+                                                                                lines: strongSelf.viewmodel.lineRoutes,
                                                                                minDistanceBtwPoints: Algorithm.minDistanceBtwPointsAndStops,
                                                                                minDistanceBtwStops: Algorithm.minDistanceBtwPointsAndStops)
-                DispatchQueue.main.sync {
-                    SVProgressHUD.dismiss()
-                    self?.homeSelectionStatus = .SHOWING_POSSIBLE_ROUTES
-                    self?.labelHelper.text = String.localizeString(localizedString: StringResources.routes)
-                    self?.showPossibleRoutesBottomSheet()
-                }
+                SVProgressHUD.dismiss()
+                strongSelf.homeSelectionStatus = .SHOWING_POSSIBLE_ROUTES
+                strongSelf.labelHelper.text = String.localizeString(localizedString: StringResources.routes)
+                strongSelf.showPossibleRoutesBottomSheet()
             }
         }
     }
@@ -215,9 +213,7 @@ class HomeViewController: UIViewController {
                     Toast.showToast(target: self, message: String.localizeString(localizedString: StringResources.youCanGoJustWalk))
                     SVProgressHUD.dismiss()
                 } else {
-                    Task.init {
-                        try? await viewmodel.getLineRouteForCurrentCity()
-                    }
+                    viewmodel.getLineRouteForCurrentCity()
                 }
             }
         }

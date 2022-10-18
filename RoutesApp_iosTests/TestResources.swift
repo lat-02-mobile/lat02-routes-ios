@@ -104,7 +104,7 @@ class TestResources {
     ]
 
     static let tourpointCategories = [
-        TourpointCategory(id: "123456", descriptionEng: "ENG", descriptionEsp: "ESP")
+        TourpointCategory(id: "123456", descriptionEng: "ENG", descriptionEsp: "ESP", icon: "new Icon url")
     ]
 
     static let RoutePoints = [GeoPoint(latitude: 1, longitude: 1), GeoPoint(latitude: 1, longitude: 1)]

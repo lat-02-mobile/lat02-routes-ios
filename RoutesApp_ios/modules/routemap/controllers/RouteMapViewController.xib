@@ -36,7 +36,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BnO-WT-QaV">
-                    <rect key="frame" x="19" y="45" width="50" height="50"/>
+                    <rect key="frame" x="19" y="63" width="50" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="7D8-2w-hhq">
                             <userDefinedRuntimeAttributes>
@@ -79,7 +79,7 @@
                 <constraint firstAttribute="bottom" secondItem="G7J-c8-kR8" secondAttribute="bottom" id="Zn2-ER-JX8"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="0Js-LG-a8A" secondAttribute="bottom" constant="76" id="eqY-ZE-Mgk"/>
                 <constraint firstItem="0Js-LG-a8A" firstAttribute="top" secondItem="HIN-Og-lCq" secondAttribute="bottom" constant="1" id="mOD-pY-RYY"/>
-                <constraint firstItem="BnO-WT-QaV" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="1" id="n2o-O4-Jg6"/>
+                <constraint firstItem="BnO-WT-QaV" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="19" id="wjq-FR-7Dh"/>
             </constraints>
             <point key="canvasLocation" x="124.6376811594203" y="102.45535714285714"/>
         </view>
