@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2641B3683A5AB37DE44FDD54 /* Pods_RoutesApp_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA0743D620F2F740C78E285 /* Pods_RoutesApp_ios.framework */; };
 		84067C4A28B3B1CD00549300 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84067C4828B3B1CD00549300 /* SettingsViewController.swift */; };
 		84067C4C28B3B5BD00549300 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84067C4E28B3B5BD00549300 /* SettingsViewController.xib */; };
 		84067C6128B3BF9C00549300 /* CityPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84067C5F28B3BF9C00549300 /* CityPickerViewController.swift */; };
@@ -26,7 +27,7 @@
 		8417ECFB28F6FB340056201D /* RouteMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A5B67828C698C4006AB7F9 /* RouteMapViewController.swift */; };
 		8417ECFC28F6FB340056201D /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2414D8528E1DCDB00CDF73A /* Double.swift */; };
 		8417ECFD28F6FB340056201D /* LineCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C5249328EBC66800D8B892 /* LineCategory.swift */; };
-		8417ECFE28F6FB340056201D /* Cities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84067C6F28B4257E00549300 /* Cities.swift */; };
+		8417ECFE28F6FB340056201D /* BuildFile in Sources */ = {isa = PBXBuildFile; };
 		8417ECFF28F6FB340056201D /* PopupRouteDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C249BB1A28E4F8D200E6BA85 /* PopupRouteDetailViewModel.swift */; };
 		8417ED0028F6FB340056201D /* LinePathTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27EB66428D3689200A1E742 /* LinePathTableViewCell.swift */; };
 		8417ED0128F6FB340056201D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8498F89C28CF4892008641D9 /* Constants.swift */; };
@@ -69,7 +70,7 @@
 		8417ED2728F6FB340056201D /* FavoriteDest+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C249BB2128E4F9BC00E6BA85 /* FavoriteDest+CoreDataClass.swift */; };
 		8417ED2828F6FB340056201D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E9772A28987F79009F4B94 /* User.swift */; };
 		8417ED2928F6FB340056201D /* GDirectionsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7FBAE628D8B022001175D3 /* GDirectionsResponse.swift */; };
-		8417ED2A28F6FB340056201D /* NSCoordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED6FEA28EB217000781376 /* NSCoordinates.swift */; };
+		8417ED2A28F6FB340056201D /* BuildFile in Sources */ = {isa = PBXBuildFile; };
 		8417ED2B28F6FB340056201D /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C215EF0B28A4BB5D00371DB6 /* ViewModel.swift */; };
 		8417ED2C28F6FB340056201D /* PossibleRouteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7FBAD228D36B5E001175D3 /* PossibleRouteTableViewCell.swift */; };
 		8417ED2D28F6FB340056201D /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C5249528EBD4EE00D8B892 /* Toast.swift */; };
@@ -105,7 +106,7 @@
 		8417ED4B28F6FB340056201D /* LineCategoryEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED6FF928EB761D00781376 /* LineCategoryEntity+CoreDataProperties.swift */; };
 		8417ED4C28F6FB340056201D /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E9772628987F48009F4B94 /* LoginViewModel.swift */; };
 		8417ED4D28F6FB340056201D /* CityFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84067C6928B3D58500549300 /* CityFirebaseManager.swift */; };
-		8417ED4E28F6FB340056201D /* CoordinateTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED6FE828EB17B900781376 /* CoordinateTransformer.swift */; };
+		8417ED4E28F6FB340056201D /* BuildFile in Sources */ = {isa = PBXBuildFile; };
 		8417ED4F28F6FB340056201D /* TourpointTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F9A4728E3D560004A95A0 /* TourpointTableViewCell.swift */; };
 		8417ED5028F6FB340056201D /* ColorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7FBAEC28D8BFEC001175D3 /* ColorHelper.swift */; };
 		8417ED5128F6FB340056201D /* CLLocationDistanceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C249BB2528E4F9DE00E6BA85 /* CLLocationDistanceExtension.swift */; };
@@ -119,7 +120,6 @@
 		8417ED5A28F6FB340056201D /* FirebaseFirestoreSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 8417ECF528F6FB340056201D /* FirebaseFirestoreSwift-Beta */; };
 		8417ED5B28F6FB340056201D /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 8417ECF228F6FB340056201D /* FirebaseAuth */; };
 		8417ED5C28F6FB340056201D /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 8417ECF428F6FB340056201D /* FirebaseFirestore */; };
-		8417ED5D28F6FB340056201D /* Pods_RoutesApp_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA0743D620F2F740C78E285 /* Pods_RoutesApp_ios.framework */; };
 		8417ED5F28F6FB340056201D /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C215EF0F28A4C1BC00371DB6 /* LoginViewController.xib */; };
 		8417ED6028F6FB340056201D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2E976E62898701D009F4B94 /* LaunchScreen.storyboard */; };
 		8417ED6128F6FB340056201D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2E976E42898701D009F4B94 /* Assets.xcassets */; };
@@ -294,10 +294,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2FCC4C8A7B54A60B38035086 /* Pods-RoutesApp_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutesApp_ios.release.xcconfig"; path = "Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios.release.xcconfig"; sourceTree = "<group>"; };
 		31EE8B34AA2330FC0954FC44 /* Pods_RoutesApp_iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoutesApp_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A72441BA0C7E9C4DD4A024C /* Pods-RoutesApp_iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutesApp_iosTests.debug.xcconfig"; path = "Target Support Files/Pods-RoutesApp_iosTests/Pods-RoutesApp_iosTests.debug.xcconfig"; sourceTree = "<group>"; };
+		536E79797096FF6109899505 /* Pods-RoutesApp_ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutesApp_ios.debug.xcconfig"; path = "Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios.debug.xcconfig"; sourceTree = "<group>"; };
 		6FA0743D620F2F740C78E285 /* Pods_RoutesApp_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoutesApp_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7257BFCB83288F00AB939769 /* Pods-RoutesApp_ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutesApp_ios.debug.xcconfig"; path = "Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios.debug.xcconfig"; sourceTree = "<group>"; };
 		84067C4828B3B1CD00549300 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		84067C4D28B3B5BD00549300 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SettingsViewController.xib; sourceTree = "<group>"; };
 		84067C5F28B3BF9C00549300 /* CityPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityPickerViewController.swift; sourceTree = "<group>"; };
@@ -438,7 +439,6 @@
 		C2E9772E28987FA0009F4B94 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		C2E9773028987FB9009F4B94 /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
 		C2E977322898802F009F4B94 /* Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encodable.swift; sourceTree = "<group>"; };
-		C74C2944BAA64C9F9A25F1F8 /* Pods-RoutesApp_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutesApp_ios.release.xcconfig"; path = "Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios.release.xcconfig"; sourceTree = "<group>"; };
 		CE0F8D3428AD357F00F2C753 /* silver-style.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "silver-style.json"; sourceTree = "<group>"; };
 		CE19B2FA28DCEDD400840426 /* RouteListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteListTests.swift; sourceTree = "<group>"; };
 		CE19B2FC28DCF2F500840426 /* LineRouteFirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineRouteFirebaseManager.swift; sourceTree = "<group>"; };
@@ -469,7 +469,6 @@
 				8417ED5A28F6FB340056201D /* FirebaseFirestoreSwift-Beta in Frameworks */,
 				8417ED5B28F6FB340056201D /* FirebaseAuth in Frameworks */,
 				8417ED5C28F6FB340056201D /* FirebaseFirestore in Frameworks */,
-				8417ED5D28F6FB340056201D /* Pods_RoutesApp_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,6 +481,7 @@
 				845431A328FB4F9E000E669D /* FirebaseCrashlytics in Frameworks */,
 				C2436382289A27CC003C1A44 /* FirebaseFirestore in Frameworks */,
 				959B7170FF24406C939DC60B /* Pods_RoutesApp_ios.framework in Frameworks */,
+				2641B3683A5AB37DE44FDD54 /* Pods_RoutesApp_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,10 +508,10 @@
 		7078ACACC070D6AFAFF653A6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				7257BFCB83288F00AB939769 /* Pods-RoutesApp_ios.debug.xcconfig */,
-				C74C2944BAA64C9F9A25F1F8 /* Pods-RoutesApp_ios.release.xcconfig */,
 				3A72441BA0C7E9C4DD4A024C /* Pods-RoutesApp_iosTests.debug.xcconfig */,
 				FA0A3E089EB4C395E8677B2B /* Pods-RoutesApp_iosTests.release.xcconfig */,
+				536E79797096FF6109899505 /* Pods-RoutesApp_ios.debug.xcconfig */,
+				2FCC4C8A7B54A60B38035086 /* Pods-RoutesApp_ios.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -1188,13 +1188,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8417ED7F28F6FB340056201D /* Build configuration list for PBXNativeTarget "RoutesApp_ios Prod" */;
 			buildPhases = (
-				8417ECF628F6FB340056201D /* [CP] Check Pods Manifest.lock */,
 				8417ECF728F6FB340056201D /* SwiftLint */,
 				8417ECF828F6FB340056201D /* Sources */,
 				8417ED5928F6FB340056201D /* Frameworks */,
 				8417ED5E28F6FB340056201D /* Resources */,
-				8417ED7D28F6FB340056201D /* [CP] Embed Pods Frameworks */,
-				8417ED7E28F6FB340056201D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1221,7 +1218,7 @@
 				C2E976D32898701C009F4B94 /* Resources */,
 				0EAF5712B798455FAFC07012 /* [CP] Embed Pods Frameworks */,
 				E7A867E0A29255B14FA1A4D7 /* [CP] Copy Pods Resources */,
-				845431A428FB4FBE000E669D /* Firebase Crashlytics */,
+				845431A428FB4FBE000E669D /* [CP] Check Pods Manifest.lock */,
 			);
 			buildRules = (
 			);
@@ -1360,7 +1357,6 @@
 				CE7FBADD28D565F2001175D3 /* BottomSheetViewController.xib in Resources */,
 				843D043F28AAF3F800C4DF25 /* PhoneAuthenticationViewController.xib in Resources */,
 				84ED701528F4E25D00781376 /* FavoritesListViewController.xib in Resources */,
-				847E0F8828E5E76300038A3A /* GoogleService-Info.plist in Resources */,
 				C2414D8728E1F08000CDF73A /* RouteDetailViewController.xib in Resources */,
 				84067C7528B5721400549300 /* CityPickerViewController.xib in Resources */,
 				84067C7428B4305300549300 /* CityTableViewCell.xib in Resources */,
@@ -1425,8 +1421,25 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8417ECF628F6FB340056201D /* [CP] Check Pods Manifest.lock */ = {
-		845431A428FB4FBE000E669D /* Firebase Crashlytics */ = {
+		8417ECF728F6FB340056201D /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+		845431A428FB4FBE000E669D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1447,69 +1460,6 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
-		};
-		8417ECF728F6FB340056201D /* SwiftLint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = SwiftLint;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
-		};
-		8417ED7D28F6FB340056201D /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8417ED7E28F6FB340056201D /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
-				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
-			);
-			name = "Firebase Crashlytics";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
 		};
 		C2E9770B2898716A009F4B94 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1580,11 +1530,11 @@
 				8417ECFB28F6FB340056201D /* RouteMapViewController.swift in Sources */,
 				8417ECFC28F6FB340056201D /* Double.swift in Sources */,
 				8417ECFD28F6FB340056201D /* LineCategory.swift in Sources */,
-				8417ECFE28F6FB340056201D /* Cities.swift in Sources */,
+				8417ECFE28F6FB340056201D /* BuildFile in Sources */,
 				8417ECFF28F6FB340056201D /* PopupRouteDetailViewModel.swift in Sources */,
 				8417ED0028F6FB340056201D /* LinePathTableViewCell.swift in Sources */,
 				8417ED0128F6FB340056201D /* Constants.swift in Sources */,
-				8417ECFE28F6FB340056201D /* Cities.swift in Sources */,
+				8417ECFE28F6FB340056201D /* BuildFile in Sources */,
 				8417ED0228F6FB340056201D /* TourpointEntity+CoreDataProperties.swift in Sources */,
 				8417ED0328F6FB340056201D /* LoginViewController.swift in Sources */,
 				8417ED0428F6FB340056201D /* RouteListViewController.swift in Sources */,
@@ -1624,7 +1574,7 @@
 				8417ED2728F6FB340056201D /* FavoriteDest+CoreDataClass.swift in Sources */,
 				8417ED2828F6FB340056201D /* User.swift in Sources */,
 				8417ED2928F6FB340056201D /* GDirectionsResponse.swift in Sources */,
-				8417ED2A28F6FB340056201D /* NSCoordinates.swift in Sources */,
+				8417ED2A28F6FB340056201D /* BuildFile in Sources */,
 				8417ED2B28F6FB340056201D /* ViewModel.swift in Sources */,
 				8417ED2C28F6FB340056201D /* PossibleRouteTableViewCell.swift in Sources */,
 				8417ED2D28F6FB340056201D /* Toast.swift in Sources */,
@@ -1660,7 +1610,7 @@
 				8417ED4B28F6FB340056201D /* LineCategoryEntity+CoreDataProperties.swift in Sources */,
 				8417ED4C28F6FB340056201D /* LoginViewModel.swift in Sources */,
 				8417ED4D28F6FB340056201D /* CityFirebaseManager.swift in Sources */,
-				8417ED4E28F6FB340056201D /* CoordinateTransformer.swift in Sources */,
+				8417ED4E28F6FB340056201D /* BuildFile in Sources */,
 				8417ED4F28F6FB340056201D /* TourpointTableViewCell.swift in Sources */,
 				8417ED5028F6FB340056201D /* ColorHelper.swift in Sources */,
 				8417ED5128F6FB340056201D /* CLLocationDistanceExtension.swift in Sources */,
@@ -1899,7 +1849,6 @@
 /* Begin XCBuildConfiguration section */
 		8417ED8028F6FB340056201D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7257BFCB83288F00AB939769 /* Pods-RoutesApp_ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1931,7 +1880,6 @@
 		};
 		8417ED8128F6FB340056201D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C74C2944BAA64C9F9A25F1F8 /* Pods-RoutesApp_ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -2081,7 +2029,7 @@
 		};
 		C2E977032898701D009F4B94 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7257BFCB83288F00AB939769 /* Pods-RoutesApp_ios.debug.xcconfig */;
+			baseConfigurationReference = 536E79797096FF6109899505 /* Pods-RoutesApp_ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -2113,7 +2061,7 @@
 		};
 		C2E977042898701D009F4B94 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C74C2944BAA64C9F9A25F1F8 /* Pods-RoutesApp_ios.release.xcconfig */;
+			baseConfigurationReference = 2FCC4C8A7B54A60B38035086 /* Pods-RoutesApp_ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -2267,6 +2215,7 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8417ECF328F6FB340056201D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseFirestoreSwift-Beta";
+		};
 		845431A228FB4F9E000E669D /* FirebaseCrashlytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C243637E289A27CC003C1A44 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
