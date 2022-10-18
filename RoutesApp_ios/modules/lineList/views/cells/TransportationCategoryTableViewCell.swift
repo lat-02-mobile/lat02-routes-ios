@@ -20,21 +20,27 @@ class TransportationCategoryTableViewCell: UITableViewCell {
         selectionStyle = .none
     }
 
-    func setStyle(isSameCategory: Bool, lineCategory: LineCategoryEntity, isCurrentLocaleEsp: Bool) {
-        transportationNameLabel.text = isCurrentLocaleEsp ? lineCategory.nameEsp : lineCategory.nameEng
+    func setStyle(selectedIndex: Int, currentIndex: Int, lineCategory: LinesCategory) {
+        transportationNameLabel.text = lineCategory.nameEng
         ImageHelper.shared.downloadAndCacheImage(imageView: transportationImage, urlString: lineCategory.blackIcon)
-        if isSameCategory {
+        if selectedIndex == currentIndex {
             checkMarkImage.isHidden = false
             transportationNameLabel.font = UIFont.boldSystemFont(ofSize: 18.0)
+            checkMarkImageHeight.constant = 30
             checkMarkImageHeight.constant = 30
             return
         }
         setDefaultStyle()
     }
 
+    func resetStyle(resetCell: Bool = false) {
+        setDefaultStyle()
+    }
+
     private func setDefaultStyle() {
         checkMarkImage.isHidden = true
         transportationNameLabel.font = UIFont.systemFont(ofSize: 16)
+        checkMarkImageHeight.constant = 25
         checkMarkImageHeight.constant = 25
     }
 }

@@ -9,7 +9,7 @@ class LineRouteTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-    func updateCell(route: LineRouteEntity) {
-        routeNameLabel.text = route.name
+    func updateCell(lineRouteInfo: LineRouteInfo) {
+        routeNameLabel.text = lineRouteInfo.name
     }
 }

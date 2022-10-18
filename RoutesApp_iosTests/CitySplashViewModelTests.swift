@@ -8,6 +8,19 @@
 import XCTest
 @testable import RoutesApp_ios
 
+class MockLocalDataManager: LocalDataManagerProtocol {
+    var dataHasBeenRetrieved = false
+    var sendWithError = false
+    func retrieveAllDataFromFirebase(completion: @escaping (Result<Void, Error>) -> Void) {
+        if sendWithError {
+            completion(.failure(NSError(domain: "Error", code: 0)))
+        } else {
+            dataHasBeenRetrieved = true
+            completion(.success(()))
+        }
+    }
+}
+
 class CitySplashViewModelTests: XCTestCase {
     var mockManager = MockLocalDataManager()
     var citySplashViewModel = CitySplashViewModel()

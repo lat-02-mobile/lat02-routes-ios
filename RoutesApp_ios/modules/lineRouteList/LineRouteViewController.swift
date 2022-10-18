@@ -3,7 +3,7 @@ import UIKit
 class LineRouteViewController: UIViewController {
     @IBOutlet weak var routeListTableView: UITableView!
     var routeDetailViewModel = RouteListViewModel()
-    var lineRouteList: [LineRouteEntity] = []
+    var lineRouteList: [LineRouteInfo] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         routeListTableView.dataSource = self
@@ -24,14 +24,14 @@ extension LineRouteViewController: UITableViewDataSource, UITableViewDelegate {
         return lineRouteList.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ConstantVariables.lineRouteCell)
-            as? LineRouteTableViewCell ?? LineRouteTableViewCell(style: .subtitle, reuseIdentifier: ConstantVariables.lineRouteCell)
-        let route = lineRouteList[indexPath.row]
-        cell.updateCell(route: route)
+    let cell = tableView.dequeueReusableCell(withIdentifier: ConstantVariables.lineRouteCell)
+        as? LineRouteTableViewCell ?? LineRouteTableViewCell(style: .subtitle, reuseIdentifier: ConstantVariables.lineRouteCell)
+        let line = lineRouteList[indexPath.row]
+        cell.updateCell(lineRouteInfo: line)
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let linePath = lineRouteList[indexPath.row]
+        let linePath = lineRouteList[indexPath.row].convertToLinePath()
         let routeMapViewController = RouteMapViewController()
         routeMapViewController.linePath = linePath
         show(routeMapViewController, sender: nil)

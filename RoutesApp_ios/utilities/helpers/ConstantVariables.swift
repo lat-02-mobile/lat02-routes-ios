@@ -12,11 +12,7 @@ enum Units: String {
     case kilometers
     case minutes
 }
-enum Environment: String {
-    case development = "Development"
-    case production = "Production"
-    case none = "None"
-}
+
 class ConstantVariables {
     static let databaseName = "RoutesApp_ios"
     static let cityCellNib = "CityTableViewCell"
@@ -101,4 +97,8 @@ class ConstantVariables {
     static func valueWithUnit(unit localizedString: Units, value: String) -> String {
         return String.localizedStringWithFormat(NSLocalizedString(localizedString.rawValue, comment: ""), value)
     }
+
+    // Transformer Name
+    static let transformerName = "CoordinateTransformer"
+
 }

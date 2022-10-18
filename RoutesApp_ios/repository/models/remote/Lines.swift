@@ -27,13 +27,14 @@ struct Lines: Codable {
     let idCategory: String
     let name: String
 
-    func toEntity(categories: [LineCategoryEntity], context: NSManagedObjectContext) -> LineEntity {
+    func toEntity(categories: [LinesCategory], isLocationEng: Bool, context: NSManagedObjectContext) -> LineEntity {
         let categoryFirst = categories.first(where: {$0.id == idCategory})
         let entity = LineEntity(context: context)
+        let categoryStr = isLocationEng ? categoryFirst?.nameEng : categoryFirst?.nameEsp
         entity.id = id
         entity.idCategory = idCategory
         entity.name = name
-        entity.category = categoryFirst ?? LineCategoryEntity()
+        entity.category = categoryStr ?? ""
         entity.createdAt = Date()
         return entity
     }

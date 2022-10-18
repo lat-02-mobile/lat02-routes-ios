@@ -24,10 +24,9 @@ class TourpointTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
 
-    func updateCellModel(tourpoint: TourpointEntity, isCurrenLocaleEsp: Bool) {
-        let category = isCurrenLocaleEsp ? tourpoint.category.descriptionEsp : tourpoint.category.descriptionEng
-        nameLabel.text = tourpoint.name
-        categoryLabel.text = category
-        addressLabel.text = tourpoint.address
+    func updateCellModel(tourpointInfo: TourpointInfo) {
+        nameLabel.text = tourpointInfo.name
+        categoryLabel.text = tourpointInfo.category
+        addressLabel.text = tourpointInfo.address
     }
 }

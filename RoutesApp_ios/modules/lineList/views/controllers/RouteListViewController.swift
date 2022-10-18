@@ -1,7 +1,5 @@
 import UIKit
 import EzPopup
-import SVProgressHUD
-
 class RouteListViewController: UIViewController {
 
     @IBOutlet weak var searchBar: UISearchBar!
@@ -9,15 +7,14 @@ class RouteListViewController: UIViewController {
     var routeListViewModel = RouteListViewModel()
     let lineRouteViewController = LineRouteViewController()
 
-    private let currentLocale = Locale.current.languageCode
-    private var isCurrentLocaleEsp = false
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
         setIcon()
         initViewModel()
-
+        routeListViewModel.getLines {
+            self.lineListTableView.reloadData()
+        }
         lineListTableView.register(UINib.init(nibName: ConstantVariables.routeListCell,
         bundle: nil), forCellReuseIdentifier: ConstantVariables.routeListCell)
         routeListViewModel.reloadData = lineListTableView.reloadData
@@ -28,37 +25,25 @@ class RouteListViewController: UIViewController {
     }
 
     func initViewModel() {
-        SVProgressHUD.show()
-        isCurrentLocaleEsp = currentLocale == ConstantVariables.spanishLocale
-        routeListViewModel.onFinish = { [weak self] in
+        routeListViewModel.fecthedLineRoute = { [weak self] in
             guard let strongSelf = self else {return}
-            SVProgressHUD.dismiss()
-            strongSelf.lineListTableView.reloadData()
-        }
-        routeListViewModel.onError = { _ in
-            SVProgressHUD.dismiss()
-        }
-        routeListViewModel.getLines()
-    }
-
-    func showLineRoutes(line: LineEntity) {
-        let lineRouteList = line.routes
-        if lineRouteList.count > 1 {
-            lineRouteViewController.lineRouteList = lineRouteList
-            let screenSize: CGRect = UIScreen.main.bounds
-            let width = screenSize.width - 30
-            let height = screenSize.height / 4
-            let popupVC = PopupViewController(contentController: lineRouteViewController, popupWidth: width, popupHeight: height)
-            popupVC.cornerRadius = 10
-            present(popupVC, animated: true)
-        } else if lineRouteList.count == 1 {
-            let linePath = lineRouteList[0]
-            let routeMapViewController = RouteMapViewController()
-            routeMapViewController.linePath = linePath
-            present(routeMapViewController, animated: false)
+            let lineRouteList = strongSelf.routeListViewModel.lineRouteList
+            if lineRouteList.count > 1 {
+                strongSelf.lineRouteViewController.lineRouteList = lineRouteList
+                let screenSize: CGRect = UIScreen.main.bounds
+                let width = screenSize.width - 30
+                let height = screenSize.height / 4
+                let popupVC = PopupViewController(contentController: strongSelf.lineRouteViewController, popupWidth: width, popupHeight: height)
+                popupVC.cornerRadius = 10
+                strongSelf.present(popupVC, animated: true)
+            } else if lineRouteList.count == 1 {
+                let linePath = lineRouteList[0].convertToLinePath()
+                let routeMapViewController = RouteMapViewController()
+                routeMapViewController.linePath = linePath
+                strongSelf.present(routeMapViewController, animated: false)
+            }
         }
     }
-
     func setupNavigationBar() {
         navigationItem.title = String.localizeString(localizedString: ConstantVariables.routeTitle)
         lineListTableView.dataSource = self
@@ -87,15 +72,13 @@ class RouteListViewController: UIViewController {
     }
 }
 
-// MARK: UITableView Delegate
 extension RouteListViewController: UITableViewDataSource, UITableViewDelegate {
-
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return routeListViewModel.lines.count
+        return routeListViewModel.filteredRouteList.count
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let line = routeListViewModel.lines[indexPath.row]
-        showLineRoutes(line: line)
+        let lineId = routeListViewModel.routeListModel[indexPath.row].id
+        routeListViewModel.getLineRoute(id: lineId)
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -103,20 +86,19 @@ extension RouteListViewController: UITableViewDataSource, UITableViewDelegate {
         for: indexPath) as? RouteListTableViewCell else {
         return  UITableViewCell()
         }
-        let line =  routeListViewModel.lines[indexPath.row]
-        tableViewCell.updateCellModel(line: line, isCurrentLocaleEsp: isCurrentLocaleEsp)
+        let line =  routeListViewModel.filteredRouteList[indexPath.row]
+        tableViewCell.updateCellModel(routeListDetailModel: line)
         return tableViewCell
     }
 }
 
-// MARK: Searchbar delegate
 extension RouteListViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         guard let text = searchBar.text else { return }
-        routeListViewModel.applyFilters(query: text, selectedCat: routeListViewModel.categoryAux)
+        routeListViewModel.filterRouteListBy(query: text)
     }
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        routeListViewModel.applyFilters(query: "", selectedCat: routeListViewModel.categoryAux)
+        routeListViewModel.filterRouteListBy(query: "")
     }
 }
