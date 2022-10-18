@@ -27,6 +27,7 @@ class PossibleRouteTableViewCell: UITableViewCell {
     }
 
     func setupStyle(selectedIndex: Int, currentIndex: Int, possibleRoute: AvailableTransport) {
+        routeLabel.text = String.localizeString(localizedString: StringResources.routes) + " \(currentIndex + 1)"
         recommendedLabel.text = String.localizeString(localizedString: ConstantVariables.recommended)
         estimatedTimeLabel.text = "\(possibleRoute.calculateEstimatedTimeToArrive())"
         recommendedLabel.isHidden = (currentIndex != 0)
