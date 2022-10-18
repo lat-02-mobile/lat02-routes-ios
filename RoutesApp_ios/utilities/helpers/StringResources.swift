@@ -25,6 +25,7 @@ class StringResources {
     static let routeDetailNoMatchesAdresses = "route-detail-no-matches-adressess"
 
     // RouteDetail
-    static let route1 = "Route 1"
+    static let routes = "routes"
+    static let route = "route"
     static let youCanGoJustWalk = "you-can-go-just-walk"
 }

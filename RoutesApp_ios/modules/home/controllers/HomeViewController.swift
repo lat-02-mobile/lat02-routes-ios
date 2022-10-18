@@ -10,17 +10,24 @@ import GoogleMaps
 import GooglePlaces
 import SVProgressHUD
 
+enum HomeSelectionStatus {
+    case SELECTING_POINTS, SHOWING_POSSIBLE_ROUTES, SHOWING_ROUTE_DETAILS
+}
+
 class HomeViewController: UIViewController {
 
     let viewmodel = HomeViewModel()
     var locationManager = CLLocationManager()
+    var zoom: Float = 15
+    var homeSelectionStatus = HomeSelectionStatus.SELECTING_POINTS
+    var availableTransports = [AvailableTransport]()
+
     @IBOutlet weak var labelHelper: UILabel!
     @IBOutlet var mapView: GMSMapView!
     @IBOutlet var currentLocationButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var continueButton: UIButton!
-    var zoom: Float = 15
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,25 +50,30 @@ class HomeViewController: UIViewController {
                                                        longitude: origin.position.longitude)
                 let algDestination = CLLocationCoordinate2D(latitude: destination.position.latitude,
                                                             longitude: destination.position.longitude)
-                let availableTransports = Algorithm.shared.findAvailableRoutes(origin: algOrigin,
+                self?.availableTransports = Algorithm.shared.findAvailableRoutes(origin: algOrigin,
                                                                                destination: algDestination,
                                                                                lines: (self?.viewmodel.lineRoutes)!,
                                                                                minDistanceBtwPoints: Algorithm.minDistanceBtwPointsAndStops,
                                                                                minDistanceBtwStops: Algorithm.minDistanceBtwPointsAndStops)
                 DispatchQueue.main.sync {
                     SVProgressHUD.dismiss()
-                    self?.labelHelper.text = StringResources.route1
-                    let viewModel = PossibleRoutesViewModel()
-                    viewModel.map = self?.mapView
-                    let viewController = BottomSheetViewController(viewModel: viewModel, possibleRoutes: availableTransports)
-                    viewController.delegate = self
-                    if let presentationController = viewController.presentationController as? UISheetPresentationController {
-                        presentationController.detents = [.medium()]
-                    }
-                    self?.present(viewController, animated: true)
+                    self?.homeSelectionStatus = .SHOWING_POSSIBLE_ROUTES
+                    self?.labelHelper.text = String.localizeString(localizedString: StringResources.routes)
+                    self?.showPossibleRoutesBottomSheet()
                 }
             }
         }
+    }
+
+    func showPossibleRoutesBottomSheet() {
+        let viewModel = PossibleRoutesViewModel()
+        viewModel.map = mapView
+        let viewController = BottomSheetViewController(viewModel: viewModel, possibleRoutes: availableTransports)
+        viewController.delegate = self
+        if let presentationController = viewController.presentationController as? UISheetPresentationController {
+            presentationController.detents = [.medium()]
+        }
+        self.present(viewController, animated: true)
     }
 
     func verifyCitySelectedApp() {
@@ -133,25 +145,39 @@ class HomeViewController: UIViewController {
     }
 
     @IBAction func backButtonAction(_ sender: Any) {
-        switch viewmodel.pointsSelectionStatus {
-        case.pendingOrigin:
-            return
-        case.pendingDestination:
-            labelHelper.text = String.localizeString(localizedString: StringResources.selectOrigin)
-            viewmodel.pointsSelectionStatus = .pendingOrigin
-            viewmodel.origin?.map = mapView
-            viewmodel.origin?.map = nil
-            viewmodel.origin = nil
-            backButton.isHidden = true
-        case.bothSelected:
-            labelHelper.text = String.localizeString(localizedString: StringResources.selectDestination)
-            viewmodel.pointsSelectionStatus = .pendingDestination
-            viewmodel.destination?.map = mapView
-            viewmodel.destination?.map = nil
-            viewmodel.destination = nil
-            viewmodel.selectedAvailableTransport = nil
+        switch homeSelectionStatus {
+        case .SELECTING_POINTS:
+            switch viewmodel.pointsSelectionStatus {
+            case.pendingOrigin:
+                return
+            case.pendingDestination:
+                labelHelper.text = String.localizeString(localizedString: StringResources.selectOrigin)
+                viewmodel.pointsSelectionStatus = .pendingOrigin
+                viewmodel.origin?.map = mapView
+                viewmodel.origin?.map = nil
+                viewmodel.origin = nil
+                backButton.isHidden = true
+            case.bothSelected:
+                labelHelper.text = String.localizeString(localizedString: StringResources.selectDestination)
+                viewmodel.pointsSelectionStatus = .pendingDestination
+                viewmodel.destination?.map = mapView
+                viewmodel.destination?.map = nil
+                viewmodel.destination = nil
+                viewmodel.selectedAvailableTransport = nil
+                mapView.clear()
+                viewmodel.origin?.map = mapView
+            }
+        case .SHOWING_POSSIBLE_ROUTES:
+            continueButton.isHidden = false
+            currentLocationButton.isHidden = false
+            labelHelper.text = String.localizeString(localizedString: StringResources.done)
+            homeSelectionStatus = .SELECTING_POINTS
+        case .SHOWING_ROUTE_DETAILS:
             mapView.clear()
             viewmodel.origin?.map = mapView
+            viewmodel.destination?.map = mapView
+            labelHelper.text = String.localizeString(localizedString: StringResources.routes)
+            homeSelectionStatus = .SHOWING_POSSIBLE_ROUTES
         }
     }
 
@@ -177,8 +203,9 @@ class HomeViewController: UIViewController {
             viewmodel.pointsSelectionStatus = .bothSelected
 
         case.bothSelected:
-            // Call logic to run algorithm with routes
             SVProgressHUD.show()
+            continueButton.isHidden = true
+            currentLocationButton.isHidden = true
             Toast.showToast(target: self, message: String.localizeString(localizedString: StringResources.loadingPossibleRoutes))
             if let origin = viewmodel.origin, let destination = viewmodel.destination {
                 let distanceBetweenCoords = GoogleMapsHelper.shared.getDistanceBetween2Points(
@@ -247,33 +274,44 @@ class HomeViewController: UIViewController {
     }
 
     @IBAction func showSearchPage(_ sender: Any) {
-        if let selRoute = viewmodel.selectedAvailableTransport {
-            showRouteDetail(selectedAvailableTransport: selRoute)
-            return
+        switch homeSelectionStatus {
+        case .SELECTING_POINTS:
+            let latSW = mapView.projection.visibleRegion().nearRight.latitude
+            let lonSW = mapView.projection.visibleRegion().farLeft.longitude
+
+            let latNE = mapView.projection.visibleRegion().farLeft.latitude
+            let lonNE = mapView.projection.visibleRegion().nearRight.longitude
+
+            let northEast = CLLocationCoordinate2DMake(latNE, lonNE)
+            let southWest = CLLocationCoordinate2DMake(latSW, lonSW)
+
+            let filterLocation = GMSPlaceRectangularLocationOption(northEast, southWest)
+
+            let viewController = SearchLocationViewController(placeBias: filterLocation, selectionStatus: viewmodel.pointsSelectionStatus)
+            viewController.delegate = self
+
+            if let presentationController = viewController.presentationController as? UISheetPresentationController {
+                presentationController.detents = [.medium()]
+            }
+
+            self.present(viewController, animated: true)
+        case .SHOWING_POSSIBLE_ROUTES:
+            if !availableTransports.isEmpty {
+                showPossibleRoutesBottomSheet()
+            }
+        case .SHOWING_ROUTE_DETAILS:
+            if let selRoute = viewmodel.selectedAvailableTransport {
+                showRouteDetail(selectedAvailableTransport: selRoute)
+                return
+            }
         }
-
-        let latSW = mapView.projection.visibleRegion().nearRight.latitude
-        let lonSW = mapView.projection.visibleRegion().farLeft.longitude
-
-        let latNE = mapView.projection.visibleRegion().farLeft.latitude
-        let lonNE = mapView.projection.visibleRegion().nearRight.longitude
-
-        let northEast = CLLocationCoordinate2DMake(latNE, lonNE)
-        let southWest = CLLocationCoordinate2DMake(latSW, lonSW)
-
-        let filterLocation = GMSPlaceRectangularLocationOption(northEast, southWest)
-
-        let viewController = SearchLocationViewController(placeBias: filterLocation, selectionStatus: viewmodel.pointsSelectionStatus)
-        viewController.delegate = self
-
-        if let presentationController = viewController.presentationController as? UISheetPresentationController {
-            presentationController.detents = [.medium()]
-        }
-
-        self.present(viewController, animated: true)
     }
 
     func showRouteDetail(selectedAvailableTransport: AvailableTransport) {
+        homeSelectionStatus = .SHOWING_ROUTE_DETAILS
+        mapView.clear()
+        viewmodel.origin?.map = mapView
+        viewmodel.destination?.map = mapView
         let viewController = RouteDetailViewController(map: self.mapView, routePath: selectedAvailableTransport)
         viewController.delegate = self
         if let presentationController = viewController.presentationController as? UISheetPresentationController {
@@ -286,9 +324,10 @@ class HomeViewController: UIViewController {
 
 // MARK: ShowPossibleRoutes Delegate
 extension HomeViewController: BottomSheetDelegate {
-    func showSelectedRoute(selectedRoute: AvailableTransport) {
-        self.showRouteDetail(selectedAvailableTransport: selectedRoute)
+    func showSelectedRoute(selectedRoute: AvailableTransport, index: Int) {
         self.viewmodel.selectedAvailableTransport = selectedRoute
+        labelHelper.text = String.localizeString(localizedString: StringResources.route) + " \(index + 1)"
+        self.showRouteDetail(selectedAvailableTransport: selectedRoute)
     }
 }
 

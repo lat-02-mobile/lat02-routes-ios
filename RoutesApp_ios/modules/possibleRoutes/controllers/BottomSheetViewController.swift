@@ -9,7 +9,7 @@ import UIKit
 import GoogleMaps
 
 protocol BottomSheetDelegate: AnyObject {
-    func showSelectedRoute(selectedRoute: AvailableTransport)
+    func showSelectedRoute(selectedRoute: AvailableTransport, index: Int)
 }
 
 class BottomSheetViewController: UIViewController {
@@ -32,6 +32,7 @@ class BottomSheetViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.titleLabel.text = String.localizeString(localizedString: StringResources.route)
         setupTable()
     }
 
@@ -83,7 +84,8 @@ extension BottomSheetViewController: UITableViewDelegate, UITableViewDataSource 
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.dismiss(animated: true)
-        delegate?.showSelectedRoute(selectedRoute: viewModel.possibleRoutes[indexPath.row])
+        delegate?.showSelectedRoute(selectedRoute: viewModel.possibleRoutes[indexPath.row],
+                                    index: indexPath.row)
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
