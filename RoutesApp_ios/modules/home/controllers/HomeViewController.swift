@@ -164,8 +164,6 @@ class HomeViewController: UIViewController {
                 viewmodel.destination?.map = nil
                 viewmodel.destination = nil
                 viewmodel.selectedAvailableTransport = nil
-                mapView.clear()
-                viewmodel.origin?.map = mapView
             }
         case .SHOWING_POSSIBLE_ROUTES:
             continueButton.isHidden = false
