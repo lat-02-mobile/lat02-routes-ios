@@ -1,11 +1,9 @@
 # Uncomment the next line to define a global platform for your project
 platform :ios, '13.0'
 
-target 'RoutesApp_ios' do
-  # Comment the next line if you don't want to use dynamic frameworks
-  use_frameworks!
+use_frameworks!
 
-  # Pods for RoutesApp_ios
+def shared_pods
   pod 'SwiftLint', '0.47.1'
   pod 'CodableFirebase'
   pod 'SVProgressHUD', '2.2.5'
@@ -19,11 +17,20 @@ target 'RoutesApp_ios' do
   pod 'GooglePlaces', '7.1.0'
   pod 'EzPopup', '1.2.4'
   pod 'Kingfisher', '~> 7.0'
-  pod 'Amplitude', '~> 8.8.0' 
+  pod 'Amplitude', '~> 8.8.0'
+end
+
+target 'RoutesApp_ios' do
+  shared_pods
 
   target 'RoutesApp_iosTests' do
     inherit! :search_paths
     # Pods for testing
   end
-
 end
+
+target 'RoutesApp_ios Prod' do
+  shared_pods
+end  
+
+
