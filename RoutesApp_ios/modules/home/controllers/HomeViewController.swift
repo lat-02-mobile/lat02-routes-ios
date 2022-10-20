@@ -31,6 +31,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var continueButton: UIButton!
+    @IBOutlet weak var settingsPopup: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -336,6 +337,16 @@ class HomeViewController: UIViewController {
                 return
             }
         }
+    }
+
+    @IBAction func settingsPopupTapped(_ sender: Any) {
+        let settingsPopup = SettingsPopupViewController()
+        // present(settingsPopup, animated: true, completion: nil)
+        if let presentationController = settingsPopup.presentationController as? UISheetPresentationController {
+            presentationController.detents = [.large()]
+        }
+
+        self.present(settingsPopup, animated: true)
     }
 
     func showRouteDetail(selectedAvailableTransport: AvailableTransport) {

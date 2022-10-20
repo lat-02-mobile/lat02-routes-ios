@@ -28,4 +28,5 @@ class StringResources {
     static let routes = "routes"
     static let route = "route"
     static let youCanGoJustWalk = "you-can-go-just-walk"
+    static let showTourpoints = "show-tourpoints"
 }

@@ -28,6 +28,7 @@ class ConstantVariables {
     static let defCityLong = "CityLongitude"
     static let defCityId = "CityId"
     static let defUserLoggedId = "LoggedUserId"
+    static let switchState = "switchState"
 
     // Resources
     static let primaryColor = "primary-color"

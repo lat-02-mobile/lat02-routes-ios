@@ -17,6 +17,7 @@
                 <outlet property="labelHelper" destination="apv-IL-Jcn" id="tGD-Mv-xhs"/>
                 <outlet property="mapView" destination="al4-vy-i8x" id="T8w-ic-ssm"/>
                 <outlet property="searchButton" destination="LRi-Kf-RAz" id="mjV-8j-nJj"/>
+                <outlet property="settingsPopup" destination="w4x-e6-CCF" id="sMd-Qw-ecg"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -49,6 +50,21 @@
                     <buttonConfiguration key="configuration" style="plain" image="map_zoom-in" title=""/>
                     <connections>
                         <action selector="zoomIn:" destination="-1" eventType="touchUpInside" id="swL-EA-PqI"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w4x-e6-CCF">
+                    <rect key="frame" x="334" y="74" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="5Pl-5E-cw3"/>
+                        <constraint firstAttribute="height" constant="50" id="gnU-p3-oMb"/>
+                    </constraints>
+                    <color key="tintColor" name="primary-color"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" image="gearshape.fill" catalog="system">
+                        <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="28"/>
+                    </buttonConfiguration>
+                    <connections>
+                        <action selector="settingsPopupTapped:" destination="-1" eventType="touchUpInside" id="l5S-X8-xSO"/>
                     </connections>
                 </button>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="joj-im-i0R">
@@ -115,11 +131,13 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="AccentColor"/>
             <constraints>
+                <constraint firstItem="w4x-e6-CCF" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="023-0e-CxV"/>
                 <constraint firstItem="EaU-gK-3rL" firstAttribute="top" secondItem="Hgu-Nf-lgy" secondAttribute="bottom" constant="10" id="0KO-o0-FgO"/>
                 <constraint firstItem="sZ7-RE-9nF" firstAttribute="centerY" secondItem="al4-vy-i8x" secondAttribute="centerY" constant="-18" id="1g0-He-zxI"/>
                 <constraint firstItem="LRi-Kf-RAz" firstAttribute="top" secondItem="gIV-pd-CbO" secondAttribute="bottom" constant="30" id="2jO-ZW-PnN"/>
                 <constraint firstItem="T64-Vl-YK6" firstAttribute="top" secondItem="EaU-gK-3rL" secondAttribute="bottom" constant="10" id="AG4-D9-CSP"/>
                 <constraint firstItem="LRi-Kf-RAz" firstAttribute="top" secondItem="al4-vy-i8x" secondAttribute="bottom" id="AVK-N7-tge"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="w4x-e6-CCF" secondAttribute="trailing" constant="30" id="AXM-vf-2dz"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Hgu-Nf-lgy" secondAttribute="trailing" constant="30" id="Azz-Oh-NUz"/>
                 <constraint firstItem="LRi-Kf-RAz" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="CxP-1i-aa8"/>
                 <constraint firstItem="joj-im-i0R" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="DJ4-8t-Eqv"/>
@@ -145,10 +163,14 @@
         <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="chevron.up" catalog="system" width="128" height="72"/>
         <image name="current-location" width="30" height="30"/>
+        <image name="gearshape.fill" catalog="system" width="128" height="121"/>
         <image name="map_zoom-in" width="32" height="32"/>
         <image name="map_zoom-out" width="32" height="32"/>
         <image name="pin" width="100" height="100"/>
         <namedColor name="AccentColor">
+            <color red="0.0" green="0.27450980392156865" blue="0.58823529411764708" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="primary-color">
             <color red="0.0" green="0.27450980392156865" blue="0.58823529411764708" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">

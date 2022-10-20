@@ -89,3 +89,6 @@
 "kilometers" = "%@ km";
 "minutes" = "%@ min";
 "you-can-go-just-walk" = "You can reach the destination just walking";
+
+// SettingPopup
+"show-tourpoints" = "Show tourpoints";
