@@ -31,10 +31,10 @@
                     <rect key="frame" x="0.0" y="616.5" width="414" height="245.5"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ww-6f-v9y">
-                            <rect key="frame" x="15" y="15" width="51.5" height="30.5"/>
+                            <rect key="frame" x="15" y="15" width="57.5" height="36.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JYb-xf-Fmo">
-                                    <rect key="frame" x="5" y="5" width="41.5" height="20.5"/>
+                                    <rect key="frame" x="8" y="8" width="41.5" height="20.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
@@ -42,20 +42,20 @@
                             </subviews>
                             <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstItem="JYb-xf-Fmo" firstAttribute="top" secondItem="1ww-6f-v9y" secondAttribute="top" constant="5" id="NGv-b5-VJk"/>
-                                <constraint firstAttribute="bottom" secondItem="JYb-xf-Fmo" secondAttribute="bottom" constant="5" id="r4p-Mg-T2T"/>
-                                <constraint firstItem="JYb-xf-Fmo" firstAttribute="leading" secondItem="1ww-6f-v9y" secondAttribute="leading" constant="5" id="tih-H2-STn"/>
-                                <constraint firstAttribute="trailing" secondItem="JYb-xf-Fmo" secondAttribute="trailing" constant="5" id="vrV-Md-F3z"/>
+                                <constraint firstItem="JYb-xf-Fmo" firstAttribute="top" secondItem="1ww-6f-v9y" secondAttribute="top" constant="8" id="NGv-b5-VJk"/>
+                                <constraint firstAttribute="bottom" secondItem="JYb-xf-Fmo" secondAttribute="bottom" constant="8" id="r4p-Mg-T2T"/>
+                                <constraint firstItem="JYb-xf-Fmo" firstAttribute="leading" secondItem="1ww-6f-v9y" secondAttribute="leading" constant="8" id="tih-H2-STn"/>
+                                <constraint firstAttribute="trailing" secondItem="JYb-xf-Fmo" secondAttribute="trailing" constant="8" id="vrV-Md-F3z"/>
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="grv-Gs-Kj9">
-                            <rect key="frame" x="15" y="55.5" width="384" height="38.5"/>
+                            <rect key="frame" x="15" y="61.5" width="384" height="38.5"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a5E-S7-dLR">
-                            <rect key="frame" x="15" y="104" width="384" height="20.5"/>
+                            <rect key="frame" x="15" y="110" width="384" height="20.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xvz-MM-THU">
                                     <rect key="frame" x="0.0" y="0.0" width="80.5" height="20.5"/>
@@ -75,7 +75,7 @@
                             </constraints>
                         </stackView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1h7-R1-A3M">
-                            <rect key="frame" x="15" y="134.5" width="139" height="31"/>
+                            <rect key="frame" x="15" y="140.5" width="139" height="31"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="filled" title="Search best route"/>
                             <connections>

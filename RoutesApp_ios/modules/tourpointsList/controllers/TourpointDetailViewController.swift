@@ -37,7 +37,7 @@ class TourpointDetailViewController: UIViewController {
         let currentLocale = Locale.current.languageCode
 
         // Containers
-        categoryContainer.layer.cornerRadius = 5
+        categoryContainer.layer.cornerRadius = 8
         let gradient = CAGradientLayer()
         gradient.frame = view.bounds
         gradient.colors = [UIColor.clear.cgColor, UIColor.black.cgColor]
@@ -53,5 +53,11 @@ class TourpointDetailViewController: UIViewController {
     }
 
     @IBAction func goToSearchButton(_ sender: Any) {
+        let tabViewController = SceneDelegate.shared?.window?.rootViewController as? UITabBarController
+        guard let tabController = tabViewController else { return }
+        tabController.selectedIndex = 2
+        guard let navController = tabController.selectedViewController as? UINavigationController else {return}
+        guard let homeController = navController.viewControllers[0] as? HomeViewController else { return }
+        homeController.setDestinationPointFromOtherView(coordinates: tourpoint.destination)
     }
 }
