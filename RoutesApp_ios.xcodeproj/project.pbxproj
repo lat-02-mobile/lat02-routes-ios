@@ -25,6 +25,10 @@
 		8420E0C828C68E89000068F9 /* SearchLocationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8420E0C628C68E89000068F9 /* SearchLocationViewController.xib */; };
 		84246F8C28DB0B65004748DD /* LinesRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84246F8B28DB0B65004748DD /* LinesRoute.swift */; };
 		842F85AB2900396000243943 /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6E6C229002E3C009D5635 /* Env.swift */; };
+		842F85B32900433B00243943 /* TourpointDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842F85B12900433B00243943 /* TourpointDetailViewController.swift */; };
+		842F85B42900433B00243943 /* TourpointDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842F85B12900433B00243943 /* TourpointDetailViewController.swift */; };
+		842F85B52900433B00243943 /* TourpointDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842F85B22900433B00243943 /* TourpointDetailViewController.xib */; };
+		842F85B62900433B00243943 /* TourpointDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842F85B22900433B00243943 /* TourpointDetailViewController.xib */; };
 		843D043F28AAF3F800C4DF25 /* PhoneAuthenticationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 843D044128AAF3F800C4DF25 /* PhoneAuthenticationViewController.xib */; };
 		8441B96728FF720D00730F21 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8441B96628FF720D00730F21 /* GoogleService-Info.plist */; };
 		8441B97128FF754100730F21 /* FavoritesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED701628F4E28B00781376 /* FavoritesListViewModel.swift */; };
@@ -331,6 +335,8 @@
 		8420E0C628C68E89000068F9 /* SearchLocationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchLocationViewController.xib; sourceTree = "<group>"; };
 		84246F8B28DB0B65004748DD /* LinesRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinesRoute.swift; sourceTree = "<group>"; };
 		842F85AF29003AB200243943 /* Prod-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Prod-Info.plist"; sourceTree = SOURCE_ROOT; };
+		842F85B12900433B00243943 /* TourpointDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourpointDetailViewController.swift; sourceTree = "<group>"; };
+		842F85B22900433B00243943 /* TourpointDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TourpointDetailViewController.xib; sourceTree = "<group>"; };
 		843D044028AAF3F800C4DF25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PhoneAuthenticationViewController.xib; sourceTree = "<group>"; };
 		843D044328AAF3FE00C4DF25 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PhoneAuthenticationViewController.strings; sourceTree = "<group>"; };
 		843D044528AAF40E00C4DF25 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/PhoneAuthenticationViewController.strings"; sourceTree = "<group>"; };
@@ -642,6 +648,8 @@
 			children = (
 				844F9A4228E3488C004A95A0 /* TourpointsViewController.swift */,
 				844F9A4328E3488C004A95A0 /* TourpointsViewController.xib */,
+				842F85B12900433B00243943 /* TourpointDetailViewController.swift */,
+				842F85B22900433B00243943 /* TourpointDetailViewController.xib */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -1330,6 +1338,7 @@
 			files = (
 				8441B9DA28FF754100730F21 /* LoginViewController.xib in Resources */,
 				8441B9DB28FF754100730F21 /* LaunchScreen.storyboard in Resources */,
+				842F85B62900433B00243943 /* TourpointDetailViewController.xib in Resources */,
 				8441B9DC28FF754100730F21 /* Assets.xcassets in Resources */,
 				8441B9DD28FF754100730F21 /* CitySplashViewController.xib in Resources */,
 				8441B9DE28FF754100730F21 /* TransportationCategoryTableViewCell.xib in Resources */,
@@ -1369,6 +1378,7 @@
 			files = (
 				C215EF0D28A4C1BC00371DB6 /* LoginViewController.xib in Resources */,
 				C2E976E82898701D009F4B94 /* LaunchScreen.storyboard in Resources */,
+				842F85B52900433B00243943 /* TourpointDetailViewController.xib in Resources */,
 				C2E976E52898701D009F4B94 /* Assets.xcassets in Resources */,
 				84067C6628B3D0A700549300 /* CitySplashViewController.xib in Resources */,
 				C278973128E3B48100FF2796 /* TransportationCategoryTableViewCell.xib in Resources */,
@@ -1644,6 +1654,7 @@
 				8441B97D28FF754100730F21 /* ViewController.swift in Sources */,
 				8441B97E28FF754100730F21 /* CityPickerViewModel.swift in Sources */,
 				8441B97F28FF754100730F21 /* SearchLocationViewController.swift in Sources */,
+				842F85B42900433B00243943 /* TourpointDetailViewController.swift in Sources */,
 				8441B98028FF754100730F21 /* FirebaseAuthManager.swift in Sources */,
 				8441B98128FF754100730F21 /* CitySplashViewModel.swift in Sources */,
 				8441B98228FF754100730F21 /* UserFirebaseManager.swift in Sources */,
@@ -1749,6 +1760,7 @@
 				C2E976DD2898701C009F4B94 /* ViewController.swift in Sources */,
 				84067C6828B3D3AA00549300 /* CityPickerViewModel.swift in Sources */,
 				8420E0C728C68E89000068F9 /* SearchLocationViewController.swift in Sources */,
+				842F85B32900433B00243943 /* TourpointDetailViewController.swift in Sources */,
 				C2436387289A2CE4003C1A44 /* FirebaseAuthManager.swift in Sources */,
 				84ED6FF128EB600D00781376 /* CitySplashViewModel.swift in Sources */,
 				C24BD6EA28A134C3007FCAB7 /* UserFirebaseManager.swift in Sources */,

@@ -72,4 +72,11 @@ extension TourpointsViewController: UITableViewDelegate, UITableViewDataSource {
         cell.updateCellModel(tourpoint: point, isCurrenLocaleEsp: isCurrentLocaleEsp)
         return cell
     }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let point = viewmodel.getPointAt(index: indexPath.row)
+        let vc = TourpointDetailViewController(tourpoint: point)
+//        present(vc, animated: true)
+        show(vc, sender: nil)
+    }
 }
