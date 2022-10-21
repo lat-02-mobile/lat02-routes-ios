@@ -54,11 +54,10 @@
 // HomeController
 "origin" = "Origin";
 "destination"= "Destination";
-
 "select-origin" = "Select origin";
 "select-destination" = "Select destination";
-
 "done" = "done";
+"pre-selected-destination" = "Pre-selected destination";
 
 // Save favorite dialogs
 "cancel" = "Cancel";
@@ -89,3 +88,7 @@
 "kilometers" = "%@ km";
 "minutes" = "%@ min";
 "you-can-go-just-walk" = "You can reach the destination just walking";
+
+// Tourpoint detail view
+"address" = "Address";
+"search-best-route" = "Search for best route";

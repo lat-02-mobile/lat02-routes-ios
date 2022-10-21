@@ -16,6 +16,7 @@ class StringResources {
     static let selectDestination = "select-destination"
     static let destination = "destination"
     static let done = "done"
+    static let preSelectedDestination = "pre-selected-destination"
 
     static let localizationPermissionAlertTitle = "localization-permission-alert-title"
     static let localizationPermissionAlertMessage = "localization-permission-alert-message"
@@ -28,4 +29,8 @@ class StringResources {
     static let routes = "routes"
     static let route = "route"
     static let youCanGoJustWalk = "you-can-go-just-walk"
+
+    // Tourpoint detail
+    static let address = "address"
+    static let searchBestRoute = "search-best-route"
 }

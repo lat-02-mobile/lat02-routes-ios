@@ -121,4 +121,15 @@ extension FavoritesListViewController: UITableViewDelegate, UITableViewDataSourc
         ]
         return UISwipeActionsConfiguration(actions: actions)
     }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let fav = viewmodel.getFavoriteAt(index: indexPath.row)
+        let tabViewController = SceneDelegate.shared?.window?.rootViewController as? UITabBarController
+        guard let tabController = tabViewController else { return }
+        tabController.selectedIndex = 2
+        guard let navController = tabController.selectedViewController as? UINavigationController else {return}
+        guard let homeController = navController.viewControllers[0] as? HomeViewController else { return }
+        let coordinates = Coordinate(latitude: Double(fav.latitude!)!, longitude: Double(fav.longitude!)!)
+        homeController.setDestinationPointFromOtherView(coordinates: coordinates, comesFrom: .FAVORITES, withName: fav.name!)
+    }
 }
