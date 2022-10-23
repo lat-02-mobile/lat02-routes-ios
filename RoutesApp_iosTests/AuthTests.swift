@@ -82,7 +82,7 @@ class MockUserManager: UserManProtocol {
         getUsersGotCalled = true
         completion(.success([TestResources.testUser]))
     }
-    func registerUser(name: String, email: String, typeLogin: UserTypeLogin, completion: @escaping ((Result<UserManResult, Error>) -> Void)) {
+    func registerUser(name: String, email: String, uid: String, typeLogin: UserTypeLogin, completion: @escaping ((Result<UserManResult, Error>) -> Void)) {
         registerUserGotCalled = true
         completion(.success(TestResources.testUser))
     }

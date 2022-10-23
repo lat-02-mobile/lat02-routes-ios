@@ -10,7 +10,7 @@ import Foundation
 typealias UserManResult = User
 
 protocol UserManProtocol {
-    func registerUser(name: String, email: String, typeLogin: UserTypeLogin, completion: @escaping ((Result<User, Error>) -> Void))
+    func registerUser(name: String, email: String, uid: String, typeLogin: UserTypeLogin, completion: @escaping ((Result<User, Error>) -> Void))
     func getUsers(completion: @escaping(Result<[User], Error>) -> Void)
 }
 
@@ -28,9 +28,8 @@ enum UserTypeLogin: Int {
 class UserFirebaseManager: UserManProtocol {
     let firebaseManager = FirebaseFirestoreManager.shared
     static let shared = UserFirebaseManager()
-    func registerUser(name: String, email: String, typeLogin: UserTypeLogin, completion: @escaping ((Result<User, Error>) -> Void)) {
-        let newUserId = self.firebaseManager.getDocID(forCollection: .Users)
-        let newUser = User(id: newUserId,
+    func registerUser(name: String, email: String, uid: String, typeLogin: UserTypeLogin, completion: @escaping ((Result<User, Error>) -> Void)) {
+        let newUser = User(id: uid,
                            name: name,
                            email: email,
                            phoneNumber: "",

@@ -27,8 +27,8 @@ class SignupViewModel: ViewModel {
             } else {
                 authManager.signupUser(email: email, password: password) { result in
                     switch result {
-                    case .success:
-                        self.createUser(name: name, email: email, password: password)
+                    case .success(let auth):
+                        self.createUser(name: name, email: email, password: password, uid: auth?.user.uid ?? "")
                     case .failure(let error):
                         switch AuthErrorCode(rawValue: error._code) {
                         case .invalidEmail:
@@ -45,8 +45,8 @@ class SignupViewModel: ViewModel {
             }
         }
     }
-    private func createUser(name: String, email: String, password: String) {
-        self.userManager.registerUser(name: name, email: email, typeLogin: .NORMAL) { result in
+    private func createUser(name: String, email: String, password: String, uid: String) {
+        self.userManager.registerUser(name: name, email: email, uid: uid, typeLogin: .NORMAL) { result in
             switch result {
             case .success:
                 self.loginUser(email: email, password: password)
@@ -103,7 +103,8 @@ class SignupViewModel: ViewModel {
                             self.onError?(String.localizeString(localizedString: "error-unknown"))
                             return
                         }
-                        self.createUser(with: UserTypeLogin.GOOGLE, name: authData.user.displayName ?? "N/N", email: authData.user.email ?? "")
+                        self.createUser(with: UserTypeLogin.GOOGLE, name: authData.user.displayName ?? "N/N", email: authData.user.email ?? "",
+                                        uid: authData.user.uid)
                     }
                 }
             case .failure(let error):
@@ -137,8 +138,8 @@ class SignupViewModel: ViewModel {
         }
     }
 
-    private func createUser(with type: UserTypeLogin, name: String, email: String) {
-        self.userManager.registerUser(name: name, email: email, typeLogin: type) { result in
+    private func createUser(with type: UserTypeLogin, name: String, email: String, uid: String) {
+        self.userManager.registerUser(name: name, email: email, uid: uid, typeLogin: type) { result in
             switch result {
             case .success:
                 self.onFinish?()
@@ -167,7 +168,8 @@ class SignupViewModel: ViewModel {
                             self.onError?(String.localizeString(localizedString: "error-unknown"))
                             return
                         }
-                        self.createUser(with: UserTypeLogin.FACEBOOK, name: authData.user.displayName ?? "N/N", email: authData.user.email ?? "")
+                        self.createUser(with: UserTypeLogin.FACEBOOK, name: authData.user.displayName ?? "N/N", email: authData.user.email ?? "",
+                                        uid: authData.user.uid)
                     }
                 }
             case .failure(let error):
