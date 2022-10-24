@@ -161,8 +161,8 @@
 		8441B9F728FF754100730F21 /* PlaceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 844F9A3028C84E63004A95A0 /* PlaceTableViewCell.xib */; };
 		8441B9F828FF754100730F21 /* LinePathTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C27EB66528D3689200A1E742 /* LinePathTableViewCell.xib */; };
 		8441B9F928FF754100730F21 /* RouteListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C278972728E3B48100FF2796 /* RouteListTableViewCell.xib */; };
-		8441BA212900F2A600730F21 /* syncData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441BA202900F2A600730F21 /* syncData.swift */; };
-		8441BA222900F2A600730F21 /* syncData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441BA202900F2A600730F21 /* syncData.swift */; };
+		8441BA212900F2A600730F21 /* SyncData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441BA202900F2A600730F21 /* SyncData.swift */; };
+		8441BA222900F2A600730F21 /* SyncData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441BA202900F2A600730F21 /* SyncData.swift */; };
 		8441BA2D2901943400730F21 /* SyncUnitHistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441BA2C2901943400730F21 /* SyncUnitHistoryModel.swift */; };
 		8441BA2E2901943400730F21 /* SyncUnitHistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441BA2C2901943400730F21 /* SyncUnitHistoryModel.swift */; };
 		8441BA3A29019A2800730F21 /* SyncUnitHistory+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441BA3829019A2800730F21 /* SyncUnitHistory+CoreDataClass.swift */; };
@@ -345,7 +345,7 @@
 		843D044328AAF3FE00C4DF25 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PhoneAuthenticationViewController.strings; sourceTree = "<group>"; };
 		843D044528AAF40E00C4DF25 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/PhoneAuthenticationViewController.strings"; sourceTree = "<group>"; };
 		8441BA0028FF754100730F21 /* RoutesApp_ios Prod.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RoutesApp_ios Prod.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8441BA202900F2A600730F21 /* syncData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = syncData.swift; sourceTree = "<group>"; };
+		8441BA202900F2A600730F21 /* SyncData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncData.swift; sourceTree = "<group>"; };
 		8441BA2C2901943400730F21 /* SyncUnitHistoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncUnitHistoryModel.swift; sourceTree = "<group>"; };
 		8441BA3829019A2800730F21 /* SyncUnitHistory+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SyncUnitHistory+CoreDataClass.swift"; sourceTree = "<group>"; };
 		8441BA3929019A2800730F21 /* SyncUnitHistory+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SyncUnitHistory+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -633,7 +633,7 @@
 		8441BA1F2900F28600730F21 /* syncData */ = {
 			isa = PBXGroup;
 			children = (
-				8441BA202900F2A600730F21 /* syncData.swift */,
+				8441BA202900F2A600730F21 /* SyncData.swift */,
 			);
 			path = syncData;
 			sourceTree = "<group>";
@@ -1739,7 +1739,7 @@
 				8441B9C328FF754100730F21 /* CLLocationCoordinate2DExtension.swift in Sources */,
 				8441B9C428FF754100730F21 /* Lines.swift in Sources */,
 				8441B9C528FF754100730F21 /* LoginViewModel.swift in Sources */,
-				8441BA222900F2A600730F21 /* syncData.swift in Sources */,
+				8441BA222900F2A600730F21 /* SyncData.swift in Sources */,
 				8441B9C628FF754100730F21 /* CityFirebaseManager.swift in Sources */,
 				8441B9C728FF754100730F21 /* LineRouteEntity+CoreDataProperties.swift in Sources */,
 				8441B9C828FF754100730F21 /* TourpointTableViewCell.swift in Sources */,
@@ -1848,7 +1848,7 @@
 				CE93A8A328BD3ECD00296532 /* CLLocationCoordinate2DExtension.swift in Sources */,
 				8498F89F28CF49DD008641D9 /* Lines.swift in Sources */,
 				C2E9772728987F48009F4B94 /* LoginViewModel.swift in Sources */,
-				8441BA212900F2A600730F21 /* syncData.swift in Sources */,
+				8441BA212900F2A600730F21 /* SyncData.swift in Sources */,
 				84067C6A28B3D58500549300 /* CityFirebaseManager.swift in Sources */,
 				84F6E6AD28FF545A009D5635 /* LineRouteEntity+CoreDataProperties.swift in Sources */,
 				844F9A4928E3D560004A95A0 /* TourpointTableViewCell.swift in Sources */,

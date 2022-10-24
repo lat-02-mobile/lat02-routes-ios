@@ -47,7 +47,9 @@ class FirebaseFirestoreManager {
     }
     func getDocuments<T: Decodable>(type: T.Type, forCollection collection: FirebaseCollections, completion: @escaping ( Result<[T], Error>) -> Void  ) {
         db.collection(collection.rawValue).getDocuments { querySnapshot, error in
-            guard error == nil else { return completion(.failure(error!)) }
+            if let err = error {
+                return completion(.failure(err))
+            }
             guard let documents = querySnapshot?.documents else { return completion(.success([])) }
             let finalDocuments = documents.compactMap({try?$0.data(as: type)})
             completion(.success(finalDocuments))
@@ -85,7 +87,9 @@ class FirebaseFirestoreManager {
 
     func getDocumentsWithLimit<T: Decodable>(type: T.Type, forCollection collection: FirebaseCollections, limit: Int, completion: @escaping ( Result<[T], Error>) -> Void  ) {
         db.collection(collection.rawValue).limit(to: limit).getDocuments { querySnapshot, error in
-            guard error == nil else { return completion(.failure(error!)) }
+            if let err = error {
+                return completion(.failure(err))
+            }
             guard let documents = querySnapshot?.documents else { return completion(.success([])) }
             var items = [T]()
             let json = JSONDecoder()
@@ -102,28 +106,34 @@ class FirebaseFirestoreManager {
     func getDocumentsByParameterContains<T: Decodable>(type: T.Type, forCollection collection: FirebaseCollections, field: String, parameter: Any,
                                                        completion: @escaping ( Result<[T], Error>) -> Void  ) {
         db.collection(collection.rawValue).whereField(field, isEqualTo: parameter).getDocuments { querySnapshot, error in
-            guard error == nil else { return completion(.failure(error!)) }
+            if let err = error {
+                return completion(.failure(err))
+            }
             guard let documents = querySnapshot?.documents else { return completion(.success([])) }
             let finalDocuments = documents.compactMap({try?$0.data(as: type)})
             completion(.success(finalDocuments))
         }
     }
-    func getDocumentsByDate<T: Decodable>(type: T.Type, forCollection collection: FirebaseCollections, field: String, date: Date,
-                                          completion: @escaping ( Result<[T], Error>) -> Void  ) {
-            db.collection(collection.rawValue).whereField(field, isGreaterThan: date)
-                                              .getDocuments { querySnapshot, error in
-            guard error == nil else { return completion(.failure(error!)) }
+    func getDocumentsByDateGreaterThanOrEquelTo<T: Decodable>(type: T.Type, forCollection collection: FirebaseCollections, field: String, date: Date,
+                                                              completion: @escaping ( Result<[T], Error>) -> Void  ) {
+            db.collection(collection.rawValue).whereField(field, isGreaterThanOrEqualTo: date).getDocuments { querySnapshot, error in
+            if let err = error {
+                return completion(.failure(err))
+            }
             guard let documents = querySnapshot?.documents else { return completion(.success([])) }
             let finalDocuments = documents.compactMap({try?$0.data(as: type)})
             completion(.success(finalDocuments))
         }
     }
 
-    func getDocumentsByParameterContainsDate<T: Decodable>(type: T.Type, forCollection collection: FirebaseCollections, field: String, fieldDate: String, date: Date, parameter: Any,
-                                                           completion: @escaping ( Result<[T], Error>) -> Void  ) {
-        db.collection(collection.rawValue).whereField(field, isEqualTo: parameter).whereField(fieldDate, isGreaterThan: date)
-                                                                                  .getDocuments { querySnapshot, error in
-            guard error == nil else { return completion(.failure(error!)) }
+    func getDocumentsByParameterContainsDateGreaterThanOrEqualTo<T: Decodable>(type: T.Type, forCollection collection: FirebaseCollections, field: String, fieldDate: String,
+                                                                               date: Date, parameter: Any,
+                                                                               completion: @escaping ( Result<[T], Error>) -> Void  ) {
+            db.collection(collection.rawValue).whereField(field, isEqualTo: parameter).whereField(fieldDate, isGreaterThanOrEqualTo: date)
+                                                                                      .getDocuments { querySnapshot, error in
+            if let err = error {
+                return completion(.failure(err))
+            }
             guard let documents = querySnapshot?.documents else { return completion(.success([])) }
             let finalDocuments = documents.compactMap({try?$0.data(as: type)})
             completion(.success(finalDocuments))
@@ -148,7 +158,9 @@ class FirebaseFirestoreManager {
 
     func getSingleDocumentById<T: Decodable>(type: T.Type, forCollection collection: FirebaseCollections, documentID: String, completion: @escaping ( Result<T, Error>) -> Void  ) {
         db.collection(collection.rawValue).document(documentID).getDocument { querySnapshot, error in
-            guard error == nil else { return completion(.failure(error!)) }
+            if let err = error {
+                return completion(.failure(err))
+            }
             do {
                 guard let snap = querySnapshot, let document = try snap.data(as: type) else { return }
                 completion(.success(document))

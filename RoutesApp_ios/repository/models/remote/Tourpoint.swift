@@ -18,8 +18,8 @@ struct Tourpoint: Codable {
     var name: String
     var tourPointsCategoryRef: DocumentReference?
     var urlImage: String
-    var updateAt: Date
-    var createdAt: Date
+    var updateAt: Timestamp
+    var createdAt: Timestamp
 
     func toEntity(context: NSManagedObjectContext, categories: [TourpointCategoryEntity]) {
         let categoryFirst = categories.first(where: {$0.id == categoryId})
@@ -30,8 +30,8 @@ struct Tourpoint: Codable {
         entity.name = name
         entity.category = category
         entity.urlImage = urlImage
-        entity.createdAt = createdAt
-        entity.updateAt = updateAt
+        entity.createdAt =  createdAt.dateValue()
+        entity.updateAt = updateAt.dateValue()
     }
 
     func toTourpointInfo(categories: [TourpointCategory], isLocationEng: Bool) -> TourpointInfo {

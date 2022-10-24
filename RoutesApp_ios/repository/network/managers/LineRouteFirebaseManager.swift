@@ -9,7 +9,7 @@ import Foundation
 
 protocol LineRouteManagerProtocol {
     func getLineRoute(idLine: String, completion: @escaping(Result<[LineRouteInfo], Error>) -> Void)
-    func getLineRouteByDate(idLine: String, date: Date, completion: @escaping(Result<[LineRouteInfo], Error>) -> Void)
+    func getLineRouteByDateGreaterThanOrEqualTo(idLine: String, date: Date, completion: @escaping(Result<[LineRouteInfo], Error>) -> Void)
     func getLinesRoutesByLineAsync(idLine: String) async throws -> [LineRouteInfo]
 }
 
@@ -28,8 +28,8 @@ class LineRouteFirebaseManager: LineRouteManagerProtocol {
             }
         }
     }
-    func getLineRouteByDate(idLine: String, date: Date, completion: @escaping(Result<[LineRouteInfo], Error>) -> Void) {
-        firebaseManager.getDocumentsByParameterContainsDate(type: LineRouteInfo.self, forCollection: .LineRoute, field: "idLine",
+    func getLineRouteByDateGreaterThanOrEqualTo(idLine: String, date: Date, completion: @escaping(Result<[LineRouteInfo], Error>) -> Void) {
+        firebaseManager.getDocumentsByParameterContainsDateGreaterThanOrEqualTo(type: LineRouteInfo.self, forCollection: .LineRoute, field: "idLine",
                                                             fieldDate: "updateAt", date: date, parameter: idLine) { result in
             switch result {
             case .success(let lines):

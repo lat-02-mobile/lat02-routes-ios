@@ -66,8 +66,8 @@ class LineFirebaseManager: LineManagerProtocol {
             }
         }
     }
-    func getLinesForCurrentCityByDate(date: Date, completion: @escaping(Result<[Lines], Error>) -> Void) {
-        cityManager.getDocumentsFromCityByDate(type: Lines.self, forCollection: .Lines, date: date) { result in
+    func getLinesForCurrentCityByDateGreaterThanOrEqualTo(date: Date, completion: @escaping(Result<[Lines], Error>) -> Void) {
+        cityManager.getDocumentsFromCityByDateGreaterThanOrEqualTo(type: Lines.self, forCollection: .Lines, date: date) { result in
             switch result {
             case .success(let lines):
                 let enabledLines = lines.filter { line in

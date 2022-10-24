@@ -33,7 +33,7 @@ class TourpointsManager: TourpointsManagerProtocol {
         firebaseManager.getDocuments(type: TourpointCategory.self, forCollection: .TourpointsCategory, completion: completion)
     }
     func getTourpointCategoriesByDate(date: Date, completion: @escaping (Result<[TourpointCategory], Error>) -> Void) {
-        firebaseManager.getDocumentsByDate(type: TourpointCategory.self, forCollection: .TourpointsCategory, field: "updateAt",
+        firebaseManager.getDocumentsByDateGreaterThanOrEquelTo(type: TourpointCategory.self, forCollection: .TourpointsCategory, field: "updateAt",
                                            date: date, completion: completion)
     }
 

@@ -39,7 +39,7 @@ class LineCategoryFirebaseManager: LineCategoryManagerProtocol {
     func getCategoriesByDate(date: Date, completion: @escaping (Result<[LinesCategory], Error>) -> Void) {
         let components = Calendar.current.dateComponents([.year, .month, .day], from: date)
         let dateCalender = Calendar.current.date(from: components) ?? Date()
-        firebaseManager.getDocumentsByDate(type: LinesCategory.self, forCollection: .LineCategories, field: "updateAt",
+        firebaseManager.getDocumentsByDateGreaterThanOrEquelTo(type: LinesCategory.self, forCollection: .LineCategories, field: "updateAt",
                                            date: dateCalender) { result in
             switch result {
             case .success(let lines):
