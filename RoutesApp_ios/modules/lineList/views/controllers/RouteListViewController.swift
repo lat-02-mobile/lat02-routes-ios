@@ -8,7 +8,6 @@ class RouteListViewController: UIViewController {
     @IBOutlet weak var lineListTableView: UITableView!
     var routeListViewModel = RouteListViewModel()
     let lineRouteViewController = LineRouteViewController()
-    let syncData = SyncData()
     private let currentLocale = Locale.current.languageCode
     private var isCurrentLocaleEsp = false
 
@@ -17,7 +16,6 @@ class RouteListViewController: UIViewController {
         setupNavigationBar()
         setIcon()
         initViewModel()
-        updateLocalDataInfo()
         lineListTableView.register(UINib.init(nibName: ConstantVariables.routeListCell,
         bundle: nil), forCellReuseIdentifier: ConstantVariables.routeListCell)
         routeListViewModel.reloadData = lineListTableView.reloadData
@@ -40,13 +38,6 @@ class RouteListViewController: UIViewController {
         }
         routeListViewModel.getLines()
     }
-    func updateLocalDataInfo(){
-        guard let citySelected = ConstantVariables.defaults.string(forKey: ConstantVariables.defCitySelected) else {return}
-        if  !citySelected.isEmpty {
-            syncData.syncData()
-        }
-    }
-
     func showLineRoutes(line: LineEntity) {
         let lineRouteList = line.routes
         if lineRouteList.count > 1 {

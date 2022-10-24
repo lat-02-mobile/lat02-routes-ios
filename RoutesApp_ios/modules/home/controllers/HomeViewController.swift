@@ -24,6 +24,7 @@ class HomeViewController: UIViewController {
 
     private var destinationFromDifferentController = false
     private var destinationAux: CLLocationCoordinate2D?
+    private let syncData = SyncData()
 
     @IBOutlet weak var labelHelper: UILabel!
     @IBOutlet var mapView: GMSMapView!
@@ -39,6 +40,7 @@ class HomeViewController: UIViewController {
             verifyCitySelectedApp()
         }
         initViewModel()
+        updateLocalDataInfo()
         setupViews()
         initializeTheLocationManager()
         setupMap()
@@ -63,6 +65,12 @@ class HomeViewController: UIViewController {
                 strongSelf.labelHelper.text = String.localizeString(localizedString: StringResources.routes)
                 strongSelf.showPossibleRoutesBottomSheet()
             }
+        }
+    }
+    func updateLocalDataInfo() {
+        guard let citySelected = ConstantVariables.defaults.string(forKey: ConstantVariables.defCitySelected) else {return}
+        if  !citySelected.isEmpty {
+            syncData.syncData()
         }
     }
 
