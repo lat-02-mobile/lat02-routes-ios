@@ -38,6 +38,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func isFirstLaunch() {
         let defaults = UserDefaults.standard
         if UIApplication.isFirstTimeOpening() {
+            FirebaseAuthManager.shared.logout()
+            UserDefaults.resetStandardUserDefaults()
             defaults.set(true, forKey: ConstantVariables.deflaunchApp)
         } else {
             defaults.set(false, forKey: ConstantVariables.deflaunchApp)

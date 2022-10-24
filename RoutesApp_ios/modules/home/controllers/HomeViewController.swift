@@ -78,12 +78,12 @@ class HomeViewController: UIViewController {
     }
 
     func verifyCitySelectedApp() {
-        guard let citySelected = ConstantVariables.defaults.string(forKey: ConstantVariables.defCitySelected) else { return }
-        guard citySelected.isEmpty else { return }
-
-        let vc = CityPickerViewController()
-        vc.isSettingsController = false
-        show(vc, sender: nil)
+        let citySelected = ConstantVariables.defaults.string(forKey: ConstantVariables.defCitySelected)
+        if citySelected == nil {
+            let vc = CityPickerViewController()
+            vc.isSettingsController = false
+            show(vc, sender: nil)
+        }
     }
 
     func setupViews() {
