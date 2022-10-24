@@ -126,10 +126,12 @@ extension FavoritesListViewController: UITableViewDelegate, UITableViewDataSourc
         let fav = viewmodel.getFavoriteAt(index: indexPath.row)
         let tabViewController = SceneDelegate.shared?.window?.rootViewController as? UITabBarController
         guard let tabController = tabViewController else { return }
-        tabController.selectedIndex = 2
+        tabController.selectedIndex = ConstantVariables.HomePageIndex
         guard let navController = tabController.selectedViewController as? UINavigationController else {return}
         guard let homeController = navController.viewControllers[0] as? HomeViewController else { return }
-        let coordinates = Coordinate(latitude: Double(fav.latitude!)!, longitude: Double(fav.longitude!)!)
+        guard let lat = fav.latitude, let latitude = Double(lat) else { return }
+        guard let lon = fav.longitude, let longitude = Double(lon) else { return }
+        let coordinates = Coordinate(latitude: latitude, longitude: longitude)
         homeController.setDestinationPointFromOtherView(coordinates: coordinates, comesFrom: .FAVORITES, withName: fav.name!)
     }
 }

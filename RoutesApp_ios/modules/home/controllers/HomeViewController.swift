@@ -207,9 +207,9 @@ class HomeViewController: UIViewController {
         guard let tabController = tabViewController else { return }
         switch destinationFromDifferentController {
         case .TOURPOINTS:
-            tabController.selectedIndex = 1
+            tabController.selectedIndex = ConstantVariables.TourpointPageIndex
         case .FAVORITES:
-            tabController.selectedIndex = 3
+            tabController.selectedIndex = ConstantVariables.FavoritesPageIndex
         case .NONE:
             return
         }
