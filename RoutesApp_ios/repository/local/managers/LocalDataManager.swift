@@ -12,7 +12,7 @@ import Kingfisher
 protocol LocalDataManagerProtocol {
     func retrieveAllDataFromFirebase(completion: @escaping(Result<Void, Error>) -> Void)
     func getDataFromCoreData<T: NSManagedObject>(type: T.Type, forEntity: String, completion: @escaping(Result<[T], Error>) -> Void)
-    func updateDataValueForSync(entity: String, key: String, keyValue: String, keyUpdate: String)
+    func updateDataValueForSync(entity: String, key: String, keyValue: String, keyUpdate: String, completion: @escaping(Result<Void, Error>) -> Void)
     func deleteEntityObjectByKeyValue<T: NSManagedObject>( type: T.Type, key: String, value: String) -> Bool
 }
 
@@ -28,8 +28,9 @@ class LocalDataManager: LocalDataManagerProtocol {
     func getDataFromCoreData<T: NSManagedObject>(type: T.Type, forEntity entity: String, completion: @escaping(Result<[T], Error>) -> Void) {
         coreDataManager.getData(type: type, entity: entity, completion: completion)
     }
-    func updateDataValueForSync(entity: String, key: String, keyValue: String, keyUpdate: String) {
-        coreDataManager.updateDataValue(entity: entity, key: key, keyValue: keyValue, keyUpdate: keyUpdate, keyUpdateValue: Date())
+    func updateDataValueForSync(entity: String, key: String, keyValue: String, keyUpdate: String, completion: @escaping(Result<Void, Error>) -> Void) {
+        coreDataManager.updateDataValue(entity: entity, key: key, keyValue: keyValue, keyUpdate: keyUpdate,
+                                        keyUpdateValue: Date(), completion: completion)
     }
     func deleteEntityObjectByKeyValue<T: NSManagedObject>(type: T.Type, key: String, value: String) -> Bool {
         return coreDataManager.deleteEntityObjectByKeyValue(entityName: type, key: key, value: value)

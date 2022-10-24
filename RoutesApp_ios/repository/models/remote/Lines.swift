@@ -36,8 +36,8 @@ struct Lines: Codable {
         entity.idCategory = idCategory
         entity.name = name
         entity.category = categoryFirst ?? LineCategoryEntity()
-        entity.createAt = Date()
-        entity.updateAt = Date()
+        entity.createAt = createAt.dateValue()
+        entity.updateAt = updateAt.dateValue()
         return entity
     }
 }

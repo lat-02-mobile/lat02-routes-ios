@@ -41,7 +41,7 @@ open class CoreDataManager {
     func getContext() -> NSManagedObjectContext {
         return persistentContainer.viewContext
     }
-    func updateDataValue(entity: String, key: String, keyValue: String, keyUpdate: String, keyUpdateValue: Any) {
+    func updateDataValue(entity: String, key: String, keyValue: String, keyUpdate: String, keyUpdateValue: Any, completion: @escaping(Result<Void, Error>) -> Void) {
         let managedContext = persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: entity, in: managedContext)
                let request = NSFetchRequest<NSFetchRequestResult>()
@@ -54,11 +54,11 @@ open class CoreDataManager {
                    objectUpdate.setValue(keyUpdateValue, forKey: keyUpdate)
                    do {
                        try managedContext.save()
-                   } catch {
-                    print("error")
+                   } catch let error {
+                       completion(.failure(error))
                    }
-               } catch {
-                   print("error")
+               } catch let error {
+                   completion(.failure(error))
                }
     }
 

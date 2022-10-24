@@ -26,8 +26,8 @@ struct LinesCategory: Codable {
         entity.nameEsp = nameEsp
         entity.blackIcon = blackIcon
         entity.whiteIcon = whiteIcon
-        entity.createdAt = Date()
-        entity.updateAt = Date()
+        entity.createdAt = createAt.dateValue()
+        entity.updateAt = updateAt.dateValue()
         return entity
     }
 }

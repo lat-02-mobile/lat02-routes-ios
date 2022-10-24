@@ -124,7 +124,7 @@ class SyncData {
     }
     func updateDataValueForSync() {
         if update {
-            self.localDataManager.updateDataValueForSync(entity: "SyncUnitHistory", key: "id", keyValue: "0", keyUpdate: "lastUpdated")
+            self.localDataManager.updateDataValueForSync(entity: "SyncUnitHistory", key: "id", keyValue: "0", keyUpdate: "lastUpdated"){result in}
         }
     }
 }
