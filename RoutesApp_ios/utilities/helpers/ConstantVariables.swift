@@ -102,4 +102,10 @@ class ConstantVariables {
         return String.localizedStringWithFormat(NSLocalizedString(localizedString.rawValue, comment: ""), value)
     }
 
+    // app tab indexes
+    static let LinesPageIndex = 0
+    static let TourpointPageIndex = 1
+    static let HomePageIndex = 2
+    static let FavoritesPageIndex = 3
+    static let ConfigurationPageIndex = 4
 }

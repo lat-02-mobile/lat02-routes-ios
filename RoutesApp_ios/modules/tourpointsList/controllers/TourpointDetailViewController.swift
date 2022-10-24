@@ -15,6 +15,8 @@ class TourpointDetailViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var addressTitle: UILabel!
+    @IBOutlet weak var searchButton: UIButton!
 
     var tourpoint: TourpointEntity
 
@@ -37,6 +39,8 @@ class TourpointDetailViewController: UIViewController {
         let currentLocale = Locale.current.languageCode
 
         // Containers
+        addressTitle.text = String.localizeString(localizedString: StringResources.address)
+        searchButton.setTitle(String.localizeString(localizedString: StringResources.searchBestRoute), for: .normal)
         categoryContainer.layer.cornerRadius = 8
         let gradient = CAGradientLayer()
         gradient.frame = view.bounds
@@ -55,9 +59,10 @@ class TourpointDetailViewController: UIViewController {
     @IBAction func goToSearchButton(_ sender: Any) {
         let tabViewController = SceneDelegate.shared?.window?.rootViewController as? UITabBarController
         guard let tabController = tabViewController else { return }
-        tabController.selectedIndex = 2
+        tabController.selectedIndex = ConstantVariables.HomePageIndex
         guard let navController = tabController.selectedViewController as? UINavigationController else {return}
         guard let homeController = navController.viewControllers[0] as? HomeViewController else { return }
-        homeController.setDestinationPointFromOtherView(coordinates: tourpoint.destination)
+        homeController.setDestinationPointFromOtherView(coordinates: tourpoint.destination, comesFrom: .TOURPOINTS, withName: tourpoint.name)
+        dismiss(animated: true)
     }
 }
