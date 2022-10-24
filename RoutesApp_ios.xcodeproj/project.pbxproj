@@ -24,7 +24,6 @@
 		8420E0C728C68E89000068F9 /* SearchLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8420E0C528C68E89000068F9 /* SearchLocationViewController.swift */; };
 		8420E0C828C68E89000068F9 /* SearchLocationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8420E0C628C68E89000068F9 /* SearchLocationViewController.xib */; };
 		84246F8C28DB0B65004748DD /* LinesRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84246F8B28DB0B65004748DD /* LinesRoute.swift */; };
-		842F85AB2900396000243943 /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6E6C229002E3C009D5635 /* Env.swift */; };
 		842F85B32900433B00243943 /* TourpointDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842F85B12900433B00243943 /* TourpointDetailViewController.swift */; };
 		842F85B42900433B00243943 /* TourpointDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842F85B12900433B00243943 /* TourpointDetailViewController.swift */; };
 		842F85B52900433B00243943 /* TourpointDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842F85B22900433B00243943 /* TourpointDetailViewController.xib */; };
@@ -162,10 +161,6 @@
 		8441B9F728FF754100730F21 /* PlaceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 844F9A3028C84E63004A95A0 /* PlaceTableViewCell.xib */; };
 		8441B9F828FF754100730F21 /* LinePathTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C27EB66528D3689200A1E742 /* LinePathTableViewCell.xib */; };
 		8441B9F928FF754100730F21 /* RouteListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C278972728E3B48100FF2796 /* RouteListTableViewCell.xib */; };
-		8441BA192900477400730F21 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8441BA182900477400730F21 /* GoogleService-Info.plist */; };
-		8441BA1B2900478400730F21 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8441BA1A2900478400730F21 /* GoogleService-Info.plist */; };
-		8441BA1D2900478F00730F21 /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441BA1C2900478E00730F21 /* Env.swift */; };
-		8441BA1E2900478F00730F21 /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441BA1C2900478E00730F21 /* Env.swift */; };
 		8441BA212900F2A600730F21 /* syncData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441BA202900F2A600730F21 /* syncData.swift */; };
 		8441BA222900F2A600730F21 /* syncData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441BA202900F2A600730F21 /* syncData.swift */; };
 		8441BA2D2901943400730F21 /* SyncUnitHistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441BA2C2901943400730F21 /* SyncUnitHistoryModel.swift */; };
@@ -350,9 +345,6 @@
 		843D044328AAF3FE00C4DF25 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PhoneAuthenticationViewController.strings; sourceTree = "<group>"; };
 		843D044528AAF40E00C4DF25 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/PhoneAuthenticationViewController.strings"; sourceTree = "<group>"; };
 		8441BA0028FF754100730F21 /* RoutesApp_ios Prod.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RoutesApp_ios Prod.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8441BA182900477400730F21 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		8441BA1A2900478400730F21 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/Prod/GoogleService-Info.plist"; sourceTree = "<group>"; };
-		8441BA1C2900478E00730F21 /* Env.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Env.swift; sourceTree = "<group>"; };
 		8441BA202900F2A600730F21 /* syncData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = syncData.swift; sourceTree = "<group>"; };
 		8441BA2C2901943400730F21 /* SyncUnitHistoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncUnitHistoryModel.swift; sourceTree = "<group>"; };
 		8441BA3829019A2800730F21 /* SyncUnitHistory+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SyncUnitHistory+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -965,10 +957,7 @@
 				C2E9770D28987CF7009F4B94 /* repository */,
 				C2E9770E28987CFE009F4B94 /* modules */,
 				C2E976D82898701C009F4B94 /* AppDelegate.swift */,
-				8441BA1C2900478E00730F21 /* Env.swift */,
-				8441BA1A2900478400730F21 /* GoogleService-Info.plist */,
 				C2E976DA2898701C009F4B94 /* SceneDelegate.swift */,
-				8441BA182900477400730F21 /* GoogleService-Info.plist */,
 				C2E976DC2898701C009F4B94 /* ViewController.swift */,
 				C2E976DE2898701C009F4B94 /* Main.storyboard */,
 				842F85AF29003AB200243943 /* Prod-Info.plist */,
@@ -1387,7 +1376,6 @@
 				8441B9F028FF754100730F21 /* SignupViewController.xib in Resources */,
 				8441B9F128FF754100730F21 /* PossibleRouteTableViewCell.xib in Resources */,
 				8441B9F228FF754100730F21 /* SettingsViewController.xib in Resources */,
-				8441BA1B2900478400730F21 /* GoogleService-Info.plist in Resources */,
 				8441B9F428FF754100730F21 /* silver-style.json in Resources */,
 				8441B9F528FF754100730F21 /* TourpointTableViewCell.xib in Resources */,
 				8441B9F628FF754100730F21 /* RouteListViewController.xib in Resources */,
@@ -1427,7 +1415,6 @@
 				C2BB145228A150A70083CA1E /* SignupViewController.xib in Resources */,
 				CE7FBAD528D36B5E001175D3 /* PossibleRouteTableViewCell.xib in Resources */,
 				84067C4C28B3B5BD00549300 /* SettingsViewController.xib in Resources */,
-				8441BA192900477400730F21 /* GoogleService-Info.plist in Resources */,
 				CE0F8D3528AD357F00F2C753 /* silver-style.json in Resources */,
 				844F9A4A28E3D560004A95A0 /* TourpointTableViewCell.xib in Resources */,
 				C278973328E3B48100FF2796 /* RouteListViewController.xib in Resources */,
@@ -1707,7 +1694,6 @@
 				8441B99728FF754100730F21 /* TourpointsManager.swift in Sources */,
 				8441B99828FF754100730F21 /* LineEntity+CoreDataClass.swift in Sources */,
 				8441B99928FF754100730F21 /* Tourpoint.swift in Sources */,
-				8441BA1E2900478F00730F21 /* Env.swift in Sources */,
 				8441B99B28FF754100730F21 /* LineRouteViewController.swift in Sources */,
 				8441B99C28FF754100730F21 /* LineRouteFirebaseManager.swift in Sources */,
 				8441B99D28FF754100730F21 /* User.swift in Sources */,
@@ -1817,7 +1803,6 @@
 				844F9A4E28E49594004A95A0 /* TourpointsManager.swift in Sources */,
 				84F6E6B328FF545A009D5635 /* LineEntity+CoreDataClass.swift in Sources */,
 				844F9A4C28E47B14004A95A0 /* Tourpoint.swift in Sources */,
-				8441BA1D2900478F00730F21 /* Env.swift in Sources */,
 				C278975228E3B8D900FF2796 /* LineRouteViewController.swift in Sources */,
 				CE19B2FD28DCF2F500840426 /* LineRouteFirebaseManager.swift in Sources */,
 				C2E9772B28987F79009F4B94 /* User.swift in Sources */,
