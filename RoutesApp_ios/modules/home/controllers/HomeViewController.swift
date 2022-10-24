@@ -22,6 +22,9 @@ class HomeViewController: UIViewController {
     var homeSelectionStatus = HomeSelectionStatus.SELECTING_POINTS
     var availableTransports = [AvailableTransport]()
 
+    private var destinationFromDifferentController = false
+    private var destinationAux: CLLocationCoordinate2D?
+
     @IBOutlet weak var labelHelper: UILabel!
     @IBOutlet var mapView: GMSMapView!
     @IBOutlet var currentLocationButton: UIButton!
@@ -75,12 +78,12 @@ class HomeViewController: UIViewController {
     }
 
     func verifyCitySelectedApp() {
-        guard let citySelected = ConstantVariables.defaults.string(forKey: ConstantVariables.defCitySelected) else { return }
-        guard citySelected.isEmpty else { return }
-
-        let vc = CityPickerViewController()
-        vc.isSettingsController = false
-        show(vc, sender: nil)
+        let citySelected = ConstantVariables.defaults.string(forKey: ConstantVariables.defCitySelected)
+        if citySelected == nil {
+            let vc = CityPickerViewController()
+            vc.isSettingsController = false
+            show(vc, sender: nil)
+        }
     }
 
     func setupViews() {
@@ -112,6 +115,14 @@ class HomeViewController: UIViewController {
                 self.cameraMoveToLocation(toLocation: position)
             }
         }
+    }
+
+    func setDestinationPointFromOtherView(coordinates: Coordinate) {
+        destinationFromDifferentController = true
+        let position = coordinates.toCLLocationCoordinate2D()
+        cameraMoveToLocation(toLocation: position)
+        destinationAux = position
+        continueButtonAction(self)
     }
 
     @IBAction func currentLocationAction(_ sender: Any) {
@@ -147,20 +158,24 @@ class HomeViewController: UIViewController {
         case .SELECTING_POINTS:
             switch viewmodel.pointsSelectionStatus {
             case.pendingOrigin:
-                return
+                if destinationFromDifferentController {
+                    backButton.isHidden = true
+                    destinationFromDifferentController = false
+                    destinationAux = nil
+                    removeMarkerResetStatusAndLabel(isForOrigin: false, status: .pendingOrigin, label: StringResources.selectOrigin)
+                    let tabViewController = SceneDelegate.shared?.window?.rootViewController as? UITabBarController
+                    guard let tabController = tabViewController else { return }
+                    tabController.selectedIndex = 1
+                }
             case.pendingDestination:
-                labelHelper.text = String.localizeString(localizedString: StringResources.selectOrigin)
-                viewmodel.pointsSelectionStatus = .pendingOrigin
-                viewmodel.origin?.map = mapView
-                viewmodel.origin?.map = nil
-                viewmodel.origin = nil
-                backButton.isHidden = true
+                if !destinationFromDifferentController {
+                    removeMarkerResetStatusAndLabel(isForOrigin: true, status: .pendingOrigin, label: StringResources.selectOrigin)
+                    backButton.isHidden = true
+                }
             case.bothSelected:
-                labelHelper.text = String.localizeString(localizedString: StringResources.selectDestination)
-                viewmodel.pointsSelectionStatus = .pendingDestination
-                viewmodel.destination?.map = mapView
-                viewmodel.destination?.map = nil
-                viewmodel.destination = nil
+                destinationFromDifferentController ?
+                removeMarkerResetStatusAndLabel(isForOrigin: true, status: .pendingOrigin, label: StringResources.selectOrigin) :
+                removeMarkerResetStatusAndLabel(isForOrigin: false, status: .pendingDestination, label: StringResources.selectDestination)
                 viewmodel.selectedAvailableTransport = nil
             }
         case .SHOWING_POSSIBLE_ROUTES:
@@ -177,47 +192,70 @@ class HomeViewController: UIViewController {
         }
     }
 
-    @IBAction func continueButtonAction(_ sender: Any) {
-        let position = mapView.camera.target
-        let pos = GMSMarker(position: position)
+    private func removeMarkerResetStatusAndLabel(isForOrigin: Bool, status: PointsSelectionStatus, label: String) {
+        labelHelper.text = String.localizeString(localizedString: label)
+        viewmodel.pointsSelectionStatus = status
+        if isForOrigin {
+            viewmodel.origin?.map = mapView
+            viewmodel.origin?.map = nil
+            viewmodel.origin = nil
+        } else {
+            viewmodel.destination?.map = mapView
+            viewmodel.destination?.map = nil
+            viewmodel.destination = nil
+        }
+    }
 
+    @IBAction func continueButtonAction(_ sender: Any) {
+        let position: CLLocationCoordinate2D
+        if destinationFromDifferentController && viewmodel.destination == nil {
+            guard let destinationAux = destinationAux else { return }
+            position = destinationAux
+            viewmodel.pointsSelectionStatus = .pendingDestination
+        } else {
+            position = mapView.camera.target
+        }
+        let pos = GMSMarker(position: position)
         switch viewmodel.pointsSelectionStatus {
         case.pendingOrigin:
             pos.title = String.localizeString(localizedString: StringResources.origin)
-            labelHelper.text = String.localizeString(localizedString: StringResources.selectDestination)
             pos.icon = UIImage(named: ConstantVariables.originPoint)
             pos.map = mapView
             viewmodel.origin = pos
-            viewmodel.pointsSelectionStatus = .pendingDestination
+            destinationFromDifferentController ?
+            setHelperLabelAndStatus(label: StringResources.done, status: .bothSelected) :
+            setHelperLabelAndStatus(label: StringResources.selectDestination, status: .pendingDestination)
 
         case.pendingDestination:
             pos.title = String.localizeString(localizedString: StringResources.destination)
-            labelHelper.text = String.localizeString(localizedString: StringResources.done)
             pos.icon = UIImage(named: ConstantVariables.destinationPoint)
             pos.map = mapView
             viewmodel.destination = pos
-            viewmodel.pointsSelectionStatus = .bothSelected
+            destinationFromDifferentController ?
+            setHelperLabelAndStatus(label: StringResources.selectOrigin, status: .pendingOrigin) :
+            setHelperLabelAndStatus(label: StringResources.done, status: .bothSelected)
 
         case.bothSelected:
-            SVProgressHUD.show()
             continueButton.isHidden = true
             currentLocationButton.isHidden = true
             Toast.showToast(target: self, message: String.localizeString(localizedString: StringResources.loadingPossibleRoutes))
-            if let origin = viewmodel.origin, let destination = viewmodel.destination {
-                let distanceBetweenCoords = GoogleMapsHelper.shared.getDistanceBetween2Points(
-                    origin: Coordinate(latitude: origin.position.latitude,
-                                       longitude: origin.position.longitude),
-                    destination: Coordinate(latitude: destination.position.latitude,
-                                            longitude: destination.position.longitude))
-                if distanceBetweenCoords <= 500.0 {
-                    Toast.showToast(target: self, message: String.localizeString(localizedString: StringResources.youCanGoJustWalk))
-                    SVProgressHUD.dismiss()
-                } else {
-                    viewmodel.getLineRouteForCurrentCity()
-                }
+            guard let origin = viewmodel.origin, let destination = viewmodel.destination else { return }
+            let distanceBetweenCoords = GoogleMapsHelper.shared.getDistanceBetween2Points(
+                    origin: Coordinate(latitude: origin.position.latitude, longitude: origin.position.longitude),
+                    destination: Coordinate(latitude: destination.position.latitude, longitude: destination.position.longitude))
+            if distanceBetweenCoords <= 500.0 {
+                Toast.showToast(target: self, message: String.localizeString(localizedString: StringResources.youCanGoJustWalk))
+            } else {
+                SVProgressHUD.show()
+                viewmodel.getLineRouteForCurrentCity()
             }
         }
         backButton.isHidden = false
+    }
+
+    private func setHelperLabelAndStatus(label: String, status: PointsSelectionStatus) {
+        labelHelper.text = String.localizeString(localizedString: label)
+        viewmodel.pointsSelectionStatus = status
     }
 
     func initializeTheLocationManager() {
@@ -240,9 +278,8 @@ class HomeViewController: UIViewController {
     }
 
     func cameraMoveToLocation(toLocation: CLLocationCoordinate2D?) {
-        if toLocation != nil {
-            mapView.animate(to: GMSCameraPosition.camera(withTarget: toLocation!, zoom: zoom))
-        }
+        guard let location = toLocation else { return }
+        mapView.animate(to: GMSCameraPosition.camera(withTarget: location, zoom: zoom))
     }
 
     private func showRequestPermissionsAlert() {

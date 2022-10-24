@@ -38,6 +38,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func isFirstLaunch() {
         let defaults = UserDefaults.standard
         if UIApplication.isFirstTimeOpening() {
+            FirebaseAuthManager.shared.logout()
+            UserDefaults.resetStandardUserDefaults()
             defaults.set(true, forKey: ConstantVariables.deflaunchApp)
         } else {
             defaults.set(false, forKey: ConstantVariables.deflaunchApp)
@@ -67,17 +69,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         tabBarVC.tabBar.backgroundColor = .white
         // Add VCs to TabBarVC
         tabBarVC.viewControllers = [
-            createNavController(for: RouteListViewController(), title: String.localizeString(localizedString: "home"),
+            createNavController(for: RouteListViewController(), title: String.localizeString(localizedString: "Lines"),
                 image: UIImage(systemName: "bus.fill")!),
             createNavController(for: TourpointsViewController(), title: String.localizeString(localizedString: "tourpoints"),
                 image: UIImage(systemName: "mappin.and.ellipse")!),
-            createNavController(for: HomeViewController(), title: String.localizeString(localizedString: "map"),
+            createNavController(for: HomeViewController(), title: String.localizeString(localizedString: "home"),
                 image: UIImage(systemName: "map.fill")!),
             createNavController(for: FavoritesListViewController(), title: String.localizeString(localizedString: "favorites"),
                 image: UIImage(systemName: "suit.heart")!),
             createNavController(for: SettingsViewController(), title: String.localizeString(localizedString: "settings"),
                 image: UIImage(systemName: "gearshape.fill")!)
         ]
+        tabBarVC.selectedIndex = 2
         return tabBarVC
     }
 

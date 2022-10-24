@@ -63,7 +63,8 @@ class LoginViewModel {
                             self.onError?(String.localizeString(localizedString: "error-unknown"))
                             return
                         }
-                        self.createUser(with: UserTypeLogin.GOOGLE, name: authData.user.displayName ?? "N/N", email: authData.user.email ?? "")
+                        self.createUser(with: UserTypeLogin.GOOGLE, name: authData.user.displayName ?? "N/N", email: authData.user.email ?? "",
+                                        uid: authData.user.uid)
                     }
                 }
             case .failure(let error):
@@ -97,8 +98,8 @@ class LoginViewModel {
         }
     }
 
-    private func createUser(with type: UserTypeLogin, name: String, email: String) {
-        self.userManager.registerUser(name: name, email: email, typeLogin: type) { result in
+    private func createUser(with type: UserTypeLogin, name: String, email: String, uid: String) {
+        self.userManager.registerUser(name: name, email: email, uid: uid, typeLogin: type) { result in
             switch result {
             case .success:
                 self.getUserByEmail(for: email) { userId in
@@ -158,7 +159,8 @@ class LoginViewModel {
                             self.onError?(String.localizeString(localizedString: "error-unknown"))
                             return
                         }
-                        self.createUser(with: UserTypeLogin.FACEBOOK, name: authData.user.displayName ?? "N/N", email: authData.user.email ?? "")
+                        self.createUser(with: UserTypeLogin.FACEBOOK, name: authData.user.displayName ?? "N/N", email: authData.user.email ?? "",
+                                        uid: authData.user.uid)
                     }
                 }
             case .failure(let error):

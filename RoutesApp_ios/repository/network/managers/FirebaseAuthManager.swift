@@ -108,6 +108,8 @@ class FirebaseAuthManager: AuthProtocol {
             }
         }
     }
+
+    @discardableResult
     func logout() -> Bool {
         do {
             try Auth.auth().signOut()
