@@ -10,6 +10,7 @@ import Foundation
 protocol TourpointsManagerProtocol {
     func getTourpointList(completion: @escaping (Result<[Tourpoint], Error>) -> Void)
     func getTourpointCategories(completion: @escaping (Result<[TourpointCategory], Error>) -> Void)
+    func getTourpointCategoriesByDate(date: Date, completion: @escaping (Result<[TourpointCategory], Error>) -> Void)
 }
 
 class TourpointsManager: TourpointsManagerProtocol {
@@ -30,6 +31,10 @@ class TourpointsManager: TourpointsManagerProtocol {
 
     func getTourpointCategories(completion: @escaping (Result<[TourpointCategory], Error>) -> Void) {
         firebaseManager.getDocuments(type: TourpointCategory.self, forCollection: .TourpointsCategory, completion: completion)
+    }
+    func getTourpointCategoriesByDate(date: Date, completion: @escaping (Result<[TourpointCategory], Error>) -> Void) {
+        firebaseManager.getDocumentsByDate(type: TourpointCategory.self, forCollection: .TourpointsCategory, field: "updateAt",
+                                           date: date, completion: completion)
     }
 
 }

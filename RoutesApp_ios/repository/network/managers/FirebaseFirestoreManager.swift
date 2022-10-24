@@ -60,7 +60,6 @@ class FirebaseFirestoreManager {
             completion(.success(items))
         }
     }
-
     func getDocumentsAsync<T: Decodable>(type: T.Type, forCollection collection: FirebaseCollections) async throws -> [T] {
         do {
             let querySnapshot = try await db.collection(collection.rawValue).getDocuments()
@@ -109,6 +108,27 @@ class FirebaseFirestoreManager {
     func getDocumentsByParameterContains<T: Decodable>(type: T.Type, forCollection collection: FirebaseCollections, field: String, parameter: Any,
                                                        completion: @escaping ( Result<[T], Error>) -> Void  ) {
         db.collection(collection.rawValue).whereField(field, isEqualTo: parameter).getDocuments { querySnapshot, error in
+            guard error == nil else { return completion(.failure(error!)) }
+            guard let documents = querySnapshot?.documents else { return completion(.success([])) }
+            let finalDocuments = documents.compactMap({try?$0.data(as: type)})
+            completion(.success(finalDocuments))
+        }
+    }
+    func getDocumentsByDate<T: Decodable>(type: T.Type, forCollection collection: FirebaseCollections, field: String, date: Date,
+                                          completion: @escaping ( Result<[T], Error>) -> Void  ) {
+            db.collection(collection.rawValue).whereField(field, isGreaterThan: date)
+                                              .getDocuments { querySnapshot, error in
+            guard error == nil else { return completion(.failure(error!)) }
+            guard let documents = querySnapshot?.documents else { return completion(.success([])) }
+            let finalDocuments = documents.compactMap({try?$0.data(as: type)})
+            completion(.success(finalDocuments))
+        }
+    }
+
+    func getDocumentsByParameterContainsDate<T: Decodable>(type: T.Type, forCollection collection: FirebaseCollections, field: String, fieldDate: String, date: Date, parameter: Any,
+                                                           completion: @escaping ( Result<[T], Error>) -> Void  ) {
+        db.collection(collection.rawValue).whereField(field, isEqualTo: parameter).whereField(fieldDate, isGreaterThan: date)
+                                                                                  .getDocuments { querySnapshot, error in
             guard error == nil else { return completion(.failure(error!)) }
             guard let documents = querySnapshot?.documents else { return completion(.success([])) }
             let finalDocuments = documents.compactMap({try?$0.data(as: type)})

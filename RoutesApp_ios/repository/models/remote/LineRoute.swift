@@ -10,6 +10,7 @@ import CoreLocation
 import CodableFirebase
 import Firebase
 import CoreData
+import FirebaseFirestoreSwift
 
 // Used in algorithm
 struct LineRoute: Codable, Equatable {
@@ -126,6 +127,7 @@ struct LineRouteInfo: Codable, Equatable {
     let end: GeoPoint
     let averageVelocity: String
     let color: String
+    let updateAt: Timestamp
 
     static private let lineCatManager = LineCategoryFirebaseManager.shared
     static private let lineManager = LineFirebaseManager.shared
@@ -166,7 +168,7 @@ struct LineRouteInfo: Codable, Equatable {
         let entity = LineRouteEntity(context: context)
         entity.averageVelocity = averageVelocity
         entity.color = color
-        entity.createdAt = Date()
+        entity.createAt = Date()
         entity.id = id
         entity.idLine = idLine
         entity.name = name

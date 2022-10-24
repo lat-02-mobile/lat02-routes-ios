@@ -7,6 +7,8 @@
 
 import Foundation
 import CoreData
+import CodableFirebase
+import Firebase
 
 struct LinesCategory: Codable {
     let id: String
@@ -14,6 +16,8 @@ struct LinesCategory: Codable {
     let nameEsp: String
     let blackIcon: String
     let whiteIcon: String
+    let updateAt: Timestamp
+    let createAt: Timestamp
 
     func toEntity(context: NSManagedObjectContext) -> LineCategoryEntity {
         let entity = LineCategoryEntity(context: context)
@@ -23,6 +27,7 @@ struct LinesCategory: Codable {
         entity.blackIcon = blackIcon
         entity.whiteIcon = whiteIcon
         entity.createdAt = Date()
+        entity.updateAt = Date()
         return entity
     }
 }

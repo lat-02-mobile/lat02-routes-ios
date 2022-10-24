@@ -24,9 +24,7 @@
 		8420E0C728C68E89000068F9 /* SearchLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8420E0C528C68E89000068F9 /* SearchLocationViewController.swift */; };
 		8420E0C828C68E89000068F9 /* SearchLocationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8420E0C628C68E89000068F9 /* SearchLocationViewController.xib */; };
 		84246F8C28DB0B65004748DD /* LinesRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84246F8B28DB0B65004748DD /* LinesRoute.swift */; };
-		842F85AB2900396000243943 /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6E6C229002E3C009D5635 /* Env.swift */; };
 		843D043F28AAF3F800C4DF25 /* PhoneAuthenticationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 843D044128AAF3F800C4DF25 /* PhoneAuthenticationViewController.xib */; };
-		8441B96728FF720D00730F21 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8441B96628FF720D00730F21 /* GoogleService-Info.plist */; };
 		8441B97128FF754100730F21 /* FavoritesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED701628F4E28B00781376 /* FavoritesListViewModel.swift */; };
 		8441B97228FF754100730F21 /* PossibleRoutesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7FBAEE28D937D9001175D3 /* PossibleRoutesViewModel.swift */; };
 		8441B97328FF754100730F21 /* RouteMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A5B67828C698C4006AB7F9 /* RouteMapViewController.swift */; };
@@ -159,6 +157,18 @@
 		8441B9F728FF754100730F21 /* PlaceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 844F9A3028C84E63004A95A0 /* PlaceTableViewCell.xib */; };
 		8441B9F828FF754100730F21 /* LinePathTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C27EB66528D3689200A1E742 /* LinePathTableViewCell.xib */; };
 		8441B9F928FF754100730F21 /* RouteListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C278972728E3B48100FF2796 /* RouteListTableViewCell.xib */; };
+		8441BA192900477400730F21 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8441BA182900477400730F21 /* GoogleService-Info.plist */; };
+		8441BA1B2900478400730F21 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8441BA1A2900478400730F21 /* GoogleService-Info.plist */; };
+		8441BA1D2900478F00730F21 /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441BA1C2900478E00730F21 /* Env.swift */; };
+		8441BA1E2900478F00730F21 /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441BA1C2900478E00730F21 /* Env.swift */; };
+		8441BA212900F2A600730F21 /* syncData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441BA202900F2A600730F21 /* syncData.swift */; };
+		8441BA222900F2A600730F21 /* syncData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441BA202900F2A600730F21 /* syncData.swift */; };
+		8441BA2D2901943400730F21 /* SyncUnitHistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441BA2C2901943400730F21 /* SyncUnitHistoryModel.swift */; };
+		8441BA2E2901943400730F21 /* SyncUnitHistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441BA2C2901943400730F21 /* SyncUnitHistoryModel.swift */; };
+		8441BA3A29019A2800730F21 /* SyncUnitHistory+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441BA3829019A2800730F21 /* SyncUnitHistory+CoreDataClass.swift */; };
+		8441BA3B29019A2800730F21 /* SyncUnitHistory+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441BA3829019A2800730F21 /* SyncUnitHistory+CoreDataClass.swift */; };
+		8441BA3C29019A2800730F21 /* SyncUnitHistory+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441BA3929019A2800730F21 /* SyncUnitHistory+CoreDataProperties.swift */; };
+		8441BA3D29019A2800730F21 /* SyncUnitHistory+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441BA3929019A2800730F21 /* SyncUnitHistory+CoreDataProperties.swift */; };
 		844F9A2928C7F542004A95A0 /* GoogleMapsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F9A2828C7F542004A95A0 /* GoogleMapsManager.swift */; };
 		844F9A2C28C7FD51004A95A0 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F9A2B28C7FD51004A95A0 /* Place.swift */; };
 		844F9A2E28C84718004A95A0 /* SearchLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F9A2D28C84718004A95A0 /* SearchLocationViewModel.swift */; };
@@ -204,8 +214,6 @@
 		84F6E6B928FF585D009D5635 /* MockLocalDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6E6B828FF585D009D5635 /* MockLocalDataManager.swift */; };
 		84F6E6BB28FF58B4009D5635 /* LineEntityConverterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6E6BA28FF58B4009D5635 /* LineEntityConverterHelper.swift */; };
 		84F6E6BD28FF5D89009D5635 /* Cities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6E6BC28FF5D89009D5635 /* Cities.swift */; };
-		84F6E6C329002E3C009D5635 /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6E6C229002E3C009D5635 /* Env.swift */; };
-		84F6E6C729002F08009D5635 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84F6E6C629002F08009D5635 /* GoogleService-Info.plist */; };
 		959B7170FF24406C939DC60B /* Pods_RoutesApp_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA0743D620F2F740C78E285 /* Pods_RoutesApp_ios.framework */; };
 		C20A86D128A3383F0000EF7C /* ConstantVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A86D028A3383F0000EF7C /* ConstantVariables.swift */; };
 		C20A86D328A338E30000EF7C /* TestResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A86D228A338E30000EF7C /* TestResources.swift */; };
@@ -334,8 +342,14 @@
 		843D044028AAF3F800C4DF25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PhoneAuthenticationViewController.xib; sourceTree = "<group>"; };
 		843D044328AAF3FE00C4DF25 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PhoneAuthenticationViewController.strings; sourceTree = "<group>"; };
 		843D044528AAF40E00C4DF25 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/PhoneAuthenticationViewController.strings"; sourceTree = "<group>"; };
-		8441B96628FF720D00730F21 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8441BA0028FF754100730F21 /* RoutesApp_ios Prod.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RoutesApp_ios Prod.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8441BA182900477400730F21 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8441BA1A2900478400730F21 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/Prod/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8441BA1C2900478E00730F21 /* Env.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Env.swift; sourceTree = "<group>"; };
+		8441BA202900F2A600730F21 /* syncData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = syncData.swift; sourceTree = "<group>"; };
+		8441BA2C2901943400730F21 /* SyncUnitHistoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncUnitHistoryModel.swift; sourceTree = "<group>"; };
+		8441BA3829019A2800730F21 /* SyncUnitHistory+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SyncUnitHistory+CoreDataClass.swift"; sourceTree = "<group>"; };
+		8441BA3929019A2800730F21 /* SyncUnitHistory+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SyncUnitHistory+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		844F9A2828C7F542004A95A0 /* GoogleMapsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapsManager.swift; sourceTree = "<group>"; };
 		844F9A2B28C7FD51004A95A0 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		844F9A2D28C84718004A95A0 /* SearchLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationViewModel.swift; sourceTree = "<group>"; };
@@ -380,8 +394,6 @@
 		84F6E6B828FF585D009D5635 /* MockLocalDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockLocalDataManager.swift; sourceTree = "<group>"; };
 		84F6E6BA28FF58B4009D5635 /* LineEntityConverterHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineEntityConverterHelper.swift; sourceTree = "<group>"; };
 		84F6E6BC28FF5D89009D5635 /* Cities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cities.swift; sourceTree = "<group>"; };
-		84F6E6C229002E3C009D5635 /* Env.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Env.swift; sourceTree = "<group>"; };
-		84F6E6C629002F08009D5635 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AD98818F78C4191BC056603D /* Pods-RoutesApp_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutesApp_ios.release.xcconfig"; path = "Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios.release.xcconfig"; sourceTree = "<group>"; };
 		C20A86D028A3383F0000EF7C /* ConstantVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantVariables.swift; sourceTree = "<group>"; };
 		C20A86D228A338E30000EF7C /* TestResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResources.swift; sourceTree = "<group>"; };
@@ -619,6 +631,14 @@
 			path = views;
 			sourceTree = "<group>";
 		};
+		8441BA1F2900F28600730F21 /* syncData */ = {
+			isa = PBXGroup;
+			children = (
+				8441BA202900F2A600730F21 /* syncData.swift */,
+			);
+			path = syncData;
+			sourceTree = "<group>";
+		};
 		844F9A3F28E347DE004A95A0 /* tourpointsList */ = {
 			isa = PBXGroup;
 			children = (
@@ -746,17 +766,19 @@
 			isa = PBXGroup;
 			children = (
 				84F6E6A028FF545A009D5635 /* TourpointCategoryEntity+CoreDataProperties.swift */,
-				84F6E6A128FF545A009D5635 /* LineRouteEntity+CoreDataProperties.swift */,
 				84F6E6A228FF545A009D5635 /* TourpointCategoryEntity+CoreDataClass.swift */,
 				84F6E6A328FF545A009D5635 /* LineCategoryEntity+CoreDataClass.swift */,
 				84F6E6A428FF545A009D5635 /* TourpointEntity+CoreDataProperties.swift */,
 				84F6E6A528FF545A009D5635 /* LineCategoryEntity+CoreDataProperties.swift */,
-				84F6E6A628FF545A009D5635 /* FavoriteDest+CoreDataClass.swift */,
 				84F6E6A728FF545A009D5635 /* LineEntity+CoreDataClass.swift */,
 				84F6E6A828FF545A009D5635 /* TourpointEntity+CoreDataClass.swift */,
 				84F6E6A928FF545A009D5635 /* LineRouteEntity+CoreDataClass.swift */,
+				84F6E6A128FF545A009D5635 /* LineRouteEntity+CoreDataProperties.swift */,
 				84F6E6AA28FF545A009D5635 /* LineEntity+CoreDataProperties.swift */,
+				84F6E6A628FF545A009D5635 /* FavoriteDest+CoreDataClass.swift */,
 				84F6E6AB28FF545A009D5635 /* FavoriteDest+CoreDataProperties.swift */,
+				8441BA3829019A2800730F21 /* SyncUnitHistory+CoreDataClass.swift */,
+				8441BA3929019A2800730F21 /* SyncUnitHistory+CoreDataProperties.swift */,
 			);
 			path = local;
 			sourceTree = "<group>";
@@ -934,10 +956,10 @@
 				C2E9770D28987CF7009F4B94 /* repository */,
 				C2E9770E28987CFE009F4B94 /* modules */,
 				C2E976D82898701C009F4B94 /* AppDelegate.swift */,
+				8441BA1C2900478E00730F21 /* Env.swift */,
+				8441BA1A2900478400730F21 /* GoogleService-Info.plist */,
 				C2E976DA2898701C009F4B94 /* SceneDelegate.swift */,
-				84F6E6C629002F08009D5635 /* GoogleService-Info.plist */,
-				84F6E6C229002E3C009D5635 /* Env.swift */,
-				8441B96628FF720D00730F21 /* GoogleService-Info.plist */,
+				8441BA182900477400730F21 /* GoogleService-Info.plist */,
 				C2E976DC2898701C009F4B94 /* ViewController.swift */,
 				C2E976DE2898701C009F4B94 /* Main.storyboard */,
 				842F85AF29003AB200243943 /* Prod-Info.plist */,
@@ -1016,6 +1038,7 @@
 		C2E9771028987D5B009F4B94 /* local */ = {
 			isa = PBXGroup;
 			children = (
+				8441BA1F2900F28600730F21 /* syncData */,
 				C249BB1C28E4F9A400E6BA85 /* managers */,
 			);
 			path = local;
@@ -1160,6 +1183,7 @@
 				84246F8B28DB0B65004748DD /* LinesRoute.swift */,
 				C2C5249328EBC66800D8B892 /* LineCategory.swift */,
 				844F9A4B28E47B14004A95A0 /* Tourpoint.swift */,
+				8441BA2C2901943400730F21 /* SyncUnitHistoryModel.swift */,
 			);
 			path = remote;
 			sourceTree = "<group>";
@@ -1336,7 +1360,6 @@
 				8441B9DF28FF754100730F21 /* LineRouteViewController.xib in Resources */,
 				8441B9E028FF754100730F21 /* Main.storyboard in Resources */,
 				8441B9E128FF754100730F21 /* TourpointsViewController.xib in Resources */,
-				84F6E6C729002F08009D5635 /* GoogleService-Info.plist in Resources */,
 				8441B9E228FF754100730F21 /* RouteListFilterViewController.xib in Resources */,
 				8441B9E328FF754100730F21 /* HomeViewController.xib in Resources */,
 				8441B9E428FF754100730F21 /* SearchLocationViewController.xib in Resources */,
@@ -1354,6 +1377,7 @@
 				8441B9F028FF754100730F21 /* SignupViewController.xib in Resources */,
 				8441B9F128FF754100730F21 /* PossibleRouteTableViewCell.xib in Resources */,
 				8441B9F228FF754100730F21 /* SettingsViewController.xib in Resources */,
+				8441BA1B2900478400730F21 /* GoogleService-Info.plist in Resources */,
 				8441B9F428FF754100730F21 /* silver-style.json in Resources */,
 				8441B9F528FF754100730F21 /* TourpointTableViewCell.xib in Resources */,
 				8441B9F628FF754100730F21 /* RouteListViewController.xib in Resources */,
@@ -1392,7 +1416,7 @@
 				C2BB145228A150A70083CA1E /* SignupViewController.xib in Resources */,
 				CE7FBAD528D36B5E001175D3 /* PossibleRouteTableViewCell.xib in Resources */,
 				84067C4C28B3B5BD00549300 /* SettingsViewController.xib in Resources */,
-				8441B96728FF720D00730F21 /* GoogleService-Info.plist in Resources */,
+				8441BA192900477400730F21 /* GoogleService-Info.plist in Resources */,
 				CE0F8D3528AD357F00F2C753 /* silver-style.json in Resources */,
 				844F9A4A28E3D560004A95A0 /* TourpointTableViewCell.xib in Resources */,
 				C278973328E3B48100FF2796 /* RouteListViewController.xib in Resources */,
@@ -1632,6 +1656,7 @@
 				8441B97128FF754100730F21 /* FavoritesListViewModel.swift in Sources */,
 				8441B97228FF754100730F21 /* PossibleRoutesViewModel.swift in Sources */,
 				8441B97328FF754100730F21 /* RouteMapViewController.swift in Sources */,
+				8441BA2E2901943400730F21 /* SyncUnitHistoryModel.swift in Sources */,
 				8441B97428FF754100730F21 /* Double.swift in Sources */,
 				8441B97528FF754100730F21 /* LineCategory.swift in Sources */,
 				8441B97628FF754100730F21 /* PopupRouteDetailViewModel.swift in Sources */,
@@ -1670,7 +1695,7 @@
 				8441B99728FF754100730F21 /* TourpointsManager.swift in Sources */,
 				8441B99828FF754100730F21 /* LineEntity+CoreDataClass.swift in Sources */,
 				8441B99928FF754100730F21 /* Tourpoint.swift in Sources */,
-				842F85AB2900396000243943 /* Env.swift in Sources */,
+				8441BA1E2900478F00730F21 /* Env.swift in Sources */,
 				8441B99B28FF754100730F21 /* LineRouteViewController.swift in Sources */,
 				8441B99C28FF754100730F21 /* LineRouteFirebaseManager.swift in Sources */,
 				8441B99D28FF754100730F21 /* User.swift in Sources */,
@@ -1678,12 +1703,14 @@
 				8441B99F28FF754100730F21 /* ViewModel.swift in Sources */,
 				8441B9A028FF754100730F21 /* PossibleRouteTableViewCell.swift in Sources */,
 				8441B9A128FF754100730F21 /* Toast.swift in Sources */,
+				8441BA3B29019A2800730F21 /* SyncUnitHistory+CoreDataClass.swift in Sources */,
 				8441B9A228FF754100730F21 /* GoogleMapsManager.swift in Sources */,
 				8441B9A328FF754100730F21 /* PhoneAuthenticationViewModel.swift in Sources */,
 				8441B9A428FF754100730F21 /* RouteDetailViewController.swift in Sources */,
 				8441B9A528FF754100730F21 /* BottomSheetViewController.swift in Sources */,
 				8441B9A628FF754100730F21 /* LineEntityConverterHelper.swift in Sources */,
 				8441B9A728FF754100730F21 /* FavoriteDestinationsManager.swift in Sources */,
+				8441BA3D29019A2800730F21 /* SyncUnitHistory+CoreDataProperties.swift in Sources */,
 				8441B9A828FF754100730F21 /* FirebaseFirestoreManager.swift in Sources */,
 				8441B9A928FF754100730F21 /* TourpointCategoryEntity+CoreDataProperties.swift in Sources */,
 				8441B9AA28FF754100730F21 /* PhoneAuthenticationViewController.swift in Sources */,
@@ -1714,6 +1741,7 @@
 				8441B9C328FF754100730F21 /* CLLocationCoordinate2DExtension.swift in Sources */,
 				8441B9C428FF754100730F21 /* Lines.swift in Sources */,
 				8441B9C528FF754100730F21 /* LoginViewModel.swift in Sources */,
+				8441BA222900F2A600730F21 /* syncData.swift in Sources */,
 				8441B9C628FF754100730F21 /* CityFirebaseManager.swift in Sources */,
 				8441B9C728FF754100730F21 /* LineRouteEntity+CoreDataProperties.swift in Sources */,
 				8441B9C828FF754100730F21 /* TourpointTableViewCell.swift in Sources */,
@@ -1737,6 +1765,7 @@
 				84ED701728F4E28B00781376 /* FavoritesListViewModel.swift in Sources */,
 				CE7FBAEF28D937D9001175D3 /* PossibleRoutesViewModel.swift in Sources */,
 				84A5B67A28C698C5006AB7F9 /* RouteMapViewController.swift in Sources */,
+				8441BA2D2901943400730F21 /* SyncUnitHistoryModel.swift in Sources */,
 				C2414D8628E1DCDC00CDF73A /* Double.swift in Sources */,
 				C2C5249428EBC66800D8B892 /* LineCategory.swift in Sources */,
 				C249BB1B28E4F8D200E6BA85 /* PopupRouteDetailViewModel.swift in Sources */,
@@ -1775,7 +1804,7 @@
 				844F9A4E28E49594004A95A0 /* TourpointsManager.swift in Sources */,
 				84F6E6B328FF545A009D5635 /* LineEntity+CoreDataClass.swift in Sources */,
 				844F9A4C28E47B14004A95A0 /* Tourpoint.swift in Sources */,
-				84F6E6C329002E3C009D5635 /* Env.swift in Sources */,
+				8441BA1D2900478F00730F21 /* Env.swift in Sources */,
 				C278975228E3B8D900FF2796 /* LineRouteViewController.swift in Sources */,
 				CE19B2FD28DCF2F500840426 /* LineRouteFirebaseManager.swift in Sources */,
 				C2E9772B28987F79009F4B94 /* User.swift in Sources */,
@@ -1783,12 +1812,14 @@
 				C215EF0C28A4BB5D00371DB6 /* ViewModel.swift in Sources */,
 				CE7FBAD428D36B5E001175D3 /* PossibleRouteTableViewCell.swift in Sources */,
 				C2C5249628EBD4EE00D8B892 /* Toast.swift in Sources */,
+				8441BA3A29019A2800730F21 /* SyncUnitHistory+CoreDataClass.swift in Sources */,
 				844F9A2928C7F542004A95A0 /* GoogleMapsManager.swift in Sources */,
 				847A59E228A820F5005CEA25 /* PhoneAuthenticationViewModel.swift in Sources */,
 				C290E5EF28D272C90019782F /* RouteDetailViewController.swift in Sources */,
 				CE7FBADC28D565F2001175D3 /* BottomSheetViewController.swift in Sources */,
 				84F6E6BB28FF58B4009D5635 /* LineEntityConverterHelper.swift in Sources */,
 				C249BB2028E4F9A400E6BA85 /* FavoriteDestinationsManager.swift in Sources */,
+				8441BA3C29019A2800730F21 /* SyncUnitHistory+CoreDataProperties.swift in Sources */,
 				C2436385289A2CD6003C1A44 /* FirebaseFirestoreManager.swift in Sources */,
 				84F6E6AC28FF545A009D5635 /* TourpointCategoryEntity+CoreDataProperties.swift in Sources */,
 				845D228928A7050000E9A660 /* PhoneAuthenticationViewController.swift in Sources */,
@@ -1819,6 +1850,7 @@
 				CE93A8A328BD3ECD00296532 /* CLLocationCoordinate2DExtension.swift in Sources */,
 				8498F89F28CF49DD008641D9 /* Lines.swift in Sources */,
 				C2E9772728987F48009F4B94 /* LoginViewModel.swift in Sources */,
+				8441BA212900F2A600730F21 /* syncData.swift in Sources */,
 				84067C6A28B3D58500549300 /* CityFirebaseManager.swift in Sources */,
 				84F6E6AD28FF545A009D5635 /* LineRouteEntity+CoreDataProperties.swift in Sources */,
 				844F9A4928E3D560004A95A0 /* TourpointTableViewCell.swift in Sources */,
@@ -1965,6 +1997,7 @@
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Prod-Info.plist";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Current location is needed when app is in use";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -1997,6 +2030,7 @@
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Prod-Info.plist";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Current location is needed when app is in use";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

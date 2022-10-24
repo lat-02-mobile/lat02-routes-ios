@@ -41,8 +41,28 @@ open class CoreDataManager {
     func getContext() -> NSManagedObjectContext {
         return persistentContainer.viewContext
     }
+    func updateDataValue(entity: String, key: String, keyValue: String, keyUpdate: String, keyUpdateValue: Any) {
+        let managedContext = persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: entity, in: managedContext)
+               let request = NSFetchRequest<NSFetchRequestResult>()
+               request.entity = entity
+               let predicate = NSPredicate(format: "(\(key) = %@)", keyValue)
+               request.predicate = predicate
+               do {
+                   let results = try managedContext.fetch(request)
+                   guard let objectUpdate = results[0] as? NSManagedObject else {return}
+                   objectUpdate.setValue(keyUpdateValue, forKey: keyUpdate)
+                   do {
+                       try managedContext.save()
+                   } catch {
+                    print("error")
+                   }
+               } catch {
+                   print("error")
+               }
+    }
 
-    func getData<T: NSManagedObject>(entity: String) -> [T] {
+        func getData<T: NSManagedObject>(entity: String) -> [T] {
         let context = persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<T>(entityName: entity)
         do {
@@ -102,6 +122,18 @@ open class CoreDataManager {
         do {
             try context.execute(deleteFavorites)
             try context.execute(deleteCategoryLines)
+            try context.execute(deleteTourpointCategories)
+            return true
+        } catch {
+            print("cant clean coredata")
+            return false
+        }
+    }
+    @discardableResult
+    func deleteTourPoints() -> Bool {
+        let context = self.getContext()
+        let deleteTourpointCategories = NSBatchDeleteRequest(fetchRequest: TourpointCategoryEntity.fetchRequest())
+        do {
             try context.execute(deleteTourpointCategories)
             return true
         } catch {

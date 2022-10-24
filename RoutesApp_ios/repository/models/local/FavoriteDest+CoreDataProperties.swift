@@ -22,7 +22,7 @@ extension FavoriteDest {
     @NSManaged public var name: String?
     @NSManaged public var idCity: String?
     @NSManaged public var idUser: String?
-
+    @NSManaged public var updateAt: Date?
 }
 
 extension FavoriteDest: Identifiable {
