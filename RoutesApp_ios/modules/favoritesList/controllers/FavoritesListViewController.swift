@@ -132,6 +132,6 @@ extension FavoritesListViewController: UITableViewDelegate, UITableViewDataSourc
         guard let lat = fav.latitude, let latitude = Double(lat) else { return }
         guard let lon = fav.longitude, let longitude = Double(lon) else { return }
         let coordinates = Coordinate(latitude: latitude, longitude: longitude)
-        homeController.setDestinationPointFromOtherView(coordinates: coordinates, comesFrom: .FAVORITES, withName: fav.name!)
+        homeController.setDestinationPointFromOtherView(coordinates: coordinates, comesFrom: .FAVORITES, withName: fav.name ?? "")
     }
 }
