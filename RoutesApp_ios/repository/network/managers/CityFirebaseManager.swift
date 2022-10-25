@@ -44,7 +44,7 @@ class CityFirebaseManager: CityManagerProtocol {
                                                         field: "idCity", parameter: cityRef, completion: completion)
     }
     func getDocumentsFromCityByDateGreaterThanOrEqualTo<T: Decodable>(type: T.Type, forCollection collection: FirebaseCollections, date: Date, usingReference: Bool = false,
-                                                  completion: @escaping (Result<[T], Error>) -> Void) {
+                                                                      completion: @escaping (Result<[T], Error>) -> Void) {
         guard let currentCity = ConstantVariables.defaults.string(forKey: ConstantVariables.defCityId) else { return }
         var cityRef: Any // it's any bacause it can be a string or a documentReference
         if usingReference {
@@ -54,7 +54,7 @@ class CityFirebaseManager: CityManagerProtocol {
         }
         let components = Calendar.current.dateComponents([.year, .month, .day], from: date)
         let dateCalender = Calendar.current.date(from: components) ?? Date()
-        firebaseManager.getDocumentsByParameterContainsDateGreaterThanOrEqualTo(type: type, forCollection: collection, field: "idCity",
-                                                                                fieldDate: "updateAt",date: dateCalender, parameter: cityRef, completion: completion)
+        firebaseManager.getDocumentsByParameterContainsDateGreaterThanOrEqualTo(type: type, forCollection: collection, field: "idCity",fieldDate: "updateAt"
+                                                                                ,date: dateCalender, parameter: cityRef, completion: completion)
     }
 }

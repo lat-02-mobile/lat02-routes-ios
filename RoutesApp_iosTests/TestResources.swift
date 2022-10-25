@@ -21,8 +21,12 @@ class TestResources {
     static let testPhoneNumber = "+523353658071"
     static let testCode = "0626"
     static let verificationId = "eyJ0eXAioiJkv1QiLcJhbgCi0iJIUzJkv1QiXAio"
- 
-    
+
+    static let lineCategoryEntity: [LineCategoryEntity] = []
+    static let lineEntity: [LineEntity] = []
+    static let lineRouteEntity: [LineRouteEntity] = []
+    static let tourpointCategoryEntity: [TourpointCategoryEntity] = []
+    static let tourpointEntity: [TourpointEntity] = [] 
     
     static let stops1Array = [
         Coordinate(latitude: -16.52130602845841, longitude: -68.12417648825397),
@@ -104,11 +108,11 @@ class TestResources {
 
     static let tourpoints = [
         Tourpoint(address: "Address 1", categoryId: "123456", destination: GeoPoint(latitude: 0, longitude: 0), idCity: nil,
-                  name: "Line Name", tourPointsCategoryRef: nil, urlImage: "URL image", updateAt: Date(), createdAt: Date())
+                  name: "Line Name", tourPointsCategoryRef: nil, urlImage: "URL image", updateAt: timestamp, createAt: timestamp, id: "dedeqdfefr")
     ]
 
     static let tourpointCategories = [
-        TourpointCategory(id: "123456", descriptionEng: "ENG", descriptionEsp: "ESP", icon: "new Icon url", updateAt: Date(), createdAt: Date())
+        TourpointCategory(id: "123456", descriptionEng: "ENG", descriptionEsp: "ESP", icon: "new Icon url", updateAt: timestamp, createAt: timestamp)
     ]
 
     static let RoutePoints = [GeoPoint(latitude: 1, longitude: 1), GeoPoint(latitude: 1, longitude: 1)]
@@ -117,10 +121,10 @@ class TestResources {
     static let LineRoutes = [
         LineRouteInfo(name: "Route1", id: "wsws2344d3f", idLine: "1",
                       line: nil, routePoints: RoutePoints, start: GeoPoint(latitude: 1, longitude: 1),
-                      stops: Stops, end: GeoPoint(latitude: 1, longitude: 1), averageVelocity: "", color: "", updateAt: timestamp),
+                      stops: Stops, end: GeoPoint(latitude: 1, longitude: 1), averageVelocity: "", color: "", updateAt: timestamp, createAt: timestamp),
         LineRouteInfo(name: "Route1", id: "wsws2344d3f", idLine: "1",
                       line: nil, routePoints: RoutePoints, start: GeoPoint(latitude: 1, longitude: 1),
-                      stops: Stops, end: GeoPoint(latitude: 1, longitude: 1), averageVelocity: "", color: "", updateAt: timestamp)
+                      stops: Stops, end: GeoPoint(latitude: 1, longitude: 1), averageVelocity: "", color: "", updateAt: timestamp, createAt: timestamp)
    ]
 }
 extension Date {

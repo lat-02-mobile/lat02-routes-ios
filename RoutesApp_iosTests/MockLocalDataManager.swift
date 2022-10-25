@@ -68,6 +68,34 @@ class MockLocalDataManager: LocalDataManagerProtocol {
         }
 
     }
+    func updateDataValueForSync(entity: String, key: String, keyValue: String, keyUpdate: String, completion: @escaping (Result<Void, Error>) -> Void) {
+        if sendWithError {
+            completion(.failure(NSError(domain: "Error", code: 0)))
+        } else {
+            dataHasBeenRetrieved = true
+            completion(.success(()))
+        }
+    }
+    
+    func getLineCategoryDataById(keyValue: String) -> [LineCategoryEntity] {
+        return TestResources.lineCategoryEntity
+    }
+    
+    func getLineDataById(keyValue: String) -> [LineEntity] {
+        return TestResources.lineEntity
+    }
+    
+    func getLineRouteDataById(keyValue: String) -> [LineRouteEntity] {
+        return TestResources.lineRouteEntity
+    }
+    
+    func getTourPointCategoryDataById(keyValue: String) -> [TourpointCategoryEntity] {
+        return TestResources.tourpointCategoryEntity
+    }
+    
+    func getTourPointDataById(keyValue: String) -> [TourpointEntity] {
+        return TestResources.tourpointEntity
+    }
     func updateDataValueForSync(entity: String, key: String, keyValue: String, keyUpdate: String) {
         dataHasBeenUpdated = true
     }
@@ -101,7 +129,7 @@ class MockLocalDataManager: LocalDataManagerProtocol {
             entity.nameEsp = category.nameEsp
             entity.whiteIcon = category.whiteIcon
             entity.blackIcon = category.blackIcon
-            entity.createdAt = Date()
+            entity.createAt = Date()
             entity.updateAt =  Date()
             // swiftlint:disable force_cast
             return entity as! T

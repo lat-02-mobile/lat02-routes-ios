@@ -14,6 +14,11 @@ protocol LocalDataManagerProtocol {
     func getDataFromCoreData<T: NSManagedObject>(type: T.Type, forEntity: String, completion: @escaping(Result<[T], Error>) -> Void)
     func updateDataValueForSync(entity: String, key: String, keyValue: String, keyUpdate: String, completion: @escaping(Result<Void, Error>) -> Void)
     func deleteEntityObjectByKeyValue<T: NSManagedObject>( type: T.Type, key: String, value: String) -> Bool
+    func getLineCategoryDataById(keyValue: String) -> [LineCategoryEntity]
+    func getLineDataById(keyValue: String) -> [LineEntity]
+    func getLineRouteDataById(keyValue: String) -> [LineRouteEntity]
+    func getTourPointCategoryDataById(keyValue: String) -> [TourpointCategoryEntity]
+    func getTourPointDataById(keyValue: String) -> [TourpointEntity]
 }
 
 class LocalDataManager: LocalDataManagerProtocol {
@@ -24,7 +29,6 @@ class LocalDataManager: LocalDataManagerProtocol {
     private let lineCategoryManager = LineCategoryFirebaseManager.shared
     private let coreDataManager = CoreDataManager.shared
     private let context = CoreDataManager.shared.getContext()
-
     func getDataFromCoreData<T: NSManagedObject>(type: T.Type, forEntity entity: String, completion: @escaping(Result<[T], Error>) -> Void) {
         coreDataManager.getData(type: type, entity: entity, completion: completion)
     }
@@ -35,7 +39,26 @@ class LocalDataManager: LocalDataManagerProtocol {
     func deleteEntityObjectByKeyValue<T: NSManagedObject>(type: T.Type, key: String, value: String) -> Bool {
         return coreDataManager.deleteEntityObjectByKeyValue(entityName: type, key: key, value: value)
     }
-
+    func getLineCategoryDataById(keyValue: String) -> [LineCategoryEntity] {
+        let data: [LineCategoryEntity] = coreDataManager.getDataById(entity: LineCategoryEntity.name, key: "id", keyValue: keyValue)
+        return data
+    }
+    func getLineDataById(keyValue: String) -> [LineEntity] {
+        let data: [LineEntity] = coreDataManager.getDataById(entity: LineEntity.name, key: "id", keyValue: keyValue)
+        return data
+    }
+    func getLineRouteDataById(keyValue: String) -> [LineRouteEntity] {
+        let data: [LineRouteEntity] = coreDataManager.getDataById(entity: LineRouteEntity.name, key: "id", keyValue: keyValue)
+        return data
+    }
+    func getTourPointCategoryDataById(keyValue: String) -> [TourpointCategoryEntity] {
+        let data: [TourpointCategoryEntity] = coreDataManager.getDataById(entity: TourpointCategoryEntity.name, key: "id", keyValue: keyValue)
+        return data
+    }
+    func getTourPointDataById(keyValue: String) -> [TourpointEntity] {
+        let data: [TourpointEntity] = coreDataManager.getDataById(entity: TourpointEntity.name, key: "id", keyValue: keyValue)
+        return data
+    }
     func retrieveAllDataFromFirebase(completion: @escaping(Result<Void, Error>) -> Void) {
         if coreDataManager.deleteAll() {
             tourpointsManager.getTourpointList { result in
@@ -49,9 +72,7 @@ class LocalDataManager: LocalDataManagerProtocol {
         } else {
             completion(.failure(CoreDataError.Failed(cause: String.localizeString(localizedString: ConstantVariables.errorUpdatingData))))
         }
-
     }
-
     private func getAndSaveTourpointCategoriesWithTourpoints(tourpoints: [Tourpoint], completion: @escaping(Result<Void, Error>) -> Void) {
         tourpointsManager.getTourpointCategories { result in
             switch result {
@@ -67,7 +88,6 @@ class LocalDataManager: LocalDataManagerProtocol {
             }
         }
     }
-
     private func getLineCategories(completion: @escaping(Result<Void, Error>) -> Void) {
         lineCategoryManager.getCategories { result in
             switch result {
@@ -79,7 +99,6 @@ class LocalDataManager: LocalDataManagerProtocol {
             }
         }
     }
-
     private func getLines(categories: [LineCategoryEntity], completion: @escaping(Result<Void, Error>) -> Void) {
         lineManager.getLinesForCurrentCity { result in
             switch result {
@@ -93,7 +112,6 @@ class LocalDataManager: LocalDataManagerProtocol {
             }
         }
     }
-
     private func getLineRoutes(line: LineEntity, completion: @escaping(Result<Void, Error>) -> Void) {
         lineRouteManager.getLineRoute(idLine: line.id) { result in
             switch result {
@@ -108,5 +126,4 @@ class LocalDataManager: LocalDataManagerProtocol {
             }
         }
     }
-
 }

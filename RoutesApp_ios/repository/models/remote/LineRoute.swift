@@ -128,6 +128,7 @@ struct LineRouteInfo: Codable, Equatable {
     let averageVelocity: String
     let color: String
     let updateAt: Timestamp
+    let createAt: Timestamp
 
     static private let lineCatManager = LineCategoryFirebaseManager.shared
     static private let lineManager = LineFirebaseManager.shared
@@ -168,7 +169,7 @@ struct LineRouteInfo: Codable, Equatable {
         let entity = LineRouteEntity(context: context)
         entity.averageVelocity = averageVelocity
         entity.color = color
-        entity.createAt = Date()
+        entity.createAt = createAt.dateValue()
         entity.id = id
         entity.idLine = idLine
         entity.name = name

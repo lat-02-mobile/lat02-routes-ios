@@ -13,7 +13,6 @@
     <entity name="LineCategoryEntity" representedClassName="LineCategoryEntity" syncable="YES">
         <attribute name="blackIcon" attributeType="String"/>
         <attribute name="createAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="createdAt" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="id" attributeType="String"/>
         <attribute name="nameEng" attributeType="String"/>
         <attribute name="nameEsp" attributeType="String"/>
@@ -60,6 +59,7 @@
     <entity name="TourpointEntity" representedClassName="TourpointEntity" syncable="YES">
         <attribute name="address" attributeType="String"/>
         <attribute name="createdAt" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="name" attributeType="String"/>
         <attribute name="strDestination" attributeType="String" valueTransformerName="CoordinateTransformer" customClassName="NSCoordinates"/>
         <attribute name="updateAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
@@ -68,7 +68,7 @@
     </entity>
     <elements>
         <element name="FavoriteDest" positionX="-198" positionY="-18" width="128" height="149"/>
-        <element name="LineCategoryEntity" positionX="-171" positionY="63" width="128" height="164"/>
+        <element name="LineCategoryEntity" positionX="-171" positionY="63" width="128" height="14"/>
         <element name="LineEntity" positionX="-189" positionY="54" width="128" height="134"/>
         <element name="LineRouteEntity" positionX="-153" positionY="117" width="128" height="209"/>
         <element name="SyncUnitHistory" positionX="-153" positionY="144" width="128" height="59"/>
