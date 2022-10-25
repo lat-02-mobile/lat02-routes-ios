@@ -44,6 +44,7 @@
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <accessibility key="accessibilityConfiguration" identifier="RouteListViewController"/>
             <constraints>
                 <constraint firstItem="IHV-eV-1rl" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="A6k-51-ghd"/>
                 <constraint firstItem="IHV-eV-1rl" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="CvJ-40-SFh"/>

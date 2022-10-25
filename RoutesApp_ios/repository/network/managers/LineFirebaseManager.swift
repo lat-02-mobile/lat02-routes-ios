@@ -8,6 +8,7 @@
 import Foundation
 
 protocol LineManagerProtocol {
+    func createNewLine(newLineName: String, idCategory: String, idCity: String)
     func getLines(completion: @escaping(Result<[Lines], Error>) -> Void)
     func getLineByIdAsync(lineId: String) async throws -> Lines
     func getLinesByCity(cityId: String, completion: @escaping(Result<[Lines], Error>) -> Void)
@@ -19,6 +20,19 @@ class LineFirebaseManager: LineManagerProtocol {
     let firebaseManager = FirebaseFirestoreManager.shared
     static let shared = LineFirebaseManager()
     let cityManager = CityFirebaseManager.shared
+
+    func createNewLine(newLineName: String, idCategory: String, idCity: String) {
+        let newLineId = firebaseManager.getDocID(forCollection: .Lines)
+        let newLine = Lines(categoryRef: firebaseManager.db.document("LineCategories/\(idCategory)"),
+                            enable: false,
+                            id: newLineId,
+                            idCity: idCity,
+                            idCategory: idCategory,
+                            name: newLineName)
+//        firebaseManager.addDocument(document: <#T##BaseModel & Encodable#>,
+//                                    collection: <#T##FirebaseCollections#>,
+//                                    completion: <#T##(Result<BaseModel & Encodable, Error>) -> Void#>)
+    }
 
     func getLines(completion: @escaping(Result<[Lines], Error>) -> Void) {
         firebaseManager.getDocuments(type: Lines.self, forCollection: .Lines) { result in

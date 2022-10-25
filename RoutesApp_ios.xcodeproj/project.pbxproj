@@ -30,7 +30,6 @@
 		842F85B52900433B00243943 /* TourpointDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842F85B22900433B00243943 /* TourpointDetailViewController.xib */; };
 		842F85B62900433B00243943 /* TourpointDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842F85B22900433B00243943 /* TourpointDetailViewController.xib */; };
 		843D043F28AAF3F800C4DF25 /* PhoneAuthenticationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 843D044128AAF3F800C4DF25 /* PhoneAuthenticationViewController.xib */; };
-		8441B96728FF720D00730F21 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8441B96628FF720D00730F21 /* GoogleService-Info.plist */; };
 		8441B97128FF754100730F21 /* FavoritesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED701628F4E28B00781376 /* FavoritesListViewModel.swift */; };
 		8441B97228FF754100730F21 /* PossibleRoutesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7FBAEE28D937D9001175D3 /* PossibleRoutesViewModel.swift */; };
 		8441B97328FF754100730F21 /* RouteMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A5B67828C698C4006AB7F9 /* RouteMapViewController.swift */; };
@@ -209,7 +208,6 @@
 		84F6E6BB28FF58B4009D5635 /* LineEntityConverterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6E6BA28FF58B4009D5635 /* LineEntityConverterHelper.swift */; };
 		84F6E6BD28FF5D89009D5635 /* Cities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6E6BC28FF5D89009D5635 /* Cities.swift */; };
 		84F6E6C329002E3C009D5635 /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6E6C229002E3C009D5635 /* Env.swift */; };
-		84F6E6C729002F08009D5635 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84F6E6C629002F08009D5635 /* GoogleService-Info.plist */; };
 		959B7170FF24406C939DC60B /* Pods_RoutesApp_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA0743D620F2F740C78E285 /* Pods_RoutesApp_ios.framework */; };
 		C20A86D128A3383F0000EF7C /* ConstantVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A86D028A3383F0000EF7C /* ConstantVariables.swift */; };
 		C20A86D328A338E30000EF7C /* TestResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A86D228A338E30000EF7C /* TestResources.swift */; };
@@ -219,6 +217,11 @@
 		C215EF0928A4B1F500371DB6 /* HomeVIewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C215EF0828A4B1F400371DB6 /* HomeVIewModel.swift */; };
 		C215EF0C28A4BB5D00371DB6 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C215EF0B28A4BB5D00371DB6 /* ViewModel.swift */; };
 		C215EF0D28A4C1BC00371DB6 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C215EF0F28A4C1BC00371DB6 /* LoginViewController.xib */; };
+		C232D19C2906BD43005DEB62 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C232D19B2906BD43005DEB62 /* GoogleService-Info.plist */; };
+		C232D19E2906D984005DEB62 /* LinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C232D19D2906D984005DEB62 /* LinesViewController.swift */; };
+		C23688E629076420006D6DD3 /* LineEditModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23688E429076420006D6DD3 /* LineEditModeViewController.swift */; };
+		C23688E729076420006D6DD3 /* LineEditModeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C23688E529076420006D6DD3 /* LineEditModeViewController.xib */; };
+		C23688E929077DCD006D6DD3 /* LineEditModeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23688E829077DCD006D6DD3 /* LineEditModeViewModel.swift */; };
 		C2414D8428E1CDF200CDF73A /* ClPlaceMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2414D8328E1CDF200CDF73A /* ClPlaceMark.swift */; };
 		C2414D8628E1DCDC00CDF73A /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2414D8528E1DCDB00CDF73A /* Double.swift */; };
 		C2414D8728E1F08000CDF73A /* RouteDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2414D8928E1F08000CDF73A /* RouteDetailViewController.xib */; };
@@ -340,7 +343,6 @@
 		843D044028AAF3F800C4DF25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PhoneAuthenticationViewController.xib; sourceTree = "<group>"; };
 		843D044328AAF3FE00C4DF25 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PhoneAuthenticationViewController.strings; sourceTree = "<group>"; };
 		843D044528AAF40E00C4DF25 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/PhoneAuthenticationViewController.strings"; sourceTree = "<group>"; };
-		8441B96628FF720D00730F21 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8441BA0028FF754100730F21 /* RoutesApp_ios Prod.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RoutesApp_ios Prod.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		844F9A2828C7F542004A95A0 /* GoogleMapsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapsManager.swift; sourceTree = "<group>"; };
 		844F9A2B28C7FD51004A95A0 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
@@ -387,7 +389,6 @@
 		84F6E6BA28FF58B4009D5635 /* LineEntityConverterHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineEntityConverterHelper.swift; sourceTree = "<group>"; };
 		84F6E6BC28FF5D89009D5635 /* Cities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cities.swift; sourceTree = "<group>"; };
 		84F6E6C229002E3C009D5635 /* Env.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Env.swift; sourceTree = "<group>"; };
-		84F6E6C629002F08009D5635 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AD98818F78C4191BC056603D /* Pods-RoutesApp_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutesApp_ios.release.xcconfig"; path = "Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios.release.xcconfig"; sourceTree = "<group>"; };
 		C20A86D028A3383F0000EF7C /* ConstantVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantVariables.swift; sourceTree = "<group>"; };
 		C20A86D228A338E30000EF7C /* TestResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResources.swift; sourceTree = "<group>"; };
@@ -399,6 +400,11 @@
 		C215EF0E28A4C1BC00371DB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LoginViewController.xib; sourceTree = "<group>"; };
 		C215EF1128A4C1BE00371DB6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LoginViewController.strings; sourceTree = "<group>"; };
 		C215EF1328A4C1BF00371DB6 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/LoginViewController.strings"; sourceTree = "<group>"; };
+		C232D19B2906BD43005DEB62 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C232D19D2906D984005DEB62 /* LinesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinesViewController.swift; sourceTree = "<group>"; };
+		C23688E429076420006D6DD3 /* LineEditModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineEditModeViewController.swift; sourceTree = "<group>"; };
+		C23688E529076420006D6DD3 /* LineEditModeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LineEditModeViewController.xib; sourceTree = "<group>"; };
+		C23688E829077DCD006D6DD3 /* LineEditModeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineEditModeViewModel.swift; sourceTree = "<group>"; };
 		C2414D8328E1CDF200CDF73A /* ClPlaceMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClPlaceMark.swift; sourceTree = "<group>"; };
 		C2414D8528E1DCDB00CDF73A /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		C2414D8828E1F08000CDF73A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/RouteDetailViewController.xib; sourceTree = "<group>"; };
@@ -810,6 +816,41 @@
 			path = abstractClasses;
 			sourceTree = "<group>";
 		};
+		C232D1932906BA3F005DEB62 /* transportationLine */ = {
+			isa = PBXGroup;
+			children = (
+				C232D1962906BA71005DEB62 /* views */,
+				C232D1952906BA62005DEB62 /* viewmodels */,
+				C232D1942906BA5C005DEB62 /* controllers */,
+			);
+			path = transportationLine;
+			sourceTree = "<group>";
+		};
+		C232D1942906BA5C005DEB62 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C232D19D2906D984005DEB62 /* LinesViewController.swift */,
+				C23688E429076420006D6DD3 /* LineEditModeViewController.swift */,
+				C23688E529076420006D6DD3 /* LineEditModeViewController.xib */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		C232D1952906BA62005DEB62 /* viewmodels */ = {
+			isa = PBXGroup;
+			children = (
+				C23688E829077DCD006D6DD3 /* LineEditModeViewModel.swift */,
+			);
+			path = viewmodels;
+			sourceTree = "<group>";
+		};
+		C232D1962906BA71005DEB62 /* views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
 		C2436383289A2CA7003C1A44 /* managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -943,10 +984,9 @@
 				C2E9770E28987CFE009F4B94 /* modules */,
 				C2E976D82898701C009F4B94 /* AppDelegate.swift */,
 				C2E976DA2898701C009F4B94 /* SceneDelegate.swift */,
-				84F6E6C629002F08009D5635 /* GoogleService-Info.plist */,
 				84F6E6C229002E3C009D5635 /* Env.swift */,
-				8441B96628FF720D00730F21 /* GoogleService-Info.plist */,
 				C2E976DC2898701C009F4B94 /* ViewController.swift */,
+				C232D19B2906BD43005DEB62 /* GoogleService-Info.plist */,
 				C2E976DE2898701C009F4B94 /* Main.storyboard */,
 				842F85AF29003AB200243943 /* Prod-Info.plist */,
 				C2E976E42898701D009F4B94 /* Assets.xcassets */,
@@ -998,6 +1038,7 @@
 		C2E9770E28987CFE009F4B94 /* modules */ = {
 			isa = PBXGroup;
 			children = (
+				C232D1932906BA3F005DEB62 /* transportationLine */,
 				84ED700E28F4E1EB00781376 /* favoritesList */,
 				844F9A3F28E347DE004A95A0 /* tourpointsList */,
 				C278974B28E3B8D800FF2796 /* lineRouteList */,
@@ -1345,7 +1386,6 @@
 				8441B9DF28FF754100730F21 /* LineRouteViewController.xib in Resources */,
 				8441B9E028FF754100730F21 /* Main.storyboard in Resources */,
 				8441B9E128FF754100730F21 /* TourpointsViewController.xib in Resources */,
-				84F6E6C729002F08009D5635 /* GoogleService-Info.plist in Resources */,
 				8441B9E228FF754100730F21 /* RouteListFilterViewController.xib in Resources */,
 				8441B9E328FF754100730F21 /* HomeViewController.xib in Resources */,
 				8441B9E428FF754100730F21 /* SearchLocationViewController.xib in Resources */,
@@ -1399,12 +1439,13 @@
 				C2414D8728E1F08000CDF73A /* RouteDetailViewController.xib in Resources */,
 				84067C7528B5721400549300 /* CityPickerViewController.xib in Resources */,
 				84067C7428B4305300549300 /* CityTableViewCell.xib in Resources */,
+				C23688E729076420006D6DD3 /* LineEditModeViewController.xib in Resources */,
 				C2BB145228A150A70083CA1E /* SignupViewController.xib in Resources */,
 				CE7FBAD528D36B5E001175D3 /* PossibleRouteTableViewCell.xib in Resources */,
 				84067C4C28B3B5BD00549300 /* SettingsViewController.xib in Resources */,
-				8441B96728FF720D00730F21 /* GoogleService-Info.plist in Resources */,
 				CE0F8D3528AD357F00F2C753 /* silver-style.json in Resources */,
 				844F9A4A28E3D560004A95A0 /* TourpointTableViewCell.xib in Resources */,
+				C232D19C2906BD43005DEB62 /* GoogleService-Info.plist in Resources */,
 				C278973328E3B48100FF2796 /* RouteListViewController.xib in Resources */,
 				844F9A3228C84E63004A95A0 /* PlaceTableViewCell.xib in Resources */,
 				C27EB66728D3689200A1E742 /* LinePathTableViewCell.xib in Resources */,
@@ -1755,6 +1796,7 @@
 				8498F89D28CF4892008641D9 /* Constants.swift in Sources */,
 				C2E9772428987F3C009F4B94 /* LoginViewController.swift in Sources */,
 				C278973528E3B48100FF2796 /* RouteListViewController.swift in Sources */,
+				C232D19E2906D984005DEB62 /* LinesViewController.swift in Sources */,
 				C20A86D128A3383F0000EF7C /* ConstantVariables.swift in Sources */,
 				844F9A2E28C84718004A95A0 /* SearchLocationViewModel.swift in Sources */,
 				C2E976DD2898701C009F4B94 /* ViewController.swift in Sources */,
@@ -1768,6 +1810,7 @@
 				84F6E6B228FF545A009D5635 /* FavoriteDest+CoreDataClass.swift in Sources */,
 				84067C8B28B95EDA00549300 /* SettingsViewModel.swift in Sources */,
 				C215EF0928A4B1F500371DB6 /* HomeVIewModel.swift in Sources */,
+				C23688E629076420006D6DD3 /* LineEditModeViewController.swift in Sources */,
 				C2E9772928987F57009F4B94 /* SignupViewModel.swift in Sources */,
 				C278973628E3B48100FF2796 /* RouteListFilterViewController.swift in Sources */,
 				84067C4A28B3B1CD00549300 /* SettingsViewController.swift in Sources */,
@@ -1798,6 +1841,7 @@
 				844F9A2928C7F542004A95A0 /* GoogleMapsManager.swift in Sources */,
 				847A59E228A820F5005CEA25 /* PhoneAuthenticationViewModel.swift in Sources */,
 				C290E5EF28D272C90019782F /* RouteDetailViewController.swift in Sources */,
+				C23688E929077DCD006D6DD3 /* LineEditModeViewModel.swift in Sources */,
 				CE7FBADC28D565F2001175D3 /* BottomSheetViewController.swift in Sources */,
 				84F6E6BB28FF58B4009D5635 /* LineEntityConverterHelper.swift in Sources */,
 				C249BB2028E4F9A400E6BA85 /* FavoriteDestinationsManager.swift in Sources */,

@@ -19,13 +19,18 @@ class SettingsViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         setUpCityName()
-        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
 
     @IBAction func changeUbication(_ sender: Any) {
         let vc = CityPickerViewController()
         vc.isSettingsController = true
         show(vc, sender: nil)
+    }
+
+    @IBAction func goToLineEditMode(_ sender: Any) {
+        let vc = LinesViewController(nibName: "RouteListViewController", bundle: nil)
+        show(vc, sender: nil)
+//        navigationController?.pushViewController(vc, animated: true)
     }
 
     func setUpCityName() {

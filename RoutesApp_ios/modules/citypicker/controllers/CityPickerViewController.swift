@@ -10,7 +10,6 @@ import SVProgressHUD
 
 class CityPickerViewController: UIViewController {
 
-    @IBOutlet weak var backButtonView: UIView!
     @IBOutlet weak var citySearchBar: UISearchBar!
     @IBOutlet weak var cityTableView: UITableView!
     var isSettingsController = true
@@ -26,7 +25,6 @@ class CityPickerViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
 
     func setupView() {
@@ -35,7 +33,6 @@ class CityPickerViewController: UIViewController {
         self.citySearchBar.barTintColor = UIColor .clear
         self.citySearchBar.backgroundImage = UIImage()
         self.citySearchBar.placeholder = placeholder
-        backButtonView.layer.cornerRadius = backButtonView.bounds.size.width * 0.5
 
         self.cityTableView.delegate = self
         self.cityTableView.dataSource = self
