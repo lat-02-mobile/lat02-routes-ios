@@ -18,7 +18,8 @@ extension LineEntity {
     @NSManaged public var id: String
     @NSManaged public var name: String
     @NSManaged public var idCategory: String
-    @NSManaged public var createdAt: Date
+    @NSManaged public var createAt: Date
+    @NSManaged public var updateAt: Date
     @NSManaged public var routesSet: NSSet
     @NSManaged public var category: LineCategoryEntity
 

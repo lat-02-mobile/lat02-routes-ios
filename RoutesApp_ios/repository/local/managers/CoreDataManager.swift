@@ -25,7 +25,6 @@ open class CoreDataManager {
         })
         return container
     }()
-
     func saveContext () {
         let context = persistentContainer.viewContext
         if context.hasChanges {
@@ -37,11 +36,29 @@ open class CoreDataManager {
             }
         }
     }
-
     func getContext() -> NSManagedObjectContext {
         return persistentContainer.viewContext
     }
-
+    func updateDataValue(entity: String, key: String, keyValue: String, keyUpdate: String, keyUpdateValue: Any, completion: @escaping(Result<Void, Error>) -> Void) {
+        let managedContext = persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: entity, in: managedContext)
+        let request = NSFetchRequest<NSFetchRequestResult>()
+        request.entity = entity
+        let predicate = NSPredicate(format: "(\(key) = %@)", keyValue)
+        request.predicate = predicate
+        do {
+            let results = try managedContext.fetch(request)
+            guard let objectUpdate = results[0] as? NSManagedObject else {return}
+            objectUpdate.setValue(keyUpdateValue, forKey: keyUpdate)
+            do {
+                try managedContext.save()
+            } catch let error {
+                completion(.failure(error))
+            }
+        } catch let error {
+            completion(.failure(error))
+        }
+    }
     func getData<T: NSManagedObject>(entity: String) -> [T] {
         let context = persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<T>(entityName: entity)
@@ -53,7 +70,19 @@ open class CoreDataManager {
         }
         return []
     }
-
+    func getDataById<T: NSManagedObject>(entity: String, key:String, keyValue: String) -> [T] {
+        let context = persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<T>(entityName: entity)
+        let predicate = NSPredicate(format: "(\(key) = %@)", keyValue)
+        fetchRequest.predicate = predicate
+        do {
+            let dbWEntries = try context.fetch(fetchRequest)
+            return dbWEntries
+        } catch let error {
+            print(error)
+        }
+        return []
+    }
     func getData<T: NSManagedObject>(type: T.Type, entity: String, completion: @escaping(Result<[T], Error>) -> Void) {
         let context = persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<T>(entityName: entity)
@@ -64,7 +93,6 @@ open class CoreDataManager {
             completion(.failure(error))
         }
     }
-
     func deleteEntityObjectByKeyValue<T>(entityName: T.Type, key: String, value: Any) -> Bool {
         let context = self.getContext()
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: String(describing: entityName.self))
@@ -92,7 +120,6 @@ open class CoreDataManager {
         }
         return false
     }
-
     @discardableResult
     func deleteAll() -> Bool {
         let context = self.getContext()

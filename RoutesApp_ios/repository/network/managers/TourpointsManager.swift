@@ -10,6 +10,7 @@ import Foundation
 protocol TourpointsManagerProtocol {
     func getTourpointList(completion: @escaping (Result<[Tourpoint], Error>) -> Void)
     func getTourpointCategories(completion: @escaping (Result<[TourpointCategory], Error>) -> Void)
+    func getTourpointCategoriesByDateGreaterThanOrEquelTo(date: Date, completion: @escaping (Result<[TourpointCategory], Error>) -> Void)
 }
 
 class TourpointsManager: TourpointsManagerProtocol {
@@ -27,9 +28,23 @@ class TourpointsManager: TourpointsManagerProtocol {
             }
         }
     }
+    func getTourpointListByDateGreaterThanOrEquelTo(date:Date ,completion: @escaping (Result<[Tourpoint], Error>) -> Void) {
+        cityManager.getDocumentsFromCityByDateGreaterThanOrEqualTo(type: Tourpoint.self, forCollection: .Tourpoints,date: date, usingReference: true) { result in
+            switch result {
+            case.success(let tourpoints):
+                completion(.success(tourpoints))
+            case.failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
 
     func getTourpointCategories(completion: @escaping (Result<[TourpointCategory], Error>) -> Void) {
         firebaseManager.getDocuments(type: TourpointCategory.self, forCollection: .TourpointsCategory, completion: completion)
+    }
+    func getTourpointCategoriesByDateGreaterThanOrEquelTo(date: Date, completion: @escaping (Result<[TourpointCategory], Error>) -> Void) {
+        firebaseManager.getDocumentsByDateGreaterThanOrEquelTo(type: TourpointCategory.self, forCollection: .TourpointsCategory, field: "updateAt",
+                                           date: date, completion: completion)
     }
 
 }

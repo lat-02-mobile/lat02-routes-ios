@@ -19,6 +19,7 @@ extension TourpointCategoryEntity {
     @NSManaged public var descriptionEng: String
     @NSManaged public var descriptionEsp: String
     @NSManaged public var createdAt: Date
+    @NSManaged public var updateAt: Date
     @NSManaged public var icon: String
     @NSManaged public var tourpoints: NSSet?
 

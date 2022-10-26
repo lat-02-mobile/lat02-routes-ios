@@ -9,7 +9,6 @@ import CoreData
 @testable import RoutesApp_ios
 
 class MockLocalDataManager: LocalDataManagerProtocol {
-
     static func setUpInMemoryManagedObjectContext() -> NSManagedObjectContext {
         let managedObjectModel = NSManagedObjectModel.mergedModel(from: [Bundle.main])!
 
@@ -33,6 +32,7 @@ class MockLocalDataManager: LocalDataManagerProtocol {
     var sendWithError = false
     var tourpointsCalled = false
     var tourpointsCategoryCalled = false
+    var dataHasBeenUpdated = false
 
     func retrieveAllDataFromFirebase(completion: @escaping (Result<Void, Error>) -> Void) {
         if sendWithError {
@@ -68,15 +68,54 @@ class MockLocalDataManager: LocalDataManagerProtocol {
         }
 
     }
-
+    func updateDataValueForSync(entity: String, key: String, keyValue: String, keyUpdate: String, completion: @escaping (Result<Void, Error>) -> Void) {
+        if sendWithError {
+            completion(.failure(NSError(domain: "Error", code: 0)))
+        } else {
+            dataHasBeenRetrieved = true
+            completion(.success(()))
+        }
+    }
+    
+    func getLineCategoryDataById(keyValue: String) -> [LineCategoryEntity] {
+        return TestResources.lineCategoryEntity
+    }
+    
+    func getLineDataById(keyValue: String) -> [LineEntity] {
+        return TestResources.lineEntity
+    }
+    
+    func getLineRouteDataById(keyValue: String) -> [LineRouteEntity] {
+        return TestResources.lineRouteEntity
+    }
+    
+    func getTourPointCategoryDataById(keyValue: String) -> [TourpointCategoryEntity] {
+        return TestResources.tourpointCategoryEntity
+    }
+    
+    func getTourPointDataById(keyValue: String) -> [TourpointEntity] {
+        return TestResources.tourpointEntity
+    }
+    func updateDataValueForSync(entity: String, key: String, keyValue: String, keyUpdate: String) {
+        dataHasBeenUpdated = true
+    }
+    func deleteEntityObjectByKeyValue<T>(type: T.Type, key: String, value: String) -> Bool where T : NSManagedObject {
+        if sendWithError {
+            return true
+        } else {
+            return false
+        }
+    }
+    
     private func convertLineToEntity<T>() -> [T] {
         return TestResources.lines.map({ line in
             let entity = LineEntity(context: context)
             entity.id = line.id
             entity.name = line.name
             entity.idCategory = line.idCategory
-            entity.createdAt = Date()
+            entity.createAt = Date()
             entity.category = LineCategoryEntity(context: context)
+            entity.updateAt = Date()
             // swiftlint:disable force_cast
             return entity as! T
         })
@@ -90,7 +129,8 @@ class MockLocalDataManager: LocalDataManagerProtocol {
             entity.nameEsp = category.nameEsp
             entity.whiteIcon = category.whiteIcon
             entity.blackIcon = category.blackIcon
-            entity.createdAt = Date()
+            entity.createAt = Date()
+            entity.updateAt =  Date()
             // swiftlint:disable force_cast
             return entity as! T
         })
@@ -105,6 +145,7 @@ class MockLocalDataManager: LocalDataManagerProtocol {
             entity.destination = tourpoint.destination.toCoordinate()
             entity.name = tourpoint.name
             entity.urlImage = tourpoint.urlImage
+            entity.updateAt = Date()
             // swiftlint:disable force_cast
             return entity as! T
         })
