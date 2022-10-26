@@ -20,7 +20,8 @@ extension LineCategoryEntity {
     @NSManaged public var nameEsp: String
     @NSManaged public var whiteIcon: String
     @NSManaged public var blackIcon: String
-    @NSManaged public var createdAt: Date
+    @NSManaged public var createAt: Date
+    @NSManaged public var updateAt: Date
 }
 
 extension LineCategoryEntity: Identifiable {

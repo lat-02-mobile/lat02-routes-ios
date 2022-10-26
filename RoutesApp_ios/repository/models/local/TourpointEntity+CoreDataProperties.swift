@@ -21,6 +21,8 @@ extension TourpointEntity {
     @NSManaged public var strDestination: String
     @NSManaged public var createdAt: Date
     @NSManaged public var category: TourpointCategoryEntity
+    @NSManaged public var updateAt: Date
+    @NSManaged public var id: String
 
     public var destination: Coordinate {
         get {

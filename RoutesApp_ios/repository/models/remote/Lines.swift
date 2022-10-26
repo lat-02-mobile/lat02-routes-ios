@@ -19,13 +19,15 @@ struct RouteListDetailModel {
     let category: LinesCategory
 }
 
-struct Lines: Codable {
+struct Lines: Codable, BaseModel {
     let categoryRef: DocumentReference?
     let enable: Bool
-    let id: String
+    var id: String
     let idCity: String
     let idCategory: String
     let name: String
+    let updateAt: Timestamp
+    let createAt: Timestamp
 
     func toEntity(categories: [LineCategoryEntity], context: NSManagedObjectContext) -> LineEntity {
         let categoryFirst = categories.first(where: {$0.id == idCategory})
@@ -34,7 +36,12 @@ struct Lines: Codable {
         entity.idCategory = idCategory
         entity.name = name
         entity.category = categoryFirst ?? LineCategoryEntity()
-        entity.createdAt = Date()
+        entity.createAt = createAt.dateValue()
+        entity.updateAt = updateAt.dateValue()
         return entity
+    }
+
+    func getCategory(completion: @escaping(DocumentSnapshot?, Error?) -> Void) {
+        self.categoryRef?.getDocument(completion: completion)
     }
 }

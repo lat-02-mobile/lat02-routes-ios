@@ -10,13 +10,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LineEditModeViewController" customModule="RoutesApp_ios" customModuleProvider="target">
             <connections>
-                <outlet property="CItyPicker" destination="eu9-EF-F5B" id="Lxt-0n-Wnh"/>
-                <outlet property="CategoryPicker" destination="tKF-5F-HhF" id="OXl-cK-JO4"/>
-                <outlet property="CityPicker" destination="eu9-EF-F5B" id="8cd-Th-ern"/>
-                <outlet property="LineNameTextField" destination="U5O-iT-dn6" id="YFg-sh-SxT"/>
-                <outlet property="SaveButton" destination="djj-mC-4al" id="tn4-nR-Z1W"/>
                 <outlet property="categoryPicker" destination="tKF-5F-HhF" id="58X-Ig-Deb"/>
                 <outlet property="cityPicker" destination="eu9-EF-F5B" id="CHT-Y1-k6c"/>
+                <outlet property="enableLabel" destination="2oP-ZD-dCY" id="Sbf-wh-xrx"/>
+                <outlet property="enableSwitch" destination="67Q-zK-rzY" id="heJ-h2-Xwt"/>
                 <outlet property="nameTextField" destination="U5O-iT-dn6" id="5IG-4P-5GP"/>
                 <outlet property="saveButton" destination="djj-mC-4al" id="I14-xH-blP"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -31,63 +28,80 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KgQ-bk-cLc">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="876"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UPi-LN-Xiy">
-                                    <rect key="frame" x="30" y="105" width="354" height="21"/>
+                                    <rect key="frame" x="30" y="104.5" width="354" height="20.5"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eu9-EF-F5B">
-                                    <rect key="frame" x="40" y="413" width="334" height="216"/>
+                                    <rect key="frame" x="40" y="391.5" width="334" height="216"/>
                                 </pickerView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Write the name of the line" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="faS-Zy-oA9">
-                                    <rect key="frame" x="30" y="10" width="354" height="21"/>
+                                    <rect key="frame" x="30" y="10" width="354" height="20.5"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Line XXXX" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U5O-iT-dn6">
-                                    <rect key="frame" x="40" y="41" width="334" height="34"/>
+                                    <rect key="frame" x="40" y="40.5" width="334" height="34"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
                                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tKF-5F-HhF">
-                                    <rect key="frame" x="40" y="136" width="334" height="216"/>
+                                    <rect key="frame" x="40" y="125" width="334" height="216"/>
                                 </pickerView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fsi-sY-D1v">
+                                    <rect key="frame" x="30" y="371" width="354" height="20.5"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="djj-mC-4al">
-                                    <rect key="frame" x="100" y="679" width="214" height="31"/>
+                                    <rect key="frame" x="100" y="678.5" width="214" height="31"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="filled" title="Save"/>
                                     <connections>
                                         <action selector="saveLine:" destination="-1" eventType="touchUpInside" id="jpX-T9-Scw"/>
                                     </connections>
                                 </button>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fsi-sY-D1v">
-                                    <rect key="frame" x="30" y="382" width="354" height="21"/>
-                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
+                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qpS-Vw-z07">
+                                    <rect key="frame" x="40" y="617.5" width="334" height="31"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2oP-ZD-dCY">
+                                            <rect key="frame" x="0.0" y="0.0" width="285" height="31"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="67Q-zK-rzY">
+                                            <rect key="frame" x="285" y="0.0" width="51" height="31"/>
+                                        </switch>
+                                    </subviews>
+                                </stackView>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
-                                <constraint firstItem="tKF-5F-HhF" firstAttribute="top" secondItem="UPi-LN-Xiy" secondAttribute="bottom" constant="10" id="0uz-a4-1ja"/>
+                                <constraint firstItem="tKF-5F-HhF" firstAttribute="top" secondItem="UPi-LN-Xiy" secondAttribute="bottom" id="0uz-a4-1ja"/>
                                 <constraint firstItem="Fsi-sY-D1v" firstAttribute="top" secondItem="tKF-5F-HhF" secondAttribute="bottom" constant="30" id="33i-RJ-z5t"/>
                                 <constraint firstItem="djj-mC-4al" firstAttribute="leading" secondItem="KgQ-bk-cLc" secondAttribute="leading" constant="100" id="6mZ-mj-mIS"/>
+                                <constraint firstAttribute="bottom" secondItem="djj-mC-4al" secondAttribute="bottom" constant="166.5" id="7Cy-GL-1TE"/>
                                 <constraint firstItem="tKF-5F-HhF" firstAttribute="leading" secondItem="KgQ-bk-cLc" secondAttribute="leading" constant="40" id="9FC-8q-tIF"/>
-                                <constraint firstItem="eu9-EF-F5B" firstAttribute="top" secondItem="Fsi-sY-D1v" secondAttribute="bottom" constant="10" id="B77-3e-d3f"/>
+                                <constraint firstItem="qpS-Vw-z07" firstAttribute="top" secondItem="eu9-EF-F5B" secondAttribute="bottom" constant="10" id="Aow-UG-Gbh"/>
+                                <constraint firstItem="eu9-EF-F5B" firstAttribute="top" secondItem="Fsi-sY-D1v" secondAttribute="bottom" id="B77-3e-d3f"/>
                                 <constraint firstAttribute="trailing" secondItem="eu9-EF-F5B" secondAttribute="trailing" constant="40" id="E4C-78-JjG"/>
-                                <constraint firstItem="djj-mC-4al" firstAttribute="top" secondItem="eu9-EF-F5B" secondAttribute="bottom" constant="50" id="Exa-fG-rv0"/>
                                 <constraint firstItem="faS-Zy-oA9" firstAttribute="leading" secondItem="KgQ-bk-cLc" secondAttribute="leading" constant="30" id="FEO-2j-xVq"/>
                                 <constraint firstAttribute="trailing" secondItem="faS-Zy-oA9" secondAttribute="trailing" constant="30" id="FZC-ob-Fiz"/>
+                                <constraint firstItem="djj-mC-4al" firstAttribute="top" secondItem="qpS-Vw-z07" secondAttribute="bottom" constant="30" id="JuM-2P-xpT"/>
                                 <constraint firstItem="UPi-LN-Xiy" firstAttribute="top" secondItem="U5O-iT-dn6" secondAttribute="bottom" constant="30" id="MoK-y9-gwK"/>
+                                <constraint firstItem="qpS-Vw-z07" firstAttribute="leading" secondItem="KgQ-bk-cLc" secondAttribute="leading" constant="40" id="O2U-XV-hcj"/>
                                 <constraint firstItem="U5O-iT-dn6" firstAttribute="leading" secondItem="KgQ-bk-cLc" secondAttribute="leading" constant="40" id="USP-nU-cke"/>
                                 <constraint firstAttribute="trailing" secondItem="tKF-5F-HhF" secondAttribute="trailing" constant="40" id="WUM-Vw-JhE"/>
                                 <constraint firstItem="UPi-LN-Xiy" firstAttribute="leading" secondItem="KgQ-bk-cLc" secondAttribute="leading" constant="30" id="ajC-xx-iK6"/>
                                 <constraint firstAttribute="trailing" secondItem="U5O-iT-dn6" secondAttribute="trailing" constant="40" id="f4N-9N-x3s"/>
-                                <constraint firstAttribute="bottom" secondItem="djj-mC-4al" secondAttribute="bottom" constant="186" id="jAg-BZ-ztf"/>
+                                <constraint firstAttribute="trailing" secondItem="qpS-Vw-z07" secondAttribute="trailing" constant="40" id="jsq-su-FRr"/>
                                 <constraint firstAttribute="trailing" secondItem="djj-mC-4al" secondAttribute="trailing" constant="100" id="lSv-i7-Tp4"/>
                                 <constraint firstItem="U5O-iT-dn6" firstAttribute="top" secondItem="faS-Zy-oA9" secondAttribute="bottom" constant="10" id="mfV-QB-2BQ"/>
                                 <constraint firstAttribute="trailing" secondItem="Fsi-sY-D1v" secondAttribute="trailing" constant="30" id="nY7-de-Bdi"/>

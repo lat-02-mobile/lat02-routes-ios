@@ -35,16 +35,23 @@ class FirebaseFirestoreManager {
     func getDocReference(forCollection collection: FirebaseCollections, documentID: String) -> DocumentReference {
         db.collection(collection.rawValue).document(documentID)
     }
+
     func addDocument<T: Encodable & BaseModel>(document: T, collection: FirebaseCollections, completion: @escaping ( Result<T, Error>) -> Void  ) {
-        guard let itemDict = document.dict else { return completion(.failure(FirebaseErrors.ErrorToDecodeItem)) }
-        db.collection(collection.rawValue).document(document.id).setData(itemDict) { error in
-            if let error = error {
-                completion(.failure(error))
-            } else {
-                completion(.success(document))
+        let encoder = Firestore.Encoder()
+        do {
+            let itemDict = try encoder.encode(document)
+            db.collection(collection.rawValue).document(document.id).setData(itemDict) { error in
+                if let error = error {
+                    completion(.failure(error))
+                } else {
+                    completion(.success(document))
+                }
             }
+        } catch {
+            completion(.failure(error))
         }
     }
+
     func getDocuments<T: Decodable>(type: T.Type, forCollection collection: FirebaseCollections, completion: @escaping ( Result<[T], Error>) -> Void  ) {
         db.collection(collection.rawValue).getDocuments { querySnapshot, error in
             guard error == nil else { return completion(.failure(error!)) }
@@ -85,7 +92,9 @@ class FirebaseFirestoreManager {
 
     func getDocumentsWithLimit<T: Decodable>(type: T.Type, forCollection collection: FirebaseCollections, limit: Int, completion: @escaping ( Result<[T], Error>) -> Void  ) {
         db.collection(collection.rawValue).limit(to: limit).getDocuments { querySnapshot, error in
-            guard error == nil else { return completion(.failure(error!)) }
+            if let err = error {
+                return completion(.failure(err))
+            }
             guard let documents = querySnapshot?.documents else { return completion(.success([])) }
             var items = [T]()
             let json = JSONDecoder()
@@ -102,7 +111,35 @@ class FirebaseFirestoreManager {
     func getDocumentsByParameterContains<T: Decodable>(type: T.Type, forCollection collection: FirebaseCollections, field: String, parameter: Any,
                                                        completion: @escaping ( Result<[T], Error>) -> Void  ) {
         db.collection(collection.rawValue).whereField(field, isEqualTo: parameter).getDocuments { querySnapshot, error in
-            guard error == nil else { return completion(.failure(error!)) }
+            if let err = error {
+                return completion(.failure(err))
+            }
+            guard let documents = querySnapshot?.documents else { return completion(.success([])) }
+            let finalDocuments = documents.compactMap({try?$0.data(as: type)})
+            completion(.success(finalDocuments))
+        }
+    }
+
+    func getDocumentsByDateGreaterThanOrEquelTo<T: Decodable>(type: T.Type, forCollection collection: FirebaseCollections, field: String, date: Date,
+                                                              completion: @escaping ( Result<[T], Error>) -> Void  ) {
+            db.collection(collection.rawValue).whereField(field, isGreaterThanOrEqualTo: date).getDocuments { querySnapshot, error in
+            if let err = error {
+                return completion(.failure(err))
+            }
+            guard let documents = querySnapshot?.documents else { return completion(.success([])) }
+            let finalDocuments = documents.compactMap({try?$0.data(as: type)})
+            completion(.success(finalDocuments))
+        }
+    }
+
+    func getDocumentsByParameterContainsDateGreaterThanOrEqualTo<T: Decodable>(type: T.Type, forCollection collection: FirebaseCollections, field: String, fieldDate: String,
+                                                                               date: Date, parameter: Any,
+                                                                               completion: @escaping ( Result<[T], Error>) -> Void  ) {
+            db.collection(collection.rawValue).whereField(field, isEqualTo: parameter).whereField(fieldDate, isGreaterThanOrEqualTo: date)
+                                                                                      .getDocuments { querySnapshot, error in
+            if let err = error {
+                return completion(.failure(err))
+            }
             guard let documents = querySnapshot?.documents else { return completion(.success([])) }
             let finalDocuments = documents.compactMap({try?$0.data(as: type)})
             completion(.success(finalDocuments))
@@ -125,14 +162,36 @@ class FirebaseFirestoreManager {
         }
     }
 
-    func getSingleDocumentById<T: Decodable>(type: T.Type, forCollection collection: FirebaseCollections, documentID: String, completion: @escaping ( Result<T, Error>) -> Void  ) {
+    func getSingleDocumentById<T: Decodable>(type: T.Type, forCollection collection: FirebaseCollections, documentID: String, completion: @escaping ( Result<T, Error>) -> Void ) {
         db.collection(collection.rawValue).document(documentID).getDocument { querySnapshot, error in
-            guard error == nil else { return completion(.failure(error!)) }
+            if let err = error {
+                return completion(.failure(err))
+            }
             do {
                 guard let snap = querySnapshot, let document = try snap.data(as: type) else { return }
                 completion(.success(document))
             } catch {
                 completion(.failure(FirebaseErrors.ErrorToDecodeItem))
+            }
+        }
+    }
+
+    func updateDocument<T: Encodable & BaseModel>(document: T, forCollection collection: FirebaseCollections, completion: @escaping ( Result<String, Error>) -> Void) {
+        let docRef = db.collection(collection.rawValue).document(document.id)
+        do {
+            try docRef.setData(from: document)
+            completion(.success(document.id))
+        } catch {
+            completion(.failure(error))
+        }
+    }
+
+    func deleteDocument<T: Decodable>(type: T.Type, forCollection collection: FirebaseCollections, documentID: String, completion: @escaping ( Result<String, Error>) -> Void) {
+        db.collection(collection.rawValue).document(documentID).delete { error in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(documentID))
             }
         }
     }

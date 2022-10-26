@@ -17,7 +17,7 @@ extension LineRouteEntity {
 
     @NSManaged public var averageVelocity: String
     @NSManaged public var color: String
-    @NSManaged public var createdAt: Date
+    @NSManaged public var createAt: Date
     @NSManaged public var id: String
     @NSManaged public var idLine: String
     @NSManaged public var name: String
