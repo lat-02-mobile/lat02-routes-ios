@@ -19,5 +19,5 @@ extension SyncUnitHistory {
 
 }
 
-extension SyncUnitHistory : Identifiable {
+extension SyncUnitHistory: Identifiable {
 }

@@ -70,7 +70,7 @@ open class CoreDataManager {
         }
         return []
     }
-    func getDataById<T: NSManagedObject>(entity: String, key:String, keyValue: String) -> [T] {
+    func getDataById<T: NSManagedObject>(entity: String, key: String, keyValue: String) -> [T] {
         let context = persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<T>(entityName: entity)
         let predicate = NSPredicate(format: "(\(key) = %@)", keyValue)

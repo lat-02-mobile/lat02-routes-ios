@@ -24,4 +24,24 @@ class ImageHelper {
             ]
         )
     }
+
+    func imageWith(name: String?, backgroundColor: UIColor = ColorConstants.routePointColor) -> UIImage? {
+        let frame = CGRect(x: 0, y: 0, width: 25, height: 25)
+        let nameLabel = UILabel(frame: frame)
+        nameLabel.textAlignment = .center
+        nameLabel.backgroundColor = backgroundColor
+        nameLabel.textColor = .white
+        nameLabel.font = UIFont.boldSystemFont(ofSize: 18)
+        nameLabel.text = name
+        nameLabel.layer.cornerRadius = nameLabel.frame.width / 2
+        nameLabel.clipsToBounds = true
+
+        UIGraphicsBeginImageContext(frame.size)
+        if let currentContext = UIGraphicsGetCurrentContext() {
+            nameLabel.layer.render(in: currentContext)
+            let nameImage = UIGraphicsGetImageFromCurrentImageContext()
+            return nameImage
+        }
+        return nil
+    }
 }

@@ -28,8 +28,9 @@ class TourpointsManager: TourpointsManagerProtocol {
             }
         }
     }
-    func getTourpointListByDateGreaterThanOrEquelTo(date:Date ,completion: @escaping (Result<[Tourpoint], Error>) -> Void) {
-        cityManager.getDocumentsFromCityByDateGreaterThanOrEqualTo(type: Tourpoint.self, forCollection: .Tourpoints,date: date, usingReference: true) { result in
+    func getTourpointListByDateGreaterThanOrEquelTo(date: Date, completion: @escaping (Result<[Tourpoint], Error>) -> Void) {
+        cityManager.getDocumentsFromCityByDateGreaterThanOrEqualTo(type: Tourpoint.self, forCollection: .Tourpoints,
+        date: date, usingReference: true) { result in
             switch result {
             case.success(let tourpoints):
                 completion(.success(tourpoints))

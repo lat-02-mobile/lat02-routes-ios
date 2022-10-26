@@ -76,37 +76,37 @@ class MockLocalDataManager: LocalDataManagerProtocol {
             completion(.success(()))
         }
     }
-    
+
     func getLineCategoryDataById(keyValue: String) -> [LineCategoryEntity] {
         return TestResources.lineCategoryEntity
     }
-    
+
     func getLineDataById(keyValue: String) -> [LineEntity] {
         return TestResources.lineEntity
     }
-    
+
     func getLineRouteDataById(keyValue: String) -> [LineRouteEntity] {
         return TestResources.lineRouteEntity
     }
-    
+
     func getTourPointCategoryDataById(keyValue: String) -> [TourpointCategoryEntity] {
         return TestResources.tourpointCategoryEntity
     }
-    
+
     func getTourPointDataById(keyValue: String) -> [TourpointEntity] {
         return TestResources.tourpointEntity
     }
     func updateDataValueForSync(entity: String, key: String, keyValue: String, keyUpdate: String) {
         dataHasBeenUpdated = true
     }
-    func deleteEntityObjectByKeyValue<T>(type: T.Type, key: String, value: String) -> Bool where T : NSManagedObject {
+    func deleteEntityObjectByKeyValue<T>(type: T.Type, key: String, value: String) -> Bool where T: NSManagedObject {
         if sendWithError {
             return true
         } else {
             return false
         }
     }
-    
+
     private func convertLineToEntity<T>() -> [T] {
         return TestResources.lines.map({ line in
             let entity = LineEntity(context: context)
