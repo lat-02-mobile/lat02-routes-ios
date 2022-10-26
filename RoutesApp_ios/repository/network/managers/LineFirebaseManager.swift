@@ -66,6 +66,19 @@ class LineFirebaseManager: LineManagerProtocol {
             }
         }
     }
+    func getLinesForCurrentCityByDateGreaterThanOrEqualTo(date: Date, completion: @escaping(Result<[Lines], Error>) -> Void) {
+        cityManager.getDocumentsFromCityByDateGreaterThanOrEqualTo(type: Lines.self, forCollection: .Lines, date: date) { result in
+            switch result {
+            case .success(let lines):
+                let enabledLines = lines.filter { line in
+                    return line.enable
+                }
+                completion(.success(enabledLines))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
 
     func getLinesByCityAsync(cityId: String) async throws -> [Lines] {
         do {
