@@ -234,3 +234,12 @@ struct AvailableTransport: Equatable {
         return totalDistance
     }
 }
+
+struct CoordinateWithType {
+    var point: Coordinate
+    var type: CoordinateType
+}
+
+enum CoordinateType {
+    case NORMAL, STOP
+}

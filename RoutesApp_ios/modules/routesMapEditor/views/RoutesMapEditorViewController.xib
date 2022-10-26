@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RoutesMapEditorViewController" customModule="RoutesApp_ios" customModuleProvider="target">
+            <connections>
+                <outlet property="addRemoveButton" destination="xSl-PM-NqG" id="zqr-DL-xjx"/>
+                <outlet property="mapView" destination="Nnd-je-8H3" id="N98-LG-OMI"/>
+                <outlet property="sortButton" destination="DYv-5L-nPM" id="TMe-FR-Dje"/>
+                <outlet property="stopsButton" destination="dYq-e0-DpN" id="0xo-tB-uIJ"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nnd-je-8H3" customClass="GMSMapView">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8pY-ZN-J2V" customClass="FabButton" customModule="RoutesApp_ios" customModuleProvider="target">
+                    <rect key="frame" x="30" y="59" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="M1w-L6-JaW"/>
+                        <constraint firstAttribute="width" constant="50" id="daA-6G-7eL"/>
+                    </constraints>
+                    <color key="tintColor" name="primary-color"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" image="chevron.left" catalog="system"/>
+                    <connections>
+                        <action selector="backButtonAction:" destination="-1" eventType="touchUpInside" id="I9c-h9-mY2"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DYv-5L-nPM" customClass="FabButton" customModule="RoutesApp_ios" customModuleProvider="target">
+                    <rect key="frame" x="30" y="652" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="Z72-Ak-uOS"/>
+                        <constraint firstAttribute="height" constant="50" id="ys5-3Z-qrN"/>
+                    </constraints>
+                    <color key="tintColor" name="primary-color"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" image="sort-points"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bsh-6x-pa8" customClass="FabButton" customModule="RoutesApp_ios" customModuleProvider="target">
+                    <rect key="frame" x="334" y="782" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="8t9-6Q-vD7"/>
+                        <constraint firstAttribute="height" constant="50" id="omY-q5-iNi"/>
+                    </constraints>
+                    <color key="tintColor" name="primary-color"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" image="checkmark" catalog="system"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xSl-PM-NqG" customClass="FabButton" customModule="RoutesApp_ios" customModuleProvider="target">
+                    <rect key="frame" x="30" y="782" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="7hy-zm-Jw5"/>
+                        <constraint firstAttribute="height" constant="50" id="ujD-md-Cz9"/>
+                    </constraints>
+                    <color key="tintColor" name="primary-color"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" image="plus" catalog="system"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dYq-e0-DpN" customClass="FabButton" customModule="RoutesApp_ios" customModuleProvider="target">
+                    <rect key="frame" x="30" y="717" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="6XF-iR-nuA"/>
+                        <constraint firstAttribute="width" constant="50" id="X66-nl-fow"/>
+                    </constraints>
+                    <color key="tintColor" name="stop-color"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" image="bus-stop">
+                        <color key="baseBackgroundColor" name="stop-color"/>
+                    </buttonConfiguration>
+                </button>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pin" translatesAutoresizingMaskIntoConstraints="NO" id="eda-ry-y4M">
+                    <rect key="frame" x="182" y="398" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="CUM-Tf-Tnn"/>
+                        <constraint firstAttribute="height" constant="50" id="mWw-lv-Ds0"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Bsh-6x-pa8" secondAttribute="bottom" constant="30" id="16l-7e-jvf"/>
+                <constraint firstItem="xSl-PM-NqG" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="C9P-ls-K8t"/>
+                <constraint firstAttribute="trailing" secondItem="Nnd-je-8H3" secondAttribute="trailing" id="DhM-Zz-4wj"/>
+                <constraint firstItem="Nnd-je-8H3" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ESV-AP-3Sb"/>
+                <constraint firstItem="xSl-PM-NqG" firstAttribute="top" secondItem="dYq-e0-DpN" secondAttribute="bottom" constant="15" id="Q5s-un-FwM"/>
+                <constraint firstItem="8pY-ZN-J2V" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="R3z-kN-f2b"/>
+                <constraint firstItem="dYq-e0-DpN" firstAttribute="top" secondItem="DYv-5L-nPM" secondAttribute="bottom" constant="15" id="fci-Ko-8xO"/>
+                <constraint firstAttribute="bottom" secondItem="Nnd-je-8H3" secondAttribute="bottom" id="lCW-zd-gBW"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Bsh-6x-pa8" secondAttribute="trailing" constant="30" id="oq0-4Q-X6a"/>
+                <constraint firstItem="eda-ry-y4M" firstAttribute="centerX" secondItem="Nnd-je-8H3" secondAttribute="centerX" id="pcc-NC-SF0"/>
+                <constraint firstItem="8pY-ZN-J2V" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="15" id="qs5-1R-kGO"/>
+                <constraint firstItem="DYv-5L-nPM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="rdv-sA-Rla"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="xSl-PM-NqG" secondAttribute="bottom" constant="30" id="ui7-bp-Pu7"/>
+                <constraint firstItem="Nnd-je-8H3" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="v2Q-JS-gep"/>
+                <constraint firstItem="eda-ry-y4M" firstAttribute="centerY" secondItem="Nnd-je-8H3" secondAttribute="centerY" constant="-25" id="xM6-Xm-q5l"/>
+                <constraint firstItem="dYq-e0-DpN" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="zQH-5d-l5w"/>
+            </constraints>
+            <point key="canvasLocation" x="131.8840579710145" y="83.705357142857139"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="bus-stop" width="27" height="27"/>
+        <image name="checkmark" catalog="system" width="128" height="114"/>
+        <image name="chevron.left" catalog="system" width="96" height="128"/>
+        <image name="pin" width="100" height="100"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="sort-points" width="31" height="31"/>
+        <namedColor name="primary-color">
+            <color red="0.0" green="0.27450980392156865" blue="0.58823529411764708" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="stop-color">
+            <color red="0.69800001382827759" green="0.12200000137090683" blue="0.12200000137090683" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
