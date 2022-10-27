@@ -9,17 +9,17 @@ import Foundation
 
 class LineEditModeViewModel: ViewModel {
 
-    var localDataManager: LocalDataManagerProtocol = LocalDataManager.shared
+    var lineCategoryManager: LineCategoryManagerProtocol = LineCategoryFirebaseManager()
     var cityManager: CityManagerProtocol = CityFirebaseManager.shared
     var lineManager: LineManagerProtocol = LineFirebaseManager.shared
 
-    var categories = [LineCategoryEntity]()
+    var categories = [LinesCategory]()
     var cities = [Cities]()
     var onFinishCategories: (() -> Void)?
     var onFinishCities: (() -> Void)?
 
     func getCategories() {
-        localDataManager.getDataFromCoreData(type: LineCategoryEntity.self, forEntity: LineCategoryEntity.name) { result in
+        lineCategoryManager.getCategories { result in
             switch result {
             case .success(let categories):
                 self.categories = categories
@@ -43,6 +43,10 @@ class LineEditModeViewModel: ViewModel {
     }
 
     func createNewLine(newLineName: String, idCategory: String, idCity: String) {
+        guard !newLineName.isEmpty else {
+            self.onError?(String.localizeString(localizedString: StringResources.adminLinesMustProvideName))
+            return
+        }
         lineManager.createNewLine(newLineName: newLineName, idCategory: idCategory, idCity: idCity) { result in
             switch result {
             case .success:
@@ -54,6 +58,10 @@ class LineEditModeViewModel: ViewModel {
     }
 
     func editLine(targetLine: Lines, newLineName: String, newIdCategory: String, newIdCity: String, newEnable: Bool) {
+        guard !newLineName.isEmpty else {
+            self.onError?(String.localizeString(localizedString: StringResources.adminLinesMustProvideName))
+            return
+        }
         lineManager.updateLine(line: targetLine, newLineName: newLineName,
                                newIdCategory: newIdCategory, newIdCity: newIdCity,
                                newEnable: newEnable) { result in
@@ -75,7 +83,7 @@ class LineEditModeViewModel: ViewModel {
                 if status {
                     self.onFinish?()
                 } else {
-                    self.onError?("This line has some routes, delete them first")
+                    self.onError?(String.localizeString(localizedString: StringResources.adminLinesLineHasRouteDeleteFirst))
                 }
             case .failure(let error):
                 self.onError?(error.localizedDescription)

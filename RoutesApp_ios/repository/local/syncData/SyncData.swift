@@ -13,7 +13,6 @@ class SyncData {
     let queue = DispatchQueue(label: "AllRoutes", attributes: .concurrent)
     var categoryEntities: [LineCategoryEntity] = []
     var update: Bool = false
-
     func syncData() {
         queue.async {
             self.localDataManager.getDataFromCoreData(type: SyncUnitHistory.self, forEntity: SyncUnitHistory.name) { result in
@@ -39,18 +38,27 @@ class SyncData {
     func updateLineCategoryByDate() {
         self.lineCategoryManager.getCategoriesByDate(date: self.lastUpdated) { result in
             switch result {
-            case.success(let category):
+            case.success(let categories):
                 self.update = true
-                for categorie in category {
-                    let delete = self.localDataManager.deleteEntityObjectByKeyValue(type: LineCategoryEntity.self, key: "id", value: categorie.id)
-                    if  delete == true {
-                        _ = LinesCategory(id: categorie.id, nameEng: categorie.nameEng, nameEsp: categorie.nameEsp,
-                                          blackIcon: categorie.blackIcon, whiteIcon: categorie.whiteIcon,
-                                          updateAt: categorie.updateAt, createAt: categorie.createAt)
-                            .toEntity(context: self.coreDataManager.getContext())
+                for category in categories {
+                    let categoriesEntity = self.localDataManager.getLineCategoryDataById( keyValue: category.id)
+                    for categoryEntity in categoriesEntity {
+                        let context = self.coreDataManager.getContext()
+                        categoryEntity.blackIcon = category.blackIcon
+                        categoryEntity.createAt = category.createAt.dateValue()
+                        categoryEntity.id = category.id
+                        categoryEntity.nameEsp = category.nameEsp
+                        categoryEntity.nameEng = category.nameEng
+                        categoryEntity.updateAt = category.updateAt.dateValue()
+                        categoryEntity.whiteIcon = category.whiteIcon
+                        do {
+                            try context.save()
+                        } catch {
+                            self.update = false
+                        }
                     }
-                    self.updateLinesByDate()
                 }
+                self.updateLinesByDate()
             case.failure:
                 self.update = false
             }
@@ -62,12 +70,20 @@ class SyncData {
             case.success(let lines):
                 self.update = true
                 for line in lines {
-                    let delete = self.localDataManager.deleteEntityObjectByKeyValue(type: LineEntity.self, key: "id", value: line.id)
-                    if  delete == true {
-                        let newLine = Lines(categoryRef: line.categoryRef, enable: line.enable, id: line.id, idCity: line.idCity,
-                                            idCategory: line.idCategory, name: line.name, updateAt: line.updateAt, createAt: line.createAt)
-                        let lineEntity = newLine.toEntity(categories: self.categoryEntities, context: self.context)
-                        self.updateRoutesByDate(line: lineEntity)
+                    let linesEntity = self.localDataManager.getLineDataById( keyValue: line.id)
+                    self.updateRoutesByDate(lineId: line.id)
+                    for lineEntity in linesEntity {
+                        let context = self.coreDataManager.getContext()
+                        lineEntity.createAt = line.createAt.dateValue()
+                        lineEntity.id = line.id
+                        lineEntity.idCategory = line.idCategory
+                        lineEntity.name = line.name
+                        lineEntity.updateAt = line.updateAt.dateValue()
+                        do {
+                            try context.save()
+                        } catch {
+                            self.update = false
+                        }
                     }
                 }
             case.failure:
@@ -75,18 +91,32 @@ class SyncData {
             }
         }
     }
-    func updateRoutesByDate(line: LineEntity) {
-        lineRouteManager.getLineRouteByDateGreaterThanOrEqualTo(idLine: line.id, date: self.lastUpdated) { result in
+    func updateRoutesByDate(lineId: String) {
+        lineRouteManager.getLineRouteByDateGreaterThanOrEqualTo(idLine: lineId, date: self.lastUpdated) { result in
             switch result {
             case.success(let lineRoutes):
-                for route in lineRoutes {
-                    let delete = self.localDataManager.deleteEntityObjectByKeyValue(type: LineRouteEntity.self, key: "id", value: route.id)
-                    if  delete == true {
-                        route.toEntity(context: self.coreDataManager.getContext(), line: line)
+                for lineRoute in lineRoutes {
+                    let lineRoutesEntity = self.localDataManager.getLineRouteDataById( keyValue: lineRoute.id)
+                    for lineRouteEntity in lineRoutesEntity {
+                        let context = self.coreDataManager.getContext()
+                        lineRouteEntity.averageVelocity = lineRoute.averageVelocity
+                        lineRouteEntity.color = lineRoute.color
+                        lineRouteEntity.createAt = lineRoute.createAt.dateValue()
+                        lineRouteEntity.id = lineRoute.id
+                        lineRouteEntity.idLine = lineRoute.idLine
+                        lineRouteEntity.name = lineRoute.name
+                        lineRouteEntity.end = lineRoute.end.toCoordinate()
+                        lineRouteEntity.routePoints = lineRoute.routePoints.map({ $0.toCoordinate() })
+                        lineRouteEntity.start = lineRoute.start.toCoordinate()
+                        lineRouteEntity.stops = lineRoute.stops.map({ $0.toCoordinate() })
+                        do {
+                            try context.save()
+                        } catch {
+                            self.update = false
+                        }
                     }
                 }
                 self.update = true
-                try? self.context.save()
                 self.updateDataValueForSync()
             case.failure:
                 self.update = false
@@ -94,33 +124,61 @@ class SyncData {
         }
     }
     func updateTourPoint() {
-        if coreDataManager.deleteTourPoints() {
-            tourpointsManager.getTourpointList { result in
-                switch result {
-                case.success(let tourpoints):
-                    self.update = true
-                    self.updateTourpointCategories(tourpoints: tourpoints)
-                case.failure:
-                    self.update = false
+        tourpointsManager.getTourpointListByDateGreaterThanOrEquelTo(date: self.lastUpdated) { result in
+            switch result {
+            case.success(let tourpoints):
+                self.update = true
+                for tourpoint in tourpoints {
+                    let tourpointsEntity = self.localDataManager.getTourPointDataById( keyValue: tourpoint.id)
+                    for tourpointEntity in tourpointsEntity {
+                        let context = self.coreDataManager.getContext()
+                        tourpointEntity.address = tourpoint.address
+                        tourpointEntity.createdAt = tourpoint.createAt.dateValue()
+                        tourpointEntity.id = tourpoint.id
+                        tourpointEntity.name = tourpoint.name
+                        tourpointEntity.destination = tourpoint.destination.toCoordinate()
+                        tourpointEntity.updateAt = tourpoint.updateAt.dateValue()
+                        tourpointEntity.urlImage = tourpoint.urlImage
+                        do {
+                            try context.save()
+                        } catch {
+                            self.update = false
+                        }
+                    }
                 }
+                self.updateTourpointCategories()
+            case.failure:
+                self.update = false
             }
         }
     }
-     func updateTourpointCategories(tourpoints: [Tourpoint]) {
-         tourpointsManager.getTourpointCategoriesByDate(date: self.lastUpdated) { result in
-             switch result {
-             case.success(let categories):
-                 let categoryEntities = categories.map({ $0.toEntity(context: self.coreDataManager.getContext()) })
-                 for tourpoint in tourpoints {
-                     tourpoint.toEntity(context: self.coreDataManager.getContext(), categories: categoryEntities)
-                 }
-                 self.update = true
-                 try? self.context.save()
-                 self.updateDataValueForSync()
-             case.failure:
-                 self.update = false
-             }
-         }
+    func updateTourpointCategories() {
+        tourpointsManager.getTourpointCategoriesByDateGreaterThanOrEquelTo(date: self.lastUpdated) { result in
+            switch result {
+            case.success(let tourPointCategories):
+                self.update = true
+                for tourPointCategory in tourPointCategories {
+                    let tourPointsCategoryEntity = self.localDataManager.getTourPointCategoryDataById( keyValue: tourPointCategory.id)
+                    for tourPointCategoryEntity in tourPointsCategoryEntity {
+                        let context = self.coreDataManager.getContext()
+                        tourPointCategoryEntity.createdAt = tourPointCategory.createAt.dateValue()
+                        tourPointCategoryEntity.descriptionEsp = tourPointCategory.descriptionEsp
+                        tourPointCategoryEntity.descriptionEng = tourPointCategory.descriptionEng
+                        tourPointCategoryEntity.icon = tourPointCategory.icon
+                        tourPointCategoryEntity.id = tourPointCategory.id
+                        tourPointCategoryEntity.updateAt = tourPointCategory.updateAt.dateValue()
+                        do {
+                            try context.save()
+                        } catch {
+                            self.update = false
+                        }
+                    }
+                }
+                self.updateDataValueForSync()
+            case.failure:
+                self.update = false
+            }
+        }
     }
     func updateDataValueForSync() {
         if update {

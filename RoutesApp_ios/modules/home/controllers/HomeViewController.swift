@@ -14,6 +14,10 @@ enum HomeSelectionStatus {
     case SELECTING_POINTS, SHOWING_POSSIBLE_ROUTES, SHOWING_ROUTE_DETAILS
 }
 
+enum DestinationFromView {
+    case TOURPOINTS, FAVORITES, NONE
+}
+
 class HomeViewController: UIViewController {
 
     let viewmodel = HomeViewModel()
@@ -22,7 +26,7 @@ class HomeViewController: UIViewController {
     var homeSelectionStatus = HomeSelectionStatus.SELECTING_POINTS
     var availableTransports = [AvailableTransport]()
 
-    private var destinationFromDifferentController = false
+    private var destinationFromDifferentController = DestinationFromView.NONE
     private var destinationAux: CLLocationCoordinate2D?
     private let syncData = SyncData()
 
@@ -32,6 +36,9 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var continueButton: UIButton!
+    @IBOutlet weak var destinationContainer: UIView!
+    @IBOutlet weak var destinationPreselectedTitle: UILabel!
+    @IBOutlet weak var destinationPreselectedName: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -103,6 +110,7 @@ class HomeViewController: UIViewController {
 
         continueButton.layer.cornerRadius = 25
         continueButton.clipsToBounds = true
+        destinationContainer.layer.cornerRadius = 15
 
         searchButton.contentVerticalAlignment = .top
 
@@ -125,10 +133,13 @@ class HomeViewController: UIViewController {
         }
     }
 
-    func setDestinationPointFromOtherView(coordinates: Coordinate) {
-        destinationFromDifferentController = true
+    func setDestinationPointFromOtherView(coordinates: Coordinate, comesFrom: DestinationFromView, withName: String) {
+        destinationFromDifferentController = comesFrom
         let position = coordinates.toCLLocationCoordinate2D()
-        cameraMoveToLocation(toLocation: position)
+        destinationPreselectedTitle.text = String.localizeString(localizedString: StringResources.preSelectedDestination)
+        destinationPreselectedName.text = withName
+        destinationContainer.isHidden = false
+        currentLocationAction(self)
         destinationAux = position
         continueButtonAction(self)
     }
@@ -166,22 +177,20 @@ class HomeViewController: UIViewController {
         case .SELECTING_POINTS:
             switch viewmodel.pointsSelectionStatus {
             case.pendingOrigin:
-                if destinationFromDifferentController {
+                if destinationFromDifferentController != .NONE {
                     backButton.isHidden = true
-                    destinationFromDifferentController = false
                     destinationAux = nil
                     removeMarkerResetStatusAndLabel(isForOrigin: false, status: .pendingOrigin, label: StringResources.selectOrigin)
-                    let tabViewController = SceneDelegate.shared?.window?.rootViewController as? UITabBarController
-                    guard let tabController = tabViewController else { return }
-                    tabController.selectedIndex = 1
+                    gotToTab()
+                    destinationFromDifferentController = .NONE
                 }
             case.pendingDestination:
-                if !destinationFromDifferentController {
+                if destinationFromDifferentController == .NONE {
                     removeMarkerResetStatusAndLabel(isForOrigin: true, status: .pendingOrigin, label: StringResources.selectOrigin)
                     backButton.isHidden = true
                 }
             case.bothSelected:
-                destinationFromDifferentController ?
+                destinationFromDifferentController != .NONE ?
                 removeMarkerResetStatusAndLabel(isForOrigin: true, status: .pendingOrigin, label: StringResources.selectOrigin) :
                 removeMarkerResetStatusAndLabel(isForOrigin: false, status: .pendingDestination, label: StringResources.selectDestination)
                 viewmodel.selectedAvailableTransport = nil
@@ -197,6 +206,20 @@ class HomeViewController: UIViewController {
             viewmodel.destination?.map = mapView
             labelHelper.text = String.localizeString(localizedString: StringResources.routes)
             homeSelectionStatus = .SHOWING_POSSIBLE_ROUTES
+        }
+    }
+
+    private func gotToTab() {
+        destinationContainer.isHidden = true
+        let tabViewController = SceneDelegate.shared?.window?.rootViewController as? UITabBarController
+        guard let tabController = tabViewController else { return }
+        switch destinationFromDifferentController {
+        case .TOURPOINTS:
+            tabController.selectedIndex = ConstantVariables.TourpointPageIndex
+        case .FAVORITES:
+            tabController.selectedIndex = ConstantVariables.FavoritesPageIndex
+        case .NONE:
+            return
         }
     }
 
@@ -216,7 +239,7 @@ class HomeViewController: UIViewController {
 
     @IBAction func continueButtonAction(_ sender: Any) {
         let position: CLLocationCoordinate2D
-        if destinationFromDifferentController && viewmodel.destination == nil {
+        if destinationFromDifferentController != .NONE && viewmodel.destination == nil {
             guard let destinationAux = destinationAux else { return }
             position = destinationAux
             viewmodel.pointsSelectionStatus = .pendingDestination
@@ -230,7 +253,7 @@ class HomeViewController: UIViewController {
             pos.icon = UIImage(named: ConstantVariables.originPoint)
             pos.map = mapView
             viewmodel.origin = pos
-            destinationFromDifferentController ?
+            destinationFromDifferentController != .NONE ?
             setHelperLabelAndStatus(label: StringResources.done, status: .bothSelected) :
             setHelperLabelAndStatus(label: StringResources.selectDestination, status: .pendingDestination)
 
@@ -239,13 +262,11 @@ class HomeViewController: UIViewController {
             pos.icon = UIImage(named: ConstantVariables.destinationPoint)
             pos.map = mapView
             viewmodel.destination = pos
-            destinationFromDifferentController ?
+            destinationFromDifferentController != .NONE ?
             setHelperLabelAndStatus(label: StringResources.selectOrigin, status: .pendingOrigin) :
             setHelperLabelAndStatus(label: StringResources.done, status: .bothSelected)
 
         case.bothSelected:
-            continueButton.isHidden = true
-            currentLocationButton.isHidden = true
             Toast.showToast(target: self, message: String.localizeString(localizedString: StringResources.loadingPossibleRoutes))
             guard let origin = viewmodel.origin, let destination = viewmodel.destination else { return }
             let distanceBetweenCoords = GoogleMapsHelper.shared.getDistanceBetween2Points(
@@ -254,6 +275,8 @@ class HomeViewController: UIViewController {
             if distanceBetweenCoords <= 500.0 {
                 Toast.showToast(target: self, message: String.localizeString(localizedString: StringResources.youCanGoJustWalk))
             } else {
+                continueButton.isHidden = true
+                currentLocationButton.isHidden = true
                 SVProgressHUD.show()
                 viewmodel.getLineRouteForCurrentCity()
             }

@@ -23,7 +23,6 @@ extension TourpointEntity {
     @NSManaged public var category: TourpointCategoryEntity
     @NSManaged public var updateAt: Date
     @NSManaged public var id: String
-
     public var destination: Coordinate {
         get {
             return (try? JSONDecoder().decode(Coordinate.self, from: Data(strDestination.utf8))) ?? Coordinate(latitude: 0, longitude: 0)

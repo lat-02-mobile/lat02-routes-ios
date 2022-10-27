@@ -8,11 +8,14 @@
 import Foundation
 
 class LinesViewModel: ViewModel {
-    let lineManager: LineManagerProtocol = LineFirebaseManager()
-    let lineCategoryManager: LineCategoryManagerProtocol = LineCategoryFirebaseManager()
+    var lineManager: LineManagerProtocol = LineFirebaseManager()
+    var lineCategoryManager: LineCategoryManagerProtocol = LineCategoryFirebaseManager()
     var lines = [Lines]()
     var categories = [LinesCategory]()
     private var originalLines = [Lines]()
+
+    var queryAux = ""
+    var categoryAux: LinesCategory?
 
     func getCategories() {
         lineCategoryManager.getCategories { result in
@@ -36,6 +39,20 @@ class LinesViewModel: ViewModel {
             case .failure(let error):
                 self.onError?(error.localizedDescription)
             }
+        }
+    }
+
+    func applyFilters(query: String, selectedCat: LinesCategory?) {
+        filterLinesBy(query: query)
+        onFinish?()
+    }
+
+    private func filterLinesBy(query: String) {
+        if query.isEmpty {
+            lines = originalLines
+        } else {
+            let normalizedQuery = query.uppercased()
+            lines = originalLines.filter({ $0.name.uppercased().contains(normalizedQuery) })
         }
     }
 }

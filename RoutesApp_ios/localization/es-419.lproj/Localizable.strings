@@ -54,11 +54,10 @@
 // HomeController
 "origin" = "Origen";
 "destination"= "Destino";
-
 "select-origin" = "Seleccione punto de origen";
 "select-destination" = "Seleccione punto de destino";
-
 "done" = "Hecho";
+"pre-selected-destination" = "Destino pre-selccionado";
 
 // Save favorite dialogs
 "cancel" = "Cancelar";
@@ -84,8 +83,27 @@
 "route" = "Ruta";
 "loading-possible-routes" = "Cargando posibles rutas";
 "route-detail-no-matches-adressess" = "No se encontraron direcciones";
-"route-detail-unable-to-get-location" = "No se puede obtener la ubicacion";
+"route-detail-unable-to-get-location" = "No se puede obtener la ubicación";
 "meters" = "%@ m";
 "kilometers" = "%@ km";
 "minutes" = "%@ min";
 "you-can-go-just-walk" = "Puedes llegar al destino caminando";
+
+// Tourpoint detail view
+"address" = "Dirección";
+"search-best-route" = "Buscar la mejor ruta";
+
+// ADMIN MODE
+// Lines
+"admin-lines-edit-line" = "Editar Linea";
+"admin-lines-are-you-sure-edit-line" = "¿Esta seguro/a que quiere actualizar esta linea?";
+"admin-lines-create-line" = "Crear nueva Linea";
+"admin-lines-are-you-sure-create-line" = "¿Esta seguro/a que desea crear una nueva linea con estos parametros?";
+"admin-lines-delete-line" = "Eliminar Linea";
+"admin-lines-are-you-sure-delete-line" = "¿Esta seguro/a que desea eliminar esta linea?";
+"admin-lines-enable" = "Habilitar";
+"admin-lines-disable" = "Deshabilitar";
+"admin-lines-update" = "Actualizar";
+"admin-lines-something-went-wrong" = "Algo salio mal";
+"admin-lines-must-provide-name" = "Debes escribir un nombre valido para la linea";
+"admin-lines-line-has-routes-delete-first" = "Esta linea aun tiene rutas, eliminalas primero";

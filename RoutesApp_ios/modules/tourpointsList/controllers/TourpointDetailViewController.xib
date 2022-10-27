@@ -11,11 +11,13 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TourpointDetailViewController" customModule="RoutesApp_ios" customModuleProvider="target">
             <connections>
                 <outlet property="addressLabel" destination="ekk-Gy-Tbi" id="Te0-JI-Ln1"/>
+                <outlet property="addressTitle" destination="xvz-MM-THU" id="pih-k4-bWJ"/>
                 <outlet property="categoryContainer" destination="1ww-6f-v9y" id="Ibb-zf-KXr"/>
                 <outlet property="categoryLabel" destination="JYb-xf-Fmo" id="RGb-LJ-25c"/>
                 <outlet property="containerView" destination="P6O-Bn-uXr" id="iYF-gG-7UR"/>
                 <outlet property="nameLabel" destination="grv-Gs-Kj9" id="KBG-zs-GAk"/>
                 <outlet property="pointUIImage" destination="PvV-V6-zxt" id="nNf-rE-z0u"/>
+                <outlet property="searchButton" destination="1h7-R1-A3M" id="Dh0-eG-4ii"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

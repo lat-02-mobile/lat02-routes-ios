@@ -24,7 +24,7 @@ protocol LineManagerProtocol {
 
 class LineFirebaseManager: LineManagerProtocol {
     let firebaseManager = FirebaseFirestoreManager.shared
-    let lineRouteFirebaseManager: LineRouteManagerProtocol = LineRouteFirebaseManager()
+    var lineRouteFirebaseManager: LineRouteManagerProtocol = LineRouteFirebaseManager()
     static let shared = LineFirebaseManager()
     let cityManager = CityFirebaseManager.shared
 

@@ -220,13 +220,19 @@
 		C20A86D528A339540000EF7C /* AuthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A86D428A339540000EF7C /* AuthTests.swift */; };
 		C2112DE1289A18FB009601AB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2112DDF289A18FB009601AB /* HomeViewController.swift */; };
 		C2112DE2289A18FB009601AB /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2112DE0289A18FB009601AB /* HomeViewController.xib */; };
+		C2132272290A08F0003E869E /* MockManagers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2132271290A08F0003E869E /* MockManagers.swift */; };
+		C2132273290A1145003E869E /* LineEditModeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2132275290A1145003E869E /* LineEditModeViewController.xib */; };
+		C213227A290A2037003E869E /* LineEditModeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23688E829077DCD006D6DD3 /* LineEditModeViewModel.swift */; };
+		C213227B290A203B003E869E /* LinesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BFA58F29081E3E00EF6C61 /* LinesViewModel.swift */; };
+		C213227C290A203F003E869E /* LinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C232D19D2906D984005DEB62 /* LinesViewController.swift */; };
+		C213227D290A2043003E869E /* LineEditModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23688E429076420006D6DD3 /* LineEditModeViewController.swift */; };
+		C213227E290A2047003E869E /* LineEditModeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2132275290A1145003E869E /* LineEditModeViewController.xib */; };
 		C215EF0928A4B1F500371DB6 /* HomeVIewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C215EF0828A4B1F400371DB6 /* HomeVIewModel.swift */; };
 		C215EF0C28A4BB5D00371DB6 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C215EF0B28A4BB5D00371DB6 /* ViewModel.swift */; };
 		C215EF0D28A4C1BC00371DB6 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C215EF0F28A4C1BC00371DB6 /* LoginViewController.xib */; };
 		C232D19C2906BD43005DEB62 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C232D19B2906BD43005DEB62 /* GoogleService-Info.plist */; };
 		C232D19E2906D984005DEB62 /* LinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C232D19D2906D984005DEB62 /* LinesViewController.swift */; };
 		C23688E629076420006D6DD3 /* LineEditModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23688E429076420006D6DD3 /* LineEditModeViewController.swift */; };
-		C23688E729076420006D6DD3 /* LineEditModeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C23688E529076420006D6DD3 /* LineEditModeViewController.xib */; };
 		C23688E929077DCD006D6DD3 /* LineEditModeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23688E829077DCD006D6DD3 /* LineEditModeViewModel.swift */; };
 		C23688EA29079483006D6DD3 /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6E6C229002E3C009D5635 /* Env.swift */; };
 		C23688EB29079484006D6DD3 /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6E6C229002E3C009D5635 /* Env.swift */; };
@@ -262,6 +268,7 @@
 		C2921175290967B0004AD7E6 /* ConfirmAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2921174290967B0004AD7E6 /* ConfirmAlert.swift */; };
 		C2921177290967CE004AD7E6 /* ErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2921176290967CE004AD7E6 /* ErrorAlert.swift */; };
 		C292117929097405004AD7E6 /* LineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C292117829097405004AD7E6 /* LineTests.swift */; };
+		C292117B29098FD6004AD7E6 /* LineEditModeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C292117A29098FD6004AD7E6 /* LineEditModeTests.swift */; };
 		C2B42E2428E5D10600B44FC0 /* LineFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B42E2328E5D10600B44FC0 /* LineFirebaseManager.swift */; };
 		C2B635CA28EB29FA003200EF /* StringResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B635C928EB29FA003200EF /* StringResources.swift */; };
 		C2BB145228A150A70083CA1E /* SignupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2BB145428A150A70083CA1E /* SignupViewController.xib */; };
@@ -411,6 +418,10 @@
 		C20A86D428A339540000EF7C /* AuthTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTests.swift; sourceTree = "<group>"; };
 		C2112DDF289A18FB009601AB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C2112DE0289A18FB009601AB /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		C2132271290A08F0003E869E /* MockManagers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockManagers.swift; sourceTree = "<group>"; };
+		C2132274290A1145003E869E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LineEditModeViewController.xib; sourceTree = "<group>"; };
+		C2132277290A1149003E869E /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/LineEditModeViewController.strings"; sourceTree = "<group>"; };
+		C2132279290A1151003E869E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LineEditModeViewController.strings; sourceTree = "<group>"; };
 		C215EF0828A4B1F400371DB6 /* HomeVIewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVIewModel.swift; sourceTree = "<group>"; };
 		C215EF0B28A4BB5D00371DB6 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		C215EF0E28A4C1BC00371DB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LoginViewController.xib; sourceTree = "<group>"; };
@@ -419,7 +430,6 @@
 		C232D19B2906BD43005DEB62 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C232D19D2906D984005DEB62 /* LinesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinesViewController.swift; sourceTree = "<group>"; };
 		C23688E429076420006D6DD3 /* LineEditModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineEditModeViewController.swift; sourceTree = "<group>"; };
-		C23688E529076420006D6DD3 /* LineEditModeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LineEditModeViewController.xib; sourceTree = "<group>"; };
 		C23688E829077DCD006D6DD3 /* LineEditModeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineEditModeViewModel.swift; sourceTree = "<group>"; };
 		C2414D8328E1CDF200CDF73A /* ClPlaceMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClPlaceMark.swift; sourceTree = "<group>"; };
 		C2414D8528E1DCDB00CDF73A /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
@@ -453,6 +463,7 @@
 		C2921174290967B0004AD7E6 /* ConfirmAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmAlert.swift; sourceTree = "<group>"; };
 		C2921176290967CE004AD7E6 /* ErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlert.swift; sourceTree = "<group>"; };
 		C292117829097405004AD7E6 /* LineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineTests.swift; sourceTree = "<group>"; };
+		C292117A29098FD6004AD7E6 /* LineEditModeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineEditModeTests.swift; sourceTree = "<group>"; };
 		C2B42E2328E5D10600B44FC0 /* LineFirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineFirebaseManager.swift; sourceTree = "<group>"; };
 		C2B635C928EB29FA003200EF /* StringResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringResources.swift; sourceTree = "<group>"; };
 		C2BB144A28A14E330083CA1E /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
@@ -861,7 +872,7 @@
 			children = (
 				C232D19D2906D984005DEB62 /* LinesViewController.swift */,
 				C23688E429076420006D6DD3 /* LineEditModeViewController.swift */,
-				C23688E529076420006D6DD3 /* LineEditModeViewController.xib */,
+				C2132275290A1145003E869E /* LineEditModeViewController.xib */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -976,6 +987,16 @@
 			path = cells;
 			sourceTree = "<group>";
 		};
+		C291E85A2909FAF50059B319 /* admin */ = {
+			isa = PBXGroup;
+			children = (
+				C292117829097405004AD7E6 /* LineTests.swift */,
+				C292117A29098FD6004AD7E6 /* LineEditModeTests.swift */,
+				C2132271290A08F0003E869E /* MockManagers.swift */,
+			);
+			path = admin;
+			sourceTree = "<group>";
+		};
 		C2BB145928A152580083CA1E /* localization */ = {
 			isa = PBXGroup;
 			children = (
@@ -1039,6 +1060,7 @@
 		C2E976F12898701D009F4B94 /* RoutesApp_iosTests */ = {
 			isa = PBXGroup;
 			children = (
+				C291E85A2909FAF50059B319 /* admin */,
 				84F6E6B828FF585D009D5635 /* MockLocalDataManager.swift */,
 				C2E976F22898701D009F4B94 /* RoutesApp_iosTests.swift */,
 				C20A86D228A338E30000EF7C /* TestResources.swift */,
@@ -1050,7 +1072,6 @@
 				CE3BB7B428DE4665004BFA07 /* PossibleRoutesTests.swift */,
 				844F9A5328E5C5C7004A95A0 /* TourpointTests.swift */,
 				84ED700A28EDC0D500781376 /* CitySplashViewModelTests.swift */,
-				C292117829097405004AD7E6 /* LineTests.swift */,
 			);
 			path = RoutesApp_iosTests;
 			sourceTree = "<group>";
@@ -1435,6 +1456,7 @@
 				8441B9E428FF754100730F21 /* SearchLocationViewController.xib in Resources */,
 				8441B9E528FF754100730F21 /* Localizable.strings in Resources */,
 				8441B9E628FF754100730F21 /* LineRouteTableViewCell.xib in Resources */,
+				C213227E290A2047003E869E /* LineEditModeViewController.xib in Resources */,
 				8441B9E728FF754100730F21 /* FavoriteTableViewCell.xib in Resources */,
 				8441B9E828FF754100730F21 /* RouteMapViewController.xib in Resources */,
 				8441B9E928FF754100730F21 /* PossibleRoutesViewController.xib in Resources */,
@@ -1483,7 +1505,7 @@
 				C2414D8728E1F08000CDF73A /* RouteDetailViewController.xib in Resources */,
 				84067C7528B5721400549300 /* CityPickerViewController.xib in Resources */,
 				84067C7428B4305300549300 /* CityTableViewCell.xib in Resources */,
-				C23688E729076420006D6DD3 /* LineEditModeViewController.xib in Resources */,
+				C2132273290A1145003E869E /* LineEditModeViewController.xib in Resources */,
 				C2BB145228A150A70083CA1E /* SignupViewController.xib in Resources */,
 				CE7FBAD528D36B5E001175D3 /* PossibleRouteTableViewCell.xib in Resources */,
 				84067C4C28B3B5BD00549300 /* SettingsViewController.xib in Resources */,
@@ -1733,6 +1755,7 @@
 				8441B97528FF754100730F21 /* LineCategory.swift in Sources */,
 				8441B97628FF754100730F21 /* PopupRouteDetailViewModel.swift in Sources */,
 				8441B97728FF754100730F21 /* LinePathTableViewCell.swift in Sources */,
+				C213227B290A203B003E869E /* LinesViewModel.swift in Sources */,
 				8441B97828FF754100730F21 /* Constants.swift in Sources */,
 				8441B97928FF754100730F21 /* LoginViewController.swift in Sources */,
 				8441B97A28FF754100730F21 /* RouteListViewController.swift in Sources */,
@@ -1765,6 +1788,7 @@
 				8441B99428FF754100730F21 /* PlaceTableViewCell.swift in Sources */,
 				8441B99528FF754100730F21 /* LineFirebaseManager.swift in Sources */,
 				8441B99628FF754100730F21 /* SignupViewController.swift in Sources */,
+				C213227D290A2043003E869E /* LineEditModeViewController.swift in Sources */,
 				8441B99728FF754100730F21 /* TourpointsManager.swift in Sources */,
 				8441B99828FF754100730F21 /* LineEntity+CoreDataClass.swift in Sources */,
 				8441B99928FF754100730F21 /* Tourpoint.swift in Sources */,
@@ -1813,6 +1837,7 @@
 				8441B9C328FF754100730F21 /* CLLocationCoordinate2DExtension.swift in Sources */,
 				8441B9C428FF754100730F21 /* Lines.swift in Sources */,
 				8441B9C528FF754100730F21 /* LoginViewModel.swift in Sources */,
+				C213227C290A203F003E869E /* LinesViewController.swift in Sources */,
 				8441BA222900F2A600730F21 /* SyncData.swift in Sources */,
 				8441B9C628FF754100730F21 /* CityFirebaseManager.swift in Sources */,
 				8441B9C728FF754100730F21 /* LineRouteEntity+CoreDataProperties.swift in Sources */,
@@ -1825,6 +1850,7 @@
 				8441B9CE28FF754100730F21 /* Country.swift in Sources */,
 				8441B9CF28FF754100730F21 /* FloatingButton.swift in Sources */,
 				8441B9D028FF754100730F21 /* LineRouteTableViewCell.swift in Sources */,
+				C213227A290A2037003E869E /* LineEditModeViewModel.swift in Sources */,
 				8441B9D128FF754100730F21 /* RouteListViewModel.swift in Sources */,
 				8441B9D228FF754100730F21 /* Algorithm.swift in Sources */,
 			);
@@ -1951,6 +1977,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				844F9A3A28CBEA7D004A95A0 /* SearchLocationTest.swift in Sources */,
+				C2132272290A08F0003E869E /* MockManagers.swift in Sources */,
 				C292117929097405004AD7E6 /* LineTests.swift in Sources */,
 				C2E976F32898701D009F4B94 /* RoutesApp_iosTests.swift in Sources */,
 				CE3BB7B528DE4665004BFA07 /* PossibleRoutesTests.swift in Sources */,
@@ -1958,6 +1985,7 @@
 				CE8CE8F028BE493F003270D7 /* AlgorithmTests.swift in Sources */,
 				C20A86D528A339540000EF7C /* AuthTests.swift in Sources */,
 				84ED700B28EDC0D500781376 /* CitySplashViewModelTests.swift in Sources */,
+				C292117B29098FD6004AD7E6 /* LineEditModeTests.swift in Sources */,
 				84067C8928B8272000549300 /* CityPickerTests.swift in Sources */,
 				84F6E6B928FF585D009D5635 /* MockLocalDataManager.swift in Sources */,
 				844F9A5428E5C5C7004A95A0 /* TourpointTests.swift in Sources */,
@@ -2004,6 +2032,16 @@
 				843D044528AAF40E00C4DF25 /* es-419 */,
 			);
 			name = PhoneAuthenticationViewController.xib;
+			sourceTree = "<group>";
+		};
+		C2132275290A1145003E869E /* LineEditModeViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C2132274290A1145003E869E /* Base */,
+				C2132277290A1149003E869E /* es-419 */,
+				C2132279290A1151003E869E /* en */,
+			);
+			name = LineEditModeViewController.xib;
 			sourceTree = "<group>";
 		};
 		C215EF0F28A4C1BC00371DB6 /* LoginViewController.xib */ = {

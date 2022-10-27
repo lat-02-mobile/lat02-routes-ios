@@ -76,7 +76,6 @@ extension TourpointsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let point = viewmodel.getPointAt(index: indexPath.row)
         let vc = TourpointDetailViewController(tourpoint: point)
-//        present(vc, animated: true)
-        show(vc, sender: nil)
+        present(vc, animated: true)
     }
 }

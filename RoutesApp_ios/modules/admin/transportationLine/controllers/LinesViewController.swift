@@ -33,12 +33,9 @@ class LinesViewController: RouteListViewController {
     }
 
     override func setIcon() {
-        let filterIcon = UIImage(named: ConstantVariables.filterIcon)?.withRenderingMode(.alwaysOriginal)
-        let filterButton = UIBarButtonItem(image: filterIcon, style: .plain, target: self, action: #selector(showFilterPopUp))
-
-        let addIcon = UIImage(systemName: "plus")?.withRenderingMode(.alwaysTemplate).withTintColor(.white)
+        let addIcon = UIImage(systemName: ConstantVariables.plusIcon)?.withRenderingMode(.alwaysTemplate).withTintColor(.white)
         let addButton = UIBarButtonItem(image: addIcon, style: .plain, target: self, action: #selector(showEditModeVC))
-        navigationItem.rightBarButtonItems = [filterButton, addButton]
+        navigationItem.rightBarButtonItem = addButton
     }
 
     @objc func showEditModeVC() {
@@ -47,6 +44,7 @@ class LinesViewController: RouteListViewController {
     }
 }
 
+// Table View
 extension LinesViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewmodel.lines.count
@@ -68,5 +66,17 @@ extension LinesViewController {
         let lineCatName = isCurrentLocaleEsp ? lineCat.nameEsp : lineCat.nameEng
         tableViewCell.routeCategory.text = lineCatName
         return tableViewCell
+    }
+}
+
+// Search Bar
+extension LinesViewController {
+    override func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard let text = searchBar.text else { return }
+        viewmodel.applyFilters(query: text, selectedCat: viewmodel.categoryAux)
+    }
+
+    override func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        viewmodel.applyFilters(query: "", selectedCat: viewmodel.categoryAux)
     }
 }
