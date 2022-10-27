@@ -30,7 +30,6 @@ class SettingsViewController: UIViewController {
     @IBAction func goToLineEditMode(_ sender: Any) {
         let vc = LinesViewController(nibName: "RouteListViewController", bundle: nil)
         show(vc, sender: nil)
-//        navigationController?.pushViewController(vc, animated: true)
     }
 
     func setUpCityName() {
