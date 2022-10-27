@@ -101,8 +101,8 @@
 "admin-lines-are-you-sure-create-line" = "¿Esta seguro/a que desea crear una nueva linea con estos parametros?";
 "admin-lines-delete-line" = "Eliminar Linea";
 "admin-lines-are-you-sure-delete-line" = "¿Esta seguro/a que desea eliminar esta linea?";
-"admin-lines-enable" = "Habilitar";
-"admin-lines-disable" = "Deshabilitar";
+"admin-lines-enable" = "Habilitado";
+"admin-lines-disable" = "Deshabilitado";
 "admin-lines-update" = "Actualizar";
 "admin-lines-something-went-wrong" = "Algo salio mal";
 "admin-lines-must-provide-name" = "Debes escribir un nombre valido para la linea";

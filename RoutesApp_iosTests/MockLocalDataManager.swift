@@ -100,7 +100,6 @@ class MockLocalDataManager: LocalDataManagerProtocol {
     func updateDataValueForSync(entity: String, key: String, keyValue: String, keyUpdate: String) {
         dataHasBeenUpdated = true
     }
-
     func deleteEntityObjectByKeyValue<T>(type: T.Type, key: String, value: String) -> Bool where T: NSManagedObject {
         if sendWithError {
             return true
