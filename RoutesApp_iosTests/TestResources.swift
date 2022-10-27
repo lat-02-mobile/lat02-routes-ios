@@ -26,8 +26,8 @@ class TestResources {
     static let lineEntity: [LineEntity] = []
     static let lineRouteEntity: [LineRouteEntity] = []
     static let tourpointCategoryEntity: [TourpointCategoryEntity] = []
-    static let tourpointEntity: [TourpointEntity] = [] 
-    
+    static let tourpointEntity: [TourpointEntity] = []
+
     static let stops1Array = [
         Coordinate(latitude: -16.52130602845841, longitude: -68.12417648825397),
         Coordinate(latitude: -16.521670987319112, longitude: -68.12320625310048),
@@ -121,10 +121,12 @@ class TestResources {
     static let LineRoutes = [
         LineRouteInfo(name: "Route1", id: "wsws2344d3f", idLine: "1",
                       line: nil, routePoints: RoutePoints, start: GeoPoint(latitude: 1, longitude: 1),
-                      stops: Stops, end: GeoPoint(latitude: 1, longitude: 1), averageVelocity: "", color: "", updateAt: timestamp, createAt: timestamp),
+                      stops: Stops, end: GeoPoint(latitude: 1, longitude: 1), averageVelocity: "",
+                      color: "", updateAt: timestamp, createAt: timestamp),
         LineRouteInfo(name: "Route1", id: "wsws2344d3f", idLine: "1",
                       line: nil, routePoints: RoutePoints, start: GeoPoint(latitude: 1, longitude: 1),
-                      stops: Stops, end: GeoPoint(latitude: 1, longitude: 1), averageVelocity: "", color: "", updateAt: timestamp, createAt: timestamp)
+                      stops: Stops, end: GeoPoint(latitude: 1, longitude: 1), averageVelocity: "",
+                      color: "", updateAt: timestamp, createAt: timestamp)
    ]
 }
 extension Date {
