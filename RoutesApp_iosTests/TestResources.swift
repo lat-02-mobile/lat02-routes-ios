@@ -18,6 +18,10 @@ class TestResources {
     static let testUserPassword = "test1234"
     static let testAuthResponse = ["message": "success"]
     static let testUser = User(id: "test", name: "test", email: "test@email.com", phoneNumber: "test", type: 0, typeLogin: 0, updatedAt: Date(), createdAt: Date())
+    static let testUserFirebase = UserFirebase(id: "test", name: "test", email: "test@email.com",
+                                               phoneNumber: "test", type: 0, typeLogin: 0,
+                                               updatedAt: 687626719.592621, createdAt: 687626719.592621)
+
     static let testPhoneNumber = "+523353658071"
     static let testCode = "0626"
     static let verificationId = "eyJ0eXAioiJkv1QiLcJhbgCi0iJIUzJkv1QiXAio"

@@ -19,8 +19,9 @@ class LoginViewModel {
         authManager.loginUser(email: email, password: password) { result in
             switch result {
             case .success:
-                self.getUserByEmail(for: email) { userId in
-                    ConstantVariables.defaults.set(userId, forKey: ConstantVariables.defUserLoggedId)
+                self.getUserByEmail(for: email) { user in
+                    ConstantVariables.defaults.set(user.id, forKey: ConstantVariables.defUserLoggedId)
+                    ConstantVariables.defaults.set(user.type, forKey: ConstantVariables.defUserType)
                 }
                 self.onFinish?()
             case .failure(let error):
@@ -52,8 +53,9 @@ class LoginViewModel {
                                 self.onError?(String.localizeString(localizedString: "error-unknown"))
                                 return
                             }
-                            self.getUserByEmail(for: authData.user.email ?? "") { userId in
-                                ConstantVariables.defaults.set(userId, forKey: ConstantVariables.defUserLoggedId)
+                            self.getUserByEmail(for: authData.user.email ?? "") { user in
+                                ConstantVariables.defaults.set(user.id, forKey: ConstantVariables.defUserLoggedId)
+                                ConstantVariables.defaults.set(user.type, forKey: ConstantVariables.defUserType)
                             }
                         }
                         return
@@ -73,7 +75,7 @@ class LoginViewModel {
         }
     }
 
-    private func getUser(email: String, completion: @escaping ((_ user: User?) -> Void)) {
+    private func getUser(email: String, completion: @escaping ((_ user: UserFirebase?) -> Void)) {
         userManager.getUsers { result in
             switch result {
             case .success(let users):
@@ -102,8 +104,9 @@ class LoginViewModel {
         self.userManager.registerUser(name: name, email: email, uid: uid, typeLogin: type) { result in
             switch result {
             case .success:
-                self.getUserByEmail(for: email) { userId in
-                    ConstantVariables.defaults.set(userId, forKey: ConstantVariables.defUserLoggedId)
+                self.getUserByEmail(for: email) { user in
+                    ConstantVariables.defaults.set(user.id, forKey: ConstantVariables.defUserLoggedId)
+                    ConstantVariables.defaults.set(user.type, forKey: ConstantVariables.defUserType)
                     self.onFinish?()
                 }
             case .failure(let error):
@@ -118,13 +121,13 @@ class LoginViewModel {
             }
         }
     }
-    private func getUserByEmail(for email: String, completion: @escaping ((_ userId: String) -> Void)) {
+    private func getUserByEmail(for email: String, completion: @escaping ((_ user: UserFirebase) -> Void)) {
         userManager.getUsers { result in
             switch result {
             case .success(let users):
                 let foundUser = users.filter {$0.email == email}
                 if !foundUser.isEmpty {
-                    completion(foundUser.first!.id)
+                    completion(foundUser.first!)
                 }
             case .failure(let error):
                 self.onError?(error.localizedDescription)
@@ -148,8 +151,9 @@ class LoginViewModel {
                                 self.onError?(String.localizeString(localizedString: "error-unknown"))
                                 return
                             }
-                            self.getUserByEmail(for: authData.user.email ?? "") { userId in
-                                ConstantVariables.defaults.set(userId, forKey: ConstantVariables.defUserLoggedId)
+                            self.getUserByEmail(for: authData.user.email ?? "") { user in
+                                ConstantVariables.defaults.set(user.id, forKey: ConstantVariables.defUserLoggedId)
+                                ConstantVariables.defaults.set(user.type, forKey: ConstantVariables.defUserType)
                             }
                         }
                         return

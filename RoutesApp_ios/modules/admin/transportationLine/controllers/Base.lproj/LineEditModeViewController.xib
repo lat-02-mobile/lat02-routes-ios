@@ -37,7 +37,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eu9-EF-F5B">
-                                    <rect key="frame" x="40" y="391.5" width="334" height="216"/>
+                                    <rect key="frame" x="30" y="391.5" width="354" height="216"/>
                                 </pickerView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Write the name of the line" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="faS-Zy-oA9">
                                     <rect key="frame" x="30" y="10" width="354" height="20.5"/>
@@ -46,12 +46,12 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Line XXXX" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U5O-iT-dn6">
-                                    <rect key="frame" x="40" y="40.5" width="334" height="34"/>
+                                    <rect key="frame" x="30" y="40.5" width="354" height="34"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
                                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tKF-5F-HhF">
-                                    <rect key="frame" x="40" y="125" width="334" height="216"/>
+                                    <rect key="frame" x="30" y="125" width="354" height="216"/>
                                 </pickerView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fsi-sY-D1v">
                                     <rect key="frame" x="30" y="371" width="354" height="20.5"/>
@@ -88,19 +88,19 @@
                                 <constraint firstItem="Fsi-sY-D1v" firstAttribute="top" secondItem="tKF-5F-HhF" secondAttribute="bottom" constant="30" id="33i-RJ-z5t"/>
                                 <constraint firstItem="djj-mC-4al" firstAttribute="leading" secondItem="KgQ-bk-cLc" secondAttribute="leading" constant="100" id="6mZ-mj-mIS"/>
                                 <constraint firstAttribute="bottom" secondItem="djj-mC-4al" secondAttribute="bottom" constant="166.5" id="7Cy-GL-1TE"/>
-                                <constraint firstItem="tKF-5F-HhF" firstAttribute="leading" secondItem="KgQ-bk-cLc" secondAttribute="leading" constant="40" id="9FC-8q-tIF"/>
+                                <constraint firstItem="tKF-5F-HhF" firstAttribute="leading" secondItem="KgQ-bk-cLc" secondAttribute="leading" constant="30" id="9FC-8q-tIF"/>
                                 <constraint firstItem="qpS-Vw-z07" firstAttribute="top" secondItem="eu9-EF-F5B" secondAttribute="bottom" constant="10" id="Aow-UG-Gbh"/>
                                 <constraint firstItem="eu9-EF-F5B" firstAttribute="top" secondItem="Fsi-sY-D1v" secondAttribute="bottom" id="B77-3e-d3f"/>
-                                <constraint firstAttribute="trailing" secondItem="eu9-EF-F5B" secondAttribute="trailing" constant="40" id="E4C-78-JjG"/>
+                                <constraint firstAttribute="trailing" secondItem="eu9-EF-F5B" secondAttribute="trailing" constant="30" id="E4C-78-JjG"/>
                                 <constraint firstItem="faS-Zy-oA9" firstAttribute="leading" secondItem="KgQ-bk-cLc" secondAttribute="leading" constant="30" id="FEO-2j-xVq"/>
                                 <constraint firstAttribute="trailing" secondItem="faS-Zy-oA9" secondAttribute="trailing" constant="30" id="FZC-ob-Fiz"/>
                                 <constraint firstItem="djj-mC-4al" firstAttribute="top" secondItem="qpS-Vw-z07" secondAttribute="bottom" constant="30" id="JuM-2P-xpT"/>
                                 <constraint firstItem="UPi-LN-Xiy" firstAttribute="top" secondItem="U5O-iT-dn6" secondAttribute="bottom" constant="30" id="MoK-y9-gwK"/>
                                 <constraint firstItem="qpS-Vw-z07" firstAttribute="leading" secondItem="KgQ-bk-cLc" secondAttribute="leading" constant="40" id="O2U-XV-hcj"/>
-                                <constraint firstItem="U5O-iT-dn6" firstAttribute="leading" secondItem="KgQ-bk-cLc" secondAttribute="leading" constant="40" id="USP-nU-cke"/>
-                                <constraint firstAttribute="trailing" secondItem="tKF-5F-HhF" secondAttribute="trailing" constant="40" id="WUM-Vw-JhE"/>
+                                <constraint firstItem="U5O-iT-dn6" firstAttribute="leading" secondItem="KgQ-bk-cLc" secondAttribute="leading" constant="30" id="USP-nU-cke"/>
+                                <constraint firstAttribute="trailing" secondItem="tKF-5F-HhF" secondAttribute="trailing" constant="30" id="WUM-Vw-JhE"/>
                                 <constraint firstItem="UPi-LN-Xiy" firstAttribute="leading" secondItem="KgQ-bk-cLc" secondAttribute="leading" constant="30" id="ajC-xx-iK6"/>
-                                <constraint firstAttribute="trailing" secondItem="U5O-iT-dn6" secondAttribute="trailing" constant="40" id="f4N-9N-x3s"/>
+                                <constraint firstAttribute="trailing" secondItem="U5O-iT-dn6" secondAttribute="trailing" constant="30" id="f4N-9N-x3s"/>
                                 <constraint firstAttribute="trailing" secondItem="qpS-Vw-z07" secondAttribute="trailing" constant="40" id="jsq-su-FRr"/>
                                 <constraint firstAttribute="trailing" secondItem="djj-mC-4al" secondAttribute="trailing" constant="100" id="lSv-i7-Tp4"/>
                                 <constraint firstItem="U5O-iT-dn6" firstAttribute="top" secondItem="faS-Zy-oA9" secondAttribute="bottom" constant="10" id="mfV-QB-2BQ"/>
@@ -108,7 +108,7 @@
                                 <constraint firstItem="Fsi-sY-D1v" firstAttribute="leading" secondItem="KgQ-bk-cLc" secondAttribute="leading" constant="30" id="r8E-3a-hjs"/>
                                 <constraint firstItem="faS-Zy-oA9" firstAttribute="top" secondItem="KgQ-bk-cLc" secondAttribute="top" constant="10" id="s6O-cI-hdT"/>
                                 <constraint firstAttribute="trailing" secondItem="UPi-LN-Xiy" secondAttribute="trailing" constant="30" id="sIm-Yg-Tm4"/>
-                                <constraint firstItem="eu9-EF-F5B" firstAttribute="leading" secondItem="KgQ-bk-cLc" secondAttribute="leading" constant="40" id="sVs-27-2nZ"/>
+                                <constraint firstItem="eu9-EF-F5B" firstAttribute="leading" secondItem="KgQ-bk-cLc" secondAttribute="leading" constant="30" id="sVs-27-2nZ"/>
                             </constraints>
                         </view>
                     </subviews>

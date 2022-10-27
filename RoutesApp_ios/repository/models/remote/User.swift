@@ -17,3 +17,14 @@ struct User: Codable, Equatable, BaseModel {
     var updatedAt: Date
     var createdAt: Date
 }
+
+struct UserFirebase: Codable, Equatable, BaseModel {
+    var id: String
+    var name: String
+    var email: String
+    var phoneNumber: String
+    var type: Int
+    var typeLogin: Int
+    var updatedAt: Float
+    var createdAt: Float
+}

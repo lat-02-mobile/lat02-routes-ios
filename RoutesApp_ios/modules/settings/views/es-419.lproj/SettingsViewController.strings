@@ -1,12 +1,21 @@
 
 /* Class = "UIButton"; configuration.title = "Button"; ObjectID = "8Oa-qi-IZf"; */
-"8Oa-qi-IZf.configuration.title" = "Cerrar Sesion";
+"8Oa-qi-IZf.configuration.title" = "Cerrar sesión";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "8Oa-qi-IZf"; */
-"8Oa-qi-IZf.normalTitle" = "Cerrar Sesion";
+"8Oa-qi-IZf.normalTitle" = "Cerrar sesión";
 
 /* Class = "UILabel"; text = "Ubication"; ObjectID = "BY9-KT-Pxu"; */
 "BY9-KT-Pxu.text" = "Ubicacion";
+
+/* Class = "UIButton"; configuration.title = "Button"; ObjectID = "gdS-sJ-gaJ"; */
+"gdS-sJ-gaJ.configuration.title" = "Panel de Admin.";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "gdS-sJ-gaJ"; */
+"gdS-sJ-gaJ.normalTitle" = "Panel de Admin.";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "mrT-oz-BCu"; */
+"mrT-oz-BCu.normalTitle" = "Panel de Admin.";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "sUh-C5-AWI"; */
 "sUh-C5-AWI.text" = "Label";
