@@ -200,6 +200,9 @@
 		8498F89F28CF49DD008641D9 /* Lines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8498F89E28CF49DD008641D9 /* Lines.swift */; };
 		84A5B67A28C698C5006AB7F9 /* RouteMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A5B67828C698C4006AB7F9 /* RouteMapViewController.swift */; };
 		84A5B67B28C698C5006AB7F9 /* RouteMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A5B67928C698C4006AB7F9 /* RouteMapViewController.xib */; };
+		84C1108C290AD845007BDAA9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84C1108B290AD845007BDAA9 /* GoogleService-Info.plist */; };
+		84C1108E290AD84D007BDAA9 /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C1108D290AD84D007BDAA9 /* Env.swift */; };
+		84C1108F290AD84D007BDAA9 /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C1108D290AD84D007BDAA9 /* Env.swift */; };
 		84ED6FE728EB122F00781376 /* LocalDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED6FE628EB122F00781376 /* LocalDataManager.swift */; };
 		84ED6FF128EB600D00781376 /* CitySplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED6FF028EB600D00781376 /* CitySplashViewModel.swift */; };
 		84ED700B28EDC0D500781376 /* CitySplashViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED700A28EDC0D500781376 /* CitySplashViewModelTests.swift */; };
@@ -303,8 +306,6 @@
 		CE7FBAEF28D937D9001175D3 /* PossibleRoutesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7FBAEE28D937D9001175D3 /* PossibleRoutesViewModel.swift */; };
 		CE8CE8F028BE493F003270D7 /* AlgorithmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8CE8EF28BE493F003270D7 /* AlgorithmTests.swift */; };
 		CE8D3D0B290968F900B579F5 /* RoutesMapEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D3D0A290968F900B579F5 /* RoutesMapEditorViewModel.swift */; };
-		CE8D3D142909AE0900B579F5 /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D3D132909AE0900B579F5 /* Env.swift */; };
-		CE8D3D162909AE3600B579F5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE8D3D152909AE3600B579F5 /* GoogleService-Info.plist */; };
 		CE93A8A328BD3ECD00296532 /* CLLocationCoordinate2DExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE93A8A228BD3ECD00296532 /* CLLocationCoordinate2DExtension.swift */; };
 		CEC6EFD129082AAF0080F69B /* RoutesMapEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC6EFCF29082AAF0080F69B /* RoutesMapEditorViewController.swift */; };
 		CEC6EFD229082AAF0080F69B /* RoutesMapEditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEC6EFD029082AAF0080F69B /* RoutesMapEditorViewController.xib */; };
@@ -378,6 +379,8 @@
 		8498F89E28CF49DD008641D9 /* Lines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lines.swift; sourceTree = "<group>"; };
 		84A5B67828C698C4006AB7F9 /* RouteMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteMapViewController.swift; sourceTree = "<group>"; };
 		84A5B67928C698C4006AB7F9 /* RouteMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RouteMapViewController.xib; sourceTree = "<group>"; };
+		84C1108B290AD845007BDAA9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		84C1108D290AD84D007BDAA9 /* Env.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Env.swift; sourceTree = "<group>"; };
 		84ED6FE628EB122F00781376 /* LocalDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataManager.swift; sourceTree = "<group>"; };
 		84ED6FF028EB600D00781376 /* CitySplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySplashViewModel.swift; sourceTree = "<group>"; };
 		84ED700A28EDC0D500781376 /* CitySplashViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySplashViewModelTests.swift; sourceTree = "<group>"; };
@@ -491,8 +494,6 @@
 		CE7FBAEE28D937D9001175D3 /* PossibleRoutesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PossibleRoutesViewModel.swift; sourceTree = "<group>"; };
 		CE8CE8EF28BE493F003270D7 /* AlgorithmTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgorithmTests.swift; sourceTree = "<group>"; };
 		CE8D3D0A290968F900B579F5 /* RoutesMapEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutesMapEditorViewModel.swift; sourceTree = "<group>"; };
-		CE8D3D132909AE0900B579F5 /* Env.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Env.swift; sourceTree = "<group>"; };
-		CE8D3D152909AE3600B579F5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CE93A8A228BD3ECD00296532 /* CLLocationCoordinate2DExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2DExtension.swift; sourceTree = "<group>"; };
 		CEC6EFCF29082AAF0080F69B /* RoutesMapEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutesMapEditorViewController.swift; sourceTree = "<group>"; };
 		CEC6EFD029082AAF0080F69B /* RoutesMapEditorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoutesMapEditorViewController.xib; sourceTree = "<group>"; };
@@ -1012,8 +1013,6 @@
 		C2E976D72898701C009F4B94 /* RoutesApp_ios */ = {
 			isa = PBXGroup;
 			children = (
-				CE8D3D152909AE3600B579F5 /* GoogleService-Info.plist */,
-				CE8D3D132909AE0900B579F5 /* Env.swift */,
 				CE0F8D3228AD317700F2C753 /* resources */,
 				C2BB145928A152580083CA1E /* localization */,
 				C2E9770C28987CEA009F4B94 /* utilities */,
@@ -1021,7 +1020,9 @@
 				C2E9770E28987CFE009F4B94 /* modules */,
 				C2E976D82898701C009F4B94 /* AppDelegate.swift */,
 				C2E976DA2898701C009F4B94 /* SceneDelegate.swift */,
+				84C1108B290AD845007BDAA9 /* GoogleService-Info.plist */,
 				C2E976DC2898701C009F4B94 /* ViewController.swift */,
+				84C1108D290AD84D007BDAA9 /* Env.swift */,
 				C2E976DE2898701C009F4B94 /* Main.storyboard */,
 				842F85AF29003AB200243943 /* Prod-Info.plist */,
 				C2E976E42898701D009F4B94 /* Assets.xcassets */,
@@ -1516,10 +1517,10 @@
 				C2BB145228A150A70083CA1E /* SignupViewController.xib in Resources */,
 				CE7FBAD528D36B5E001175D3 /* PossibleRouteTableViewCell.xib in Resources */,
 				84067C4C28B3B5BD00549300 /* SettingsViewController.xib in Resources */,
+				84C1108C290AD845007BDAA9 /* GoogleService-Info.plist in Resources */,
 				CE0F8D3528AD357F00F2C753 /* silver-style.json in Resources */,
 				8463E7502909BCBE003FE493 /* AdminViewController.xib in Resources */,
 				844F9A4A28E3D560004A95A0 /* TourpointTableViewCell.xib in Resources */,
-				CE8D3D162909AE3600B579F5 /* GoogleService-Info.plist in Resources */,
 				C278973328E3B48100FF2796 /* RouteListViewController.xib in Resources */,
 				844F9A3228C84E63004A95A0 /* PlaceTableViewCell.xib in Resources */,
 				C27EB66728D3689200A1E742 /* LinePathTableViewCell.xib in Resources */,
@@ -1807,6 +1808,7 @@
 				8441BA3B29019A2800730F21 /* SyncUnitHistory+CoreDataClass.swift in Sources */,
 				8441B9A228FF754100730F21 /* GoogleMapsManager.swift in Sources */,
 				8441B9A328FF754100730F21 /* PhoneAuthenticationViewModel.swift in Sources */,
+				84C1108F290AD84D007BDAA9 /* Env.swift in Sources */,
 				8441B9A428FF754100730F21 /* RouteDetailViewController.swift in Sources */,
 				8441B9A528FF754100730F21 /* BottomSheetViewController.swift in Sources */,
 				8441B9A628FF754100730F21 /* LineEntityConverterHelper.swift in Sources */,
@@ -1955,7 +1957,6 @@
 				CE93A8A328BD3ECD00296532 /* CLLocationCoordinate2DExtension.swift in Sources */,
 				8498F89F28CF49DD008641D9 /* Lines.swift in Sources */,
 				C2E9772728987F48009F4B94 /* LoginViewModel.swift in Sources */,
-				CE8D3D142909AE0900B579F5 /* Env.swift in Sources */,
 				8441BA212900F2A600730F21 /* SyncData.swift in Sources */,
 				84067C6A28B3D58500549300 /* CityFirebaseManager.swift in Sources */,
 				84F6E6AD28FF545A009D5635 /* LineRouteEntity+CoreDataProperties.swift in Sources */,
@@ -1970,6 +1971,7 @@
 				C278975328E3B8D900FF2796 /* LineRouteTableViewCell.swift in Sources */,
 				C278972D28E3B48100FF2796 /* RouteListViewModel.swift in Sources */,
 				CE65448B28BD148B003B599B /* Algorithm.swift in Sources */,
+				84C1108E290AD84D007BDAA9 /* Env.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
