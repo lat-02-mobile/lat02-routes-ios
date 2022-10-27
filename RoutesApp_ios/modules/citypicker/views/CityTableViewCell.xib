@@ -39,6 +39,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <color key="backgroundColor" name="primary-color"/>
                     </stackView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uXR-O8-IJT">
                         <rect key="frame" x="0.0" y="53" width="320" height="1"/>
@@ -48,7 +49,7 @@
                         </constraints>
                     </view>
                 </subviews>
-                <color key="backgroundColor" name="background-color"/>
+                <color key="backgroundColor" name="primary-color"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="iLr-fa-Pc5" secondAttribute="trailing" id="4Fj-hm-v72"/>
                     <constraint firstItem="uXR-O8-IJT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="ggl-qb-jmE"/>
@@ -60,6 +61,7 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="tintColor" name="primary-color"/>
             <connections>
                 <outlet property="cityNameLabel" destination="ArR-pA-3In" id="Rw2-FE-CoL"/>
                 <outlet property="countryNameLabel" destination="wP9-K3-FHD" id="JSe-TW-Xse"/>
@@ -68,8 +70,8 @@
         </tableViewCell>
     </objects>
     <resources>
-        <namedColor name="background-color">
-            <color red="0.0" green="0.27450980392156865" blue="0.58823529411764708" alpha="0.75" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="primary-color">
+            <color red="0.0" green="0.27450980392156865" blue="0.58823529411764708" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

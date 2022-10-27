@@ -96,6 +96,7 @@ class MockLocalDataManager: LocalDataManagerProtocol {
     func getTourPointDataById(keyValue: String) -> [TourpointEntity] {
         return TestResources.tourpointEntity
     }
+
     func updateDataValueForSync(entity: String, key: String, keyValue: String, keyUpdate: String) {
         dataHasBeenUpdated = true
     }
@@ -163,5 +164,4 @@ class MockLocalDataManager: LocalDataManagerProtocol {
             return entity as! T
         })
     }
-
 }

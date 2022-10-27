@@ -109,4 +109,8 @@ class ConstantVariables {
     static let HomePageIndex = 2
     static let FavoritesPageIndex = 3
     static let ConfigurationPageIndex = 4
+
+    // icons
+    static let trashIcon = "trash.fill"
+    static let plusIcon = "plus"
 }
