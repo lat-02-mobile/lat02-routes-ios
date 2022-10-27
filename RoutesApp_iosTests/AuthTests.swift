@@ -76,11 +76,6 @@ class MockAuthManager: AuthProtocol {
     }
 }
 class MockUserManager: UserManProtocol {
-    func getUsers(completion: @escaping (Result<[UserFirebase], Error>) -> Void) {
-        getUsersGotCalled = true
-        completion(.success([TestResources.testUserFirebase]))
-    }
-    
     var registerUserGotCalled = false
     var getUsersGotCalled = false
     func getUsers(completion: @escaping (Result<[UserManResult], Error>) -> Void) {
@@ -90,6 +85,10 @@ class MockUserManager: UserManProtocol {
     func registerUser(name: String, email: String, uid: String, typeLogin: UserTypeLogin, completion: @escaping ((Result<UserManResult, Error>) -> Void)) {
         registerUserGotCalled = true
         completion(.success(TestResources.testUser))
+    }
+    func getUsers(completion: @escaping (Result<[UserFirebase], Error>) -> Void) {
+        getUsersGotCalled = true
+        completion(.success([TestResources.testUserFirebase]))
     }
 }
 
