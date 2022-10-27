@@ -92,3 +92,18 @@
 // Tourpoint detail view
 "address" = "Dirección";
 "search-best-route" = "Buscar la mejor ruta";
+
+// ADMIN MODE
+// Lines
+"admin-lines-edit-line" = "Editar Linea";
+"admin-lines-are-you-sure-edit-line" = "¿Esta seguro/a que quiere actualizar esta linea?";
+"admin-lines-create-line" = "Crear nueva Linea";
+"admin-lines-are-you-sure-create-line" = "¿Esta seguro/a que desea crear una nueva linea con estos parametros?";
+"admin-lines-delete-line" = "Eliminar Linea";
+"admin-lines-are-you-sure-delete-line" = "¿Esta seguro/a que desea eliminar esta linea?";
+"admin-lines-enable" = "Habilitado";
+"admin-lines-disable" = "Deshabilitado";
+"admin-lines-update" = "Actualizar";
+"admin-lines-something-went-wrong" = "Algo salio mal";
+"admin-lines-must-provide-name" = "Debes escribir un nombre valido para la linea";
+"admin-lines-line-has-routes-delete-first" = "Esta linea aun tiene rutas, eliminalas primero";

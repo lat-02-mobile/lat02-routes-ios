@@ -1,0 +1,21 @@
+
+/* Class = "UILabel"; text = "Enable"; ObjectID = "2oP-ZD-dCY"; */
+"2oP-ZD-dCY.text" = "Habilitar";
+
+/* Class = "UILabel"; text = "Choose a City"; ObjectID = "Fsi-sY-D1v"; */
+"Fsi-sY-D1v.text" = "Elige una ciudad";
+
+/* Class = "UITextField"; placeholder = "Line XXXX"; ObjectID = "U5O-iT-dn6"; */
+"U5O-iT-dn6.placeholder" = "Linea XXXX";
+
+/* Class = "UILabel"; text = "Choose a Category"; ObjectID = "UPi-LN-Xiy"; */
+"UPi-LN-Xiy.text" = "Elige una categoria";
+
+/* Class = "UIButton"; configuration.title = "Save"; ObjectID = "djj-mC-4al"; */
+"djj-mC-4al.configuration.title" = "Guardar";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "djj-mC-4al"; */
+"djj-mC-4al.normalTitle" = "Boton";
+
+/* Class = "UILabel"; text = "Write the name of the line"; ObjectID = "faS-Zy-oA9"; */
+"faS-Zy-oA9.text" = "Escribe el nombre de la linea";

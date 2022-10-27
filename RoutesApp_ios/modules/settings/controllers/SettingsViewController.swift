@@ -20,7 +20,6 @@ class SettingsViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         setUpCityName()
-        navigationController?.setNavigationBarHidden(true, animated: animated)
         let type = ConstantVariables.defaults.object(forKey: ConstantVariables.defUserType)
         guard let admin = type as? Int else { return }
         if admin == 1 {
@@ -31,6 +30,11 @@ class SettingsViewController: UIViewController {
     @IBAction func changeUbication(_ sender: Any) {
         let vc = CityPickerViewController()
         vc.isSettingsController = true
+        show(vc, sender: nil)
+    }
+
+    @IBAction func goToLineEditMode(_ sender: Any) {
+        let vc = LinesViewController(nibName: "RouteListViewController", bundle: nil)
         show(vc, sender: nil)
     }
 
@@ -45,7 +49,7 @@ class SettingsViewController: UIViewController {
         vc.isSettingsController = true
         show(vc, sender: nil)
     }
-    
+
     @IBAction func signOut(_ sender: Any) {
         let result = viewmodel.logout()
         guard result else { return }

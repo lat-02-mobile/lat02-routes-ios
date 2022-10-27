@@ -19,10 +19,10 @@ struct RouteListDetailModel {
     let category: LinesCategory
 }
 
-struct Lines: Codable {
+struct Lines: Codable, BaseModel {
     let categoryRef: DocumentReference?
     let enable: Bool
-    let id: String
+    var id: String
     let idCity: String
     let idCategory: String
     let name: String
@@ -39,5 +39,9 @@ struct Lines: Codable {
         entity.createAt = createAt.dateValue()
         entity.updateAt = updateAt.dateValue()
         return entity
+    }
+
+    func getCategory(completion: @escaping(DocumentSnapshot?, Error?) -> Void) {
+        self.categoryRef?.getDocument(completion: completion)
     }
 }

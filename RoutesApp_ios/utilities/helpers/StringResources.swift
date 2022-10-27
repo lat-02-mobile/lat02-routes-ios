@@ -33,4 +33,19 @@ class StringResources {
     // Tourpoint detail
     static let address = "address"
     static let searchBestRoute = "search-best-route"
+
+    // ADMIN
+    // Lines
+    static let adminLinesEdit = "admin-lines-edit-line"
+    static let adminLinesEditMessage = "admin-lines-are-you-sure-edit-line"
+    static let adminLinesCreate = "admin-lines-create-line"
+    static let adminLinesCreateMessage = "admin-lines-are-you-sure-create-line"
+    static let adminLinesDelete = "admin-lines-delete-line"
+    static let adminLinesDeleteMessage = "admin-lines-are-you-sure-delete-line"
+    static let adminLinesEnable = "admin-lines-enable"
+    static let adminLinesDisable = "admin-lines-disable"
+    static let adminLinesUpdate = "admin-lines-update"
+    static let adminLinesSomethingWrong = "admin-lines-something-went-wrong"
+    static let adminLinesMustProvideName = "admin-lines-must-provide-name"
+    static let adminLinesLineHasRouteDeleteFirst = "admin-lines-line-has-routes-delete-first"
 }
