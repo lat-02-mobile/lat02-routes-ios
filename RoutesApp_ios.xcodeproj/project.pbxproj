@@ -191,6 +191,10 @@
 		844F9A5428E5C5C7004A95A0 /* TourpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844F9A5328E5C5C7004A95A0 /* TourpointTests.swift */; };
 		845431A328FB4F9E000E669D /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 845431A228FB4F9E000E669D /* FirebaseCrashlytics */; };
 		845D228928A7050000E9A660 /* PhoneAuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D228728A7050000E9A660 /* PhoneAuthenticationViewController.swift */; };
+		8463E74E2909BCBE003FE493 /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463E74C2909BCBE003FE493 /* AdminViewController.swift */; };
+		8463E74F2909BCBE003FE493 /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463E74C2909BCBE003FE493 /* AdminViewController.swift */; };
+		8463E7502909BCBE003FE493 /* AdminViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8463E74D2909BCBE003FE493 /* AdminViewController.xib */; };
+		8463E7512909BCBE003FE493 /* AdminViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8463E74D2909BCBE003FE493 /* AdminViewController.xib */; };
 		847A59E228A820F5005CEA25 /* PhoneAuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A59E128A820F5005CEA25 /* PhoneAuthenticationViewModel.swift */; };
 		8498F89D28CF4892008641D9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8498F89C28CF4892008641D9 /* Constants.swift */; };
 		8498F89F28CF49DD008641D9 /* Lines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8498F89E28CF49DD008641D9 /* Lines.swift */; };
@@ -333,8 +337,6 @@
 		84067C7628B5721400549300 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CityPickerViewController.xib; sourceTree = "<group>"; };
 		84067C7928B5721700549300 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CityPickerViewController.strings; sourceTree = "<group>"; };
 		84067C7B28B5721A00549300 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/CityPickerViewController.strings"; sourceTree = "<group>"; };
-		84067C8528B5D74700549300 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SettingsViewController.strings; sourceTree = "<group>"; };
-		84067C8728B5D74A00549300 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/SettingsViewController.strings"; sourceTree = "<group>"; };
 		84067C8828B8272000549300 /* CityPickerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityPickerTests.swift; sourceTree = "<group>"; };
 		84067C8A28B95ED900549300 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		8420E0C528C68E89000068F9 /* SearchLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationViewController.swift; sourceTree = "<group>"; };
@@ -367,6 +369,10 @@
 		844F9A5128E49EA7004A95A0 /* TourpointsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourpointsViewModel.swift; sourceTree = "<group>"; };
 		844F9A5328E5C5C7004A95A0 /* TourpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourpointTests.swift; sourceTree = "<group>"; };
 		845D228728A7050000E9A660 /* PhoneAuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAuthenticationViewController.swift; sourceTree = "<group>"; };
+		8463E74C2909BCBE003FE493 /* AdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewController.swift; sourceTree = "<group>"; };
+		8463E74D2909BCBE003FE493 /* AdminViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdminViewController.xib; sourceTree = "<group>"; };
+		8463E7572909BFC4003FE493 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SettingsViewController.strings; sourceTree = "<group>"; };
+		8463E7592909BFC7003FE493 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/SettingsViewController.strings"; sourceTree = "<group>"; };
 		847A59E128A820F5005CEA25 /* PhoneAuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAuthenticationViewModel.swift; sourceTree = "<group>"; };
 		8498F89C28CF4892008641D9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8498F89E28CF49DD008641D9 /* Lines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lines.swift; sourceTree = "<group>"; };
@@ -724,6 +730,47 @@
 			path = viewmodels;
 			sourceTree = "<group>";
 		};
+		8463E7472909BC10003FE493 /* admin */ = {
+			isa = PBXGroup;
+			children = (
+				8463E7482909BC66003FE493 /* admin */,
+			);
+			path = admin;
+			sourceTree = "<group>";
+		};
+		8463E7482909BC66003FE493 /* admin */ = {
+			isa = PBXGroup;
+			children = (
+				8463E74B2909BC98003FE493 /* controller */,
+				8463E74A2909BC8F003FE493 /* viewmodels */,
+				8463E7492909BC6D003FE493 /* view */,
+			);
+			path = admin;
+			sourceTree = "<group>";
+		};
+		8463E7492909BC6D003FE493 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				8463E74D2909BCBE003FE493 /* AdminViewController.xib */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		8463E74A2909BC8F003FE493 /* viewmodels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = viewmodels;
+			sourceTree = "<group>";
+		};
+		8463E74B2909BC98003FE493 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				8463E74C2909BCBE003FE493 /* AdminViewController.swift */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
 		84A5B67628C698C4006AB7F9 /* routemap */ = {
 			isa = PBXGroup;
 			children = (
@@ -1026,6 +1073,7 @@
 		C2E9770E28987CFE009F4B94 /* modules */ = {
 			isa = PBXGroup;
 			children = (
+				8463E7472909BC10003FE493 /* admin */,
 				CEC6EFCE29082A7C0080F69B /* routesMapEditor */,
 				84ED700E28F4E1EB00781376 /* favoritesList */,
 				844F9A3F28E347DE004A95A0 /* tourpointsList */,
@@ -1428,6 +1476,7 @@
 				8441B9F128FF754100730F21 /* PossibleRouteTableViewCell.xib in Resources */,
 				8441B9F228FF754100730F21 /* SettingsViewController.xib in Resources */,
 				8441B9F428FF754100730F21 /* silver-style.json in Resources */,
+				8463E7512909BCBE003FE493 /* AdminViewController.xib in Resources */,
 				8441B9F528FF754100730F21 /* TourpointTableViewCell.xib in Resources */,
 				8441B9F628FF754100730F21 /* RouteListViewController.xib in Resources */,
 				8441B9F728FF754100730F21 /* PlaceTableViewCell.xib in Resources */,
@@ -1468,6 +1517,7 @@
 				CE7FBAD528D36B5E001175D3 /* PossibleRouteTableViewCell.xib in Resources */,
 				84067C4C28B3B5BD00549300 /* SettingsViewController.xib in Resources */,
 				CE0F8D3528AD357F00F2C753 /* silver-style.json in Resources */,
+				8463E7502909BCBE003FE493 /* AdminViewController.xib in Resources */,
 				844F9A4A28E3D560004A95A0 /* TourpointTableViewCell.xib in Resources */,
 				CE8D3D162909AE3600B579F5 /* GoogleService-Info.plist in Resources */,
 				C278973328E3B48100FF2796 /* RouteListViewController.xib in Resources */,
@@ -1763,6 +1813,7 @@
 				8441B9A728FF754100730F21 /* FavoriteDestinationsManager.swift in Sources */,
 				8441BA3D29019A2800730F21 /* SyncUnitHistory+CoreDataProperties.swift in Sources */,
 				8441B9A828FF754100730F21 /* FirebaseFirestoreManager.swift in Sources */,
+				8463E74F2909BCBE003FE493 /* AdminViewController.swift in Sources */,
 				8441B9A928FF754100730F21 /* TourpointCategoryEntity+CoreDataProperties.swift in Sources */,
 				8441B9AA28FF754100730F21 /* PhoneAuthenticationViewController.swift in Sources */,
 				8441B9AB28FF754100730F21 /* LineCategoryEntity+CoreDataProperties.swift in Sources */,
@@ -1874,6 +1925,7 @@
 				C249BB2028E4F9A400E6BA85 /* FavoriteDestinationsManager.swift in Sources */,
 				8441BA3C29019A2800730F21 /* SyncUnitHistory+CoreDataProperties.swift in Sources */,
 				C2436385289A2CD6003C1A44 /* FirebaseFirestoreManager.swift in Sources */,
+				8463E74E2909BCBE003FE493 /* AdminViewController.swift in Sources */,
 				84F6E6AC28FF545A009D5635 /* TourpointCategoryEntity+CoreDataProperties.swift in Sources */,
 				845D228928A7050000E9A660 /* PhoneAuthenticationViewController.swift in Sources */,
 				84F6E6B128FF545A009D5635 /* LineCategoryEntity+CoreDataProperties.swift in Sources */,
@@ -1954,8 +2006,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				84067C4D28B3B5BD00549300 /* Base */,
-				84067C8528B5D74700549300 /* en */,
-				84067C8728B5D74A00549300 /* es-419 */,
+				8463E7572909BFC4003FE493 /* en */,
+				8463E7592909BFC7003FE493 /* es-419 */,
 			);
 			name = SettingsViewController.xib;
 			sourceTree = "<group>";
@@ -2233,6 +2285,7 @@
 				DEVELOPMENT_TEAM = 9GDGJZFPVD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RoutesApp_ios/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Current location is needed when app is in use";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -2264,6 +2317,7 @@
 				DEVELOPMENT_TEAM = 9GDGJZFPVD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RoutesApp_ios/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Current location is needed when app is in use";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

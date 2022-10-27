@@ -6,12 +6,11 @@
 //
 
 import Foundation
-
 typealias UserManResult = User
 
 protocol UserManProtocol {
     func registerUser(name: String, email: String, uid: String, typeLogin: UserTypeLogin, completion: @escaping ((Result<User, Error>) -> Void))
-    func getUsers(completion: @escaping(Result<[User], Error>) -> Void)
+    func getUsers(completion: @escaping(Result<[UserFirebase], Error>) -> Void)
 }
 
 enum UserType: Int {
@@ -39,7 +38,7 @@ class UserFirebaseManager: UserManProtocol {
                            createdAt: Date())
         self.firebaseManager.addDocument(document: newUser, collection: .Users, completion: completion)
     }
-    func getUsers(completion: @escaping(Result<[User], Error>) -> Void) {
-        self.firebaseManager.getDocuments(type: User.self, forCollection: .Users, completion: completion)
+    func getUsers(completion: @escaping(Result<[UserFirebase], Error>) -> Void) {
+        self.firebaseManager.getDocuments(type: UserFirebase.self, forCollection: .Users, completion: completion)
     }
 }
