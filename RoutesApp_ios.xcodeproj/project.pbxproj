@@ -200,9 +200,6 @@
 		8498F89F28CF49DD008641D9 /* Lines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8498F89E28CF49DD008641D9 /* Lines.swift */; };
 		84A5B67A28C698C5006AB7F9 /* RouteMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A5B67828C698C4006AB7F9 /* RouteMapViewController.swift */; };
 		84A5B67B28C698C5006AB7F9 /* RouteMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A5B67928C698C4006AB7F9 /* RouteMapViewController.xib */; };
-		84C1108C290AD845007BDAA9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84C1108B290AD845007BDAA9 /* GoogleService-Info.plist */; };
-		84C1108E290AD84D007BDAA9 /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C1108D290AD84D007BDAA9 /* Env.swift */; };
-		84C1108F290AD84D007BDAA9 /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C1108D290AD84D007BDAA9 /* Env.swift */; };
 		84ED6FE728EB122F00781376 /* LocalDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED6FE628EB122F00781376 /* LocalDataManager.swift */; };
 		84ED6FF128EB600D00781376 /* CitySplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED6FF028EB600D00781376 /* CitySplashViewModel.swift */; };
 		84ED700B28EDC0D500781376 /* CitySplashViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED700A28EDC0D500781376 /* CitySplashViewModelTests.swift */; };
@@ -379,8 +376,6 @@
 		8498F89E28CF49DD008641D9 /* Lines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lines.swift; sourceTree = "<group>"; };
 		84A5B67828C698C4006AB7F9 /* RouteMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteMapViewController.swift; sourceTree = "<group>"; };
 		84A5B67928C698C4006AB7F9 /* RouteMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RouteMapViewController.xib; sourceTree = "<group>"; };
-		84C1108B290AD845007BDAA9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		84C1108D290AD84D007BDAA9 /* Env.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Env.swift; sourceTree = "<group>"; };
 		84ED6FE628EB122F00781376 /* LocalDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataManager.swift; sourceTree = "<group>"; };
 		84ED6FF028EB600D00781376 /* CitySplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySplashViewModel.swift; sourceTree = "<group>"; };
 		84ED700A28EDC0D500781376 /* CitySplashViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySplashViewModelTests.swift; sourceTree = "<group>"; };
@@ -1020,9 +1015,7 @@
 				C2E9770E28987CFE009F4B94 /* modules */,
 				C2E976D82898701C009F4B94 /* AppDelegate.swift */,
 				C2E976DA2898701C009F4B94 /* SceneDelegate.swift */,
-				84C1108B290AD845007BDAA9 /* GoogleService-Info.plist */,
 				C2E976DC2898701C009F4B94 /* ViewController.swift */,
-				84C1108D290AD84D007BDAA9 /* Env.swift */,
 				C2E976DE2898701C009F4B94 /* Main.storyboard */,
 				842F85AF29003AB200243943 /* Prod-Info.plist */,
 				C2E976E42898701D009F4B94 /* Assets.xcassets */,
@@ -1517,7 +1510,6 @@
 				C2BB145228A150A70083CA1E /* SignupViewController.xib in Resources */,
 				CE7FBAD528D36B5E001175D3 /* PossibleRouteTableViewCell.xib in Resources */,
 				84067C4C28B3B5BD00549300 /* SettingsViewController.xib in Resources */,
-				84C1108C290AD845007BDAA9 /* GoogleService-Info.plist in Resources */,
 				CE0F8D3528AD357F00F2C753 /* silver-style.json in Resources */,
 				8463E7502909BCBE003FE493 /* AdminViewController.xib in Resources */,
 				844F9A4A28E3D560004A95A0 /* TourpointTableViewCell.xib in Resources */,
@@ -1808,7 +1800,6 @@
 				8441BA3B29019A2800730F21 /* SyncUnitHistory+CoreDataClass.swift in Sources */,
 				8441B9A228FF754100730F21 /* GoogleMapsManager.swift in Sources */,
 				8441B9A328FF754100730F21 /* PhoneAuthenticationViewModel.swift in Sources */,
-				84C1108F290AD84D007BDAA9 /* Env.swift in Sources */,
 				8441B9A428FF754100730F21 /* RouteDetailViewController.swift in Sources */,
 				8441B9A528FF754100730F21 /* BottomSheetViewController.swift in Sources */,
 				8441B9A628FF754100730F21 /* LineEntityConverterHelper.swift in Sources */,
@@ -1971,7 +1962,6 @@
 				C278975328E3B8D900FF2796 /* LineRouteTableViewCell.swift in Sources */,
 				C278972D28E3B48100FF2796 /* RouteListViewModel.swift in Sources */,
 				CE65448B28BD148B003B599B /* Algorithm.swift in Sources */,
-				84C1108E290AD84D007BDAA9 /* Env.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
