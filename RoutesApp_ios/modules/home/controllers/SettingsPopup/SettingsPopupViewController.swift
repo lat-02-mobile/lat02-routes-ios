@@ -6,12 +6,22 @@
 //
 
 import UIKit
+import GoogleMaps
+import GooglePlaces
+import SVProgressHUD
+import CoreLocation
 
 class SettingsPopupViewController: UIViewController {
 
     @IBOutlet weak var settingsView: UIView!
     @IBOutlet weak var tourpointsSwitch: UISwitch!
     @IBOutlet weak var tourpointsLabel: UILabel!
+
+    let viewModel = SettingsPopupViewModel()
+    let tourpointsViewModel = TourpointsViewModel()
+    let tourpoints = [TourpointEntity]()
+    var homeVC = HomeViewController()
+    var routeMapVC = RouteMapViewController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,10 +37,11 @@ class SettingsPopupViewController: UIViewController {
     @IBAction func settingsSwitchDidChanged(_ sender: UISwitch) {
         UserDefaults.standard.set(sender.isOn, forKey: ConstantVariables.switchState)
         if sender.isOn {
-            settingsView.backgroundColor = .red
+            homeVC.showTourpointsMarkers()
+            routeMapVC.showTourpointsMarkers()
         } else {
-            settingsView.backgroundColor = .blue
+            homeVC.hideTourpointsMarkers()
+            routeMapVC.hideTourpointsMarkers()
         }
     }
-
 }

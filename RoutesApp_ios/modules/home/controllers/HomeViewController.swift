@@ -9,6 +9,7 @@ import UIKit
 import GoogleMaps
 import GooglePlaces
 import SVProgressHUD
+import Kingfisher
 
 enum HomeSelectionStatus {
     case SELECTING_POINTS, SHOWING_POSSIBLE_ROUTES, SHOWING_ROUTE_DETAILS
@@ -17,6 +18,9 @@ enum HomeSelectionStatus {
 class HomeViewController: UIViewController {
 
     let viewmodel = HomeViewModel()
+    let settingPopupViewModel = SettingsPopupViewModel()
+    let tourpointsViewModel = TourpointsViewModel()
+    var tourpointsMarkers = [GMSMarker]()
     var locationManager = CLLocationManager()
     var zoom: Float = 15
     var homeSelectionStatus = HomeSelectionStatus.SELECTING_POINTS
@@ -44,6 +48,11 @@ class HomeViewController: UIViewController {
         initializeTheLocationManager()
         setupMap()
         cityLocation()
+        getTourpoints()
+    }
+
+    func getTourpoints() {
+        tourpointsViewModel.getTourpoints()
     }
 
     func initViewModel() {
@@ -341,11 +350,11 @@ class HomeViewController: UIViewController {
 
     @IBAction func settingsPopupTapped(_ sender: Any) {
         let settingsPopup = SettingsPopupViewController()
-        // present(settingsPopup, animated: true, completion: nil)
+        settingsPopup.homeVC = self
+
         if let presentationController = settingsPopup.presentationController as? UISheetPresentationController {
             presentationController.detents = [.large()]
         }
-
         self.present(settingsPopup, animated: true)
     }
 
@@ -361,6 +370,46 @@ class HomeViewController: UIViewController {
         }
 
         self.present(viewController, animated: true)
+    }
+
+    func showTourpointsMarkers() {
+        let tourpoints = tourpointsViewModel.tourpointList
+        guard tourpointsMarkers.isEmpty else {tourpointsMarkers.forEach({
+            $0.map = mapView
+        })
+            return }
+
+        tourpoints.map({ tourpoint in
+            let marker = GMSMarker(position: tourpoint.destination.toCLLocationCoordinate2D())
+            getTourpointIcon(with: tourpoint.category.icon, imageCompletionHandler: { image in
+                marker.icon = image
+                marker.title = tourpoint.name
+                marker.snippet = tourpoint.category.descriptionEng
+                marker.map = self.mapView
+                self.tourpointsMarkers.append(marker)
+            })
+        })
+    }
+
+    func getTourpointIcon(with urlString: String, imageCompletionHandler: @escaping (UIImage?) -> Void) {
+            guard let url = URL.init(string: urlString) else {
+                return  imageCompletionHandler(nil)
+            }
+            let resource = ImageResource(downloadURL: url)
+            KingfisherManager.shared.retrieveImage(with: resource, options: nil, progressBlock: nil) { result in
+                switch result {
+                case .success(let value):
+                    imageCompletionHandler(value.image.resized(to: CGSize(width: 30, height: 40)))
+                case .failure:
+                    imageCompletionHandler(nil)
+                }
+            }
+        }
+
+    func hideTourpointsMarkers() {
+        tourpointsMarkers.forEach({
+            $0.map = nil
+        })
     }
 }
 
