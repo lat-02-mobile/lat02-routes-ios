@@ -48,4 +48,5 @@ class StringResources {
     static let adminLinesSomethingWrong = "admin-lines-something-went-wrong"
     static let adminLinesMustProvideName = "admin-lines-must-provide-name"
     static let adminLinesLineHasRouteDeleteFirst = "admin-lines-line-has-routes-delete-first"
+    static let showTourpoints = "show-tourpoints"
 }

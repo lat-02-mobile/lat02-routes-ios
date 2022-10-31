@@ -9,6 +9,7 @@ import UIKit
 import GoogleMaps
 import GooglePlaces
 import SVProgressHUD
+import Kingfisher
 
 enum HomeSelectionStatus {
     case SELECTING_POINTS, SHOWING_POSSIBLE_ROUTES, SHOWING_ROUTE_DETAILS
@@ -21,6 +22,9 @@ enum DestinationFromView {
 class HomeViewController: UIViewController {
 
     let viewmodel = HomeViewModel()
+    let settingPopupViewModel = SettingsPopupViewModel()
+    let tourpointsViewModel = TourpointsViewModel()
+    var tourpointsMarkers = [GMSMarker]()
     var locationManager = CLLocationManager()
     var zoom: Float = 15
     var homeSelectionStatus = HomeSelectionStatus.SELECTING_POINTS
@@ -29,7 +33,9 @@ class HomeViewController: UIViewController {
     private var destinationFromDifferentController = DestinationFromView.NONE
     private var destinationAux: CLLocationCoordinate2D?
     private let syncData = SyncData()
-
+    private var originTourpoint: GMSMarker?
+    private var destinationTourpoint: GMSMarker?
+    
     @IBOutlet weak var labelHelper: UILabel!
     @IBOutlet var mapView: GMSMapView!
     @IBOutlet var currentLocationButton: UIButton!
@@ -39,6 +45,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var destinationContainer: UIView!
     @IBOutlet weak var destinationPreselectedTitle: UILabel!
     @IBOutlet weak var destinationPreselectedName: UILabel!
+    @IBOutlet weak var settingsPopup: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +59,13 @@ class HomeViewController: UIViewController {
         initializeTheLocationManager()
         setupMap()
         cityLocation()
+        getTourpoints()
+        mapView.delegate = self
+        showTourpointsMarkers()
+    }
+
+    func getTourpoints() {
+        tourpointsViewModel.getTourpoints()
     }
 
     func initViewModel() {
@@ -230,10 +244,20 @@ class HomeViewController: UIViewController {
             viewmodel.origin?.map = mapView
             viewmodel.origin?.map = nil
             viewmodel.origin = nil
+            if originTourpoint != nil {
+                guard let marker = originTourpoint else { return }
+                marker.map = mapView
+                originTourpoint = nil
+            }
         } else {
             viewmodel.destination?.map = mapView
             viewmodel.destination?.map = nil
             viewmodel.destination = nil
+            if destinationTourpoint != nil {
+                guard let marker = destinationTourpoint else { return }
+                marker.map = mapView
+                destinationTourpoint = nil
+            }
         }
     }
 
@@ -369,6 +393,16 @@ class HomeViewController: UIViewController {
         }
     }
 
+    @IBAction func settingsPopupTapped(_ sender: Any) {
+        let settingsPopup = SettingsPopupViewController()
+        settingsPopup.homeVC = self
+
+        if let presentationController = settingsPopup.presentationController as? UISheetPresentationController {
+            presentationController.detents = [.large()]
+        }
+        self.present(settingsPopup, animated: true)
+    }
+
     func showRouteDetail(selectedAvailableTransport: AvailableTransport) {
         homeSelectionStatus = .SHOWING_ROUTE_DETAILS
         mapView.clear()
@@ -381,6 +415,73 @@ class HomeViewController: UIViewController {
         }
 
         self.present(viewController, animated: true)
+    }
+
+    func showTourpointsMarkers() {
+        let tourpoints = tourpointsViewModel.tourpointList
+        guard tourpointsMarkers.isEmpty else {tourpointsMarkers.forEach({
+            $0.map = mapView
+        })
+            return }
+
+        tourpoints.map({ tourpoint in
+            let marker = GMSMarker(position: tourpoint.destination.toCLLocationCoordinate2D())
+            getTourpointIcon(with: tourpoint.category.icon, imageCompletionHandler: { image in
+                marker.icon = image
+                marker.title = tourpoint.name
+                marker.accessibilityHint =  ConstantVariables.tourpointName
+                marker.snippet = tourpoint.category.descriptionEng
+                marker.map = self.mapView
+                self.tourpointsMarkers.append(marker)
+            })
+        })
+    }
+
+    func getTourpointIcon(with urlString: String, imageCompletionHandler: @escaping (UIImage?) -> Void) {
+            guard let url = URL.init(string: urlString) else {
+                return  imageCompletionHandler(nil)
+            }
+            let resource = ImageResource(downloadURL: url)
+            KingfisherManager.shared.retrieveImage(with: resource, options: nil, progressBlock: nil) { result in
+                switch result {
+                case .success(let value):
+                    imageCompletionHandler(value.image.resized(to: CGSize(width: 30, height: 40)))
+                case .failure:
+                    imageCompletionHandler(nil)
+                }
+            }
+        }
+
+    func hideTourpointsMarkers() {
+        tourpointsMarkers.forEach({
+            $0.map = nil
+        })
+    }
+    func changeTourpointToOriginOrDestination(position: CLLocationCoordinate2D, tourpointMarker: GMSMarker) {
+        let pos = GMSMarker(position: position)
+        switch viewmodel.pointsSelectionStatus {
+        case.pendingOrigin:
+            pos.title = String.localizeString(localizedString: StringResources.origin)
+            pos.icon = UIImage(named: ConstantVariables.originPoint)
+            pos.map = mapView
+            viewmodel.origin = pos
+            self.originTourpoint = tourpointMarker
+            destinationFromDifferentController != .NONE ?
+            setHelperLabelAndStatus(label: StringResources.done, status: .bothSelected) :
+            setHelperLabelAndStatus(label: StringResources.selectDestination, status: .pendingDestination)
+        case.pendingDestination:
+            pos.title = String.localizeString(localizedString: StringResources.destination)
+            pos.icon = UIImage(named: ConstantVariables.destinationPoint)
+            pos.map = mapView
+            viewmodel.destination = pos
+            self.destinationTourpoint = tourpointMarker
+            destinationFromDifferentController != .NONE ?
+            setHelperLabelAndStatus(label: StringResources.selectOrigin, status: .pendingOrigin) :
+            setHelperLabelAndStatus(label: StringResources.done, status: .bothSelected)
+        case .bothSelected:
+            backButton.isHidden = false
+        }
+        backButton.isHidden = false
     }
 }
 
@@ -434,3 +535,22 @@ extension HomeViewController: CLLocationManagerDelegate {
         }
     }
 }
+
+extension HomeViewController: GMSMapViewDelegate {
+    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+        let markerPosition = marker.position
+        self.cameraMoveToLocation(toLocation: markerPosition)
+        self.mapView?.selectedMarker = marker
+        let markerHint =  marker.accessibilityHint
+        switch markerHint {
+        case ConstantVariables.tourpointName:
+            self.mapView?.selectedMarker?.map = nil
+            let position = CLLocationCoordinate2D(latitude: marker.position.latitude, longitude: marker.position.longitude)
+            self.changeTourpointToOriginOrDestination(position: position, tourpointMarker: marker)
+        default:
+            return true
+        }
+        return true
+    }
+}
+

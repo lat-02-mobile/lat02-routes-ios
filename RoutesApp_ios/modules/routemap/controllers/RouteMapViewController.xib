@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RouteMapViewController" customModule="RoutesApp_ios" customModuleProvider="target">
             <connections>
                 <outlet property="mapView" destination="G7J-c8-kR8" id="5kF-LJ-QaV"/>
+                <outlet property="settingsPopupButton" destination="Q3k-PO-Nae" id="1oL-b3-sac"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -24,6 +26,17 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q3k-PO-Nae">
+                    <rect key="frame" x="341" y="74" width="63" height="44"/>
+                    <color key="tintColor" name="primary-color"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" image="gearshape.fill" catalog="system">
+                        <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="25"/>
+                    </buttonConfiguration>
+                    <connections>
+                        <action selector="tourpouintsSettingsTapped:" destination="-1" eventType="touchUpInside" id="CBT-Ao-Vb6"/>
+                    </connections>
+                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HIN-Og-lCq">
                     <rect key="frame" x="350" y="725" width="56" height="30"/>
                     <constraints>
@@ -77,8 +90,10 @@
                 <constraint firstItem="G7J-c8-kR8" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Pr1-tt-sWJ"/>
                 <constraint firstItem="G7J-c8-kR8" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="YHD-Ov-i4s"/>
                 <constraint firstAttribute="bottom" secondItem="G7J-c8-kR8" secondAttribute="bottom" id="Zn2-ER-JX8"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Q3k-PO-Nae" secondAttribute="trailing" constant="10" id="dqV-yN-PLC"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="0Js-LG-a8A" secondAttribute="bottom" constant="76" id="eqY-ZE-Mgk"/>
                 <constraint firstItem="0Js-LG-a8A" firstAttribute="top" secondItem="HIN-Og-lCq" secondAttribute="bottom" constant="1" id="mOD-pY-RYY"/>
+                <constraint firstItem="Q3k-PO-Nae" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="qxn-Qb-GdJ"/>
                 <constraint firstItem="BnO-WT-QaV" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="19" id="wjq-FR-7Dh"/>
             </constraints>
             <point key="canvasLocation" x="124.6376811594203" y="102.45535714285714"/>
@@ -86,8 +101,12 @@
     </objects>
     <resources>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
+        <image name="gearshape.fill" catalog="system" width="128" height="121"/>
         <image name="map_zoom-in" width="32" height="32"/>
         <image name="map_zoom-out" width="32" height="32"/>
+        <namedColor name="primary-color">
+            <color red="0.0" green="0.27450980392156865" blue="0.58823529411764708" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

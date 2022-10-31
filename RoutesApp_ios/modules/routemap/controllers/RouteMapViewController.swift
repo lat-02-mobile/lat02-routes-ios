@@ -8,7 +8,12 @@ class RouteMapViewController: UIViewController {
     var locationManager = CLLocationManager()
     var currentPosition: CLLocationCoordinate2D?
     var isSettingsController = true
+    let settingPopupViewModel = SettingsPopupViewModel()
+    let tourpointsViewModel = TourpointsViewModel()
+    var tourpointsMarkers = [GMSMarker]()
+    let homeVC = HomeViewController()
     @IBOutlet weak var mapView: GMSMapView!
+    @IBOutlet weak var settingsPopupButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
@@ -42,6 +47,42 @@ class RouteMapViewController: UIViewController {
         navigationController?.popViewController(animated: true)
         dismiss(animated: true, completion: nil)
     }
+
+    @IBAction func tourpouintsSettingsTapped(_ sender: Any) {
+        let settingsPopup = SettingsPopupViewController()
+        settingsPopup.routeMapVC = self
+
+        if let presentationController = settingsPopup.presentationController as? UISheetPresentationController {
+            presentationController.detents = [.large()]
+        }
+        self.present(settingsPopup, animated: true)
+    }
+
+    func showTourpointsMarkers() {
+        let tourpoints = tourpointsViewModel.tourpointList
+        guard tourpointsMarkers.isEmpty else {tourpointsMarkers.forEach({
+            $0.map = mapView
+        })
+            return }
+
+        tourpoints.map({ tourpoint in
+            let marker = GMSMarker(position: tourpoint.destination.toCLLocationCoordinate2D())
+            homeVC.getTourpointIcon(with: tourpoint.category.icon, imageCompletionHandler: { image in
+                marker.icon = image
+                marker.title = tourpoint.name
+                marker.snippet = tourpoint.category.descriptionEng
+                marker.map = self.mapView
+                self.tourpointsMarkers.append(marker)
+            })
+        })
+    }
+
+    func hideTourpointsMarkers() {
+        tourpointsMarkers.forEach({
+            $0.map = nil
+        })
+    }
+
     private func drawRoute() {
         let path = GMSMutablePath()
         for route in linePath.routePoints {

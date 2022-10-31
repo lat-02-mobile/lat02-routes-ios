@@ -107,3 +107,5 @@
 "admin-lines-something-went-wrong" = "Algo salio mal";
 "admin-lines-must-provide-name" = "Debes escribir un nombre valido para la linea";
 "admin-lines-line-has-routes-delete-first" = "Esta linea aun tiene rutas, eliminalas primero";
+// SettingPopup
+"show-tourpoints" = "Mostrar sitios";
