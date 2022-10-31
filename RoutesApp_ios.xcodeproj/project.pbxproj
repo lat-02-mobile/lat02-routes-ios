@@ -232,11 +232,9 @@
 		84F6E6B928FF585D009D5635 /* MockLocalDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6E6B828FF585D009D5635 /* MockLocalDataManager.swift */; };
 		84F6E6BB28FF58B4009D5635 /* LineEntityConverterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6E6BA28FF58B4009D5635 /* LineEntityConverterHelper.swift */; };
 		84F6E6BD28FF5D89009D5635 /* Cities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6E6BC28FF5D89009D5635 /* Cities.swift */; };
-<<<<<<< HEAD
-=======
+
 		84F6E6C329002E3C009D5635 /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6E6C229002E3C009D5635 /* Env.swift */; };
 		959B7170FF24406C939DC60B /* Pods_RoutesApp_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA0743D620F2F740C78E285 /* Pods_RoutesApp_ios.framework */; };
->>>>>>> feature/tourpointsPopup
 		C20A86D128A3383F0000EF7C /* ConstantVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A86D028A3383F0000EF7C /* ConstantVariables.swift */; };
 		C20A86D328A338E30000EF7C /* TestResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A86D228A338E30000EF7C /* TestResources.swift */; };
 		C20A86D528A339540000EF7C /* AuthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A86D428A339540000EF7C /* AuthTests.swift */; };
