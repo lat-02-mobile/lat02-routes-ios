@@ -196,7 +196,6 @@
 		845431B72900A1EB000E669D /* SettingsPopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845431B32900A1EB000E669D /* SettingsPopupViewController.xib */; };
 		845431B92902DB78000E669D /* SettingsPopupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845431B82902DB78000E669D /* SettingsPopupViewModel.swift */; };
 		845431BA2902DB78000E669D /* SettingsPopupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845431B82902DB78000E669D /* SettingsPopupViewModel.swift */; };
-		845431BB2906E589000E669D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84F6E6C629002F08009D5635 /* GoogleService-Info.plist */; };
 		845431BD2909D9BE000E669D /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845431BC2909D9BE000E669D /* ImageExtension.swift */; };
 		845431BE2909D9BE000E669D /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845431BC2909D9BE000E669D /* ImageExtension.swift */; };
 		845D228928A7050000E9A660 /* PhoneAuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D228728A7050000E9A660 /* PhoneAuthenticationViewController.swift */; };
@@ -232,9 +231,6 @@
 		84F6E6B928FF585D009D5635 /* MockLocalDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6E6B828FF585D009D5635 /* MockLocalDataManager.swift */; };
 		84F6E6BB28FF58B4009D5635 /* LineEntityConverterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6E6BA28FF58B4009D5635 /* LineEntityConverterHelper.swift */; };
 		84F6E6BD28FF5D89009D5635 /* Cities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6E6BC28FF5D89009D5635 /* Cities.swift */; };
-
-		84F6E6C329002E3C009D5635 /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6E6C229002E3C009D5635 /* Env.swift */; };
-		959B7170FF24406C939DC60B /* Pods_RoutesApp_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA0743D620F2F740C78E285 /* Pods_RoutesApp_ios.framework */; };
 		C20A86D128A3383F0000EF7C /* ConstantVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A86D028A3383F0000EF7C /* ConstantVariables.swift */; };
 		C20A86D328A338E30000EF7C /* TestResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A86D228A338E30000EF7C /* TestResources.swift */; };
 		C20A86D528A339540000EF7C /* AuthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A86D428A339540000EF7C /* AuthTests.swift */; };
@@ -244,9 +240,6 @@
 		C215EF0928A4B1F500371DB6 /* HomeVIewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C215EF0828A4B1F400371DB6 /* HomeVIewModel.swift */; };
 		C215EF0C28A4BB5D00371DB6 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C215EF0B28A4BB5D00371DB6 /* ViewModel.swift */; };
 		C215EF0D28A4C1BC00371DB6 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C215EF0F28A4C1BC00371DB6 /* LoginViewController.xib */; };
-		C232D19C2906BD43005DEB62 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C232D19B2906BD43005DEB62 /* GoogleService-Info.plist */; };
-		C23688EA29079483006D6DD3 /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6E6C229002E3C009D5635 /* Env.swift */; };
-		C23688EB29079484006D6DD3 /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6E6C229002E3C009D5635 /* Env.swift */; };
 		C2414D8428E1CDF200CDF73A /* ClPlaceMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2414D8328E1CDF200CDF73A /* ClPlaceMark.swift */; };
 		C2414D8628E1DCDC00CDF73A /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2414D8528E1DCDB00CDF73A /* Double.swift */; };
 		C2414D8728E1F08000CDF73A /* RouteDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2414D8928E1F08000CDF73A /* RouteDetailViewController.xib */; };
@@ -335,8 +328,6 @@
 		CE7FBAEF28D937D9001175D3 /* PossibleRoutesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7FBAEE28D937D9001175D3 /* PossibleRoutesViewModel.swift */; };
 		CE8CE8F028BE493F003270D7 /* AlgorithmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8CE8EF28BE493F003270D7 /* AlgorithmTests.swift */; };
 		CE8D3D0B290968F900B579F5 /* RoutesMapEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D3D0A290968F900B579F5 /* RoutesMapEditorViewModel.swift */; };
-
-		CE8D3D142909AE0900B579F5 /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D3D132909AE0900B579F5 /* Env.swift */; };
 		CE93A8A328BD3ECD00296532 /* CLLocationCoordinate2DExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE93A8A228BD3ECD00296532 /* CLLocationCoordinate2DExtension.swift */; };
 		CEC6EFD129082AAF0080F69B /* RoutesMapEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC6EFCF29082AAF0080F69B /* RoutesMapEditorViewController.swift */; };
 		CEC6EFD229082AAF0080F69B /* RoutesMapEditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEC6EFD029082AAF0080F69B /* RoutesMapEditorViewController.xib */; };
@@ -437,7 +428,6 @@
 		84F6E6B828FF585D009D5635 /* MockLocalDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockLocalDataManager.swift; sourceTree = "<group>"; };
 		84F6E6BA28FF58B4009D5635 /* LineEntityConverterHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineEntityConverterHelper.swift; sourceTree = "<group>"; };
 		84F6E6BC28FF5D89009D5635 /* Cities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cities.swift; sourceTree = "<group>"; };
-		84F6E6C229002E3C009D5635 /* Env.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Env.swift; sourceTree = "<group>"; };
 		99A7926D8889E1D91C0D95AC /* Pods_RoutesApp_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RoutesApp_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C20A86D028A3383F0000EF7C /* ConstantVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantVariables.swift; sourceTree = "<group>"; };
 		C20A86D228A338E30000EF7C /* TestResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResources.swift; sourceTree = "<group>"; };
@@ -450,7 +440,6 @@
 		C215EF0E28A4C1BC00371DB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LoginViewController.xib; sourceTree = "<group>"; };
 		C215EF1128A4C1BE00371DB6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LoginViewController.strings; sourceTree = "<group>"; };
 		C215EF1328A4C1BF00371DB6 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/LoginViewController.strings"; sourceTree = "<group>"; };
-		C232D19B2906BD43005DEB62 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C2414D8328E1CDF200CDF73A /* ClPlaceMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClPlaceMark.swift; sourceTree = "<group>"; };
 		C2414D8528E1DCDB00CDF73A /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		C2414D8828E1F08000CDF73A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/RouteDetailViewController.xib; sourceTree = "<group>"; };
@@ -1126,9 +1115,7 @@
 				C2E9770E28987CFE009F4B94 /* modules */,
 				C2E976D82898701C009F4B94 /* AppDelegate.swift */,
 				C2E976DA2898701C009F4B94 /* SceneDelegate.swift */,
-				84F6E6C229002E3C009D5635 /* Env.swift */,
 				C2E976DC2898701C009F4B94 /* ViewController.swift */,
-				C232D19B2906BD43005DEB62 /* GoogleService-Info.plist */,
 				C2E976DE2898701C009F4B94 /* Main.storyboard */,
 				842F85AF29003AB200243943 /* Prod-Info.plist */,
 				C2E976E42898701D009F4B94 /* Assets.xcassets */,
@@ -1872,7 +1859,6 @@
 			files = (
 				8441B97128FF754100730F21 /* FavoritesListViewModel.swift in Sources */,
 				8441B97228FF754100730F21 /* PossibleRoutesViewModel.swift in Sources */,
-				C23688EB29079484006D6DD3 /* Env.swift in Sources */,
 				8441B97328FF754100730F21 /* RouteMapViewController.swift in Sources */,
 				8441BA2E2901943400730F21 /* SyncUnitHistoryModel.swift in Sources */,
 				8441B97428FF754100730F21 /* Double.swift in Sources */,
@@ -1920,7 +1906,6 @@
 				8441B99828FF754100730F21 /* LineEntity+CoreDataClass.swift in Sources */,
 				8441B99928FF754100730F21 /* Tourpoint.swift in Sources */,
 				845431BE2909D9BE000E669D /* ImageExtension.swift in Sources */,
-				842F85AB2900396000243943 /* Env.swift in Sources */,
 				8441B99B28FF754100730F21 /* LineRouteViewController.swift in Sources */,
 				8441B99C28FF754100730F21 /* LineRouteFirebaseManager.swift in Sources */,
 				8441B99D28FF754100730F21 /* User.swift in Sources */,
@@ -2040,7 +2025,6 @@
 				84F6E6B328FF545A009D5635 /* LineEntity+CoreDataClass.swift in Sources */,
 				844F9A4C28E47B14004A95A0 /* Tourpoint.swift in Sources */,
 				845431BD2909D9BE000E669D /* ImageExtension.swift in Sources */,
-				84F6E6C329002E3C009D5635 /* Env.swift in Sources */,
 				C278975228E3B8D900FF2796 /* LineRouteViewController.swift in Sources */,
 				CE19B2FD28DCF2F500840426 /* LineRouteFirebaseManager.swift in Sources */,
 				C2E9772B28987F79009F4B94 /* User.swift in Sources */,
@@ -2105,7 +2089,6 @@
 				C278975328E3B8D900FF2796 /* LineRouteTableViewCell.swift in Sources */,
 				C278972D28E3B48100FF2796 /* RouteListViewModel.swift in Sources */,
 				CE65448B28BD148B003B599B /* Algorithm.swift in Sources */,
-				C23688EA29079483006D6DD3 /* Env.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

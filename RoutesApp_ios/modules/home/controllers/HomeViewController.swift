@@ -33,7 +33,9 @@ class HomeViewController: UIViewController {
     private var destinationFromDifferentController = DestinationFromView.NONE
     private var destinationAux: CLLocationCoordinate2D?
     private let syncData = SyncData()
-
+    private var originTourpoint: GMSMarker?
+    private var destinationTourpoint: GMSMarker?
+    
     @IBOutlet weak var labelHelper: UILabel!
     @IBOutlet var mapView: GMSMapView!
     @IBOutlet var currentLocationButton: UIButton!
@@ -58,6 +60,8 @@ class HomeViewController: UIViewController {
         setupMap()
         cityLocation()
         getTourpoints()
+        mapView.delegate = self
+        showTourpointsMarkers()
     }
 
     func getTourpoints() {
@@ -240,10 +244,20 @@ class HomeViewController: UIViewController {
             viewmodel.origin?.map = mapView
             viewmodel.origin?.map = nil
             viewmodel.origin = nil
+            if originTourpoint != nil {
+                guard let marker = originTourpoint else { return }
+                marker.map = mapView
+                originTourpoint = nil
+            }
         } else {
             viewmodel.destination?.map = mapView
             viewmodel.destination?.map = nil
             viewmodel.destination = nil
+            if destinationTourpoint != nil {
+                guard let marker = destinationTourpoint else { return }
+                marker.map = mapView
+                destinationTourpoint = nil
+            }
         }
     }
 
@@ -415,6 +429,7 @@ class HomeViewController: UIViewController {
             getTourpointIcon(with: tourpoint.category.icon, imageCompletionHandler: { image in
                 marker.icon = image
                 marker.title = tourpoint.name
+                marker.accessibilityHint =  ConstantVariables.tourpointName
                 marker.snippet = tourpoint.category.descriptionEng
                 marker.map = self.mapView
                 self.tourpointsMarkers.append(marker)
@@ -441,6 +456,32 @@ class HomeViewController: UIViewController {
         tourpointsMarkers.forEach({
             $0.map = nil
         })
+    }
+    func changeTourpointToOriginOrDestination(position: CLLocationCoordinate2D, tourpointMarker: GMSMarker) {
+        let pos = GMSMarker(position: position)
+        switch viewmodel.pointsSelectionStatus {
+        case.pendingOrigin:
+            pos.title = String.localizeString(localizedString: StringResources.origin)
+            pos.icon = UIImage(named: ConstantVariables.originPoint)
+            pos.map = mapView
+            viewmodel.origin = pos
+            self.originTourpoint = tourpointMarker
+            destinationFromDifferentController != .NONE ?
+            setHelperLabelAndStatus(label: StringResources.done, status: .bothSelected) :
+            setHelperLabelAndStatus(label: StringResources.selectDestination, status: .pendingDestination)
+        case.pendingDestination:
+            pos.title = String.localizeString(localizedString: StringResources.destination)
+            pos.icon = UIImage(named: ConstantVariables.destinationPoint)
+            pos.map = mapView
+            viewmodel.destination = pos
+            self.destinationTourpoint = tourpointMarker
+            destinationFromDifferentController != .NONE ?
+            setHelperLabelAndStatus(label: StringResources.selectOrigin, status: .pendingOrigin) :
+            setHelperLabelAndStatus(label: StringResources.done, status: .bothSelected)
+        case .bothSelected:
+            backButton.isHidden = false
+        }
+        backButton.isHidden = false
     }
 }
 
@@ -494,3 +535,22 @@ extension HomeViewController: CLLocationManagerDelegate {
         }
     }
 }
+
+extension HomeViewController: GMSMapViewDelegate {
+    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+        let markerPosition = marker.position
+        self.cameraMoveToLocation(toLocation: markerPosition)
+        self.mapView?.selectedMarker = marker
+        let markerHint =  marker.accessibilityHint
+        switch markerHint {
+        case ConstantVariables.tourpointName:
+            self.mapView?.selectedMarker?.map = nil
+            let position = CLLocationCoordinate2D(latitude: marker.position.latitude, longitude: marker.position.longitude)
+            self.changeTourpointToOriginOrDestination(position: position, tourpointMarker: marker)
+        default:
+            return true
+        }
+        return true
+    }
+}
+
