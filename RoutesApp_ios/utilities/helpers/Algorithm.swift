@@ -62,6 +62,15 @@ class Algorithm {
            let nearestStopToOrigin = nearestStopToOrigin,
            isInDelimitedArea(coordinateA: nearestStopToDestination, coordinateB: destination.toCoordinate(), distance: minDistanceBtwStops),
            isInDelimitedArea(coordinateA: nearestStopToOrigin, coordinateB: origin.toCoordinate(), distance: minDistanceBtwStops) else { return nil }
+
+        let indexOrigin = line.routePoints.firstIndex(where: { $0.latitude == nearestStopToOrigin.latitude &&
+            $0.longitude == nearestStopToOrigin.longitude })
+        let indexDestination = line.routePoints.firstIndex(where: { $0.latitude == nearestStopToDestination.latitude &&
+            $0.longitude == nearestStopToDestination.longitude })
+        if  let indexOrigin = indexOrigin,
+            let indexDestination = indexDestination,
+            indexOrigin >= indexDestination { return nil }
+
         let newLine = line.slice(from: nearestStopToOrigin, till: nearestStopToDestination)
         return AvailableTransport(connectionPoint: nil, transports: [newLine])
     }

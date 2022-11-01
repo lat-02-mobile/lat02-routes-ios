@@ -169,4 +169,20 @@ class FirebaseFirestoreManager {
             }
         }
     }
+
+    func updateDocument<T: Codable & BaseModel>(document: T, collection: FirebaseCollections, completion: @escaping ( Result<T, Error>) -> Void  ) {
+        do {
+            let item = try? Firestore.Encoder().encode(document)
+            guard let itemDict = item else { return completion(.failure(FirebaseErrors.ErrorToDecodeItem)) }
+            db.collection(collection.rawValue).document(document.id).setData(itemDict) { error in
+                if let error = error {
+                    completion(.failure(error))
+                } else {
+                    completion(.success(document))
+                }
+            }
+        } catch {
+            completion(.failure(FirebaseErrors.ErrorToDecodeItem))
+        }
+    }
 }

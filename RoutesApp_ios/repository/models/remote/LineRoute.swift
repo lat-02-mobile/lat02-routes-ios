@@ -108,6 +108,10 @@ public struct Coordinate: Codable, Equatable {
     public static func == (lhs: Coordinate, rhs: Coordinate) -> Bool {
         return lhs.latitude == rhs.latitude && lhs.longitude == rhs.longitude
     }
+
+    func toGeoCode() -> GeoPoint {
+        return GeoPoint(latitude: latitude, longitude: longitude)
+    }
 }
 
 struct LinesCandidate: Codable {
@@ -116,9 +120,9 @@ struct LinesCandidate: Codable {
 }
 
 // Used for obtain the Firestore response (LineRoute entity)
-struct LineRouteInfo: Codable, Equatable {
+struct LineRouteInfo: BaseModel, Codable, Equatable {
     let name: String
-    let id: String
+    var id: String
     let idLine: String
     let line: DocumentReference?
     let routePoints: [GeoPoint]

@@ -11,6 +11,7 @@ protocol LineRouteManagerProtocol {
     func getLineRoute(idLine: String, completion: @escaping(Result<[LineRouteInfo], Error>) -> Void)
     func getLineRouteByDateGreaterThanOrEqualTo(idLine: String, date: Date, completion: @escaping(Result<[LineRouteInfo], Error>) -> Void)
     func getLinesRoutesByLineAsync(idLine: String) async throws -> [LineRouteInfo]
+    func updateLineRoute(lineRouteInfo: LineRouteInfo, completion: @escaping(Result<LineRouteInfo, Error>) -> Void)
 }
 
 class LineRouteFirebaseManager: LineRouteManagerProtocol {
@@ -50,6 +51,17 @@ class LineRouteFirebaseManager: LineRouteManagerProtocol {
             return lineRoutes
         } catch let error {
             throw error
+        }
+    }
+
+    func updateLineRoute(lineRouteInfo: LineRouteInfo, completion: @escaping(Result<LineRouteInfo, Error>) -> Void) {
+        firebaseManager.updateDocument(document: lineRouteInfo, collection: .LineRoute) { result in
+            switch result {
+            case .success(let lineRouteInfo):
+                completion(.success(lineRouteInfo))
+            case .failure(let error):
+                completion(.failure(error))
+            }
         }
     }
 }

@@ -26,12 +26,12 @@ class ImageHelper {
     }
 
     func imageWith(name: String?, backgroundColor: UIColor = ColorConstants.routePointColor) -> UIImage? {
-        let frame = CGRect(x: 0, y: 0, width: 25, height: 25)
+        let frame = CGRect(x: 0, y: 0, width: 28, height: 28)
         let nameLabel = UILabel(frame: frame)
         nameLabel.textAlignment = .center
         nameLabel.backgroundColor = backgroundColor
         nameLabel.textColor = .white
-        nameLabel.font = UIFont.boldSystemFont(ofSize: 18)
+        nameLabel.font = UIFont.boldSystemFont(ofSize: 17)
         nameLabel.text = name
         nameLabel.layer.cornerRadius = nameLabel.frame.width / 2
         nameLabel.clipsToBounds = true

@@ -17,4 +17,5 @@ struct ColorConstants {
     static let backgroundColorLight: UIColor = .lightGray
     static let routePointColor: UIColor = UIColor(named: "primary-color") ?? .blue
     static let stopPointColor: UIColor = UIColor(named: "stop-color") ?? .red
+    static let selectedPointColor: UIColor = UIColor(named: "selected-point-color") ?? .green
 }
