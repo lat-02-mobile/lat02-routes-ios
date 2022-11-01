@@ -1,0 +1,18 @@
+
+/* Class = "UIButton"; configuration.title = "Pick Route Color"; ObjectID = "USx-9U-YlB"; */
+"USx-9U-YlB.configuration.title" = "Pick Route Color";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "USx-9U-YlB"; */
+"USx-9U-YlB.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "X5X-ca-E2e"; */
+"X5X-ca-E2e.text" = "Name";
+
+/* Class = "UIButton"; configuration.title = "FInish"; ObjectID = "azB-cv-5cy"; */
+"azB-cv-5cy.configuration.title" = "Finish";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "azB-cv-5cy"; */
+"azB-cv-5cy.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Average Velocity"; ObjectID = "mY7-7z-k5N"; */
+"mY7-7z-k5N.text" = "Average Velocity";

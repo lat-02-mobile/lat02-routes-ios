@@ -10,6 +10,7 @@ import Foundation
 class StringResources {
     static let loadingPossibleRoutes = "loading-possible-routes"
     static let search = "search-bar"
+    static let cancel = "cancel"
 
     static let origin = "origin"
     static let selectOrigin = "select-origin"
@@ -48,4 +49,13 @@ class StringResources {
     static let adminLinesSomethingWrong = "admin-lines-something-went-wrong"
     static let adminLinesMustProvideName = "admin-lines-must-provide-name"
     static let adminLinesLineHasRouteDeleteFirst = "admin-lines-line-has-routes-delete-first"
+    static let adminLinesSeeRoutes = "admin-lines-see-routes"
+    static let adminLinesSeeLineDetails = "admin-lines-see-line-details"
+
+    // LineRoutes
+    static let adminLineRoutesNew = "admin-line-routes-new"
+    static let adminLineRoutesSeeDetails = "admin-line-routes-see-details"
+    static let adminLineRoutesGoMapEditor = "admin-line-routes-go-map-editor"
+    static let adminLineRoutesDelete = "admin-line-routes-delete"
+    static let adminLineRoutesDeleteMessage = "admin-line-routes-are-you-sure-delete"
 }

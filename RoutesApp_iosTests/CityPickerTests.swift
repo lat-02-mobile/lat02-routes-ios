@@ -11,6 +11,10 @@ import XCTest
 class MockCityManager: CityManagerProtocol {
     var getCitiesByNameGotCalled = false
     var getCitiesGotCalled = false
+
+    func getCityById(id: String, completion: @escaping (Result<Cities, Error>) -> Void) {
+    }
+
     func getCitiesByName(parameter: String, completion: @escaping (Result<[Cities], Error>) -> Void) {
         if !parameter.isEmpty {
             completion(.success([TestResources.testCityRoute]))

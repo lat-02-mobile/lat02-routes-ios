@@ -11,11 +11,16 @@ protocol CityManagerProtocol {
     func getCitiesByName(parameter: String, completion: @escaping(Result<[Cities], Error>) -> Void)
     func getCountryById(id: String, completion: @escaping(Result<Country, Error>) -> Void)
     func getCities(completion: @escaping(Result<[Cities], Error>) -> Void)
+    func getCityById(id: String, completion: @escaping(Result<Cities, Error>) -> Void)
 }
 
 class CityFirebaseManager: CityManagerProtocol {
     let firebaseManager = FirebaseFirestoreManager.shared
     static let shared = CityFirebaseManager()
+
+    func getCityById(id: String, completion: @escaping (Result<Cities, Error>) -> Void) {
+        self.firebaseManager.getSingleDocumentById(type: Cities.self, forCollection: .Cities, documentID: id, completion: completion)
+    }
 
     func getCities(completion: @escaping (Result<[Cities], Error>) -> Void) {
         self.firebaseManager.getDocumentsWithLimit(type: Cities.self, forCollection: .Cities, limit: 10, completion: completion)

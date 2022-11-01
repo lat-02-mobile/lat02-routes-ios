@@ -17,7 +17,7 @@ class RoutesMapEditorViewController: UIViewController {
 
     var viewModel = RoutesMapEditorViewModel()
 
-    init(currentLinePath: LineRouteEntity) {
+    init(currentLinePath: LineRouteInfo) {
         viewModel.setLinePath(linePath: currentLinePath)
         super.init(nibName: nil, bundle: nil)
     }
@@ -28,7 +28,8 @@ class RoutesMapEditorViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        title = viewModel.getLinePath()?.name
         setupMap()
         fitRoute()
         drawMarkers()
@@ -46,8 +47,14 @@ class RoutesMapEditorViewController: UIViewController {
     }
 
     private func fitRoute() {
-        let linePath = viewModel.getLinePath()
-        GoogleMapsHelper.shared.fitAllMarkers(map: mapView, list: linePath.routePoints)
+        guard let linePath = viewModel.getLinePath() else { return }
+        if linePath.routePoints.isEmpty {
+            let targetLocation = CLLocationCoordinate2D(latitude: linePath.start.latitude,
+                                                        longitude: linePath.start.longitude)
+            mapView.animate(to: GMSCameraPosition.camera(withTarget: targetLocation, zoom: 11))
+        } else {
+            GoogleMapsHelper.shared.fitAllMarkers(map: mapView, list: linePath.routePoints.map({$0.toCoordinate()}))
+        }
     }
 
     private func drawMarkers() {
@@ -72,7 +79,7 @@ class RoutesMapEditorViewController: UIViewController {
     }
 
     private func isStopPoint(coordinate: CLLocationCoordinate2D) -> Bool {
-        let linePath = viewModel.getLinePath()
+        guard let linePath = viewModel.getLinePath() else { return false }
         return linePath.stops.contains(where: { $0.latitude == coordinate.latitude && $0.longitude == coordinate.longitude })
     }
 }

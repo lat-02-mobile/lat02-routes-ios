@@ -8,14 +8,14 @@
 import Foundation
 
 class RoutesMapEditorViewModel: ViewModel {
-    private var currentLinePath: LineRouteEntity?
+    private var currentLinePath: LineRouteInfo?
 
-    func setLinePath(linePath: LineRouteEntity) {
-        currentLinePath =  linePath
+    func setLinePath(linePath: LineRouteInfo) {
+        currentLinePath = linePath
     }
 
-    func getLinePath() -> LineRouteEntity {
-        return currentLinePath ?? LineRouteEntity()
+    func getLinePath() -> LineRouteInfo? {
+        return currentLinePath ?? nil
     }
 
     func getPointsRoutesWithType() -> [CoordinateWithType] {
@@ -26,7 +26,8 @@ class RoutesMapEditorViewModel: ViewModel {
         let pointsWithType = linePath.routePoints.map { point -> CoordinateWithType in
             var type = CoordinateType.NORMAL
             if linePath.stops.contains(point) { type = CoordinateType.STOP }
-            return CoordinateWithType(point: point, type: type)
+            let coords = Coordinate(latitude: point.latitude, longitude: point.longitude)
+            return CoordinateWithType(point: coords, type: type)
         }
         return pointsWithType
     }

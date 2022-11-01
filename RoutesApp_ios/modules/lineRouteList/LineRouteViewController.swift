@@ -1,7 +1,9 @@
 import UIKit
 
 class LineRouteViewController: UIViewController {
+    static let nibName = "LineRouteViewController"
     @IBOutlet weak var routeListTableView: UITableView!
+
     var routeDetailViewModel = RouteListViewModel()
     var lineRouteList: [LineRouteEntity] = []
     override func viewDidLoad() {

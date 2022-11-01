@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseFirestore
 @testable import RoutesApp_ios
 
 class MockLineManager: LineManagerProtocol {
@@ -83,6 +84,16 @@ class MockLineCategoryManager: LineCategoryManagerProtocol {
 
 class MockLineRouteManager: LineRouteManagerProtocol {
     var getLineRoutesByLineGotCalled = false
+
+    func createNewLineRoute(idLine: String, lineRouteName: String, avgVel: String, color: String, start: GeoPoint, end: GeoPoint, routePoints: [GeoPoint], stops: [GeoPoint], completion: @escaping (Result<LineRouteInfo, Error>) -> Void) {
+    }
+
+    func updateLineRoute(lineRoute: LineRouteInfo, newLineRouteName: String, newAvgVel: String, newColor: String, newRoutePoints: [GeoPoint], newStops: [GeoPoint], newStart: GeoPoint, newEnd: GeoPoint, completion: @escaping (Result<Bool, Error>) -> Void) {
+    }
+
+    func deleteLineRoute(idLineRoute: String, completion: @escaping (Result<Bool, Error>) -> Void) {
+    }
+
     func getLineRoute(idLine: String, completion: @escaping (Result<[LineRouteInfo], Error>) -> Void) {
     }
 
