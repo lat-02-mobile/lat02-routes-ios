@@ -36,6 +36,7 @@ class StringResources {
     static let searchBestRoute = "search-best-route"
 
     // ADMIN
+    static let adminSomeFieldsEmpty = "admin-some-fields-empty"
     // Lines
     static let adminLinesEdit = "admin-lines-edit-line"
     static let adminLinesEditMessage = "admin-lines-are-you-sure-edit-line"

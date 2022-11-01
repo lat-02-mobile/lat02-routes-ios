@@ -18,8 +18,8 @@ class TestResources {
     static let testUserPassword = "test1234"
     static let testAuthResponse = ["message": "success"]
     static let testUser = User(id: "test", name: "test", email: "test@email.com", phoneNumber: "test", type: 0, typeLogin: 0, updatedAt: Date(), createdAt: Date())
-    static let testUserFirebase = UserFirebase(id: "test", name: "test", email: "test@email.com", phoneNumber: "test", type: 0, typeLogin: 0, updatedAt: 687626719.592621, createdAt: 687626719.592621)
-
+    static let testUserFirebase = UserFirebase(id: "test", name: "test", email: "test@email.com", phoneNumber: "test", type: 0,
+                                               typeLogin: 0, updatedAt: 687626719.592621, createdAt: 687626719.592621)
 
     static let testPhoneNumber = "+523353658071"
     static let testCode = "0626"
@@ -136,7 +136,7 @@ class TestResources {
     static let Line1 = Lines(categoryRef: FirebaseFirestoreManager.shared.getDocReference(forCollection: .Lines, documentID: "111"),
                              enable: false,
                              id: "111",
-                             idCity: "Potosi",
+                             idCity: "111",
                              idCategory: "222",
                              name: "Line1",
                              updateAt: timestamp,
@@ -145,13 +145,19 @@ class TestResources {
     static let Line2 = Lines(categoryRef: FirebaseFirestoreManager.shared.getDocReference(forCollection: .Lines, documentID: "222"),
                              enable: false,
                              id: "222",
-                             idCity: "Sucre",
+                             idCity: "222",
                              idCategory: "333",
                              name: "Line2",
                              updateAt: timestamp,
                              createAt: timestamp)
 
     static let LinesArray = [Line1, Line2]
+
+    static let CitiesArray = [Cities(country: "Bolivia", id: "111", idCountry: "121", lat: "0.0", lng: "0.0", name: "city1"),
+                              Cities(country: "Mexico", id: "222", idCountry: "222", lat: "0.0", lng: "0.0", name: "city2"),
+                              Cities(country: "Bolivia", id: "333", idCountry: "323", lat: "0.0", lng: "0.0", name: "city3")]
+
+    static let DummyCoords = GeoPoint(latitude: 0.0, longitude: 0.0)
 }
 extension Date {
     func toMillis() -> Int64! {

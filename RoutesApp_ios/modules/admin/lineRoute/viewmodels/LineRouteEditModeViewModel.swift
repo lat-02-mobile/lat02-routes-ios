@@ -10,13 +10,17 @@ import FirebaseFirestore
 
 class LineRouteEditModeViewModel: ViewModel {
     var currLine: Lines?
-    let lineRouteManager: LineRouteManagerProtocol = LineRouteFirebaseManager()
-    let cityManager: CityManagerProtocol = CityFirebaseManager()
+    var lineRouteManager: LineRouteManagerProtocol = LineRouteFirebaseManager()
+    var cityManager: CityManagerProtocol = CityFirebaseManager()
     var cityCoords: Coordinate?
     var onFinishGetCityCoords: (() -> Void)?
 
     func createLineRoute(name: String, avgVel: String, color: String, start: GeoPoint, end: GeoPoint,
                          routePoints: [GeoPoint], stops: [GeoPoint]) {
+        guard !name.isEmpty, !avgVel.isEmpty else {
+            self.onError?(String.localizeString(localizedString: StringResources.adminSomeFieldsEmpty))
+            return
+        }
         lineRouteManager.createNewLineRoute(idLine: currLine?.id ?? "",
                                             lineRouteName: name, avgVel: avgVel,
                                             color: color, start: start, end: end,
@@ -32,6 +36,10 @@ class LineRouteEditModeViewModel: ViewModel {
 
     func editLineRoute(targetLineRoute: LineRouteInfo, newName: String, newAvgVel: String, newColor: String,
                        newRoutePoitns: [GeoPoint], newStops: [GeoPoint], newStart: GeoPoint, newEnd: GeoPoint) {
+        guard !newName.isEmpty, !newAvgVel.isEmpty else {
+            self.onError?(String.localizeString(localizedString: StringResources.adminSomeFieldsEmpty))
+            return
+        }
         lineRouteManager.updateLineRoute(lineRoute: targetLineRoute, newLineRouteName: newName, newAvgVel: newAvgVel,
                                          newColor: newColor, newRoutePoints: newRoutePoitns, newStops: newStops,
                                          newStart: newStart, newEnd: newEnd) { result in

@@ -94,6 +94,7 @@
 "search-best-route" = "Search for best route";
 
 // ADMIN MODE
+"admin-some-fields-empty" = "Some fields are empty";
 // Lines
 "admin-lines-edit-line" = "Edit Line";
 "admin-lines-are-you-sure-edit-line" = "Are you sure you want to update this line?";

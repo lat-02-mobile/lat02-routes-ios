@@ -228,7 +228,7 @@
 		C20A86D528A339540000EF7C /* AuthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A86D428A339540000EF7C /* AuthTests.swift */; };
 		C2112DE1289A18FB009601AB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2112DDF289A18FB009601AB /* HomeViewController.swift */; };
 		C2112DE2289A18FB009601AB /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2112DE0289A18FB009601AB /* HomeViewController.xib */; };
-		C2132272290A08F0003E869E /* MockManagers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2132271290A08F0003E869E /* MockManagers.swift */; };
+		C2132272290A08F0003E869E /* MockManagersAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2132271290A08F0003E869E /* MockManagersAdmin.swift */; };
 		C215EF0928A4B1F500371DB6 /* HomeVIewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C215EF0828A4B1F400371DB6 /* HomeVIewModel.swift */; };
 		C215EF0C28A4BB5D00371DB6 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C215EF0B28A4BB5D00371DB6 /* ViewModel.swift */; };
 		C215EF0D28A4C1BC00371DB6 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C215EF0F28A4C1BC00371DB6 /* LoginViewController.xib */; };
@@ -267,6 +267,9 @@
 		C27EB66628D3689200A1E742 /* LinePathTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27EB66428D3689200A1E742 /* LinePathTableViewCell.swift */; };
 		C27EB66728D3689200A1E742 /* LinePathTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C27EB66528D3689200A1E742 /* LinePathTableViewCell.xib */; };
 		C290E5EF28D272C90019782F /* RouteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C290E5ED28D272C90019782F /* RouteDetailViewController.swift */; };
+		C291805D291151BB00EC7678 /* MockManagers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291805C291151BB00EC7678 /* MockManagers.swift */; };
+		C2918061291153D900EC7678 /* LineRoutesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2918060291153D900EC7678 /* LineRoutesTests.swift */; };
+		C2918063291153E600EC7678 /* LineRoutesEditModeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2918062291153E600EC7678 /* LineRoutesEditModeTests.swift */; };
 		C2921175290967B0004AD7E6 /* ConfirmAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2921174290967B0004AD7E6 /* ConfirmAlert.swift */; };
 		C2921177290967CE004AD7E6 /* ErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2921176290967CE004AD7E6 /* ErrorAlert.swift */; };
 		C292117929097405004AD7E6 /* LineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C292117829097405004AD7E6 /* LineTests.swift */; };
@@ -438,7 +441,7 @@
 		C20A86D428A339540000EF7C /* AuthTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTests.swift; sourceTree = "<group>"; };
 		C2112DDF289A18FB009601AB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C2112DE0289A18FB009601AB /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
-		C2132271290A08F0003E869E /* MockManagers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockManagers.swift; sourceTree = "<group>"; };
+		C2132271290A08F0003E869E /* MockManagersAdmin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockManagersAdmin.swift; sourceTree = "<group>"; };
 		C215EF0828A4B1F400371DB6 /* HomeVIewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVIewModel.swift; sourceTree = "<group>"; };
 		C215EF0B28A4BB5D00371DB6 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		C215EF0E28A4C1BC00371DB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LoginViewController.xib; sourceTree = "<group>"; };
@@ -476,6 +479,9 @@
 		C27EB66428D3689200A1E742 /* LinePathTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinePathTableViewCell.swift; sourceTree = "<group>"; };
 		C27EB66528D3689200A1E742 /* LinePathTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LinePathTableViewCell.xib; sourceTree = "<group>"; };
 		C290E5ED28D272C90019782F /* RouteDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDetailViewController.swift; sourceTree = "<group>"; };
+		C291805C291151BB00EC7678 /* MockManagers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockManagers.swift; sourceTree = "<group>"; };
+		C2918060291153D900EC7678 /* LineRoutesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineRoutesTests.swift; sourceTree = "<group>"; };
+		C2918062291153E600EC7678 /* LineRoutesEditModeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineRoutesEditModeTests.swift; sourceTree = "<group>"; };
 		C2921174290967B0004AD7E6 /* ConfirmAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmAlert.swift; sourceTree = "<group>"; };
 		C2921176290967CE004AD7E6 /* ErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlert.swift; sourceTree = "<group>"; };
 		C292117829097405004AD7E6 /* LineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineTests.swift; sourceTree = "<group>"; };
@@ -1069,12 +1075,30 @@
 			path = cells;
 			sourceTree = "<group>";
 		};
-		C291E85A2909FAF50059B319 /* admin */ = {
+		C291805E2911530300EC7678 /* TransportationLine */ = {
 			isa = PBXGroup;
 			children = (
 				C292117829097405004AD7E6 /* LineTests.swift */,
 				C292117A29098FD6004AD7E6 /* LineEditModeTests.swift */,
-				C2132271290A08F0003E869E /* MockManagers.swift */,
+			);
+			path = TransportationLine;
+			sourceTree = "<group>";
+		};
+		C291805F2911531200EC7678 /* LineRoutes */ = {
+			isa = PBXGroup;
+			children = (
+				C2918060291153D900EC7678 /* LineRoutesTests.swift */,
+				C2918062291153E600EC7678 /* LineRoutesEditModeTests.swift */,
+			);
+			path = LineRoutes;
+			sourceTree = "<group>";
+		};
+		C291E85A2909FAF50059B319 /* admin */ = {
+			isa = PBXGroup;
+			children = (
+				C291805F2911531200EC7678 /* LineRoutes */,
+				C291805E2911530300EC7678 /* TransportationLine */,
+				C2132271290A08F0003E869E /* MockManagersAdmin.swift */,
 			);
 			path = admin;
 			sourceTree = "<group>";
@@ -1181,6 +1205,7 @@
 			children = (
 				C291E85A2909FAF50059B319 /* admin */,
 				84F6E6B828FF585D009D5635 /* MockLocalDataManager.swift */,
+				C291805C291151BB00EC7678 /* MockManagers.swift */,
 				C2E976F22898701D009F4B94 /* RoutesApp_iosTests.swift */,
 				C20A86D228A338E30000EF7C /* TestResources.swift */,
 				C20A86D428A339540000EF7C /* AuthTests.swift */,
@@ -2153,17 +2178,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				844F9A3A28CBEA7D004A95A0 /* SearchLocationTest.swift in Sources */,
-				C2132272290A08F0003E869E /* MockManagers.swift in Sources */,
+				C2132272290A08F0003E869E /* MockManagersAdmin.swift in Sources */,
 				C292117929097405004AD7E6 /* LineTests.swift in Sources */,
 				C2E976F32898701D009F4B94 /* RoutesApp_iosTests.swift in Sources */,
+				C291805D291151BB00EC7678 /* MockManagers.swift in Sources */,
 				CE3BB7B528DE4665004BFA07 /* PossibleRoutesTests.swift in Sources */,
 				CE19B2FB28DCEDD400840426 /* RouteListTests.swift in Sources */,
 				CE8CE8F028BE493F003270D7 /* AlgorithmTests.swift in Sources */,
+				C2918063291153E600EC7678 /* LineRoutesEditModeTests.swift in Sources */,
 				C20A86D528A339540000EF7C /* AuthTests.swift in Sources */,
 				84ED700B28EDC0D500781376 /* CitySplashViewModelTests.swift in Sources */,
 				C292117B29098FD6004AD7E6 /* LineEditModeTests.swift in Sources */,
 				84067C8928B8272000549300 /* CityPickerTests.swift in Sources */,
 				84F6E6B928FF585D009D5635 /* MockLocalDataManager.swift in Sources */,
+				C2918061291153D900EC7678 /* LineRoutesTests.swift in Sources */,
 				844F9A5428E5C5C7004A95A0 /* TourpointTests.swift in Sources */,
 				C20A86D328A338E30000EF7C /* TestResources.swift in Sources */,
 			);
