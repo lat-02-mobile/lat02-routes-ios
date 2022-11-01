@@ -115,8 +115,8 @@ class TestResources {
         TourpointCategory(id: "123456", descriptionEng: "ENG", descriptionEsp: "ESP", icon: "new Icon url", updateAt: timestamp, createAt: timestamp)
     ]
 
-    static let RoutePoints = [GeoPoint(latitude: 1, longitude: 1), GeoPoint(latitude: 1, longitude: 1)]
-    static let Stops = [GeoPoint(latitude: 1, longitude: 1), GeoPoint(latitude: 1, longitude: 1)]
+    static let RoutePoints = [GeoPoint(latitude: 1, longitude: 1), GeoPoint(latitude: 2, longitude: 2)]
+    static let Stops = [GeoPoint(latitude: 1, longitude: 1), GeoPoint(latitude: 2, longitude: 2)]
 
     static let LineRoutes = [
         LineRouteInfo(name: "Route1", id: "wsws2344d3f", idLine: "1",
