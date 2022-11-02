@@ -10,7 +10,7 @@ import Foundation
 class TourpointsViewModel: ViewModel {
     var localDataManager: LocalDataManagerProtocol = LocalDataManager.shared
 
-    private var tourpointList = [TourpointEntity]()
+    var tourpointList = [TourpointEntity]()
     private var categories = [TourpointCategoryEntity]()
 
     var pointsCount: Int {

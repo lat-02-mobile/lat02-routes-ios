@@ -11,6 +11,7 @@ class SettingsViewController: UIViewController {
 
     @IBOutlet weak var ubicationButton: UIButton!
     @IBOutlet weak var ubicationLabel: UILabel!
+    @IBOutlet weak var adminButton: UIButton!
     let viewmodel = SettingsViewModel()
 
     override func viewDidLoad() {
@@ -19,12 +20,21 @@ class SettingsViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         setUpCityName()
-        navigationController?.setNavigationBarHidden(true, animated: animated)
+        let type = ConstantVariables.defaults.object(forKey: ConstantVariables.defUserType)
+        guard let admin = type as? Int else { return }
+        if admin == 1 {
+            adminButton.isHidden = false
+        }
     }
 
     @IBAction func changeUbication(_ sender: Any) {
         let vc = CityPickerViewController()
         vc.isSettingsController = true
+        show(vc, sender: nil)
+    }
+
+    @IBAction func goToLineEditMode(_ sender: Any) {
+        let vc = LinesViewController(nibName: "RouteListViewController", bundle: nil)
         show(vc, sender: nil)
     }
 
@@ -34,11 +44,18 @@ class SettingsViewController: UIViewController {
         ubicationLabel.text = citySelected
     }
 
+    @IBAction func adminPanel(_ sender: Any) {
+        let vc = AdminViewController()
+        vc.isSettingsController = true
+        show(vc, sender: nil)
+    }
+
     @IBAction func signOut(_ sender: Any) {
         let result = viewmodel.logout()
         guard result else { return }
 
         ConstantVariables.defaults.set("", forKey: ConstantVariables.defCitySelected)
+        ConstantVariables.defaults.set("", forKey: ConstantVariables.defUserType)
         ConstantVariables.defaults.set(0, forKey: ConstantVariables.defCityLat)
         ConstantVariables.defaults.set(0, forKey: ConstantVariables.defCityLong)
         CoreDataManager.shared.deleteAll()

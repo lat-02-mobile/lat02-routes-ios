@@ -103,3 +103,19 @@
 // Routes Map Editor Toast
 "route-editor-toast-success" = "Route points have been updated";
 "route-editor-toast-failure" = "Error while updating";
+// ADMIN MODE
+// Lines
+"admin-lines-edit-line" = "Edit Line";
+"admin-lines-are-you-sure-edit-line" = "Are you sure you want to update this line?";
+"admin-lines-create-line" = "Create new Line";
+"admin-lines-are-you-sure-create-line"="Are you sure you want to create a new line with these paremeters?";
+"admin-lines-delete-line" = "Delete Line";
+"admin-lines-are-you-sure-delete-line" = "Are you sure you want to delete this line?";
+"admin-lines-enable" = "Enable";
+"admin-lines-disable" = "Disable";
+"admin-lines-update" = "Update";
+"admin-lines-something-went-wrong" = "Something went wrong";
+"admin-lines-must-provide-name" = "You must provide a name for the line";
+"admin-lines-line-has-routes-delete-first" = "This line has some routes, delete them first";
+// SettingPopup
+"show-tourpoints" = "Show tourpoints";

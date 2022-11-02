@@ -125,13 +125,12 @@ class RoutesMapEditorViewController: UIViewController {
     }
 
     @IBAction func stopButtonAction(_ sender: Any) {
-        if currentMarker == nil {
+        guard let currentMarker = currentMarker else {
             addRoutePoint()
+            return
         }
-        guard let currentMarker = currentMarker else { return }
-        let indexOf = getMarkerIndex(marker: currentMarker)
 
-        guard let index = indexOf else { return }
+        guard let index = getMarkerIndex(marker: currentMarker) else { return }
         let position = currentMarker.position
         let coordinate = Coordinate(latitude: position.latitude, longitude: position.longitude)
         let isStop = isStopPoint(coordinate: position)

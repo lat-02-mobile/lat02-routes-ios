@@ -113,7 +113,7 @@ class SignupViewModel: ViewModel {
         }
     }
 
-    private func getUser(email: String, completion: @escaping ((_ user: User?) -> Void)) {
+    private func getUser(email: String, completion: @escaping ((_ user: UserFirebase?) -> Void)) {
         userManager.getUsers { result in
             switch result {
             case .success(let users):

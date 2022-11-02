@@ -8,8 +8,8 @@ class RouteListViewController: UIViewController {
     @IBOutlet weak var lineListTableView: UITableView!
     var routeListViewModel = RouteListViewModel()
     let lineRouteViewController = LineRouteViewController()
-    private let currentLocale = Locale.current.languageCode
-    private var isCurrentLocaleEsp = false
+    let currentLocale = Locale.current.languageCode
+    var isCurrentLocaleEsp = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +38,7 @@ class RouteListViewController: UIViewController {
         }
         routeListViewModel.getLines()
     }
+
     func showLineRoutes(line: LineEntity) {
         let lineRouteList = line.routes
         if lineRouteList.count > 1 {

@@ -8,6 +8,15 @@
 /* Class = "UILabel"; text = "Ubication"; ObjectID = "BY9-KT-Pxu"; */
 "BY9-KT-Pxu.text" = "Ubication";
 
+/* Class = "UIButton"; configuration.title = "Button"; ObjectID = "gdS-sJ-gaJ"; */
+"gdS-sJ-gaJ.configuration.title" = "Admin panel";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "gdS-sJ-gaJ"; */
+"gdS-sJ-gaJ.normalTitle" = "Admin panel";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "mrT-oz-BCu"; */
+"mrT-oz-BCu.normalTitle" = "Admin panel";
+
 /* Class = "UILabel"; text = "Label"; ObjectID = "sUh-C5-AWI"; */
 "sUh-C5-AWI.text" = "Label";
 

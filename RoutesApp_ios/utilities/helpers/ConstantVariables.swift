@@ -28,6 +28,11 @@ class ConstantVariables {
     static let defCityLong = "CityLongitude"
     static let defCityId = "CityId"
     static let defUserLoggedId = "LoggedUserId"
+    static let defUserType = "LoggedUserType"
+    static let switchState = "switchState"
+    static let originName = "Origin"
+    static let destinationName = "Destination"
+    static let tourpointName = "Tourpoint"
 
     // Resources
     static let primaryColor = "primary-color"
@@ -108,4 +113,8 @@ class ConstantVariables {
     static let HomePageIndex = 2
     static let FavoritesPageIndex = 3
     static let ConfigurationPageIndex = 4
+
+    // icons
+    static let trashIcon = "trash.fill"
+    static let plusIcon = "plus"
 }

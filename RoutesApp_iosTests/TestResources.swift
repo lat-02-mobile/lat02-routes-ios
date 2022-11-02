@@ -18,6 +18,9 @@ class TestResources {
     static let testUserPassword = "test1234"
     static let testAuthResponse = ["message": "success"]
     static let testUser = User(id: "test", name: "test", email: "test@email.com", phoneNumber: "test", type: 0, typeLogin: 0, updatedAt: Date(), createdAt: Date())
+    static let testUserFirebase = UserFirebase(id: "test", name: "test", email: "test@email.com", phoneNumber: "test", type: 0, typeLogin: 0,
+    updatedAt: 687626719.592621, createdAt: 687626719.592621)
+
     static let testPhoneNumber = "+523353658071"
     static let testCode = "0626"
     static let verificationId = "eyJ0eXAioiJkv1QiLcJhbgCi0iJIUzJkv1QiXAio"
@@ -121,13 +124,34 @@ class TestResources {
     static let LineRoutes = [
         LineRouteInfo(name: "Route1", id: "wsws2344d3f", idLine: "1",
                       line: nil, routePoints: RoutePoints, start: GeoPoint(latitude: 1, longitude: 1),
-                      stops: Stops, end: GeoPoint(latitude: 1, longitude: 1), averageVelocity: "",
-                      color: "", updateAt: timestamp, createAt: timestamp),
+                      stops: Stops, end: GeoPoint(latitude: 1, longitude: 1),
+                      averageVelocity: "", color: "", updateAt: timestamp, createAt: timestamp),
         LineRouteInfo(name: "Route1", id: "wsws2344d3f", idLine: "1",
                       line: nil, routePoints: RoutePoints, start: GeoPoint(latitude: 1, longitude: 1),
-                      stops: Stops, end: GeoPoint(latitude: 1, longitude: 1), averageVelocity: "",
-                      color: "", updateAt: timestamp, createAt: timestamp)
+                      stops: Stops, end: GeoPoint(latitude: 1, longitude: 1),
+                      averageVelocity: "", color: "", updateAt: timestamp, createAt: timestamp)
    ]
+
+    // For LineTests
+    static let Line1 = Lines(categoryRef: FirebaseFirestoreManager.shared.getDocReference(forCollection: .Lines, documentID: "111"),
+                             enable: false,
+                             id: "111",
+                             idCity: "Potosi",
+                             idCategory: "222",
+                             name: "Line1",
+                             updateAt: timestamp,
+                             createAt: timestamp)
+
+    static let Line2 = Lines(categoryRef: FirebaseFirestoreManager.shared.getDocReference(forCollection: .Lines, documentID: "222"),
+                             enable: false,
+                             id: "222",
+                             idCity: "Sucre",
+                             idCategory: "333",
+                             name: "Line2",
+                             updateAt: timestamp,
+                             createAt: timestamp)
+
+    static let LinesArray = [Line1, Line2]
 }
 extension Date {
     func toMillis() -> Int64! {
