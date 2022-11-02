@@ -343,6 +343,14 @@
 		CE7FBAEF28D937D9001175D3 /* PossibleRoutesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7FBAEE28D937D9001175D3 /* PossibleRoutesViewModel.swift */; };
 		CE8CE8F028BE493F003270D7 /* AlgorithmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8CE8EF28BE493F003270D7 /* AlgorithmTests.swift */; };
 		CE93A8A328BD3ECD00296532 /* CLLocationCoordinate2DExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE93A8A228BD3ECD00296532 /* CLLocationCoordinate2DExtension.swift */; };
+		CEBC10802911C5FE00E8BF83 /* RouteMapEditorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC107F2911C5FE00E8BF83 /* RouteMapEditorTests.swift */; };
+		CEBC10812911C73A00E8BF83 /* RoutesMapEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D3D0A290968F900B579F5 /* RoutesMapEditorViewModel.swift */; };
+		CEBC10822911C73D00E8BF83 /* RoutesMapEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC6EFCF29082AAF0080F69B /* RoutesMapEditorViewController.swift */; };
+		CEBC10832911C74500E8BF83 /* RoutesMapEditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEC6EFD029082AAF0080F69B /* RoutesMapEditorViewController.xib */; };
+		CEBC10852911E4CE00E8BF83 /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC10842911E4CE00E8BF83 /* Env.swift */; };
+		CEBC10872911E6A800E8BF83 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CEBC10862911E6A700E8BF83 /* GoogleService-Info.plist */; };
+		CEC6EFD129082AAF0080F69B /* RoutesMapEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC6EFCF29082AAF0080F69B /* RoutesMapEditorViewController.swift */; };
+		CEC6EFD229082AAF0080F69B /* RoutesMapEditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEC6EFD029082AAF0080F69B /* RoutesMapEditorViewController.xib */; };
 		DA79D30882EE9E471ED6B4D1 /* Pods_RoutesApp_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99A7926D8889E1D91C0D95AC /* Pods_RoutesApp_ios.framework */; };
 /* End PBXBuildFile section */
 
@@ -558,6 +566,11 @@
 		CE7FBAEE28D937D9001175D3 /* PossibleRoutesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PossibleRoutesViewModel.swift; sourceTree = "<group>"; };
 		CE8CE8EF28BE493F003270D7 /* AlgorithmTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgorithmTests.swift; sourceTree = "<group>"; };
 		CE93A8A228BD3ECD00296532 /* CLLocationCoordinate2DExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2DExtension.swift; sourceTree = "<group>"; };
+		CEBC107F2911C5FE00E8BF83 /* RouteMapEditorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteMapEditorTests.swift; sourceTree = "<group>"; };
+		CEBC10842911E4CE00E8BF83 /* Env.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Env.swift; sourceTree = "<group>"; };
+		CEBC10862911E6A700E8BF83 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CEC6EFCF29082AAF0080F69B /* RoutesMapEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutesMapEditorViewController.swift; sourceTree = "<group>"; };
+		CEC6EFD029082AAF0080F69B /* RoutesMapEditorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoutesMapEditorViewController.xib; sourceTree = "<group>"; };
 		D6CABEC5FBACCDADA3D8B83D /* Pods-RoutesApp_iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutesApp_iosTests.release.xcconfig"; path = "Target Support Files/Pods-RoutesApp_iosTests/Pods-RoutesApp_iosTests.release.xcconfig"; sourceTree = "<group>"; };
 		D86A96CCCA8DA2B5538786CC /* Pods-RoutesApp_ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutesApp_ios.debug.xcconfig"; path = "Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios.debug.xcconfig"; sourceTree = "<group>"; };
 		E1419DFB1CA7D0967AEB2F7A /* Pods-RoutesApp_ios Prod.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutesApp_ios Prod.release.xcconfig"; path = "Target Support Files/Pods-RoutesApp_ios Prod/Pods-RoutesApp_ios Prod.release.xcconfig"; sourceTree = "<group>"; };
@@ -1143,6 +1156,8 @@
 		C2E976D72898701C009F4B94 /* RoutesApp_ios */ = {
 			isa = PBXGroup;
 			children = (
+				CEBC10862911E6A700E8BF83 /* GoogleService-Info.plist */,
+				CEBC10842911E4CE00E8BF83 /* Env.swift */,
 				CE0F8D3228AD317700F2C753 /* resources */,
 				C2BB145928A152580083CA1E /* localization */,
 				C2E9770C28987CEA009F4B94 /* utilities */,
@@ -1179,6 +1194,7 @@
 				CE3BB7B428DE4665004BFA07 /* PossibleRoutesTests.swift */,
 				844F9A5328E5C5C7004A95A0 /* TourpointTests.swift */,
 				84ED700A28EDC0D500781376 /* CitySplashViewModelTests.swift */,
+				CEBC107F2911C5FE00E8BF83 /* RouteMapEditorTests.swift */,
 			);
 			path = RoutesApp_iosTests;
 			sourceTree = "<group>";
@@ -1667,6 +1683,7 @@
 				8441B9EF28FF754100730F21 /* CityTableViewCell.xib in Resources */,
 				8441B9F028FF754100730F21 /* SignupViewController.xib in Resources */,
 				8441B9F128FF754100730F21 /* PossibleRouteTableViewCell.xib in Resources */,
+				CEBC10832911C74500E8BF83 /* RoutesMapEditorViewController.xib in Resources */,
 				8441B9F228FF754100730F21 /* SettingsViewController.xib in Resources */,
 				8441B9F428FF754100730F21 /* silver-style.json in Resources */,
 				8463E7512909BCBE003FE493 /* AdminViewController.xib in Resources */,
@@ -1693,6 +1710,7 @@
 				C2E976E02898701C009F4B94 /* Main.storyboard in Resources */,
 				844F9A4528E3488C004A95A0 /* TourpointsViewController.xib in Resources */,
 				C278973428E3B48100FF2796 /* RouteListFilterViewController.xib in Resources */,
+				CEBC10872911E6A800E8BF83 /* GoogleService-Info.plist in Resources */,
 				C2112DE2289A18FB009601AB /* HomeViewController.xib in Resources */,
 				8420E0C828C68E89000068F9 /* SearchLocationViewController.xib in Resources */,
 				C2BB145C28A1529E0083CA1E /* Localizable.strings in Resources */,
@@ -2038,6 +2056,7 @@
 				8441B9B728FF754100730F21 /* RouteListTableViewCell.swift in Sources */,
 				8441B9B828FF754100730F21 /* SceneDelegate.swift in Sources */,
 				8441B9B928FF754100730F21 /* LineRoute.swift in Sources */,
+				CEBC10822911C73D00E8BF83 /* RoutesMapEditorViewController.swift in Sources */,
 				8441B9BA28FF754100730F21 /* CitySplashViewController.swift in Sources */,
 				8441B9BB28FF754100730F21 /* TourpointsViewController.swift in Sources */,
 				8441B9BC28FF754100730F21 /* LineEntity+CoreDataProperties.swift in Sources */,
@@ -2055,6 +2074,7 @@
 				8441B9C728FF754100730F21 /* LineRouteEntity+CoreDataProperties.swift in Sources */,
 				8441B9C828FF754100730F21 /* TourpointTableViewCell.swift in Sources */,
 				8441B9C928FF754100730F21 /* ColorHelper.swift in Sources */,
+				CEBC10812911C73A00E8BF83 /* RoutesMapEditorViewModel.swift in Sources */,
 				8441B9CA28FF754100730F21 /* CLLocationDistanceExtension.swift in Sources */,
 				8441B9CB28FF754100730F21 /* ImageHelper.swift in Sources */,
 				8441B9CC28FF754100730F21 /* LineRouteEntity+CoreDataClass.swift in Sources */,
@@ -2080,6 +2100,7 @@
 				C249BB1B28E4F8D200E6BA85 /* PopupRouteDetailViewModel.swift in Sources */,
 				C27EB66628D3689200A1E742 /* LinePathTableViewCell.swift in Sources */,
 				8498F89D28CF4892008641D9 /* Constants.swift in Sources */,
+				CEBC10852911E4CE00E8BF83 /* Env.swift in Sources */,
 				C2E9772428987F3C009F4B94 /* LoginViewController.swift in Sources */,
 				C278973528E3B48100FF2796 /* RouteListViewController.swift in Sources */,
 				C20A86D128A3383F0000EF7C /* ConstantVariables.swift in Sources */,
@@ -2202,6 +2223,7 @@
 				844F9A3A28CBEA7D004A95A0 /* SearchLocationTest.swift in Sources */,
 				C2E976F32898701D009F4B94 /* RoutesApp_iosTests.swift in Sources */,
 				CE3BB7B528DE4665004BFA07 /* PossibleRoutesTests.swift in Sources */,
+				CEBC10802911C5FE00E8BF83 /* RouteMapEditorTests.swift in Sources */,
 				CE19B2FB28DCEDD400840426 /* RouteListTests.swift in Sources */,
 				CE8CE8F028BE493F003270D7 /* AlgorithmTests.swift in Sources */,
 				C2F60D3C29116A8D00661403 /* MockManagersAdmin.swift in Sources */,

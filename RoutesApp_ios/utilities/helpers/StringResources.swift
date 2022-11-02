@@ -35,6 +35,16 @@ class StringResources {
     static let address = "address"
     static let searchBestRoute = "search-best-route"
 
+    // Routes Map Editor Popup
+    static let rearrangeRouteTitle = "rearrange-route-title"
+    static let rearrangeRouteMessage = "rearrange-route-message"
+    static let rearrangeRoutePlaceholder = "rearrange-route-placeholder"
+    static let rearrangeRouteCancel =  "rearrange-route-cancel"
+    static let rearrangeRouteOk = "rearrange-route-ok"
+
+    // Route Map Editor Toast
+    static let routeEditorToastSuccess = "route-editor-toast-success"
+    static let routeEditorToastFailure = "route-editor-toast-failure"
     // ADMIN
     static let adminSomeFieldsEmpty = "admin-some-fields-empty"
     // Lines

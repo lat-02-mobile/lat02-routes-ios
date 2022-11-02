@@ -83,6 +83,9 @@ class MockLineCategoryManager: LineCategoryManagerProtocol {
 }
 
 class MockLineRouteManager: LineRouteManagerProtocol {
+    func updateLineRoute(lineRouteInfo: LineRouteInfo, completion: @escaping (Result<LineRouteInfo, Error>) -> Void) {
+    }
+
     var getLineRoutesByLineGotCalled = false
     var createLineRouteGotCalled = false
     var updateLineRouteGotCalled = false

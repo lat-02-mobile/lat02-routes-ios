@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import Firebase
 
 extension LineRouteEntity {
 
@@ -78,4 +79,13 @@ extension LineRouteEntity {
 
 extension LineRouteEntity: Identifiable {
 
+}
+
+extension LineRouteEntity {
+    func toLineRouteInfo() -> LineRouteInfo {
+        return LineRouteInfo(name: name, id: id, idLine: idLine, line: Firestore.firestore().document("Lines/\(idLine)"),
+                             routePoints: routePoints.map({ $0.toGeoCode() }), start: start.toGeoCode(), stops: stops.map({ $0.toGeoCode() }),
+                             end: end.toGeoCode(), averageVelocity: averageVelocity, color: color,
+                             updateAt: Timestamp(), createAt: Timestamp(date: createAt))
+    }
 }

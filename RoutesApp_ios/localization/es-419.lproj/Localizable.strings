@@ -93,6 +93,16 @@
 "address" = "Dirección";
 "search-best-route" = "Buscar la mejor ruta";
 
+// Routes Map Editor Popup
+"rearrange-route-title" = "Reordenar Ruta";
+"rearrange-route-message" = "El valor debe ser mayor que 0 y menor que ";
+"rearrange-route-placeholder" = "Reordenar ruta";
+"rearrange-route-cancel" = "Cancelar";
+"rearrange-route-ok" = "Aceptar";
+
+// Routes Map Editor Toast
+"route-editor-toast-success" = "Puntos de ruta han sido actualizados";
+"route-editor-toast-failure" = "Ocurrió un error mientras se actualizaba la ruta.";
 // ADMIN MODE
 "admin-some-fields-empty" = "Algunos campos estan vacios";
 // Lines

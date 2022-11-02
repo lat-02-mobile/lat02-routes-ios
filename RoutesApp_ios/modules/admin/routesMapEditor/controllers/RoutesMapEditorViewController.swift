@@ -14,6 +14,8 @@ class RoutesMapEditorViewController: UIViewController {
     @IBOutlet var sortButton: FabButton!
     @IBOutlet var stopsButton: FabButton!
     @IBOutlet var addRemoveButton: FabButton!
+    var currentMarker: GMSMarker?
+    var markers: [GMSMarker] = []
 
     var viewModel = RoutesMapEditorViewModel()
 
@@ -33,6 +35,32 @@ class RoutesMapEditorViewController: UIViewController {
         setupMap()
         fitRoute()
         drawMarkers()
+    }
+
+    @IBAction func checkButtonAction(_ sender: Any) {
+        guard var lineRoute = viewModel.getLinePath(),
+              let start = lineRoute.routePoints.first,
+              let end = lineRoute.routePoints.last else { return }
+        var stops = lineRoute.stops
+        if !stops.contains(start) {
+            stops.insert(start, at: 0)
+        }
+        if !stops.contains(end) {
+            stops.append(end)
+        }
+        lineRoute = LineRouteInfo(name: lineRoute.name, id: lineRoute.id, idLine: lineRoute.idLine, line: lineRoute.line,
+                                  routePoints: lineRoute.routePoints, start: start, stops: stops,
+                                  end: end, averageVelocity: lineRoute.averageVelocity, color: lineRoute.color,
+                                  updateAt: lineRoute.updateAt, createAt: lineRoute.createAt)
+        LineRouteFirebaseManager.shared.updateLineRoute(lineRouteInfo: lineRoute) { result in
+            switch result {
+            case .success:
+                Toast.showToast(target: self, message: String.localizeString(localizedString: StringResources.routeEditorToastSuccess))
+                self.navigationController?.popViewController(animated: true)
+            case .failure:
+                Toast.showToast(target: self, message: String.localizeString(localizedString: StringResources.routeEditorToastFailure))
+            }
+        }
     }
 
     func setupMap() {
@@ -58,6 +86,10 @@ class RoutesMapEditorViewController: UIViewController {
     }
 
     private func drawMarkers() {
+        markers.forEach({ marker in
+            marker.map = nil
+        })
+        markers.removeAll()
         let pointsWithType = viewModel.getPointsRoutesWithType()
         for (index, point) in pointsWithType.enumerated() {
             var color = ColorConstants.routePointColor
@@ -65,12 +97,113 @@ class RoutesMapEditorViewController: UIViewController {
                 color = ColorConstants.stopPointColor
             }
             let stopMarkerIcon = ImageHelper.shared.imageWith(name: String(index + 1), backgroundColor: color )
-            GoogleMapsHelper.shared.addCustomMarker(map: mapView, position: point.point, icon: stopMarkerIcon)
+            let newMarker = GoogleMapsHelper.shared.addCustomMarker(map: mapView, position: point.point, icon: stopMarkerIcon)
+            markers.append(newMarker)
         }
     }
 
     @IBAction func backButtonAction(_ sender: Any) {
-        self.dismiss(animated: true)
+        self.navigationController?.popViewController(animated: true)
+    }
+
+    @IBAction func sortButtonAction(_ sender: Any) {
+        let ac = UIAlertController(title: String.localizeString(localizedString: StringResources.rearrangeRouteTitle),
+                                   message: nil, preferredStyle: .alert)
+        ac.message = String.localizeString(localizedString: StringResources.rearrangeRouteMessage) +
+        String((viewModel.getLinePath()?.routePoints.count ?? 0) + 1)
+        ac.addTextField(configurationHandler: { [] (textField: UITextField) in
+                    textField.placeholder = String.localizeString(localizedString: StringResources.rearrangeRoutePlaceholder)
+                    textField.delegate = self
+            textField.addTarget(self, action: #selector(self.textFieldDidChange), for: UIControl.Event.editingChanged)
+        })
+        ac.addAction(UIAlertAction(title: String.localizeString(localizedString: StringResources.rearrangeRouteCancel),
+                                   style: .cancel, handler: nil))
+        ac.addAction(UIAlertAction(title: String.localizeString(localizedString: StringResources.rearrangeRouteOk),
+                                   style: .default, handler: { [] _ in
+            let text = ac.textFields?[0].text ?? ""
+            guard !text.isEmpty,
+                  let newIndex = Int(text),
+                  let currentMarker = self.currentMarker,
+                  let oldIndex = self.getMarkerIndex(marker: currentMarker) else { return }
+            self.viewModel.rearrangeRoutePoint(oldIndex: oldIndex, newIndex: newIndex)
+            self.drawMarkers()
+        }))
+        self.present(ac, animated: true, completion: nil)
+    }
+
+    @IBAction func stopButtonAction(_ sender: Any) {
+        if currentMarker == nil {
+            addRoutePoint()
+        }
+        guard let currentMarker = currentMarker else { return }
+
+        guard let index = getMarkerIndex(marker: currentMarker) else { return }
+        let position = currentMarker.position
+        let coordinate = Coordinate(latitude: position.latitude, longitude: position.longitude)
+        let isStop = isStopPoint(coordinate: position)
+        if isStop {
+            viewModel.removeStop(at: coordinate)
+            let isStillStop = isStopPoint(coordinate: position)
+            let stopButtonImageName = isStillStop ? "remove-stop" : "bus-stop"
+            stopsButton.setImage(UIImage(named: stopButtonImageName), for: .normal)
+            addRemoveButton.setImage(UIImage(systemName: "xmark"), for: .normal)
+            currentMarker.icon = ImageHelper.shared.imageWith(name: String(index + 1), backgroundColor: isStillStop
+                                                              ? ColorConstants.stopPointColor
+                                                              : ColorConstants.routePointColor)
+            return
+        }
+
+        viewModel.convertToStop(coorditate: coordinate)
+        currentMarker.icon = ImageHelper.shared.imageWith(name: String(index + 1), backgroundColor: ColorConstants.stopPointColor)
+        let stopButtonImageName = isStopPoint(coordinate: currentMarker.position) ? "remove-stop" : "bus-stop"
+        stopsButton.setImage(UIImage(named: stopButtonImageName), for: .normal)
+    }
+
+    @IBAction func addRemoveButtonAction(_ sender: Any) {
+        if let currentMarker = currentMarker {
+            let position = currentMarker.position
+            let coordinate = Coordinate(latitude: position.latitude, longitude: position.longitude)
+            viewModel.removeRoutePoint(at: coordinate)
+            viewModel.removeStop(at: coordinate)
+            drawMarkers()
+            sortButton.isHidden = true
+            stopsButton.setImage(UIImage(named: "bus-stop"), for: .normal)
+            addRemoveButton.setImage(UIImage(systemName: "plus"), for: .normal)
+            self.currentMarker = nil
+            return
+        }
+        addRoutePoint()
+    }
+
+    @objc
+    func textFieldDidChange(textField: UITextField) {
+        guard let text = textField.text,
+              let newIndex = Int(text) else { return }
+        guard isIntheAllowedRange(newIndex: newIndex) else {
+            textField.text = String(text.dropLast())
+            return
+        }
+    }
+
+    private func addRoutePoint() {
+        let latitude = mapView.camera.target.latitude
+        let longitude = mapView.camera.target.longitude
+        let coordinate = Coordinate(latitude: latitude, longitude: longitude)
+
+        viewModel.addCoordinate(coorditate: coordinate)
+
+        let pointsWithType = viewModel.getPointsRoutesWithType()
+        let stopMarkerIcon = ImageHelper.shared.imageWith(name: String(pointsWithType.count))
+
+        let newMarker = GoogleMapsHelper.shared.addCustomMarker(map: mapView, position: coordinate, icon: stopMarkerIcon)
+
+        currentMarker = newMarker
+        markers.append(newMarker)
+
+        sortButton.isHidden = false
+        addRemoveButton.setImage(UIImage(systemName: "xmark"), for: .normal)
+
+        paintCurrentMarker()
     }
 
     private func cameraMoveToLocation(toLocation: CLLocationCoordinate2D?) {
@@ -82,15 +215,51 @@ class RoutesMapEditorViewController: UIViewController {
         guard let linePath = viewModel.getLinePath() else { return false }
         return linePath.stops.contains(where: { $0.latitude == coordinate.latitude && $0.longitude == coordinate.longitude })
     }
+
+    private func isIntheAllowedRange(newIndex: Int) -> Bool {
+        guard let linePath = viewModel.getLinePath() else { return false }
+        return newIndex > 0 && newIndex <= linePath.routePoints.count
+    }
+
+    private func getMarkerIndex(marker: GMSMarker) -> Int? {
+        let pointsWithType = viewModel.getPointsRoutesWithType()
+        let position = marker.position
+        let indexOf = pointsWithType.firstIndex(where: {$0.point.latitude == position.latitude &&
+            $0.point.longitude == position.longitude})
+        return indexOf
+    }
+
+    private func paintCurrentMarker() {
+        guard let currentMarker = currentMarker else { return }
+        let index = markers.firstIndex(of: currentMarker)
+        guard let index = index else { return }
+        currentMarker.icon = ImageHelper.shared.imageWith(name: String(index + 1), backgroundColor: ColorConstants.selectedPointColor)
+    }
+
+    private func unpaintCurrentMarker() {
+        guard let currentMarker = currentMarker else { return }
+        let index = markers.firstIndex(of: currentMarker)
+        guard let index = index else { return }
+        let isStopPoint = isStopPoint(coordinate: currentMarker.position)
+        currentMarker.icon = ImageHelper.shared.imageWith(name: String(index + 1), backgroundColor: isStopPoint
+                                                          ? ColorConstants.stopPointColor
+                                                          : ColorConstants.routePointColor)
+    }
 }
 
 extension RoutesMapEditorViewController: GMSMapViewDelegate {
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+        unpaintCurrentMarker()
+
+        currentMarker = marker
         cameraMoveToLocation(toLocation: marker.position)
         sortButton.isHidden = false
         let stopButtonImageName = isStopPoint(coordinate: marker.position) ? "remove-stop" : "bus-stop"
         stopsButton.setImage(UIImage(named: stopButtonImageName), for: .normal)
         addRemoveButton.setImage(UIImage(systemName: "xmark"), for: .normal)
+
+        paintCurrentMarker()
+
         return true
     }
 
@@ -99,6 +268,17 @@ extension RoutesMapEditorViewController: GMSMapViewDelegate {
             sortButton.isHidden = true
             stopsButton.setImage(UIImage(named: "bus-stop"), for: .normal)
             addRemoveButton.setImage(UIImage(systemName: "plus"), for: .normal)
+
+            unpaintCurrentMarker()
+            currentMarker = nil
         }
+    }
+}
+
+extension RoutesMapEditorViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let allowedCharacters = CharacterSet.decimalDigits
+        let characterSet = CharacterSet(charactersIn: string)
+        return allowedCharacters.isSuperset(of: characterSet)
     }
 }

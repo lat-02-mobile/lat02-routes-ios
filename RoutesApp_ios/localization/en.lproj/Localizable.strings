@@ -93,6 +93,16 @@
 "address" = "Address";
 "search-best-route" = "Search for best route";
 
+// Routes Map Editor Popup
+"rearrange-route-title" = "Rearrange Route";
+"rearrange-route-message" = "The value must be greater than 0 and less than ";
+"rearrange-route-placeholder" = "Rearrange Route";
+"rearrange-route-cancel" = "Cancel";
+"rearrange-route-ok" = "OK";
+
+// Routes Map Editor Toast
+"route-editor-toast-success" = "Route points have been updated";
+"route-editor-toast-failure" = "Error while updating";
 // ADMIN MODE
 "admin-some-fields-empty" = "Some fields are empty";
 // Lines
