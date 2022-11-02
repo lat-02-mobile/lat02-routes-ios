@@ -9,6 +9,7 @@ import UIKit
 import GoogleMaps
 import GooglePlaces
 import SVProgressHUD
+import Kingfisher
 
 enum HomeSelectionStatus {
     case SELECTING_POINTS, SHOWING_POSSIBLE_ROUTES, SHOWING_ROUTE_DETAILS
@@ -21,14 +22,19 @@ enum DestinationFromView {
 class HomeViewController: UIViewController {
 
     let viewmodel = HomeViewModel()
+    let settingPopupViewModel = SettingsPopupViewModel()
+    let tourpointsViewModel = TourpointsViewModel()
+    var tourpointsMarkers = [GMSMarker]()
     var locationManager = CLLocationManager()
     var zoom: Float = 15
     var homeSelectionStatus = HomeSelectionStatus.SELECTING_POINTS
     var availableTransports = [AvailableTransport]()
 
-    private var destinationFromDifferentController = DestinationFromView.NONE
+    var destinationFromDifferentController = DestinationFromView.NONE
     private var destinationAux: CLLocationCoordinate2D?
     private let syncData = SyncData()
+    var originTourpoint: GMSMarker?
+    var destinationTourpoint: GMSMarker?
 
     @IBOutlet weak var labelHelper: UILabel!
     @IBOutlet var mapView: GMSMapView!
@@ -39,6 +45,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var destinationContainer: UIView!
     @IBOutlet weak var destinationPreselectedTitle: UILabel!
     @IBOutlet weak var destinationPreselectedName: UILabel!
+    @IBOutlet weak var settingsPopup: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +59,13 @@ class HomeViewController: UIViewController {
         initializeTheLocationManager()
         setupMap()
         cityLocation()
+        getTourpoints()
+        mapView.delegate = self
+        showTourpointsMarkers()
+    }
+
+    func getTourpoints() {
+        tourpointsViewModel.getTourpoints()
     }
 
     func initViewModel() {
@@ -230,10 +244,20 @@ class HomeViewController: UIViewController {
             viewmodel.origin?.map = mapView
             viewmodel.origin?.map = nil
             viewmodel.origin = nil
+            if originTourpoint != nil {
+                guard let marker = originTourpoint else { return }
+                marker.map = mapView
+                originTourpoint = nil
+            }
         } else {
             viewmodel.destination?.map = mapView
             viewmodel.destination?.map = nil
             viewmodel.destination = nil
+            if destinationTourpoint != nil {
+                guard let marker = destinationTourpoint else { return }
+                marker.map = mapView
+                destinationTourpoint = nil
+            }
         }
     }
 
@@ -284,7 +308,7 @@ class HomeViewController: UIViewController {
         backButton.isHidden = false
     }
 
-    private func setHelperLabelAndStatus(label: String, status: PointsSelectionStatus) {
+    func setHelperLabelAndStatus(label: String, status: PointsSelectionStatus) {
         labelHelper.text = String.localizeString(localizedString: label)
         viewmodel.pointsSelectionStatus = status
     }
@@ -369,6 +393,16 @@ class HomeViewController: UIViewController {
         }
     }
 
+    @IBAction func settingsPopupTapped(_ sender: Any) {
+        let settingsPopup = SettingsPopupViewController()
+        settingsPopup.homeVC = self
+
+        if let presentationController = settingsPopup.presentationController as? UISheetPresentationController {
+            presentationController.detents = [.large()]
+        }
+        self.present(settingsPopup, animated: true)
+    }
+
     func showRouteDetail(selectedAvailableTransport: AvailableTransport) {
         homeSelectionStatus = .SHOWING_ROUTE_DETAILS
         mapView.clear()
@@ -381,56 +415,5 @@ class HomeViewController: UIViewController {
         }
 
         self.present(viewController, animated: true)
-    }
-}
-
-// MARK: ShowPossibleRoutes Delegate
-extension HomeViewController: BottomSheetDelegate {
-    func showSelectedRoute(selectedRoute: AvailableTransport, index: Int) {
-        self.viewmodel.selectedAvailableTransport = selectedRoute
-        labelHelper.text = String.localizeString(localizedString: StringResources.route) + " \(index + 1)"
-        self.showRouteDetail(selectedAvailableTransport: selectedRoute)
-    }
-}
-
-// MARK: SearchLocation Delegate
-extension HomeViewController: SearchLocationDelegate {
-    func onPlaceTap(location: CLLocationCoordinate2D) {
-        self.cameraMoveToLocation(toLocation: location)
-    }
-}
-
-// MARK: RouteDetail Delegate
-extension HomeViewController: RouteDetailDelegate {
-    func getOrigin() -> Coordinate? {
-        if let origin = viewmodel.origin {
-            return Coordinate(latitude: origin.position.latitude, longitude: origin.position.longitude)
-        }
-        return nil
-    }
-
-    func getDestination() -> Coordinate? {
-        if let destination = viewmodel.destination {
-            return Coordinate(latitude: destination.position.latitude, longitude: destination.position.longitude)
-        }
-        return nil
-    }
-}
-
-// MARK: CLLocationManager Delegate
-extension HomeViewController: CLLocationManagerDelegate {
-
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        self.viewmodel.currentPosition = locationManager.location?.coordinate
-    }
-
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        locationManager.requestWhenInUseAuthorization()
-    }
-
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        if status == .authorizedWhenInUse {
-            locationManager.requestLocation()
-        }
     }
 }

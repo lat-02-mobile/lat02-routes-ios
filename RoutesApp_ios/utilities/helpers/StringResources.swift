@@ -38,6 +38,7 @@ class StringResources {
     // ADMIN
     static let adminSomeFieldsEmpty = "admin-some-fields-empty"
     // Lines
+    static let adminLinesTitle = "admin-lines-title"
     static let adminLinesEdit = "admin-lines-edit-line"
     static let adminLinesEditMessage = "admin-lines-are-you-sure-edit-line"
     static let adminLinesCreate = "admin-lines-create-line"
@@ -54,9 +55,11 @@ class StringResources {
     static let adminLinesSeeLineDetails = "admin-lines-see-line-details"
 
     // LineRoutes
+    static let adminLineRoutesTitle = "admin-line-routes-title"
     static let adminLineRoutesNew = "admin-line-routes-new"
     static let adminLineRoutesSeeDetails = "admin-line-routes-see-details"
     static let adminLineRoutesGoMapEditor = "admin-line-routes-go-map-editor"
     static let adminLineRoutesDelete = "admin-line-routes-delete"
     static let adminLineRoutesDeleteMessage = "admin-line-routes-are-you-sure-delete"
+    static let showTourpoints = "show-tourpoints"
 }

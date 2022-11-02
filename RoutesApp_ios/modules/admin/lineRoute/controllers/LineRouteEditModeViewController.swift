@@ -53,13 +53,13 @@ class LineRouteEditModeViewController: UIViewController {
                                     newStops: targetLineRoute.stops,
                                     newStart: targetLineRoute.start, newEnd: targetLineRoute.end)
         } else {
-            guard let dummyLat = viewmodel.cityCoords?.latitude,
-                  let dummyLng = viewmodel.cityCoords?.longitude else { return }
-            let dummyStart = GeoPoint(latitude: dummyLat, longitude: dummyLng)
-            let dummyEnd = GeoPoint(latitude: dummyLat, longitude: dummyLng)
+            guard let defaultLat = viewmodel.cityCoords?.latitude,
+                  let defaultLng = viewmodel.cityCoords?.longitude else { return }
+            let defaultStart = GeoPoint(latitude: defaultLat, longitude: defaultLng)
+            let defaultEnd = GeoPoint(latitude: defaultLat, longitude: defaultLng)
             viewmodel.createLineRoute(name: name, avgVel: avgVel,
                                       color: colorPreviewView.backgroundColor?.toHexString() ?? ConstantVariables.primaryColorHexValue,
-                                      start: dummyStart, end: dummyEnd, routePoints: [GeoPoint](), stops: [GeoPoint]())
+                                      start: defaultStart, end: defaultEnd, routePoints: [GeoPoint](), stops: [GeoPoint]())
         }
     }
 

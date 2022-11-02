@@ -13,6 +13,7 @@ class LinesViewController: RouteListViewController {
     let viewmodel = LinesViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = String.localizeString(localizedString: StringResources.adminLinesTitle)
     }
 
     override func initViewModel() {

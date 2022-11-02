@@ -15,6 +15,7 @@ class AdminLineRouteViewController: LineRouteViewController {
         super.viewDidLoad()
         initViewModel()
         setupViews()
+        title = String.localizeString(localizedString: StringResources.adminLineRoutesTitle)
     }
 
     override func viewWillAppear(_ animated: Bool) {
