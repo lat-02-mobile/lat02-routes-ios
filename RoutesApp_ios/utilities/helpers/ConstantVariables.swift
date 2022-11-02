@@ -36,6 +36,7 @@ class ConstantVariables {
 
     // Resources
     static let primaryColor = "primary-color"
+    static let primaryColorHexValue = "#004696"
     static let mapStyle = "silver-style"
     static let mapStyleExt = "json"
     static let filterIcon = "filter-icon"

@@ -18,9 +18,9 @@ struct LineRoute: Codable, Equatable {
     let id: String
     let idLine: String
     let line: String
-    let routePoints: [Coordinate]
+    var routePoints: [Coordinate]
     let start: Coordinate
-    let stops: [Coordinate]
+    var stops: [Coordinate]
     let end: Coordinate
     // Average velocity in meters per second
     var averageVelocity: Double
@@ -125,9 +125,9 @@ struct LineRouteInfo: BaseModel, Codable, Equatable {
     var id: String
     let idLine: String
     let line: DocumentReference?
-    let routePoints: [GeoPoint]
+    var routePoints: [GeoPoint]
     let start: GeoPoint
-    let stops: [GeoPoint]
+    var stops: [GeoPoint]
     let end: GeoPoint
     let averageVelocity: String
     let color: String

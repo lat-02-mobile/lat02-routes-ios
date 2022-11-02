@@ -19,7 +19,7 @@ class RoutesMapEditorViewController: UIViewController {
 
     var viewModel = RoutesMapEditorViewModel()
 
-    init(currentLinePath: LineRouteEntity) {
+    init(currentLinePath: LineRouteInfo) {
         viewModel.setLinePath(linePath: currentLinePath)
         super.init(nibName: nil, bundle: nil)
     }
@@ -30,15 +30,16 @@ class RoutesMapEditorViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        title = viewModel.getLinePath()?.name
         setupMap()
         fitRoute()
         drawMarkers()
     }
 
     @IBAction func checkButtonAction(_ sender: Any) {
-        var lineRoute = viewModel.getLinePath().toLineRouteInfo()
-        guard let start = lineRoute.routePoints.first,
+        guard var lineRoute = viewModel.getLinePath(),
+              let start = lineRoute.routePoints.first,
               let end = lineRoute.routePoints.last else { return }
         var stops = lineRoute.stops
         if !stops.contains(start) {
@@ -55,7 +56,7 @@ class RoutesMapEditorViewController: UIViewController {
             switch result {
             case .success:
                 Toast.showToast(target: self, message: String.localizeString(localizedString: StringResources.routeEditorToastSuccess))
-                self.dismiss(animated: true)
+                self.navigationController?.popViewController(animated: true)
             case .failure:
                 Toast.showToast(target: self, message: String.localizeString(localizedString: StringResources.routeEditorToastFailure))
             }
@@ -74,8 +75,14 @@ class RoutesMapEditorViewController: UIViewController {
     }
 
     private func fitRoute() {
-        let linePath = viewModel.getLinePath()
-        GoogleMapsHelper.shared.fitAllMarkers(map: mapView, list: linePath.routePoints)
+        guard let linePath = viewModel.getLinePath() else { return }
+        if linePath.routePoints.isEmpty {
+            let targetLocation = CLLocationCoordinate2D(latitude: linePath.start.latitude,
+                                                        longitude: linePath.start.longitude)
+            mapView.animate(to: GMSCameraPosition.camera(withTarget: targetLocation, zoom: 11))
+        } else {
+            GoogleMapsHelper.shared.fitAllMarkers(map: mapView, list: linePath.routePoints.map({$0.toCoordinate()}))
+        }
     }
 
     private func drawMarkers() {
@@ -96,14 +103,14 @@ class RoutesMapEditorViewController: UIViewController {
     }
 
     @IBAction func backButtonAction(_ sender: Any) {
-        self.dismiss(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
 
     @IBAction func sortButtonAction(_ sender: Any) {
         let ac = UIAlertController(title: String.localizeString(localizedString: StringResources.rearrangeRouteTitle),
                                    message: nil, preferredStyle: .alert)
         ac.message = String.localizeString(localizedString: StringResources.rearrangeRouteMessage) +
-        String(viewModel.getLinePath().routePoints.count + 1)
+        String((viewModel.getLinePath()?.routePoints.count ?? 0) + 1)
         ac.addTextField(configurationHandler: { [] (textField: UITextField) in
                     textField.placeholder = String.localizeString(localizedString: StringResources.rearrangeRoutePlaceholder)
                     textField.delegate = self
@@ -125,10 +132,10 @@ class RoutesMapEditorViewController: UIViewController {
     }
 
     @IBAction func stopButtonAction(_ sender: Any) {
-        guard let currentMarker = currentMarker else {
+        if currentMarker == nil {
             addRoutePoint()
-            return
         }
+        guard let currentMarker = currentMarker else { return }
 
         guard let index = getMarkerIndex(marker: currentMarker) else { return }
         let position = currentMarker.position
@@ -205,12 +212,13 @@ class RoutesMapEditorViewController: UIViewController {
     }
 
     private func isStopPoint(coordinate: CLLocationCoordinate2D) -> Bool {
-        let linePath = viewModel.getLinePath()
+        guard let linePath = viewModel.getLinePath() else { return false }
         return linePath.stops.contains(where: { $0.latitude == coordinate.latitude && $0.longitude == coordinate.longitude })
     }
 
     private func isIntheAllowedRange(newIndex: Int) -> Bool {
-        return newIndex > 0 && newIndex <= viewModel.getLinePath().routePoints.count
+        guard let linePath = viewModel.getLinePath() else { return false }
+        return newIndex > 0 && newIndex <= linePath.routePoints.count
     }
 
     private func getMarkerIndex(marker: GMSMarker) -> Int? {

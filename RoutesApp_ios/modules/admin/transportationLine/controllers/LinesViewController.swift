@@ -13,6 +13,7 @@ class LinesViewController: RouteListViewController {
     let viewmodel = LinesViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = String.localizeString(localizedString: StringResources.adminLinesTitle)
     }
 
     override func initViewModel() {
@@ -50,9 +51,29 @@ extension LinesViewController {
         return viewmodel.lines.count
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = LineEditModeViewController()
-        vc.targetLine = viewmodel.lines[indexPath.row]
-        show(vc, sender: nil)
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+
+        let routesAction = UIAlertAction(title: String.localizeString(localizedString: StringResources.adminLinesSeeRoutes), style: .default) { _ in
+            let vc = AdminLineRouteViewController(nibName: LineRouteViewController.nibName, bundle: nil)
+            vc.line = self.viewmodel.lines[indexPath.row]
+            self.show(vc, sender: nil)
+        }
+
+        let detailAction = UIAlertAction(title: String.localizeString(localizedString: StringResources.adminLinesSeeLineDetails),
+                                         style: .default) { _ in
+            let vc = LineEditModeViewController()
+            vc.targetLine = self.viewmodel.lines[indexPath.row]
+            self.show(vc, sender: nil)
+        }
+
+        let cancelAction = UIAlertAction(title: String.localizeString(localizedString: StringResources.cancel), style: .cancel) { _ in
+            actionSheet.dismiss(animated: true)
+        }
+
+        actionSheet.addAction(routesAction)
+        actionSheet.addAction(detailAction)
+        actionSheet.addAction(cancelAction)
+        self.present(actionSheet, animated: true, completion: nil)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

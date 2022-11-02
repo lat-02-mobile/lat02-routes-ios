@@ -8,14 +8,14 @@
 import Foundation
 
 class RoutesMapEditorViewModel: ViewModel {
-    private var currentLinePath: LineRouteEntity?
+    private var currentLinePath: LineRouteInfo?
 
-    func setLinePath(linePath: LineRouteEntity) {
-        currentLinePath =  linePath
+    func setLinePath(linePath: LineRouteInfo) {
+        currentLinePath = linePath
     }
 
-    func getLinePath() -> LineRouteEntity {
-        return currentLinePath ?? LineRouteEntity()
+    func getLinePath() -> LineRouteInfo? {
+        return currentLinePath ?? nil
     }
 
     func getPointsRoutesWithType() -> [CoordinateWithType] {
@@ -26,17 +26,18 @@ class RoutesMapEditorViewModel: ViewModel {
         let pointsWithType = linePath.routePoints.map { point -> CoordinateWithType in
             var type = CoordinateType.NORMAL
             if linePath.stops.contains(point) { type = CoordinateType.STOP }
-            return CoordinateWithType(point: point, type: type)
+            let coords = Coordinate(latitude: point.latitude, longitude: point.longitude)
+            return CoordinateWithType(point: coords, type: type)
         }
         return pointsWithType
     }
 
     func addCoordinate(coorditate: Coordinate) {
-        currentLinePath?.routePoints.append(coorditate)
+        currentLinePath?.routePoints.append(coorditate.toGeoCode())
     }
 
     func convertToStop(coorditate: Coordinate) {
-        currentLinePath?.stops.append(coorditate)
+        currentLinePath?.stops.append(coorditate.toGeoCode())
     }
 
     func removeStop(at coordinate: Coordinate) {
@@ -62,7 +63,7 @@ class RoutesMapEditorViewModel: ViewModel {
     }
 
     func rearrangeRoutePoint(oldIndex: Int, newIndex: Int) {
-        guard let currentLinePath = currentLinePath else { return }
+        guard var currentLinePath = currentLinePath else { return }
         let point = currentLinePath.routePoints.remove(at: oldIndex)
         currentLinePath.routePoints.insert(point, at: newIndex - 1)
     }

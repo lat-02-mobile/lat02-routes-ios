@@ -11,51 +11,49 @@ import XCTest
 class RouteMapEditorTests: XCTestCase {
 
     var routeMapEditorViewModel = RoutesMapEditorViewModel()
-    let context = MockLocalDataManager.setUpInMemoryManagedObjectContext()
-    var entity = LineRouteEntity()
+    let lineRoute = TestResources.LineRoutes[0]
 
     override func setUpWithError() throws {
-        let lineRoute = TestResources.LineRoutes[0]
-        entity = LineRouteEntity(context: context)
-        entity.averageVelocity = lineRoute.averageVelocity
-        entity.color = lineRoute.color
-        entity.createAt = Date()
-        entity.end = lineRoute.end.toCoordinate()
-        entity.id = lineRoute.id
-        entity.routePoints = lineRoute.routePoints.map({ $0.toCoordinate() })
-        entity.start = lineRoute.start.toCoordinate()
-        entity.stops = lineRoute.stops.map({ $0.toCoordinate() })
-        routeMapEditorViewModel.setLinePath(linePath: entity)
+        routeMapEditorViewModel.setLinePath(linePath: lineRoute)
     }
 
     func testLinePathIsSet() throws {
-        XCTAssertEqual(entity, routeMapEditorViewModel.getLinePath())
+        XCTAssertEqual(lineRoute, routeMapEditorViewModel.getLinePath())
     }
 
     func testWhenAddRoutePoint() throws {
-        let coordinate = Coordinate(latitude: 20.0, longitude: 20.0)
+        let coordinate = Coordinate(latitude: 30.0, longitude: 30.0)
         routeMapEditorViewModel.addCoordinate(coorditate: coordinate)
-        XCTAssertEqual(routeMapEditorViewModel.getLinePath().routePoints.last, coordinate)
+        XCTAssertEqual(routeMapEditorViewModel.getLinePath()?.routePoints.last, coordinate.toGeoCode())
     }
 
     func testWhenConvertToStop() throws {
-        let linePath = routeMapEditorViewModel.getLinePath()
+        guard let linePath = routeMapEditorViewModel.getLinePath() else {
+            XCTAssertTrue(false)
+            return
+        }
         let routePoint = linePath.routePoints[0]
-        routeMapEditorViewModel.convertToStop(coorditate: routePoint)
+        routeMapEditorViewModel.convertToStop(coorditate: routePoint.toCoordinate())
         XCTAssertTrue(linePath.stops.contains(routePoint))
     }
 
     func testRemoveRoutePoint() throws {
-        let linePath = routeMapEditorViewModel.getLinePath()
+        guard let linePath = routeMapEditorViewModel.getLinePath() else {
+            XCTAssertTrue(false)
+            return
+        }
         let routePoint = linePath.routePoints[0]
-        routeMapEditorViewModel.removeRoutePoint(at: routePoint)
-        XCTAssertFalse(linePath.routePoints.contains(routePoint))
+        routeMapEditorViewModel.removeRoutePoint(at: routePoint.toCoordinate())
+        XCTAssertFalse(routeMapEditorViewModel.getLinePath()?.routePoints.contains(routePoint) ?? true)
     }
 
     func testRemoveStop() throws {
-        let linePath = routeMapEditorViewModel.getLinePath()
+        guard let linePath = routeMapEditorViewModel.getLinePath() else {
+            XCTAssertTrue(false)
+            return
+        }
         let stop = linePath.stops[0]
-        routeMapEditorViewModel.removeStop(at: stop)
-        XCTAssertFalse(linePath.stops.contains(stop))
+        routeMapEditorViewModel.removeStop(at: stop.toCoordinate())
+        XCTAssertFalse(routeMapEditorViewModel.getLinePath()?.stops.contains(stop) ?? true)
     }
 }

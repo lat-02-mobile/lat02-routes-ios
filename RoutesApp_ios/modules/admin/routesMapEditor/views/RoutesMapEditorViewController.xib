@@ -24,7 +24,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nnd-je-8H3" customClass="GMSMapView">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8pY-ZN-J2V" customClass="FabButton" customModule="RoutesApp_ios" customModuleProvider="target">
@@ -95,7 +95,7 @@
                     </connections>
                 </button>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pin" translatesAutoresizingMaskIntoConstraints="NO" id="eda-ry-y4M">
-                    <rect key="frame" x="182" y="398" width="50" height="50"/>
+                    <rect key="frame" x="182" y="420" width="50" height="50"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="50" id="CUM-Tf-Tnn"/>
                         <constraint firstAttribute="height" constant="50" id="mWw-lv-Ds0"/>
@@ -108,9 +108,9 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Bsh-6x-pa8" secondAttribute="bottom" constant="30" id="16l-7e-jvf"/>
                 <constraint firstItem="xSl-PM-NqG" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="C9P-ls-K8t"/>
                 <constraint firstAttribute="trailing" secondItem="Nnd-je-8H3" secondAttribute="trailing" id="DhM-Zz-4wj"/>
-                <constraint firstItem="Nnd-je-8H3" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ESV-AP-3Sb"/>
                 <constraint firstItem="xSl-PM-NqG" firstAttribute="top" secondItem="dYq-e0-DpN" secondAttribute="bottom" constant="15" id="Q5s-un-FwM"/>
                 <constraint firstItem="8pY-ZN-J2V" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="R3z-kN-f2b"/>
+                <constraint firstItem="Nnd-je-8H3" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="fBY-cX-xOD"/>
                 <constraint firstItem="dYq-e0-DpN" firstAttribute="top" secondItem="DYv-5L-nPM" secondAttribute="bottom" constant="15" id="fci-Ko-8xO"/>
                 <constraint firstAttribute="bottom" secondItem="Nnd-je-8H3" secondAttribute="bottom" id="lCW-zd-gBW"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Bsh-6x-pa8" secondAttribute="trailing" constant="30" id="oq0-4Q-X6a"/>
@@ -122,7 +122,7 @@
                 <constraint firstItem="eda-ry-y4M" firstAttribute="centerY" secondItem="Nnd-je-8H3" secondAttribute="centerY" constant="-25" id="xM6-Xm-q5l"/>
                 <constraint firstItem="dYq-e0-DpN" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="zQH-5d-l5w"/>
             </constraints>
-            <point key="canvasLocation" x="131.8840579710145" y="83.705357142857139"/>
+            <point key="canvasLocation" x="133.33333333333334" y="104.46428571428571"/>
         </view>
     </objects>
     <resources>
