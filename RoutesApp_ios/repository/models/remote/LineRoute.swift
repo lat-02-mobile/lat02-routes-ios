@@ -116,9 +116,9 @@ struct LinesCandidate: Codable {
 }
 
 // Used for obtain the Firestore response (LineRoute entity)
-struct LineRouteInfo: Codable, Equatable {
+struct LineRouteInfo: Codable, Equatable, BaseModel {
     let name: String
-    let id: String
+    var id: String
     let idLine: String
     let line: DocumentReference?
     let routePoints: [GeoPoint]

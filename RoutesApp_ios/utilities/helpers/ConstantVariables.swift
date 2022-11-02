@@ -33,9 +33,10 @@ class ConstantVariables {
     static let originName = "Origin"
     static let destinationName = "Destination"
     static let tourpointName = "Tourpoint"
-    
+
     // Resources
     static let primaryColor = "primary-color"
+    static let primaryColorHexValue = "#004696"
     static let mapStyle = "silver-style"
     static let mapStyleExt = "json"
     static let filterIcon = "filter-icon"

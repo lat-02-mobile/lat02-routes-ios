@@ -94,7 +94,9 @@
 "search-best-route" = "Buscar la mejor ruta";
 
 // ADMIN MODE
+"admin-some-fields-empty" = "Algunos campos estan vacios";
 // Lines
+"admin-lines-title" = "Pagina de Administracion de Lineas";
 "admin-lines-edit-line" = "Editar Linea";
 "admin-lines-are-you-sure-edit-line" = "¿Esta seguro/a que quiere actualizar esta linea?";
 "admin-lines-create-line" = "Crear nueva Linea";
@@ -107,5 +109,15 @@
 "admin-lines-something-went-wrong" = "Algo salio mal";
 "admin-lines-must-provide-name" = "Debes escribir un nombre valido para la linea";
 "admin-lines-line-has-routes-delete-first" = "Esta linea aun tiene rutas, eliminalas primero";
+"admin-lines-see-routes" = "Ver Rutas";
+"admin-lines-see-line-details" = "Ver detalles de la Linea";
+
+// LineRoutes
+"admin-line-routes-title" = "Pagina de Administracion de Rutas";
+"admin-line-routes-new" = "Nueva Ruta";
+"admin-line-routes-see-details" = "Ver detalles de la Ruta";
+"admin-line-routes-go-map-editor" = "Ir al editor de Mapa";
+"admin-line-routes-delete" = "Eliminar Ruta";
+"admin-line-routes-are-you-sure-delete" = "¿Esta seguro/a que desea eliminar esta Ruta?";
 // SettingPopup
 "show-tourpoints" = "Mostrar sitios";

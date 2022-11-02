@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseFirestore
 @testable import RoutesApp_ios
 
 class MockLineManager: LineManagerProtocol {
@@ -83,6 +84,39 @@ class MockLineCategoryManager: LineCategoryManagerProtocol {
 
 class MockLineRouteManager: LineRouteManagerProtocol {
     var getLineRoutesByLineGotCalled = false
+    var createLineRouteGotCalled = false
+    var updateLineRouteGotCalled = false
+    var deleteLineRouteGotCalled = false
+
+    func createNewLineRoute(idLine: String, lineRouteName: String, avgVel: String, color: String, start: GeoPoint, end: GeoPoint, routePoints: [GeoPoint], stops: [GeoPoint], completion: @escaping (Result<LineRouteInfo, Error>) -> Void) {
+        createLineRouteGotCalled = true
+        completion(.success(LineRouteInfo(name: lineRouteName, id: "111", idLine: idLine, line: nil,
+                                          routePoints: routePoints, start: start, stops: stops, end: end, averageVelocity: avgVel,
+                                          color: color, updateAt: Timestamp(), createAt: Timestamp())))
+    }
+
+    func updateLineRoute(lineRoute: LineRouteInfo, newLineRouteName: String, newAvgVel: String, newColor: String, newRoutePoints: [GeoPoint], newStops: [GeoPoint], newStart: GeoPoint, newEnd: GeoPoint, completion: @escaping (Result<Bool, Error>) -> Void) {
+        let foundLineRoute = TestResources.LineRoutes.first(where: {$0.id == lineRoute.id})
+        if foundLineRoute != nil {
+            updateLineRouteGotCalled = true
+            completion(.success(true))
+        } else {
+            updateLineRouteGotCalled = false
+            completion(.success(false))
+        }
+    }
+
+    func deleteLineRoute(idLineRoute: String, completion: @escaping (Result<Bool, Error>) -> Void) {
+        let foundLineRoute = TestResources.LineRoutes.first(where: {$0.id == idLineRoute})
+        if foundLineRoute != nil {
+            deleteLineRouteGotCalled = true
+            completion(.success(true))
+        } else {
+            deleteLineRouteGotCalled = false
+            completion(.success(false))
+        }
+    }
+
     func getLineRoute(idLine: String, completion: @escaping (Result<[LineRouteInfo], Error>) -> Void) {
     }
 

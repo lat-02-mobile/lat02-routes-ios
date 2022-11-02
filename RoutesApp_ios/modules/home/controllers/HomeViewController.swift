@@ -11,6 +11,7 @@ import GooglePlaces
 import SVProgressHUD
 import Kingfisher
 
+// swiftlint:disable file_length
 enum HomeSelectionStatus {
     case SELECTING_POINTS, SHOWING_POSSIBLE_ROUTES, SHOWING_ROUTE_DETAILS
 }
@@ -19,6 +20,7 @@ enum DestinationFromView {
     case TOURPOINTS, FAVORITES, NONE
 }
 
+// swiftlint:disable type_body_length
 class HomeViewController: UIViewController {
 
     let viewmodel = HomeViewModel()
@@ -35,7 +37,7 @@ class HomeViewController: UIViewController {
     private let syncData = SyncData()
     private var originTourpoint: GMSMarker?
     private var destinationTourpoint: GMSMarker?
-    
+
     @IBOutlet weak var labelHelper: UILabel!
     @IBOutlet var mapView: GMSMapView!
     @IBOutlet var currentLocationButton: UIButton!
@@ -553,4 +555,3 @@ extension HomeViewController: GMSMapViewDelegate {
         return true
     }
 }
-
