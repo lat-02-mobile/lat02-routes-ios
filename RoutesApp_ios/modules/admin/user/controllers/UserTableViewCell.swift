@@ -25,6 +25,6 @@ class UserTableViewCell: UITableViewCell {
     func setData(user: UserFirebase) {
         nameLabel.text = user.name
         emailLabel.text = user.email
-        typeUserLabel.text = user.type == 1 ? StringResources.admin : StringResources.normal
+        typeUserLabel.text = user.type == UserType.ADMIN.rawValue ? StringResources.admin : StringResources.normal
     }
 }

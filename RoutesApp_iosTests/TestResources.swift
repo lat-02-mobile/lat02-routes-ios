@@ -18,12 +18,15 @@ class TestResources {
     static let testUserPassword = "test1234"
     static let testAuthResponse = ["message": "success"]
     static let testUser = User(id: "test", name: "test", email: "test@email.com", phoneNumber: "test", type: 0, typeLogin: 0, updatedAt: Date(), createdAt: Date())
-    static let testUserFirebase1 = UserFirebase(id: "test1", name: "test1", email: "email111@email.com", phoneNumber: "test", type: 0,
-                                               typeLogin: 0, updatedAt: 687626719.592621, createdAt: 687626719.592621)
-    static let testUserFirebase2 = UserFirebase(id: "test2", name: "test2", email: "email222@email.com", phoneNumber: "test", type: 1,
-                                               typeLogin: 0, updatedAt: 687626719.592621, createdAt: 687626719.592621)
-    static let testUserFirebase3 = UserFirebase(id: "test3", name: "test3", email: "email333@email.com", phoneNumber: "test", type: 0,
-                                               typeLogin: 0, updatedAt: 687626719.592621, createdAt: 687626719.592621)
+    static let testUserFirebase1 = UserFirebase(id: "test1", name: "test1", email: "email111@email.com", phoneNumber: "test",
+                                                type: UserType.NORMAL.rawValue, typeLogin: UserTypeLogin.NORMAL.rawValue,
+                                                updatedAt: 687626719.592621, createdAt: 687626719.592621)
+    static let testUserFirebase2 = UserFirebase(id: "test2", name: "test2", email: "email222@email.com", phoneNumber: "test",
+                                                type: UserType.ADMIN.rawValue, typeLogin: UserTypeLogin.NORMAL.rawValue,
+                                                updatedAt: 687626719.592621, createdAt: 687626719.592621)
+    static let testUserFirebase3 = UserFirebase(id: "test3", name: "test3", email: "email333@email.com", phoneNumber: "test",
+                                                type: UserType.NORMAL.rawValue, typeLogin: UserTypeLogin.NORMAL.rawValue,
+                                                updatedAt: 687626719.592621, createdAt: 687626719.592621)
 
     static let testUserFirebaseList = [testUserFirebase1, testUserFirebase2, testUserFirebase3]
 

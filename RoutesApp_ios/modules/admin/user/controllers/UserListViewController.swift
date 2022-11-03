@@ -25,9 +25,9 @@ class UserListViewController: UIViewController {
 
     @IBAction func toggleUserStatus(_ sender: Any) {
         guard let targetUser = self.targetUser else { return }
-        ConfirmAlert(title: String.localizeString(localizedString: targetUser.type == 1 ?
+        ConfirmAlert(title: String.localizeString(localizedString: targetUser.type == UserType.ADMIN.rawValue ?
                                                   StringResources.adminUserRevokeTitle : StringResources.adminUserPromotionTitle),
-                     message: String.localizeString(localizedString: targetUser.type == 1 ?
+                     message: String.localizeString(localizedString: targetUser.type == UserType.ADMIN.rawValue ?
                                                     StringResources.adminUserRevokeMessage : StringResources.adminUserPromotionMessage),
                      preferredStyle: .alert).showAlert(target: self) { () in
             self.viewmodel.toggleUserRole(for: targetUser)
