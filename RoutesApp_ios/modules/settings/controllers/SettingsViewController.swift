@@ -38,6 +38,11 @@ class SettingsViewController: UIViewController {
         show(vc, sender: nil)
     }
 
+    @IBAction func goToCityEditMode(_ sender: Any) {
+        let vc = CountryListViewController()
+        show(vc, sender: true)
+    }
+
     func setUpCityName() {
         guard let citySelected = ConstantVariables.defaults.string(forKey: ConstantVariables.defCitySelected) else { return }
         ubicationLabel.textColor = UIColor(named: ConstantVariables.primaryColor)

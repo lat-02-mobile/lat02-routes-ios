@@ -81,7 +81,7 @@ class RoutesMapEditorViewController: UIViewController {
                                                         longitude: linePath.start.longitude)
             mapView.animate(to: GMSCameraPosition.camera(withTarget: targetLocation, zoom: 11))
         } else {
-            GoogleMapsHelper.shared.fitAllMarkers(map: mapView, list: linePath.routePoints.map({$0.toCoordinate()}))
+            GoogleMapsHelper.shared.fitAllMarkers(map: mapView, list: linePath.routePoints.map({$0.toCoordinate()}), padding: 95.0)
         }
     }
 

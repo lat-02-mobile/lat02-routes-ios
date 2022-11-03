@@ -12,6 +12,7 @@ import FirebaseAuth
 
 // City Manager
 class MockCityManager: CityManagerProtocol {
+
     var getCitiesByNameGotCalled = false
     var getCitiesGotCalled = false
     var getCityByIdGotCalled = false
@@ -31,6 +32,7 @@ class MockCityManager: CityManagerProtocol {
             getCitiesByNameGotCalled = false
         }
     }
+
     func getCountryById(id: String, completion: @escaping (Result<Country, Error>) -> Void) {
         if !id.isEmpty {
             completion(.success(TestResources.testCountry))
@@ -38,9 +40,22 @@ class MockCityManager: CityManagerProtocol {
             completion(.failure(NSError(domain: "Error", code: 0)))
         }
     }
+
     func getCities(completion: @escaping (Result<[Cities], Error>) -> Void) {
         completion(.success([TestResources.testCityRoute]))
         getCitiesGotCalled = true
+    }
+
+    func getCityByCountryId(id: String, completion: @escaping (Result<[Cities], Error>) -> Void) {
+    }
+
+    func createCity(city: Cities, completion: @escaping (Result<Cities, Error>) -> Void) {
+    }
+
+    func updateCity(city: Cities, completion: @escaping (Result<Bool, Error>) -> Void) {
+    }
+
+    func deleteCity(cityId: String, completion: @escaping (Result<Bool, Error>) -> Void) {
     }
 }
 

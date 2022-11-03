@@ -72,4 +72,14 @@ class StringResources {
     static let adminLineRoutesDelete = "admin-line-routes-delete"
     static let adminLineRoutesDeleteMessage = "admin-line-routes-are-you-sure-delete"
     static let showTourpoints = "show-tourpoints"
+
+    // CountryList
+    static let countryListTitle = "country-list-title"
+    static let adminCityDelete = "admin-city-delete"
+    static let adminCityDeleteMessage = "admin-city-delete-message"
+    static let adminCityCreatedSuccess = "admin-city-created-success"
+    static let adminCityCreatedError = "admin-city-created-error"
+    static let adminCityEditedSuccess = "admin-city-edited-success"
+    static let adminCitySaveButton = "admin-city-save-button"
+    static let adminCityEditButton = "admin-city-edit-button"
 }
