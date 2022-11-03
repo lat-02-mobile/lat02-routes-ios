@@ -111,11 +111,28 @@ class TestResources {
 
     static let tourpoints = [
         Tourpoint(address: "Address 1", categoryId: "123456", destination: GeoPoint(latitude: 0, longitude: 0), idCity: nil,
-                  name: "Line Name", tourPointsCategoryRef: nil, urlImage: "URL image", updateAt: timestamp, createAt: timestamp, id: "dedeqdfefr")
+                  name: "1Line Name",
+                  tourPointsCategoryRef: FirebaseFirestoreManager.shared.getDocReference(forCollection: .Lines, documentID: "123456"),
+                  urlImage: "URL image", updateAt: timestamp, createAt: timestamp, id: "dedeqdfefr1"),
+        Tourpoint(address: "Address 1", categoryId: "123456", destination: GeoPoint(latitude: 0, longitude: 0), idCity: nil,
+                  name: "2Line Name",
+                  tourPointsCategoryRef: FirebaseFirestoreManager.shared.getDocReference(forCollection: .Lines, documentID: "123456"),
+                  urlImage: "URL image", updateAt: timestamp, createAt: timestamp, id: "dedeqdfefr2"),
+        Tourpoint(address: "Address 1", categoryId: "111111", destination: GeoPoint(latitude: 0, longitude: 0), idCity: nil,
+                  name: "3Line Name",
+                  tourPointsCategoryRef: FirebaseFirestoreManager.shared.getDocReference(forCollection: .Lines, documentID: "111111"),
+                  urlImage: "URL image", updateAt: timestamp, createAt: timestamp, id: "dedeqdfefr3")
     ]
 
     static let tourpointCategories = [
-        TourpointCategory(id: "123456", descriptionEng: "ENG", descriptionEsp: "ESP", icon: "new Icon url", updateAt: timestamp, createAt: timestamp)
+        TourpointCategory(id: "123456", descriptionEng: "ENG1", descriptionEsp: "ESP1",
+                          icon: "new Icon url", updateAt: timestamp, createAt: timestamp),
+        TourpointCategory(id: "111111", descriptionEng: "ENG2", descriptionEsp: "ESP2",
+                          icon: "new Icon url", updateAt: timestamp, createAt: timestamp),
+        TourpointCategory(id: "222222", descriptionEng: "ENG3", descriptionEsp: "ESP3",
+                          icon: "new Icon url", updateAt: timestamp, createAt: timestamp),
+        TourpointCategory(id: "333333", descriptionEng: "ENG4", descriptionEsp: "ESP4",
+                          icon: "new Icon url", updateAt: timestamp, createAt: timestamp)
     ]
 
     static let RoutePoints = [GeoPoint(latitude: 1, longitude: 1), GeoPoint(latitude: 2, longitude: 2)]
