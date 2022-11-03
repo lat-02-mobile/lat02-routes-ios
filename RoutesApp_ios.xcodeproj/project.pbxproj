@@ -257,6 +257,8 @@
 		C25C92402911C02E000D45AE /* LineEditModeViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = C25C923B2911C02E000D45AE /* LineEditModeViewController.strings */; };
 		C25C92412911C02E000D45AE /* LineEditModeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C25C923E2911C02E000D45AE /* LineEditModeViewController.xib */; };
 		C25C92432911C212000D45AE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C25C92422911C212000D45AE /* GoogleService-Info.plist */; };
+		C25D579F291478A7000B1F1B /* TourPointFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25D579D291478A7000B1F1B /* TourPointFilterViewController.swift */; };
+		C25D57A0291478A7000B1F1B /* TourPointFilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C25D579E291478A7000B1F1B /* TourPointFilterViewController.xib */; };
 		C278972D28E3B48100FF2796 /* RouteListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C278972028E3B48100FF2796 /* RouteListViewModel.swift */; };
 		C278972F28E3B48100FF2796 /* TransportationCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C278972428E3B48100FF2796 /* TransportationCategoryTableViewCell.swift */; };
 		C278973028E3B48100FF2796 /* RouteListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C278972528E3B48100FF2796 /* RouteListTableViewCell.swift */; };
@@ -344,13 +346,11 @@
 		CE8CE8F028BE493F003270D7 /* AlgorithmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8CE8EF28BE493F003270D7 /* AlgorithmTests.swift */; };
 		CE93A8A328BD3ECD00296532 /* CLLocationCoordinate2DExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE93A8A228BD3ECD00296532 /* CLLocationCoordinate2DExtension.swift */; };
 		CEBC10802911C5FE00E8BF83 /* RouteMapEditorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC107F2911C5FE00E8BF83 /* RouteMapEditorTests.swift */; };
-		CEBC10812911C73A00E8BF83 /* RoutesMapEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D3D0A290968F900B579F5 /* RoutesMapEditorViewModel.swift */; };
+		CEBC10812911C73A00E8BF83 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		CEBC10822911C73D00E8BF83 /* RoutesMapEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC6EFCF29082AAF0080F69B /* RoutesMapEditorViewController.swift */; };
 		CEBC10832911C74500E8BF83 /* RoutesMapEditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEC6EFD029082AAF0080F69B /* RoutesMapEditorViewController.xib */; };
 		CEBC10852911E4CE00E8BF83 /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC10842911E4CE00E8BF83 /* Env.swift */; };
 		CEBC10872911E6A800E8BF83 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CEBC10862911E6A700E8BF83 /* GoogleService-Info.plist */; };
-		CEC6EFD129082AAF0080F69B /* RoutesMapEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC6EFCF29082AAF0080F69B /* RoutesMapEditorViewController.swift */; };
-		CEC6EFD229082AAF0080F69B /* RoutesMapEditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEC6EFD029082AAF0080F69B /* RoutesMapEditorViewController.xib */; };
 		DA79D30882EE9E471ED6B4D1 /* Pods_RoutesApp_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99A7926D8889E1D91C0D95AC /* Pods_RoutesApp_ios.framework */; };
 /* End PBXBuildFile section */
 
@@ -478,6 +478,8 @@
 		C25C923D2911C02E000D45AE /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/LineEditModeViewController.strings"; sourceTree = "<group>"; };
 		C25C923F2911C02E000D45AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LineEditModeViewController.xib; sourceTree = "<group>"; };
 		C25C92422911C212000D45AE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C25D579D291478A7000B1F1B /* TourPointFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourPointFilterViewController.swift; sourceTree = "<group>"; };
+		C25D579E291478A7000B1F1B /* TourPointFilterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TourPointFilterViewController.xib; sourceTree = "<group>"; };
 		C278972028E3B48100FF2796 /* RouteListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteListViewModel.swift; sourceTree = "<group>"; };
 		C278972428E3B48100FF2796 /* TransportationCategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransportationCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		C278972528E3B48100FF2796 /* RouteListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteListTableViewCell.swift; sourceTree = "<group>"; };
@@ -758,6 +760,8 @@
 				844F9A4328E3488C004A95A0 /* TourpointsViewController.xib */,
 				842F85B12900433B00243943 /* TourpointDetailViewController.swift */,
 				842F85B22900433B00243943 /* TourpointDetailViewController.xib */,
+				C25D579D291478A7000B1F1B /* TourPointFilterViewController.swift */,
+				C25D579E291478A7000B1F1B /* TourPointFilterViewController.xib */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -1099,6 +1103,8 @@
 		C2CC5734290ACAB900154AAF /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
+				CEC6EFCF29082AAF0080F69B /* RoutesMapEditorViewController.swift */,
+				CEC6EFD029082AAF0080F69B /* RoutesMapEditorViewController.xib */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -1738,6 +1744,7 @@
 				844F9A3228C84E63004A95A0 /* PlaceTableViewCell.xib in Resources */,
 				C25C92412911C02E000D45AE /* LineEditModeViewController.xib in Resources */,
 				C27EB66728D3689200A1E742 /* LinePathTableViewCell.xib in Resources */,
+				C25D57A0291478A7000B1F1B /* TourPointFilterViewController.xib in Resources */,
 				C25C92402911C02E000D45AE /* LineEditModeViewController.strings in Resources */,
 				C278973228E3B48100FF2796 /* RouteListTableViewCell.xib in Resources */,
 			);
@@ -2074,7 +2081,7 @@
 				8441B9C728FF754100730F21 /* LineRouteEntity+CoreDataProperties.swift in Sources */,
 				8441B9C828FF754100730F21 /* TourpointTableViewCell.swift in Sources */,
 				8441B9C928FF754100730F21 /* ColorHelper.swift in Sources */,
-				CEBC10812911C73A00E8BF83 /* RoutesMapEditorViewModel.swift in Sources */,
+				CEBC10812911C73A00E8BF83 /* (null) in Sources */,
 				8441B9CA28FF754100730F21 /* CLLocationDistanceExtension.swift in Sources */,
 				8441B9CB28FF754100730F21 /* ImageHelper.swift in Sources */,
 				8441B9CC28FF754100730F21 /* LineRouteEntity+CoreDataClass.swift in Sources */,
@@ -2197,6 +2204,7 @@
 				C2E9772728987F48009F4B94 /* LoginViewModel.swift in Sources */,
 				8441BA212900F2A600730F21 /* SyncData.swift in Sources */,
 				84067C6A28B3D58500549300 /* CityFirebaseManager.swift in Sources */,
+				C25D579F291478A7000B1F1B /* TourPointFilterViewController.swift in Sources */,
 				84F6E6AD28FF545A009D5635 /* LineRouteEntity+CoreDataProperties.swift in Sources */,
 				844F9A4928E3D560004A95A0 /* TourpointTableViewCell.swift in Sources */,
 				CE7FBAED28D8BFEC001175D3 /* ColorHelper.swift in Sources */,
