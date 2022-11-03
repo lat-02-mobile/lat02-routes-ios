@@ -119,5 +119,12 @@
 "admin-line-routes-go-map-editor" = "Ir al editor de Mapa";
 "admin-line-routes-delete" = "Eliminar Ruta";
 "admin-line-routes-are-you-sure-delete" = "¿Esta seguro/a que desea eliminar esta Ruta?";
+
+// Users
+"admin-user-promote-title" = "Hacer Administrador";
+"admin-user-promote-message" = "¿Esta seguro/a que desea convertir este usuario en administrador?";
+"admin-user-revoke-title" = "Remover Administrador";
+"admin-user-revoke-message" = "¿Esta seguro/a que desea remover los permisos de administrador a este usuario?";
+"admin-user-search" = "Buscar un usuario";
 // SettingPopup
 "show-tourpoints" = "Mostrar sitios";

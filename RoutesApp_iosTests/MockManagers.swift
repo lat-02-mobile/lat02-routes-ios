@@ -116,17 +116,22 @@ class MockAuthManager: AuthProtocol {
 class MockUserManager: UserManProtocol {
     var registerUserGotCalled = false
     var getUsersGotCalled = false
+    var toogleUserRoleGotCalled  = false
     func getUsers(completion: @escaping (Result<[UserManResult], Error>) -> Void) {
         getUsersGotCalled = true
         completion(.success([TestResources.testUser]))
     }
-    func registerUser(name: String, email: String, uid: String, typeLogin: UserTypeLogin, completion: @escaping ((Result<UserManResult, Error>) -> Void)) {
+    func registerUser(name: String, email: String, uid: String, typeLogin: UserTypeLogin, completion: @escaping ((Result<UserFirebase, Error>) -> Void)) {
         registerUserGotCalled = true
-        completion(.success(TestResources.testUser))
+        completion(.success(TestResources.testUserFirebase1))
     }
     func getUsers(completion: @escaping (Result<[UserFirebase], Error>) -> Void) {
            getUsersGotCalled = true
-           completion(.success([TestResources.testUserFirebase]))
+        completion(.success(TestResources.testUserFirebaseList))
+    }
+    func toogleUserRole(user: UserFirebase, completion: @escaping (Result<Bool, Error>) -> Void) {
+        toogleUserRoleGotCalled = true
+        completion(.success(true))
     }
 }
 
