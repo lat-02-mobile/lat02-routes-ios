@@ -100,7 +100,7 @@ class TestResources {
     static let testCountryId = "testCountry"
     static let testCityRoute = Cities(country: "test", id: "testid", idCountry: "countryTest", lat: "-35", lng: "-17", name: "testCity")
     static let testCountry = Country(
-        id: "test", name: "testCountry", code: "test", phone: "test", createdAt: nil, updatedAt: nil, cities: [DocumentReference]()
+        id: "test", name: "testCountry", code: "test", phone: "test", createAt: nil, updateAt: nil, cities: [DocumentReference]()
     )
 
     static let findPlacesTest = Place(name: "A place name", identifier: "123456")
