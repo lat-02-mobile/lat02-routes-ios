@@ -36,8 +36,8 @@ class UserFirebaseManager: UserManProtocol {
                                    phoneNumber: "",
                                    type: 0,
                                    typeLogin: typeLogin.rawValue,
-                                   updatedAt: Float(NSDate().timeIntervalSince1970),
-                                   createdAt: Float(NSDate().timeIntervalSince1970))
+                                   updateAt: Timestamp(),
+                                   createAt: Timestamp())
         self.firebaseManager.addDocument(document: newUser, collection: .Users, completion: completion)
     }
 
@@ -48,7 +48,7 @@ class UserFirebaseManager: UserManProtocol {
     func toogleUserRole(user: UserFirebase, completion: @escaping(Result<Bool, Error>) -> Void) {
         var finalUserInfo = user
         finalUserInfo.type = abs(user.type - 1)
-        finalUserInfo.updatedAt = Float(NSDate().timeIntervalSince1970)
+        finalUserInfo.updateAt = Timestamp()
         firebaseManager.updateDocument(document: finalUserInfo, forCollection: .Users) { result in
             switch result {
             case .success:
