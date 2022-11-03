@@ -16,6 +16,9 @@ class MockCityManager: CityManagerProtocol {
     var getCitiesByNameGotCalled = false
     var getCitiesGotCalled = false
     var getCityByIdGotCalled = false
+    var createNewCityGotCalled = false
+    var updateCityGotCalled = false
+    var deleteCityGotCalled = false
 
     func getCityById(id: String, completion: @escaping (Result<Cities, Error>) -> Void) {
         guard let foundCity = TestResources.CitiesArray.filter({$0.id == id}).first else {return}
@@ -47,15 +50,34 @@ class MockCityManager: CityManagerProtocol {
     }
 
     func getCityByCountryId(id: String, completion: @escaping (Result<[Cities], Error>) -> Void) {
+        let cities = [TestResources.testCityRoute]
+        completion(.success(cities.filter({ $0.idCountry == id })))
     }
 
     func createCity(city: Cities, completion: @escaping (Result<Cities, Error>) -> Void) {
+        var cities = [TestResources.testCityRoute]
+        cities.append(city)
+        createNewCityGotCalled = true
+        completion(.success(city))
     }
 
     func updateCity(city: Cities, completion: @escaping (Result<Bool, Error>) -> Void) {
+        var cities = [TestResources.testCityRoute]
+        guard let index = cities.firstIndex(where: { $0.id == city.id }) else {
+            completion(.success(false))
+            return
+        }
+        cities.remove(at: index)
+        cities.insert(city, at: index)
+        updateCityGotCalled = true
+        completion(.success(true))
     }
 
     func deleteCity(cityId: String, completion: @escaping (Result<Bool, Error>) -> Void) {
+        var cities = [TestResources.testCityRoute]
+        cities = cities.filter({ $0.id != cityId })
+        deleteCityGotCalled = true
+        completion(.success(true))
     }
 }
 

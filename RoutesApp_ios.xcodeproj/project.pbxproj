@@ -325,6 +325,7 @@
 		C2F60D4329116B3300661403 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F60D4229116B3300661403 /* UIColorExtension.swift */; };
 		C2F60D4429116B3300661403 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F60D4229116B3300661403 /* UIColorExtension.swift */; };
 		CE0F8D3528AD357F00F2C753 /* silver-style.json in Resources */ = {isa = PBXBuildFile; fileRef = CE0F8D3428AD357F00F2C753 /* silver-style.json */; };
+		CE159BE12914302400FB4467 /* CityEditModeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE159BE02914302400FB4467 /* CityEditModeTests.swift */; };
 		CE19B2FB28DCEDD400840426 /* RouteListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE19B2FA28DCEDD400840426 /* RouteListTests.swift */; };
 		CE19B2FD28DCF2F500840426 /* LineRouteFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE19B2FC28DCF2F500840426 /* LineRouteFirebaseManager.swift */; };
 		CE1D1DD828DD4C0600F61040 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D1DD728DD4C0600F61040 /* ImageHelper.swift */; };
@@ -565,6 +566,7 @@
 		C2F60D3F29116ABE00661403 /* Env.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Env.swift; sourceTree = "<group>"; };
 		C2F60D4229116B3300661403 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		CE0F8D3428AD357F00F2C753 /* silver-style.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "silver-style.json"; sourceTree = "<group>"; };
+		CE159BE02914302400FB4467 /* CityEditModeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityEditModeTests.swift; sourceTree = "<group>"; };
 		CE19B2FA28DCEDD400840426 /* RouteListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteListTests.swift; sourceTree = "<group>"; };
 		CE19B2FC28DCF2F500840426 /* LineRouteFirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineRouteFirebaseManager.swift; sourceTree = "<group>"; };
 		CE1D1DD728DD4C0600F61040 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
@@ -1536,6 +1538,7 @@
 		CE159BDF291429E300FB4467 /* Cities */ = {
 			isa = PBXGroup;
 			children = (
+				CE159BE02914302400FB4467 /* CityEditModeTests.swift */,
 			);
 			path = Cities;
 			sourceTree = "<group>";
@@ -2350,6 +2353,7 @@
 			files = (
 				844F9A3A28CBEA7D004A95A0 /* SearchLocationTest.swift in Sources */,
 				C2E976F32898701D009F4B94 /* RoutesApp_iosTests.swift in Sources */,
+				CE159BE12914302400FB4467 /* CityEditModeTests.swift in Sources */,
 				CE3BB7B528DE4665004BFA07 /* PossibleRoutesTests.swift in Sources */,
 				CEBC10802911C5FE00E8BF83 /* RouteMapEditorTests.swift in Sources */,
 				CE19B2FB28DCEDD400840426 /* RouteListTests.swift in Sources */,
