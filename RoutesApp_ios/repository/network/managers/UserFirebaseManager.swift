@@ -6,11 +6,13 @@
 //
 
 import Foundation
+import FirebaseFirestore
 typealias UserManResult = User
 
 protocol UserManProtocol {
     func registerUser(name: String, email: String, uid: String, typeLogin: UserTypeLogin, completion: @escaping ((Result<User, Error>) -> Void))
-    func getUsers(completion: @escaping(Result<[UserFirebase], Error>) -> Void)
+    func getUsers(completion: @escaping(Result<[User], Error>) -> Void)
+    func toogleUserRole(user: User, completion: @escaping(Result<Bool, Error>) -> Void)
 }
 
 enum UserType: Int {
@@ -29,16 +31,31 @@ class UserFirebaseManager: UserManProtocol {
     static let shared = UserFirebaseManager()
     func registerUser(name: String, email: String, uid: String, typeLogin: UserTypeLogin, completion: @escaping ((Result<User, Error>) -> Void)) {
         let newUser = User(id: uid,
-                           name: name,
-                           email: email,
-                           phoneNumber: "",
-                           type: 0,
-                           typeLogin: typeLogin.rawValue,
-                           updatedAt: Date(),
-                           createdAt: Date())
+                                   name: name,
+                                   email: email,
+                                   phoneNumber: "",
+                                   type: 0,
+                                   typeLogin: typeLogin.rawValue,
+                                   updateAt: Timestamp(),
+                                   createAt: Timestamp())
         self.firebaseManager.addDocument(document: newUser, collection: .Users, completion: completion)
     }
-    func getUsers(completion: @escaping(Result<[UserFirebase], Error>) -> Void) {
-        self.firebaseManager.getDocuments(type: UserFirebase.self, forCollection: .Users, completion: completion)
+
+    func getUsers(completion: @escaping(Result<[User], Error>) -> Void) {
+        self.firebaseManager.getDocuments(type: User.self, forCollection: .Users, completion: completion)
+    }
+
+    func toogleUserRole(user: User, completion: @escaping(Result<Bool, Error>) -> Void) {
+        var finalUserInfo = user
+        finalUserInfo.type = abs(user.type - 1)
+        finalUserInfo.updateAt = Timestamp()
+        firebaseManager.updateDocument(document: finalUserInfo, forCollection: .Users) { result in
+            switch result {
+            case .success:
+                completion(.success(true))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
     }
 }

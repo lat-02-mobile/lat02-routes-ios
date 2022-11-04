@@ -33,11 +33,6 @@ class SettingsViewController: UIViewController {
         show(vc, sender: nil)
     }
 
-    @IBAction func goToLineEditMode(_ sender: Any) {
-        let vc = LinesViewController(nibName: "RouteListViewController", bundle: nil)
-        show(vc, sender: nil)
-    }
-
     func setUpCityName() {
         guard let citySelected = ConstantVariables.defaults.string(forKey: ConstantVariables.defCitySelected) else { return }
         ubicationLabel.textColor = UIColor(named: ConstantVariables.primaryColor)

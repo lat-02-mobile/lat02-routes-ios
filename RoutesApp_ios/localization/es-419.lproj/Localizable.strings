@@ -129,5 +129,22 @@
 "admin-line-routes-go-map-editor" = "Ir al editor de Mapa";
 "admin-line-routes-delete" = "Eliminar Ruta";
 "admin-line-routes-are-you-sure-delete" = "¿Esta seguro/a que desea eliminar esta Ruta?";
+
+// Users
+"admin-user-promote-title" = "Hacer Administrador";
+"admin-user-promote-message" = "¿Esta seguro/a que desea convertir este usuario en administrador?";
+"admin-user-revoke-title" = "Remover Administrador";
+"admin-user-revoke-message" = "¿Esta seguro/a que desea remover los permisos de administrador a este usuario?";
+"admin-user-search" = "Buscar un usuario";
 // SettingPopup
 "show-tourpoints" = "Mostrar sitios";
+
+// Country List
+"country-list-title" = "Paises";
+"admin-city-delete" = "Eliminar Ciudad";
+"admin-city-delete-message" = "¿Esta seguro/a que desea eliminar esta Ciudad?";
+"admin-city-created-success" = "Nueva ciudad creada";
+"admin-city-edited-success" = "Ciudad editada correctamente";
+"admin-city-created-error" = "Error";
+"admin-city-save-button" = "Crear Ciudad";
+"admin-city-edit-button" = "Editar Ciudad";

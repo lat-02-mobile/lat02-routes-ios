@@ -31,12 +31,12 @@ class GoogleMapsHelper {
         polyline.map = map
     }
 
-    func fitAllMarkers(map: GMSMapView, list: [Coordinate]) {
+    func fitAllMarkers(map: GMSMapView, list: [Coordinate], padding: Double = ConstantVariables.polylinePadding) {
         var bounds = GMSCoordinateBounds()
         for coor in list {
             bounds = bounds.includingCoordinate(coor.toCLLocationCoordinate2D())
         }
-        map.animate(with: GMSCameraUpdate.fit(bounds, withPadding: CGFloat(ConstantVariables.polylinePadding)))
+        map.animate(with: GMSCameraUpdate.fit(bounds, withPadding: CGFloat(padding)))
     }
 
     @discardableResult

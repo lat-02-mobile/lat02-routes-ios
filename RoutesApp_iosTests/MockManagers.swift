@@ -12,9 +12,13 @@ import FirebaseAuth
 
 // City Manager
 class MockCityManager: CityManagerProtocol {
+
     var getCitiesByNameGotCalled = false
     var getCitiesGotCalled = false
     var getCityByIdGotCalled = false
+    var createNewCityGotCalled = false
+    var updateCityGotCalled = false
+    var deleteCityGotCalled = false
 
     func getCityById(id: String, completion: @escaping (Result<Cities, Error>) -> Void) {
         guard let foundCity = TestResources.CitiesArray.filter({$0.id == id}).first else {return}
@@ -31,6 +35,7 @@ class MockCityManager: CityManagerProtocol {
             getCitiesByNameGotCalled = false
         }
     }
+
     func getCountryById(id: String, completion: @escaping (Result<Country, Error>) -> Void) {
         if !id.isEmpty {
             completion(.success(TestResources.testCountry))
@@ -38,9 +43,41 @@ class MockCityManager: CityManagerProtocol {
             completion(.failure(NSError(domain: "Error", code: 0)))
         }
     }
+
     func getCities(completion: @escaping (Result<[Cities], Error>) -> Void) {
         completion(.success([TestResources.testCityRoute]))
         getCitiesGotCalled = true
+    }
+
+    func getCityByCountryId(id: String, completion: @escaping (Result<[Cities], Error>) -> Void) {
+        let cities = [TestResources.testCityRoute]
+        completion(.success(cities.filter({ $0.idCountry == id })))
+    }
+
+    func createCity(city: Cities, completion: @escaping (Result<Cities, Error>) -> Void) {
+        var cities = [TestResources.testCityRoute]
+        cities.append(city)
+        createNewCityGotCalled = true
+        completion(.success(city))
+    }
+
+    func updateCity(city: Cities, completion: @escaping (Result<Bool, Error>) -> Void) {
+        var cities = [TestResources.testCityRoute]
+        guard let index = cities.firstIndex(where: { $0.id == city.id }) else {
+            completion(.success(false))
+            return
+        }
+        cities.remove(at: index)
+        cities.insert(city, at: index)
+        updateCityGotCalled = true
+        completion(.success(true))
+    }
+
+    func deleteCity(cityId: String, completion: @escaping (Result<Bool, Error>) -> Void) {
+        var cities = [TestResources.testCityRoute]
+        cities = cities.filter({ $0.id != cityId })
+        deleteCityGotCalled = true
+        completion(.success(true))
     }
 }
 
@@ -116,17 +153,18 @@ class MockAuthManager: AuthProtocol {
 class MockUserManager: UserManProtocol {
     var registerUserGotCalled = false
     var getUsersGotCalled = false
+    var toogleUserRoleGotCalled  = false
     func getUsers(completion: @escaping (Result<[UserManResult], Error>) -> Void) {
         getUsersGotCalled = true
-        completion(.success([TestResources.testUser]))
+        completion(.success(TestResources.testUserList))
     }
-    func registerUser(name: String, email: String, uid: String, typeLogin: UserTypeLogin, completion: @escaping ((Result<UserManResult, Error>) -> Void)) {
+    func registerUser(name: String, email: String, uid: String, typeLogin: UserTypeLogin, completion: @escaping ((Result<RoutesApp_ios.User, Error>) -> Void)) {
         registerUserGotCalled = true
         completion(.success(TestResources.testUser))
     }
-    func getUsers(completion: @escaping (Result<[UserFirebase], Error>) -> Void) {
-           getUsersGotCalled = true
-           completion(.success([TestResources.testUserFirebase]))
+    func toogleUserRole(user: RoutesApp_ios.User, completion: @escaping (Result<Bool, Error>) -> Void) {
+        toogleUserRoleGotCalled = true
+        completion(.success(true))
     }
 }
 
