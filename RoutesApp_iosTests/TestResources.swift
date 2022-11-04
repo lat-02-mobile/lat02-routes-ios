@@ -17,18 +17,23 @@ class TestResources {
     static let testUserEmail = "john@doe.com"
     static let testUserPassword = "test1234"
     static let testAuthResponse = ["message": "success"]
-    static let testUser = User(id: "test", name: "test", email: "test@email.com", phoneNumber: "test", type: 0, typeLogin: 0, updatedAt: Date(), createdAt: Date())
-    static let testUserFirebase1 = UserFirebase(id: "test1", name: "test1", email: "email111@email.com", phoneNumber: "test",
-                                                type: UserType.NORMAL.rawValue, typeLogin: UserTypeLogin.NORMAL.rawValue,
-                                                updateAt: Timestamp(), createAt: Timestamp())
-    static let testUserFirebase2 = UserFirebase(id: "test2", name: "test2", email: "email222@email.com", phoneNumber: "test",
-                                                type: UserType.ADMIN.rawValue, typeLogin: UserTypeLogin.NORMAL.rawValue,
-                                                updateAt: Timestamp(), createAt: Timestamp())
-    static let testUserFirebase3 = UserFirebase(id: "test3", name: "test3", email: "email333@email.com", phoneNumber: "test",
-                                                type: UserType.NORMAL.rawValue, typeLogin: UserTypeLogin.NORMAL.rawValue,
-                                                updateAt: Timestamp(), createAt: Timestamp())
+    static let testUser = User(id: "test", name: "test", email: "test@email.com",
+                               phoneNumber: "test", type: 0, typeLogin: 0,
+                               updateAt: Timestamp(), createAt: Timestamp())
+    static let testUser1 = User(id: "test1", name: "test1", email: "email111@email.com",
+                                phoneNumber: "test", type: UserType.NORMAL.rawValue,
+                                typeLogin: UserTypeLogin.NORMAL.rawValue,
+                                updateAt: Timestamp(), createAt: Timestamp())
+    static let testUser2 = User(id: "test2", name: "test2", email: "email222@email.com",
+                                phoneNumber: "test", type: UserType.ADMIN.rawValue,
+                                typeLogin: UserTypeLogin.NORMAL.rawValue,
+                                updateAt: Timestamp(), createAt: Timestamp())
+    static let testUser3 = User(id: "test3", name: "test3", email: "email333@email.com",
+                                phoneNumber: "test", type: UserType.NORMAL.rawValue,
+                                typeLogin: UserTypeLogin.NORMAL.rawValue,
+                                updateAt: Timestamp(), createAt: Timestamp())
 
-    static let testUserFirebaseList = [testUserFirebase1, testUserFirebase2, testUserFirebase3]
+    static let testUserList = [testUser1, testUser2, testUser3]
 
     static let testPhoneNumber = "+523353658071"
     static let testCode = "0626"
@@ -120,11 +125,28 @@ class TestResources {
 
     static let tourpoints = [
         Tourpoint(address: "Address 1", categoryId: "123456", destination: GeoPoint(latitude: 0, longitude: 0), idCity: nil,
-                  name: "Line Name", tourPointsCategoryRef: nil, urlImage: "URL image", updateAt: timestamp, createAt: timestamp, id: "dedeqdfefr")
+                  name: "1Line Name",
+                  tourPointsCategoryRef: FirebaseFirestoreManager.shared.getDocReference(forCollection: .Lines, documentID: "123456"),
+                  urlImage: "URL image", updateAt: timestamp, createAt: timestamp, id: "dedeqdfefr1"),
+        Tourpoint(address: "Address 1", categoryId: "123456", destination: GeoPoint(latitude: 0, longitude: 0), idCity: nil,
+                  name: "2Line Name",
+                  tourPointsCategoryRef: FirebaseFirestoreManager.shared.getDocReference(forCollection: .Lines, documentID: "123456"),
+                  urlImage: "URL image", updateAt: timestamp, createAt: timestamp, id: "dedeqdfefr2"),
+        Tourpoint(address: "Address 1", categoryId: "111111", destination: GeoPoint(latitude: 0, longitude: 0), idCity: nil,
+                  name: "3Line Name",
+                  tourPointsCategoryRef: FirebaseFirestoreManager.shared.getDocReference(forCollection: .Lines, documentID: "111111"),
+                  urlImage: "URL image", updateAt: timestamp, createAt: timestamp, id: "dedeqdfefr3")
     ]
 
     static let tourpointCategories = [
-        TourpointCategory(id: "123456", descriptionEng: "ENG", descriptionEsp: "ESP", icon: "new Icon url", updateAt: timestamp, createAt: timestamp)
+        TourpointCategory(id: "123456", descriptionEng: "ENG1", descriptionEsp: "ESP1",
+                          icon: "new Icon url", updateAt: timestamp, createAt: timestamp),
+        TourpointCategory(id: "111111", descriptionEng: "ENG2", descriptionEsp: "ESP2",
+                          icon: "new Icon url", updateAt: timestamp, createAt: timestamp),
+        TourpointCategory(id: "222222", descriptionEng: "ENG3", descriptionEsp: "ESP3",
+                          icon: "new Icon url", updateAt: timestamp, createAt: timestamp),
+        TourpointCategory(id: "333333", descriptionEng: "ENG4", descriptionEsp: "ESP4",
+                          icon: "new Icon url", updateAt: timestamp, createAt: timestamp)
     ]
 
     static let RoutePoints = [GeoPoint(latitude: 1, longitude: 1), GeoPoint(latitude: 2, longitude: 2)]

@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import Firebase
+import FirebaseFirestore
 
 struct User: Codable, Equatable, BaseModel {
     var id: String
@@ -15,8 +15,8 @@ struct User: Codable, Equatable, BaseModel {
     var phoneNumber: String
     var type: Int
     var typeLogin: Int
-    var updatedAt: Date
-    var createdAt: Date
+    var updateAt: Timestamp
+    var createAt: Timestamp
 }
 
 struct UserFirebase: Codable, Equatable, BaseModel {

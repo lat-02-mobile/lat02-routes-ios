@@ -14,7 +14,7 @@ class UserListViewController: UIViewController {
     @IBOutlet weak var usersSearchBar: UISearchBar!
     @IBOutlet weak var actionUserButton: FabButton!
 
-    var targetUser: UserFirebase?
+    var targetUser: User?
 
     let viewmodel = UserListViewModel()
     override func viewDidLoad() {

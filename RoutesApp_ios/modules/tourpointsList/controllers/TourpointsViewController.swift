@@ -31,6 +31,7 @@ class TourpointsViewController: UIViewController {
         tourpointTableView.dataSource = self
         let uiNib = UINib(nibName: TourpointTableViewCell.nibName, bundle: nil)
         tourpointTableView.register(uiNib, forCellReuseIdentifier: TourpointTableViewCell.identifier)
+        tourpointSearchbar.delegate = self
         tourpointSearchbar.backgroundImage = UIImage()
         tourpointSearchbar.searchTextField.backgroundColor = .white
         tourpointSearchbar.placeholder = String.localizeString(localizedString: StringResources.search)
@@ -38,25 +39,32 @@ class TourpointsViewController: UIViewController {
 
     private func setIcon() {
         let filterIcon = UIImage(named: ConstantVariables.filterIcon)?.withRenderingMode(.alwaysOriginal)
-        let filterButton = UIBarButtonItem(image: filterIcon, style: .plain, target: self, action: nil)
+        let filterButton = UIBarButtonItem(image: filterIcon, style: .plain, target: self, action: #selector(showFilterPopUp))
         navigationItem.rightBarButtonItem = filterButton
+    }
+
+    @objc func showFilterPopUp() {
+        let viewControllerToPresent = TourPointFilterViewController(viewModel: viewmodel)
+        if let sheet = viewControllerToPresent.sheetPresentationController {
+            sheet.detents = [.medium(), .large()]
+            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+            sheet.prefersEdgeAttachedInCompactHeight = true
+            sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
+        }
+        present(viewControllerToPresent, animated: true)
     }
 
     private func initViewModel() {
         SVProgressHUD.show()
         viewmodel.onFinish = {
             SVProgressHUD.dismiss()
+            self.tourpointTableView.reloadData()
         }
         viewmodel.onError = { _ in
             SVProgressHUD.dismiss()
         }
         viewmodel.getTourpoints()
     }
-
-    private func dismissSVprogress() {
-        SVProgressHUD.dismiss()
-    }
-
 }
 
 // MARK: Table view extension
@@ -77,5 +85,17 @@ extension TourpointsViewController: UITableViewDelegate, UITableViewDataSource {
         let point = viewmodel.getPointAt(index: indexPath.row)
         let vc = TourpointDetailViewController(tourpoint: point)
         present(vc, animated: true)
+    }
+}
+
+// MARK: Search Bar extension
+extension TourpointsViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard let text = searchBar.text else { return }
+        viewmodel.applyFilters(query: text, selectedCat: viewmodel.categoryAux)
+    }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        viewmodel.applyFilters(query: "", selectedCat: viewmodel.categoryAux)
     }
 }

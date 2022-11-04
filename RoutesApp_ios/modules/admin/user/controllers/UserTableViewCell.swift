@@ -22,7 +22,7 @@ class UserTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
 
-    func setData(user: UserFirebase) {
+    func setData(user: User) {
         nameLabel.text = user.name
         emailLabel.text = user.email
         typeUserLabel.text = user.type == UserType.ADMIN.rawValue ? StringResources.admin : StringResources.normal

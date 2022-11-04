@@ -156,17 +156,13 @@ class MockUserManager: UserManProtocol {
     var toogleUserRoleGotCalled  = false
     func getUsers(completion: @escaping (Result<[UserManResult], Error>) -> Void) {
         getUsersGotCalled = true
-        completion(.success([TestResources.testUser]))
+        completion(.success(TestResources.testUserList))
     }
-    func registerUser(name: String, email: String, uid: String, typeLogin: UserTypeLogin, completion: @escaping ((Result<UserFirebase, Error>) -> Void)) {
+    func registerUser(name: String, email: String, uid: String, typeLogin: UserTypeLogin, completion: @escaping ((Result<RoutesApp_ios.User, Error>) -> Void)) {
         registerUserGotCalled = true
-        completion(.success(TestResources.testUserFirebase1))
+        completion(.success(TestResources.testUser))
     }
-    func getUsers(completion: @escaping (Result<[UserFirebase], Error>) -> Void) {
-           getUsersGotCalled = true
-        completion(.success(TestResources.testUserFirebaseList))
-    }
-    func toogleUserRole(user: UserFirebase, completion: @escaping (Result<Bool, Error>) -> Void) {
+    func toogleUserRole(user: RoutesApp_ios.User, completion: @escaping (Result<Bool, Error>) -> Void) {
         toogleUserRoleGotCalled = true
         completion(.success(true))
     }

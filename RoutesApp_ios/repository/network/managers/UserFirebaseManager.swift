@@ -10,9 +10,9 @@ import FirebaseFirestore
 typealias UserManResult = User
 
 protocol UserManProtocol {
-    func registerUser(name: String, email: String, uid: String, typeLogin: UserTypeLogin, completion: @escaping ((Result<UserFirebase, Error>) -> Void))
-    func getUsers(completion: @escaping(Result<[UserFirebase], Error>) -> Void)
-    func toogleUserRole(user: UserFirebase, completion: @escaping(Result<Bool, Error>) -> Void)
+    func registerUser(name: String, email: String, uid: String, typeLogin: UserTypeLogin, completion: @escaping ((Result<User, Error>) -> Void))
+    func getUsers(completion: @escaping(Result<[User], Error>) -> Void)
+    func toogleUserRole(user: User, completion: @escaping(Result<Bool, Error>) -> Void)
 }
 
 enum UserType: Int {
@@ -29,8 +29,8 @@ enum UserTypeLogin: Int {
 class UserFirebaseManager: UserManProtocol {
     let firebaseManager = FirebaseFirestoreManager.shared
     static let shared = UserFirebaseManager()
-    func registerUser(name: String, email: String, uid: String, typeLogin: UserTypeLogin, completion: @escaping ((Result<UserFirebase, Error>) -> Void)) {
-        let newUser = UserFirebase(id: uid,
+    func registerUser(name: String, email: String, uid: String, typeLogin: UserTypeLogin, completion: @escaping ((Result<User, Error>) -> Void)) {
+        let newUser = User(id: uid,
                                    name: name,
                                    email: email,
                                    phoneNumber: "",
@@ -41,11 +41,11 @@ class UserFirebaseManager: UserManProtocol {
         self.firebaseManager.addDocument(document: newUser, collection: .Users, completion: completion)
     }
 
-    func getUsers(completion: @escaping(Result<[UserFirebase], Error>) -> Void) {
-        self.firebaseManager.getDocuments(type: UserFirebase.self, forCollection: .Users, completion: completion)
+    func getUsers(completion: @escaping(Result<[User], Error>) -> Void) {
+        self.firebaseManager.getDocuments(type: User.self, forCollection: .Users, completion: completion)
     }
 
-    func toogleUserRole(user: UserFirebase, completion: @escaping(Result<Bool, Error>) -> Void) {
+    func toogleUserRole(user: User, completion: @escaping(Result<Bool, Error>) -> Void) {
         var finalUserInfo = user
         finalUserInfo.type = abs(user.type - 1)
         finalUserInfo.updateAt = Timestamp()

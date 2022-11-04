@@ -256,6 +256,8 @@
 		C25C92402911C02E000D45AE /* LineEditModeViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = C25C923B2911C02E000D45AE /* LineEditModeViewController.strings */; };
 		C25C92412911C02E000D45AE /* LineEditModeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C25C923E2911C02E000D45AE /* LineEditModeViewController.xib */; };
 		C25C92432911C212000D45AE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C25C92422911C212000D45AE /* GoogleService-Info.plist */; };
+		C25D579F291478A7000B1F1B /* TourPointFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25D579D291478A7000B1F1B /* TourPointFilterViewController.swift */; };
+		C25D57A0291478A7000B1F1B /* TourPointFilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C25D579E291478A7000B1F1B /* TourPointFilterViewController.xib */; };
 		C26E95C92912CFE900DC550D /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26E95C72912CFE900DC550D /* UserListViewController.swift */; };
 		C26E95CA2912CFE900DC550D /* UserListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C26E95C82912CFE900DC550D /* UserListViewController.xib */; };
 		C26E95CC2912D00100DC550D /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26E95CB2912D00100DC550D /* UserListViewModel.swift */; };
@@ -507,6 +509,8 @@
 		C25C923D2911C02E000D45AE /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/LineEditModeViewController.strings"; sourceTree = "<group>"; };
 		C25C923F2911C02E000D45AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LineEditModeViewController.xib; sourceTree = "<group>"; };
 		C25C92422911C212000D45AE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C25D579D291478A7000B1F1B /* TourPointFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourPointFilterViewController.swift; sourceTree = "<group>"; };
+		C25D579E291478A7000B1F1B /* TourPointFilterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TourPointFilterViewController.xib; sourceTree = "<group>"; };
 		C26E95C72912CFE900DC550D /* UserListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
 		C26E95C82912CFE900DC550D /* UserListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserListViewController.xib; sourceTree = "<group>"; };
 		C26E95CB2912D00100DC550D /* UserListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
@@ -531,6 +535,8 @@
 		C2921174290967B0004AD7E6 /* ConfirmAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmAlert.swift; sourceTree = "<group>"; };
 		C2921176290967CE004AD7E6 /* ErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlert.swift; sourceTree = "<group>"; };
 		C2B42E2328E5D10600B44FC0 /* LineFirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineFirebaseManager.swift; sourceTree = "<group>"; };
+		C2B47495291566E5002744F8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/AdminViewController.strings; sourceTree = "<group>"; };
+		C2B47497291566E8002744F8 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/AdminViewController.strings"; sourceTree = "<group>"; };
 		C2B635C928EB29FA003200EF /* StringResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringResources.swift; sourceTree = "<group>"; };
 		C2BB144A28A14E330083CA1E /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		C2BB145328A150A70083CA1E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SignupViewController.xib; sourceTree = "<group>"; };
@@ -546,8 +552,6 @@
 		C2CC5763290ACFAB00154AAF /* LineEditModeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineEditModeViewModel.swift; sourceTree = "<group>"; };
 		C2CC576B290ACFAB00154AAF /* LinesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinesViewController.swift; sourceTree = "<group>"; };
 		C2CE146C2914075C00D7C373 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AdminViewController.xib; sourceTree = "<group>"; };
-		C2CE146F2914075E00D7C373 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/AdminViewController.strings; sourceTree = "<group>"; };
-		C2CE14712914075F00D7C373 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/AdminViewController.strings"; sourceTree = "<group>"; };
 		C2E976D52898701C009F4B94 /* RoutesApp_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoutesApp_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2E976D82898701C009F4B94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2E976DA2898701C009F4B94 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -805,6 +809,8 @@
 				844F9A4328E3488C004A95A0 /* TourpointsViewController.xib */,
 				842F85B12900433B00243943 /* TourpointDetailViewController.swift */,
 				842F85B22900433B00243943 /* TourpointDetailViewController.xib */,
+				C25D579D291478A7000B1F1B /* TourPointFilterViewController.swift */,
+				C25D579E291478A7000B1F1B /* TourPointFilterViewController.xib */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -1177,7 +1183,6 @@
 			isa = PBXGroup;
 			children = (
 				CE159BDF291429E300FB4467 /* Cities */,
-				C2F60D3329116A8D00661403 /* LineRoutes */,
 				C2F60D3629116A8D00661403 /* MockManagersAdmin.swift */,
 				C219327F2913FE4A00D32AC0 /* Users */,
 				C2F60D3329116A8D00661403 /* LineRoutes */,
@@ -1925,6 +1930,7 @@
 				844F9A3228C84E63004A95A0 /* PlaceTableViewCell.xib in Resources */,
 				C25C92412911C02E000D45AE /* LineEditModeViewController.xib in Resources */,
 				C27EB66728D3689200A1E742 /* LinePathTableViewCell.xib in Resources */,
+				C25D57A0291478A7000B1F1B /* TourPointFilterViewController.xib in Resources */,
 				C25C92402911C02E000D45AE /* LineEditModeViewController.strings in Resources */,
 				CEBBAF6A2913F6A200D50971 /* CityEditModeViewController.xib in Resources */,
 				C278973228E3B48100FF2796 /* RouteListTableViewCell.xib in Resources */,
@@ -2403,6 +2409,7 @@
 				C2E9772728987F48009F4B94 /* LoginViewModel.swift in Sources */,
 				8441BA212900F2A600730F21 /* SyncData.swift in Sources */,
 				84067C6A28B3D58500549300 /* CityFirebaseManager.swift in Sources */,
+				C25D579F291478A7000B1F1B /* TourPointFilterViewController.swift in Sources */,
 				84F6E6AD28FF545A009D5635 /* LineRouteEntity+CoreDataProperties.swift in Sources */,
 				844F9A4928E3D560004A95A0 /* TourpointTableViewCell.swift in Sources */,
 				CE7FBAED28D8BFEC001175D3 /* ColorHelper.swift in Sources */,
@@ -2551,8 +2558,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				C2CE146C2914075C00D7C373 /* Base */,
-				C2CE146F2914075E00D7C373 /* en */,
-				C2CE14712914075F00D7C373 /* es-419 */,
+				C2B47495291566E5002744F8 /* en */,
+				C2B47497291566E8002744F8 /* es-419 */,
 			);
 			name = AdminViewController.xib;
 			sourceTree = "<group>";

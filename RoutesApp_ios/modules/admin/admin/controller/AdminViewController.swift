@@ -21,4 +21,9 @@ class AdminViewController: UIViewController {
         let vc = LinesViewController(nibName: "RouteListViewController", bundle: nil)
         show(vc, sender: nil)
     }
+
+    @IBAction func goToCountriesPanel(_ sender: Any) {
+        let vc = CountryListViewController()
+        show(vc, sender: true)
+    }
 }
