@@ -85,7 +85,7 @@ class ConstantVariables {
     static let favDestPlaceholder = "write-name"
 
     // Google Maps helper
-    static let polylinePadding = 80
+    static let polylinePadding = 80.0
     static let originMarkerName = "origin_point"
     static let destinationMarkerName = "destination_point"
     static let stopMarkerName = "route-stop"

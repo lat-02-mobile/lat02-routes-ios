@@ -9,8 +9,8 @@ import Foundation
 
 class UserListViewModel: ViewModel {
     var userManager: UserManProtocol = UserFirebaseManager()
-    var userList = [UserFirebase]()
-    var originalUserList = [UserFirebase]()
+    var userList = [User]()
+    var originalUserList = [User]()
 
     func getUsers() {
         userManager.getUsers { result in
@@ -25,7 +25,7 @@ class UserListViewModel: ViewModel {
         }
     }
 
-    func toggleUserRole(for targetUser: UserFirebase) {
+    func toggleUserRole(for targetUser: User) {
         userManager.toogleUserRole(user: targetUser) { result in
             switch result {
             case .success:

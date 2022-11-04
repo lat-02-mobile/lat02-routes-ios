@@ -13,6 +13,7 @@ protocol LineRouteManagerProtocol {
     func getLineRouteByDateGreaterThanOrEqualTo(idLine: String, date: Date, completion: @escaping(Result<[LineRouteInfo], Error>) -> Void)
     func getLineRoutesByLine(idLine: String, completion: @escaping(Result<[LineRouteInfo], Error>) -> Void)
     func getLineRoutesByLineAsync(idLine: String) async throws -> [LineRouteInfo]
+    func updateLineRoute(lineRouteInfo: LineRouteInfo, completion: @escaping(Result<LineRouteInfo, Error>) -> Void)
     func createNewLineRoute(idLine: String, lineRouteName: String, avgVel: String, color: String, start: GeoPoint,
                             end: GeoPoint, routePoints: [GeoPoint], stops: [GeoPoint], completion: @escaping(Result<LineRouteInfo, Error>) -> Void)
     func updateLineRoute(lineRoute: LineRouteInfo, newLineRouteName: String, newAvgVel: String, newColor: String,
@@ -67,6 +68,17 @@ class LineRouteFirebaseManager: LineRouteManagerProtocol {
             return lineRoutes
         } catch let error {
             throw error
+        }
+    }
+
+    func updateLineRoute(lineRouteInfo: LineRouteInfo, completion: @escaping(Result<LineRouteInfo, Error>) -> Void) {
+        firebaseManager.updateDocument(document: lineRouteInfo, collection: .LineRoute) { result in
+            switch result {
+            case .success(let lineRouteInfo):
+                completion(.success(lineRouteInfo))
+            case .failure(let error):
+            completion(.failure(error))
+            }
         }
     }
 

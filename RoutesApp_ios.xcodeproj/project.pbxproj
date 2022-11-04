@@ -336,10 +336,26 @@
 		C2F60D4329116B3300661403 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F60D4229116B3300661403 /* UIColorExtension.swift */; };
 		C2F60D4429116B3300661403 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F60D4229116B3300661403 /* UIColorExtension.swift */; };
 		CE0F8D3528AD357F00F2C753 /* silver-style.json in Resources */ = {isa = PBXBuildFile; fileRef = CE0F8D3428AD357F00F2C753 /* silver-style.json */; };
+		CE159BE12914302400FB4467 /* CityEditModeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE159BE02914302400FB4467 /* CityEditModeTests.swift */; };
 		CE19B2FB28DCEDD400840426 /* RouteListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE19B2FA28DCEDD400840426 /* RouteListTests.swift */; };
 		CE19B2FD28DCF2F500840426 /* LineRouteFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE19B2FC28DCF2F500840426 /* LineRouteFirebaseManager.swift */; };
 		CE1D1DD828DD4C0600F61040 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1D1DD728DD4C0600F61040 /* ImageHelper.swift */; };
 		CE3BB7B528DE4665004BFA07 /* PossibleRoutesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3BB7B428DE4665004BFA07 /* PossibleRoutesTests.swift */; };
+		CE5A60B629135BE50001D668 /* RoutesMapEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F60D1A29116A3200661403 /* RoutesMapEditorViewController.swift */; };
+		CE5A60B729135BE90001D668 /* RoutesMapEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F60D1829116A3200661403 /* RoutesMapEditorViewModel.swift */; };
+		CE5A60C3291366630001D668 /* CountryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5A60C1291366630001D668 /* CountryListViewController.swift */; };
+		CE5A60C4291366630001D668 /* CountryListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE5A60C2291366630001D668 /* CountryListViewController.xib */; };
+		CE5A60C5291368120001D668 /* CountryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5A60C1291366630001D668 /* CountryListViewController.swift */; };
+		CE5A60C6291368140001D668 /* CountryListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE5A60C2291366630001D668 /* CountryListViewController.xib */; };
+		CE5A60C82913780C0001D668 /* CountryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5A60C72913780C0001D668 /* CountryViewModel.swift */; };
+		CE5A60C9291378EB0001D668 /* CountryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5A60C72913780C0001D668 /* CountryViewModel.swift */; };
+		CE5A60CB2913793E0001D668 /* CountryFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5A60CA2913793E0001D668 /* CountryFirebaseManager.swift */; };
+		CE5A60CF291382010001D668 /* CityListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5A60CD291382010001D668 /* CityListViewController.swift */; };
+		CE5A60D0291382010001D668 /* CityListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE5A60CE291382010001D668 /* CityListViewController.xib */; };
+		CE5A60D1291383CA0001D668 /* CityListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5A60CD291382010001D668 /* CityListViewController.swift */; };
+		CE5A60D2291383CD0001D668 /* CityListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE5A60CE291382010001D668 /* CityListViewController.xib */; };
+		CE5A60D5291385EE0001D668 /* CityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5A60D4291385EE0001D668 /* CityViewModel.swift */; };
+		CE5A60D6291385FE0001D668 /* CityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5A60D4291385EE0001D668 /* CityViewModel.swift */; };
 		CE65448B28BD148B003B599B /* Algorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65448A28BD148B003B599B /* Algorithm.swift */; };
 		CE65448D28BD174C003B599B /* LineRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65448C28BD174C003B599B /* LineRoute.swift */; };
 		CE7FBAD428D36B5E001175D3 /* PossibleRouteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7FBAD228D36B5E001175D3 /* PossibleRouteTableViewCell.swift */; };
@@ -354,6 +370,16 @@
 		CE7FBAEF28D937D9001175D3 /* PossibleRoutesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7FBAEE28D937D9001175D3 /* PossibleRoutesViewModel.swift */; };
 		CE8CE8F028BE493F003270D7 /* AlgorithmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8CE8EF28BE493F003270D7 /* AlgorithmTests.swift */; };
 		CE93A8A328BD3ECD00296532 /* CLLocationCoordinate2DExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE93A8A228BD3ECD00296532 /* CLLocationCoordinate2DExtension.swift */; };
+		CEBBAF692913F6A200D50971 /* CityEditModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBBAF672913F6A200D50971 /* CityEditModeViewController.swift */; };
+		CEBBAF6A2913F6A200D50971 /* CityEditModeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEBBAF682913F6A200D50971 /* CityEditModeViewController.xib */; };
+		CEBBAF6B2913F76700D50971 /* CityEditModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBBAF672913F6A200D50971 /* CityEditModeViewController.swift */; };
+		CEBBAF6C2913F76F00D50971 /* CityEditModeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEBBAF682913F6A200D50971 /* CityEditModeViewController.xib */; };
+		CEBC10802911C5FE00E8BF83 /* RouteMapEditorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC107F2911C5FE00E8BF83 /* RouteMapEditorTests.swift */; };
+		CEBC10812911C73A00E8BF83 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		CEBC10822911C73D00E8BF83 /* RoutesMapEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC6EFCF29082AAF0080F69B /* RoutesMapEditorViewController.swift */; };
+		CEBC10832911C74500E8BF83 /* RoutesMapEditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEC6EFD029082AAF0080F69B /* RoutesMapEditorViewController.xib */; };
+		CEBC10852911E4CE00E8BF83 /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC10842911E4CE00E8BF83 /* Env.swift */; };
+		CEBC10872911E6A800E8BF83 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CEBC10862911E6A700E8BF83 /* GoogleService-Info.plist */; };
 		DA79D30882EE9E471ED6B4D1 /* Pods_RoutesApp_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99A7926D8889E1D91C0D95AC /* Pods_RoutesApp_ios.framework */; };
 /* End PBXBuildFile section */
 
@@ -505,6 +531,8 @@
 		C2921174290967B0004AD7E6 /* ConfirmAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmAlert.swift; sourceTree = "<group>"; };
 		C2921176290967CE004AD7E6 /* ErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlert.swift; sourceTree = "<group>"; };
 		C2B42E2328E5D10600B44FC0 /* LineFirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineFirebaseManager.swift; sourceTree = "<group>"; };
+		C2B47495291566E5002744F8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/AdminViewController.strings; sourceTree = "<group>"; };
+		C2B47497291566E8002744F8 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/AdminViewController.strings"; sourceTree = "<group>"; };
 		C2B635C928EB29FA003200EF /* StringResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringResources.swift; sourceTree = "<group>"; };
 		C2BB144A28A14E330083CA1E /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		C2BB145328A150A70083CA1E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SignupViewController.xib; sourceTree = "<group>"; };
@@ -520,8 +548,6 @@
 		C2CC5763290ACFAB00154AAF /* LineEditModeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineEditModeViewModel.swift; sourceTree = "<group>"; };
 		C2CC576B290ACFAB00154AAF /* LinesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinesViewController.swift; sourceTree = "<group>"; };
 		C2CE146C2914075C00D7C373 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AdminViewController.xib; sourceTree = "<group>"; };
-		C2CE146F2914075E00D7C373 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/AdminViewController.strings; sourceTree = "<group>"; };
-		C2CE14712914075F00D7C373 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/AdminViewController.strings"; sourceTree = "<group>"; };
 		C2E976D52898701C009F4B94 /* RoutesApp_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoutesApp_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2E976D82898701C009F4B94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2E976DA2898701C009F4B94 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -559,10 +585,18 @@
 		C2F60D3F29116ABE00661403 /* Env.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Env.swift; sourceTree = "<group>"; };
 		C2F60D4229116B3300661403 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		CE0F8D3428AD357F00F2C753 /* silver-style.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "silver-style.json"; sourceTree = "<group>"; };
+		CE159BE02914302400FB4467 /* CityEditModeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityEditModeTests.swift; sourceTree = "<group>"; };
 		CE19B2FA28DCEDD400840426 /* RouteListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteListTests.swift; sourceTree = "<group>"; };
 		CE19B2FC28DCF2F500840426 /* LineRouteFirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineRouteFirebaseManager.swift; sourceTree = "<group>"; };
 		CE1D1DD728DD4C0600F61040 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
 		CE3BB7B428DE4665004BFA07 /* PossibleRoutesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PossibleRoutesTests.swift; sourceTree = "<group>"; };
+		CE5A60C1291366630001D668 /* CountryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListViewController.swift; sourceTree = "<group>"; };
+		CE5A60C2291366630001D668 /* CountryListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountryListViewController.xib; sourceTree = "<group>"; };
+		CE5A60C72913780C0001D668 /* CountryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryViewModel.swift; sourceTree = "<group>"; };
+		CE5A60CA2913793E0001D668 /* CountryFirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryFirebaseManager.swift; sourceTree = "<group>"; };
+		CE5A60CD291382010001D668 /* CityListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListViewController.swift; sourceTree = "<group>"; };
+		CE5A60CE291382010001D668 /* CityListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CityListViewController.xib; sourceTree = "<group>"; };
+		CE5A60D4291385EE0001D668 /* CityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityViewModel.swift; sourceTree = "<group>"; };
 		CE65448A28BD148B003B599B /* Algorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Algorithm.swift; sourceTree = "<group>"; };
 		CE65448C28BD174C003B599B /* LineRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LineRoute.swift; path = RoutesApp_ios/repository/models/remote/LineRoute.swift; sourceTree = SOURCE_ROOT; };
 		CE7FBAD228D36B5E001175D3 /* PossibleRouteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PossibleRouteTableViewCell.swift; sourceTree = "<group>"; };
@@ -577,6 +611,13 @@
 		CE7FBAEE28D937D9001175D3 /* PossibleRoutesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PossibleRoutesViewModel.swift; sourceTree = "<group>"; };
 		CE8CE8EF28BE493F003270D7 /* AlgorithmTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgorithmTests.swift; sourceTree = "<group>"; };
 		CE93A8A228BD3ECD00296532 /* CLLocationCoordinate2DExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2DExtension.swift; sourceTree = "<group>"; };
+		CEBBAF672913F6A200D50971 /* CityEditModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityEditModeViewController.swift; sourceTree = "<group>"; };
+		CEBBAF682913F6A200D50971 /* CityEditModeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CityEditModeViewController.xib; sourceTree = "<group>"; };
+		CEBC107F2911C5FE00E8BF83 /* RouteMapEditorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteMapEditorTests.swift; sourceTree = "<group>"; };
+		CEBC10842911E4CE00E8BF83 /* Env.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Env.swift; sourceTree = "<group>"; };
+		CEBC10862911E6A700E8BF83 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CEC6EFCF29082AAF0080F69B /* RoutesMapEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutesMapEditorViewController.swift; sourceTree = "<group>"; };
+		CEC6EFD029082AAF0080F69B /* RoutesMapEditorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoutesMapEditorViewController.xib; sourceTree = "<group>"; };
 		D6CABEC5FBACCDADA3D8B83D /* Pods-RoutesApp_iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutesApp_iosTests.release.xcconfig"; path = "Target Support Files/Pods-RoutesApp_iosTests/Pods-RoutesApp_iosTests.release.xcconfig"; sourceTree = "<group>"; };
 		D86A96CCCA8DA2B5538786CC /* Pods-RoutesApp_ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutesApp_ios.debug.xcconfig"; path = "Target Support Files/Pods-RoutesApp_ios/Pods-RoutesApp_ios.debug.xcconfig"; sourceTree = "<group>"; };
 		E1419DFB1CA7D0967AEB2F7A /* Pods-RoutesApp_ios Prod.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoutesApp_ios Prod.release.xcconfig"; path = "Target Support Files/Pods-RoutesApp_ios Prod/Pods-RoutesApp_ios Prod.release.xcconfig"; sourceTree = "<group>"; };
@@ -824,6 +865,8 @@
 			isa = PBXGroup;
 			children = (
 				C26E95C32912CF8200DC550D /* user */,
+				CE5A60BD291366150001D668 /* country */,
+				CE5A60B9291365800001D668 /* city */,
 				C2F60D2029116A4800661403 /* lineRoute */,
 				C2F60D1629116A3200661403 /* routesMapEditor */,
 				C2CC5760290ACFAB00154AAF /* transportationLine */,
@@ -1003,6 +1046,7 @@
 				C2B42E2328E5D10600B44FC0 /* LineFirebaseManager.swift */,
 				C2C853DD28E65D9D00B8D9CF /* LineCategoryFirebaseManager.swift */,
 				844F9A4D28E49594004A95A0 /* TourpointsManager.swift */,
+				CE5A60CA2913793E0001D668 /* CountryFirebaseManager.swift */,
 			);
 			path = managers;
 			sourceTree = "<group>";
@@ -1132,6 +1176,7 @@
 		C291E85A2909FAF50059B319 /* admin */ = {
 			isa = PBXGroup;
 			children = (
+				CE159BDF291429E300FB4467 /* Cities */,
 				C2F60D3629116A8D00661403 /* MockManagersAdmin.swift */,
 				C219327F2913FE4A00D32AC0 /* Users */,
 				C2F60D3329116A8D00661403 /* LineRoutes */,
@@ -1151,6 +1196,8 @@
 		C2CC5734290ACAB900154AAF /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
+				CEC6EFCF29082AAF0080F69B /* RoutesMapEditorViewController.swift */,
+				CEC6EFD029082AAF0080F69B /* RoutesMapEditorViewController.xib */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -1208,6 +1255,8 @@
 		C2E976D72898701C009F4B94 /* RoutesApp_ios */ = {
 			isa = PBXGroup;
 			children = (
+				CEBC10862911E6A700E8BF83 /* GoogleService-Info.plist */,
+				CEBC10842911E4CE00E8BF83 /* Env.swift */,
 				CE0F8D3228AD317700F2C753 /* resources */,
 				C2BB145928A152580083CA1E /* localization */,
 				C2E9770C28987CEA009F4B94 /* utilities */,
@@ -1244,6 +1293,7 @@
 				CE3BB7B428DE4665004BFA07 /* PossibleRoutesTests.swift */,
 				844F9A5328E5C5C7004A95A0 /* TourpointTests.swift */,
 				84ED700A28EDC0D500781376 /* CitySplashViewModelTests.swift */,
+				CEBC107F2911C5FE00E8BF83 /* RouteMapEditorTests.swift */,
 			);
 			path = RoutesApp_iosTests;
 			sourceTree = "<group>";
@@ -1550,6 +1600,84 @@
 			path = resources;
 			sourceTree = "<group>";
 		};
+		CE159BDF291429E300FB4467 /* Cities */ = {
+			isa = PBXGroup;
+			children = (
+				CE159BE02914302400FB4467 /* CityEditModeTests.swift */,
+			);
+			path = Cities;
+			sourceTree = "<group>";
+		};
+		CE5A60B9291365800001D668 /* city */ = {
+			isa = PBXGroup;
+			children = (
+				CE5A60BB291365B20001D668 /* controllers */,
+				CE5A60BC291365BD0001D668 /* views */,
+				CE5A60D3291385C70001D668 /* viewmodels */,
+			);
+			path = city;
+			sourceTree = "<group>";
+		};
+		CE5A60BB291365B20001D668 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CE5A60CD291382010001D668 /* CityListViewController.swift */,
+				CEBBAF672913F6A200D50971 /* CityEditModeViewController.swift */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		CE5A60BC291365BD0001D668 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				CEBBAF682913F6A200D50971 /* CityEditModeViewController.xib */,
+				CE5A60CE291382010001D668 /* CityListViewController.xib */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		CE5A60BD291366150001D668 /* country */ = {
+			isa = PBXGroup;
+			children = (
+				CE5A60BE2913661B0001D668 /* controllers */,
+				CE5A60BF291366200001D668 /* views */,
+				CE5A60C0291366240001D668 /* viewmodels */,
+			);
+			path = country;
+			sourceTree = "<group>";
+		};
+		CE5A60BE2913661B0001D668 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CE5A60C1291366630001D668 /* CountryListViewController.swift */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		CE5A60BF291366200001D668 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				CE5A60C2291366630001D668 /* CountryListViewController.xib */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		CE5A60C0291366240001D668 /* viewmodels */ = {
+			isa = PBXGroup;
+			children = (
+				CE5A60C72913780C0001D668 /* CountryViewModel.swift */,
+			);
+			path = viewmodels;
+			sourceTree = "<group>";
+		};
+		CE5A60D3291385C70001D668 /* viewmodels */ = {
+			isa = PBXGroup;
+			children = (
+				CE5A60D4291385EE0001D668 /* CityViewModel.swift */,
+			);
+			path = viewmodels;
+			sourceTree = "<group>";
+		};
 		CE7FBACD28D36A89001175D3 /* possibleRoutes */ = {
 			isa = PBXGroup;
 			children = (
@@ -1708,6 +1836,7 @@
 			files = (
 				8441B9DA28FF754100730F21 /* LoginViewController.xib in Resources */,
 				8441B9DB28FF754100730F21 /* LaunchScreen.storyboard in Resources */,
+				CEBBAF6C2913F76F00D50971 /* CityEditModeViewController.xib in Resources */,
 				842F85B62900433B00243943 /* TourpointDetailViewController.xib in Resources */,
 				8441B9DC28FF754100730F21 /* Assets.xcassets in Resources */,
 				8441B9DD28FF754100730F21 /* CitySplashViewController.xib in Resources */,
@@ -1733,7 +1862,10 @@
 				8441B9EE28FF754100730F21 /* CityPickerViewController.xib in Resources */,
 				8441B9EF28FF754100730F21 /* CityTableViewCell.xib in Resources */,
 				8441B9F028FF754100730F21 /* SignupViewController.xib in Resources */,
+				CE5A60C6291368140001D668 /* CountryListViewController.xib in Resources */,
+				CE5A60D2291383CD0001D668 /* CityListViewController.xib in Resources */,
 				8441B9F128FF754100730F21 /* PossibleRouteTableViewCell.xib in Resources */,
+				CEBC10832911C74500E8BF83 /* RoutesMapEditorViewController.xib in Resources */,
 				8441B9F228FF754100730F21 /* SettingsViewController.xib in Resources */,
 				8441B9F428FF754100730F21 /* silver-style.json in Resources */,
 				C2CE146B2914075C00D7C373 /* AdminViewController.xib in Resources */,
@@ -1756,11 +1888,13 @@
 				84067C6628B3D0A700549300 /* CitySplashViewController.xib in Resources */,
 				C278973128E3B48100FF2796 /* TransportationCategoryTableViewCell.xib in Resources */,
 				C2F60D3129116A4800661403 /* LineRouteEditModeViewController.strings in Resources */,
+				CE5A60D0291382010001D668 /* CityListViewController.xib in Resources */,
 				C278975128E3B8D900FF2796 /* LineRouteViewController.xib in Resources */,
 				C2E976E02898701C009F4B94 /* Main.storyboard in Resources */,
 				844F9A4528E3488C004A95A0 /* TourpointsViewController.xib in Resources */,
 				C26E95D02912D02A00DC550D /* UserTableViewCell.xib in Resources */,
 				C278973428E3B48100FF2796 /* RouteListFilterViewController.xib in Resources */,
+				CEBC10872911E6A800E8BF83 /* GoogleService-Info.plist in Resources */,
 				C2112DE2289A18FB009601AB /* HomeViewController.xib in Resources */,
 				8420E0C828C68E89000068F9 /* SearchLocationViewController.xib in Resources */,
 				C2BB145C28A1529E0083CA1E /* Localizable.strings in Resources */,
@@ -1781,6 +1915,7 @@
 				84067C7428B4305300549300 /* CityTableViewCell.xib in Resources */,
 				C2BB145228A150A70083CA1E /* SignupViewController.xib in Resources */,
 				CE7FBAD528D36B5E001175D3 /* PossibleRouteTableViewCell.xib in Resources */,
+				CE5A60C4291366630001D668 /* CountryListViewController.xib in Resources */,
 				84067C4C28B3B5BD00549300 /* SettingsViewController.xib in Resources */,
 				CE0F8D3528AD357F00F2C753 /* silver-style.json in Resources */,
 				C2CE146A2914075C00D7C373 /* AdminViewController.xib in Resources */,
@@ -1790,6 +1925,7 @@
 				C25C92412911C02E000D45AE /* LineEditModeViewController.xib in Resources */,
 				C27EB66728D3689200A1E742 /* LinePathTableViewCell.xib in Resources */,
 				C25C92402911C02E000D45AE /* LineEditModeViewController.strings in Resources */,
+				CEBBAF6A2913F6A200D50971 /* CityEditModeViewController.xib in Resources */,
 				C278973228E3B48100FF2796 /* RouteListTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2035,8 +2171,10 @@
 				8441B97928FF754100730F21 /* LoginViewController.swift in Sources */,
 				C2F60D4129116ABE00661403 /* Env.swift in Sources */,
 				8441B97A28FF754100730F21 /* RouteListViewController.swift in Sources */,
+				CE5A60D1291383CA0001D668 /* CityListViewController.swift in Sources */,
 				8441B97B28FF754100730F21 /* ConstantVariables.swift in Sources */,
 				8441B97C28FF754100730F21 /* SearchLocationViewModel.swift in Sources */,
+				CE5A60B629135BE50001D668 /* RoutesMapEditorViewController.swift in Sources */,
 				8441B97D28FF754100730F21 /* ViewController.swift in Sources */,
 				8441B97E28FF754100730F21 /* CityPickerViewModel.swift in Sources */,
 				8441B97F28FF754100730F21 /* SearchLocationViewController.swift in Sources */,
@@ -2046,6 +2184,7 @@
 				8441B98228FF754100730F21 /* UserFirebaseManager.swift in Sources */,
 				8441B98328FF754100730F21 /* Cities.swift in Sources */,
 				8441B98428FF754100730F21 /* FavoriteDest+CoreDataClass.swift in Sources */,
+				CE5A60D6291385FE0001D668 /* CityViewModel.swift in Sources */,
 				845431BA2902DB78000E669D /* SettingsPopupViewModel.swift in Sources */,
 				8441B98528FF754100730F21 /* SettingsViewModel.swift in Sources */,
 				C2ACC82C29117175001A0B01 /* LineRouteEditModeViewController.swift in Sources */,
@@ -2070,6 +2209,7 @@
 				8441B99528FF754100730F21 /* LineFirebaseManager.swift in Sources */,
 				8441B99628FF754100730F21 /* SignupViewController.swift in Sources */,
 				8441B99728FF754100730F21 /* TourpointsManager.swift in Sources */,
+				CEBBAF6B2913F76700D50971 /* CityEditModeViewController.swift in Sources */,
 				8441B99828FF754100730F21 /* LineEntity+CoreDataClass.swift in Sources */,
 				8441B99928FF754100730F21 /* Tourpoint.swift in Sources */,
 				845431BE2909D9BE000E669D /* ImageExtension.swift in Sources */,
@@ -2080,6 +2220,7 @@
 				8441B99F28FF754100730F21 /* ViewModel.swift in Sources */,
 				8441B9A028FF754100730F21 /* PossibleRouteTableViewCell.swift in Sources */,
 				845431B52900A1EB000E669D /* SettingsPopupViewController.swift in Sources */,
+				CE5A60C9291378EB0001D668 /* CountryViewModel.swift in Sources */,
 				8441B9A128FF754100730F21 /* Toast.swift in Sources */,
 				8441BA3B29019A2800730F21 /* SyncUnitHistory+CoreDataClass.swift in Sources */,
 				8441B9A228FF754100730F21 /* GoogleMapsManager.swift in Sources */,
@@ -2108,6 +2249,7 @@
 				8441B9B728FF754100730F21 /* RouteListTableViewCell.swift in Sources */,
 				8441B9B828FF754100730F21 /* SceneDelegate.swift in Sources */,
 				8441B9B928FF754100730F21 /* LineRoute.swift in Sources */,
+				CEBC10822911C73D00E8BF83 /* RoutesMapEditorViewController.swift in Sources */,
 				8441B9BA28FF754100730F21 /* CitySplashViewController.swift in Sources */,
 				8441B9BB28FF754100730F21 /* TourpointsViewController.swift in Sources */,
 				C26E95D22912D03C00DC550D /* UserTableViewCell.swift in Sources */,
@@ -2125,7 +2267,9 @@
 				8441B9C628FF754100730F21 /* CityFirebaseManager.swift in Sources */,
 				8441B9C728FF754100730F21 /* LineRouteEntity+CoreDataProperties.swift in Sources */,
 				8441B9C828FF754100730F21 /* TourpointTableViewCell.swift in Sources */,
+				CE5A60B729135BE90001D668 /* RoutesMapEditorViewModel.swift in Sources */,
 				8441B9C928FF754100730F21 /* ColorHelper.swift in Sources */,
+				CEBC10812911C73A00E8BF83 /* (null) in Sources */,
 				8441B9CA28FF754100730F21 /* CLLocationDistanceExtension.swift in Sources */,
 				C26E95D12912D03900DC550D /* UserListViewController.swift in Sources */,
 				8441B9CB28FF754100730F21 /* ImageHelper.swift in Sources */,
@@ -2135,6 +2279,7 @@
 				8441B9CF28FF754100730F21 /* FabButton.swift in Sources */,
 				8441B9D028FF754100730F21 /* LineRouteTableViewCell.swift in Sources */,
 				8441B9D128FF754100730F21 /* RouteListViewModel.swift in Sources */,
+				CE5A60C5291368120001D668 /* CountryListViewController.swift in Sources */,
 				8441B9D228FF754100730F21 /* Algorithm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2152,6 +2297,8 @@
 				C249BB1B28E4F8D200E6BA85 /* PopupRouteDetailViewModel.swift in Sources */,
 				C27EB66628D3689200A1E742 /* LinePathTableViewCell.swift in Sources */,
 				8498F89D28CF4892008641D9 /* Constants.swift in Sources */,
+				CE5A60C82913780C0001D668 /* CountryViewModel.swift in Sources */,
+				CEBC10852911E4CE00E8BF83 /* Env.swift in Sources */,
 				C2E9772428987F3C009F4B94 /* LoginViewController.swift in Sources */,
 				C278973528E3B48100FF2796 /* RouteListViewController.swift in Sources */,
 				C20A86D128A3383F0000EF7C /* ConstantVariables.swift in Sources */,
@@ -2176,6 +2323,7 @@
 				C2F60D3029116A4800661403 /* AdminLineRouteViewController.swift in Sources */,
 				C278973628E3B48100FF2796 /* RouteListFilterViewController.swift in Sources */,
 				84067C4A28B3B1CD00549300 /* SettingsViewController.swift in Sources */,
+				CE5A60CF291382010001D668 /* CityListViewController.swift in Sources */,
 				CE7FBAE228D6CA38001175D3 /* PossibleRoutesViewController.swift in Sources */,
 				84F6E6B728FF545A009D5635 /* FavoriteDest+CoreDataProperties.swift in Sources */,
 				C2E976D92898701C009F4B94 /* AppDelegate.swift in Sources */,
@@ -2202,6 +2350,7 @@
 				C278975228E3B8D900FF2796 /* LineRouteViewController.swift in Sources */,
 				CE19B2FD28DCF2F500840426 /* LineRouteFirebaseManager.swift in Sources */,
 				C2E9772B28987F79009F4B94 /* User.swift in Sources */,
+				CEBBAF692913F6A200D50971 /* CityEditModeViewController.swift in Sources */,
 				CE7FBAE728D8B022001175D3 /* GDirectionsResponse.swift in Sources */,
 				C215EF0C28A4BB5D00371DB6 /* ViewModel.swift in Sources */,
 				C2F60D2D29116A4800661403 /* LineRouteEditModeViewModel.swift in Sources */,
@@ -2213,6 +2362,7 @@
 				847A59E228A820F5005CEA25 /* PhoneAuthenticationViewModel.swift in Sources */,
 				C290E5EF28D272C90019782F /* RouteDetailViewController.swift in Sources */,
 				CE7FBADC28D565F2001175D3 /* BottomSheetViewController.swift in Sources */,
+				CE5A60D5291385EE0001D668 /* CityViewModel.swift in Sources */,
 				84F6E6BB28FF58B4009D5635 /* LineEntityConverterHelper.swift in Sources */,
 				C249BB2028E4F9A400E6BA85 /* FavoriteDestinationsManager.swift in Sources */,
 				8441BA3C29019A2800730F21 /* SyncUnitHistory+CoreDataProperties.swift in Sources */,
@@ -2240,6 +2390,7 @@
 				844F9A4428E3488C004A95A0 /* TourpointsViewController.swift in Sources */,
 				C2F60D1E29116A3200661403 /* RoutesMapEditorViewController.swift in Sources */,
 				84F6E6B628FF545A009D5635 /* LineEntity+CoreDataProperties.swift in Sources */,
+				CE5A60CB2913793E0001D668 /* CountryFirebaseManager.swift in Sources */,
 				C249BB1F28E4F9A400E6BA85 /* CoreDataManager.swift in Sources */,
 				84F6E6B428FF545A009D5635 /* TourpointEntity+CoreDataClass.swift in Sources */,
 				C2E976E32898701C009F4B94 /* RoutesApp_ios.xcdatamodeld in Sources */,
@@ -2260,6 +2411,7 @@
 				84F6E6B528FF545A009D5635 /* LineRouteEntity+CoreDataClass.swift in Sources */,
 				C2E977332898802F009F4B94 /* Encodable.swift in Sources */,
 				84067C6E28B4206600549300 /* Country.swift in Sources */,
+				CE5A60C3291366630001D668 /* CountryListViewController.swift in Sources */,
 				C2E9773128987FB9009F4B94 /* FabButton.swift in Sources */,
 				C2921175290967B0004AD7E6 /* ConfirmAlert.swift in Sources */,
 				C2E9773128987FB9009F4B94 /* FabButton.swift in Sources */,
@@ -2276,7 +2428,9 @@
 			files = (
 				844F9A3A28CBEA7D004A95A0 /* SearchLocationTest.swift in Sources */,
 				C2E976F32898701D009F4B94 /* RoutesApp_iosTests.swift in Sources */,
+				CE159BE12914302400FB4467 /* CityEditModeTests.swift in Sources */,
 				CE3BB7B528DE4665004BFA07 /* PossibleRoutesTests.swift in Sources */,
+				CEBC10802911C5FE00E8BF83 /* RouteMapEditorTests.swift in Sources */,
 				CE19B2FB28DCEDD400840426 /* RouteListTests.swift in Sources */,
 				CE8CE8F028BE493F003270D7 /* AlgorithmTests.swift in Sources */,
 				C2F60D3C29116A8D00661403 /* MockManagersAdmin.swift in Sources */,
@@ -2396,8 +2550,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				C2CE146C2914075C00D7C373 /* Base */,
-				C2CE146F2914075E00D7C373 /* en */,
-				C2CE14712914075F00D7C373 /* es-419 */,
+				C2B47495291566E5002744F8 /* en */,
+				C2B47497291566E8002744F8 /* es-419 */,
 			);
 			name = AdminViewController.xib;
 			sourceTree = "<group>";

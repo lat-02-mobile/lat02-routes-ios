@@ -18,9 +18,9 @@ struct LineRoute: Codable, Equatable {
     let id: String
     let idLine: String
     let line: String
-    let routePoints: [Coordinate]
+    var routePoints: [Coordinate]
     let start: Coordinate
-    let stops: [Coordinate]
+    var stops: [Coordinate]
     let end: Coordinate
     // Average velocity in meters per second
     var averageVelocity: Double
@@ -108,6 +108,10 @@ public struct Coordinate: Codable, Equatable {
     public static func == (lhs: Coordinate, rhs: Coordinate) -> Bool {
         return lhs.latitude == rhs.latitude && lhs.longitude == rhs.longitude
     }
+
+    func toGeoCode() -> GeoPoint {
+        return GeoPoint(latitude: latitude, longitude: longitude)
+    }
 }
 
 struct LinesCandidate: Codable {
@@ -116,14 +120,14 @@ struct LinesCandidate: Codable {
 }
 
 // Used for obtain the Firestore response (LineRoute entity)
-struct LineRouteInfo: Codable, Equatable, BaseModel {
+struct LineRouteInfo: BaseModel, Codable, Equatable {
     let name: String
     var id: String
     let idLine: String
     let line: DocumentReference?
-    let routePoints: [GeoPoint]
+    var routePoints: [GeoPoint]
     let start: GeoPoint
-    let stops: [GeoPoint]
+    var stops: [GeoPoint]
     let end: GeoPoint
     let averageVelocity: String
     let color: String

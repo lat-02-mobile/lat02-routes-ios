@@ -21,7 +21,7 @@ class UserTests: XCTestCase {
     }
 
     func testToogleRole() {
-        userListViewModel.toggleUserRole(for: TestResources.testUserFirebase2)
+        userListViewModel.toggleUserRole(for: TestResources.testUser2)
         XCTAssert((userListViewModel.userManager as? MockUserManager ?? MockUserManager()).toogleUserRoleGotCalled == true)
     }
 

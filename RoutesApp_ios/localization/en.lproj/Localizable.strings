@@ -93,6 +93,16 @@
 "address" = "Address";
 "search-best-route" = "Search for best route";
 
+// Routes Map Editor Popup
+"rearrange-route-title" = "Rearrange Route";
+"rearrange-route-message" = "The value must be greater than 0 and less than ";
+"rearrange-route-placeholder" = "Rearrange Route";
+"rearrange-route-cancel" = "Cancel";
+"rearrange-route-ok" = "OK";
+
+// Routes Map Editor Toast
+"route-editor-toast-success" = "Route points have been updated";
+"route-editor-toast-failure" = "Error while updating";
 // ADMIN MODE
 "admin-some-fields-empty" = "Some fields are empty";
 // Lines
@@ -128,3 +138,13 @@
 "admin-user-search" = "Search for an user";
 // SettingPopup
 "show-tourpoints" = "Show tourpoints";
+
+// Country List
+"country-list-title" = "Country List";
+"admin-city-delete" = "Delete City";
+"admin-city-delete-message" = "Are you sure you want to delete this City?";
+"admin-city-created-success" = "New City created";
+"admin-city-edited-success" = "Successfuly edited";
+"admin-city-created-error" = "Error";
+"admin-city-save-button" = "Save City";
+"admin-city-edit-button" = "Edit City";

@@ -34,7 +34,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gCf-A7-Z2W">
-                            <rect key="frame" x="0.0" y="75.5" width="374" height="34.5"/>
+                            <rect key="frame" x="0.0" y="151.5" width="374" height="34.5"/>
                             <color key="backgroundColor" name="AccentColor"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" title="Button"/>
@@ -44,25 +44,14 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Z8-Bb-Odt">
-                            <rect key="frame" x="0.0" y="151.5" width="374" height="34.5"/>
-                            <color key="backgroundColor" name="AccentColor"/>
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kau-iy-Ofv">
-                            <rect key="frame" x="0.0" y="227" width="374" height="34.5"/>
-                            <color key="backgroundColor" name="AccentColor"/>
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hkN-Oa-WAt">
                             <rect key="frame" x="0.0" y="302.5" width="374" height="34.5"/>
                             <color key="backgroundColor" name="AccentColor"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Countries"/>
+                            <connections>
+                                <action selector="goToCountriesPanel:" destination="-1" eventType="touchUpInside" id="YfH-gS-YbA"/>
+                            </connections>
                         </button>
                     </subviews>
                 </stackView>

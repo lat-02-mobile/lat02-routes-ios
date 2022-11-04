@@ -31,19 +31,21 @@ class GoogleMapsHelper {
         polyline.map = map
     }
 
-    func fitAllMarkers(map: GMSMapView, list: [Coordinate]) {
+    func fitAllMarkers(map: GMSMapView, list: [Coordinate], padding: Double = ConstantVariables.polylinePadding) {
         var bounds = GMSCoordinateBounds()
         for coor in list {
             bounds = bounds.includingCoordinate(coor.toCLLocationCoordinate2D())
         }
-        map.animate(with: GMSCameraUpdate.fit(bounds, withPadding: CGFloat(ConstantVariables.polylinePadding)))
+        map.animate(with: GMSCameraUpdate.fit(bounds, withPadding: CGFloat(padding)))
     }
 
-    func addCustomMarker(map: GMSMapView, position: Coordinate, icon: UIImage?) {
+    @discardableResult
+    func addCustomMarker(map: GMSMapView, position: Coordinate, icon: UIImage?) -> GMSMarker {
         let newMarker = GMSMarker(position: position.toCLLocationCoordinate2D())
         newMarker.icon = icon
         newMarker.groundAnchor = CGPoint(x: 0.5, y: 0.5)
         newMarker.map = map
+        return newMarker
     }
 
     func getTotalPolylineDistance(coordList: [Coordinate]) -> Double {

@@ -75,7 +75,7 @@ class LoginViewModel {
         }
     }
 
-    private func getUser(email: String, completion: @escaping ((_ user: UserFirebase?) -> Void)) {
+    private func getUser(email: String, completion: @escaping ((_ user: User?) -> Void)) {
         userManager.getUsers { result in
             switch result {
             case .success(let users):
@@ -121,7 +121,7 @@ class LoginViewModel {
             }
         }
     }
-    private func getUserByEmail(for email: String, completion: @escaping ((_ user: UserFirebase) -> Void)) {
+    private func getUserByEmail(for email: String, completion: @escaping ((_ user: User) -> Void)) {
         userManager.getUsers { result in
             switch result {
             case .success(let users):

@@ -35,6 +35,16 @@ class StringResources {
     static let address = "address"
     static let searchBestRoute = "search-best-route"
 
+    // Routes Map Editor Popup
+    static let rearrangeRouteTitle = "rearrange-route-title"
+    static let rearrangeRouteMessage = "rearrange-route-message"
+    static let rearrangeRoutePlaceholder = "rearrange-route-placeholder"
+    static let rearrangeRouteCancel =  "rearrange-route-cancel"
+    static let rearrangeRouteOk = "rearrange-route-ok"
+
+    // Route Map Editor Toast
+    static let routeEditorToastSuccess = "route-editor-toast-success"
+    static let routeEditorToastFailure = "route-editor-toast-failure"
     // ADMIN
     static let adminSomeFieldsEmpty = "admin-some-fields-empty"
     // Lines
@@ -71,4 +81,13 @@ class StringResources {
     static let adminUserSearch = "admin-user-search"
     static let admin = "Admin"
     static let normal = "Normal"
+    // CountryList
+    static let countryListTitle = "country-list-title"
+    static let adminCityDelete = "admin-city-delete"
+    static let adminCityDeleteMessage = "admin-city-delete-message"
+    static let adminCityCreatedSuccess = "admin-city-created-success"
+    static let adminCityCreatedError = "admin-city-created-error"
+    static let adminCityEditedSuccess = "admin-city-edited-success"
+    static let adminCitySaveButton = "admin-city-save-button"
+    static let adminCityEditButton = "admin-city-edit-button"
 }
