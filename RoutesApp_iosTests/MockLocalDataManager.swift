@@ -141,7 +141,10 @@ class MockLocalDataManager: LocalDataManagerProtocol {
         return TestResources.tourpoints.map({ tourpoint in
             let entity = TourpointEntity(context: context)
             entity.address = tourpoint.address
-            entity.category = TourpointCategoryEntity(context: context)
+            let targetCategory = TestResources.tourpointCategories.first(where: {$0.id == tourpoint.categoryId})
+            if let targetCategory {
+                entity.category = convertTourpointCategoryToEntitySingle(data: targetCategory)
+            }
             entity.createdAt = Date()
             entity.destination = tourpoint.destination.toCoordinate()
             entity.name = tourpoint.name
@@ -150,6 +153,17 @@ class MockLocalDataManager: LocalDataManagerProtocol {
             // swiftlint:disable force_cast
             return entity as! T
         })
+    }
+
+    private func convertTourpointCategoryToEntitySingle<T>(data: TourpointCategory) -> T {
+        let entity = TourpointCategoryEntity(context: context)
+        entity.id = data.id
+        entity.descriptionEng = data.descriptionEng
+        entity.descriptionEsp = data.descriptionEsp
+        entity.icon = data.icon
+        entity.createdAt = Date()
+        // swiftlint:disable force_cast
+        return entity as! T
     }
 
     private func convertTourpointCategoryToEntity<T>() -> [T] {

@@ -11,7 +11,11 @@ class TourpointsViewModel: ViewModel {
     var localDataManager: LocalDataManagerProtocol = LocalDataManager.shared
 
     var tourpointList = [TourpointEntity]()
-    private var categories = [TourpointCategoryEntity]()
+    private var originalTourPointsList = [TourpointEntity]()
+    var categories = [TourpointCategoryEntity]()
+
+    var queryAux = ""
+    var categoryAux: TourpointCategoryEntity?
 
     var pointsCount: Int {
         tourpointList.count
@@ -22,6 +26,7 @@ class TourpointsViewModel: ViewModel {
             switch result {
             case.success(let tourpoints):
                 self.tourpointList = tourpoints
+                self.originalTourPointsList = tourpoints
                 self.getTourpointsCategories()
             case.failure(let error):
                 self.onError?(error.localizedDescription)
@@ -43,5 +48,34 @@ class TourpointsViewModel: ViewModel {
 
     func getPointAt(index: Int) -> TourpointEntity {
         tourpointList[index]
+    }
+
+    func applyFilters(query: String, selectedCat: TourpointCategoryEntity?) {
+        filterTourPointsBy(query: query)
+        guard let category = selectedCat else {
+            onFinish?()
+            return
+        }
+        filterTourPointsBy(category: category)
+        onFinish?()
+    }
+
+    private func filterTourPointsBy(query: String) {
+        if query.isEmpty {
+            tourpointList = originalTourPointsList
+        } else {
+            let normalizedQuery = query.uppercased()
+            tourpointList = originalTourPointsList.filter({ $0.name.uppercased().contains(normalizedQuery) })
+        }
+    }
+
+    private func filterTourPointsBy(category: TourpointCategoryEntity) {
+        tourpointList = tourpointList.filter({ $0.category.id == category.id })
+    }
+
+    func resetFilteredByCategoryRouteList() {
+        filterTourPointsBy(query: queryAux)
+        categoryAux = nil
+        onFinish?()
     }
 }

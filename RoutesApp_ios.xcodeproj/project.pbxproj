@@ -256,6 +256,8 @@
 		C25C92402911C02E000D45AE /* LineEditModeViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = C25C923B2911C02E000D45AE /* LineEditModeViewController.strings */; };
 		C25C92412911C02E000D45AE /* LineEditModeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C25C923E2911C02E000D45AE /* LineEditModeViewController.xib */; };
 		C25C92432911C212000D45AE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C25C92422911C212000D45AE /* GoogleService-Info.plist */; };
+		C25D579F291478A7000B1F1B /* TourPointFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25D579D291478A7000B1F1B /* TourPointFilterViewController.swift */; };
+		C25D57A0291478A7000B1F1B /* TourPointFilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C25D579E291478A7000B1F1B /* TourPointFilterViewController.xib */; };
 		C26E95C92912CFE900DC550D /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26E95C72912CFE900DC550D /* UserListViewController.swift */; };
 		C26E95CA2912CFE900DC550D /* UserListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C26E95C82912CFE900DC550D /* UserListViewController.xib */; };
 		C26E95CC2912D00100DC550D /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26E95CB2912D00100DC550D /* UserListViewModel.swift */; };
@@ -507,6 +509,8 @@
 		C25C923D2911C02E000D45AE /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/LineEditModeViewController.strings"; sourceTree = "<group>"; };
 		C25C923F2911C02E000D45AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LineEditModeViewController.xib; sourceTree = "<group>"; };
 		C25C92422911C212000D45AE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C25D579D291478A7000B1F1B /* TourPointFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourPointFilterViewController.swift; sourceTree = "<group>"; };
+		C25D579E291478A7000B1F1B /* TourPointFilterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TourPointFilterViewController.xib; sourceTree = "<group>"; };
 		C26E95C72912CFE900DC550D /* UserListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
 		C26E95C82912CFE900DC550D /* UserListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserListViewController.xib; sourceTree = "<group>"; };
 		C26E95CB2912D00100DC550D /* UserListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
@@ -805,6 +809,8 @@
 				844F9A4328E3488C004A95A0 /* TourpointsViewController.xib */,
 				842F85B12900433B00243943 /* TourpointDetailViewController.swift */,
 				842F85B22900433B00243943 /* TourpointDetailViewController.xib */,
+				C25D579D291478A7000B1F1B /* TourPointFilterViewController.swift */,
+				C25D579E291478A7000B1F1B /* TourPointFilterViewController.xib */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -1924,6 +1930,7 @@
 				844F9A3228C84E63004A95A0 /* PlaceTableViewCell.xib in Resources */,
 				C25C92412911C02E000D45AE /* LineEditModeViewController.xib in Resources */,
 				C27EB66728D3689200A1E742 /* LinePathTableViewCell.xib in Resources */,
+				C25D57A0291478A7000B1F1B /* TourPointFilterViewController.xib in Resources */,
 				C25C92402911C02E000D45AE /* LineEditModeViewController.strings in Resources */,
 				CEBBAF6A2913F6A200D50971 /* CityEditModeViewController.xib in Resources */,
 				C278973228E3B48100FF2796 /* RouteListTableViewCell.xib in Resources */,
@@ -2402,6 +2409,7 @@
 				C2E9772728987F48009F4B94 /* LoginViewModel.swift in Sources */,
 				8441BA212900F2A600730F21 /* SyncData.swift in Sources */,
 				84067C6A28B3D58500549300 /* CityFirebaseManager.swift in Sources */,
+				C25D579F291478A7000B1F1B /* TourPointFilterViewController.swift in Sources */,
 				84F6E6AD28FF545A009D5635 /* LineRouteEntity+CoreDataProperties.swift in Sources */,
 				844F9A4928E3D560004A95A0 /* TourpointTableViewCell.swift in Sources */,
 				CE7FBAED28D8BFEC001175D3 /* ColorHelper.swift in Sources */,
