@@ -138,3 +138,13 @@
 "admin-user-search" = "Search for an user";
 // SettingPopup
 "show-tourpoints" = "Show tourpoints";
+
+// Country List
+"country-list-title" = "Country List";
+"admin-city-delete" = "Delete City";
+"admin-city-delete-message" = "Are you sure you want to delete this City?";
+"admin-city-created-success" = "New City created";
+"admin-city-edited-success" = "Successfuly edited";
+"admin-city-created-error" = "Error";
+"admin-city-save-button" = "Save City";
+"admin-city-edit-button" = "Edit City";

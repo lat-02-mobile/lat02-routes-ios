@@ -138,3 +138,13 @@
 "admin-user-search" = "Buscar un usuario";
 // SettingPopup
 "show-tourpoints" = "Mostrar sitios";
+
+// Country List
+"country-list-title" = "Paises";
+"admin-city-delete" = "Eliminar Ciudad";
+"admin-city-delete-message" = "¿Esta seguro/a que desea eliminar esta Ciudad?";
+"admin-city-created-success" = "Nueva ciudad creada";
+"admin-city-edited-success" = "Ciudad editada correctamente";
+"admin-city-created-error" = "Error";
+"admin-city-save-button" = "Crear Ciudad";
+"admin-city-edit-button" = "Editar Ciudad";

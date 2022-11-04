@@ -12,6 +12,10 @@ protocol CityManagerProtocol {
     func getCountryById(id: String, completion: @escaping(Result<Country, Error>) -> Void)
     func getCities(completion: @escaping(Result<[Cities], Error>) -> Void)
     func getCityById(id: String, completion: @escaping(Result<Cities, Error>) -> Void)
+    func getCityByCountryId(id: String, completion: @escaping (Result<[Cities], Error>) -> Void)
+    func createCity(city: Cities, completion: @escaping(Result<Cities, Error>) -> Void)
+    func updateCity(city: Cities, completion: @escaping(Result<Bool, Error>) -> Void)
+    func deleteCity(cityId: String, completion: @escaping(Result<Bool, Error>) -> Void)
 }
 
 class CityFirebaseManager: CityManagerProtocol {
@@ -69,5 +73,50 @@ class CityFirebaseManager: CityManagerProtocol {
                                                                                 date: dateCalender,
                                                                                 parameter: cityRef,
                                                                                 completion: completion)
+    }
+
+    func getCityByCountryId(id: String, completion: @escaping (Result<[Cities], Error>) -> Void) {
+        self.firebaseManager.getDocumentsByParameterContains(type: Cities.self, forCollection: .Cities,
+                                                             field: "idCountry", parameter: id, completion: completion)
+    }
+
+    func createCity(city: Cities, completion: @escaping(Result<Cities, Error>) -> Void) {
+        let newCityId = firebaseManager.getDocID(forCollection: .Cities)
+        guard !city.idCountry.isEmpty else {return}
+        let newCity = Cities(country: city.country, id: newCityId, idCountry: city.idCountry, lat: city.lat,
+                             lng: city.lng, name: city.name)
+        firebaseManager.addDocument(document: newCity, collection: .Cities) { result in
+            switch result {
+            case .success(let status):
+                completion(.success(status))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+
+    func updateCity(city: Cities, completion: @escaping(Result<Bool, Error>) -> Void) {
+        guard !city.idCountry.isEmpty else {return}
+        let newCity = Cities(country: city.country, id: city.id, idCountry: city.idCountry, lat: city.lat,
+                             lng: city.lng, name: city.name)
+        firebaseManager.updateDocument(document: newCity, forCollection: .Cities) { result in
+            switch result {
+            case .success:
+                completion(.success(true))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+
+    func deleteCity(cityId: String, completion: @escaping(Result<Bool, Error>) -> Void) {
+        firebaseManager.deleteDocument(type: Cities.self, forCollection: .Cities, documentID: cityId) { delResult in
+            switch delResult {
+            case .success:
+                completion(.success(true))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
     }
 }
