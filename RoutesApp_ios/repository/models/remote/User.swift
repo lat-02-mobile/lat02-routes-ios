@@ -26,6 +26,6 @@ struct UserFirebase: Codable, Equatable, BaseModel {
     var phoneNumber: String
     var type: Int
     var typeLogin: Int
-    var updatedAt: Float
-    var createdAt: Float
+    var updateAt: Timestamp
+    var createAt: Timestamp
 }

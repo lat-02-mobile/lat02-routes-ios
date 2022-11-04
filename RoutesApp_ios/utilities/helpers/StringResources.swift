@@ -81,6 +81,7 @@ class StringResources {
     static let adminUserSearch = "admin-user-search"
     static let admin = "Admin"
     static let normal = "Normal"
+    
     // CountryList
     static let countryListTitle = "country-list-title"
     static let adminCityDelete = "admin-city-delete"

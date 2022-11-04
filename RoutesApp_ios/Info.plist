@@ -30,7 +30,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.googleusercontent.apps.11042396908-eocvrc8aj9qnk099m0kbjqdoe3a6d2hc</string>
+				<string>REVERSED_CLIENT</string>
 				<string>fbFB_APP_IDENTIFIER</string>
 			</array>
 		</dict>
