@@ -17,9 +17,23 @@ class TestResources {
     static let testUserEmail = "john@doe.com"
     static let testUserPassword = "test1234"
     static let testAuthResponse = ["message": "success"]
-    static let testUser = User(id: "test", name: "test", email: "test@email.com", phoneNumber: "test", type: 0, typeLogin: 0, updatedAt: Date(), createdAt: Date())
-    static let testUserFirebase = UserFirebase(id: "test", name: "test", email: "test@email.com", phoneNumber: "test", type: 0,
-                                               typeLogin: 0, updatedAt: 687626719.592621, createdAt: 687626719.592621)
+    static let testUser = User(id: "test", name: "test", email: "test@email.com",
+                               phoneNumber: "test", type: 0, typeLogin: 0,
+                               updateAt: Timestamp(), createAt: Timestamp())
+    static let testUser1 = User(id: "test1", name: "test1", email: "email111@email.com",
+                                phoneNumber: "test", type: UserType.NORMAL.rawValue,
+                                typeLogin: UserTypeLogin.NORMAL.rawValue,
+                                updateAt: Timestamp(), createAt: Timestamp())
+    static let testUser2 = User(id: "test2", name: "test2", email: "email222@email.com",
+                                phoneNumber: "test", type: UserType.ADMIN.rawValue,
+                                typeLogin: UserTypeLogin.NORMAL.rawValue,
+                                updateAt: Timestamp(), createAt: Timestamp())
+    static let testUser3 = User(id: "test3", name: "test3", email: "email333@email.com",
+                                phoneNumber: "test", type: UserType.NORMAL.rawValue,
+                                typeLogin: UserTypeLogin.NORMAL.rawValue,
+                                updateAt: Timestamp(), createAt: Timestamp())
+
+    static let testUserList = [testUser1, testUser2, testUser3]
 
     static let testPhoneNumber = "+523353658071"
     static let testCode = "0626"
@@ -91,7 +105,7 @@ class TestResources {
     static let testCountryId = "testCountry"
     static let testCityRoute = Cities(country: "test", id: "testid", idCountry: "countryTest", lat: "-35", lng: "-17", name: "testCity")
     static let testCountry = Country(
-        id: "test", name: "testCountry", code: "test", phone: "test", createdAt: nil, updatedAt: nil, cities: [DocumentReference]()
+        id: "test", name: "testCountry", code: "test", phone: "test", createAt: nil, updateAt: nil, cities: [DocumentReference]()
     )
 
     static let findPlacesTest = Place(name: "A place name", identifier: "123456")

@@ -118,4 +118,6 @@ class ConstantVariables {
     // icons
     static let trashIcon = "trash.fill"
     static let plusIcon = "plus"
+    static let revokeIcon = "revoke_user"
+    static let promoteIcon = "promote_user"
 }

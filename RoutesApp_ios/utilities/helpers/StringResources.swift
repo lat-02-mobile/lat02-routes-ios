@@ -73,6 +73,14 @@ class StringResources {
     static let adminLineRoutesDeleteMessage = "admin-line-routes-are-you-sure-delete"
     static let showTourpoints = "show-tourpoints"
 
+    // Users
+    static let adminUserPromotionTitle = "admin-user-promote-title"
+    static let adminUserPromotionMessage = "admin-user-promote-message"
+    static let adminUserRevokeTitle = "admin-user-revoke-title"
+    static let adminUserRevokeMessage = "admin-user-revoke-message"
+    static let adminUserSearch = "admin-user-search"
+    static let admin = "Admin"
+    static let normal = "Normal"
     // CountryList
     static let countryListTitle = "country-list-title"
     static let adminCityDelete = "admin-city-delete"

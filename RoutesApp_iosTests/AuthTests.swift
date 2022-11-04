@@ -34,7 +34,7 @@ class SignupAuthTests: XCTestCase {
         XCTAssert((signupViewmodel.userManager as? MockUserManager ?? MockUserManager()).registerUserGotCalled == false)
     }
     func testSignupFailureDueExistingUser() {
-        signupViewmodel.signupUser(email: "test@email.com", name: "john", password: "test1234", confirmPassword: "test1234")
+        signupViewmodel.signupUser(email: "email111@email.com", name: "john", password: "test1234", confirmPassword: "test1234")
         XCTAssert((signupViewmodel.userManager as? MockUserManager ?? MockUserManager()).registerUserGotCalled == false)
     }
     func testSignupFailureDueEmptyEmail() {

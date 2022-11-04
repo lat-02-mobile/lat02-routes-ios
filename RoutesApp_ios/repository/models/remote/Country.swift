@@ -15,8 +15,8 @@ struct Country: Codable, Equatable, BaseModel {
     var code: String
     var phone: String
     @ServerTimestamp
-    var createdAt: Timestamp?
+    var createAt: Timestamp?
     @ServerTimestamp
-    var updatedAt: Timestamp?
+    var updateAt: Timestamp?
     var cities: [DocumentReference]
 }
